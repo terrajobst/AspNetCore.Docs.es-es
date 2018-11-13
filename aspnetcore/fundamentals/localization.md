@@ -5,12 +5,12 @@ description: Obtenga información sobre la manera en que ASP.NET Core proporcion
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 5014d697603d802929b417e6439d4cc6983184d2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: af11906f86fe4ea91ed520584daedc094ab2dc0b
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207594"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505835"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
 
@@ -338,6 +338,8 @@ Términos:
 * Referencia cultural específica: es una referencia cultural que tiene un idioma y una región especificados (por ejemplo, "en-US", "en-GB" y "es-CL").
 * Referencia cultural principal: se trata de la referencia cultural neutra que contiene una referencia cultural específica (por ejemplo, "en" es la referencia cultural principal de "en-US" y "en-GB").
 * Configuración regional: la configuración regional es lo mismo que la referencia cultural.
+
+[!INCLUDE[](~/includes/currency.md)]
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -1,17 +1,17 @@
 ---
 title: Módulo ASP.NET Core
-author: rick-anderson
+author: guardrex
 description: Obtenga información sobre cómo el módulo de ASP.NET Core permite que el servidor web de Kestrel use IIS o IIS Express como servidor proxy inverso.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: 2f73a34b7d311c9e98ad2ecba11894d27bb2aa4d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 39c1b364f9dab635c79e00561d212c858c0c4395
+ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910894"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51191261"
 ---
 # <a name="aspnet-core-module"></a>Módulo ASP.NET Core
 

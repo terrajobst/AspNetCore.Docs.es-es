@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo leer y manipular el modelo de apli
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 7a03f5eaa561557f3abe9c8dd8f4e46a57413a55
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: f3e0aafa3e6a352c632e4abbf3943be61f11ea81
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277597"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225504"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>Trabajar con el modelo de aplicación en ASP.NET Core
 
@@ -169,7 +169,7 @@ ASP.NET Core MVC usa un conjunto diferente de convenciones de ASP.NET Web API 2.
 
 Para usar las correcciones de compatibilidad (shim) de Web API, debe agregar el paquete al proyecto y, después, agregar las convenciones a MVC mediante una llamada a `AddWebApiConventions` en `Startup`:
 
-```c#
+```csharp
 services.AddMvc().AddWebApiConventions();
 ```
 

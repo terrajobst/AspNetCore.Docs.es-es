@@ -1,18 +1,18 @@
 ---
 title: Implementación del servidor web WebListener en ASP.NET Core
-author: rick-anderson
+author: guardrex
 description: Obtenga información sobre WebListener, un servidor web para ASP.NET Core en Windows que se puede usar para conectarse directamente a Internet sin IIS.
 monikerRange: < aspnetcore-2.0
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 5d72672cc48243f8ee17df615e3379143ed868f6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: eaf76a44bc7750aef94319042e61aa294c6cba35
+ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206447"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51191274"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web WebListener en ASP.NET Core
 

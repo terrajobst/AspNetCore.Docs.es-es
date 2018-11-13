@@ -40,8 +40,7 @@ Pulse el vínculo **Crear nueva** para agregar una nueva película. Rellene el f
 
 ![Formulario de vista de películas con varios errores de validación del lado cliente de jQuery](~/tutorials/first-mvc-app/validation/_static/val.png)
 
-> [!NOTE]
-> Es posible que no pueda escribir comas decimales en el campo `Price`. Para que la [validación de jQuery](https://jqueryvalidation.org/) sea compatible con configuraciones regionales distintas del inglés que usan una coma (",") en lugar de un punto decimal y formatos de fecha distintos del de Estados Unidos, debe seguir unos pasos para globalizar la aplicación. Consulte el [problema 4076 de GitHub](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420) para obtener instrucciones sobre cómo agregar la coma decimal. 
+[!INCLUDE[](~/includes/currency.md)]
 
 Observe cómo el formulario presenta automáticamente un mensaje de error de validación adecuado en cada campo que contiene un valor no válido. Los errores se aplican en el lado cliente (con JavaScript y jQuery) y en el lado servidor (cuando un usuario tiene JavaScript deshabilitado).
 

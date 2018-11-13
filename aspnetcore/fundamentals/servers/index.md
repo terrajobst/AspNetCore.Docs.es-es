@@ -1,17 +1,17 @@
 ---
 title: Implementaciones de servidores web en ASP.NET Core
-author: rick-anderson
+author: guardrex
 description: Detecte los servidores web Kestrel y HTTP.sys de ASP.NET Core. Obtenga más información sobre cómo elegir un servidor y cuándo se debe usar un servidor proxy inverso.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: 6b6ebbe9d31d571ea470fba0989d622dcf6e68af
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.openlocfilehash: 06d4bf09b07fc70a10b3e260e78c29fe189486c5
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50758211"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505731"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementaciones de servidores web en ASP.NET Core
 
@@ -144,7 +144,7 @@ Al iniciar una aplicación desde un símbolo del sistema en la carpeta del proye
 
 * [Kestrel](xref:fundamentals/servers/kestrel#http2-support)
   * Sistema operativo
-    * Windows Server 2012 R2 o Windows 8.1 o posterior
+    * Windows Server 2016/Windows 10 o posterior&dagger;
     * Linux con OpenSSL 1.0.2 o posterior (por ejemplo, Ubuntu 16.04 o posterior)
     * HTTP/2 se admitirá en una versión futura en macOS.
   * Plataforma de destino: .NET Core 2.2 o posterior
@@ -158,6 +158,8 @@ Al iniciar una aplicación desde un símbolo del sistema en la carpeta del proye
   * Windows Server 2016/Windows 10 o posterior; IIS 10 o posterior
   * Las conexiones de servidor perimetral de acceso público usan HTTP/2, pero la conexión de proxy inverso a Kestrel usa HTTP/1.1.
   * Plataforma de destino: no aplicable a implementaciones fuera de proceso de IIS.
+
+&dagger;Kestrel tiene compatibilidad limitada para HTTP/2 en Windows Server 2012 R2 y Windows 8.1. La compatibilidad es limitada porque la lista de conjuntos de cifrado TLS admitidos y disponibles en estos sistemas operativos está limitada. Se puede requerir un certificado generado mediante Elliptic Curve Digital Signature Algorithm (ECDSA) para proteger las conexiones TLS.
 
 ::: moniker-end
 
