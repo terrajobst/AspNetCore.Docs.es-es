@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET Core en Windows Server Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/05/2018
+ms.date: 11/10/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 5408fb04231a61e0c4c7a91eb15196bf754ddfa7
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.openlocfilehash: 1b34195dc51ca8dab5e8eda10f05ff6678fbc78c
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191378"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570170"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -30,62 +30,43 @@ El [servidor HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denomin
 
 Para obtener información sobre el hospedaje en Azure, vea <xref:host-and-deploy/azure-apps/index>.
 
-## <a name="http2-support"></a>Compatibilidad con HTTP/2
-
-::: moniker range=">= aspnetcore-2.2"
-
-[HTTP/2](https://httpwg.org/specs/rfc7540.html) es compatible con ASP.NET Core en los escenarios de implementación de IIS siguientes:
-
-* En proceso
-  * Windows Server 2016/Windows 10 o posterior; IIS 10 o posterior
-  * Plataforma de destino: .NET Core 2.2 o posterior
-  * Conexión con TLS 1.2 o una versión posterior
-* Fuera de proceso
-  * Windows Server 2016/Windows 10 o posterior; IIS 10 o posterior
-  * Las conexiones de servidor perimetral de acceso público usan HTTP/2, pero la conexión de proxy inverso al [servidor de Kestrel](xref:fundamentals/servers/kestrel) usa HTTP/1.1.
-  * Plataforma de destino: no es aplicable a las implementaciones fuera de proceso, ya que IIS controla completamente la conexión HTTP/2.
-  * Conexión con TLS 1.2 o una versión posterior
-
-Para una implementación en proceso cuando se establece una conexión HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) notifica `HTTP/2`. Para una implementación fuera de proceso cuando se establece una conexión HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) notifica `HTTP/1.1`.
-
-Para obtener más información sobre los modelos de hospedaje en proceso y fuera de proceso, consulte el tema <xref:fundamentals/servers/aspnet-core-module> y <xref:host-and-deploy/aspnet-core-module>.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.2"
-
-[HTTP/2](https://httpwg.org/specs/rfc7540.html) es compatible con las implementaciones fuera de proceso que cumplen los requisitos básicos siguientes:
-
-* Windows Server 2016/Windows 10 o posterior; IIS 10 o posterior
-* Las conexiones de servidor perimetral de acceso público usan HTTP/2, pero la conexión de proxy inverso al [servidor de Kestrel](xref:fundamentals/servers/kestrel) usa HTTP/1.1.
-* Plataforma de destino: no es aplicable a las implementaciones fuera de proceso, ya que IIS controla completamente la conexión HTTP/2.
-* Conexión con TLS 1.2 o una versión posterior
-
-Si se establece una conexión HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) notifica `HTTP/1.1`.
-
-::: moniker-end
-
-HTTP/2 está habilitado de forma predeterminada. Las conexiones vuelven a HTTP/1.1 si no se establece una conexión HTTP/2. Para más información sobre la configuración HTTP/2 con implementaciones de IIS, vea [HTTP/2 en IIS](/iis/get-started/whats-new-in-iis-10/http2-on-iis).
-
 ## <a name="application-configuration"></a>Configuración de aplicación
 
 ### <a name="enable-the-iisintegration-components"></a>Habilitación de los componentes de integración con IIS
 
-::: moniker range=">= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-2.1"
 
-**Modelo de hospedaje en proceso**
-
-Un archivo *Program.cs* estándar llama a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> para empezar a configurar un host. `CreateDefaultBuilder` llama al método `UseIIS` para iniciar [CoreCLR](/dotnet/standard/glossary#coreclr) y hospedar la aplicación dentro del proceso de trabajo de IIS (`w3wp.exe`). Las pruebas de rendimiento indican que el hospedaje de una aplicación .NET Core en proceso proporciona un mayor rendimiento de solicitud en comparación con el hospedaje de solicitudes de aplicaciones fuera de proceso y de proxy para [Kestrel](xref:fundamentals/servers/kestrel).
-
-**Modelo de hospedaje fuera de proceso**
-
-Un archivo *Program.cs* estándar llama a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> para empezar a configurar un host. Para el hospedaje fuera de proceso con IIS, `CreateDefaultBuilder` configura [Kestrel](xref:fundamentals/servers/kestrel) como el servidor web y habilita la integración de IIS configurando la ruta de acceso base y el puerto para el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module):
+Los archivos *Program.cs* estándar llaman a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> para empezar a configurar un host:
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     WebHost.CreateDefaultBuilder(args)
         ...
 ```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Los archivos *Program.cs* estándar llaman a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> para empezar a configurar un host:
+
+```csharp
+public static IWebHost BuildWebHost(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        ...
+```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+**Modelo de hospedaje en proceso**
+
+`CreateDefaultBuilder` llama al método `UseIIS` para iniciar [CoreCLR](/dotnet/standard/glossary#coreclr) y hospedar la aplicación dentro del proceso de trabajo de IIS (*w3wp.exe* o *iisexpress.exe*). Las pruebas de rendimiento indican que el hospedaje de una aplicación .NET Core en proceso proporciona un rendimiento de solicitud considerablemente mayor en comparación con el hospedaje de solicitudes de aplicaciones fuera de proceso y de proxy para [Kestrel](xref:fundamentals/servers/kestrel).
+
+**Modelo de hospedaje fuera de proceso**
+
+Para el hospedaje fuera de proceso con IIS, `CreateDefaultBuilder` configura [Kestrel](xref:fundamentals/servers/kestrel) como el servidor web y habilita la integración de IIS configurando la ruta de acceso base y el puerto para el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
 
 El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back-end. `CreateDefaultBuilder` llama al método <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*>. `UseIISIntegration` configura Kestrel para escuchar en el puerto dinámico en la dirección IP de localhost (`127.0.0.1`). Si el puerto dinámico es 1234, Kestrel escucha en `127.0.0.1:1234`. Esta configuración reemplaza a otras configuraciones de dirección URL proporcionadas por:
 
@@ -95,19 +76,13 @@ El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back
 
 No es necesario realizar llamadas a `UseUrls` o a la API `Listen` de Kestrel cuando se usa el módulo. Si se llama a `UseUrls` o `Listen`, Kestrel escucha en los puertos especificados cuando se ejecuta la aplicación sin IIS.
 
-Para obtener más información sobre los modelos de hospedaje en proceso y fuera de proceso, consulte el tema <xref:fundamentals/servers/aspnet-core-module> y <xref:host-and-deploy/aspnet-core-module>.
+Para obtener más información sobre los modelos de hospedaje dentro y fuera de proceso, vea el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) y la [Referencia de configuración del módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.1"
 
-Un archivo *Program.cs* estándar llama a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> para empezar a configurar un host. `CreateDefaultBuilder` configura [Kestrel](xref:fundamentals/servers/kestrel) como el servidor web y habilita IIS Integration configurando la ruta de acceso base y el puerto para el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module):
-
-```csharp
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-        ...
-```
+`CreateDefaultBuilder` configura [Kestrel](xref:fundamentals/servers/kestrel) como el servidor web y habilita IIS Integration configurando la ruta de acceso base y el puerto para el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
 
 El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back-end. `CreateDefaultBuilder` llama al método [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration). `UseIISIntegration` configura Kestrel para escuchar en el puerto dinámico en la dirección IP de localhost (`127.0.0.1`). Si el puerto dinámico es 1234, Kestrel escucha en `127.0.0.1:1234`. Esta configuración reemplaza a otras configuraciones de dirección URL proporcionadas por:
 
@@ -121,13 +96,7 @@ No es necesario realizar llamadas a `UseUrls` o a la API `Listen` de Kestrel cua
 
 ::: moniker range="= aspnetcore-2.0"
 
-Un archivo *Program.cs* estándar llama a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> para empezar a configurar un host. `CreateDefaultBuilder` configura [Kestrel](xref:fundamentals/servers/kestrel) como el servidor web y habilita IIS Integration configurando la ruta de acceso base y el puerto para el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module):
-
-```csharp
-public static IWebHost BuildWebHost(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-        ...
-```
+`CreateDefaultBuilder` configura [Kestrel](xref:fundamentals/servers/kestrel) como el servidor web y habilita IIS Integration configurando la ruta de acceso base y el puerto para el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
 
 El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back-end. `CreateDefaultBuilder` llama al método [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration). `UseIISIntegration` configura Kestrel para escuchar en el puerto dinámico en la dirección IP de localhost (`localhost`). Si el puerto dinámico es 1234, Kestrel escucha en `localhost:1234`. Esta configuración reemplaza a otras configuraciones de dirección URL proporcionadas por:
 
@@ -167,7 +136,29 @@ Para obtener más información sobre el hospedaje, consulte [Hospedaje en ASP.NE
 
 ### <a name="iis-options"></a>Opciones de IIS
 
-Para configurar las opciones de IIS, incluya una configuración del servicio para [IISOptions](/dotnet/api/microsoft.aspnetcore.builder.iisoptions) en [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.istartup.configureservices). En el ejemplo siguiente, el reenvío de los certificados de cliente a la aplicación para rellenar `HttpContext.Connection.ClientCertificate` está deshabilitado:
+::: moniker range=">= aspnetcore-2.2"
+
+**Modelo de hospedaje en proceso**
+
+Para configurar las opciones del servidor IIS, incluya una configuración del servicio para [IISServerOptions](/dotnet/api/microsoft.aspnetcore.builder.iisserveroptions) en [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.istartup.configureservices). Con el ejemplo siguiente se deshabilita AutomaticAuthentication:
+
+```csharp
+services.Configure<IISServerOptions>(options => 
+{
+    options.AutomaticAuthentication = false;
+});
+```
+
+| Opción                         | Default | Parámetro |
+| ------------------------------ | :-----: | ------- |
+| `AutomaticAuthentication`      | `true`  | Si es `true`, el servidor IIS establece el `HttpContext.User` autenticado mediante la [autenticación de Windows](xref:security/authentication/windowsauth). Si es `false`, el servidor solo proporciona una identidad para `HttpContext.User` y responde a los desafíos cuando se le solicita explícitamente mediante el `AuthenticationScheme`. Autenticación de Windows debe estar habilitado en IIS para que `AutomaticAuthentication` funcione. Para obtener más información, vea [Autenticación de Windows](xref:security/authentication/windowsauth). |
+| `AuthenticationDisplayName`    | `null`  | Establece el nombre para mostrar que se muestra a los usuarios en las páginas de inicio de sesión. |
+
+**Modelo de hospedaje fuera de proceso**
+
+::: moniker-end
+
+Para configurar las opciones de IIS, incluya una configuración del servicio para [IISOptions](/dotnet/api/microsoft.aspnetcore.builder.iisoptions) en [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.istartup.configureservices). En el ejemplo siguiente se impide que la aplicación rellene `HttpContext.Connection.ClientCertificate`:
 
 ```csharp
 services.Configure<IISOptions>(options => 
@@ -212,7 +203,7 @@ Al deshabilitar el SDK web para la transformación del archivo, el desarrollador
 
 ### <a name="webconfig-file-location"></a>Ubicación del archivo web.config
 
-Para crear el proxy inverso entre IIS y el servidor de Kestrel, el archivo *web.config* debe estar presente en la ruta de acceso raíz del contenido (normalmente la ruta de acceso base de la aplicación) de la aplicación implementada. Se trata de la misma ubicación que la ruta de acceso física del sitio web proporcionada a IIS. El archivo *web.config* debe estar en la raíz de la aplicación para habilitar la publicación de varias aplicaciones mediante Web Deploy.
+Para configurar el [módulo ASP.NET](xref:host-and-deploy/aspnet-core-module) correctamente, el archivo *web.config* debe estar presente en la ruta de acceso raíz del contenido (normalmente la ruta de acceso base de la aplicación) de la aplicación implementada. Se trata de la misma ubicación que la ruta de acceso física del sitio web proporcionada a IIS. El archivo *web.config* debe estar en la raíz de la aplicación para habilitar la publicación de varias aplicaciones mediante Web Deploy.
 
 Los archivos confidenciales están en la ruta de acceso física de la aplicación, como *\<ensamblado>.runtimeconfig.json*, *\<ensamblado>.xml* (comentarios de documentación XML) y *\<ensamblado>.deps.json*. Cuando el archivo *web.config* está presente y el sitio se inicia normalmente, IIS no sirve estos archivos confidenciales si se solicitan. Si el archivo *web.config* no está presente, se le asignó un nombre incorrecto o no se puede configurar el sitio para un inicio normal, IIS puede servir archivos confidenciales públicamente.
 
@@ -266,7 +257,7 @@ Habilite **Consola de administración de IIS** y **Servicios World Wide Web**.
 
 ## <a name="install-the-net-core-hosting-bundle"></a>Instalación del conjunto de hospedaje de .NET Core
 
-Instale el *conjunto de hospedaje de .NET Core* en el sistema de hospedaje. El lote instala .NET Core Runtime, .NET Core Library y el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). El módulo crea el proxy inverso entre IIS y el servidor Kestrel. Si el sistema no tiene conexión a Internet, obtenga e instale [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) antes de instalar el conjunto de hospedaje de .NET Core.
+Instale el *conjunto de hospedaje de .NET Core* en el sistema de hospedaje. El lote instala .NET Core Runtime, .NET Core Library y el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). El módulo permite que las aplicaciones ASP.NET Core se ejecuten detrás de IIS. Si el sistema no tiene conexión a Internet, obtenga e instale [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) antes de instalar el conjunto de hospedaje de .NET Core.
 
 > [!IMPORTANT]
 > Si el conjunto de hospedaje se instala antes que IIS, se debe reparar la instalación de dicho conjunto. Vuelva a ejecutar el instalador del conjunto de hospedaje después de instalar IIS.
@@ -373,30 +364,19 @@ Los archivos de la carpeta de implementación se bloquean cuando se ejecuta la a
 
 * Use Web Deploy con una referencia a `Microsoft.NET.Sdk.Web` en el archivo de proyecto. Se coloca un archivo *app_offline.htm* en la raíz del directorio de aplicación web. Cuando el archivo está presente, el módulo de ASP.NET Core cierra correctamente la aplicación y proporciona el archivo *app_offline.htm* durante la implementación. Para más información, vea [ASP.NET Core Module configuration reference](xref:host-and-deploy/aspnet-core-module#app_offlinehtm) (Referencia de configuración del módulo de ASP.NET Core).
 * Detenga manualmente el grupo de aplicaciones en el Administrador de IIS en el servidor.
-* Use PowerShell para detener y reiniciar el grupo de aplicaciones (requiere PowerShell 5 o posterior):
+* Utilice PowerShell para colocar *app_offline.html* (es necesario PowerShell 5 o una versión posterior):
 
   ```PowerShell
-  $webAppPoolName = 'APP_POOL_NAME'
+  $pathToApp = 'PATH_TO_APP'
 
   # Stop the AppPool
-  if((Get-WebAppPoolState $webAppPoolName).Value -ne 'Stopped') {
-      Stop-WebAppPool -Name $webAppPoolName
-      while((Get-WebAppPoolState $webAppPoolName).Value -ne 'Stopped') {
-          Start-Sleep -s 1
-      }
-      Write-Host `-AppPool Stopped
-  }
+  New-Item -Path $pathToApp app_offline.htm
 
   # Provide script commands here to deploy the app
 
   # Restart the AppPool
-  if((Get-WebAppPoolState $webAppPoolName).Value -ne 'Started') {
-      Start-WebAppPool -Name $webAppPoolName
-      while((Get-WebAppPoolState $webAppPoolName).Value -ne 'Started') {
-          Start-Sleep -s 1
-      }
-      Write-Host `-AppPool Started
-  }
+  Remove-Item -Path $pathToApp app_offline.htm
+
   ```
 
 ## <a name="data-protection"></a>Protección de datos
@@ -442,12 +422,32 @@ Las aplicaciones secundarias agregadas bajo la aplicación raíz no deben inclui
 
 En el ejemplo siguiente se muestra un archivo *web.config* publicado para una aplicación secundaria ASP.NET Core:
 
+::: moniker range=">= aspnetcore-2.2"
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <location path="." inheritInChildApplications="false">
+    <system.webServer>
+      <aspNetCore processPath="dotnet" 
+        arguments=".\MyApp.dll" 
+        stdoutLogEnabled="false" 
+        stdoutLogFile=".\logs\stdout" />
+    </system.webServer>
+  </location>
+</configuration>
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <system.webServer>
     <aspNetCore processPath="dotnet" 
-      arguments=".\<assembly_name>.dll" 
+      arguments=".\MyApp.dll" 
       stdoutLogEnabled="false" 
       stdoutLogFile=".\logs\stdout" />
   </system.webServer>
@@ -464,12 +464,14 @@ Al hospedar una aplicación secundaria que no es de ASP.NET Core bajo una aplica
       <remove name="aspNetCore" />
     </handlers>
     <aspNetCore processPath="dotnet" 
-      arguments=".\<assembly_name>.dll" 
+      arguments=".\MyApp.dll" 
       stdoutLogEnabled="false" 
       stdoutLogFile=".\logs\stdout" />
   </system.webServer>
 </configuration>
 ```
+
+::: moniker-end
 
 Para más información sobre la configuración del módulo de ASP.NET Core, vea el tema [Introducción al módulo de ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) y [ASP.NET Core Module configuration reference](xref:host-and-deploy/aspnet-core-module) (Referencia de configuración del módulo de ASP.NET Core).
 
@@ -492,7 +494,22 @@ Las aplicaciones de ASP.NET Core se configuran mediante otros proveedores de con
 
 ## <a name="application-pools"></a>Grupos de aplicaciones
 
+::: moniker range=">= aspnetcore-2.2"
+
+El aislamiento de los grupos de aplicaciones se determinan mediante el modelo de hospedaje:
+
+* Hospedaje dentro de proceso: es necesario que las aplicaciones se ejecuten en grupos de aplicaciones distintos.
+* Hospedaje fuera de proceso: nuestra recomendación es aislar las aplicaciones entre sí ejecutándolas en su propio grupo de aplicaciones.
+
+El valor predeterminado del cuadro de diálogo **Agregar sitio web** de IIS es un único grupo de aplicaciones por aplicación. Cuando se proporciona el **Nombre del sitio**, el texto se transfiere automáticamente al cuadro de texto **Grupo de aplicaciones**. Al agregar el sitio se crea un grupo de aplicaciones con el nombre del sitio.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
 Al hospedar varios sitios web en un servidor, nuestra recomendación es aislar las aplicaciones entre sí ejecutándolas en su propio grupo de aplicaciones. El valor predeterminado del cuadro de diálogo **Agregar sitio web** es esta configuración. Cuando se proporciona el **Nombre del sitio**, el texto se transfiere automáticamente al cuadro de texto **Grupo de aplicaciones**. Al agregar el sitio se crea un grupo de aplicaciones con el nombre del sitio.
+
+::: moniker-end
 
 ## <a name="application-pool-identity"></a>Identidad del grupo de aplicaciones
 
@@ -529,6 +546,41 @@ ICACLS C:\sites\MyWebApp /grant "IIS AppPool\DefaultAppPool":F
 ```
 
 Para más información, consulte el tema [icacls](/windows-server/administration/windows-commands/icacls).
+
+## <a name="http2-support"></a>Compatibilidad con HTTP/2
+
+::: moniker range=">= aspnetcore-2.2"
+
+[HTTP/2](https://httpwg.org/specs/rfc7540.html) es compatible con ASP.NET Core en los escenarios de implementación de IIS siguientes:
+
+* En proceso
+  * Windows Server 2016/Windows 10 o posterior; IIS 10 o posterior
+  * Conexión con TLS 1.2 o una versión posterior
+* Fuera de proceso
+  * Windows Server 2016/Windows 10 o posterior; IIS 10 o posterior
+  * Las conexiones de servidor perimetral de acceso público usan HTTP/2, pero la conexión de proxy inverso al [servidor de Kestrel](xref:fundamentals/servers/kestrel) usa HTTP/1.1.
+  * Conexión con TLS 1.2 o una versión posterior
+
+Para una implementación en proceso cuando se establece una conexión HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) notifica `HTTP/2`. Para una implementación fuera de proceso cuando se establece una conexión HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) notifica `HTTP/1.1`.
+
+Para obtener más información sobre los modelos de hospedaje en proceso y fuera de proceso, consulte el tema <xref:fundamentals/servers/aspnet-core-module> y <xref:host-and-deploy/aspnet-core-module>.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+[HTTP/2](https://httpwg.org/specs/rfc7540.html) es compatible con las implementaciones fuera de proceso que cumplen los requisitos básicos siguientes:
+
+* Windows Server 2016/Windows 10 o posterior; IIS 10 o posterior
+* Las conexiones de servidor perimetral de acceso público usan HTTP/2, pero la conexión de proxy inverso al [servidor de Kestrel](xref:fundamentals/servers/kestrel) usa HTTP/1.1.
+* Plataforma de destino: no es aplicable a las implementaciones fuera de proceso, ya que IIS controla completamente la conexión HTTP/2.
+* Conexión con TLS 1.2 o una versión posterior
+
+Si se establece una conexión HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) notifica `HTTP/1.1`.
+
+::: moniker-end
+
+HTTP/2 está habilitado de forma predeterminada. Las conexiones vuelven a HTTP/1.1 si no se establece una conexión HTTP/2. Para más información sobre la configuración HTTP/2 con implementaciones de IIS, vea [HTTP/2 en IIS](/iis/get-started/whats-new-in-iis-10/http2-on-iis).
 
 ## <a name="deployment-resources-for-iis-administrators"></a>Recursos de implementación para administradores de IIS
 
