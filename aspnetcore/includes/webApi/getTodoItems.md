@@ -15,7 +15,7 @@ El código anterior:
 * Define una clase de controlador de API sin métodos.
 * Crea una tarea pendiente cuando `TodoItems` está vacío. No podrá eliminar todas las tareas pendientes porque el constructor crea una si `TodoItems` está vacío.
 
-En las secciones siguientes, se agregan métodos para implementar la API. La clase se anota con un atributo `[ApiController]` para habilitar algunas características muy prácticas. Para más información sobre las características que el atributo habilita, vea [Anotación de una clase con ApiControllerAttribute](xref:web-api/index#annotate-class-with-apicontrollerattribute).
+En las secciones siguientes, se agregan métodos para implementar la API. La clase se anota con un atributo `[ApiController]` para habilitar algunas características muy prácticas. Para más información sobre las características que el atributo habilita, vea [Anotación con ApiControllerAttribute](xref:web-api/index#annotation-with-apicontrollerattribute).
 
 ::: moniker-end
 
@@ -74,7 +74,7 @@ El atributo `[HttpGet]` indica un método que responde a una solicitud HTTP GET.
 
 ::: moniker-end
 
-* Reemplace `[controller]` por el nombre del controlador, que es el nombre de clase de controlador sin el sufijo "Controller". En este ejemplo, el nombre de clase de controlador es **Todo**Controller y el nombre de raíz es "todo". El [enrutamiento](xref:mvc/controllers/routing) en ASP.NET Core no distingue entre mayúsculas y minúsculas.
+* Reemplace `[controller]` por el nombre del controlador, que por convención es el nombre de clase de controlador sin el sufijo "Controller". En este ejemplo, el nombre de clase de controlador es **Todo**Controller y el nombre de raíz es "todo". El [enrutamiento](xref:mvc/controllers/routing) en ASP.NET Core no distingue entre mayúsculas y minúsculas.
 * Si el atributo `[HttpGet]` tiene una plantilla de ruta (como `[HttpGet("/products")]`), anexiónela a la ruta de acceso. En este ejemplo no se usa una plantilla. Para más información, vea [Enrutamiento mediante atributos con atributos Http[Verb]](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
 
 En el siguiente método `GetById`, `"{id}"` es una variable de marcador de posición correspondiente al identificador único de la tarea pendiente. Cuando `GetById` se invoca, asigna el valor `"{id}"` de la dirección URL al parámetro `id` del método.

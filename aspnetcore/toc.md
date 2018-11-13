@@ -197,6 +197,7 @@
 ### [HubContext](xref:signalr/hubcontext)
 ### [Usuarios y grupos](xref:signalr/groups)
 ### [Publicar en Azure](xref:signalr/publish-to-azure-web-app)
+### [Consideraciones de diseño de API](xref:signalr/api-design)
 ## Clientes
 ### [Cliente .NET](xref:signalr/dotnet-client)
 ### [Referencia de API de REST](/dotnet/api/microsoft.aspnetcore.signalr.client)

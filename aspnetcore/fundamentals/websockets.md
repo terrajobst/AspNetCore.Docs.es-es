@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo empezar a usar WebSockets en ASP.N
 monikerRange: '>= aspnetcore-1.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/28/2018
+ms.date: 11/06/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: b0f1aeff6c7a5777993459274293ba23f2d9dc12
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 3a649f88699d61636d9aa7fbfe4468ca67b3b018
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206745"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225413"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Compatibilidad con WebSockets en ASP.NET Core
 
@@ -72,10 +72,24 @@ Agregue el middleware de WebSockets al método `Configure` de la clase `Startup`
 
 ::: moniker-end
 
+::: moniker range="< aspnetcore-2.2"
+
 Se pueden configurar estas opciones:
 
-* `KeepAliveInterval`: la frecuencia con que se envían marcos "ping" al cliente, para asegurarse de que los servidores proxy mantienen abierta la conexión.
-* `ReceiveBufferSize`: el tamaño del búfer usado para recibir datos. Puede que los usuarios avanzados tengan que cambiar estas opciones para ajustar el rendimiento según el tamaño de los datos.
+* `KeepAliveInterval`: la frecuencia con que se envían marcos "ping" al cliente, para asegurarse de que los servidores proxy mantienen abierta la conexión. El valor predeterminado es de dos minutos.
+* `ReceiveBufferSize`: el tamaño del búfer usado para recibir datos. Puede que los usuarios avanzados tengan que cambiar estas opciones para ajustar el rendimiento según el tamaño de los datos. El valor predeterminado es 4 KB.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Se pueden configurar estas opciones:
+
+* `KeepAliveInterval`: la frecuencia con que se envían marcos "ping" al cliente, para asegurarse de que los servidores proxy mantienen abierta la conexión. El valor predeterminado es de dos minutos.
+* `ReceiveBufferSize`: el tamaño del búfer usado para recibir datos. Puede que los usuarios avanzados tengan que cambiar estas opciones para ajustar el rendimiento según el tamaño de los datos. El valor predeterminado es 4 KB.
+* `AllowedOrigins` - Una lista de valores de encabezado de origen permitidos para las solicitudes WebSocket. De forma predeterminada, se permiten todos los orígenes. Consulte "Restricción de los orígenes de WebSocket" a continuación para obtener información detallada.
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -128,6 +142,32 @@ El código antes mostrado que acepta la solicitud WebSocket pasa el objeto `WebS
 ::: moniker-end
 
 Cuando la conexión WebSocket se acepta antes de que el bucle comience, la canalización de middleware finaliza. Tras cerrar el socket, se desenreda la canalización. Es decir, la solicitud deja de avanzar en la canalización cuando WebSocket se acepta, pero cuando el bucle termina y el socket se cierra, la solicitud vuelve a recorrer la canalización.
+
+::: moniker range=">= aspnetcore-2.2"
+
+### <a name="websocket-origin-restriction"></a>Restricción de los orígenes de WebSocket
+
+Las protecciones proporcionadas por CORS no se aplican a WebSockets. Los exploradores **no** hacen lo siguiente:
+
+* Efectúan solicitudes preparatorias CORS.
+* Respetan las restricciones especificadas en los encabezados `Access-Control` al efectuar solicitudes de WebSocket.
+
+En cambio, sí que envían el encabezado `Origin` al emitir solicitudes de WebSocket. Las aplicaciones deben configurarse para validar estos encabezados a fin de garantizar que solo se permitan los WebSockets procedentes de los orígenes esperados.
+
+Si hospeda su servidor en "https://server.com" y su cliente en "https://client.com", agregue "https://client.com" a la lista `AllowedOrigins` de WebSockets para efectuar la comprobación.
+
+```csharp
+app.UseWebSockets(new WebSocketOptions()
+{
+    AllowedOrigins.Add("https://client.com");
+    AllowedOrigins.Add("https://www.client.com");
+});
+```
+
+> [!NOTE]
+> El encabezado `Origin` está controlado por el cliente y, al igual que el encabezado `Referer`, se puede falsificar. **No** use estos encabezados como mecanismo de autenticación.
+
+::: moniker-end
 
 ## <a name="iisiis-express-support"></a>Compatibilidad con IIS/IIS Express
 
