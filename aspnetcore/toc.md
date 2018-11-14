@@ -185,6 +185,8 @@
 ## [Tipos de valor devueltos de acción](xref:web-api/action-return-types)
 ## [Aplicación de formato a datos de respuesta](xref:web-api/advanced/formatting)
 ## [Formateadores personalizados](xref:web-api/advanced/custom-formatters)
+## [Analizadores](xref:web-api/advanced/analyzers)
+## [Convenciones](xref:web-api/advanced/conventions)
 
 # Aplicaciones en tiempo real
 ## [Información general](xref:signalr/introduction)
