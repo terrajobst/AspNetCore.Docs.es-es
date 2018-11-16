@@ -3,14 +3,15 @@ title: Configuración de inicio de sesión externo de Facebook en ASP.NET Core
 author: rick-anderson
 description: En este tutorial se muestra la integración de autenticación de usuario de la cuenta de Facebook en una aplicación de ASP.NET Core existente.
 ms.author: riande
-ms.date: 08/01/2017
+ms.custom: mvc
+ms.date: 11/11/2018
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 3ba6fe7785afa268e54e6032f1963c1867f6bb27
-ms.sourcegitcommit: 74c09caec8992635825b45b7f065f871d33c077a
+ms.openlocfilehash: e8ae16538b5d6844af7d983071fad629ebbe6217
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42634814"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708509"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>Configuración de inicio de sesión externo de Facebook en ASP.NET Core
 
@@ -28,19 +29,19 @@ Este tutorial muestra cómo permitir que los usuarios iniciar sesión con su cue
 
 * Rellene el formulario y pulse el **crear Id. de aplicación** botón.
 
-   ![Crear un formulario nuevo identificador de aplicación](index/_static/FBNewAppId.png)
+  ![Crear un formulario nuevo identificador de aplicación](index/_static/FBNewAppId.png)
 
 * En el **seleccionar un producto** página, haga clic en **Set Up** en el **inicio de sesión de Facebook** tarjeta.
 
-   ![Página de instalación del producto](index/_static/FBProductSetup.png)
+  ![Página de instalación del producto](index/_static/FBProductSetup.png)
 
 * El **Quickstart** se iniciará con **elija una plataforma** como la primera página. Omitir el asistente por ahora, haga clic en el **configuración** vínculo en el menú de la izquierda:
 
-   ![Inicio rápido de omisión](index/_static/FBSkipQuickStart.png)
+  ![Inicio rápido de omisión](index/_static/FBSkipQuickStart.png)
 
 * Se le presentará la **configuración de cliente OAuth** página:
 
-![Página de configuración de OAuth de cliente](index/_static/FBOAuthSetup.png)
+  ![Página de configuración de OAuth de cliente](index/_static/FBOAuthSetup.png)
 
 * Escriba el URI de desarrollo con */signin-facebook* anexado a la **URI de redirección de OAuth válido** campo (por ejemplo: `https://localhost:44320/signin-facebook`). La autenticación de Facebook configurada más adelante en este tutorial controlará automáticamente las solicitudes en */signin-facebook* ruta para implementar el flujo de OAuth.
 
@@ -49,10 +50,9 @@ Este tutorial muestra cómo permitir que los usuarios iniciar sesión con su cue
 
 * Haga clic en **guardar cambios**.
 
-* Haga clic en **configuración > básica** vínculo en el panel de navegación izquierdo. 
+* Haga clic en **configuración** > **básica** vínculo en el panel de navegación izquierdo.
 
-    En esta página, tome nota de su `App ID` y su `App Secret`. En la siguiente sección, va a agregar tanto en la aplicación de ASP.NET Core:
-
+  En esta página, tome nota de su `App ID` y su `App Secret`. En la siguiente sección, va a agregar tanto en la aplicación de ASP.NET Core:
 
 * Al implementar el sitio tiene que volver a visitar la **inicio de sesión de Facebook** página de la instalación y registrar un nuevo URI público.
 
@@ -69,7 +69,7 @@ dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
 
 ## <a name="configure-facebook-authentication"></a>Configurar la autenticación de Facebook
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 Agregue el servicio de Facebook en la `ConfigureServices` método en el *Startup.cs* archivo:
 
@@ -87,9 +87,11 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-[!INCLUDE[](~/includes/chain-auth-providers.md)]
+[!INCLUDE[](includes/chain-auth-providers.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Instalar el [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) paquete.
 
@@ -108,7 +110,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 });
 ```
 
----
+::: moniker-end
 
 Consulte la [FacebookOptions](/dotnet/api/microsoft.aspnetcore.builder.facebookoptions) referencia de API para obtener más información sobre las opciones de configuración compatible con la autenticación de Facebook. Las opciones de configuración pueden utilizarse para:
 
@@ -134,6 +136,8 @@ Una vez que escriba sus credenciales de Facebook se redirigen a su sitio donde p
 Ha iniciado sesión con sus credenciales de Facebook:
 
 ![Aplicación Web: usuario autenticado](index/_static/Done.png)
+
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

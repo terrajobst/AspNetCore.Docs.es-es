@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo establecer notificaciones adiciona
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/28/2018
+ms.date: 11/11/2018
 uid: security/authentication/social/additional-claims
-ms.openlocfilehash: dc8b3e32141466a12e4eff0c86d2d4bed689afe5
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9a24ac138950ef2bedac48f506655d06520137cf
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206362"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708366"
 ---
 # <a name="persist-additional-claims-and-tokens-from-external-providers-in-aspnet-core"></a>Conservar notificaciones adicionales y los tokens de proveedores externos en ASP.NET Core
 
@@ -22,13 +22,11 @@ Una aplicación ASP.NET Core puede establecer notificaciones adicionales y los t
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisite"></a>Requisito previo
+## <a name="prerequisites"></a>Requisitos previos
 
 Decida qué proveedores de autenticación externos para admitir en la aplicación. Para cada proveedor, registrar la aplicación y obtener un identificador de cliente y secreto de cliente. Para obtener más información, consulta <xref:security/authentication/social/index>. El [aplicación de ejemplo](#sample-app-instructions) usa el [proveedor de autenticación de Google](xref:security/authentication/google-logins).
 
-## <a name="authentication-provider-configuration"></a>Configuración del proveedor de autenticación
-
-### <a name="set-the-client-id-and-client-secret"></a>Establece el identificador de cliente y el secreto de cliente
+## <a name="set-the-client-id-and-client-secret"></a>Establece el identificador de cliente y el secreto de cliente
 
 El proveedor de autenticación OAuth establece una relación de confianza con una aplicación mediante un identificador de cliente y secreto de cliente. Id. de cliente y los valores de secreto de cliente se crean para la aplicación mediante el proveedor de autenticación externo cuando la aplicación esté registrada con el proveedor. Cada proveedor externo que usa la aplicación debe configurarse de forma independiente con Id. de cliente y el secreto de cliente del proveedor. Para obtener más información, vea los temas de proveedor de autenticación externo que se aplican a su escenario:
 
@@ -43,7 +41,7 @@ La aplicación de ejemplo configura el proveedor de autenticación de Google con
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=4,6)]
 
-### <a name="establish-the-authentication-scope"></a>Establecer el ámbito de autenticación
+## <a name="establish-the-authentication-scope"></a>Establecer el ámbito de autenticación
 
 Especifique la lista de permisos para recuperar el proveedor especificando el <xref:Microsoft.AspNetCore.Authentication.OAuth.OAuthOptions.Scope*>. Ámbitos de autenticación para los proveedores externos comunes aparecen en la tabla siguiente.
 
@@ -58,7 +56,7 @@ La aplicación de ejemplo agrega Google `plus.login` ámbito de sesión de Googl
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=7)]
 
-### <a name="map-user-data-keys-and-create-claims"></a>Asignar claves de datos de usuario y crear notificaciones
+## <a name="map-user-data-keys-and-create-claims"></a>Asignar claves de datos de usuario y crear notificaciones
 
 En las opciones del proveedor, especifique un <xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions.MapJsonKey*> para cada clave de datos de usuario del proveedor externo JSON para la identidad de aplicación leer en Inicio de sesión. Para obtener más información sobre los tipos de notificación, consulte <xref:System.Security.Claims.ClaimTypes>.
 
@@ -72,7 +70,7 @@ En la aplicación de ejemplo, `OnPostConfirmationAsync` (*Account/ExternalLogin.
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Pages/Account/ExternalLogin.cshtml.cs?name=snippet_OnPostConfirmationAsync&highlight=30-31)]
 
-### <a name="save-the-access-token"></a>Guarde el token de acceso
+## <a name="save-the-access-token"></a>Guarde el token de acceso
 
 <xref:Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions.SaveTokens*> define si se deben almacenar los tokens de acceso y actualización en el <xref:Microsoft.AspNetCore.Http.Authentication.AuthenticationProperties> después de una autorización correcta. `SaveTokens` se establece en `false` de forma predeterminada para reducir el tamaño de la cookie de autenticación final.
 
@@ -93,7 +91,7 @@ La aplicación de ejemplo guarda en el token de acceso:
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Pages/Account/ExternalLogin.cshtml.cs?name=snippet_OnGetCallbackAsync&highlight=31-32)]
 
-### <a name="how-to-add-additional-custom-tokens"></a>Cómo agregar tokens personalizados adicionales
+## <a name="how-to-add-additional-custom-tokens"></a>Cómo agregar tokens personalizados adicionales
 
 Para demostrar cómo agregar un token personalizado, que se almacena como parte de `SaveTokens`, la aplicación de ejemplo agrega un <xref:Microsoft.AspNetCore.Authentication.AuthenticationToken> con el actual <xref:System.DateTime> para un [AuthenticationToken.Name](xref:Microsoft.AspNetCore.Authentication.AuthenticationToken.Name*) de `TicketCreated`:
 
@@ -143,3 +141,5 @@ Authentication Properties
 .expires
     Mon, 10 Sep 2018 18:08:05 GMT
 ```
+
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]

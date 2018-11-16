@@ -1,50 +1,50 @@
 ---
-title: Breve encuesta de otros proveedores de autenticación
+title: Proveedores de autenticación de OAuth externos
 author: rick-anderson
+description: Descubra los proveedores de autenticación de OAuth externo que funcionan con aplicaciones ASP.NET Core.
 ms.author: riande
-ms.date: 11/03/2016
+ms.custom: mvc
+ms.date: 11/11/2018
 uid: security/authentication/otherlogins
-ms.openlocfilehash: 9c2ce02f4613fddbe0e767724019d80ac056bf7b
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b69c366ec1bf12ccf434991fc8a79eaf8c09da3d
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274058"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708470"
 ---
-# <a name="short-survey-of-other-authentication-providers"></a>Breve encuesta de otros proveedores de autenticación
-
-<a name="security-authentication-other-logins"></a>
+# <a name="external-oauth-authentication-providers"></a>Proveedores de autenticación de OAuth externos
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Pranav Rastogi](https://github.com/rustd), y [Valeriy Novytskyy](https://github.com/01binary)
 
-Aquí se configuran las instrucciones para algunos proveedores OAuth comunes. Paquetes de NuGet de terceros, como los que se mantiene por [aspnet hogar](https://www.nuget.org/packages?q=owners%3Aaspnet-contrib+title%3AOAuth) puede usarse para complementar los proveedores de autenticación implementados por el equipo de ASP.NET Core.
+En la lista siguiente incluye comunes proveedores externos de autenticación de OAuth que funcionan con aplicaciones ASP.NET Core. Paquetes de NuGet de terceros, como los que se mantiene [aspnet-contrib](https://www.nuget.org/packages?q=owners%3Aaspnet-contrib+title%3AOAuth), puede usarse para complementar los proveedores de autenticación implementados por el equipo de ASP.NET Core.
 
-* Configurar **LinkedIn** iniciar sesión en: [ https://www.linkedin.com/developer/apps ](https://www.linkedin.com/developer/apps). Vea [pasos oficiales](https://developer.linkedin.com/docs/oauth2).
+* [LinkedIn](https://www.linkedin.com/developer/apps) ([instrucciones](https://developer.linkedin.com/docs/oauth2))
 
-* Configurar **Instagram** iniciar sesión en: [ https://www.instagram.com/developer/register/ ](https://www.instagram.com/developer/register/). Vea [pasos oficiales](https://www.instagram.com/developer/authentication/).
+* [Instagram](https://www.instagram.com/developer/register/) ([instrucciones](https://www.instagram.com/developer/authentication/))
 
-* Configurar **Reddit** iniciar sesión en: [ https://www.reddit.com/login?dest=https%3A%2F%2Fwww.reddit.com%2Fprefs%2Fapps ](https://www.reddit.com/login?dest=https%3A%2F%2Fwww.reddit.com%2Fprefs%2Fapps). Vea [pasos oficiales](https://github.com/reddit/reddit/wiki/OAuth2-Quick-Start-Example).
+* [Reddit](https://www.reddit.com/login?dest=https%3A%2F%2Fwww.reddit.com%2Fprefs%2Fapps) ([instrucciones](https://github.com/reddit/reddit/wiki/OAuth2-Quick-Start-Example))
 
-* Configurar **Github** iniciar sesión en: [ https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew ](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew). Vea [pasos oficiales](https://developer.github.com/v3/oauth/).
+* [Github](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew) ([instrucciones](https://developer.github.com/v3/oauth/))
 
-* Configurar **Yahoo** iniciar sesión en: [ https://login.yahoo.com/config/login?src=devnet&.done=http%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2Fcreate%2F ](https://login.yahoo.com/config/login?src=devnet&.done=http%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2Fcreate%2F). Vea [pasos oficiales](https://developer.yahoo.com/bbauth/user.html).
+* [Yahoo](https://login.yahoo.com/config/login?src=devnet&.done=http%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2Fcreate%2F) ([instrucciones](https://developer.yahoo.com/bbauth/user.html))
 
-* Configurar **Tumblr** iniciar sesión en: [ https://www.tumblr.com/oauth/apps ](https://www.tumblr.com/oauth/apps). Vea [pasos oficiales](https://www.tumblr.com/docs/api/v2#auth).
+* [Tumblr](https://www.tumblr.com/oauth/apps) ([instrucciones](https://www.tumblr.com/docs/api/v2#auth))
 
-* Configurar **Pinterest** iniciar sesión en: [ https://www.pinterest.com/login/?next=http%3A%2F%2Fdevsite%2Fapps%2F ](https://www.pinterest.com/login/?next=http%3A%2F%2Fdevsite%2Fapps%2F). Vea [pasos oficiales](https://developers.pinterest.com/docs/api/overview/?).
+* [Pinterest](https://www.pinterest.com/login/?next=http%3A%2F%2Fdevsite%2Fapps%2F) ([instrucciones](https://developers.pinterest.com/docs/api/overview/?))
 
-* Configurar **Pocket** iniciar sesión en: [ https://getpocket.com/developer/apps/new ](https://getpocket.com/developer/apps/new). Vea [pasos oficiales](https://getpocket.com/developer/docs/authentication).
+* [Pocket](https://getpocket.com/developer/apps/new) ([instrucciones](https://getpocket.com/developer/docs/authentication))
 
-* Configurar **Flickr** iniciar sesión en: [ https://www.flickr.com/services/apps/create ](https://www.flickr.com/services/apps/create). Vea [pasos oficiales](https://www.flickr.com/services/api/auth.oauth.html).
+* [Flickr](https://www.flickr.com/services/apps/create) ([instrucciones](https://www.flickr.com/services/api/auth.oauth.html))
 
-* Configurar **Dribble** iniciar sesión en: [ https://dribbble.com/signup ](https://dribbble.com/signup). Vea [pasos oficiales](http://developer.dribbble.com/v1/oauth/).
+* [Dribble](https://dribbble.com/signup) ([instrucciones](http://developer.dribbble.com/v1/oauth/))
 
-* Configurar **Vimeo** iniciar sesión en: [ https://vimeo.com/join ](https://vimeo.com/join). Vea [pasos oficiales](https://developer.vimeo.com/api/authentication).
+* [Vimeo](https://vimeo.com/join) ([instrucciones](https://developer.vimeo.com/api/authentication))
 
-* Configurar **SoundCloud** iniciar sesión en: [ https://soundcloud.com/you/apps/new ](https://soundcloud.com/you/apps/new). Vea [pasos oficiales](https://developers.soundcloud.com/blog/we-love-oauth-2).
+* [SoundCloud](https://soundcloud.com/you/apps/new) ([instrucciones](https://developers.soundcloud.com/blog/we-love-oauth-2))
 
-* Configurar **VK** iniciar sesión en: [ https://vk.com/apps?act=manage ](https://vk.com/apps?act=manage). Vea [pasos oficiales](https://vk.com/pages?oid=-17680044&p=Authorizing_Sites).
+* [VK](https://vk.com/apps?act=manage) ([instrucciones](https://vk.com/pages?oid=-17680044&p=Authorizing_Sites))
 
-## <a name="multiple-authentication-providers"></a>Varios proveedores de autenticación
+[!INCLUDE[Multiple authentication providers](includes/chain-auth-providers.md)]
 
-[!INCLUDE[](~/includes/chain-auth-providers.md)]
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]

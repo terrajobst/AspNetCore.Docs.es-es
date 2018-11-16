@@ -4,14 +4,14 @@ author: tdykstra
 description: Diferencias entre SignalR y ASP.NET Core SignalR
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
-ms.date: 09/10/2018
+ms.date: 11/14/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 8f07647959b6ef815eed599703bdb1bfb446572f
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: c9302f1c9e7cd4e62eaeaef871feb54ef26aa3ca
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505757"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708418"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Diferencias entre SignalR de ASP.NET y ASP.NET Core SignalR
 
@@ -75,6 +75,10 @@ ASP.NET Core SignalR ahora admite [datos de streaming](xref:signalr/streaming) d
 ### <a name="state"></a>Estado
 
 Se ha quitado la capacidad de pasar información de estado arbitraria entre los clientes y el centro de (a menudo denominada HubState), así como compatibilidad con los mensajes de progreso. En este momento no hay ningún homólogo de los servidores proxy de concentrador.
+
+### <a name="persistentconnection-removal"></a>Eliminación de PersistentConnection
+
+En ASP.NET Core SignalR, el [PersistentConnection](https://docs.microsoft.com/previous-versions/aspnet/jj919047(v%3dvs.118)) ha quitado la clase. 
 
 ### <a name="globalhost"></a>GlobalHost
 
