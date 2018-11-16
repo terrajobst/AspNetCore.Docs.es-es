@@ -7,44 +7,44 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/01/2018
 uid: signalr/hubcontext
-ms.openlocfilehash: ce350147e743df7f1671dd86da7c83f04bf0fe22
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 6630a99a9598d99d029090b97ac18815459eacc4
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569939"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708353"
 ---
-# <a name="send-messages-from-outside-a-hub"></a><span data-ttu-id="e36d5-103">Enviar mensajes desde fuera de un concentrador</span><span class="sxs-lookup"><span data-stu-id="e36d5-103">Send messages from outside a hub</span></span>
+# <a name="send-messages-from-outside-a-hub"></a><span data-ttu-id="c8af0-103">Enviar mensajes desde fuera de un concentrador</span><span class="sxs-lookup"><span data-stu-id="c8af0-103">Send messages from outside a hub</span></span>
 
-<span data-ttu-id="e36d5-104">Por [Mikael Mengistu](https://twitter.com/MikaelM_12)</span><span class="sxs-lookup"><span data-stu-id="e36d5-104">By [Mikael Mengistu](https://twitter.com/MikaelM_12)</span></span>
+<span data-ttu-id="c8af0-104">Por [Mikael Mengistu](https://twitter.com/MikaelM_12)</span><span class="sxs-lookup"><span data-stu-id="c8af0-104">By [Mikael Mengistu](https://twitter.com/MikaelM_12)</span></span>
 
-<span data-ttu-id="e36d5-105">El centro de SignalR es la abstracción principal para enviar mensajes a los clientes conectados al servidor de SignalR.</span><span class="sxs-lookup"><span data-stu-id="e36d5-105">The SignalR hub is the core abstraction for sending messages to clients connected to the SignalR server.</span></span> <span data-ttu-id="e36d5-106">También es posible enviar mensajes desde otros lugares de la aplicación mediante el `IHubContext` service.</span><span class="sxs-lookup"><span data-stu-id="e36d5-106">It's also possible to send messages from other places in your app using the `IHubContext` service.</span></span> <span data-ttu-id="e36d5-107">En este artículo se explica cómo obtener acceso a un SignalR `IHubContext` para enviar notificaciones a los clientes desde fuera de un concentrador.</span><span class="sxs-lookup"><span data-stu-id="e36d5-107">This article explains how to access a SignalR `IHubContext` to send notifications to clients from outside a hub.</span></span>
+<span data-ttu-id="c8af0-105">El centro de SignalR es la abstracción principal para enviar mensajes a los clientes conectados al servidor de SignalR.</span><span class="sxs-lookup"><span data-stu-id="c8af0-105">The SignalR hub is the core abstraction for sending messages to clients connected to the SignalR server.</span></span> <span data-ttu-id="c8af0-106">También es posible enviar mensajes desde otros lugares de la aplicación mediante el `IHubContext` service.</span><span class="sxs-lookup"><span data-stu-id="c8af0-106">It's also possible to send messages from other places in your app using the `IHubContext` service.</span></span> <span data-ttu-id="c8af0-107">En este artículo se explica cómo obtener acceso a un SignalR `IHubContext` para enviar notificaciones a los clientes desde fuera de un concentrador.</span><span class="sxs-lookup"><span data-stu-id="c8af0-107">This article explains how to access a SignalR `IHubContext` to send notifications to clients from outside a hub.</span></span>
 
-<span data-ttu-id="e36d5-108">[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(cómo descargar)](xref:index#how-to-download-a-sample)</span><span class="sxs-lookup"><span data-stu-id="e36d5-108">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(how to download)](xref:index#how-to-download-a-sample)</span></span>
+<span data-ttu-id="c8af0-108">[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(cómo descargar)](xref:index#how-to-download-a-sample)</span><span class="sxs-lookup"><span data-stu-id="c8af0-108">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(how to download)](xref:index#how-to-download-a-sample)</span></span>
 
-## <a name="get-an-instance-of-ihubcontext"></a><span data-ttu-id="e36d5-109">Obtener una instancia de IHubContext</span><span class="sxs-lookup"><span data-stu-id="e36d5-109">Get an instance of IHubContext</span></span>
+## <a name="get-an-instance-of-ihubcontext"></a><span data-ttu-id="c8af0-109">Obtener una instancia de IHubContext</span><span class="sxs-lookup"><span data-stu-id="c8af0-109">Get an instance of IHubContext</span></span>
 
-<span data-ttu-id="e36d5-110">En ASP.NET Core SignalR, puede tener acceso a una instancia de `IHubContext` mediante la inserción de dependencia.</span><span class="sxs-lookup"><span data-stu-id="e36d5-110">In ASP.NET Core SignalR, you can access an instance of `IHubContext` via dependency injection.</span></span> <span data-ttu-id="e36d5-111">Puede insertar una instancia de `IHubContext` en un controlador, middleware u otro servicio de inserción de dependencias.</span><span class="sxs-lookup"><span data-stu-id="e36d5-111">You can inject an instance of `IHubContext` into a controller, middleware, or other DI service.</span></span> <span data-ttu-id="e36d5-112">Utilice la instancia para enviar mensajes a los clientes.</span><span class="sxs-lookup"><span data-stu-id="e36d5-112">Use the instance to send messages to clients.</span></span>
+<span data-ttu-id="c8af0-110">En ASP.NET Core SignalR, puede tener acceso a una instancia de `IHubContext` mediante la inserción de dependencia.</span><span class="sxs-lookup"><span data-stu-id="c8af0-110">In ASP.NET Core SignalR, you can access an instance of `IHubContext` via dependency injection.</span></span> <span data-ttu-id="c8af0-111">Puede insertar una instancia de `IHubContext` en un controlador, middleware u otro servicio de inserción de dependencias.</span><span class="sxs-lookup"><span data-stu-id="c8af0-111">You can inject an instance of `IHubContext` into a controller, middleware, or other DI service.</span></span> <span data-ttu-id="c8af0-112">Utilice la instancia para enviar mensajes a los clientes.</span><span class="sxs-lookup"><span data-stu-id="c8af0-112">Use the instance to send messages to clients.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="e36d5-113">Esto difiere de ASP.NET 4.x SignalR que usa GlobalHost para proporcionar acceso a la `IHubContext`.</span><span class="sxs-lookup"><span data-stu-id="e36d5-113">This differs from ASP.NET 4.x SignalR which used GlobalHost to provide access to the `IHubContext`.</span></span> <span data-ttu-id="e36d5-114">ASP.NET Core tiene un marco de inserción de dependencia que elimina la necesidad de este singleton global.</span><span class="sxs-lookup"><span data-stu-id="e36d5-114">ASP.NET Core has a dependency injection framework that removes the need for this global singleton.</span></span>
+> <span data-ttu-id="c8af0-113">Esto difiere de ASP.NET 4.x SignalR que usa GlobalHost para proporcionar acceso a la `IHubContext`.</span><span class="sxs-lookup"><span data-stu-id="c8af0-113">This differs from ASP.NET 4.x SignalR which used GlobalHost to provide access to the `IHubContext`.</span></span> <span data-ttu-id="c8af0-114">ASP.NET Core tiene un marco de inserción de dependencia que elimina la necesidad de este singleton global.</span><span class="sxs-lookup"><span data-stu-id="c8af0-114">ASP.NET Core has a dependency injection framework that removes the need for this global singleton.</span></span>
 
-### <a name="inject-an-instance-of-ihubcontext-in-a-controller"></a><span data-ttu-id="e36d5-115">Inyectar una instancia de IHubContext en un controlador</span><span class="sxs-lookup"><span data-stu-id="e36d5-115">Inject an instance of IHubContext in a controller</span></span>
+### <a name="inject-an-instance-of-ihubcontext-in-a-controller"></a><span data-ttu-id="c8af0-115">Inyectar una instancia de IHubContext en un controlador</span><span class="sxs-lookup"><span data-stu-id="c8af0-115">Inject an instance of IHubContext in a controller</span></span>
 
-<span data-ttu-id="e36d5-116">Puede insertar una instancia de `IHubContext` en un controlador al agregarlo a su constructor:</span><span class="sxs-lookup"><span data-stu-id="e36d5-116">You can inject an instance of `IHubContext` into a controller by adding it to your constructor:</span></span>
+<span data-ttu-id="c8af0-116">Puede insertar una instancia de `IHubContext` en un controlador al agregarlo a su constructor:</span><span class="sxs-lookup"><span data-stu-id="c8af0-116">You can inject an instance of `IHubContext` into a controller by adding it to your constructor:</span></span>
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=12-19,57)]
 
-<span data-ttu-id="e36d5-117">Ahora, con acceso a una instancia de `IHubContext`, puede llamar a métodos de concentrador como si estuviera en el centro de sí mismo.</span><span class="sxs-lookup"><span data-stu-id="e36d5-117">Now, with access to an instance of `IHubContext`, you can call hub methods as if you were in the hub itself.</span></span>
+<span data-ttu-id="c8af0-117">Ahora, con acceso a una instancia de `IHubContext`, puede llamar a métodos de concentrador como si estuviera en el centro de sí mismo.</span><span class="sxs-lookup"><span data-stu-id="c8af0-117">Now, with access to an instance of `IHubContext`, you can call hub methods as if you were in the hub itself.</span></span>
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=21-25)]
 
-### <a name="get-an-instance-of-ihubcontext-in-middleware"></a><span data-ttu-id="e36d5-118">Obtener una instancia de IHubContext en middleware</span><span class="sxs-lookup"><span data-stu-id="e36d5-118">Get an instance of IHubContext in middleware</span></span>
+### <a name="get-an-instance-of-ihubcontext-in-middleware"></a><span data-ttu-id="c8af0-118">Obtener una instancia de IHubContext en middleware</span><span class="sxs-lookup"><span data-stu-id="c8af0-118">Get an instance of IHubContext in middleware</span></span>
 
-<span data-ttu-id="e36d5-119">Acceso a la `IHubContext` dentro de la canalización de middleware siguiente manera:</span><span class="sxs-lookup"><span data-stu-id="e36d5-119">Access the `IHubContext` within the middleware pipeline like so:</span></span>
+<span data-ttu-id="c8af0-119">Acceso a la `IHubContext` dentro de la canalización de middleware siguiente manera:</span><span class="sxs-lookup"><span data-stu-id="c8af0-119">Access the `IHubContext` within the middleware pipeline like so:</span></span>
 
 ```csharp
-app.Use(next => async (context) =>
+app.Use(async (context, next) =>
 {
     var hubContext = context.RequestServices
                             .GetRequiredService<IHubContext<MyHub>>();
@@ -53,11 +53,11 @@ app.Use(next => async (context) =>
 ```
 
 > [!NOTE]
-> <span data-ttu-id="e36d5-120">Cuando se llaman a métodos de concentrador desde fuera de la `Hub` clase, no hay ningún autor de llamada asociada con la invocación.</span><span class="sxs-lookup"><span data-stu-id="e36d5-120">When hub methods are called from outside of the `Hub` class, there's no caller associated with the invocation.</span></span> <span data-ttu-id="e36d5-121">Por lo tanto, no hay ningún acceso a la `ConnectionId`, `Caller`, y `Others` propiedades.</span><span class="sxs-lookup"><span data-stu-id="e36d5-121">Therefore, there's no access to the `ConnectionId`, `Caller`, and `Others` properties.</span></span>
+> <span data-ttu-id="c8af0-120">Cuando se llaman a métodos de concentrador desde fuera de la `Hub` clase, no hay ningún autor de llamada asociada con la invocación.</span><span class="sxs-lookup"><span data-stu-id="c8af0-120">When hub methods are called from outside of the `Hub` class, there's no caller associated with the invocation.</span></span> <span data-ttu-id="c8af0-121">Por lo tanto, no hay ningún acceso a la `ConnectionId`, `Caller`, y `Others` propiedades.</span><span class="sxs-lookup"><span data-stu-id="c8af0-121">Therefore, there's no access to the `ConnectionId`, `Caller`, and `Others` properties.</span></span>
 
-### <a name="inject-a-strongly-typed-hubcontext"></a><span data-ttu-id="e36d5-122">Insertar un HubContext fuertemente tipados</span><span class="sxs-lookup"><span data-stu-id="e36d5-122">Inject a strongly-typed HubContext</span></span>
+### <a name="inject-a-strongly-typed-hubcontext"></a><span data-ttu-id="c8af0-122">Insertar un HubContext fuertemente tipados</span><span class="sxs-lookup"><span data-stu-id="c8af0-122">Inject a strongly-typed HubContext</span></span>
 
-<span data-ttu-id="e36d5-123">Para insertar un HubContext fuertemente tipado, asegúrese de que hereda de su centro de `Hub<T>`.</span><span class="sxs-lookup"><span data-stu-id="e36d5-123">To inject a strongly-typed HubContext, ensure your Hub inherits from `Hub<T>`.</span></span> <span data-ttu-id="e36d5-124">Insertar mediante el `IHubContext<THub, T>` interfaz en lugar de `IHubContext<THub>`.</span><span class="sxs-lookup"><span data-stu-id="e36d5-124">Inject it using the `IHubContext<THub, T>` interface rather than `IHubContext<THub>`.</span></span>
+<span data-ttu-id="c8af0-123">Para insertar un HubContext fuertemente tipado, asegúrese de que hereda de su centro de `Hub<T>`.</span><span class="sxs-lookup"><span data-stu-id="c8af0-123">To inject a strongly-typed HubContext, ensure your Hub inherits from `Hub<T>`.</span></span> <span data-ttu-id="c8af0-124">Insertar mediante el `IHubContext<THub, T>` interfaz en lugar de `IHubContext<THub>`.</span><span class="sxs-lookup"><span data-stu-id="c8af0-124">Inject it using the `IHubContext<THub, T>` interface rather than `IHubContext<THub>`.</span></span>
 
 ```csharp
 public class ChatController : Controller
@@ -76,8 +76,8 @@ public class ChatController : Controller
 }
 ```
 
-## <a name="related-resources"></a><span data-ttu-id="e36d5-125">Recursos relacionados</span><span class="sxs-lookup"><span data-stu-id="e36d5-125">Related resources</span></span>
+## <a name="related-resources"></a><span data-ttu-id="c8af0-125">Recursos relacionados</span><span class="sxs-lookup"><span data-stu-id="c8af0-125">Related resources</span></span>
 
-* [<span data-ttu-id="e36d5-126">Introducción</span><span class="sxs-lookup"><span data-stu-id="e36d5-126">Get started</span></span>](xref:tutorials/signalr)
-* [<span data-ttu-id="e36d5-127">Concentradores</span><span class="sxs-lookup"><span data-stu-id="e36d5-127">Hubs</span></span>](xref:signalr/hubs)
-* [<span data-ttu-id="e36d5-128">Publicar en Azure</span><span class="sxs-lookup"><span data-stu-id="e36d5-128">Publish to Azure</span></span>](xref:signalr/publish-to-azure-web-app)
+* [<span data-ttu-id="c8af0-126">Introducción</span><span class="sxs-lookup"><span data-stu-id="c8af0-126">Get started</span></span>](xref:tutorials/signalr)
+* [<span data-ttu-id="c8af0-127">Concentradores</span><span class="sxs-lookup"><span data-stu-id="c8af0-127">Hubs</span></span>](xref:signalr/hubs)
+* [<span data-ttu-id="c8af0-128">Publicar en Azure</span><span class="sxs-lookup"><span data-stu-id="c8af0-128">Publish to Azure</span></span>](xref:signalr/publish-to-azure-web-app)
