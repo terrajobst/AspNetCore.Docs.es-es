@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre cómo usar la API de configuración para una aplicación ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/09/2018
+ms.date: 11/15/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 6dd478770d4eae4d497da576c17fbe7d2c133b89
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 766ac77a2af01509f8e4bc646a18f7dfbc923511
+ms.sourcegitcommit: d3392f688cfebc1f25616da7489664d69c6ee330
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021747"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51818400"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configuración en ASP.NET Core
 
@@ -538,10 +538,11 @@ Al trabajar con claves jerárquicas en variables de entorno, es posible que un s
 
 ::: moniker range=">= aspnetcore-2.0"
 
-`AddEnvironmentVariables` se llama automáticamente cuando se inicializa un nuevo <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> con <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>. Para más información, consulte [Host web: Configuración de un host](xref:fundamentals/host/web-host#set-up-a-host).
+Se llama automáticamente a `AddEnvironmentVariables` para las variables de entorno con el prefijo `ASPNETCORE_` al inicializar un nuevo <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>. Para más información, consulte [Host web: Configuración de un host](xref:fundamentals/host/web-host#set-up-a-host).
 
 `CreateDefaultBuilder` también carga:
 
+* Configuración de la aplicación desde variables de entorno sin prefijo mediante la llamada a `AddEnvironmentVariables` sin prefijo.
 * Configuración opcional de *appsettings.json* y *appsettings.{Environment}.json*.
 * [Secretos de usuario (Administrador de secretos)](xref:security/app-secrets) (en el entorno de desarrollo).
 * Argumentos de la línea de comandos.
@@ -554,7 +555,7 @@ El proveedor de configuración de variables de entorno se llama una vez establec
 
 Llame a <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> cuando cree el host para especificar la configuración de la aplicación.
 
-Ya se ha llamado a `AddEnvironmentVariables` para las variables de entorno con el prefijo `ASPNETCORE_` por parte de `CreateDefaultBuilder`. Si tiene que proporcionar la configuración de la aplicación desde variables de entorno adicionales, llame a los proveedores adicionales de la aplicación en <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> y llame a `AddEnvironmentVariables` con el prefijo.
+Si tiene que proporcionar la configuración de la aplicación desde variables de entorno adicionales, llame a los proveedores adicionales de la aplicación en <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> y llame a `AddEnvironmentVariables` con el prefijo.
 
 ```csharp
 public class Program
@@ -585,7 +586,7 @@ Al crear directamente un <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>, lla
 
 Llame al método de extensión `AddEnvironmentVariables` en una instancia de <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>. Aplique la configuración a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> con el método <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*>.
 
-Ya se ha llamado a `AddEnvironmentVariables` para las variables de entorno con el prefijo `ASPNETCORE_` por parte de `CreateDefaultBuilder`. Si tiene que proporcionar la configuración de la aplicación desde variables de entorno adicionales, llame a los proveedores adicionales de la aplicación en <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> y llame a `AddEnvironmentVariables` con el prefijo.
+Si tiene que proporcionar la configuración de la aplicación desde variables de entorno adicionales, llame a los proveedores adicionales de la aplicación en <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> y llame a `AddEnvironmentVariables` con el prefijo.
 
 ```csharp
 public class Program
