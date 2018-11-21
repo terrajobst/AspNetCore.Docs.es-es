@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/index
-ms.openlocfilehash: 4277266e20ab1921a2ba24d4500358ba90330370
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 579e472e01efd08bbafe949e37a3b655a42a5b46
+ms.sourcegitcommit: 04b55a5ce9d649ff2df926157ec28ae47afe79e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252950"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52156924"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Introducción a la seguridad de ASP.NET Core
 
@@ -36,73 +36,4 @@ ASP.NET Core y EF contienen características que ayudan a proteger las aplicacio
 * [Falsificación de solicitudes entre sitios. (CSRF)](xref:security/anti-request-forgery)
 * [Ataques de redireccionamiento abierto](xref:security/preventing-open-redirects)
 
-Hay más vulnerabilidades que debe tener en cuenta. Para obtener más información, vea la sección de este documento relativa a la *documentación de seguridad de ASP.NET Core*.
-
-## <a name="aspnet-core-security-documentation"></a>Documentación de seguridad de ASP.NET Core
-
-* Autenticación
-  * [Introducción a Identity](xref:security/authentication/identity)
-  * [Habilitar la autenticación con Facebook, Google y otros proveedores externos](xref:security/authentication/social/index)
-  * [Habilitar la autenticación con WS-Federation](xref:security/authentication/ws-federation)
-  * [Configuración de la autenticación de Windows](xref:security/authentication/windowsauth)
-  * [Confirmación de cuentas y recuperación de contraseñas](xref:security/authentication/accconfirm)
-  * [Autenticación en dos fases con SMS](xref:security/authentication/2fa)
-  * [Uso de la autenticación de cookies sin identidad](xref:security/authentication/cookie)
-  * [Azure Active Directory](xref:security/authentication/azure-active-directory/index)
-    * [Integración de Azure AD en una aplicación web de ASP.NET Core](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
-    * [Llamada a una API web de ASP.NET Core desde una aplicación de WPF con Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
-    * [Llamada a una API web en una aplicación web de ASP.NET Core con Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
-    * [Una aplicación web de ASP.NET Core con Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
-  * [Protección de aplicaciones de ASP.NET Core con IdentityServer4](https://identityserver4.readthedocs.io)
-* Autorización
-  * [Introducción](xref:security/authorization/introduction)
-  * [Creación de una aplicación con datos de usuario protegidos por autorización](xref:security/authorization/secure-data)
-  * [Autorización simple](xref:security/authorization/simple)
-  * [Autorización basada en roles](xref:security/authorization/roles)
-  * [Autorización basada en notificaciones](xref:security/authorization/claims)
-  * [Autorización basada en directivas](xref:security/authorization/policies)
-  * [Inserción de dependencias en controladores de requisitos](xref:security/authorization/dependencyinjection)
-  * [Autorización basada en recursos](xref:security/authorization/resourcebased)
-  * [Autorización basada en visualizaciones](xref:security/authorization/views)
-  * [Limitación de la identidad por esquema](xref:security/authorization/limitingidentitybyscheme)
-* Protección de datos
-  * [Introducción a la protección de datos](xref:security/data-protection/introduction)
-  * [Introducción a las API de protección de datos](xref:security/data-protection/using-data-protection)
-  * API de consumidor
-    * [Información general sobre las API de consumidor](xref:security/data-protection/consumer-apis/overview)
-    * [Cadenas de propósito](xref:security/data-protection/consumer-apis/purpose-strings)
-    * [Jerarquía de propósito y configuración multiempresa](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)
-    * [Aplicar un algoritmo hash a las contraseñas](xref:security/data-protection/consumer-apis/password-hashing)
-    * [Limitación de la duración de cargas protegidas](xref:security/data-protection/consumer-apis/limited-lifetime-payloads)
-    * [Desprotección de cargas cuyas claves se han revocado](xref:security/data-protection/consumer-apis/dangerous-unprotect)
-  * [Configuración](xref:security/data-protection/configuration/index)
-    * [Configuración de la protección de datos](xref:security/data-protection/configuration/overview)
-    * [Configuración predeterminada](xref:security/data-protection/configuration/default-settings)
-    * [Directiva de todo el equipo](xref:security/data-protection/configuration/machine-wide-policy)
-    * [Escenarios no compatibles con DI](xref:security/data-protection/configuration/non-di-scenarios)
-  * [API de extensibilidad](xref:security/data-protection/extensibility/index)
-    * [Extensibilidad de criptografía de núcleo](xref:security/data-protection/extensibility/core-crypto)
-    * [Extensibilidad de administración de claves](xref:security/data-protection/extensibility/key-management)
-    * [Otras API](xref:security/data-protection/extensibility/misc-apis)
-  * [Implementación](xref:security/data-protection/implementation/index)
-    * [Detalles de cifrado autenticado](xref:security/data-protection/implementation/authenticated-encryption-details)
-    * [Derivación de subclave y cifrado autenticado](xref:security/data-protection/implementation/subkeyderivation)
-    * [Encabezados de contexto](xref:security/data-protection/implementation/context-headers)
-    * [Administración de claves](xref:security/data-protection/implementation/key-management)
-    * [Proveedores de almacenamiento de claves](xref:security/data-protection/implementation/key-storage-providers)
-    * [Cifrado de claves en reposo](xref:security/data-protection/implementation/key-encryption-at-rest)
-    * [Inmutabilidad de claves y configuración](xref:security/data-protection/implementation/key-immutability)
-    * [Formato de almacenamiento de claves](xref:security/data-protection/implementation/key-storage-format)
-    * [Proveedores de protección de datos efímeros](xref:security/data-protection/implementation/key-storage-ephemeral)
-  * [Compatibilidad](xref:security/data-protection/compatibility/index)
-    * [Reemplazar \<machineKey> en ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)
-* [Creación de una aplicación con datos de usuario protegidos por autorización](xref:security/authorization/secure-data)
-* [Almacenamiento seguro de secretos de aplicación en el desarrollo](xref:security/app-secrets)
-* [Proveedor de configuración de Azure Key Vault](xref:security/key-vault-configuration)
-* [Aplicación de SSL](xref:security/enforcing-ssl)
-* [Prevención de ataques de falsificación de solicitudes](xref:security/anti-request-forgery)
-* [Prevención de ataques de redireccionamiento abierto](xref:security/preventing-open-redirects)
-* [Prevención de scripting entre sitios](xref:security/cross-site-scripting)
-* [Habilitar solicitudes entre orígenes (CORS)](xref:security/cors)
-* [Compartir cookies entre aplicaciones](xref:security/cookie-sharing)
-* [Lista de IP seguras](xref:security/ip-safelist)
+Hay más vulnerabilidades que debe tener en cuenta. Para obtener más información, consulte otros artículos de la sección **Seguridad e identidad** de la tabla de contenido.
