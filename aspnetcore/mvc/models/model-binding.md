@@ -4,14 +4,14 @@ author: tdykstra
 description: Obtenga información sobre cómo el enlace de modelos en ASP.NET Core MVC asigna datos de solicitudes HTTP a parámetros de método de acción.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: tdykstra
-ms.date: 08/14/2018
+ms.date: 11/13/2018
 uid: mvc/models/model-binding
-ms.openlocfilehash: 0ce20a8040c6b19da1f57e1c053a7ef81d8bcb23
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 1dc9b41328ed78440622acc1865b6f088d394403
+ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751637"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597789"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Enlace de modelos en ASP.NET Core
 
@@ -53,9 +53,9 @@ Nota: Los valores de formulario, los datos de enrutamiento y las cadenas de cons
 
 Como el enlace de modelos pidió una clave con el nombre `id` y no hay nada denominado `id` en los valores de formulario, continuó con los valores de ruta buscando esa clave. En nuestro ejemplo, es una coincidencia. Se produce el enlace y el valor se convierte en el entero 2. La misma solicitud mediante Edit(string id) se convertiría en la cadena "2".
 
-Hasta ahora en el ejemplo se usan tipos simples. En MVC, los tipos simples son cualquier tipo o tipo primitivo de .NET con un convertidor de tipos de cadena. Si el parámetro del método de acción fuera una clase como el tipo `Movie`, que contiene tipos simples y complejos como propiedades, el enlace de modelos de MVC seguiría controlándolo correctamente. Usa reflexión y recursividad para recorrer las propiedades de tipos complejos buscando coincidencias. El enlace de modelos busca el patrón *parameter_name.property_name* para enlazar los valores a las propiedades. Si no encuentra los valores coincidentes con esta forma, intentará enlazar usando solo el nombre de propiedad. Para esos tipos, como los tipos `Collection`, el enlace de modelos busca coincidencias para *parameter_name[index]* o solo *[index]*. En enlace de modelos trata los tipos `Dictionary` del mismo modo, preguntando por *parameter_name [key]* o simplemente *[key]*, siempre que las claves sean tipos simples. Las claves compatibles coinciden con el HTML de nombres de campos y las aplicaciones auxiliares de etiquetas generadas para el mismo tipo de modelo. Esto permite realizar un recorrido de ida y vuelta para que los campos del formulario permanezcan rellenados con los datos del usuario para su comodidad (por ejemplo, cuando los datos enlazados de una creación o una edición no superaron la validación).
+Hasta ahora en el ejemplo se usan tipos simples. En MVC, los tipos simples son cualquier tipo o tipo primitivo de .NET con un convertidor de tipos de cadena. Si el parámetro del método de acción fuera una clase como el tipo `Movie`, que contiene tipos simples y complejos como propiedades, el enlace de modelos de MVC seguiría controlándolo correctamente. Usa reflexión y recursividad para recorrer las propiedades de tipos complejos buscando coincidencias. El enlace de modelos busca el patrón *parameter_name.property_name* para enlazar los valores a las propiedades. Si no encuentra los valores coincidentes con esta forma, intentará enlazar usando solo el nombre de propiedad. Para esos tipos, como los tipos `Collection`, el enlace de modelos busca coincidencias para *parameter_name[index]* o solo *[index]*. En enlace de modelos trata los tipos `Dictionary` del mismo modo, preguntando por *parameter_name [key]* o simplemente *[key]*, siempre que las claves sean tipos simples. Las claves compatibles coinciden con el HTML de nombres de campos y los asistentes de etiquetas generadas para el mismo tipo de modelo. Esto permite realizar un recorrido de ida y vuelta para que los campos del formulario permanezcan rellenados con los datos del usuario para su comodidad (por ejemplo, cuando los datos enlazados de una creación o una edición no superaron la validación).
 
-Para que se produzca el enlace, la clase debe tener un constructor público predeterminado y el miembro que se va a enlazar debe ser una propiedad pública de escritura. Cuando se produce el enlace de modelos, la instancia de la clase se creará usando solamente el constructor predeterminado público y, después, ya se podrán establecer las propiedades.
+Para que el enlace de modelos sea posible, la clase debe tener un constructor público predeterminado y propiedades grabables públicas para enlazar. Cuando se da el enlace de modelos, se crea una instancia de la clase solamente con el constructor predeterminado público. Después, es posible establecer las propiedades.
 
 Cuando se enlaza un parámetro, el enlace de modelos deja de buscar valores con ese nombre y pasa a enlazar el siguiente parámetro. En caso contrario, el comportamiento predeterminado del enlace de modelos establece los parámetros en sus valores predeterminados según el tipo:
 

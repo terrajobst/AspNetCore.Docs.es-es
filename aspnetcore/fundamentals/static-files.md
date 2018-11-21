@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 5d00e6ba57053d17b45a24a1c57a446cb3db22ca
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: fb92141b1864574242b29ecc386024ce72a6be87
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207139"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570131"
 ---
 # <a name="static-files-in-aspnet-core"></a>Archivos estáticos en ASP.NET Core
 
@@ -122,10 +122,10 @@ Los archivos se han hecho públicamente almacenables en caché durante 10 minuto
 
 El middleware de archivos estáticos no proporciona comprobaciones de autorización. Los archivos que proporciona, incluidos los de *wwwroot*, están accesibles de forma pública. Para proporcionar archivos según su autorización:
 
-* Almacénelos fuera de *wwwroot* y cualquier directorio accesible por el middleware de archivos estáticos **y**
+* Almacénelos fuera de *wwwroot* y cualquier directorio al que el middleware de archivos estáticos tenga acceso.
 * Proporciónelos a través de un método de acción al que se aplica la autorización. Devuelva un objeto [FileResult](/dotnet/api/microsoft.aspnetcore.mvc.fileresult):
 
-[!code-csharp[](static-files/samples/1x/Controllers/HomeController.cs?name=snippet_BannerImageAction)]
+  [!code-csharp[](static-files/samples/1x/Controllers/HomeController.cs?name=snippet_BannerImageAction)]
 
 ## <a name="enable-directory-browsing"></a>Habilite el examen de directorios
 

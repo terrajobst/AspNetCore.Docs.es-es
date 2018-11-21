@@ -15,7 +15,7 @@ El código anterior:
 * Define una clase de controlador de API sin métodos.
 * Crea una tarea pendiente cuando `TodoItems` está vacío. No podrá eliminar todas las tareas pendientes porque el constructor crea una si `TodoItems` está vacío.
 
-En las secciones siguientes, se agregan métodos para implementar la API. La clase se anota con un atributo `[ApiController]` para habilitar algunas características muy prácticas. Para más información sobre las características que el atributo habilita, vea [Anotación con ApiControllerAttribute](xref:web-api/index#annotation-with-apicontrollerattribute).
+En las secciones siguientes, se agregan métodos para implementar la API. La clase se anota con un atributo `[ApiController]` para habilitar algunas características muy prácticas. Para obtener más información sobre las características que el atributo habilita, vea [Anotación con el atributo ApiController](xref:web-api/index#annotation-with-apicontroller-attribute).
 
 ::: moniker-end
 

@@ -3,14 +3,14 @@ title: Enlace de modelos personalizado en ASP.NET Core
 author: ardalis
 description: Obtenga información sobre cómo el enlace de modelos permite que las acciones de controlador funcionen directamente con tipos de modelos en ASP.NET Core.
 ms.author: riande
-ms.date: 04/10/2017
+ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: dc901aea3c20e7f2e955f39d923216de70ef015b
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 1da42829270e8ff4a626a45aec4d4e825062bd4f
+ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090412"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51635301"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Enlace de modelos personalizado en ASP.NET Core
 
@@ -87,11 +87,14 @@ En el siguiente ejemplo se usa el atributo `ModelBinder` en el modelo `Author`:
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
 
-En el código anterior, el atributo `ModelBinder` especifica el tipo de `IModelBinder` que se debe emplear para enlazar parámetros de acción de `Author`. 
+En el código anterior, el atributo `ModelBinder` especifica el tipo de `IModelBinder` que se debe emplear para enlazar parámetros de acción de `Author`.
 
-`AuthorEntityBinder` sirve para enlazar un parámetro `Author` capturando la entidad de un origen de datos por medio de Entity Framework Core y de un `authorId`:
+La clase `AuthorEntityBinder` siguiente enlaza un parámetro `Author` capturando la entidad de un origen de datos por medio de Entity Framework Core y un elemento `authorId`:
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
+
+> [!NOTE]
+> La clase `AuthorEntityBinder` anterior está diseñada para ilustrar un enlazador de modelos personalizado. La clase no está pensada para ilustrar los procedimientos recomendados para un escenario de búsqueda. Para la búsqueda, enlace el valor `authorId` y consulte la base de datos en un método de acción. Este enfoque permite diferenciar y separar los errores de enlace de modelo de los casos `NotFound`.
 
 En el siguiente código se indica cómo usar `AuthorEntityBinder` en un método de acción:
 
@@ -130,6 +133,7 @@ Si su proveedor se agrega al final de la colección, puede ocurrir que se llame 
 ## <a name="recommendations-and-best-practices"></a>Sugerencias y procedimientos recomendados
 
 Los enlazadores de modelos personalizados deben caracterizarse por lo siguiente:
+
 - No deben tratar de establecer códigos de estado ni devolver resultados (por ejemplo, 404 No encontrado). Los errores que se produzcan en un enlace de modelos se deben controlar con un [filtro de acciones](xref:mvc/controllers/filters) o con la lógica del propio método de acción.
 - Son realmente útiles para eliminar el código repetitivo y las cuestiones transversales de los métodos de acción.
 - No se deben usar en general para convertir una cadena en un tipo personalizado. Para ello, [`TypeConverter`](/dotnet/api/system.componentmodel.typeconverter) suele ser una mejor opción.

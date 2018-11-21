@@ -60,7 +60,7 @@ Puede establecer un punto de interrupción en el método `[HttpPost] Create` y c
 
 En la siguiente imagen se muestra cómo deshabilitar JavaScript en el explorador Firefox.
 
-![Firefox: en la pestaña Contenido de Opciones, desactive la casilla Habilitar JavaScript.](~/tutorials/first-mvc-app/validation/_static/ff.png)
+![Firefox: en la pestaña Contenido de la sección Opciones, desactive la casilla Habilitar JavaScript.](~/tutorials/first-mvc-app/validation/_static/ff.png)
 
 En la siguiente imagen se muestra cómo deshabilitar JavaScript en el explorador Chrome.
 

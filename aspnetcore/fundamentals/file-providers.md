@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2018
 uid: fundamentals/file-providers
-ms.openlocfilehash: 3274615a0d6b6f928301ce97d18f5d9768963a30
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 5d0d46ba82cd84e48e5a9b23d6d330d8888beb41
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207321"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570105"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Proveedores de archivo en ASP.NET Core
 
@@ -20,7 +20,7 @@ Por [Steve Smith](https://ardalis.com/) y [Luke Latham](https://github.com/guard
 ASP.NET Core abstrae el acceso al sistema de archivos mediante el uso de proveedores de archivos. Los proveedores de archivos se usan en el marco de ASP.NET Core:
 
 * [IHostingEnvironment](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment) expone la raíz del contenido de la aplicación y la raíz web como tipos `IFileProvider`.
-* [El middleware de archivos estáticos](xref:fundamentals/static-files) usa proveedores de archivos para buscar archivos estáticos.
+* El [middleware de archivos estáticos](xref:fundamentals/static-files) usa proveedores de archivos para buscar archivos estáticos.
 * [Razor](xref:mvc/views/razor) usa proveedores de archivos para localizar páginas y vistas.
 * Las herramientas de .NET Core usan proveedores de archivos y patrones globales para especificar los archivos que deben publicarse.
 
