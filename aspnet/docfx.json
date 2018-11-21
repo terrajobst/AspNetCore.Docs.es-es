@@ -1,6 +1,5 @@
 {
   "build": {
-    "markdownEngineName": "markdig",
     "content": [
       {
         "files": [
@@ -36,6 +35,9 @@
     ],
     "overwrite": [],
     "externalReference": [],
+    "xrefService": [
+      "https://xref.docs.microsoft.com/query?uid={uid}"
+    ],
     "globalMetadata": {
       "bilingual_type": "hover over",
       "_navPath": "/foo",
@@ -65,6 +67,7 @@
       }
     },
     "template": [],
-    "dest": "_site"
+    "dest": "_site",
+    "markdownEngineName": "markdig"
   }
 }
