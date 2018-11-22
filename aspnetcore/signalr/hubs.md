@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar concentradores en ASP.NET Cor
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/07/2018
+ms.date: 11/20/2018
 uid: signalr/hubs
-ms.openlocfilehash: 0413d354307208726f4252f431ac59526effed08
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 91f92e9d6b776457cd319965d548ee401ddc5e0e
+ms.sourcegitcommit: 4225e2c49a0081e6ac15acff673587201f54b4aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569924"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282150"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Usar concentradores de SignalR para ASP.NET Core
 
@@ -85,7 +85,6 @@ El `Hub` clase tiene un `Clients` propiedad que contiene las siguientes propieda
 | `Caller` | Llama a un método en el cliente que invoca el método de concentrador |
 | `Others` | Llama a un método en todos los clientes conectados, excepto el cliente que invocó el método |
 
-
 `Hub.Clients` También contiene los métodos siguientes:
 
 | Método | Descripción |
@@ -126,7 +125,17 @@ Esta interfaz puede usarse para refactorizar anterior `ChatHub` ejemplo.
 
 Uso de `Hub<IChatClient>` habilita la comprobación de tiempo de compilación de los métodos de cliente. Esto evita problemas causados por usar cadenas mágicas, ya que `Hub<T>` solo puede proporcionar acceso a los métodos definidos en la interfaz.
 
-Usar fuertemente tipado `Hub<T>` deshabilita la posibilidad de usar `SendAsync`.
+Usar fuertemente tipado `Hub<T>` deshabilita la posibilidad de usar `SendAsync`. Cualquier método definido en la interfaz todavía se puede definir como asincrónicas. De hecho, cada uno de estos métodos debe devolver un `Task`. Puesto que es una interfaz, no use el `async` palabra clave. Por ejemplo:
+
+```csharp
+public interface IClient
+{
+    Task ClientMethod();
+}
+```
+
+> [!NOTE]
+> El `Async` sufijo no se quitará el nombre del método. A menos que se define el método de cliente con `.on('MyMethodAsync')`, no debe usar `MyMethodAsync` como un nombre.
 
 ## <a name="change-the-name-of-a-hub-method"></a>Cambiar el nombre de un método de concentrador
 
@@ -150,7 +159,7 @@ Las excepciones producidas en los métodos de concentrador se envían al cliente
 
 [!code-javascript[Error](hubs/sample/wwwroot/js/chat.js?range=23)]
 
-De forma predeterminada, si el centro de produce una excepción, SignalR devuelve un mensaje de error genérico al cliente. Por ejemplo:
+Si su centro, produce una excepción, no se cierran las conexiones. De forma predeterminada, SignalR devuelve un mensaje de error genérico al cliente. Por ejemplo:
 
 ```
 Microsoft.AspNetCore.SignalR.HubException: An unexpected error occurred invoking 'MethodName' on the server.
