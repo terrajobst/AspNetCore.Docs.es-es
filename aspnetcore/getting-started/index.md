@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: 4a5a0cc5a5dab2171ab8ef43818185a4ee91af0e
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 4c899ff3c087f1b569521c6e2e8458fca01d6061
+ms.sourcegitcommit: bdfba5e7575b2a786ef27c0edf688c7dbd09ee95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912571"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52288647"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Tutorial: Introducción a ASP.NET Core
 
@@ -110,3 +110,8 @@ Para obtener más información sobre ASP.NET Core, vea la introducción:
 
 > [!div class="nextstepaction"]
 > <xref:index>
+
+
+
+> [!NOTE]
+> Vamos a probar la facilidad de uso de una nueva estructura propuesta para la tabla de contenido de ASP.NET Core.  Si tiene unos minutos para realizar un ejercicio de búsqueda de 7 temas diferentes en la tabla actual o propuesta de contenido, [haga clic aquí para participar en el estudio](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
