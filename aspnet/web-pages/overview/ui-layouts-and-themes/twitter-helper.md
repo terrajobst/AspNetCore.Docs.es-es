@@ -4,20 +4,23 @@ title: Aplicación auxiliar con ASP.NET Web Pages de Twitter | Microsoft Docs
 author: Rick-Anderson
 description: Este tema y la aplicación muestran cómo agregar una aplicación auxiliar de Twitter al proyecto WebMatrix 3. Contiene el código de aplicación auxiliar de Twitter y se muestra cómo llamar a la aplicación auxiliar...
 ms.author: riande
-ms.date: 02/07/2014
+ms.date: 11/26/2018
 ms.assetid: c1a1244e-b9c8-42e6-a00b-8456a4ec027c
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/twitter-helper
 msc.type: authoredcontent
-ms.openlocfilehash: 89c8c520cd32ca2ee24e6cd90e11f7bdf39c7a80
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: fabe9f2b84d278a766dc8d8b7bfc00e1eb967127
+ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51020578"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52299435"
 ---
 <a name="twitter-helper-with-aspnet-web-pages"></a>Aplicación auxiliar de Twitter con ASP.NET Web Pages
 ====================
 por [Tom FitzMacken](https://github.com/tfitzmac)
+
+> [!IMPORTANT]
+> Las aplicaciones auxiliares de Twitter están obsoletas. Para obtener herramientas engagement más recientes de Twitter para los sitios Web, consulte [Twitter para información general de los sitios Web](https://developer.twitter.com/en/docs/twitter-for-websites/overview).
 
 > Este tema y la aplicación muestran cómo agregar una aplicación auxiliar de Twitter al proyecto WebMatrix 3. Contiene el código de aplicación auxiliar de Twitter y se muestra cómo llamar a los métodos auxiliares.
 > 
