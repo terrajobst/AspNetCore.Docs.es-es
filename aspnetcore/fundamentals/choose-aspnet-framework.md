@@ -5,12 +5,12 @@ description: Se explican las diferencias entre ASP.NET Core. y ASP.NET 4.x, y c�
 ms.author: riande
 ms.date: 09/11/2018
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: f046491e2ec68b6beaad581e2b04e6688a81f2d1
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 79e56e10b756677431ceff289300c251e54bf632
+ms.sourcegitcommit: bdfba5e7575b2a786ef27c0edf688c7dbd09ee95
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911050"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52288673"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Elección entre ASP.NET 4.x y ASP.NET Core
 
@@ -61,3 +61,6 @@ Vea [ASP.NET Core con .NET Framework como destino](xref:index#target-framework) 
 * [Introducción a ASP.NET](/aspnet/overview)
 * [Introducción a ASP.NET Core](xref:index)
 * <xref:host-and-deploy/azure-apps/index>
+
+> [!NOTE]
+> Vamos a probar la facilidad de uso de una nueva estructura propuesta para la tabla de contenido de ASP.NET Core.  Si tiene unos minutos para realizar un ejercicio de búsqueda de 7 temas diferentes en la tabla actual o propuesta de contenido, [haga clic aquí para participar en el estudio](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
