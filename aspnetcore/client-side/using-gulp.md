@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/04/2018
 uid: client-side/using-gulp
-ms.openlocfilehash: 4f383be0498b5b861bd43cc0f0685b1e62c7571b
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: e280eabecbd427f3e1418b3d7a60e0ea3df46a5a
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795530"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450611"
 ---
 # <a name="use-gulp-in-aspnet-core"></a>Usar Gulp en ASP.NET Core
 
@@ -58,7 +58,7 @@ El código anterior especifica qué módulos de nodo son necesarios. El `require
 
 | Nombre del módulo | Descripción |
 | ----------- | ----------- |
-| gulp        | La transmisión por secuencias del sistema de compilación Gulp. Para obtener más información, consulte [gulp](https://www.npmjs.com/package/gulp). |
+| Gulp        | La transmisión por secuencias del sistema de compilación Gulp. Para obtener más información, consulte [gulp](https://www.npmjs.com/package/gulp). |
 | rimraf      | Un módulo de eliminación de nodo. Para obtener más información, consulte [rimraf](https://www.npmjs.com/package/rimraf). |
 | gulp-concat | Un módulo que concatena los archivos según el carácter de nueva línea del sistema operativo. Para obtener más información, consulte [gulp-concat](https://www.npmjs.com/package/gulp-concat). |
 | gulp cssmin | Un módulo que minifica objeto archivos CSS. Para obtener más información, consulte [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin). |
