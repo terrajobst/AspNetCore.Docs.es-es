@@ -5,18 +5,18 @@ description: Sepa cómo mejorar una aplicación ASP.NET Core desde un ensamblado
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2018
+ms.date: 11/22/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: a06c2da04c1631f5811a535c891ca5190b0d8864
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: ef3b48dc72f294a783d789c4c9a796e3498a91d9
+ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207568"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52299461"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>Mejorar una aplicación desde un ensamblado externo en ASP.NET Core con IHostingStartup
 
-Por [Luke Latham](https://github.com/guardrex)
+Por [Luke Latham](https://github.com/guardrex) y [Pavel Krymets](https://github.com/pakrym)
 
 Una implementación de [IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) (inicio de hospedaje) permite agregar mejoras a una aplicación al iniciarla a partir de un ensamblado externo. Por ejemplo, una biblioteca externa puede usar una implementación de inicio de hospedaje para suministrar más servicios o proveedores de configuración a una aplicación. `IHostingStartup` *está disponible en ASP.NET Core 2.0 o versiones posteriores.*
 
@@ -113,14 +113,21 @@ La página de índice de la aplicación lee y procesa los valores de configuraci
 
 *Este enfoque solo está disponible para las aplicaciones de .NET Core, no de .NET Framework.*
 
-Se puede proporcionar una mejora del inicio de hospedaje dinámico que no requiere una referencia de tiempo de compilación para la activación en una aplicación de consola sin un punto de entrada. La aplicación contiene un atributo `HostingStartup`. Para crear un inicio de hospedaje dinámico, siga estos pasos:
+Se puede proporcionar una mejora del inicio de hospedaje dinámico que no requiere una referencia de tiempo de compilación para la activación en una aplicación de consola sin un punto de entrada que contiene un atributo `HostingStartup`. Publicar la aplicación de consola genera un ensamblado de inicio de hospedaje que se puede consumir desde el almacén en tiempo de ejecución.
 
-1. La biblioteca de implementación se crea a partir de la clase que contiene la implementación `IHostingStartup`. La biblioteca de implementación se trata como un paquete normal.
-1. Una aplicación de consola sin un punto de entrada hace referencia al paquete de la biblioteca de implementación. Una aplicación de consola se usa porque:
-   * Un archivo de dependencias es un recurso de aplicación ejecutable, por lo que una biblioteca no puede proporcionar un archivo de dependencias.
-   * Una biblioteca no se puede agregar directamente al [almacén de paquetes en tiempo de ejecución](/dotnet/core/deploying/runtime-store), lo que requiere un proyecto ejecutable que tenga como destino el tiempo de ejecución compartido.
-1. La aplicación de consola se publica para obtener las dependencias del inicio de hospedaje. Una consecuencia de la publicación de la aplicación de consola es que las dependencias no usadas se cortan en el archivo de dependencias.
-1. La aplicación y su archivo de dependencias se colocan en el almacén de paquetes en tiempo de ejecución. Para detectar el ensamblado de inicio de hospedaje y su archivo de dependencias, se hace referencia a ellos en un par de variables de entorno.
+En este proceso se usa una aplicación de consola sin un punto de entrada porque:
+
+* Se requiere un archivo de dependencias para consumir el inicio de hospedaje en el ensamblado de inicio de hospedaje. Un archivo de dependencias es un recurso de aplicación ejecutable que se genera mediante la publicación de una aplicación, no una biblioteca.
+* Una biblioteca no se puede agregar directamente al [almacén de paquetes en tiempo de ejecución](/dotnet/core/deploying/runtime-store), lo que requiere un proyecto ejecutable que tenga como destino el tiempo de ejecución compartido.
+
+En la creación de un inicio de hospedaje dinámico:
+
+* Se crea un ensamblado de inicio de hospedaje desde la aplicación de consola sin un punto de entrada que:
+  * Incluye una clase que contiene la implementación de `IHostingStartup`.
+  * Incluye un atributo [HostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.hostingstartupattribute) para identificar la clase de implementación `IHostingStartup`.
+* La aplicación de consola se publica para obtener las dependencias del inicio de hospedaje. Una consecuencia de la publicación de la aplicación de consola es que las dependencias no usadas se cortan en el archivo de dependencias.
+* El archivo de dependencias se modifica para establecer la ubicación en tiempo de ejecución del ensamblado de inicio de hospedaje.
+* El ensamblado de inicio de hospedaje y su archivo de dependencias se colocan en el almacén de paquetes en tiempo de ejecución. Para detectar el ensamblado de inicio de hospedaje y su archivo de dependencias, se enumeran en un par de variables de entorno.
 
 La aplicación de consola hace referencia al paquete [Microsoft.AspNetCore.Hosting.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.Abstractions/):
 
@@ -167,187 +174,98 @@ Las opciones de activación del inicio de hospedaje son:
 
 La implementación de inicio de hospedaje se coloca en el [almacén en tiempo de ejecución](/dotnet/core/deploying/runtime-store). No es necesario que la aplicación mejorada haga ninguna referencia de tiempo de compilación al ensamblado.
 
-Una vez compilado el inicio de hospedaje, el archivo de proyecto de inicio de hospedaje actúa como el archivo de manifiesto para el comando [dotnet store](/dotnet/core/tools/dotnet-store).
+Una vez compilado el inicio de hospedaje, se genera un almacén en tiempo de ejecución mediante el archivo del proyecto de manifiesto y el comando [dotnet store](/dotnet/core/tools/dotnet-store).
 
 ```console
-dotnet store --manifest <PROJECT_FILE> --runtime <RUNTIME_IDENTIFIER>
+dotnet store --manifest {MANIFEST FILE} --runtime {RUNTIME IDENTIFIER} --output {OUTPUT LOCATION} --skip-optimization
 ```
 
-Este comando coloca el ensamblado de inicio de hospedaje y otras dependencias que no forman parte del marco compartido en el almacén de tiempo de ejecución del perfil de usuario en:
+En la aplicación de ejemplo (proyecto *RuntimeStore*), se usa el siguiente comando:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
+``` console
+dotnet store --manifest store.manifest.csproj --runtime win7-x64 --output ./deployment/store --skip-optimization
 ```
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/Users/<USER>/.dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/Users/<USER>/.dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
----
-
-Si desea colocar el ensamblado y las dependencias para su uso global, agregue la opción `-o|--output` al comando `dotnet store` con la ruta de acceso siguiente:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
----
+Para que el tiempo de ejecución detecte el almacén en tiempo de ejecución, la ubicación del almacén en tiempo de ejecución se agrega a la variable de entorno `DOTNET_SHARED_STORE`.
 
 **Modificar y colocar el archivo de dependencias del inicio de hospedaje**
 
-La ubicación del tiempo de ejecución se especifica en el archivo *\*.deps.json*. Para activar la mejora, el elemento `runtime` debe especificar la ubicación del ensamblado de tiempo de ejecución de la mejora. Anteponga `lib/<TARGET_FRAMEWORK_MONIKER>/` a la ubicación de `runtime`:
+Para activar la mejora sin una referencia de paquete a la mejora, especifique dependencias adicionales del tiempo de ejecución en `additionalDeps`. `additionalDeps` permite:
 
-[!code-json[](platform-specific-configuration/samples-snapshot/2.x/StartupEnhancement2.deps.json?range=2-13&highlight=8)]
+* Ampliar el gráfico de la biblioteca de la aplicación al proporcionar un conjunto de archivos *\*.deps.json* adicionales para combinarlos con el propio archivo *\*.deps.json* de la aplicación durante el inicio.
+* Permitir la detección y la carga del ensamblado de inicio de hospedaje.
 
-En la aplicación de ejemplo (proyecto *StartupDiagnostics*), el archivo *\*.deps.json* se modifica por medio de un script de [PowerShell](/powershell/scripting/powershell-scripting). que se activa automáticamente a través de un destino de compilación en el archivo de proyecto.
+El enfoque recomendado para generar el archivo de dependencias adicionales es:
 
-El archivo *\*.deps.json* de la implementación debe estar en una ubicación accesible.
+ 1. Ejecutar `dotnet publish` en el archivo de manifiesto del almacén en tiempo de ejecución al que se hace referencia en la sección anterior.
+ 1. Quitar la referencia del manifiesto de las bibliotecas y de la sección `runtime` del archivo *\*deps.json* resultante.
 
-Para usarlo individualmente con cada usuario, coloque el archivo en la carpeta *additonalDeps* de la configuración de `.dotnet` del perfil de usuario:
+En el proyecto de ejemplo, la propiedad `store.manifest/1.0.0` se quita de las secciones `targets` y `libraries`:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
----
-
-Para usarlo de manera global, colóquelo en la carpeta *additonalDeps* de la instalación de .NET Core:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
----
-
-La versión "Shared Framework" es la versión del tiempo de ejecución compartido que la aplicación de destino usa. El tiempo de ejecución compartido se muestra en el archivo *\*.runtimeconfig.json*. En la aplicación de ejemplo (*HostingStartupApp*), el tiempo de ejecución compartido se especifica en el archivo *HostingStartupApp.runtimeconfig.json*.
-
-**Indicar el archivo de dependencias del inicio de hospedaje**
-
-La ubicación del archivo *\*.deps.json* de implementación aparece en la variable de entorno `DOTNET_ADDITIONAL_DEPS`.
-
-Si el archivo se coloca en la carpeta *.dotnet* del perfil de usuario, establezca el valor de la variable de entorno en:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\x64\additionalDeps\
+```json
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "4ea77c7b75ad1895ae1ea65e6ba2399010514f99"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "store.manifest/1.0.0": {
+        "dependencies": {
+          "StartupDiagnostics": "1.0.0"
+        },
+        "runtime": {
+          "store.manifest.dll": {}
+        }
+      },
+      "StartupDiagnostics/1.0.0": {
+        "runtime": {
+          "lib/netcoreapp2.1/StartupDiagnostics.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "store.manifest/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StartupDiagnostics/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oiQr60vBQW7+nBTmgKLSldj06WNLRTdhOZpAdEbCuapoZ+M2DJH2uQbRLvFT8EGAAv4TAKzNtcztpx5YOgBXQQ==",
+      "path": "startupdiagnostics/1.0.0",
+      "hashPath": "startupdiagnostics.1.0.0.nupkg.sha512"
+    }
+  }
+}
 ```
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+Coloque el archivo *\*.deps.json* en la siguiente ubicación:
 
 ```
-/Users/<USER>/.dotnet/x64/additionalDeps/
+{ADDITIONAL DEPENDENCIES PATH}/shared/{SHARED FRAMEWORK NAME}/{SHARED FRAMEWORK VERSION}/{ENHANCEMENT ASSEMBLY NAME}.deps.json
 ```
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+* `{ADDITIONAL DEPENDENCIES PATH}`: ubicación agregada a la variable de entorno `DOTNET_ADDITIONAL_DEPS`.
+* `{SHARED FRAMEWORK NAME}`: marco compartido necesario para este archivo de dependencias adicionales.
+* `{SHARED FRAMEWORK VERSION}`: versión mínima del marco compartido.
+* `{ENHANCEMENT ASSEMBLY NAME}`: nombre del ensamblado de la mejora.
+
+En la aplicación de ejemplo (proyecto *RuntimeStore*), el archivo de dependencias adicionales se coloca en la siguiente ubicación:
 
 ```
-/Users/<USER>/.dotnet/x64/additionalDeps/
+additionalDeps/shared/Microsoft.AspNetCore.App/2.1.0/StartupDiagnostics.deps.json
 ```
 
----
+Para que el tiempo de ejecución detecte la ubicación del almacén en tiempo de ejecución, la ubicación del archivo de dependencias adicionales se agrega a la variable de entorno `DOTNET_ADDITIONAL_DEPS`.
 
-Si el archivo está en la instalación de .NET Core para usarlo de manera global, indique la ruta de acceso completa al archivo:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
----
-
-Para que la aplicación de ejemplo (*HostingStartupApp*) encuentre el archivo de dependencias (*HostingStartupApp.runtimeconfig.json*), el archivo de dependencias se coloca en el perfil del usuario.
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-Use la sintaxis siguiente para establecer la variable de entorno `DOTNET_ADDITIONAL_DEPS`:
-
-```
-%UserProfile%\.dotnet\x64\additionalDeps\StartupDiagnostics\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-Use la sintaxis siguiente para establecer la variable de entorno `DOTNET_ADDITIONAL_DEPS`:
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/StartupDiagnostics/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-Use la sintaxis siguiente para establecer la variable de entorno `DOTNET_ADDITIONAL_DEPS`:
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/StartupDiagnostics/
-```
-
----
+En la aplicación de ejemplo (proyecto *RuntimeStore*), la creación del almacén en tiempo de ejecución y la generación del archivo de dependencias adicionales se realizan con un script de [PowerShell](/powershell/scripting/powershell-scripting).
 
 Para obtener ejemplos de cómo establecer variables de entorno en distintos sistemas operativos, vea [Uso de varios entornos](xref:fundamentals/environments).
 
@@ -355,9 +273,9 @@ Para obtener ejemplos de cómo establecer variables de entorno en distintos sist
 
 Para facilitar la implementación de un inicio de hospedaje en un entorno de varios equipos, la aplicación de ejemplo crea una carpeta de *implementación* en el resultado publicado que contiene:
 
-* El ensamblado de inicio de hospedaje.
+* El almacén en tiempo de ejecución de inicio de hospedaje.
 * El archivo de dependencias del inicio de hospedaje.
-* Un script de PowerShell que crea o modifica `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES` y `DOTNET_ADDITIONAL_DEPS` para admitir la activación del inicio del hospedaje. Ejecute el script desde un símbolo del sistema de PowerShell administrativo en el sistema de implementación.
+* Un script de PowerShell que crea o modifica `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`, `DOTNET_SHARED_STORE` y `DOTNET_ADDITIONAL_DEPS` para admitir la activación del inicio del hospedaje. Ejecute el script desde un símbolo del sistema de PowerShell administrativo en el sistema de implementación.
 
 ### <a name="nuget-package"></a>Detección de
 
