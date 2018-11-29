@@ -1,7 +1,7 @@
 ASP.NET Core ofrece las siguientes ventajas:
 
 * Un caso unificado para crear API web y una interfaz de usuario web.
-* Su diseño admite la [comprobación](xref:test/index).
+* Diseñado para la capacidad de prueba.
 * [Razor Pages](xref:razor-pages/index) hace que la codificación de escenarios centrados en páginas sean más sencillos y productivos.
 * Capacidad para desarrollarse y ejecutarse en Windows, macOS y Linux.
 * De código abierto y [centrado en la comunidad](https://live.asp.net/).
