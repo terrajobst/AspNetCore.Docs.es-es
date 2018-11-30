@@ -4,20 +4,23 @@ author: guardrex
 description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET Core en Windows Server Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/10/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 1b34195dc51ca8dab5e8eda10f05ff6678fbc78c
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 77fa6e1ef6a7fc707c2665826d3c1f4c2691979c
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570170"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450806"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
 Por [Luke Latham](https://github.com/guardrex)
 
 [Instalación del conjunto de hospedaje de .NET Core](#install-the-net-core-hosting-bundle)
+
+> [!NOTE]
+> Vamos a probar la facilidad de uso de una nueva estructura propuesta para la tabla de contenido de ASP.NET Core.  Si tiene unos minutos para realizar un ejercicio de búsqueda de 7 temas diferentes en la tabla actual o propuesta de contenido, [haga clic aquí para participar en el estudio](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -416,31 +419,19 @@ Para configurar la protección de datos en IIS para conservar el conjunto de cla
 
   El sistema de protección de datos tiene compatibilidad limitada con el establecimiento de una [directiva de equipo](xref:security/data-protection/configuration/machine-wide-policy) predeterminada para todas las aplicaciones que usan las API de protección de datos. Para obtener más información, vea <xref:security/data-protection/introduction>.
 
-## <a name="sub-application-configuration"></a>Configuración de aplicaciones secundarias
+## <a name="virtual-directories"></a>Directorios virtuales
 
-Las aplicaciones secundarias agregadas bajo la aplicación raíz no deben incluir el módulo de ASP.NET Core como controlador. Si se agrega el módulo como controlador al archivo *web.config* de una aplicación secundaria, aparece un *error 500.19 (Error interno del servidor)* que hace referencia al archivo de configuración erróneo al intentar examinar la aplicación secundaria.
+Los [directorios virtuales de IIS](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories) no son compatibles con aplicaciones ASP.NET Core. Una aplicación puede hospedarse como [subaplicación](#sub-applications).
 
-En el ejemplo siguiente se muestra un archivo *web.config* publicado para una aplicación secundaria ASP.NET Core:
+## <a name="sub-applications"></a>Subaplicaciones
 
-::: moniker range=">= aspnetcore-2.2"
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-  <location path="." inheritInChildApplications="false">
-    <system.webServer>
-      <aspNetCore processPath="dotnet" 
-        arguments=".\MyApp.dll" 
-        stdoutLogEnabled="false" 
-        stdoutLogFile=".\logs\stdout" />
-    </system.webServer>
-  </location>
-</configuration>
-```
-
-::: moniker-end
+Se puede hospedar una aplicación ASP.NET Core como una [subaplicación IIS](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#applications). La ruta de acceso de la subaplicación se convierte en parte de la dirección URL de la aplicación raíz.
 
 ::: moniker range="< aspnetcore-2.2"
+
+Una aplicación secundaria no debe incluir el módulo de ASP.NET Core como controlador. Si se agrega el módulo como controlador al archivo *web.config* de una aplicación secundaria, aparece un *error 500.19 (Error interno del servidor)* que hace referencia al archivo de configuración erróneo al intentar examinar la aplicación secundaria.
+
+En el ejemplo siguiente se muestra un archivo *web.config* publicado para una aplicación secundaria ASP.NET Core:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -473,7 +464,23 @@ Al hospedar una aplicación secundaria que no es de ASP.NET Core bajo una aplica
 
 ::: moniker-end
 
-Para más información sobre la configuración del módulo de ASP.NET Core, vea el tema [Introducción al módulo de ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) y [ASP.NET Core Module configuration reference](xref:host-and-deploy/aspnet-core-module) (Referencia de configuración del módulo de ASP.NET Core).
+Los vínculos a los recursos estáticos dentro de la aplicación secundaria deben utilizar una notación de una tilde con una barra diagonal (`~/`). La notación de tilde barra diagonal desencadena un [asistente de etiquetas](xref:mvc/views/tag-helpers/intro) para anteponer la ruta de acceso de la aplicación secundaria al vínculo relativo representado. Para una aplicación secundaria en `/subapp_path`, una imagen vinculada con `src="~/image.png"` se representa como `src="/subapp_path/image.png"`. El middleware de archivos estáticos de la aplicación raíz no procesa la solicitud de archivo estático. La solicitud se procesa mediante el middleware de archivos estáticos de la aplicación secundaria.
+
+Si el atributo `src` de un recurso estático se establece en una ruta de acceso absoluta (por ejemplo, `src="/image.png"`), el vínculo se representa sin la base de la ruta de acceso de la aplicación secundaria. El middleware de archivos estáticos de la aplicación raíz intenta atender al recurso desde el [webroot](xref:fundamentals/index#web-root-webroot), lo que resulta en una respuesta *404 - No encontrado* a menos que el recurso estático esté disponible desde la aplicación raíz.
+
+Para hospedar una aplicación ASP.NET Core como aplicación secundaria en otra aplicación ASP.NET Core:
+
+1. Establezca un grupo de aplicaciones para la aplicación secundaria. Establezca la **Versión de .NET CLR** en **Sin código administrado**.
+
+1. Agregue el sitio raíz en el Administrador de IIS con la aplicación secundaria en una carpeta en el sitio raíz.
+
+1. Haga clic con el botón derecho en la carpeta de la aplicación secundaria en el Administrador de IIS y seleccione **Convertir en aplicación**.
+
+1. En el cuadro de diálogo **Agregar aplicación**, use el botón **Seleccionar** en **Grupo de aplicaciones** para asignar el grupo de aplicaciones que ha creado para la aplicación secundaria. Seleccione **Aceptar**.
+
+La asignación de un grupo de aplicaciones independiente de la aplicación secundaria es un requisito cuando se utiliza el modelo de hospedaje en proceso.
+
+Para más información sobre el modelo de hospedaje en proceso y cómo configurar el módulo de ASP.NET Core, consulte <xref:fundamentals/servers/aspnet-core-module> y <xref:host-and-deploy/aspnet-core-module>.
 
 ## <a name="configuration-of-iis-with-webconfig"></a>Configuración de IIS con web.config
 
@@ -610,6 +617,7 @@ Identifique los errores comunes al hospedar aplicaciones ASP.NET Core en IIS.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
+* <xref:test/troubleshoot>
 * [Introducción a ASP.NET Core](xref:index)
 * [Sitio oficial de Microsoft IIS](https://www.iis.net/)
 * [Biblioteca de contenido técnico de Windows Server](/windows-server/windows-server)
