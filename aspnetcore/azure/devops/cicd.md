@@ -123,7 +123,7 @@ Hay tres pasos diferentes para completar. Completando los pasos descritos en los
 
     ![Guardar definición de compilación - cuadro de diálogo modal](media/cicd/vsts-save-modal.png)
 
-    Use la carpeta predeterminada de *\\*y haga clic en el **guardar** botón.
+    Use la carpeta predeterminada de *\\* y haga clic en el **guardar** botón.
 
 ### <a name="create-the-release-pipeline"></a>Crear la canalización de versiones
 
