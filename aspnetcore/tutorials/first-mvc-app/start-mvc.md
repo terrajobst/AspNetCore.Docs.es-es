@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo empezar a usar ASP.NET Core MVC y 
 ms.author: riande
 ms.date: 10/07/2017
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: fe555e4cfcaec5d4bb8ccee00b06d1bbcaae9dcd
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 9d50607899058c887597a3d73198552d3ef5b020
+ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391211"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52710093"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Introducción a ASP.NET Core MVC y Visual Studio
 
@@ -23,6 +23,9 @@ Hay tres versiones de este tutorial:
 * macOS: [Creación de una aplicación de ASP.NET Core MVC con Visual Studio para Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
 * Windows: [Creación de una aplicación de ASP.NET Core MVC con Visual Studio](xref:tutorials/first-mvc-app/start-mvc)
 * macOS, Linux y Windows: [Creación de una aplicación de ASP.NET Core MVC con Visual Studio Code](xref:tutorials/first-mvc-app-xplat/start-mvc)
+
+> [!NOTE]
+> Vamos a probar la facilidad de uso de una nueva estructura propuesta para la tabla de contenido de ASP.NET Core.  Si tiene unos minutos para realizar un ejercicio de búsqueda de 7 temas diferentes en la tabla actual o propuesta de contenido, [haga clic aquí para participar en el estudio](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
 
 ## <a name="install-visual-studio-and-net-core"></a>Instalar Visual Studio y .NET Core
 
@@ -81,28 +84,9 @@ En la siguiente sección de este tutorial obtendrá información sobre MVC y emp
 
 ::: moniker range="<= aspnetcore-2.0"
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
-
 [!INCLUDE [](~/includes/net-core-prereqs.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-Instale Visual Studio Community 2017. Seleccione la descarga de Community. Omita este paso si tiene instalado Visual Studio 2017.
-
-* [Página principal del instalador de Visual Studio 2017](https://www.visualstudio.com/)
-
-Ejecute el instalador y seleccione las siguientes cargas de trabajo:
-
-* **Desarrollo de ASP.NET y web** (en **Web y nube**)
-* **Desarrollo multiplataforma de .NET Core** (en **Otros conjuntos de herramientas**)
-
-![**Desarrollo de ASP.NET y web** (en **Web y nube**)](start-mvc/_static/web_workload.png)
-
-![**Desarrollo multiplataforma de .NET Core** (en **Otros conjuntos de herramientas**)](start-mvc/_static/x_plat_wl.png)
-
----
-
-## <a name="create-a-web-app"></a>Crear una aplicación web
+## <a name="create-a-web-app"></a>Creación de una aplicación web
 
 En Visual Studio, seleccione **Archivo > Nuevo > Proyecto**.
 
@@ -117,8 +101,6 @@ Complete el cuadro de diálogo **Nuevo proyecto**:
 
 ![Cuadro de diálogo Nuevo proyecto, .NET CORE en el panel izquierdo, Aplicación web ASP.NET Core ](start-mvc/_static/new_project2.png)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
 Complete el cuadro de diálogo **Nueva aplicación web ASP.NET Core (.NET Core) - MvcMovie**:
 
 * En el cuadro desplegable del selector de versión, seleccione **ASP.NET Core 2.-**.
@@ -126,19 +108,6 @@ Complete el cuadro de diálogo **Nueva aplicación web ASP.NET Core (.NET Core) 
 * Pulse **Aceptar**.
 
 ![Cuadro de diálogo Nuevo proyecto, .NET CORE en el panel izquierdo, Aplicación web ASP.NET Core ](start-mvc/_static/new_project22.png)
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-Complete el cuadro de diálogo **Nueva aplicación web ASP.NET Core (.NET Core) - MvcMovie**:
-
-* En el cuadro desplegable del selector de versión, pulse **ASP.NET Core 1.1**.
-* Pulse **Aplicación web**.
-* Mantenga la opción predeterminado **Sin autenticación**.
-* Pulse **Aceptar**.
-
-![Nueva aplicación web de ASP.NET Core](start-mvc/_static/p3.png)
-
----
 
 Visual Studio ha usado una plantilla predeterminada para el proyecto de MVC que acaba de crear. Si escribe un nombre de proyecto y selecciona algunas opciones, dispondrá de inmediato de una aplicación operativa. Se trata de un proyecto introductorio básico, pero es un buen punto de partida.
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 5ca909681ca9da3fae0391991902da97581852be
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: ccaaa6fafd611c3cf35a9171d5bfd6100535eeb9
+ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253187"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618134"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Estado de sesión y aplicación en ASP.NET Core
 
@@ -374,7 +374,7 @@ El almacenamiento en caché es una manera eficaz de almacenar y recuperar datos.
 
 Los datos almacenados en caché no están asociados a una solicitud, usuario o sesión específicos. **Procure no almacenar en caché datos específicos de usuario que podrían recuperar las solicitudes de otros usuarios.**
 
-Para obtener más información, vea el tema [Almacenamiento en caché de respuestas](xref:performance/caching/index).
+Para obtener más información, vea <xref:performance/caching/response>.
 
 ## <a name="dependency-injection"></a>Inserción de dependencias
 

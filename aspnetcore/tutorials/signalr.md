@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/13/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 8916b3659250c1bcbbc2dc9b3d466586f98bcc7e
-ms.sourcegitcommit: d3392f688cfebc1f25616da7489664d69c6ee330
+ms.openlocfilehash: 190717dc6e6f9f2766ba92aa7472f4cdea9b6827
+ms.sourcegitcommit: e7fafb153b9de7595c2558a0133f8d1c33a3bddb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51818387"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52458535"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Tutorial: Introducción a SignalR de ASP.NET Core
 
@@ -30,6 +30,9 @@ Al final, tendrá una aplicación de chat funcional:
 ![Aplicación de ejemplo de SignalR](signalr/_static/signalr-get-started-finished.png)
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
+
+> [!NOTE]
+> Vamos a probar la facilidad de uso de una nueva estructura propuesta para la tabla de contenido de ASP.NET Core.  Si tiene unos minutos para realizar un ejercicio de búsqueda de 7 temas diferentes en la tabla actual o propuesta de contenido, [haga clic aquí para participar en el estudio](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -227,7 +230,7 @@ El servidor de SignalR se debe configurar para que pase las solicitudes de Signa
 * En el terminal integrado, ejecute el comando siguiente:
 
   ```console
-  dotnet run -p SignalRChat
+  dotnet run -p SignalRChat.csproj
   ```
   
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
