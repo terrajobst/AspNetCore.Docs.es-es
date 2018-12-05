@@ -5,14 +5,14 @@ description: Obtenga información sobre la compresión de respuesta y cómo usar
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/21/2018
+ms.date: 12/01/2018
 uid: performance/response-compression
-ms.openlocfilehash: 8c3d74b6a346d51507d3c278b03ddc842feea13e
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 2516fbb30e55990dc4ad0d92069853bc26874bc9
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207984"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861893"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Compresión de respuesta en ASP.NET Core
 
@@ -24,7 +24,7 @@ Ancho de banda de red es un recurso limitado. Reducir el tamaño de la respuesta
 
 ## <a name="when-to-use-response-compression-middleware"></a>Cuándo usar Middleware de compresión de respuestas
 
-Use las tecnologías de compresión de respuesta basado en servidor en IIS, Apache o Nginx. El rendimiento del middleware probablemente no coincida con los módulos de servidor. [Servidor HTTP.sys](xref:fundamentals/servers/httpsys) y [Kestrel](xref:fundamentals/servers/kestrel) no ofrece actualmente compatibilidad integrada de compresión.
+Use las tecnologías de compresión de respuesta basado en servidor en IIS, Apache o Nginx. El rendimiento del middleware probablemente no coincida con los módulos de servidor. [Servidor HTTP.sys](xref:fundamentals/servers/httpsys) server y [Kestrel](xref:fundamentals/servers/kestrel) server actualmente no ofrecen compatibilidad integrada de compresión.
 
 Use el Middleware de compresión de respuesta cuando haya:
 
@@ -33,8 +33,8 @@ Use el Middleware de compresión de respuesta cuando haya:
   * [Módulo mod_deflate de Apache](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [Nginx compresión y descompresión](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Que hospeda directamente en:
-  * [Servidor HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominados [WebListener](xref:fundamentals/servers/weblistener))
-  * [Kestrel](xref:fundamentals/servers/kestrel)
+  * [HTTP.sys](xref:fundamentals/servers/httpsys) server (anteriormente denominados [WebListener](xref:fundamentals/servers/weblistener))
+  * [Kestrel](xref:fundamentals/servers/kestrel) server
 
 ## <a name="response-compression"></a>Compresión de respuesta
 
@@ -94,7 +94,7 @@ Explore las características de Middleware de compresión de respuesta con el [a
 * La compresión de respuestas de la aplicación con Gzip y proveedores de compresión personalizado.
 * Cómo agregar un tipo MIME a la lista predeterminada de los tipos MIME para compresión.
 
-## <a name="package"></a>Package
+## <a name="package"></a>Paquete
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -432,7 +432,7 @@ Si basa la compresión de respuestas en el `Accept-Encoding` encabezado, hay pot
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Problema de middleware cuando están detrás de un proxy inverso de Nginx
 
-Cuando una solicitud se redirigió mediante un proxy nginx, el `Accept-Encoding` se quita el encabezado. Esto impide que el middleware de compresión de la respuesta. Para obtener más información, consulte [NGINX: compresión y descompresión](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Este problema es controlando [averiguar la compresión de paso a través de Nginx (BasicMiddleware Nº 123)](https://github.com/aspnet/BasicMiddleware/issues/123).
+Cuando una solicitud se redirigió mediante un proxy nginx, el `Accept-Encoding` se quita el encabezado. Eliminación de la `Accept-Encoding` encabezado evita que el middleware de compresión de la respuesta. Para obtener más información, consulte [NGINX: compresión y descompresión](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Este problema es controlando [averiguar la compresión de paso a través de Nginx (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>Trabajar con la compresión dinámica de IIS
 

@@ -8,23 +8,23 @@ ms.date: 06/10/2014
 ms.assetid: 6ecd08c1-e364-4cd7-ad4c-806521911585
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: ebb61e4296f78bcd74622b729a10d45b60ebb724
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: f92946ae99bf8cb3840adb5d98004acb87e24925
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912792"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861295"
 ---
 <a name="signalr-scaleout-with-redis"></a>Escalabilidad horizontal de SignalR con Redis
 ====================
-por [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+por [Mike Wasson](https://github.com/MikeWasson)
 
 > ## <a name="software-versions-used-in-this-topic"></a>Versiones de software que se usa en este tema
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
-> - Versión 2 de SignalR
+> - SignalR versión 2.4
 >
 >
 >
@@ -65,7 +65,8 @@ Antes de entrar en el tutorial detallado, le presentamos una introducción rápi
 2. Agregue estos paquetes de NuGet para la aplicación:
 
     - [Microsoft.AspNet.SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
-    - [Microsoft.AspNet.SignalR.Redis](http://nuget.org/packages/Microsoft.AspNet.SignalR.Redis)
+    - [Microsoft.AspNet.SignalR.StackExchangeRedis](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.StackExchangeRedis)
+    
 3. Cree una aplicación de SignalR.
 4. Agregue el siguiente código en Startup.cs, para configurar la placa posterior:
 
@@ -112,7 +113,7 @@ Cree una aplicación de SignalR con cualquiera de estos tutoriales:
 - [Introducción a SignalR 2.0](../getting-started/tutorial-getting-started-with-signalr.md)
 - [Introducción a SignalR 2.0 y MVC 5](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
 
-A continuación, modificaremos la aplicación de chat para admitir la escalabilidad horizontal con Redis. En primer lugar, agregue el paquete de SignalR.Redis NuGet al proyecto. En Visual Studio, desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
+A continuación, modificaremos la aplicación de chat para admitir la escalabilidad horizontal con Redis. En primer lugar, agregue el `Microsoft.AspNet.SignalR.StackExchangeRedis` paquete NuGet al proyecto. En Visual Studio, desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
 
 [!code-powershell[Main](scaleout-with-redis/samples/sample5.ps1)]
 

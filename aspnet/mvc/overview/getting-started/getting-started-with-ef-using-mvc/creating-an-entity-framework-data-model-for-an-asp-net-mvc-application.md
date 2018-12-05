@@ -3,16 +3,16 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-
 title: Introducción a Entity Framework 6 Code First con MVC 5 | Microsoft Docs
 author: tdykstra
 ms.author: riande
-ms.date: 10/04/2018
+ms.date: 12/04/2018
 ms.assetid: 00bc8b51-32ed-4fd3-9745-be4c2a9c1eaf
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5dd9a5a24d8c67c5190c98e3240d132eaa27661c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: c7ab9458f83e05af84f72d9a2519a8c1c39b84b5
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912415"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861438"
 ---
 # <a name="get-started-with-entity-framework-6-code-first-using-mvc-5"></a>Introducción a Entity Framework 6 Code First con MVC 5
 
@@ -21,7 +21,7 @@ por [Tom Dykstra](https://github.com/tdykstra)
 [Descargue el proyecto completado](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 > [!NOTE]
-> Un [versión más reciente de esta serie de tutoriales](/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.1) está disponible que usa [las páginas de Razor](/aspnet/core/razor-pages). Razor Pages es un modelo de programación basado en páginas que facilita la compilación de interfaces de usuario web y hace que sea más productiva. Se recomienda el tutorial de las páginas de Razor con respecto a la versión MVC. El tutorial de las páginas de Razor:
+> Se recomienda para nuevo desarrollo [páginas de Razor de ASP.NET Core](/aspnet/core/razor-pages) a través de controladores y vistas MVC de ASP.NET. Una serie de tutoriales similar a ésta está disponible para las páginas de Razor, el [tutorial de las páginas de Razor](/aspnet/core/tutorials/razor-pages/razor-pages-start):
 >
 > * Es más fácil de seguir.
 > * Proporciona más procedimientos recomendados de EF Core.

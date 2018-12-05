@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar al cliente de Java de ASP.NET
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 11/06/2018
+ms.date: 11/07/2018
 uid: signalr/java-client
-ms.openlocfilehash: 4ee4e61fc301ebeec4d95b1167f94f16c38f3ac5
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: d0eff38c1f622b896ed1dc3002238aec7b6bfd38
+ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225426"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892099"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>Cliente ASP.NET Core SignalR Java
 
@@ -26,13 +26,12 @@ En este artículo hace referencia a la aplicación de consola de Java de ejemplo
 
 ## <a name="install-the-signalr-java-client-package"></a>Instale el paquete de cliente de SignalR Java
 
-El *signalr-1.0.0-preview3-35501* archivo JAR permite a los clientes para conectarse a los concentradores de SignalR. Para buscar el número de versión de archivo JAR más reciente, consulte el [los resultados de búsqueda de Maven](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).
+El *signalr 1.0.0* archivo JAR permite a los clientes para conectarse a los concentradores de SignalR. Para buscar el número de versión de archivo JAR más reciente, consulte el [los resultados de búsqueda de Maven](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).
 
 Si usa Gradle, agregue la siguiente línea a la `dependencies` sección de su *build.gradle* archivo:
 
 ```gradle
-implementation 'com.microsoft.signalr:signalr:1.0.0-preview3-35501'
-implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+implementation 'com.microsoft.signalr:signalr:1.0.0'
 ```
 
 Si con Maven, agregue las siguientes líneas dentro de la `<dependencies>` elemento de su *pom.xml* archivo:
@@ -75,6 +74,12 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 
 Esto puede pasar por alto.
 
+## <a name="android-development-notes"></a>Notas de desarrollo de Android
+
+Con respecto a la compatibilidad con el SDK de Android para las características de cliente de SignalR, tenga en cuenta los siguientes elementos cuando se especifica la versión del SDK de Android de destino:
+
+* El cliente de Java de SignalR se ejecutará en el nivel de API Android 16 y versiones posteriores.
+* Conexión a través de Azure SignalR Service requerirá el nivel de API de Android 20 y versiones posterior porque la [Azure SignalR Service](/azure/azure-signalr/signalr-overview) requiere TLS 1.2 y no es compatible con conjuntos de cifrado basado en SHA-1. Android [agrega compatibilidad con SHA-256 (y versiones posteriores) conjuntos de cifrado](https://developer.android.com/reference/javax/net/ssl/SSLSocket) en el nivel de API 20.
 
 ## <a name="configure-bearer-token-authentication"></a>Configurar la autenticación de token de portador
 
@@ -89,8 +94,6 @@ HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
 ```
 
 ## <a name="known-limitations"></a>Limitaciones conocidas
-
-Se trata de una versión preliminar del cliente de Java. No se admiten algunas características:
 
 * Se admite solo el protocolo JSON.
 * Se admite sólo el transporte de WebSockets.
