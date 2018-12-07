@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET Core en Windows Server Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 12/01/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 77fa6e1ef6a7fc707c2665826d3c1f4c2691979c
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 1680b1377351fbfbfc38249868da389012dd5fb6
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450806"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862192"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -65,11 +65,11 @@ public static IWebHost BuildWebHost(string[] args) =>
 
 **Modelo de hospedaje en proceso**
 
-`CreateDefaultBuilder` llama al método `UseIIS` para iniciar [CoreCLR](/dotnet/standard/glossary#coreclr) y hospedar la aplicación dentro del proceso de trabajo de IIS (*w3wp.exe* o *iisexpress.exe*). Las pruebas de rendimiento indican que el hospedaje de una aplicación .NET Core en proceso proporciona un rendimiento de solicitud considerablemente mayor en comparación con el hospedaje de solicitudes de aplicaciones fuera de proceso y de proxy para [Kestrel](xref:fundamentals/servers/kestrel).
+`CreateDefaultBuilder` llama al método `UseIIS` para iniciar [CoreCLR](/dotnet/standard/glossary#coreclr) y hospedar la aplicación dentro del proceso de trabajo de IIS (*w3wp.exe* o *iisexpress.exe*). Las pruebas de rendimiento indican que el hospedaje de una aplicación .NET Core en proceso proporciona un rendimiento de solicitud considerablemente mayor en comparación con el hospedaje de solicitudes de aplicaciones fuera de proceso y de proxy para el servidor [Kestrel](xref:fundamentals/servers/kestrel).
 
 **Modelo de hospedaje fuera de proceso**
 
-Para el hospedaje fuera de proceso con IIS, `CreateDefaultBuilder` configura [Kestrel](xref:fundamentals/servers/kestrel) como el servidor web y habilita la integración de IIS configurando la ruta de acceso base y el puerto para el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
+Para el hospedaje fuera de proceso con IIS, `CreateDefaultBuilder` configura el servidor [Kestrel](xref:fundamentals/servers/kestrel) como servidor web y habilita IIS Integration mediante la configuración de la ruta de acceso y el puerto base para el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
 
 El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back-end. `CreateDefaultBuilder` llama al método <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*>. `UseIISIntegration` configura Kestrel para escuchar en el puerto dinámico en la dirección IP de localhost (`127.0.0.1`). Si el puerto dinámico es 1234, Kestrel escucha en `127.0.0.1:1234`. Esta configuración reemplaza a otras configuraciones de dirección URL proporcionadas por:
 
@@ -85,7 +85,7 @@ Para obtener más información sobre los modelos de hospedaje dentro y fuera de 
 
 ::: moniker range="= aspnetcore-2.1"
 
-`CreateDefaultBuilder` configura [Kestrel](xref:fundamentals/servers/kestrel) como el servidor web y habilita IIS Integration configurando la ruta de acceso base y el puerto para el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
+`CreateDefaultBuilder` configura el servidor [Kestrel](xref:fundamentals/servers/kestrel) como servidor web y habilita IIS Integration mediante la configuración de la ruta de acceso y el puerto base para el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
 
 El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back-end. `CreateDefaultBuilder` llama al método [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration). `UseIISIntegration` configura Kestrel para escuchar en el puerto dinámico en la dirección IP de localhost (`127.0.0.1`). Si el puerto dinámico es 1234, Kestrel escucha en `127.0.0.1:1234`. Esta configuración reemplaza a otras configuraciones de dirección URL proporcionadas por:
 
@@ -99,7 +99,7 @@ No es necesario realizar llamadas a `UseUrls` o a la API `Listen` de Kestrel cua
 
 ::: moniker range="= aspnetcore-2.0"
 
-`CreateDefaultBuilder` configura [Kestrel](xref:fundamentals/servers/kestrel) como el servidor web y habilita IIS Integration configurando la ruta de acceso base y el puerto para el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
+`CreateDefaultBuilder` configura el servidor [Kestrel](xref:fundamentals/servers/kestrel) como servidor web y habilita IIS Integration mediante la configuración de la ruta de acceso y el puerto base para el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
 
 El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back-end. `CreateDefaultBuilder` llama al método [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration). `UseIISIntegration` configura Kestrel para escuchar en el puerto dinámico en la dirección IP de localhost (`localhost`). Si el puerto dinámico es 1234, Kestrel escucha en `localhost:1234`. Esta configuración reemplaza a otras configuraciones de dirección URL proporcionadas por:
 
@@ -484,7 +484,7 @@ Para más información sobre el modelo de hospedaje en proceso y cómo configura
 
 ## <a name="configuration-of-iis-with-webconfig"></a>Configuración de IIS con web.config
 
-La configuración de IIS aún se ve afectada por la sección **\<system.webServer>** de *web.config* en las características de IIS que se aplican a una configuración de proxy inverso. Si IIS está configurado en el nivel de servidor para usar compresión dinámica, el elemento **\<urlCompression>** del archivo *web.config* de la aplicación puede deshabilitarla.
+En escenarios de IIS que son funcionales para aplicaciones ASP.NET Core con el módulo ASP.NET Core, la configuración de IIS está influenciada por la sección `<system.webServer>` de *web.config*. Por ejemplo, la configuración de IIS es funcional para la compresión dinámica. Si IIS está configurado en el nivel de servidor para usar compresión dinámica, el elemento `<urlCompression>` del archivo *web.config* de la aplicación puede deshabilitarlo para una aplicación ASP.NET Core.
 
 Para más información, vea la [referencia de configuración para \<system.webServer>](/iis/configuration/system.webServer/), [Referencia de configuración del módulo de ASP.NET Core](xref:host-and-deploy/aspnet-core-module) y [Módulos IIS con ASP.NET Core](xref:host-and-deploy/iis/modules). Para establecer variables de entorno para aplicaciones individuales que se ejecutan en grupos de aplicaciones aislados (se admite para IIS 10.0 o posterior), vea la sección *AppCmd.exe command* (Comando AppCmd.exe) del tema [Environment Variables \<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) (Variables de entorno <environmentVariables>) de la documentación de referencia de IIS.
 
@@ -492,10 +492,10 @@ Para más información, vea la [referencia de configuración para \<system.webSe
 
 Las aplicaciones ASP.NET Core no usan las secciones de configuración de aplicaciones ASP.NET 4.x en *web.config* para la configuración:
 
-* **\<system.web>**
-* **\<appSettings>**
-* **\<connectionStrings>**
-* **\<location>**
+* `<system.web>`
+* `<appSettings>`
+* `<connectionStrings>`
+* `<location>`
 
 Las aplicaciones de ASP.NET Core se configuran mediante otros proveedores de configuración. Para obtener más información, vea [Configuración](xref:fundamentals/configuration/index).
 

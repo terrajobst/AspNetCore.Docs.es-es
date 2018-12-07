@@ -4,14 +4,14 @@ description: Aprenda a configurar Apache como servidor proxy inverso en CentOS p
 author: spboyer
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 10/23/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 1d303fbde2a398b4628d3390aea80957a59f711b
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: d0e36d0a73df43a26c03dc4154962240683817b5
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253148"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450819"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hospedar ASP.NET Core en Linux con Apache
 
@@ -180,9 +180,9 @@ sudo systemctl restart httpd
 sudo systemctl enable httpd
 ```
 
-## <a name="monitoring-the-app"></a>Supervisión de la aplicación
+## <a name="monitor-the-app"></a>Supervisión de la aplicación
 
-Apache está configurado ahora para reenviar las solicitudes efectuadas a `http://localhost:80` en la aplicación ASP.NET Core que se ejecuta en Kestrel en `http://127.0.0.1:5000`.  En cambio, Apache no está configurado para administrar el proceso de Kestrel. Use *systemd* y cree un archivo de servicio para iniciar y supervisar la aplicación web subyacente. *systemd* es un sistema de inicio que proporciona muchas características eficaces para iniciar, detener y administrar procesos. 
+Apache está configurado ahora para reenviar las solicitudes efectuadas a `http://localhost:80` en la aplicación ASP.NET Core que se ejecuta en Kestrel en `http://127.0.0.1:5000`. En cambio, Apache no está configurado para administrar el proceso de Kestrel. Use *systemd* y cree un archivo de servicio para iniciar y supervisar la aplicación web subyacente. *systemd* es un sistema de inicio que proporciona muchas características eficaces para iniciar, detener y administrar procesos.
 
 ### <a name="create-the-service-file"></a>Crear el archivo de servicio
 
@@ -259,7 +259,7 @@ Connection: Keep-Alive
 Transfer-Encoding: chunked
 ```
 
-### <a name="viewing-logs"></a>Ver los registros
+### <a name="view-logs"></a>Visualización de registros
 
 Dado que la aplicación web que usa Kestrel se administra mediante *systemd*, los procesos y eventos se registran en un diario centralizado. Sin embargo, este diario incluye todas las entradas de todos los servicios y procesos administrados por *systemd*. Para ver los elementos específicos de `kestrel-helloapp.service`, use el siguiente comando:
 
@@ -288,7 +288,7 @@ Para configurar la protección de datos de modo que sea persistente y permita ci
 * <xref:security/data-protection/implementation/key-storage-providers>
 * <xref:security/data-protection/implementation/key-encryption-at-rest>
 
-## <a name="securing-the-app"></a>Protección de la aplicación
+## <a name="secure-the-app"></a>Protección de la nube
 
 ### <a name="configure-firewall"></a>Configurar el firewall
 
@@ -485,4 +485,5 @@ En el archivo de ejemplo se limita el ancho de banda a 600 KB/s en la ubicación
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Requisitos previos para .NET Core en Linux](/dotnet/core/linux-prerequisites)
-* [Configurar ASP.NET Core para trabajar con servidores proxy y equilibradores de carga](xref:host-and-deploy/proxy-load-balancer)
+* <xref:test/troubleshoot>
+* <xref:host-and-deploy/proxy-load-balancer>

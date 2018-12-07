@@ -4,14 +4,14 @@ author: guardrex
 description: Aprenda a diagnosticar problemas con las implementaciones de Internet Information Services (IIS) de aplicaciones ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 2b23bf8230f7a1c207ef7870da098ffb0c597fd5
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 2ff870623de43676be38c5de8f338a7913e885a8
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225452"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450715"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Solución de problemas de ASP.NET Core en IIS
 
@@ -47,7 +47,8 @@ Obtenga información sobre la compatibilidad de depuración integrada en Visual 
 
 ## <a name="app-startup-errors"></a>Errores de inicio de aplicación
 
-**502.5 Error de proceso**  
+### <a name="5025-process-failure"></a>502.5 Error de proceso
+
 El proceso de trabajo no funciona. La aplicación no se inicia.
 
 El módulo ASP.NET Core intenta iniciar el proceso dotnet de back-end, pero no lo consigue. La causa del error de inicio del proceso se suele determinar a partir de las entradas del [registro de eventos de la aplicación](#application-event-log) y del [registro de stdout del módulo ASP.NET Core](#aspnet-core-module-stdout-log). 
@@ -60,7 +61,7 @@ La página de error *502.5 Error de proceso* se devuelve cuando el proceso de tr
 
 ::: moniker range=">= aspnetcore-2.2"
 
-**500.30 Error de inicio en proceso**
+### <a name="50030-in-process-startup-failure"></a>500.30 Error de inicio en proceso
 
 El proceso de trabajo no funciona. La aplicación no se inicia.
 
@@ -68,7 +69,7 @@ El módulo ASP.NET Core intenta iniciar el proceso CLR de .NET Core, pero no lo 
 
 Una condición de error habitual es que la aplicación esté mal configurada porque tiene como destino una versión del marco compartido de ASP.NET Core que no está presente. Compruebe qué versiones del marco compartido de ASP.NET Core están instaladas en el equipo de destino.
 
-**500.0 Error de carga del controlador en proceso**
+### <a name="5000-in-process-handler-load-failure"></a>500.0 Error de carga del controlador en proceso
 
 El proceso de trabajo no funciona. La aplicación no se inicia.
 
@@ -77,7 +78,7 @@ El módulo ASP.NET Core no logra encontrar el CLR de .NET Core y el controlador 
 * Que la aplicación tiene como destino el paquete de NuGet [Microsoft.AspNetCore.Server.IIS](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IIS) o el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 * Que la versión del marco compartido de ASP.NET Core que la aplicación tiene como destino esté instalada en el equipo de destino.
 
-**500.0 Error de carga del controlador fuera de proceso**
+### <a name="5000-out-of-process-handler-load-failure"></a>500.0 Error de carga del controlador fuera de proceso
 
 El proceso de trabajo no funciona. La aplicación no se inicia.
 
@@ -85,12 +86,13 @@ El módulo ASP.NET Core no logra encontrar el controlador de solicitudes de hosp
 
 ::: moniker-end
 
-**500 Error interno del servidor**  
+### <a name="500-internal-server-error"></a>500 Error interno del servidor
+
 La aplicación se inicia, pero un error impide que el servidor complete la solicitud.
 
 Este error se produce dentro del código de la aplicación durante el inicio o mientras se crea una respuesta. La respuesta no puede contener nada o puede aparecer como *500 Error interno del servidor* en el explorador. El registro de eventos de la aplicación normalmente indica que la aplicación se ha iniciado normalmente. Desde la perspectiva del servidor, eso es correcto. La aplicación se inició, pero no puede generar una respuesta válida. [Ejecute la aplicación en un símbolo del sistema](#run-the-app-at-a-command-prompt) en el servidor o [habilite el registro de stdout del módulo ASP.NET Core](#aspnet-core-module-stdout-log) para solucionar el problema.
 
-**Restablecimiento de la conexión**
+### <a name="connection-reset"></a>Restablecimiento de la conexión
 
 Si se produce un error después de que se envían los encabezados, el servidor no tiene tiempo para enviar un mensaje **500 Error interno del servidor** cuando se produce un error. Esto suele ocurrir cuando se produce un error durante la serialización de objetos complejos en una respuesta. Este tipo de error aparece como un error de *restablecimiento de la conexión* en el cliente. El [Registro de aplicaciones](xref:fundamentals/logging/index) puede ayudar a solucionar estos tipos de errores.
 
@@ -113,7 +115,7 @@ Acceda al registro de eventos de la aplicación:
 
 Muchos errores de inicio no generan información útil en el registro de eventos de la aplicación. La causa de algunos errores se puede encontrar mediante la ejecución de la aplicación en un símbolo del sistema en el sistema de hospedaje.
 
-**Implementación dependiente de marco**
+#### <a name="framework-dependent-deployment"></a>Implementación dependiente de marco de trabajo
 
 Si la aplicación es una [implementación dependiente del marco](/dotnet/core/deploying/#framework-dependent-deployments-fdd):
 
@@ -121,7 +123,7 @@ Si la aplicación es una [implementación dependiente del marco](/dotnet/core/de
 1. La salida de consola de la aplicación, que muestra los posibles errores, se escribe en la ventana de la consola.
 1. Si los errores se producen al realizar una solicitud a la aplicación, realice una solicitud al host y el puerto donde escucha Kestrel. Con el host y el puerto predeterminados, realizar una solicitud a `http://localhost:5000/`. Si la aplicación responde normalmente en la dirección del punto de conexión de Kestrel, es más probable que el problema esté relacionado con la configuración del proxy inverso que con la propia aplicación.
 
-**Implementación independiente**
+#### <a name="self-contained-deployment"></a>Implementación autocontenida
 
 Si la aplicación es una [implementación independiente](/dotnet/core/deploying/#self-contained-deployments-scd):
 
@@ -142,7 +144,8 @@ Para habilitar y ver los registros de stdout:
 1. Vaya a la carpeta *logs*. Busque y abra el registro más reciente de stdout.
 1. Estudie el registro para ver los errores.
 
-**¡Importante!** Deshabilite el registro de stdout cuando la solución de problemas haya finalizado.
+> [!IMPORTANT]
+> Deshabilite el registro de stdout cuando la solución de problemas haya finalizado.
 
 1. Edite el archivo *web.config*.
 1. Establezca **stdoutLogEnabled** en `false`.
@@ -153,9 +156,27 @@ Para habilitar y ver los registros de stdout:
 >
 > Para el registro rutinario en una aplicación ASP.NET Core, use una biblioteca de registro que limite el tamaño del archivo de registro y realice la rotación de los registros. Para más información, consulte los [proveedores de registro de terceros](xref:fundamentals/logging/index#third-party-logging-providers).
 
-## <a name="enabling-the-developer-exception-page"></a>Habilitación de la página de excepciones del desarrollador
+## <a name="enable-the-developer-exception-page"></a>Habilitación de la página de excepciones para el desarrollador
 
 La variable de entorno `ASPNETCORE_ENVIRONMENT` [ se puede agregar a web.config](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) para ejecutar la aplicación en el entorno de desarrollo. Siempre y cuando el entorno no se invalide al inicio de la aplicación con `UseEnvironment` en el generador de host, la configuración de la variable de entorno permite que aparezca la [página de excepciones del desarrollador](xref:fundamentals/error-handling) cuando se ejecuta la aplicación.
+
+::: moniker range=">= aspnetcore-2.2"
+
+```xml
+<aspNetCore processPath="dotnet"
+      arguments=".\MyApp.dll"
+      stdoutLogEnabled="false"
+      stdoutLogFile=".\logs\stdout"
+      hostingModel="inprocess">
+  <environmentVariables>
+    <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="Development" />
+  </environmentVariables>
+</aspNetCore>
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -168,11 +189,17 @@ La variable de entorno `ASPNETCORE_ENVIRONMENT` [ se puede agregar a web.config]
 </aspNetCore>
 ```
 
+::: moniker-end
+
 Solo se recomienda establecer la variable de entorno para `ASPNETCORE_ENVIRONMENT` cuando se use en servidores de ensayo o pruebas que no estén expuestos a Internet. Quite la variable de entorno del archivo *web.config* cuando termine de solucionar los problemas. Para información sobre la configuración de variables de entorno en *web.config*, consulte el [elemento secundario environmentVariables de aspNetCore](xref:host-and-deploy/aspnet-core-module#setting-environment-variables).
 
-## <a name="common-startup-errors"></a>Errores comunes de inicio 
+## <a name="common-startup-errors"></a>Errores comunes de inicio
 
 Vea <xref:host-and-deploy/azure-iis-errors-reference>. La mayoría de los problemas comunes que impiden el inicio de la aplicación se tratan en el tema de referencia.
+
+## <a name="obtain-data-from-an-app"></a>Obtención de datos de una aplicación
+
+Si una aplicación es capaz de responder a solicitudes, obtenga solicitudes, conexiones y datos adicionales de la aplicación mediante el middleware en línea del terminal. Para obtener más información y un código de ejemplo, vea <xref:test/troubleshoot#obtain-data-from-an-app>.
 
 ## <a name="slow-or-hanging-app"></a>Aplicación lenta o bloqueada
 
@@ -190,7 +217,7 @@ Consulte [Depuración remota de ASP.NET Core en un equipo remoto de IIS en Visua
 
 [Application Insights](/azure/application-insights/) proporciona telemetría de las aplicaciones hospedadas en IIS, lo que incluye las características de registro de errores y generación de informes. Application Insights solo puede notificar los errores que se producen después de que la aplicación se inicia cuando las características de registro de la aplicación se vuelven disponibles. Para más información, consulte [Application Insights para ASP.NET Core](/azure/application-insights/app-insights-asp-net-core).
 
-## <a name="additional-troubleshooting-advice"></a>Consejos adicionales de solución de problemas
+## <a name="additional-advice"></a>Consejos adicionales
 
 En ocasiones, una aplicación en funcionamiento deja de funcionar inmediatamente después de actualizar el SDK de .NET Core en la máquina de desarrollo o las versiones del paquete en la aplicación. En algunos casos, los paquetes incoherentes pueden interrumpir una aplicación al realizar actualizaciones importantes. La mayoría de estos problemas puede corregirse siguiendo estas instrucciones:
 
@@ -201,11 +228,12 @@ En ocasiones, una aplicación en funcionamiento deja de funcionar inmediatamente
 
 > [!TIP]
 > Una forma práctica de borrar las memorias cachés del paquete es ejecutar `dotnet nuget locals all --clear` desde un símbolo del sistema.
-> 
+>
 > Otra manera de borrar las memorias caché del paquete es usar la herramienta [nuget.exe](https://www.nuget.org/downloads) y ejecutar el comando `nuget locals all -clear`. *nuget.exe* no es una instalación agrupada con el sistema operativo de escritorio de Windows y se debe obtener de forma independiente en el [sitio web de NuGet](https://www.nuget.org/downloads).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
+* <xref:test/troubleshoot>
 * <xref:fundamentals/error-handling>
 * <xref:host-and-deploy/azure-iis-errors-reference>
 * <xref:host-and-deploy/aspnet-core-module>

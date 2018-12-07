@@ -2,17 +2,17 @@
 title: Hospedaje de ASP.NET Core en un servicio de Windows
 author: guardrex
 description: Aprenda a hospedar una aplicación ASP.NET Core en un servicio de Windows.
-monikerRange: '>= aspnetcore-2.1'
+monikerRange: '>= aspnetcore-2.2'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/30/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 11913019bfe5d06c259b806fce9cc580a8280ad5
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.openlocfilehash: f857e96108b68bb6ec64a85910bf4d889cdf2822
+ms.sourcegitcommit: e7fafb153b9de7595c2558a0133f8d1c33a3bddb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50758198"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52458522"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hospedaje de ASP.NET Core en un servicio de Windows
 
@@ -22,45 +22,94 @@ Una aplicación de ASP.NET Core se puede hospedar en Windows sin usar IIS como [
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
+## <a name="deployment-type"></a>Tipo de implementación
+
+Puede crear una implementación del servicio de Windows dependiente del marco o autocontenida. Para obtener información y consejos sobre los escenarios de implementación, consulte [Implementación de aplicaciones .NET Core](/dotnet/core/deploying/).
+
+### <a name="framework-dependent-deployment"></a>Implementación dependiente de marco de trabajo
+
+La implementación dependiente de marco de trabajo (FDD) se basa en la presencia de una versión compartida de .NET Core en todo el sistema en el sistema de destino. Cuando se utiliza el escenario FDD con una aplicación de servicio de Windows de ASP.NET Core, el SDK genera un archivo ejecutable (*\*.exe*), denominado *ejecutable dependiente del marco*.
+
+### <a name="self-contained-deployment"></a>Implementación autocontenida
+
+Una implementación autocontenida (SCD) no depende de la presencia de los componentes compartidos en el sistema de destino. El tiempo de ejecución y las dependencias de la aplicación se implementan con la aplicación en el sistema host.
+
 ## <a name="convert-a-project-into-a-windows-service"></a>Convertir un proyecto en un servicio de Windows
 
-Estos son los cambios mínimos necesarios para configurar un proyecto de ASP.NET Core existente para que se ejecute como un servicio:
+Realice los cambios siguientes en un proyecto de ASP.NET Core existente para ejecutar la aplicación como un servicio:
 
-1. El archivo del proyecto:
+1. En función de su elección de [tipo de implementación](#deployment-type), actualice el archivo de proyecto:
 
-   * Confirme la presencia del [identificador en tiempo de ejecución](/dotnet/core/rid-catalog) de Windows o agréguelo al `<PropertyGroup>` que contiene la plataforma de destino:
+   * **Implementación dependiente de marco de trabajo (FDD)** &ndash; Agregue un [identificador en tiempo de ejecución](/dotnet/core/rid-catalog) de Windows al `<PropertyGroup>` que contiene la plataforma de destino. Agregue la propiedad `<SelfContained>` establecida en `false`. Deshabilite la creación de un archivo *web.config* agregando la propiedad `<IsTransformWebConfigDisabled>` establecida en `true`.
 
-      ```xml
-      <PropertyGroup>
-        <TargetFramework>netcoreapp2.2</TargetFramework>
-        <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-      </PropertyGroup>
-      ```
+     ```xml
+     <PropertyGroup>
+       <TargetFramework>netcoreapp2.2</TargetFramework>
+       <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+       <SelfContained>false</SelfContained>
+       <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+     </PropertyGroup>
+     ```
 
-      Para publicar para varios RID:
+     **Implementación autocontenida (SCD)**  &ndash; Confirme la presencia del [identificador en tiempo de ejecución](/dotnet/core/rid-catalog) de Windows o agréguelo al `<PropertyGroup>` que contiene la plataforma de destino. Deshabilite la creación de un archivo *web.config* agregando la propiedad `<IsTransformWebConfigDisabled>` establecida en `true`.
 
-      * Proporcione los RID en una lista delimitada por punto y coma.
-      * Use el nombre de la propiedad `<RuntimeIdentifiers>` (plural).
+     ```xml
+     <PropertyGroup>
+       <TargetFramework>netcoreapp2.2</TargetFramework>
+       <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+       <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+     </PropertyGroup>
+     ```
 
-      Para más información, vea el [Catálogo de identificadores de entorno de ejecución (RID) de .NET Core](/dotnet/core/rid-catalog).
+     Para publicar para varios RID:
+
+     * Proporcione los RID en una lista delimitada por punto y coma.
+     * Use el nombre de la propiedad `<RuntimeIdentifiers>` (plural).
+
+     Para más información, vea el [Catálogo de identificadores de entorno de ejecución (RID) de .NET Core](/dotnet/core/rid-catalog).
 
    * Agregue una referencia de paquete de [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices).
 
+   * Para habilitar el registro de eventos de Windows, agregue una referencia de paquete para [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog).
+
+     Para obtener más información, consulte la sección [Control de los eventos de inicio y detención](#handle-starting-and-stopping-events).
+
 1. Realice los siguientes cambios en `Program.Main`.
 
-   * Llame a [host.RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice) en lugar de a `host.Run`.
+   * Para probar y depurar cuando se ejecuta fuera de un servicio, agregue código para determinar si la aplicación se ejecuta como un servicio o una aplicación de consola. Compruebe si el depurador está asociado o hay presente un argumento de línea de comandos `--console`.
 
-   * Llame a [UseContentRoot](xref:fundamentals/host/web-host#content-root) y use una ruta de acceso a la ubicación de publicación de la aplicación en lugar de `Directory.GetCurrentDirectory()`.
+     Si alguna de estas condiciones se cumple (la aplicación no se ejecuta como un servicio), llame a <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> en el host web.
 
-     [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=ServiceOnly&highlight=8-9,16)]
+     Si las condiciones no se cumplen (la aplicación se ejecuta como servicio):
+
+     * Llame a <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> y use una ruta de acceso a la ubicación de publicación de la aplicación. No llame a <xref:System.IO.Directory.GetCurrentDirectory*> para obtener la ruta de acceso porque una aplicación de servicio de Windows devuelve una carpeta *C:\\WINDOWS\\system32* cuando se llama a `GetCurrentDirectory`. Para obtener más información, consulte la sección [Directorio actual y raíz del contenido](#current-directory-and-content-root).
+     * Llame a <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> para ejecutar la aplicación como un servicio.
+
+     Dado que el [Proveedor de configuración de línea de comandos](xref:fundamentals/configuration/index#command-line-configuration-provider) requiere pares nombre-valor en los argumentos de línea de comandos, el conmutador `--console` se quita de los argumentos antes de que <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> los reciba.
+
+   * Para escribir en el registro de eventos de Windows, agregue el proveedor EventLog a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureLogging*>. Establezca el nivel de registro con la clave `Logging:LogLevel:Default` en el archivo *appsettings.Production.json*. Para fines de prueba y demostración, el archivo de configuración de producción de la aplicación de ejemplo establece el nivel de registro en `Information`. En producción, el valor se establece normalmente en `Error`. Para obtener más información, vea <xref:fundamentals/logging/index#windows-eventlog-provider>.
+
+   [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=snippet_Program)]
 
 1. Publique la aplicación con [dotnet publish](/dotnet/articles/core/tools/dotnet-publish), un [perfil de publicación de Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles) o Visual Studio Code. Al usar Visual Studio, seleccione **FolderProfile** y configure la **Ubicación de destino** antes de seleccionar el botón **Publicar**.
 
-   Para publicar la aplicación de ejemplo mediante herramientas de la interfaz de la línea de comandos (CLI), ejecute el comando [dotnet publish](/dotnet/core/tools/dotnet-publish) en un símbolo del sistema desde la carpeta del proyecto. El identificador relativo debe especificarse en la propiedad `<RuntimeIdenfifier>` o `<RuntimeIdentifiers>` del archivo del proyecto. En el ejemplo siguiente, la aplicación se publica en la configuración de lanzamiento para `win7-x64` en tiempo de ejecución en una carpeta creada en *c:\\svc*:
+   Para publicar la aplicación de ejemplo mediante herramientas de la interfaz de la línea de comandos (CLI), ejecute el comando [dotnet publish](/dotnet/core/tools/dotnet-publish) en un símbolo del sistema desde la carpeta del proyecto con una configuración de versión pasada a la opción [-c|--configuration](/dotnet/core/tools/dotnet-publish#options). Use la opción [-o|--output](/dotnet/core/tools/dotnet-publish#options) con una ruta de acceso para publicar en una carpeta fuera de la aplicación.
 
-   ```console
-   dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
-   ```
+   * **Implementación dependiente de marco (FDD)**
+
+     En el ejemplo siguiente, la aplicación está publicada para la carpeta *c:\\svc*:
+
+     ```console
+     dotnet publish --configuration Release --output c:\svc
+     ```
+
+   * **Implementación autocontenida (SCD)** &ndash; El identificador relativo debe especificarse en la propiedad `<RuntimeIdenfifier>` (o `<RuntimeIdentifiers>`) del archivo del proyecto. Proporcione el entorno de ejecución a la opción [-r|--runtime](/dotnet/core/tools/dotnet-publish#options) del comando `dotnet publish`.
+
+     En el ejemplo siguiente, la aplicación está publicada para el entorno de ejecución `win7-x64` en la carpeta *c:\\svc*:
+
+     ```console
+     dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
+     ```
 
 1. Cree una cuenta de usuario para el servicio con el comando `net user`:
 
@@ -116,18 +165,22 @@ Estos son los cambios mínimos necesarios para configurar un proyecto de ASP.NET
 
    * `{SERVICE NAME}`: nombre para asignar al servicio en el [Administrador de control de servicios](/windows/desktop/services/service-control-manager).
    * `{PATH}`: ruta de acceso al archivo ejecutable del servicio.
-   * `{DOMAIN}`, o si la máquina no está unida a un dominio, el nombre de la máquina local, y `{USER ACCOUNT}`: el dominio o el nombre de la máquina local y la cuenta de usuario en los que el servicio se ejecuta. No **omita** el parámetro `obj`. El valor predeterminado de `obj` es la cuenta [LocalSystem](/windows/desktop/services/localsystem-account). Ejecutar un servicio en la cuenta `LocalSystem` plantea un riesgo de seguridad importante. Ejecute siempre un servicio en una cuenta de usuario con privilegios restringidos en el servidor.
+   * `{DOMAIN}` &ndash; El dominio de una máquina unida al dominio. Si la máquina no está unida al dominio, el nombre del equipo local.
+   * `{USER ACCOUNT}` &ndash; La cuenta de usuario en la que se ejecuta el servicio.
    * `{PASSWORD}`: contraseña de la cuenta de usuario.
 
-   En el ejemplo siguiente:
+   > [!WARNING]
+   > No **omita** el parámetro `obj`. El valor predeterminado de `obj` es la cuenta [LocalSystem](/windows/desktop/services/localsystem-account). Ejecutar un servicio en la cuenta `LocalSystem` plantea un riesgo de seguridad importante. Ejecute siempre un servicio con una cuenta de usuario que tenga privilegios restringidos.
+
+   En el ejemplo siguiente de la aplicación de ejemplo:
 
    * El servicio se denomina **MyService**.
-   * El servicio publicado reside en la carpeta *c:\\svc*. El ejecutable de la aplicación se denomina *AspNetCoreService.exe*. El valor `binPath` se encuentra entre comillas rectas (").
-   * El servicio se ejecuta en la cuenta `ServiceUser`. Reemplace `{DOMAIN}` por el dominio de la cuenta de usuario o el nombre de la máquina local. Encierre el valor `obj` entre comillas rectas ("). Ejemplo: si el sistema de hospedaje es una máquina local denominada `MairaPC`, establezca `obj` en `"MairaPC\ServiceUser"`.
-   * Reemplace `{PASSWORD}` con la contraseña de la cuenta de usuario. El valor `password` se encuentra entre comillas rectas (").
+   * El servicio publicado reside en la carpeta *c:\\svc*. El ejecutable de la aplicación se denomina *SampleApp.exe*. Ponga el valor `binPath` entre comillas dobles (" ").
+   * El servicio se ejecuta en la cuenta `ServiceUser`. Reemplace `{DOMAIN}` por el dominio de la cuenta de usuario o el nombre de la máquina local. Ponga el valor `obj` entre comillas dobles (" "). Ejemplo: si el sistema de hospedaje es una máquina local denominada `MairaPC`, establezca `obj` en `"MairaPC\ServiceUser"`.
+   * Reemplace `{PASSWORD}` con la contraseña de la cuenta de usuario. Ponga el valor `password` entre comillas dobles (" ").
 
    ```console
-   sc create MyService binPath= "c:\svc\aspnetcoreservice.exe" obj= "{DOMAIN}\ServiceUser" password= "{PASSWORD}"
+   sc create MyService binPath= "c:\svc\sampleapp.exe" obj= "{DOMAIN}\ServiceUser" password= "{PASSWORD}"
    ```
 
    > [!IMPORTANT]
@@ -182,39 +235,25 @@ Estos son los cambios mínimos necesarios para configurar un proyecto de ASP.NET
    sc delete MyService
    ```
 
-## <a name="run-the-app-outside-of-a-service"></a>Ejecutar la aplicación fuera de un servicio
+## <a name="handle-starting-and-stopping-events"></a>Control de los eventos de inicio y detención
 
-Probar y depurar una aplicación resulta más sencillo cuando se ejecuta fuera de un servicio, por lo que es habitual agregar código que llame a `RunAsService` solo bajo determinadas condiciones. Por ejemplo, la aplicación se puede ejecutar como una aplicación de consola con un argumento de línea de comandos `--console` o si el depurador está asociado:
+Para controlar los eventos <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStarting*>, <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStarted*> y <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStopping*>, realice los siguientes cambios adicionales:
 
-[!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=ServiceOrConsole)]
+1. Cree una clase que se derive de <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService> con los métodos `OnStarting`, `OnStarted` y `OnStopping`:
 
-Dado que la configuración de ASP.NET Core requiere pares nombre-valor en los argumentos de línea de comandos, el conmutador `--console` se quita antes de que los argumentos se pasen a [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder).
+   [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/CustomWebHostService.cs?name=snippet_CustomWebHostService)]
 
-> [!NOTE]
-> `isService` no se pasa de `Main` a `CreateWebHostBuilder` porque la firma de `CreateWebHostBuilder` debe ser `CreateWebHostBuilder(string[])` para que las [pruebas de integración](xref:test/integration-tests) funcionen correctamente.
-
-## <a name="handle-stopping-and-starting-events"></a>Controlar los eventos de inicio y detención
-
-Para controlar los eventos [OnStarting](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstarting), [OnStarted](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstarted) y [OnStopping](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice.onstopping), haga los siguientes cambios adicionales:
-
-1. Cree una clase que se derive de la clase [WebHostService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostservice):
-
-   [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/CustomWebHostService.cs?name=NoLogging)]
-
-2. Cree un método de extensión para [IWebHost](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost) que pase el elemento `WebHostService` personalizado a [ServiceBase.Run](/dotnet/api/system.serviceprocess.servicebase.run):
+2. Cree un método de extensión para <xref:Microsoft.AspNetCore.Hosting.IWebHost> que pase `CustomWebHostService` a <xref:System.ServiceProcess.ServiceBase.Run*>:
 
    [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/WebHostServiceExtensions.cs?name=ExtensionsClass)]
 
-3. En `Program.Main`, llame al nuevo método de extensión, `RunAsCustomService`, en lugar de a [RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice):
+3. En `Program.Main`, llame al método de extensión `RunAsCustomService` en lugar de <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*>:
 
-   [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=HandleStopStart&highlight=17)]
+   ```csharp
+   host.RunAsCustomService();
+   ```
 
-   > [!NOTE]
-   > `isService` no se pasa de `Main` a `CreateWebHostBuilder` porque la firma de `CreateWebHostBuilder` debe ser `CreateWebHostBuilder(string[])` para que las [pruebas de integración](xref:test/integration-tests) funcionen correctamente.
-
-Si el código `WebHostService` personalizado requiere un servicio de inserción de dependencias (como un registrador), obténgalo de la propiedad [IWebHost.Services](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost.services):
-
-[!code-csharp[](windows-service/samples/2.x/AspNetCoreService/CustomWebHostService.cs?name=Logging&highlight=7-8)]
+   Para ver la ubicación de <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> en `Program.Main`, consulte el ejemplo de código que se muestra en la sección [Convertir un proyecto en un servicio de Windows](#convert-a-project-into-a-windows-service).
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Escenarios de servidor proxy y equilibrador de carga
 
@@ -225,18 +264,37 @@ Los servicios que interactúan con las solicitudes de Internet o de una red corp
 Para configurar el servicio con un punto de conexión seguro:
 
 1. Cree un certificado X.509 para el sistema de hospedaje mediante la adquisición del certificado de la plataforma y con mecanismos de implementación.
+
 1. Especifique una [configuración de punto de conexión HTTPS de servidor Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration) para usar el certificado.
 
 No se admite el uso del certificado de desarrollo HTTPS de ASP.NET Core para proteger un punto de conexión de servicio.
 
 ## <a name="current-directory-and-content-root"></a>Directorio actual y raíz del contenido
 
-El directorio de trabajo actual devuelto por una llamada a `Directory.GetCurrentDirectory()` para un servicio de Windows es la carpeta *C:\\WINDOWS\\system32*. La carpeta *system32* no es una ubicación adecuada para almacenar los archivos de un servicio (por ejemplo los archivos de configuración). Use uno de los enfoques siguientes para mantener y acceder a los recursos y los archivos de configuración de un servicio con [FileConfigurationExtensions.SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) cuando se usa una interfaz [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder):
+El directorio de trabajo actual devuelto por una llamada a <xref:System.IO.Directory.GetCurrentDirectory*> para un servicio de Windows es la carpeta *C:\\WINDOWS\\system32*. La carpeta *system32* no es una ubicación adecuada para almacenar los archivos de un servicio (por ejemplo los archivos de configuración). Utilice uno de los siguientes enfoques para mantener los archivos de configuración y los activos de un servicio, así como para acceder a ellos.
 
-* Use la ruta de acceso raíz del contenido. `IHostingEnvironment.ContentRootPath` es la misma ruta de acceso proporcionada al argumento `binPath` cuando se crea el servicio. En lugar de usar `Directory.GetCurrentDirectory()` para crear rutas de acceso a los archivos de configuración, use la ruta de acceso raíz del contenido y mantenga los archivos en la raíz de contenido de la aplicación.
-* Almacene los archivos en una ubicación adecuada en el disco. Especifique una ruta de acceso absoluta con `SetBasePath` a la carpeta que contiene los archivos.
+### <a name="set-the-content-root-path-to-the-apps-folder"></a>Configuración de la ruta de acceso raíz del contenido en la carpeta de la aplicación
+
+<xref:Microsoft.Extensions.Hosting.IHostingEnvironment.ContentRootPath*> es la misma ruta de acceso proporcionada al argumento `binPath` cuando se crea el servicio. En lugar de llamar `GetCurrentDirectory` para crear rutas de acceso a los archivos de configuración, llame a <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> con la ruta de acceso a la raíz del contenido de la aplicación.
+
+En `Program.Main`, determine la ruta de acceso a la carpeta del archivo ejecutable del servicio y use la ruta de acceso para establecer la raíz del contenido de la aplicación:
+
+```csharp
+var pathToExe = Process.GetCurrentProcess().MainModule.FileName;
+var pathToContentRoot = Path.GetDirectoryName(pathToExe);
+
+CreateWebHostBuilder(args)
+    .UseContentRoot(pathToContentRoot)
+    .Build()
+    .RunAsService();
+```
+
+### <a name="store-the-services-files-in-a-suitable-location-on-disk"></a>Almacene los archivos del servicio en una ubicación adecuada en el disco.
+
+Especifique una ruta de acceso absoluta con <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> al utilizar un <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> a la carpeta que contiene los archivos.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Kestrel: configuración de punto de conexión](xref:fundamentals/servers/kestrel#endpoint-configuration) (configuración de HTTPS y compatibilidad de SNI incluidas)
 * <xref:fundamentals/host/web-host>
+* <xref:test/troubleshoot>

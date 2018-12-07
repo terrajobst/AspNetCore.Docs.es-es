@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre el middleware de ASP.NET Core y la canalización de solicitudes.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/21/2018
+ms.date: 10/10/2018
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 6daf201654d68de978141f3dd42d48732c1161f7
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 4e5da1036b77e876899ccdea48bdec69454e1657
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570040"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861490"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware de ASP.NET Core
 
@@ -237,6 +237,7 @@ ASP.NET Core incluye los componentes de software intermedio siguientes. En la co
 | [CORS](xref:security/cors) | Configura el uso compartido de recursos entre orígenes. | Antes de los componentes que usan CORS. |
 | [Diagnóstico](xref:fundamentals/error-handling) | Configura el diagnóstico. | Antes de los componentes que generan errores. |
 | [Encabezados reenviados](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Reenvía encabezados con proxy a la solicitud actual. | Antes de los componentes que consumen los campos actualizados. Ejemplos: esquema, host, IP de cliente y método. |
+| [Comprobación de estado](xref:host-and-deploy/health-checks) | Comprueba el estado de una aplicación ASP.NET Core y sus dependencias, como la comprobación de disponibilidad de base de datos. | Terminal si una solicitud coincide con un punto de conexión de comprobación de estado. |
 | [Invalidación del método HTTP](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Permite que una solicitud POST entrante invalide el método. | Antes de los componentes que consumen el método actualizado. |
 | [Redireccionamiento de HTTPS](xref:security/enforcing-ssl#require-https) | Redireccione todas las solicitudes HTTP a HTTPS (ASP.NET Core 2.1 o posterior). | Antes de los componentes que consumen la dirección URL. |
 | [Seguridad de transporte estricta de HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Middleware de mejora de seguridad que agrega un encabezado de respuesta especial (ASP.NET Core 2.1 o posterior). | Antes de que se envíen las respuestas y después de los componentes que modifican las solicitudes. Ejemplos: encabezados reenviados y reescritura de URL. |

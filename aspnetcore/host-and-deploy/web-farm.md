@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre cómo hospedar varias instancias de una aplicación ASP.NET Core con recursos compartidos en un entorno de granja de servidores web.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/16/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: 2435c24bc205486331c828337ca81c43e6e60448
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 4873665e6174a6acf885e1ebb41fb005d646bd1f
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39096097"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450676"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Hospedaje de ASP.NET Core en una granja de servidores web
 
@@ -59,13 +59,15 @@ Los escenarios siguientes no requieren configuración adicional, pero dependen d
 
 | Escenario | Depende de &hellip; |
 | -------- | ------------------- |
-| Autenticación | Protección de datos (consulte <xref:security/data-protection/configuration/overview>).<br><br>Para obtener más información, consulte <xref:security/authentication/cookie> y <xref:security/cookie-sharing>. |
+| Autenticación | Protección de datos (consulte <xref:security/data-protection/configuration/overview>).<br><br>Para obtener más información, vea <xref:security/authentication/cookie> y <xref:security/cookie-sharing>. |
 | identidad | Autenticación y configuración de base de datos.<br><br>Para obtener más información, vea <xref:security/authentication/identity>. |
 | Sesión | Protección de datos (cookies cifradas) (consulte <xref:security/data-protection/configuration/overview>) y almacenamiento en caché (consulte <xref:performance/caching/distributed>).<br><br>Para más información, consulte [Estado de sesión y aplicación: estado de sesión](xref:fundamentals/app-state#session-state). |
 | TempData | Protección de datos (cookies cifradas) (consulte <xref:security/data-protection/configuration/overview>) o sesión (consulte [Estado de sesión y aplicación: TempData](xref:fundamentals/app-state#session-state)).<br><br>Para más información, consulte [Estado de sesión y aplicación: TempData](xref:fundamentals/app-state#tempdata). |
 | Antifalsificación | Protección de datos (consulte <xref:security/data-protection/configuration/overview>).<br><br>Para obtener más información, vea <xref:security/anti-request-forgery>. |
 
 ## <a name="troubleshoot"></a>Solucionar problemas
+
+### <a name="data-protection-and-caching"></a>Protección y almacenamiento en caché de datos
 
 Cuando la protección de datos o el almacenamiento en caché no están configurados para un entorno de granja de servidores web, se producen errores intermitentes cuando se procesan las solicitudes. Esto ocurre porque los nodos no comparten los mismos recursos y las solicitudes de usuario no se enrutan siempre de vuelta al mismo nodo.
 
@@ -81,3 +83,7 @@ Cuando cualquiera de los síntomas siguientes se producen de manera **intermiten
 * Error de POST &ndash; Error en la comprobación antifalsificación.
 
 Para más información sobre la configuración de la protección de datos para las implementaciones de granjas de servidores web, consulte <xref:security/data-protection/configuration/overview>. Para más información sobre la configuración del almacenamiento en caché para las implementaciones de granja de servidores web, consulte <xref:performance/caching/distributed>.
+
+## <a name="obtain-data-from-apps"></a>Obtención de datos de aplicaciones
+
+Si las aplicaciones de la granja de servidores web son capaces de responder a solicitudes, obtenga solicitudes, conexiones y datos adicionales de las aplicaciones mediante el middleware en línea del terminal. Para obtener más información y un código de ejemplo, vea <xref:test/troubleshoot#obtain-data-from-an-app>.

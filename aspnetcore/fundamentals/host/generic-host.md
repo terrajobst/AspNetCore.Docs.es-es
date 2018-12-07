@@ -5,14 +5,14 @@ description: Obtenga información sobre el host genérico en .NET, que es respon
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/30/2018
+ms.date: 11/28/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: cac5ccdea7838d26b7468f9bf1ab8d317b444b46
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 4d435984d8169b558ab026ef8541c90f7a2a96b9
+ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708522"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618160"
 ---
 # <a name="net-generic-host"></a>Host genérico de .NET
 
@@ -44,6 +44,28 @@ La biblioteca de host genérico está disponible en el espacio de nombres <xref:
 <xref:Microsoft.Extensions.Hosting.IHostBuilder> es el componente principal que usan las bibliotecas y aplicaciones para inicializar, compilar y ejecutar el host:
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_HostBuilder)]
+
+## <a name="options"></a>Opciones
+
+<xref:Microsoft.Extensions.Hosting.HostOptions> configura opciones para <xref:Microsoft.Extensions.Hosting.IHost>.
+
+### <a name="shutdown-timeout"></a>Tiempo de espera de apagado
+
+<xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> establece el tiempo de espera para <xref:Microsoft.Extensions.Hosting.IHost.StopAsync*>. El valor predeterminado es cinco segundos.
+
+La siguiente configuración de opción en `Program.Main` aumenta el tiempo de espera de apagado predeterminado de 5 segundos a 20 segundos:
+
+```csharp
+var host = new HostBuilder()
+    .ConfigureServices((hostContext, services) =>
+    {
+        services.Configure<HostOptions>(option =>
+        {
+            option.ShutdownTimeout = System.TimeSpan.FromSeconds(20);
+        });
+    })
+    .Build();
+```
 
 ## <a name="default-services"></a>Servicios predeterminados
 

@@ -4,14 +4,14 @@ author: shirhatti
 description: Descubra la compatibilidad con la depuración de aplicaciones ASP.NET Core cuando se ejecutan detrás de IIS en Windows Server.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/14/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: eb8b4369d6d5434adbac187f59b18d7a2b80055c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 65dbe690a33d82a4edddf315803dc4c656db27a0
+ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277659"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52549109"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Compatibilidad de IIS de tiempo de desarrollo en Visual Studio para ASP.NET Core
 
@@ -129,13 +129,19 @@ Como alternativa, puede agregar manualmente un perfil de inicio al archivo [laun
 
 ## <a name="run-the-project"></a>Ejecución del proyecto
 
-En la interfaz de usuario de VS, establezca el botón Ejecutar en el perfil **IIS** y seleccione el botón para iniciar la aplicación:
+En Visual Studio:
 
-![Botón Ejecutar en la barra de herramientas de VS establecido en el perfil "IIS".](development-time-iis-support/_static/toolbar.png)
+* Confirme que la lista desplegable de configuración de compilación está configurada como **Depurar**.
+* Establezca el botón Ejecutar en el perfil **IIS** y seleccione el botón para iniciar la aplicación.
+
+![El botón Ejecutar de la barra de herramientas de VS se establece en el perfil IIS con la lista desplegable de configuración de compilación establecida en Versión.](development-time-iis-support/_static/toolbar.png)
 
 Visual Studio puede solicitar un reinicio si no se ejecuta como administrador. Si es así, reinicie Visual Studio.
 
 Si se usa un certificado de desarrollo que no es de confianza, el explorador puede pedirle que cree una excepción para un certificado de esta clase.
+
+> [!NOTE]
+> La depuración de una configuración de compilación de versión con [Solo mi código](/visualstudio/debugger/just-my-code) y las optimizaciones del compilador degradan el rendimiento. Por ejemplo, no se alcanzan los puntos de interrupción.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
