@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: 247ccd40412cdb41f38edccbe96d4832751f12cf
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: cd64a65889227d84615768bc3d8fddcd362fbba4
+ms.sourcegitcommit: eef99d14d96dc8c3c1bb0e2c4cb14da152f8a952
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861997"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53022484"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>Cliente ASP.NET Core SignalR JavaScript
 
@@ -45,7 +45,7 @@ Referencia del cliente de JavaScript de SignalR en el `<script>` elemento.
 
 El código siguiente se crea e inicia una conexión. Nombre del concentrador distingue mayúsculas de minúsculas.
 
-[!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=9-12,28)]
+[!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
 
 ### <a name="cross-origin-connections"></a>Conexiones de origen cruzado
 
@@ -86,7 +86,7 @@ SignalR determina qué método de cliente para llamar a haciendo coincidir el no
 
 Cadena de un `catch` método al final de la `start` método para controlar los errores del lado cliente. Use `console.error` para errores de salida a la consola del explorador.
 
-[!code-javascript[Error handling](javascript-client/sample/wwwroot/js/chat.js?range=28)]
+[!code-javascript[Error handling](javascript-client/sample/wwwroot/js/chat.js?range=43-45)]
 
 Seguimiento de registro del lado cliente instalación pasando un registrador y el tipo de evento que se registran cuando se realiza la conexión. Los mensajes se registran con el nivel de registro especificado y versiones posteriores. Los niveles de registro disponibles son los siguientes:
 
@@ -106,7 +106,7 @@ El cliente de JavaScript de SignalR no volver a conectar automáticamente. Debe 
 1. Una función (en este caso, el `start` función) se crea para iniciar la conexión.
 1. Llame a la `start` función en la conexión `onclose` controlador de eventos.
 
-[!code-javascript[Reconnect the JavaScript client](javascript-client/sample/wwwroot/js/chat.js?range=30-42)]
+[!code-javascript[Reconnect the JavaScript client](javascript-client/sample/wwwroot/js/chat.js?range=28-40)]
 
 Una implementación real podría usar un retroceso exponencial o vuelva a intentar un número especificado de veces antes de desistir. 
 
