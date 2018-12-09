@@ -1,16 +1,17 @@
 ---
-title: DevOps con ASP.NET Core y Azure | Integración e implementación continuas
+title: Integración continua e implementación - DevOps con ASP.NET Core y Azure
 author: CamSoper
-description: Una guía que proporciona guías de un extremo a otro sobre cómo crear una canalización de DevOps para una aplicación ASP.NET Core hospedada en Azure.
+description: Integración continua e implementación de DevOps con ASP.NET Core y Azure
 ms.author: scaddie
 ms.date: 10/24/2018
+ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: edaf2c2e1428e5e82104786d94584a4ef08f9ee3
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: e5bddde41291c9573f58d749bbf830de9ea9319d
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570092"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121601"
 ---
 # <a name="continuous-integration-and-deployment"></a>Integración e implementación continuas
 
@@ -235,15 +236,15 @@ La definición de compilación **tareas** pestaña enumera los pasos individuale
 
 Haga clic en la definición de compilación **resumen** vínculo para ver un historial de compilaciones con la definición de:
 
-![historial de la definición de compilación](media/cicd/build-definition-summary.png)
+![Captura de pantalla que muestra el historial de definición de compilación](media/cicd/build-definition-summary.png)
 
 En la página resultante, haga clic en el vínculo correspondiente al número de compilación único:
 
-![página de resumen de definición de compilación](media/cicd/build-definition-completed.png)
+![Captura de pantalla que muestra Definición página de resumen](media/cicd/build-definition-completed.png)
 
 Se muestra un resumen de esta compilación concreta. Haga clic en el **artefactos** pestaña y observe el *drop* carpeta generado por la compilación se muestra:
 
-![definición artefactos - carpeta de entrega de compilación](media/cicd/build-definition-artifacts.png)
+![Captura de pantalla muestra los artefactos de la definición de compilación - carpeta de entrega](media/cicd/build-definition-artifacts.png)
 
 Use la **descargar** y **explorar** vínculos para inspeccionar los artefactos publicados.
 
@@ -251,25 +252,25 @@ Use la **descargar** y **explorar** vínculos para inspeccionar los artefactos p
 
 Se creó una canalización de versiones con el nombre *MyFirstProject ASP.NET Core-CD*:
 
-![información general de la canalización de versión](media/cicd/release-definition-overview.png)
+![Captura de pantalla que muestra información general de canalización de versión](media/cicd/release-definition-overview.png)
 
 Los dos componentes principales de la canalización de versiones son el **artefactos** y **entornos**. Al hacer clic en el cuadro en el **artefactos** sección, muestra el panel siguiente:
 
-![artefactos de la canalización de versión](media/cicd/release-definition-artifacts.png)
+![Captura de pantalla que muestra los artefactos de canalización versiones](media/cicd/release-definition-artifacts.png)
 
 El **origen (definición de compilación)** valor representa la definición de compilación al que está vinculada esta canalización de versiones. El *.zip* archivo generado por una ejecución correcta de la definición de compilación se proporciona para el *producción* entorno para la implementación en Azure. Haga clic en el *1 fase, 2 tareas* vincular en el *producción* cuadro del entorno para ver las tareas de canalización de versión:
 
-![tareas de canalización de versión](media/cicd/release-definition-tasks.png)
+![Captura de pantalla que se muestran tareas de canalización de versión](media/cicd/release-definition-tasks.png)
 
 La canalización de versiones consta de dos tareas: *implementar Azure App Service para la ranura* y *administrar Azure App Service: intercambio de ranura*. Al hacer clic en la primera tarea, se muestra la configuración de la tarea siguiente:
 
-![tarea de implementación de la canalización de versiones](media/cicd/release-definition-task1.png)
+![Canalización de versiones de captura de pantalla que muestra la tarea de implementación](media/cicd/release-definition-task1.png)
 
 La suscripción de Azure, tipo de servicio, nombre de la aplicación web, grupo de recursos y ranura de implementación se definen en la tarea de implementación. El **paquete o carpeta** cuadro de texto contiene el *.zip* ruta de acceso de archivo al extraer e implementar a la *ensayo* ranura de la *mywebapp\<único _número\>*  aplicación web.
 
 Al hacer clic en la tarea de intercambio de ranura, se muestra la configuración de la tarea siguiente:
 
-![tarea de intercambio de ranura de canalización de versión](media/cicd/release-definition-task2.png)
+![Tarea de intercambio de ranura de canalización de captura de pantalla que muestra versión](media/cicd/release-definition-task2.png)
 
 La suscripción, grupo de recursos, tipo de servicio, nombre de la aplicación web y detalles de la ranura de implementación se proporcionan. El **intercambiar con producción** está activada la casilla de verificación. Por lo tanto, los bits implementan para el *ensayo* ranura entran en el entorno de producción.
 

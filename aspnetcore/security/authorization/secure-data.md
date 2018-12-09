@@ -3,14 +3,15 @@ title: Crear una aplicación ASP.NET Core con datos de usuario protegidos por au
 author: rick-anderson
 description: Obtenga información sobre cómo crear una aplicación de páginas de Razor con datos de usuario protegidos por autorización. Incluye HTTPS, autenticación, seguridad, ASP.NET Core Identity.
 ms.author: riande
-ms.date: 7/24/2018
+ms.date: 12/07/2018
+ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 185628d4e06c9b5ae7f2685c10ea9e46dd5abe92
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: d49ee7779b425d625b81c8a65694121c616bfba6
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253226"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121640"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crear una aplicación ASP.NET Core con datos de usuario protegidos por autorización
 
@@ -38,21 +39,21 @@ Este tutorial muestra cómo crear una aplicación web ASP.NET Core con los datos
 
 En la siguiente imagen, el usuario Rick (`rick@example.com`) ha iniciado sesión. Rick solo puede ver los contactos aprobados y **editar**/**eliminar**/**crear nuevo** vínculos para sus contactos. El último registro, creado por Rick, muestra **editar** y **eliminar** vínculos. Otros usuarios no verán el último registro hasta un administrador o un administrador cambia el estado a "Aprobado".
 
-![imagen describe anterior](secure-data/_static/rick.png)
+![Captura de pantalla con Rick ha iniciado sesión](secure-data/_static/rick.png)
 
 En la siguiente imagen, `manager@contoso.com` se registre y del rol managers:
 
-![imagen describe anterior](secure-data/_static/manager1.png)
+![Captura de pantalla mostrando manager@contoso.com iniciada](secure-data/_static/manager1.png)
 
 La siguiente imagen muestra a los administradores de la vista de detalles de un contacto:
 
-![imagen describe anterior](secure-data/_static/manager.png)
+![Vista del Administrador de un contacto](secure-data/_static/manager.png)
 
 El **aprobar** y **rechazar** solo se muestran los botones para administradores y administradores.
 
 En la siguiente imagen, `admin@contoso.com` se registre y en la función Administradores:
 
-![imagen describe anterior](secure-data/_static/admin.png)
+![Captura de pantalla mostrando admin@contoso.com iniciada](secure-data/_static/admin.png)
 
 El administrador tiene todos los privilegios. Puede leer, editar o eliminar cualquier contacto y cambiar el estado de los contactos.
 
@@ -281,25 +282,32 @@ Consulte [este problema](https://github.com/aspnet/Docs/issues/8502) para obtene
 
 ## <a name="test-the-completed-app"></a>Probar la aplicación completada
 
+Si ya no ha establecido una contraseña para cuentas de usuario inicializados, utilice el [herramienta Secret Manager](xref:security/app-secrets#secret-manager) para establecer una contraseña:
+
+* Elija una contraseña segura: Use ocho o más caracteres y al menos una mayúscula, número y símbolos. Por ejemplo, `Passw0rd!` cumple los requisitos de contraseña segura.
+* Ejecute el siguiente comando desde la carpeta del proyecto, donde `<PW>` es la contraseña:
+
+  ```console
+  dotnet user-secrets set SeedUserPW <PW>
+  ```
+
 Si la aplicación tiene contactos:
 
-* Eliminar todos los registros de la `Contact` tabla.
+* Eliminar todos los registros en el `Contact` tabla.
 * Reinicie la aplicación para inicializar la base de datos.
 
-Registrar un usuario para la exploración de los contactos.
+Es una manera fácil de probar la aplicación completa iniciar los tres distintos exploradores (o las sesiones de InPrivate o incognito). En un explorador, registre un nuevo usuario (por ejemplo, `test@example.com`). Inicie sesión con un usuario diferente en cada explorador. Compruebe las siguientes operaciones:
 
-Es una manera fácil de probar la aplicación completa iniciar las tres diferentes exploradores (o versiones de InPrivate o incognito). En un explorador, registre un nuevo usuario (por ejemplo, `test@example.com`). Inicie sesión con un usuario diferente en cada explorador. Compruebe las siguientes operaciones:
-
-* Los usuarios registrados pueden ver todos los datos de contacto aprobados.
+* Usuarios registrados pueden ver todos los datos de contacto aprobados.
 * Los usuarios registrados pueden editar o eliminar sus propios datos.
 * Los administradores pueden aprobar o rechazar datos de contacto. El `Details` ver muestra **aprobar** y **rechazar** botones.
 * Los administradores pueden aprobar o rechazar y editar o eliminar todos los datos.
 
-| Usuario| Opciones |
-| ------------ | ---------|
-| test@example.com | Puede poseen los datos de editar o eliminar |
-| manager@contoso.com | Pueden aprobar o rechazar y editar o eliminar datos de poseer |
-| admin@contoso.com | Puede editar o eliminar y aprobar o rechazar todos los datos|
+| Usuario                | Propagadas por la aplicación | Opciones                                  |
+| ------------------- | :---------------: | ---------------------------------------- |
+| test@example.com    | No                | Editar o eliminar los datos propios.                |
+| manager@contoso.com | Sí               | Aprobar o rechazar y editar o eliminar los datos propios. |
+| admin@contoso.com   | Sí               | Aprobar o rechazar y editar o eliminar todos los datos. |
 
 Crear un contacto en el explorador del administrador. Copie la dirección URL para su eliminación y editar en el contacto del administrador. Pegue estos vínculos en el explorador del usuario de prueba para comprobar que el usuario de prueba no puede realizar estas operaciones.
 

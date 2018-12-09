@@ -1,17 +1,17 @@
 ---
-title: DevOps con ASP.NET Core y Azure | Supervisar y depurar
+title: Supervisar y depurar - DevOps con ASP.NET Core y Azure
 author: CamSoper
-description: Una guía que proporciona guías de un extremo a otro sobre cómo crear una canalización de DevOps para una aplicación ASP.NET Core hospedada en Azure.
+description: Supervisión y depurar el código como parte de una solución de DevOps con ASP.NET Core y Azure
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/monitor
-ms.openlocfilehash: c4013de574fdf34114f2ae6c6a2150d72f807578
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: e005b951aec578b396fc19dec5d2f55cbce4f664
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090207"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121614"
 ---
 # <a name="monitor-and-debug"></a>Supervisar y depurar
 
@@ -35,7 +35,7 @@ App Service web apps se supervisan con facilidad en tiempo real. El portal de Az
 
 1. El **Introducción** ficha muestra información de "rápida" útil, incluidos gráficos de mostrar las métricas recientes.
 
-    ![Panel de información general](./media/monitoring/overview.png)
+    ![Panel de captura de pantalla que muestra información general](./media/monitoring/overview.png)
 
     * **Http 5xx**: recuento de errores de servidor, normalmente excepciones en el código de ASP.NET Core.
     * **Datos de entrada**: entrada de datos que entran en la aplicación web.
@@ -45,7 +45,7 @@ App Service web apps se supervisan con facilidad en tiempo real. El portal de Az
 
     También se encuentran varias herramientas de autoservicio para la optimización y solución de problemas en esta página.
 
-    ![Herramientas de autoservicio](./media/monitoring/wizards.png)
+    ![Herramientas de autoservicio de captura de pantalla que muestra](./media/monitoring/wizards.png)
 
     * **Diagnosticar y resolver problemas** es un solucionador de problemas de autoservicio.
     * **Application Insights** es para la generación de perfiles de rendimiento y el comportamiento de la aplicación y se describe más adelante en esta sección.
@@ -103,7 +103,7 @@ Registros de servidor web y de aplicación se pueden transmitir en tiempo real a
 1. Abra el [portal de Azure](https://portal.azure.com)y navegue hasta la *mywebapp\<unique_number\>*  App Service.
 1. En el menú a la izquierda, desplácese hacia abajo hasta la **supervisión** sección y seleccione **secuencia de registro**.
 
-    ![Vínculo de la secuencia de registro](./media/monitoring/log-stream.png)
+    ![Vínculo de la secuencia de registro de captura de pantalla que muestra](./media/monitoring/log-stream.png)
 
 Los registros también pueden ser [transmite a través de CLI de Azure o Azure PowerShell](/azure/app-service/web-sites-enable-diagnostic-log#streamlogs), incluido a través de Cloud Shell.
 

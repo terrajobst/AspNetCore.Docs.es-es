@@ -1,17 +1,17 @@
 ---
-title: DevOps con ASP.NET Core y Azure | Implementar una aplicación en App Service
+title: 'Implementar una aplicación en App Service: DevOps con ASP.NET Core y Azure'
 author: CamSoper
-description: Una guía que proporciona guías de un extremo a otro sobre cómo crear una canalización de DevOps para una aplicación ASP.NET Core hospedada en Azure.
+description: Implementar una aplicación ASP.NET Core en Azure App Service, el primer paso para DevOps con ASP.NET Core y Azure.
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 33026ed510aae63a9e580aa5d708f94aad778fca
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 4424d3d15cbd234357c8265fa276834cb9abf352
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090942"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121225"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Implementar una aplicación en App Service
 
@@ -150,12 +150,12 @@ La aplicación ya se ha implementado desde el shell de comandos. Vamos a usar he
 3. Presione **Ctrl**+**MAYÚS**+**B** para compilar la aplicación.
 4. En el Explorador de soluciones, haga doble clic en el proyecto y haga clic en **publicar**.
 
-    ![Haga clic en, publicar](./media/deploying-to-app-service/publish.png)
+    ![Captura de pantalla con el botón derecho, publicar](./media/deploying-to-app-service/publish.png)
 5. Visual Studio puede crear un nuevo recurso de App Service, pero esta actualización se publicará a través de la implementación existente. En el **elegir un destino de publicación** cuadro de diálogo, seleccione **App Service** en la lista de la izquierda y, a continuación, seleccione **seleccionar existente**. Haga clic en **Publicar**.
 6. En el **App Service** cuadro de diálogo, confirme que Microsoft o cuenta profesional que se usa para crear la suscripción de Azure se muestra en la esquina superior derecha. Si no es así, haga clic en la lista desplegable y agréguelo.
 7. Confirme que la Azure correcta **suscripción** está seleccionada. Para **vista**, seleccione **grupo de recursos**. Expanda el **AzureTutorial** grupo de recursos y, a continuación, seleccione la aplicación web existente. Haga clic en **Aceptar**.
 
-    ![Publicar el cuadro de diálogo App Service](./media/deploying-to-app-service/publish-dialog.png)
+    ![Cuadro de diálogo de publicación de servicio de aplicación que muestra la captura de pantalla](./media/deploying-to-app-service/publish-dialog.png)
 
 Visual Studio genera e implementa la aplicación en Azure. Vaya a la dirección URL de aplicación web. Validar que el `<h2>` modificación del elemento está en funcionamiento.
 
@@ -211,7 +211,7 @@ Ranuras de implementación admiten el almacenamiento provisional de los cambios 
 
 6. Para comprobar que se ha implementado V3 en la ranura de ensayo, abra dos ventanas del explorador. En una ventana, desplácese a la URL de aplicación web original. En la ventana, vaya a la URL de aplicación web provisional. La dirección URL de producción actúa V2 de la aplicación. La URL de ensayo sirve V3 de la aplicación.
 
-    ![Comparación de las ventanas del explorador](./media/deploying-to-app-service/ready-to-swap.png)
+    ![Captura de pantalla de comparación de las ventanas del explorador](./media/deploying-to-app-service/ready-to-swap.png)
 
 7. En Cloud Shell, colocar la ranura de ensayo comprobado/preparado-up en producción.
 

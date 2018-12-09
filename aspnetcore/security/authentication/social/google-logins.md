@@ -3,15 +3,15 @@ title: Configuración de inicio de sesión externo de Google en ASP.NET Core
 author: rick-anderson
 description: En este tutorial se muestra la integración de autenticación de usuario de la cuenta de Google en una aplicación de ASP.NET Core existente.
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/google-logins
-ms.openlocfilehash: dfda83e1d7cf3c5ff8e31de20c15d468de5d15c0
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: e5deda5d521643e3155be00f4630a86c6a82575c
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708457"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121536"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Configuración de inicio de sesión externo de Google en ASP.NET Core
 
@@ -27,7 +27,7 @@ Este tutorial muestra cómo permitir que los usuarios iniciar sesión con su cue
 
 * Se le redirigirá a **biblioteca API Manager** página:
 
-![Página de la biblioteca del Administrador de API](index/_static/GoogleConsoleSwitchboard.png)
+![En la página de la biblioteca del Administrador de la API de inicio](index/_static/GoogleConsoleSwitchboard.png)
 
 * Pulse **crear** y escriba su **nombre del proyecto**:
 
@@ -35,15 +35,15 @@ Este tutorial muestra cómo permitir que los usuarios iniciar sesión con su cue
 
 * Después de aceptar el cuadro de diálogo, se le redirigirá a la página de la biblioteca que le permite elegir las características de la nueva aplicación. Buscar **Google + API** en la lista y haga clic en el vínculo al agregar la característica de API:
 
-![Página de la biblioteca del Administrador de API](index/_static/GoogleConsoleChooseApi.png)
+![Busque "API de Google +" en la página de la biblioteca del Administrador de API](index/_static/GoogleConsoleChooseApi.png)
 
 * Se muestra la página de la API recién agregada. Pulse **habilitar** para agregar el inicio de sesión de Google + en función a la aplicación:
 
-![Página Administrador de API de Google + API](index/_static/GoogleConsoleEnableApi.png)
+![En la página Administrador de API de Google + API de inicio](index/_static/GoogleConsoleEnableApi.png)
 
 * Después de habilitar la API, pulse **crear credenciales** para configurar los secretos:
 
-![Página Administrador de API de Google + API](index/_static/GoogleConsoleGoCredentials.png)
+![Crear el botón de credenciales en la página Administrador de API de Google + API](index/_static/GoogleConsoleGoCredentials.png)
 
 * Elija:
   * **Google + API**

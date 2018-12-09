@@ -5,13 +5,14 @@ description: Obtenga información sobre cómo configurar la autenticación en do
 monikerRange: < aspnetcore-2.0
 ms.author: riande
 ms.date: 09/22/2018
+ms.custom: seodec18
 uid: security/authentication/2fa
-ms.openlocfilehash: 5b0866ecf15381b040e3646eecc22374b6b0c9e2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 6f20928b0dec9b235fa17c1b44c81a48d031e9e0
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50205891"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121666"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>Autenticación en dos fases con SMS en ASP.NET Core
 
@@ -97,7 +98,7 @@ Abra el *Views/Manage/Index.cshtml* archivo de vista de Razor y quite el comenta
 
 * Puntee en el nombre de usuario, activa la `Index` métodos de acción de controlador de administración. A continuación, puntee en el número de teléfono **agregar** vínculo.
 
-![Administrar la vista](2fa/_static/login2fa2.png)
+![Vista de administración: pulse el vínculo "Agregar"](2fa/_static/login2fa2.png)
 
 * Agregar un número de teléfono que recibirá el código de verificación y pulse **enviar código de verificación**.
 
@@ -111,11 +112,11 @@ Si no recibe un mensaje de texto, consulte la página de registro de twilio.
 
 * La vista de administración se muestra que el número de teléfono se agregó correctamente.
 
-![Administrar la vista](2fa/_static/login2fa5.png)
+![Administrar vista - número de teléfono se agregó correctamente](2fa/_static/login2fa5.png)
 
 * Pulse **habilitar** para habilitar la autenticación en dos fases.
 
-![Administrar la vista](2fa/_static/login2fa6.png)
+![Vista de administración: habilitar la autenticación en dos fases](2fa/_static/login2fa6.png)
 
 ### <a name="test-two-factor-authentication"></a>Autenticación de dos fases de prueba
 
