@@ -4,13 +4,14 @@ author: CamSoper
 description: Una guía que proporciona guías de un extremo a otro sobre cómo crear una canalización de DevOps para una aplicación ASP.NET Core hospedada en Azure.
 ms.author: casoper
 ms.date: 08/07/2018
+ms.custom: seodec18
 uid: azure/devops/index
-ms.openlocfilehash: 53667831f5e33107178a947f23d957ff22e8c1a0
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 6b6f17fd917f32b9e0682414febee10643cf3d13
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340100"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121198"
 ---
 # <a name="devops-with-aspnet-core-and-azure"></a>DevOps con ASP.NET Core y Azure
 
