@@ -6,20 +6,11 @@
 # [Introducción](xref:getting-started)
 
 # Tutoriales
-## [Creación de una API web](xref:tutorials/first-web-api)
+## API web
+### [Creación de una API web](xref:tutorials/first-web-api)
+### [API web con MongoDB](xref:tutorials/first-mongo-app)
 ## Aplicaciones web
-### Páginas de Razor
-#### [Introducción a las páginas de Razor](xref:razor-pages/index)
-
-#### [Tutorial de Razor Pages](xref:tutorials/razor-pages/index)
-##### [Introducción](xref:tutorials/razor-pages/razor-pages-start)
-##### [Agregar un modelo](xref:tutorials/razor-pages/model)
-##### [Scaffolding](xref:tutorials/razor-pages/page)
-##### [Trabajar con una base de datos](xref:tutorials/razor-pages/sql)
-##### [Actualización de las páginas](xref:tutorials/razor-pages/da1)
-##### [Agregar búsqueda](xref:tutorials/razor-pages/search)
-##### [Agregar un campo nuevo](xref:tutorials/razor-pages/new-field)
-##### [Agregar validación](xref:tutorials/razor-pages/validation)
+### [Páginas de Razor](xref:tutorials/razor-pages/index)
 
 ### MVC
 #### [Con Visual Studio](xref:tutorials/first-mvc-app/index)
@@ -165,7 +156,9 @@
 # API web
 ## [Información general](xref:web-api/index)
 
-## [Creación de una API web](xref:tutorials/first-web-api)
+## Tutoriales
+### [Creación de una API web](xref:tutorials/first-web-api)
+### [API web con MongoDB](xref:tutorials/first-mongo-app)
 
 ## Swagger / OpenAPI
 ### [Información general](xref:tutorials/web-api-help-pages-using-swagger)
@@ -420,7 +413,7 @@
 ## [Cambio de tokens](xref:fundamentals/change-tokens)
 ## [Apertura de la interfaz web para .NET (OWIN)](xref:fundamentals/owin)
 ## [Tareas en segundo plano con servicios hospedados](xref:fundamentals/host/hosted-services)
-## [Mejora de una aplicación a partir de un ensamblado externo](xref:fundamentals/configuration/platform-specific-configuration)
+## [Ensamblados de inicio de hospedaje](xref:fundamentals/configuration/platform-specific-configuration)
 ## [Metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app)
 ## [Metapaquete Microsoft.AspNetCore.All](xref:fundamentals/metapackage)
 ## [Registro con LoggerMessage](xref:fundamentals/logging/loggermessage)
