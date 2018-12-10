@@ -1,17 +1,17 @@
 ---
 title: Compilación de API web con ASP.NET Core y MongoDB
-author: pratik-khandelwal
+author: prkhandelwal
 description: En este tutorial se muestra cómo crear una API web de ASP.NET Core con una base de datos NoSQL de MongoDB.
 ms.author: scaddie
-ms.custom: mvc
+ms.custom: mvc,seodec18
 ms.date: 11/29/2018
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: becf55bf94a1bfe78935013d802168a0b05dccce
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: df3b8656618c813838d6618efc9394f0ccb6e563
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618095"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121484"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Creación de una API Web con ASP.NET Core y MongoDB
 

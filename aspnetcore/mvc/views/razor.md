@@ -5,12 +5,12 @@ description: Obtenga información sobre la sintaxis de marcado de Razor para ins
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: ab9fb3f55399764c5fe985811d92c504ed210767
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: 2ec86c774e0fd26c4455829680a2b1db687b8090
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256585"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121596"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Referencia de sintaxis de Razor para ASP.NET Core
 
@@ -741,7 +741,7 @@ El motor de vista de Razor realiza búsquedas de vistas en las que se distingue 
 
 Por tanto, se anima a todos los desarrolladores a intentar que las mayúsculas y minúsculas de los nombres de archivo y de directorio sean las mismas que las mayúsculas y minúsculas de:
 
-    * Nombres de acciones, controladores y áreas.
-    * Páginas de Razor.
+* Nombres de acciones, controladores y áreas.
+* Páginas de Razor.
 
 La coincidencia de mayúsculas y minúsculas garantiza que las implementaciones van a encontrar sus vistas, independientemente de cuál sea el sistema de archivos subyacente.
