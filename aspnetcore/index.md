@@ -65,7 +65,7 @@ El uso de .NET Core como destino cuenta con varias ventajas que van en aumento c
 * Rendimiento mejorado
 * Control de versiones en paralelo.
 * Nuevas API.
-* Abrir origen
+* Código Abierto
 
 Estamos trabajando intensamente para cerrar la brecha de API entre .NET Framework y .NET Core. El [paquete de compatibilidad de Windows](/dotnet/core/porting/windows-compat-pack) ha permitido que miles de API solo de Windows estén disponibles en .NET Core. Estas API no estaban disponibles en .NET Core 1.x.
 
