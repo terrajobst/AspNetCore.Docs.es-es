@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo empezar a usar ASP.NET Core MVC y 
 ms.author: riande
 ms.date: 10/07/2017
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 9d50607899058c887597a3d73198552d3ef5b020
-ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
+ms.openlocfilehash: 738c49272c2ae2b075866001f06ad09fe73969f9
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52710093"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862205"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Introducción a ASP.NET Core MVC y Visual Studio
 
@@ -25,7 +25,7 @@ Hay tres versiones de este tutorial:
 * macOS, Linux y Windows: [Creación de una aplicación de ASP.NET Core MVC con Visual Studio Code](xref:tutorials/first-mvc-app-xplat/start-mvc)
 
 > [!NOTE]
-> Vamos a probar la facilidad de uso de una nueva estructura propuesta para la tabla de contenido de ASP.NET Core.  Si tiene unos minutos para realizar un ejercicio de búsqueda de 7 temas diferentes en la tabla actual o propuesta de contenido, [haga clic aquí para participar en el estudio](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
+> Vamos a probar la facilidad de uso de una nueva estructura propuesta para la tabla de contenido de ASP.NET Core.  Si tiene unos minutos para realizar un ejercicio de búsqueda de 7 temas diferentes en la tabla actual o propuesta de contenido, [haga clic aquí para participar en el estudio](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
 
 ## <a name="install-visual-studio-and-net-core"></a>Instalar Visual Studio y .NET Core
 
