@@ -3,15 +3,15 @@ title: Hosts web y hosts genéricos de ASP.NET Core
 author: guardrex
 description: Obtenga más información sobre el host web de ASP.NET Core y el genérico de .NET, los elementos responsables del inicio de las aplicaciones y la administración de la vigencia.
 ms.author: riande
-ms.custom: mvc,seodec18
+ms.custom: mvc, seodec18
 ms.date: 08/28/2018
 uid: fundamentals/host/index
-ms.openlocfilehash: 3e67d8338aa7ac1b1530d0498ee0126d36a8d72b
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 43a68f67368ce37a1fb4032579c6c4e4c05d2719
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121523"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284583"
 ---
 # <a name="web-host-and-generic-host-in-aspnet-core"></a>Hosts web y hosts genéricos de ASP.NET Core
 
