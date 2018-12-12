@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 3751f5e7-59db-4be0-a290-50abc24e5c84
 msc.legacyurl: /signalr/overview/performance/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 269c10d7a73f181eaceac1c43ad51f3933d6711c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 9346f0ff9720361f07afe196f59305f0f38ffe8a
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911866"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287792"
 ---
 <a name="signalr-performance"></a>Rendimiento de SignalR
 ====================
 por [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Este tema describe cómo diseñar, medir y mejorar el rendimiento en una aplicación de SignalR.
 >
@@ -88,7 +90,7 @@ Las siguientes opciones de configuración pueden usarse para optimizar el servid
 
 **Opciones de configuración de SignalR**
 
-- **DefaultMessageBufferSize**: de forma predeterminada, conserva los 1000 mensajes en la memoria por cada conexión de centro de SignalR. Si se utilizan mensajes de gran tamaño, esto puede crear problemas de memoria que se pueden mitigar si reduce este valor. Esta configuración se puede establecer el `Application_Start` controlador de eventos en una aplicación ASP.NET o en el `Configuration` método de una clase de inicio OWIN en una aplicación autohospedada. El ejemplo siguiente muestra cómo reducir este valor con el fin de reducir el consumo de memoria de la aplicación con el fin de reducir la cantidad de memoria de servidor usada:
+- **DefaultMessageBufferSize**: De forma predeterminada, SignalR conserva los mensajes de 1000 en memoria por centro por conexión. Si se utilizan mensajes de gran tamaño, esto puede crear problemas de memoria que se pueden mitigar si reduce este valor. Esta configuración se puede establecer el `Application_Start` controlador de eventos en una aplicación ASP.NET o en el `Configuration` método de una clase de inicio OWIN en una aplicación autohospedada. El ejemplo siguiente muestra cómo reducir este valor con el fin de reducir el consumo de memoria de la aplicación con el fin de reducir la cantidad de memoria de servidor usada:
 
     **Código de servidor de .NET para reducir el tamaño de búfer de mensajes de forma predeterminada en Startup.cs**
 
@@ -96,10 +98,10 @@ Las siguientes opciones de configuración pueden usarse para optimizar el servid
 
 **Opciones de configuración de IIS**
 
-- **Máximo de solicitudes simultáneas por cada aplicación**: aumento del número de IIS simultáneas solicitudes aumentará disponibles para atender las solicitudes de recursos de servidor. El valor predeterminado es 5000; Para aumentar este valor, ejecute los siguientes comandos en un símbolo del sistema con privilegios elevados:
+- **Máximo de solicitudes simultáneas por cada aplicación**: Aumentar el número de IIS simultáneas solicitudes aumentará disponibles para atender las solicitudes de recursos de servidor. El valor predeterminado es 5000; Para aumentar este valor, ejecute los siguientes comandos en un símbolo del sistema con privilegios elevados:
 
     [!code-console[Main](signalr-performance/samples/sample4.cmd)]
-- **ApplicationPool QueueLength**: este es el número máximo de solicitudes que Http.sys pone en cola para el grupo de aplicaciones. Cuando la cola está llena, nuevas solicitudes reciben una respuesta 503 "Servicio no disponible". El valor predeterminado es 1000.
+- **ApplicationPool QueueLength**: Este es el número máximo de solicitudes que Http.sys pone en cola para el grupo de aplicaciones. Cuando la cola está llena, nuevas solicitudes reciben una respuesta 503 "Servicio no disponible". El valor predeterminado es 1000.
 
     Acortar la longitud de cola para el proceso de trabajo en el grupo de aplicaciones que hospeda la aplicación se conservará los recursos de memoria. Para obtener más información, consulte [configurar grupos de aplicaciones, administración y optimización](https://technet.microsoft.com/library/cc745955.aspx).
 
@@ -112,10 +114,10 @@ Esta sección incluye opciones de configuración que se pueden establecer en el 
 
 Configuración de ASP.NET que puede mejorar el rendimiento de SignalR incluye lo siguiente:
 
-- **Número máximo de solicitudes simultáneo por CPU**: aumento de esta configuración podría aliviar los cuellos de botella de rendimiento. Para aumentar este valor, agregue la siguiente opción de configuración para el `aspnet.config` archivo:
+- **Número máximo de solicitudes simultáneo por CPU**: Aumento de esta configuración podría aliviar los cuellos de botella de rendimiento. Para aumentar este valor, agregue la siguiente opción de configuración para el `aspnet.config` archivo:
 
     [!code-xml[Main](signalr-performance/samples/sample5.xml?highlight=4)]
-- **Límite de cola de solicitudes**: cuando se supera el número total de conexiones del `maxConcurrentRequestsPerCPU` establecer, ASP.NET comenzará con una cola de solicitudes de limitación. Para aumentar el tamaño de la cola, puede aumentar el `requestQueueLimit` configuración. Para ello, agregue la siguiente opción de configuración para el `processModel` nodo `config/machine.config` (en lugar de `aspnet.config`):
+- **Límite de cola de solicitudes**: Cuando se supera el número total de conexiones del `maxConcurrentRequestsPerCPU` establecer, ASP.NET comenzará con una cola de solicitudes de limitación. Para aumentar el tamaño de la cola, puede aumentar el `requestQueueLimit` configuración. Para ello, agregue la siguiente opción de configuración para el `processModel` nodo `config/machine.config` (en lugar de `aspnet.config`):
 
     [!code-xml[Main](signalr-performance/samples/sample6.xml)]
 
@@ -200,7 +202,7 @@ Las siguientes métricas de medir los errores generados por el tráfico de mensa
 - **Errores: Total de todos los**
 - **Errores: All/seg.**
 - **Errores: Total de resolución de concentrador**
-- **Errores: Resolución de concentrador / seg.**
+- **Errores: Resolución de concentrador/seg.**
 - **Errores: Total de invocación de concentrador**
 - **Errores: Invocación de concentrador/seg.**
 - **Errores: Total de transporte**

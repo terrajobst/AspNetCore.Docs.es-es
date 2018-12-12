@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: e8ac1e33819dd369460139df25597e1aa0979c91
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 9c541644d276bbdc990bb01f8bd80c92862cd6f0
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121718"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284622"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticación en web API con Azure Active Directory B2C en ASP.NET Core
 
@@ -19,7 +19,7 @@ Por [Cam Soper](https://twitter.com/camsoper)
 
 [Azure B2C de Active Directory](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) es una solución de administración de identidades de nube para aplicaciones web y móviles. El servicio proporciona autenticación para las aplicaciones hospedadas en la nube y locales. Tipos de autenticación incluyen cuentas individuales, las cuentas de redes sociales y federados cuentas de empresa. B2C de Azure AD también proporciona la autenticación multifactor con una configuración mínima.
 
-Azure Active Directory (Azure AD) y Azure AD B2C son ofertas de producto independiente. Un inquilino de Azure AD representa una organización, mientras que un inquilino de Azure AD B2C representa una colección de identidades para su uso con las aplicaciones de confianza. Para obtener más información, consulte [Azure AD B2C: preguntas más frecuentes (P+F)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+Azure Active Directory (Azure AD) y Azure AD B2C son ofertas de producto independiente. Un inquilino de Azure AD representa una organización, mientras que un inquilino de Azure AD B2C representa una colección de identidades para su uso con las aplicaciones de confianza. Para obtener más información, consulte [Azure AD B2C: Preguntas más frecuentes (P+F)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 Dado que las API web no tienen ninguna interfaz de usuario, podemos redirigir al usuario a un servicio de token seguro, como Azure AD B2C. En su lugar, la API se pasa un token de portador de la aplicación que realiza la llamada, que ya se ha autenticado al usuario con Azure AD B2C. La API, a continuación, valida el token sin interacción directa del usuario.
 
@@ -175,14 +175,14 @@ Para realizar una solicitud autenticada a la API web, se requiere un token de po
    |      <strong>Nombre del token</strong>       |                                          *{nombre del token}*                                       |                                                                                                                   Escriba un nombre descriptivo para el token.                                                                                                                    |
    |      <strong>Tipo de concesión</strong>       |                                           Implícitas                                            |                                                                                                                                                                                                                                                                              |
    |     <strong>Dirección URL de devolución de llamada</strong>      |                                 `https://getpostman.com/postman`                              |                                                                                                                                                                                                                                                                              |
-   |       <strong>Dirección URL de autenticación</strong>        | `https://login.microsoftonline.com/{tenant domain name}/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |  Reemplace *{nombre de dominio del inquilino}* con el nombre de dominio del inquilino. **IMPORTANTE**: esta dirección URL debe tener el mismo nombre de dominio que lo que se encuentra en `AzureAdB2C.Instance` en la API web *appsettings.json* archivo. Vea la nota&dagger;.                                                  |
+   |       <strong>Dirección URL de autenticación</strong>        | `https://login.microsoftonline.com/{tenant domain name}/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |  Reemplace *{nombre de dominio del inquilino}* con el nombre de dominio del inquilino. **IMPORTANTE**: Esta dirección URL debe tener el mismo nombre de dominio que lo que se encuentra en `AzureAdB2C.Instance` en la API web *appsettings.json* archivo. Vea la nota&dagger;.                                                  |
    |       <strong>Id. de cliente</strong>       |                *{Escriba la aplicación Postman <b>Id. de aplicación</b>}*                              |                                                                                                                                                                                                                                                                              |
    |         <strong>Ámbito</strong>         |         `https://{tenant domain name}/{api}/user_impersonation openid offline_access`       | Reemplace *{nombre de dominio del inquilino}* con el nombre de dominio del inquilino. Reemplace *{api}* con el URI de Id. de aplicación que asignó la API web cuando se registra en primer lugar (en este caso, `api`). El patrón de la dirección URL es: `https://{tenant}.onmicrosoft.com/{api-id-uri}/{scope name}`.         |
    |         <strong>Estado</strong>         |                                      *{Deje en blanco}*                                          |                                                                                                                                                                                                                                                                              |
    | <strong>Autenticación de cliente</strong> |                                Enviar las credenciales del cliente en el cuerpo                                |                                                                                                                                                                                                                                                                              |
 
     > [!NOTE]
-    > &dagger; El cuadro de diálogo de configuración de directiva en el portal de Azure Active Directory B2C muestra dos direcciones URL posibles: uno en el formato `https://login.microsoftonline.com/`{nombre de dominio del inquilino} / {información de ruta de acceso adicional} y otro en el formato `https://{tenant name}.b2clogin.com/`{nombre de dominio del inquilino} / {adicionales información de ruta de acceso}. Tiene **críticos** que el dominio se encuentra en `AzureAdB2C.Instance` en la API web *appsettings.json* archivo coincida con el usado en la aplicación web *appsettings.json* archivo. Se trata del mismo dominio que se utiliza para el campo de dirección URL de autenticación en Postman. Tenga en cuenta que Visual Studio usa un formato de dirección URL ligeramente distinto a lo que se muestra en el portal. Siempre que coincidan con los dominios, la dirección URL funciona.
+    > &dagger; El cuadro de diálogo de configuración de directiva en el portal de Azure Active Directory B2C muestra dos direcciones URL posibles: Uno con el formato `https://login.microsoftonline.com/`{nombre de dominio del inquilino} / {información de ruta de acceso adicional} y otro en el formato `https://{tenant name}.b2clogin.com/`{nombre de dominio del inquilino} / {información de ruta de acceso adicional}. Tiene **críticos** que el dominio se encuentra en `AzureAdB2C.Instance` en la API web *appsettings.json* archivo coincida con el usado en la aplicación web *appsettings.json* archivo. Se trata del mismo dominio que se utiliza para el campo de dirección URL de autenticación en Postman. Tenga en cuenta que Visual Studio usa un formato de dirección URL ligeramente distinto a lo que se muestra en el portal. Siempre que coincidan con los dominios, la dirección URL funciona.
 
 3. Seleccione el **solicitar Token** botón.
 

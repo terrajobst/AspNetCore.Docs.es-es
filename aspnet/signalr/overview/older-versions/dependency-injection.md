@@ -8,16 +8,18 @@ ms.date: 05/15/2013
 ms.assetid: eaa206c4-edb3-487e-8fcb-54a3261fed36
 msc.legacyurl: /signalr/overview/older-versions/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 905dea4918be731673c39e788069ce2dc78e1649
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 2035b3feebfa32dd7ec4d6adf715a7fee5e7b74f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910699"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287388"
 ---
 <a name="dependency-injection-in-signalr-1x"></a>Inserción de dependencias en SignalR 1.x
 ====================
 por [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 Inserción de dependencias es una manera de quitar las dependencias codificadas de forma rígida entre objetos, facilitando la tarea para reemplazar las dependencias de un objeto, ya sea por pruebas (con objetos ficticios) o para cambiar el comportamiento de tiempo de ejecución. Este tutorial muestra cómo realizar la inserción de dependencias en concentradores de SignalR. También muestra cómo usar contenedores de IoC con SignalR. Un contenedor de IoC es un marco general para la inserción de dependencias.
 

@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/redis-backplane
-ms.openlocfilehash: c8b09c0d482da344b54d167c0c9757167eaa6186
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 343cb5b2c7ed7162bae7865553a783fea45f0cfb
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452983"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284480"
 ---
 # <a name="set-up-a-redis-backplane-for-aspnet-core-signalr-scale-out"></a>Configurar un backplane de Redis de escalado horizontal de SignalR de ASP.NET Core
 
@@ -32,7 +32,7 @@ En este artículo se explica los aspectos de SignalR específicos de la configur
 
 ::: moniker range="= aspnetcore-2.1"
 
-* En la aplicación de SignalR, instale el `Microsoft.AspNetCore.SignalR.Redis` paquete NuGet.
+* En la aplicación de SignalR, instale el `Microsoft.AspNetCore.SignalR.Redis` paquete NuGet. (También hay un `Microsoft.AspNetCore.SignalR.StackExchangeRedis` empaquetar, pero que uno es para ASP.NET Core 2.2 y versiones posteriores.)
 
 * En el `Startup.ConfigureServices` método, llame a `AddRedis` después `AddSignalR`:
 
@@ -59,7 +59,10 @@ En este artículo se explica los aspectos de SignalR específicos de la configur
 
 ::: moniker range="> aspnetcore-2.1"
 
-* En la aplicación de SignalR, instale el `Microsoft.AspNetCore.SignalR.StackExchangeRedis` paquete NuGet.
+* En la aplicación de SignalR, instale uno de los siguientes paquetes NuGet:
+
+  * `Microsoft.AspNetCore.SignalR.StackExchangeRedis` -Depende de StackExchange.Redis 2.X.X. Este es el paquete recomendado para ASP.NET Core 2.2 y versiones posteriores.
+  * `Microsoft.AspNetCore.SignalR.Redis` -Depende 1.X.X StackExchange.Redis. Este paquete no estará disponible en ASP.NET Core 3.0.
 
 * En el `Startup.ConfigureServices` método, llame a `AddStackExchangeRedis` después `AddSignalR`:
 

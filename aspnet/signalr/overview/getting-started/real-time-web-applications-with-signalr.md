@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/getting-started/real-time-web-applications-with-signalr
-title: 'Laboratorio práctico: Las aplicaciones Web en tiempo real con SignalR | Microsoft Docs'
+title: 'Laboratorio práctico: Aplicaciones Web en tiempo real con SignalR | Microsoft Docs'
 author: rick-anderson
 description: Aplicaciones Web en tiempo real ofrecen la posibilidad de insertar contenido para los clientes conectados, como sucede, en tiempo real del servidor. Para los desarrolladores ASP.NET, ASP...
 ms.author: riande
@@ -8,16 +8,19 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 59831fb8497c86ec5e02de3912b36a15f416597c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: de2f2349fc284e167bd8227ae55da79b9f1f4549
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913247"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288014"
 ---
-<a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Laboratorio práctico: Las aplicaciones Web en tiempo real con SignalR
+<a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Laboratorio práctico: Aplicaciones Web en tiempo real con SignalR
 ====================
+
 por [campamentos Web Team](https://twitter.com/webcamps)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 [Descargue el Kit de aprendizaje de campamentos de Web](http://aka.ms/webcamps-training-kit)
 
@@ -25,9 +28,9 @@ por [campamentos Web Team](https://twitter.com/webcamps)
 > 
 > **SignalR** también proporciona una API sencilla y de alto nivel para el servidor al cliente RPC (llamada a funciones de JavaScript en exploradores de sus clientes desde el código de .NET del lado servidor) en la aplicación ASP.NET, así como agregar enlaces útiles para la administración de conexiones Por ejemplo, conectar o desconectar eventos, agrupación de conexiones y autorización.
 > 
-> **SignalR** es una abstracción sobre algunos de los transportes que son necesarios para realizar el trabajo en tiempo real entre cliente y servidor. Un **SignalR** conexión se inicia como HTTP y, a continuación, se promueve a un **WebSocket** conexión si está disponible. **WebSocket** es el transporte ideal para **SignalR**, ya que facilita el uso más eficaz de memoria del servidor, tiene la latencia más baja y tiene las características más subyacentes (como la comunicación dúplex completa entre cliente y servidor), pero también tiene los requisitos más exigentes: **WebSocket** requiere que el servidor a usar **Windows Server 2012** o **Windows 8**, junto con **.NET framework 4.5**. Si no se cumplen estos requisitos, **SignalR** intentará usar otros transportes para realizar las conexiones (como *Ajax de sondeo prolongado*).
+> **SignalR** es una abstracción sobre algunos de los transportes que son necesarios para realizar el trabajo en tiempo real entre cliente y servidor. Un **SignalR** conexión se inicia como HTTP y, a continuación, se promueve a un **WebSocket** conexión si está disponible. **WebSocket** es el transporte ideal para **SignalR**, ya que facilita el uso más eficaz de memoria del servidor, tiene la latencia más baja y tiene las características más subyacentes (como la comunicación dúplex completa entre cliente y servidor), pero también tiene los requisitos más exigentes: **WebSocket** requiere que el servidor a usar **Windows Server 2012** o **Windows 8**, junto con **.NET Framework 4.5**. Si no se cumplen estos requisitos, **SignalR** intentará usar otros transportes para realizar las conexiones (como *Ajax de sondeo prolongado*).
 > 
-> El **SignalR** API contiene dos modelos para la comunicación entre clientes y servidores: **conexiones persistentes** y **Hubs**. Un **conexión** representa un punto de conexión simple para enviar solo-recipient, agrupadas o mensajes de difusión. Un **concentrador** es una canalización de más alto nivel desarrollada sobre la API de conexión que permite que el cliente y servidor llamar a métodos entre sí directamente.
+> El **SignalR** API contiene dos modelos para la comunicación entre clientes y servidores: **Las conexiones persistentes** y **Hubs**. Un **conexión** representa un punto de conexión simple para enviar solo-recipient, agrupadas o mensajes de difusión. Un **concentrador** es una canalización de más alto nivel desarrollada sobre la API de conexión que permite que el cliente y servidor llamar a métodos entre sí directamente.
 > 
 > ![Arquitectura de SignalR](real-time-web-applications-with-signalr/_static/image1.png)
 > 
@@ -269,9 +272,9 @@ Para obtener más información sobre cómo funciona el backplane SignalR, lea es
 > [!NOTE]
 > Hay algunos escenarios donde un backplane puede convertirse en un cuello de botella. Estos son algunos escenarios típicos de SignalR:
 > 
-> - [Difusión de servidor](tutorial-server-broadcast-with-signalr.md) (p. ej., tablero de cotizaciones): planos posteriores funcionan bien para este escenario, porque el servidor controla la velocidad a la que se envían los mensajes.
-> - [Cliente a cliente](tutorial-getting-started-with-signalr.md) (p. ej., chat): en este escenario, el backplane podría ser un cuello de botella si el número de mensajes se escala con el número de clientes; es decir, si la tasa de mensajes aumenta proporcionalmente como más los clientes se unen.
-> - [En tiempo real de alta frecuencia](tutorial-high-frequency-realtime-with-signalr.md) (por ejemplo, juegos en tiempo real): no se recomienda un backplane para este escenario.
+> - [Difusión de servidor](tutorial-server-broadcast-with-signalr.md) (p. ej., tablero de cotizaciones): Planos posteriores funcionan bien para este escenario, porque el servidor controla la velocidad a la que se envían los mensajes.
+> - [Cliente a cliente](tutorial-getting-started-with-signalr.md) (p. ej., chat): En este escenario, el backplane podría ser un cuello de botella si el número de mensajes se escala con el número de clientes; es decir, si aumenta la tasa de mensajes unir más proporcionalmente como clientes.
+> - [En tiempo real de alta frecuencia](tutorial-high-frequency-realtime-with-signalr.md) (por ejemplo, juegos en tiempo real): No se recomienda un backplane para este escenario.
 
 
 En este ejercicio, usará **SQL Server** para distribuir los mensajes a través de la **"geek" Quiz** aplicación. Estas tareas ejecutará en un equipo de prueba individual para obtener información sobre cómo establecer la configuración, sino con el fin de obtener el efecto completo, deberá implementar la aplicación de SignalR en dos o más servidores. También debe instalar a SQL Server en uno de los servidores o en un servidor dedicado independiente.

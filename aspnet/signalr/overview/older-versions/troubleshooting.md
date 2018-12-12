@@ -8,16 +8,18 @@ ms.date: 06/05/2013
 ms.assetid: 347210ba-c452-4feb-886f-b51d89f58971
 msc.legacyurl: /signalr/overview/older-versions/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: df949347cecd9ac617a52ad798f37bebdb8524fa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6c2a8e72959c9370ff46084ca135c2b2977f4f42
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835699"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287702"
 ---
 <a name="signalr-troubleshooting-signalr-1x"></a>Solución de problemas de SignalR (SignalR 1.x)
 ====================
 por [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Este documento describe los problemas más comunes con SignalR.
 
@@ -53,7 +55,7 @@ SignalR requiere un analizador JSON esté presente para serializar llamadas entr
 
 ### <a name="mixing-hub-and-persistentconnection-syntax"></a>Mezclar la sintaxis de concentrador y PersistentConnection
 
-SignalR usa dos modelos de comunicación: concentradores y PersistentConnections. La sintaxis para llamar a estos modelos de dos comunicación es diferente en el código de cliente. Si ha agregado un concentrador en el código del servidor, compruebe que todo el código de cliente utiliza la sintaxis correcta del centro.
+SignalR usa dos modelos de comunicación: Concentradores y PersistentConnections. La sintaxis para llamar a estos modelos de dos comunicación es diferente en el código de cliente. Si ha agregado un concentrador en el código del servidor, compruebe que todo el código de cliente utiliza la sintaxis correcta del centro.
 
 **Código de cliente de JavaScript que crea un PersistentConnection en un cliente de JavaScript**
 
@@ -157,8 +159,8 @@ Este error puede producirse en entornos entre dominios que no está habilitada c
 
 Hay varias causas para este problema. Compruebe que todos los elementos siguientes:
 
-- **Referencia de dirección de proxy de concentrador no tiene el formato correcto:** este error suele aparecer si la referencia a la dirección de proxy de concentrador generado no se formateó correctamente. Compruebe que la referencia a la dirección del concentrador se realizará correctamente. Consulte [cómo hacen referencia al proxy generado dinámicamente](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) para obtener más información.
-- **Agregar rutas a la aplicación antes de agregar la ruta de concentrador:** si la aplicación utiliza otras rutas, compruebe que la primera ruta agregada es la llamada a `MapHubs`.
+- **Referencia de dirección de proxy de concentrador no tiene el formato correcto:** Normalmente este error aparece si la referencia a la dirección de proxy de concentrador generado no se formateó correctamente. Compruebe que la referencia a la dirección del concentrador se realizará correctamente. Consulte [cómo hacen referencia al proxy generado dinámicamente](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) para obtener más información.
+- **Agregar rutas a la aplicación antes de agregar la ruta de concentrador:** Si la aplicación utiliza otras rutas, compruebe que la primera ruta agregada es la llamada a `MapHubs`.
 
 ### <a name="500-internal-server-error"></a>"Error de servidor interno 500"
 
@@ -172,7 +174,7 @@ Este error se producirá si la llamada a `MapHubs` no se realizará correctament
 
 Compruebe que los parámetros que se envían a los métodos no incluyen tipos que no son serializables (como identificadores de archivos o las conexiones de base de datos). Si tiene que utilizar los miembros en un objeto de servidor que no desea que se envía al cliente (ya sea por motivos de serialización o de seguridad), use el `JSONIgnore` atributo.
 
-### <a name="protocol-error-unknown-transport-error"></a>"Error de protocolo: transporte desconocido" error
+### <a name="protocol-error-unknown-transport-error"></a>"Error de protocolo: Error de transporte desconocido"
 
 Este error puede producirse si el cliente no es compatible con los transportes que usa SignalR. Consulte [transportes y reservas](../getting-started/introduction-to-signalr.md#transports) para obtener información en el que se pueden usar exploradores con SignalR.
 
@@ -184,11 +186,11 @@ Este error se producirá si `DisableJavaScriptProxies` se establece al tiempo qu
 
 Este error puede aparecer si se utiliza la autenticación y el cliente está cerrado antes de que la conexión se ha detenido. La solución es detener la conexión de SignalR antes de cerrar la sesión del cliente.
 
-### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"No se detecta errores: SignalR: no se encuentra de jQuery. Asegúrese de que se hace referencia a jQuery antes del archivo SignalR.js"error
+### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"No se detecta errores: SignalR: jQuery que no se encuentra. Asegúrese de que se hace referencia a jQuery antes del archivo SignalR.js"error
 
 El cliente de JavaScript de SignalR requiere jQuery para ejecutar. Compruebe que la referencia a jQuery es correcta, que usa la ruta de acceso es válida y que la referencia a jQuery es antes de la referencia de SignalR.
 
-### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"No se detecta TypeError: no se puede leer la propiedad '&lt;propiedad&gt;" undefined "error
+### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"No se detecta TypeError: No se puede leer la propiedad '&lt;propiedad&gt;"undefined" error
 
 Este error da como resultado de no tener jQuery o el proxy de concentradores hace referencia correctamente. Compruebe que la referencia a jQuery y el proxy de concentradores es correcta, que usa la ruta de acceso es válida y que la referencia a jQuery es antes de la referencia al proxy de concentradores. La referencia predeterminada para el proxy de concentradores debe ser similar al siguiente:
 

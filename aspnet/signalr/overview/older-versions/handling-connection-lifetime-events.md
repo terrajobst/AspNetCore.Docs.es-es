@@ -8,16 +8,18 @@ ms.date: 06/05/2013
 ms.assetid: e608e263-264d-448b-b0eb-6eeb77713b22
 msc.legacyurl: /signalr/overview/older-versions/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 5a0e912540bf24abd8a7e91c73c87ed9213be487
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: f965c38e18c442268f9bb1d7ffb5e98a135efade
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837992"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287689"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr-1x"></a>Entender y controlar eventos de duración de la conexión en SignalR 1.x
 ====================
 por [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > En este artículo se proporciona información general de los eventos de conexión, la reconexión y la desconexión de SignalR que se pueden controlar y la configuración de tiempo de espera y keepalive que puede configurar.
 > 
@@ -63,7 +65,7 @@ El `OnReconnected` puede ejecutar el controlador de eventos en un concentrador S
 En este artículo se diferencia entre *conexiones SignalR*, *las conexiones de transporte*, y *conexiones físicas*:
 
 - **Conexión de SignalR** hace referencia a una relación lógica entre un cliente y una dirección URL del servidor, mantenida por la API SignalR y se identifica mediante un identificador de conexión. Los datos acerca de esta relación es mantenidos por SignalR y se utilizan para establecer una conexión de transporte. Los extremos de la relación y SignalR se deshace de los datos cuando el cliente llama a la `Stop` se llega a método o un límite de tiempo de espera mientras se está intentando volver a establecer una conexión de transporte pierde SignalR.
-- **Conexión de transporte** hace referencia a una relación lógica entre un cliente y un servidor, mantenido por una de las API de transporte cuatro: WebSockets, eventos de servidor envió enmarcar indefinidamente o largos de sondeo. SignalR usa la API de transporte para crear una conexión de transporte y la API de transporte depende de la existencia de una conexión de red físico para crear la conexión de transporte. La conexión de transporte finaliza cuando termina de SignalR, o cuando el transporte API detecta que se ha interrumpido la conexión física.
+- **Conexión de transporte** hace referencia a una relación lógica entre un cliente y un servidor, mantenido por una de las API de transporte cuatro: WebSockets, eventos de servidor envió, marco indefinidamente o sondeo prolongado. SignalR usa la API de transporte para crear una conexión de transporte y la API de transporte depende de la existencia de una conexión de red físico para crear la conexión de transporte. La conexión de transporte finaliza cuando termina de SignalR, o cuando el transporte API detecta que se ha interrumpido la conexión física.
 - **Conexión física** hace referencia a los vínculos de red físico, cables, las señales inalámbricas, enrutadores, etc., que facilitan la comunicación entre un equipo cliente y un equipo de servidor. La conexión física debe estar presente con el fin de establecer una conexión de transporte, y se debe establecer una conexión de transporte con el fin de establecer una conexión de SignalR. Sin embargo, interrumpir la conexión física no siempre finalizar inmediatamente la conexión de transporte o la conexión de SignalR, como se explicará más adelante en este tema.
 
 En el diagrama siguiente, la conexión de SignalR está representada por la API Hubs y la capa PersistentConnection API SignalR, la conexión de transporte se representa mediante la capa de transporte y la conexión física es representada por las líneas entre el servidor y los clientes.

@@ -8,16 +8,18 @@ ms.date: 04/29/2013
 ms.assetid: 3fd9f11c-799b-4001-bd60-1e70cfc61c19
 msc.legacyurl: /signalr/overview/older-versions/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 0cd1e64af031fea8078c8c1ca4c64b1e2e69d7e9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: fffa424ea4b62a54b9df48aaa409541ab5d1608f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829207"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287603"
 ---
 <a name="introduction-to-scaleout-in-signalr-1x"></a>Introducción a la escalabilidad horizontal en SignalR 1.x
 ====================
 por [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 En general, hay dos formas de escalar una aplicación web: *escalar verticalmente* y *escalar horizontalmente*.
 
@@ -60,9 +62,9 @@ El mecanismo funciona el cursor incluso si un cliente se enruta a un servidor di
 
 Usa un backplane, el rendimiento máximo del mensaje es menor que cuando los clientes comunicarse directamente con un solo nodo de servidor. Eso es porque el backplane reenvía todos los mensajes en todos los nodos, por lo que la placa posterior puede convertirse en un cuello de botella. Si esta limitación es un problema depende de la aplicación. Por ejemplo, estos son algunos escenarios típicos de SignalR:
 
-- [Difusión de servidor](tutorial-server-broadcast-with-aspnet-signalr.md) (p. ej., tablero de cotizaciones): planos posteriores funcionan bien para este escenario, porque el servidor controla la velocidad a la que se envían los mensajes.
-- [Cliente a cliente](tutorial-getting-started-with-signalr.md) (p. ej., chat): en este escenario, el backplane podría ser un cuello de botella si el número de mensajes se escala con el número de clientes; es decir, si la tasa de mensajes aumenta proporcionalmente como más los clientes se unen.
-- [En tiempo real de alta frecuencia](tutorial-high-frequency-realtime-with-signalr.md) (por ejemplo, juegos en tiempo real): no se recomienda un backplane para este escenario.
+- [Difusión de servidor](tutorial-server-broadcast-with-aspnet-signalr.md) (p. ej., tablero de cotizaciones): Planos posteriores funcionan bien para este escenario, porque el servidor controla la velocidad a la que se envían los mensajes.
+- [Cliente a cliente](tutorial-getting-started-with-signalr.md) (p. ej., chat): En este escenario, el backplane podría ser un cuello de botella si el número de mensajes se escala con el número de clientes; es decir, si aumenta la tasa de mensajes unir más proporcionalmente como clientes.
+- [En tiempo real de alta frecuencia](tutorial-high-frequency-realtime-with-signalr.md) (por ejemplo, juegos en tiempo real): No se recomienda un backplane para este escenario.
 
 ## <a name="enabling-tracing-for-signalr-scaleout"></a>Habilitar el seguimiento de escalabilidad horizontal de SignalR
 

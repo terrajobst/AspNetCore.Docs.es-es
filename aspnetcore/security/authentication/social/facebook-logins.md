@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 8bb22dc6df9879e827ff9a5ac11e9e3ad5346dc2
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: d4f3e210b0d3c79eaf2233f97a29a6d96cd69b39
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121510"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284388"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>Configuración de inicio de sesión externo de Facebook en ASP.NET Core
 
@@ -121,7 +121,7 @@ Consulte la [FacebookOptions](/dotnet/api/microsoft.aspnetcore.builder.facebooko
 
 Ejecute la aplicación y haga clic en **inicie sesión**. Verá una opción para iniciar sesión con Facebook.
 
-![Aplicación Web: usuario no autenticado](index/_static/DoneFacebook.png)
+![Aplicación Web: Usuario no autenticado](index/_static/DoneFacebook.png)
 
 Al hacer clic en **Facebook**, se le redirigirá a Facebook para la autenticación:
 
@@ -135,13 +135,13 @@ Una vez que escriba sus credenciales de Facebook se redirigen a su sitio donde p
 
 Ha iniciado sesión con sus credenciales de Facebook:
 
-![Aplicación Web: usuario autenticado](index/_static/Done.png)
+![Aplicación Web: Usuario autenticado](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-* **ASP.NET Core 2.x solo:** identidad si no está configurado mediante una llamada a `services.AddIdentity` en `ConfigureServices`, intentando autenticarse producirá *ArgumentException: se debe proporcionar la opción 'SignInScheme'*. La plantilla de proyecto que se usa en este tutorial, se garantiza que esto se realiza.
+* **ASP.NET Core 2.x solo:** Si la identidad no está configurada mediante una llamada a `services.AddIdentity` en `ConfigureServices`, intentando autenticarse producirá *ArgumentException: Se debe proporcionar la opción 'SignInScheme'*. La plantilla de proyecto que se usa en este tutorial, se garantiza que esto se realiza.
 * Si la base de datos de sitio no se ha creado aplicando a la migración inicial, obtendrá *error en una operación de base de datos al procesar la solicitud* error. Pulse **aplicar migraciones** para crear la base de datos y actualizar para continuar más allá del error.
 
 ## <a name="next-steps"></a>Pasos siguientes

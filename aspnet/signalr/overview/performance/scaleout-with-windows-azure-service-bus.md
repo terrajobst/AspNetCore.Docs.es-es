@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: ce1305f9-30fd-49e3-bf38-d0a78dfb06c3
 msc.legacyurl: /signalr/overview/performance/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: 3adc8768eb7271de32180ba98f67864b22283510
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 5cdb9b5eb6d3f5ebd5c96e4b0d89926c18bddadd
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910803"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287616"
 ---
 <a name="signalr-scaleout-with-azure-service-bus"></a>Escalabilidad horizontal de SignalR con Azure Service Bus
 ====================
 por [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 En este tutorial, implementará una aplicación de SignalR para un rol Web de Windows Azure mediante el backplane de Service Bus para distribuir mensajes a cada instancia de rol. (También puede usar el backplane de Service Bus con [web apps en Azure App Service](https://docs.microsoft.com/azure/app-service-web/).)
 
@@ -49,13 +51,13 @@ Antes de entrar en el tutorial detallado, le presentamos una introducción rápi
 
     [!code-csharp[Main](scaleout-with-windows-azure-service-bus/samples/sample1.cs)]
 
-Este código configura el backplane con los valores predeterminados de [TopicCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.servicebusscaleoutconfiguration.topiccount(v=vs.118).aspx) y [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx). Para obtener información acerca de cómo cambiar estos valores, vea [rendimiento de SignalR: métricas de escalado horizontal](signalr-performance.md#scaleout_metrics).
+Este código configura el backplane con los valores predeterminados de [TopicCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.servicebusscaleoutconfiguration.topiccount(v=vs.118).aspx) y [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx). Para obtener información acerca de cómo cambiar estos valores, vea [rendimiento de SignalR: Las métricas de escalado horizontal](signalr-performance.md#scaleout_metrics).
 
 Para cada aplicación, elija un valor diferente para "YourAppName". No use el mismo valor en varias aplicaciones.
 
 ## <a name="create-the-azure-services"></a>Crear los servicios de Azure
 
-Crear un servicio en la nube, como se describe en [cómo crear e implementar un servicio de nube](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Siga los pasos descritos en la sección "Cómo: crear un servicio de nube mediante Creación rápida". Para este tutorial, no es necesario cargar un certificado.
+Crear un servicio en la nube, como se describe en [cómo crear e implementar un servicio de nube](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Siga los pasos descritos en la sección "Cómo: Crear un servicio en la nube mediante Creación rápida". Para este tutorial, no es necesario cargar un certificado.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image2.png)
 

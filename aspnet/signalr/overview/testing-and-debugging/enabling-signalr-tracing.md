@@ -8,16 +8,18 @@ ms.date: 08/08/2014
 ms.assetid: 30060acb-be3e-4347-996f-3870f0c37829
 msc.legacyurl: /signalr/overview/testing-and-debugging/enabling-signalr-tracing
 msc.type: authoredcontent
-ms.openlocfilehash: 6ab9a5de16a1440d14f7526c0cd417592ba415db
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 733163699f83cbf68d6d5a27e86d208c3922272c
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021331"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287668"
 ---
 <a name="enabling-signalr-tracing"></a>Habilitar el seguimiento de SignalR
 ====================
 por [Tom FitzMacken](https://github.com/tfitzmac)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Este documento describe cómo habilitar y configurar el seguimiento de los clientes y servidores de SignalR. El seguimiento le permite ver información acerca de los eventos de diagnóstico en la aplicación de SignalR.
 >
@@ -39,7 +41,7 @@ por [Tom FitzMacken](https://github.com/tfitzmac)
 
 Cuando se habilita el seguimiento, una aplicación de SignalR crea entradas de registro de eventos. Puede registrar los eventos desde el cliente y el servidor. El seguimiento en la conexión de los registros de servidor, el proveedor de escalado horizontal y los eventos de bus de mensajes. El seguimiento de los eventos de conexión de los registros de cliente. En SignalR 2.1 y versiones posteriores, el seguimiento en el cliente registra todo el contenido de los mensajes de invocación de concentrador.
 
-## <a name="contents"></a>Contenidos
+## <a name="contents"></a>Contenido
 
 - [Habilitar el seguimiento en el servidor](#server)
 
@@ -62,7 +64,7 @@ Habilita el seguimiento en el servidor en el archivo de configuración de la apl
 
 Las categorías de eventos de servidor incluyen a los siguientes tipos de mensajes:
 
-| Source | Mensajes |
+| Origen | Mensajes |
 | --- | --- |
 | SignalR.SqlMessageBus | Instalación del proveedor de escalabilidad horizontal de Bus de mensajes de SQL, la operación de base de datos, errores y eventos de tiempo de espera |
 | SignalR.ServiceBusMessageBus | Creación de tema de proveedor de escalabilidad horizontal de bus de servicio y suscripción, errores y eventos de mensajería |

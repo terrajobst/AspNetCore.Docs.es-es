@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 4424d3d15cbd234357c8265fa276834cb9abf352
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 9fe17c9e210d4dda9b74818104fc52a60d4f0077
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121225"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284544"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Implementar una aplicación en App Service
 
@@ -141,7 +141,7 @@ Para implementar la aplicación, debe crear un servicio de aplicaciones [Web App
 
 ## <a name="deployment-with-visual-studio"></a>Implementación con Visual Studio
 
-> *Nota: Esta sección solo se aplica a Windows. Los usuarios de Linux y macOS deben realizar el cambio que se describe en el paso 2 a continuación. Guarde el archivo y confirme el cambio en el repositorio local con `git commit`. Por último, inserte el cambio con `git push`, como en la primera sección.*
+> *Nota: En esta sección solo se aplica a Windows. Los usuarios de Linux y macOS deben realizar el cambio que se describe en el paso 2 a continuación. Guarde el archivo y confirme el cambio en el repositorio local con `git commit`. Por último, inserte el cambio con `git push`, como en la primera sección.*
 
 La aplicación ya se ha implementado desde el shell de comandos. Vamos a usar herramientas integradas de Visual Studio para implementar una actualización en la aplicación. En segundo plano, Visual Studio realiza la misma tarea, como las herramientas de línea de comandos, pero dentro de la interfaz de usuario familiar de Visual Studio.
 

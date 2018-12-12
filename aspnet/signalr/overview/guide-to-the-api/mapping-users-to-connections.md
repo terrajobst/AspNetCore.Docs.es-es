@@ -8,16 +8,18 @@ ms.date: 12/30/2014
 ms.assetid: f80c08b1-3f1f-432c-980c-c7b6edeb31b1
 msc.legacyurl: /signalr/overview/guide-to-the-api/mapping-users-to-connections
 msc.type: authoredcontent
-ms.openlocfilehash: 5c7f710ec672d4f81ac0d1606640054e43fc5af8
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: f24d3a4828bc0863f8213e53f054aa7914edffad
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021240"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287782"
 ---
 <a name="mapping-signalr-users-to-connections"></a>Asignar usuarios de SignalR a las conexiones
 ====================
 por [Tom FitzMacken](https://github.com/tfitzmac)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > En este tema se muestra cómo conservar la información acerca de los usuarios y sus conexiones.
 >
@@ -39,7 +41,6 @@ por [Tom FitzMacken](https://github.com/tfitzmac)
 > ## <a name="questions-and-comments"></a>Preguntas y comentarios
 >
 > Deje comentarios sobre cómo le gustó de este tutorial y que podíamos mejorar en los comentarios en la parte inferior de la página. Si tiene preguntas que no están directamente relacionados con el tutorial, puede publicarlos en el [foro de ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) o [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="introduction"></a>Introducción
 

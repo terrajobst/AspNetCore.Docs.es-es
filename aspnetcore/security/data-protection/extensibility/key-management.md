@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: e5ed2a65355a1dba34af09379f2583b3e73c24d7
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 28932cbef1cc797338980f3e0de8b09caee324c0
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121432"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284609"
 ---
 # <a name="key-management-extensibility-in-aspnet-core"></a>Extensibilidad de administración de claves en ASP.NET Core
 
@@ -175,7 +175,7 @@ services.AddSingleton<IXmlRepository>(new MyCustomXmlRepository());
 
 El `IXmlEncryptor` interfaz representa un tipo que puede cifrar un elemento XML de texto simple. Expone una única API:
 
-* Cifrar (plaintextElement de XElement): EncryptedXmlInfo
+* Encrypt(XElement plaintextElement): EncryptedXmlInfo
 
 Si un serializador `IAuthenticatedEncryptorDescriptor` contiene todos los elementos marcados como "requiere cifrado", a continuación, `XmlKeyManager` ejecutará esos elementos a través de la configurada `IXmlEncryptor`del `Encrypt` método y conservarán el elemento cifrado en lugar de elemento de texto simple a la `IXmlRepository`. La salida de la `Encrypt` método es un `EncryptedXmlInfo` objeto. Este objeto es un contenedor que contiene tanto el resultante cifrado `XElement` y el tipo que representa un `IXmlDecryptor` que puede utilizarse para descifrar el elemento correspondiente.
 
@@ -210,7 +210,7 @@ services.AddSingleton<IXmlEncryptor>(new MyCustomXmlEncryptor());
 
 El `IXmlDecryptor` interfaz representa un tipo que sabe cómo descifrar un `XElement` que se descifra mediante una `IXmlEncryptor`. Expone una única API:
 
-* Descifrar (encryptedElement de XElement): XElement
+* Descifrar (XElement encryptedElement): XElement
 
 El `Decrypt` método deshace el cifrado realizado por `IXmlEncryptor.Encrypt`. Por lo general, cada hormigón `IXmlEncryptor` implementación tendrá un hormigón correspondiente `IXmlDecryptor` implementación.
 
