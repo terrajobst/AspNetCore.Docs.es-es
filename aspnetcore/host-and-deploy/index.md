@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre cómo configurar entornos de hospedaje e implementar aplicaciones de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/06/2018
 uid: host-and-deploy/index
-ms.openlocfilehash: 86022c33a3c5a8b82b14ae51b98c44497f39bd16
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: f443a8ee28a859b5075a8bb03016407af9a3ddb1
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862452"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284531"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hospedaje e implementación de ASP.NET Core
 
@@ -72,7 +72,11 @@ Mediante la [característica de publicación web](xref:tutorials/publish-to-azur
 
 ## <a name="publish-to-azure"></a>Publicar en Azure
 
-Consulte <xref:tutorials/publish-to-azure-webapp-using-vs> para obtener instrucciones sobre cómo publicar una aplicación en Azure con Visual Studio. También se puede publicar la aplicación en Azure desde la [línea de comandos](/azure/app-service/app-service-web-get-started-dotnet).
+Consulte <xref:tutorials/publish-to-azure-webapp-using-vs> para obtener instrucciones sobre cómo publicar una aplicación en Azure con Visual Studio. [Crear una aplicación web de ASP.NET Core en Azure](/azure/app-service/app-service-web-get-started-dotnet) proporciona un ejemplo adicional.
+
+## <a name="publish-with-msdeploy-on-windows"></a>Publicar con MSDeploy en Windows
+
+Consulte <xref:host-and-deploy/visual-studio-publish-profiles> para ver instrucciones sobre cómo publicar una aplicación con un perfil de publicación de Visual Studio, incluyendo desde un símbolo del sistema de Windows mediante el comando [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild).
 
 ## <a name="host-in-a-web-farm"></a>Hospedaje en una granja de servidores web
 

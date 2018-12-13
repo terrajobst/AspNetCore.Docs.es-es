@@ -5,14 +5,14 @@ description: Este artículo contiene vínculos a recursos de implementación y h
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/04/2018
+ms.date: 12/10/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: b32dd3cb84a86d12c61e391b88355ab0411c2815
-ms.sourcegitcommit: a3a15d3ad4d6e160a69614a29c03bbd50db110a2
+ms.openlocfilehash: b6ff2124aac7e866f630cf359cbd188e88906844
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52951971"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284700"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -83,6 +83,8 @@ Cuando una aplicación usa el [host genérico](xref:fundamentals/host/generic-ho
 El software intermedio de integración con IIS, que configura el software intermedio de encabezados reenviados, y el módulo de ASP.NET Core están configurados para reenviar el esquema (HTTP/HTTPS) y la dirección IP remota donde se originó la solicitud. Podría ser necesario realizar una configuración adicional para las aplicaciones hospedadas detrás de servidores proxy y equilibradores de carga adicionales. Para más información, vea [Configurar ASP.NET Core para trabajar con servidores proxy y equilibradores de carga](xref:host-and-deploy/proxy-load-balancer).
 
 ## <a name="monitoring-and-logging"></a>Supervisión y registro
+
+Las aplicaciones de ASP.NET Core implementadas automáticamente en App Service reciben una extensión de App Service, **Extensiones de registro de ASP.NET Core**. La extensión habilita el registro de Azure.
 
 Para obtener información sobre supervisión, registro y solución de problemas, consulte los artículos siguientes:
 
@@ -211,7 +213,7 @@ Al implementar una aplicación independiente:
 
 ## <a name="protocol-settings-https"></a>Configuración del protocolo (HTTPS)
 
-Los enlaces de protocolo seguro permiten especificar un certificado para usarlo al responder a solicitudes a través de HTTPS. Los enlaces requieren un certificado privado válido (*.pfx*) que se haya emitido para el nombre de host en cuestión. Para obtener más información, vea [Tutorial: Enlace de un certificado SSL personalizado existente con Azure Web Apps](/azure/app-service/app-service-web-tutorial-custom-ssl).
+Los enlaces de protocolo seguro permiten especificar un certificado para usarlo al responder a solicitudes a través de HTTPS. Los enlaces requieren un certificado privado válido (*.pfx*) que se haya emitido para el nombre de host en cuestión. Para obtener más información, consulte [Tutorial: Enlazar un certificado SSL personalizado existente a Azure Web Apps](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

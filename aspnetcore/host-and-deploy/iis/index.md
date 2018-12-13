@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET Core en Windows Server Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/11/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 5919fe66139260bace1c356c833abb132ba4b2e8
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: b71adcaad710ecfb7f81de0cc302f293d1728bec
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121757"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288123"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -32,6 +32,14 @@ Los siguientes sistemas operativos son compatibles:
 El [servidor HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominado [WebListener](xref:fundamentals/servers/weblistener)) no funciona en una configuración de proxy inverso con IIS. Use el [servidor Kestrel](xref:fundamentals/servers/kestrel).
 
 Para obtener información sobre el hospedaje en Azure, vea <xref:host-and-deploy/azure-apps/index>.
+
+## <a name="supported-platforms"></a>Plataformas compatibles
+
+Se admiten las aplicaciones publicadas para la implementación de 32 bits (x86) y 64 bits (x64). Implemente una aplicación de 32 bits a menos que la aplicación:
+
+* Requiera el espacio de direcciones de memoria virtual más grande disponible para una aplicación de 64 bits.
+* Requiera el tamaño de la pila IIS más grande.
+* Tenga dependencias nativas de 64 bits.
 
 ## <a name="application-configuration"></a>Configuración de aplicación
 
@@ -227,7 +235,7 @@ Habilite el rol de servidor **Servidor web (IIS)** y establezca los servicios de
    ![Los servicios de rol predeterminados se activan en el paso Seleccionar servicios de rol.](index/_static/role-services-ws2016.png)
 
    **Autenticación de Windows (opcional)**  
-   Para habilitar la autenticación de Windows, expanda los nodos siguientes: **Servidor web** > **Seguridad**. Seleccione la característica **Autenticación de Windows**. Para más información, consulte [Windows Authentication \<windowsAuthentication >](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) (Autenticación de Windows <windowsAuthentication>) y [Configure Windows authentication](xref:security/authentication/windowsauth) (Configurar la autenticación de Windows).
+   Para habilitar Autenticación de Windows, expanda los nodos siguientes: **Servidor web** > **Seguridad**. Seleccione la característica **Autenticación de Windows**. Para más información, consulte [Windows Authentication \<windowsAuthentication >](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) (Autenticación de Windows <windowsAuthentication>) y [Configure Windows authentication](xref:security/authentication/windowsauth) (Configurar la autenticación de Windows).
 
    **WebSockets (opcional)**  
    WebSockets es compatible con ASP.NET Core 1.1 o posterior. Para habilitar WebSockets, expanda los nodos siguientes: **Servidor web** > **Desarrollo de aplicaciones**. Seleccione la característica **Protocolo WebSocket**. Para más información, vea [WebSockets](xref:fundamentals/websockets).
@@ -249,7 +257,7 @@ Habilite **Consola de administración de IIS** y **Servicios World Wide Web**.
 1. Acepte las características predeterminadas de **Servicios World Wide Web** o personalice las características de IIS.
 
    **Autenticación de Windows (opcional)**  
-   Para habilitar la autenticación de Windows, expanda los nodos siguientes: **Servicios World Wide Web** > **Seguridad**. Seleccione la característica **Autenticación de Windows**. Para más información, consulte [Windows Authentication \<windowsAuthentication >](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) (Autenticación de Windows <windowsAuthentication>) y [Configure Windows authentication](xref:security/authentication/windowsauth) (Configurar la autenticación de Windows).
+   Para habilitar Autenticación de Windows, expanda los nodos siguientes: **Servicios World Wide Web** > **Seguridad**. Seleccione la característica **Autenticación de Windows**. Para más información, consulte [Windows Authentication \<windowsAuthentication >](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) (Autenticación de Windows <windowsAuthentication>) y [Configure Windows authentication](xref:security/authentication/windowsauth) (Configurar la autenticación de Windows).
 
    **WebSockets (opcional)**  
    WebSockets es compatible con ASP.NET Core 1.1 o posterior. Para habilitar WebSockets, expanda los nodos siguientes: **Servicios World Wide Web** > **Características de desarrollo de aplicaciones**. Seleccione la característica **Protocolo WebSocket**. Para más información, vea [WebSockets](xref:fundamentals/websockets).
@@ -584,7 +592,7 @@ Para obtener más información sobre los modelos de hospedaje en proceso y fuera
 
 * Windows Server 2016/Windows 10 o posterior; IIS 10 o posterior
 * Las conexiones de servidor perimetral de acceso público usan HTTP/2, pero la conexión de proxy inverso al [servidor de Kestrel](xref:fundamentals/servers/kestrel) usa HTTP/1.1.
-* Plataforma de destino: no es aplicable a las implementaciones fuera de proceso, ya que IIS controla completamente la conexión HTTP/2.
+* Marco de destino: no es aplicable a las implementaciones fuera de proceso, ya que IIS controla completamente la conexión HTTP/2.
 * Conexión con TLS 1.2 o una versión posterior
 
 Si se establece una conexión HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) notifica `HTTP/1.1`.

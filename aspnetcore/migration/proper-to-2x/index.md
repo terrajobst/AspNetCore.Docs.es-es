@@ -3,14 +3,14 @@ title: Migración de ASP.NET a ASP.NET Core
 author: isaac2004
 description: Obtenga instrucciones para migrar aplicaciones existentes de ASP.NET MVC o API web a ASP.NET Core.
 ms.author: scaddie
-ms.date: 12/10/2018
+ms.date: 12/11/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 6808fefb890dcdec6abdd0604ab61dfd2573d910
-ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
+ms.openlocfilehash: a9eef832a68afa1a73e3c7c545378da190602ce2
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53216799"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284401"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Migración de ASP.NET a ASP.NET Core
 
@@ -20,7 +20,7 @@ Este artículo sirve de guía de referencia para migrar aplicaciones de ASP.NET 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+[.NET Core SDK 2.2 o posterior](https://www.microsoft.com/net/download)
 
 ## <a name="target-frameworks"></a>Versiones de .NET Framework de destino
 
@@ -28,15 +28,15 @@ Los proyectos de ASP.NET Core proporcionan a los desarrolladores la flexibilidad
 
 Cuando se usa la versión .NET Framework, es necesario que los proyectos hagan referencia a paquetes de NuGet individuales.
 
-Cuando se usa .NET Core, se pueden eliminar numerosas referencias explícitas del paquete gracias al [metapaquete](xref:fundamentals/metapackage) de ASP.NET Core. Instale el metapaquete `Microsoft.AspNetCore.All` en el proyecto:
+Cuando se usa .NET Core, se pueden eliminar numerosas referencias explícitas del paquete gracias al [metapaquete](xref:fundamentals/metapackage-app) de ASP.NET Core. Instale el metapaquete `Microsoft.AspNetCore.App` en el proyecto:
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
+   <PackageReference Include="Microsoft.AspNetCore.App" />
 </ItemGroup>
 ```
 
-Cuando se usa el metapaquete, con la aplicación no se implementa ningún paquete al que se hace referencia en el metapaquete. El almacén de tiempo de ejecución de .NET Core incluye estos activos que están compilados previamente para mejorar el rendimiento. Vea [Microsoft.AspNetCore.All metapackage for ASP.NET Core 2.x](xref:fundamentals/metapackage) (Metapaquete Microsoft.AspNetCore.All para ASP.NET Core 2.x) para obtener más detalles.
+Cuando se usa el metapaquete, con la aplicación no se implementa ningún paquete al que se hace referencia en el metapaquete. El almacén de tiempo de ejecución de .NET Core incluye estos activos que están compilados previamente para mejorar el rendimiento. Consulte [Metapaquete Microsoft.AspNetCore.App para ASP.NET Core](xref:fundamentals/metapackage-app) para más información.
 
 ## <a name="project-structure-differences"></a>Diferencias en la estructura de proyecto
 
@@ -64,15 +64,14 @@ ASP.NET Core usa un enfoque similar, pero no depende de OWIN para controlar la e
 
 [!code-csharp[](samples/program.cs)]
 
-`Startup` debe incluir un método `Configure`. En `Configure`, agregue el middleware necesario a la canalización. En el ejemplo siguiente (de la plantilla de sitio web predeterminada), se usan varios métodos de extensión para configurar la canalización con compatibilidad para:
+`Startup` debe incluir un método `Configure`. En `Configure`, agregue el middleware necesario a la canalización. En el ejemplo siguiente (de la plantilla de sitio web predeterminada), los métodos de extensión configuran la canalización con compatibilidad para:
 
-* [Vínculo con exploradores](xref:client-side/using-browserlink)
 * Páginas de error
-* Archivos estáticos
+* Seguridad de transporte estricta de HTTP
+* Redireccionamiento HTTP a HTTPS
 * ASP.NET Core MVC
-* identidad
 
-[!code-csharp[](../../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
+[!code-csharp[](samples/startup.cs)]
 
 El host y la aplicación se han desacoplado, lo que proporciona la flexibilidad de pasar a una plataforma diferente en el futuro.
 
