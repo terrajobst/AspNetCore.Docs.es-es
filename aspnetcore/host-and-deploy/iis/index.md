@@ -6,21 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/11/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: b71adcaad710ecfb7f81de0cc302f293d1728bec
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 175df4ab633c1d84de645208cd97e8a675fb169c
+ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53288123"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335395"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
 Por [Luke Latham](https://github.com/guardrex)
 
 [Instalación del conjunto de hospedaje de .NET Core](#install-the-net-core-hosting-bundle)
-
-> [!NOTE]
-> Vamos a probar la facilidad de uso de una nueva estructura propuesta para la tabla de contenido de ASP.NET Core.  Si tiene unos minutos para realizar un ejercicio de búsqueda de 7 temas diferentes en la tabla actual o propuesta de contenido, [haga clic aquí para participar en el estudio](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
