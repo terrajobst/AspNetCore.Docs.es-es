@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/19/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 98787891a97e49081d72107484f030d216d82f45
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: 84052789717738a48c346d35d1a2642017a9ab93
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256572"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861919"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware de reescritura de URL en ASP.NET Core
 
@@ -210,7 +210,7 @@ Después de la parte `^rewrite-rule/` de la expresión, hay dos grupos de captur
 No hay ningún recorrido de ida y vuelta al servidor para obtener el recurso. Si el recurso existe, se captura y se devuelve al cliente con un código de estado *200 - Correcto*. Como el cliente no se redirige, la dirección URL no cambia en la barra de direcciones del explorador. Los clientes no pueden detectar que se ha producido una operación de reescritura de URL en el servidor.
 
 > [!NOTE]
-> Use `skipRemainingRules: true` siempre que sea posible, ya que las reglas de coincidencia consumen muchos recursos y reducen el tiempo de respuesta de aplicación. Para obtener la respuesta más rápida de la aplicación:
+> Use `skipRemainingRules: true` siempre que sea posible, ya que las reglas de coincidencia consumen muchos recursos y aumentan el tiempo de respuesta de aplicación. Para obtener la respuesta más rápida de la aplicación:
 >
 > * Ordene las reglas de reescritura desde la que coincida con más frecuencia a la que coincida con menos frecuencia.
 > * Omita el procesamiento de las reglas restantes cuando se produzca una coincidencia; no es necesario ningún procesamiento de reglas adicional.

@@ -5,14 +5,14 @@ description: Obtenga información sobre HTTP.sys, un servidor web para ASP.NET C
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 12/01/2018
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: f5ab1a3cbd1020a5ab2bd64a81b5782fd116f069
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 8810fd295e8c4269812e712ce2fdc9b9fa2bbb4f
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450650"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861698"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web HTTP.sys en ASP.NET Core
 
@@ -21,7 +21,7 @@ Por [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://github.com/
 > [!NOTE]
 > Este tema solo se aplica a ASP.NET Core 2.0 o posterior. En versiones anteriores de ASP.NET Core, HTTP.sys se denominaba [WebListener](xref:fundamentals/servers/weblistener).
 
-[HTTP.sys](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys) es un [servidor web de ASP.NET Core](xref:fundamentals/servers/index) que solo se ejecuta en Windows. HTTP.sys supone una alternativa a [Kestrel](xref:fundamentals/servers/kestrel) y ofrece algunas características que este no facilita.
+[HTTP.sys](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys) es un [servidor web de ASP.NET Core](xref:fundamentals/servers/index) que solo se ejecuta en Windows. HTTP.sys supone una alternativa al servidor [Kestrel](xref:fundamentals/servers/kestrel) y ofrece algunas características que este no facilita.
 
 > [!IMPORTANT]
 > HTTP.sys no es compatible con el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) y no se puede usar con IIS o IIS Express.

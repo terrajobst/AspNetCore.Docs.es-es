@@ -3,14 +3,14 @@ title: Componentes de vista en ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre cómo se usan los componentes de vista en ASP.NET Core y cómo agregarlos a las aplicaciones.
 ms.author: riande
-ms.date: 02/14/2017
+ms.date: 12/03/2018
 uid: mvc/views/view-components
-ms.openlocfilehash: 91399acafb36f1f8759ed1783e70e59b631e3bf0
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 5812abad80cd906d6b9a7175bd7cdefd03a99eb3
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253138"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861334"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componentes de vista en ASP.NET Core
 
@@ -63,12 +63,12 @@ Una clase de componente de vista:
 
 ### <a name="view-component-methods"></a>Métodos de componente de vista
 
-Un componente de vista define su lógica en un método `InvokeAsync` que devuelve `IViewComponentResult`. Los parámetros proceden directamente de la invocación del componente de vista, no del enlace de modelos. Un componente de vista nunca controla directamente una solicitud. Por lo general, un componente de vista inicializa un modelo y lo pasa a una vista mediante una llamada al método `View`. En resumen, los métodos de componente de vista:
+Un componente de vista define su lógica en un método `InvokeAsync` que devuelve un elemento `Task<IViewComponentResult>` o en un método `Invoke` sincrónico que devuelve un elemento `IViewComponentResult`. Los parámetros proceden directamente de la invocación del componente de vista, no del enlace de modelos. Un componente de vista nunca controla directamente una solicitud. Por lo general, un componente de vista inicializa un modelo y lo pasa a una vista mediante una llamada al método `View`. En resumen, los métodos de componente de vista:
 
-* Definen un método `InvokeAsync` que devuelve `IViewComponentResult`.
-* Por lo general, inicializan un modelo y lo pasan a una vista mediante una llamada al método `ViewComponent` `View`.
-* Los parámetros provienen del método que realiza la llamada, y no de HTTP, ya que no hay ningún enlace de modelos.
-* No son accesibles directamente como un punto de conexión HTTP, sino que se invocan desde el código (normalmente en una vista). Un componente de vista nunca controla una solicitud.
+* Defina un método `InvokeAsync` que devuelva un elemento `Task<IViewComponentResult>` o un método `Invoke` sincrónico que devuelva un elemento `IViewComponentResult`.
+* Por lo general, inicializa un modelo y lo pasa a una vista mediante una llamada al método `ViewComponent` `View`.
+* Los parámetros provienen del método que realiza la llamada y no de HTTP. No hay ningún enlace de modelos.
+* No son accesibles directamente como punto de conexión HTTP. Se invocan desde el código (normalmente en una vista). Un componente de vista nunca controla una solicitud.
 * Se sobrecargan en la firma, en lugar de los detalles de la solicitud HTTP actual.
 
 ### <a name="view-search-path"></a>Ruta de búsqueda de la vista

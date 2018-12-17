@@ -1,20 +1,20 @@
 ---
-title: Mejorar una aplicación desde un ensamblado externo en ASP.NET Core con IHostingStartup
+title: Uso de ensamblados de inicio de hospedaje en ASP.NET Core
 author: guardrex
 description: Sepa cómo mejorar una aplicación ASP.NET Core desde un ensamblado externo con una implementación de IHostingStartup.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc,seodec18
 ms.date: 11/22/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: ef3b48dc72f294a783d789c4c9a796e3498a91d9
-ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
+ms.openlocfilehash: 6c38242afee46b80bafcba47a8f77e2c05f6537e
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52299461"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121731"
 ---
-# <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>Mejorar una aplicación desde un ensamblado externo en ASP.NET Core con IHostingStartup
+# <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>Uso de ensamblados de inicio de hospedaje en ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex) y [Pavel Krymets](https://github.com/pakrym)
 

@@ -1,17 +1,17 @@
 ---
 title: Módulo ASP.NET Core
 author: guardrex
-description: Obtenga información sobre cómo el módulo de ASP.NET Core permite que el servidor web de Kestrel use IIS o IIS Express como servidor proxy inverso.
+description: Obtenga información sobre cómo el módulo de ASP.NET Core permite que el servidor web de Kestrel use IIS o IIS Express.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: 39c1b364f9dab635c79e00561d212c858c0c4395
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.openlocfilehash: d3f3a42dd7aebc425905b865376a584bcf0e5153
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191261"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861464"
 ---
 # <a name="aspnet-core-module"></a>Módulo ASP.NET Core
 
@@ -36,7 +36,7 @@ Versiones de Windows compatibles:
 
 ::: moniker range=">= aspnetcore-2.2"
 
-Cuando se hospeda en proceso, el módulo tiene su propia implementación de servidor, `IISHttpServer`.
+Cuando se hospeda en proceso, el módulo usa IIS HTTP Server (`IISHttpServer`), una implementación de servidor en proceso IIS.
 
 Cuando se hospeda fuera de proceso, el módulo solo funciona con Kestrel. El módulo no es compatible con [HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominado [WebListener](xref:fundamentals/servers/weblistener)).
 
@@ -73,9 +73,9 @@ En el siguiente diagrama se muestra la relación entre IIS, el módulo ASP.NET C
 
 ![Módulo ASP.NET Core](aspnet-core-module/_static/ancm-inprocess.png)
 
-Una solicitud llega de Internet al controlador HTTP.sys en modo kernel. El controlador enruta la solicitud nativa a IIS en el puerto configurado del sitio web, que suele ser el puerto 80 (HTTP) o 443 (HTTPS). El módulo recibe la solicitud nativa y pasa el control a `IISHttpServer`, que es lo que convierte la solicitud de nativa a administrada.
+Una solicitud llega de Internet al controlador HTTP.sys en modo kernel. El controlador enruta la solicitud nativa a IIS en el puerto configurado del sitio web, que suele ser el puerto 80 (HTTP) o 443 (HTTPS). El módulo recibe la solicitud nativa y la pasa a IIS HTTP Server (`IISHttpServer`). IIS HTTP Server es una implementación de servidor en proceso IIS que convierte una solicitud nativa en administrada.
 
-Una vez que `IISHttpServer` toma la solicitud, la envía a la canalización de middleware de ASP.NET Core. La canalización de middleware controla la solicitud y la pasa como una instancia de `HttpContext` a la lógica de la aplicación. La respuesta de la aplicación se vuelve a pasar a IIS, que la envía de nuevo al cliente HTTP que inició la solicitud.
+Una vez que IIS HTTP Server procesa la solicitud, la envía a la canalización de middleware de ASP.NET Core. La canalización de middleware controla la solicitud y la pasa como una instancia de `HttpContext` a la lógica de la aplicación. La respuesta de la aplicación se vuelve a pasar a IIS, que la envía de nuevo al cliente que inició la solicitud.
 
 ### <a name="out-of-process-hosting-model"></a>Modelo de hospedaje fuera de proceso
 

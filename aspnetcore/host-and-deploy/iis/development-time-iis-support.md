@@ -4,14 +4,14 @@ author: shirhatti
 description: Descubra la compatibilidad con la depuración de aplicaciones ASP.NET Core cuando se ejecutan detrás de IIS en Windows Server.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 65dbe690a33d82a4edddf315803dc4c656db27a0
-ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
+ms.openlocfilehash: 51375e6a6bb25a469d467ca97a151abd305c1ece
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52549109"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862387"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Compatibilidad de IIS de tiempo de desarrollo en Visual Studio para ASP.NET Core
 
@@ -54,7 +54,7 @@ Si la instalación de IIS ya tiene un **sitio web predeterminado** con un nombre
 ## <a name="enable-development-time-iis-support-in-visual-studio"></a>Habilitación de la compatibilidad con IIS en tiempo de desarrollo en Visual Studio
 
 1. Inicie el instalador de Visual Studio.
-1. Seleccione el componente **Compatibilidad con IIS en tiempo de desarrollo**. El componente se muestra como opcional en el panel **Resumen** de la carga de trabajo **Desarrollo de ASP.NET y web**. El componente instala el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), que es un módulo nativo de IIS necesario para ejecutar aplicaciones ASP.NET Core detrás de IIS en una configuración de proxy inverso.
+1. Seleccione el componente **Compatibilidad con IIS en tiempo de desarrollo**. El componente se muestra como opcional en el panel **Resumen** de la carga de trabajo **Desarrollo de ASP.NET y web**. El componente instala el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), que es un módulo de IIS nativo necesario para ejecutar aplicaciones de ASP.NET Core con IIS.
 
 ![Modificación de las características de Visual Studio: la pestaña Cargas de trabajo está seleccionada. En la sección Web and Cloud (Web y nube), el panel Desarrollo de ASP.NET y web está seleccionado. A la derecha, en la sección Opcional del panel Resumen, hay una casilla para la opción Compatibilidad con IIS en tiempo de desarrollo.](development-time-iis-support/_static/development_time_support.png)
 

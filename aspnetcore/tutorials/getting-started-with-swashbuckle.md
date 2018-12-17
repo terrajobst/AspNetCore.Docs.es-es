@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Obtenga información sobre cómo agregar Swashbuckle a un proyecto de ASP.NET Core Web API para integrar la interfaz de usuario de Swagger.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 11/30/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 9832e1ea2b59085b6680820469b16d549f4b0582
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: 9229b4536c3d5090e640de71357c728ddbd5dcc3
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635347"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862348"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introducción a Swashbuckle y ASP.NET Core
 
@@ -108,7 +108,7 @@ La interfaz de usuario de Swagger se encuentra en `http://localhost:<port>/swagg
 >
 > [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup3.cs?name=snippet_UseSwaggerUI&highlight=4)]
 
-Si usa directorios virtuales (con IIS o un proxy inverso, por ejemplo), establezca el punto de conexión de Swagger en una ruta de acceso relativa mediante el prefijo `./`. Por ejemplo: `./swagger/v1/swagger.json`. El uso de `/swagger/v1/swagger.json` indica a la aplicación que debe buscar el archivo JSON en la verdadera raíz de la dirección URL (junto con el prefijo de ruta, si se usa). Por ejemplo, `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` en vez de `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.
+Si usa directorios con IIS o un proxy inverso, establezca el punto de conexión de Swagger en una ruta de acceso relativa mediante el prefijo `./`. Por ejemplo: `./swagger/v1/swagger.json`. El uso de `/swagger/v1/swagger.json` indica a la aplicación que debe buscar el archivo JSON en la verdadera raíz de la dirección URL (junto con el prefijo de ruta, si se usa). Por ejemplo, use `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` en lugar de `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.
 
 ## <a name="customize-and-extend"></a>Personalizar y ampliar
 

@@ -5,14 +5,14 @@ description: En este tutorial, creará una aplicación de chat en la que se usa 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 11/30/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 190717dc6e6f9f2766ba92aa7472f4cdea9b6827
-ms.sourcegitcommit: e7fafb153b9de7595c2558a0133f8d1c33a3bddb
+ms.openlocfilehash: c52041b34d6c9d1d8f06f980c900b805a0933293
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458535"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861992"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Tutorial: Introducción a SignalR de ASP.NET Core
 
@@ -32,27 +32,10 @@ Al final, tendrá una aplicación de chat funcional:
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
 
 > [!NOTE]
-> Vamos a probar la facilidad de uso de una nueva estructura propuesta para la tabla de contenido de ASP.NET Core.  Si tiene unos minutos para realizar un ejercicio de búsqueda de 7 temas diferentes en la tabla actual o propuesta de contenido, [haga clic aquí para participar en el estudio](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
+> Vamos a probar la facilidad de uso de una nueva estructura propuesta para la tabla de contenido de ASP.NET Core.  Si tiene unos minutos para realizar un ejercicio de búsqueda de 7 temas diferentes en la tabla actual o propuesta de contenido, [haga clic aquí para participar en el estudio](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
 
-## <a name="prerequisites"></a>Requisitos previos
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-* [Visual Studio 2017 versión 15.8 o posterior](https://www.visualstudio.com/downloads/) con la carga de trabajo **ASP.NET y desarrollo web**
-* [.NET Core SDK 2.1 o posterior](https://www.microsoft.com/net/download/all)
-
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-* [Visual Studio Code](https://code.visualstudio.com/download)
-* [.NET Core SDK 2.1 o posterior](https://www.microsoft.com/net/download/all)
-* [C# para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
-
-* [Visual Studio para Mac, versión 7.5.4 o posterior](https://www.visualstudio.com/downloads/)
-* [SDK de .NET Core 2.1 o posterior](https://www.microsoft.com/net/download/all) (incluido en la instalación de Visual Studio)
-
----
+[!INCLUDE [|Prerequisites](~/includes/net-core-prereqs-all-2.2.md)]
 
 ## <a name="create-a-web-project"></a>Creación de un proyecto web
 
@@ -66,7 +49,7 @@ Al final, tendrá una aplicación de chat funcional:
 
 * Seleccione **Aplicación web** para crear un proyecto en el que se use Razor Pages.
 
-* Seleccione una plataforma de destino de **.NET Core**, seleccione **ASP.NET Core 2.1** y haga clic en **Aceptar**.
+* Seleccione una plataforma de destino de **.NET Core**, seleccione **ASP.NET Core 2.2** y haga clic en **Aceptar**.
 
   ![Cuadro de diálogo Nuevo proyecto en Visual Studio](signalr/_static/signalr-new-project-choose-type.png)
 

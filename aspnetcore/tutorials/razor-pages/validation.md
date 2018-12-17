@@ -2,17 +2,17 @@
 title: Agregar la validación a una página de Razor de ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre cómo agregar validación a una página de Razor de ASP.NET Core.
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/5/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: d4cc0ab9de314c0c5a1a9016efd1e566ff1c47d2
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 87171beb7c214b1370d4d4144a79cb6d2c56098f
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505783"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862374"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Agregar la validación a una página de Razor de ASP.NET Core
 
@@ -22,7 +22,10 @@ En esta sección se agrega lógica de validación al modelo `Movie`. Las reglas 
 
 ## <a name="validation"></a>Validación
 
-Un principio clave de desarrollo de software se denomina [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself), por "**D**on't **R**epeat **Y**ourself" (Una vez y solo una). Las páginas de Razor fomentan un tipo de desarrollo en el que la funcionalidad se especifica una vez y se refleja en la aplicación. DRY puede ayudar a reducir la cantidad de código en una aplicación. DRY hace que el código sea menos propenso a errores y resulte más fácil de probar y mantener.
+Un principio clave de desarrollo de software se denomina [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself), por "**D**on't **R**epeat **Y**ourself" (Una vez y solo una). Las páginas de Razor fomentan un tipo de desarrollo en el que la funcionalidad se especifica una vez y se refleja en la aplicación. DRY puede ayudar a:
+
+* Reducir la cantidad de código en una aplicación.
+* Hacer que el código sea menos propenso a errores y resulte más fácil de probar y mantener.
 
 La compatibilidad de validación proporcionada por las páginas de Razor y Entity Framework es un buen ejemplo del principio DRY. Las reglas de validación se especifican mediante declaración en un solo lugar (en la clase del modelo) y se aplican en toda la aplicación.
 
@@ -32,17 +35,7 @@ Abra el archivo *Models/Movie.cs*. [DataAnnotations](/aspnet/mvc/overview/older-
 
 Actualice la clase `Movie` para aprovechar los atributos de validación `Required`, `StringLength`, `RegularExpression` y `Range`.
 
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-::: moniker-end
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 Los atributos de validación especifican el comportamiento que se aplica a las propiedades del modelo:
 
@@ -113,11 +106,8 @@ La enumeración `DataType` proporciona muchos tipos de datos, como Date, Time, P
 
 `DataType.Date` no especifica el formato de la fecha que se muestra. De manera predeterminada, el campo de datos se muestra según los formatos predeterminados basados en el elemento `CultureInfo` del servidor.
 
-::: moniker range=">= aspnetcore-2.1"
 
 La anotación de datos `[Column(TypeName = "decimal(18, 2)")]` es necesaria para que Entity Framework Core asigne correctamente `Price` a la moneda en la base de datos. Para más información, vea [Tipos de datos](/ef/core/modeling/relational/data-types).
-
-::: moniker-end
 
 El atributo `DisplayFormat` se usa para especificar el formato de fecha de forma explícita:
 
@@ -144,23 +134,13 @@ Por lo general no se recomienda compilar fechas fijas en los modelos, así que s
 
 El código siguiente muestra la combinación de atributos en una línea:
 
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDAmult.cs?name=snippet1)]
-
-::: moniker-end
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 En [Get started with Razor Pages and EF Core](xref:data/ef-rp/intro) (Introducción a Razor Pages y EF Core) se muestran operaciones avanzadas de EF Core con Razor Pages.
 
 ### <a name="publish-to-azure"></a>Publicar en Azure
 
-Para obtener información sobre la implementación en Azure, vea [Tutorial: Creación de una aplicación ASP.NET en Azure con SQL Database](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Estas instrucciones son para una aplicación ASP.NET, no para una aplicación ASP.NET Core, pero los pasos son los mismos.
+Para obtener información sobre la implementación en Azure, consulte [Tutorial: Creación de una aplicación ASP.NET en Azure con SQL Database](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Estas instrucciones son para una aplicación ASP.NET, no para una aplicación ASP.NET Core, pero los pasos son los mismos.
 
 Gracias por seguir esta introducción a las páginas de Razor. Le agradeceremos cualquier comentario. [Introducción a MVC con Razor Pages y EF Core](xref:data/ef-rp/intro) es un excelente artículo de seguimiento de este tutorial.
 

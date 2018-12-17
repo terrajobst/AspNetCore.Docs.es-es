@@ -4,14 +4,14 @@ author: guardrex
 description: Aprenda a diagnosticar problemas con las implementaciones de Internet Information Services (IIS) de aplicaciones ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 12/06/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 2ff870623de43676be38c5de8f338a7913e885a8
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 6d43057639ea88bb21ac66f2799062e06fffc530
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450715"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121692"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Solución de problemas de ASP.NET Core en IIS
 
@@ -92,6 +92,26 @@ La aplicación se inicia, pero un error impide que el servidor complete la solic
 
 Este error se produce dentro del código de la aplicación durante el inicio o mientras se crea una respuesta. La respuesta no puede contener nada o puede aparecer como *500 Error interno del servidor* en el explorador. El registro de eventos de la aplicación normalmente indica que la aplicación se ha iniciado normalmente. Desde la perspectiva del servidor, eso es correcto. La aplicación se inició, pero no puede generar una respuesta válida. [Ejecute la aplicación en un símbolo del sistema](#run-the-app-at-a-command-prompt) en el servidor o [habilite el registro de stdout del módulo ASP.NET Core](#aspnet-core-module-stdout-log) para solucionar el problema.
 
+### <a name="failed-to-start-application-errorcode-0x800700c1"></a>No se pudo iniciar la aplicación (código de error "0x800700c1")
+
+```
+EventID: 1010
+Source: IIS AspNetCore Module V2
+Failed to start application '/LM/W3SVC/6/ROOT/', ErrorCode '0x800700c1'.
+```
+
+Error al iniciar la aplicación porque el ensamblado de la aplicación (*.dll*) no se ha podido cargar.
+
+Este error se produce cuando hay un error de coincidencia del valor de bits entre la aplicación publicada y el proceso w3wp/iisexpress.
+
+Confirme que la opción de 32 bits del grupo de aplicaciones sea correcta:
+
+1. Seleccione el grupo de aplicaciones en **Grupos de aplicaciones** del Administrador de IIS.
+1. Seleccione **Configuración avanzada** en **Modificar grupo de aplicaciones**, en el panel **Acciones**.
+1. Establezca **Habilitar aplicaciones de 32 bits**:
+   * Si implementa una aplicación de 32 bits (x86), establezca el valor en `True`.
+   * Si implementa una aplicación de 64 bits (x64), establezca el valor en `False`.
+
 ### <a name="connection-reset"></a>Restablecimiento de la conexión
 
 Si se produce un error después de que se envían los encabezados, el servidor no tiene tiempo para enviar un mensaje **500 Error interno del servidor** cuando se produce un error. Esto suele ocurrir cuando se produce un error durante la serialización de objetos complejos en una respuesta. Este tipo de error aparece como un error de *restablecimiento de la conexión* en el cliente. El [Registro de aplicaciones](xref:fundamentals/logging/index) puede ayudar a solucionar estos tipos de errores.
@@ -101,6 +121,21 @@ Si se produce un error después de que se envían los encabezados, el servidor n
 El módulo ASP.NET Core está configurado con un valor predeterminado *startupTimeLimit* de 120 segundos. Cuando se deja en el valor predeterminado, una aplicación puede tardar hasta dos minutos en iniciarse antes de que el módulo registre un error de proceso. Para información sobre la configuración del módulo, consulte [Atributos del elemento aspNetCore](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
 
 ## <a name="troubleshoot-app-startup-errors"></a>Solución de problemas de errores de inicio de la aplicación
+
+### <a name="enable-the-aspnet-core-module-debug-log"></a>Habilitar el registro de depuración del módulo de ASP.NET Core
+
+Agregue la siguiente configuración de controlador al archivo *web.config* de la aplicación para habilitar los registros de depuración del módulo ASP.NET Core:
+
+```xml
+<aspNetCore ...>
+  <handlerSettings>
+    <handlerSetting name="debugLevel" value="file" />
+    <handlerSetting name="debugFile" value="c:\temp\ancm.log" />
+  </handlerSettings>
+</aspNetCore>
+```
+
+Confirme que la ruta de acceso especificada para el registro exista y que la identidad del grupo de aplicaciones tenga permisos de escritura en la ubicación.
 
 ### <a name="application-event-log"></a>Registro de eventos de aplicación
 
@@ -121,7 +156,7 @@ Si la aplicación es una [implementación dependiente del marco](/dotnet/core/de
 
 1. En un símbolo del sistema, vaya a la carpeta de implementación y ejecute la aplicación mediante la ejecución del ensamblado de la aplicación con *dotnet.exe*. En el siguiente comando, sustituya el nombre del ensamblado de la aplicación por \<nombre_de_ensamblado>: `dotnet .\<assembly_name>.dll`.
 1. La salida de consola de la aplicación, que muestra los posibles errores, se escribe en la ventana de la consola.
-1. Si los errores se producen al realizar una solicitud a la aplicación, realice una solicitud al host y el puerto donde escucha Kestrel. Con el host y el puerto predeterminados, realizar una solicitud a `http://localhost:5000/`. Si la aplicación responde normalmente en la dirección del punto de conexión de Kestrel, es más probable que el problema esté relacionado con la configuración del proxy inverso que con la propia aplicación.
+1. Si los errores se producen al realizar una solicitud a la aplicación, realice una solicitud al host y el puerto donde escucha Kestrel. Con el host y el puerto predeterminados, realizar una solicitud a `http://localhost:5000/`. Si la aplicación responde normalmente en la dirección del punto de conexión de Kestrel, es más probable que el problema esté relacionado con la configuración de hospedaje que con la propia aplicación.
 
 #### <a name="self-contained-deployment"></a>Implementación autocontenida
 
@@ -129,7 +164,7 @@ Si la aplicación es una [implementación independiente](/dotnet/core/deploying/
 
 1. En un símbolo del sistema, vaya a la carpeta de implementación y ejecute el archivo ejecutable de la aplicación. En el siguiente comando, sustituya el nombre del ensamblado de la aplicación por \<nombre_de_ensamblado>: `<assembly_name>.exe`.
 1. La salida de consola de la aplicación, que muestra los posibles errores, se escribe en la ventana de la consola.
-1. Si los errores se producen al realizar una solicitud a la aplicación, realice una solicitud al host y el puerto donde escucha Kestrel. Con el host y el puerto predeterminados, realizar una solicitud a `http://localhost:5000/`. Si la aplicación responde normalmente en la dirección del punto de conexión de Kestrel, es más probable que el problema esté relacionado con la configuración del proxy inverso que con la propia aplicación.
+1. Si los errores se producen al realizar una solicitud a la aplicación, realice una solicitud al host y el puerto donde escucha Kestrel. Con el host y el puerto predeterminados, realizar una solicitud a `http://localhost:5000/`. Si la aplicación responde normalmente en la dirección del punto de conexión de Kestrel, es más probable que el problema esté relacionado con la configuración de hospedaje que con la propia aplicación.
 
 ### <a name="aspnet-core-module-stdout-log"></a>Registro de stdout del módulo ASP.NET Core
 
@@ -167,7 +202,7 @@ La variable de entorno `ASPNETCORE_ENVIRONMENT` [ se puede agregar a web.config]
       arguments=".\MyApp.dll"
       stdoutLogEnabled="false"
       stdoutLogFile=".\logs\stdout"
-      hostingModel="inprocess">
+      hostingModel="InProcess">
   <environmentVariables>
     <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="Development" />
   </environmentVariables>
