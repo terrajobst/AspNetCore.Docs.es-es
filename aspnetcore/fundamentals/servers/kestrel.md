@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre Kestrel, el servidor web multiplataforma de ASP.NET Core.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 12/01/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 1ef9491ebbc31fd8aa3752b53123eb6c9cf31b42
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 2a6a3786aa3a78bb83f497db22acac873512f939
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450847"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861932"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web Kestrel en ASP.NET Core
 
@@ -74,25 +74,27 @@ HTTP/2 está deshabilitado de manera predeterminada. Para obtener más informaci
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>Cuándo usar Kestrel con un proxy inverso
 
-Puede usar Kestrel por sí solo o con un *servidor proxy inverso*, como IIS, Nginx o Apache. Un servidor proxy inverso recibe las solicitudes HTTP de Internet y las reenvía a Kestrel después de un control preliminar.
+Puede usar Kestrel por sí solo o con un *servidor proxy inverso*, como [Internet Information Services (IIS)](https://www.iis.net/), [Nginx](http://nginx.org) o [Apache](https://httpd.apache.org/). Un servidor proxy inverso recibe las solicitudes HTTP de la red y las reenvía a Kestrel.
 
 ![Kestrel se comunica directamente con Internet sin ningún servidor proxy inverso](kestrel/_static/kestrel-to-internet2.png)
 
 ![Kestrel se comunica indirectamente con Internet a través de un servidor proxy inverso, como IIS, Nginx o Apache](kestrel/_static/kestrel-to-internet.png)
 
-Cualquiera de las configuraciones&mdash;con o sin un servidor proxy inverso&mdash;es una configuración de hospedaje válida y admitida para ASP.NET 2.0 o aplicaciones posteriores.
+Cualquiera de las configuraciones, &mdash;con o sin un servidor proxy inverso&mdash;, es una configuración de hospedaje admitida para ASP.NET 2.1 o aplicaciones posteriores que reciben solicitudes de Internet.
 
-Un escenario de proxy inverso tiene lugar cuando varias aplicaciones comparten el mismo puerto y dirección IP, y se ejecutan en un solo servidor. Este escenario no es viable con Kestrel, ya que Kestrel no permite compartir la misma dirección IP y el mismo puerto entre varios procesos. Si Kestrel se configura para escuchar en un puerto, controla todo el tráfico de ese puerto, independientemente del encabezado de host de la solicitud. Un proxy inverso que puede compartir puertos es capaz de reenviar solicitudes a Kestrel en una única dirección IP y puerto.
+Kestrel, utilizado como un servidor perimetral sin un servidor proxy inverso, no permite compartir la misma dirección IP y el mismo puerto entre varios procesos. Si Kestrel se configura para escuchar en un puerto, controla todo el tráfico de ese puerto, independientemente de los encabezados `Host` de las solicitudes. Un proxy inverso que puede compartir puertos es capaz de reenviar solicitudes a Kestrel en una única dirección IP y puerto.
 
-Aunque no sea necesario un servidor proxy inverso, su uso puede ser útil:
+Aunque no sea necesario un servidor proxy inverso, su uso puede ser útil.
 
-* Puede limitar el área expuesta públicamente de las aplicaciones que hospeda.
-* Proporciona una capa extra de configuración y defensa.
-* Es posible que se integre mejor con la infraestructura existente.
-* Simplifica el equilibrio de carga y la configuración SSL. Solo el servidor proxy inverso requiere un certificado SSL, y dicho servidor se puede comunicar con los servidores de aplicaciones en la red interna por medio de HTTP sin formato.
+Un proxy inverso puede hacer lo siguiente:
+
+* Limitar el área expuesta públicamente de las aplicaciones que hospeda.
+* Proporcionar una capa extra de configuración y defensa.
+* Posiblemente, integrarse mejor con la infraestructura existente.
+* Simplificar el equilibrio de carga y la configuración de una comunicación segura (HTTPS). Solo el servidor proxy inverso requiere un certificado X.509, y dicho servidor se puede comunicar con los servidores de aplicaciones en la red interna por medio de HTTP sin formato.
 
 > [!WARNING]
-> Si no usa un proxy inverso con el [filtrado de hosts](#host-filtering) habilitado, deberá habilitarlo.
+> El hospedaje en una configuración de proxy inverso requiere [filtrado de hosts](#host-filtering).
 
 ## <a name="how-to-use-kestrel-in-aspnet-core-apps"></a>Cómo usar Kestrel en aplicaciones ASP.NET Core
 
@@ -990,7 +992,7 @@ Solo son válidos los prefijos de dirección URL HTTP. Kestrel no admite SSL cua
   Los nombres de host, `*` y `+` no son especiales. Todo lo que no se identifique como una dirección IP o un `localhost` válido se enlaza a todas las direcciones IP de IPv6 e IPv4. Para enlazar distintos nombres de host a distintas aplicaciones ASP.NET Core en el mismo puerto, use [HTTP.sys](xref:fundamentals/servers/httpsys) o un servidor proxy inverso, como IIS, Nginx o Apache.
 
   > [!WARNING]
-  > Si no usa un proxy inverso con el [filtrado de hosts](#host-filtering) habilitado, habilítelo.
+  > El hospedaje en una configuración de proxy inverso requiere [filtrado de hosts](#host-filtering).
 
 * Nombre `localhost` del host con el número de puerto o la IP de bucle invertido con el número de puerto
 
@@ -1004,7 +1006,7 @@ Solo son válidos los prefijos de dirección URL HTTP. Kestrel no admite SSL cua
 
 ## <a name="host-filtering"></a>Filtrado de hosts
 
-Si bien Kestrel admite una configuración basada en prefijos como `http://example.com:5000`, pasa por alto completamente el nombre de host. El host `localhost` es un caso especial que se usa para enlazar a direcciones de bucle invertido. Cualquier otro host que no sea una dirección IP explícita se enlaza a todas las direcciones IP públicas. Ninguno de estos datos se usa para validar encabezados `Host` de solicitudes.
+Si bien Kestrel admite una configuración basada en prefijos como `http://example.com:5000`, pasa por alto completamente el nombre de host. El host `localhost` es un caso especial que se usa para enlazar a direcciones de bucle invertido. Cualquier otro host que no sea una dirección IP explícita se enlaza a todas las direcciones IP públicas. Los encabezados `Host` no están validados.
 
 Como solución alternativa, use el Middleware de filtrado de hosts. El Middleware de filtrado de hosts se facilita a través del paquete [Microsoft.AspNetCore.HostFiltering](https://www.nuget.org/packages/Microsoft.AspNetCore.HostFiltering), que se incluye en el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 o posterior). Este middleware se agrega por medio de [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), que llama a [AddHostFiltering](/dotnet/api/microsoft.aspnetcore.builder.hostfilteringservicesextensions.addhostfiltering):
 
@@ -1021,9 +1023,9 @@ El Middleware de filtrado de hosts está deshabilitado de forma predeterminada. 
 ```
 
 > [!NOTE]
-> El [Middleware de encabezados reenviados](xref:host-and-deploy/proxy-load-balancer) también tiene una opción [ForwardedHeadersOptions.AllowedHosts](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.allowedhosts). El Middleware de encabezados reenviados y el Middleware de filtrado de hosts tienen una funcionalidad similar en diferentes escenarios. Establecer `AllowedHosts` con el Middleware de encabezados reenviados es adecuado cuando el encabezado de host no se conserva mientras se reenvían solicitudes con un servidor proxy inverso o un equilibrador de carga. Establecer `AllowedHosts` con el Middleware de filtrado de hosts es adecuado cuando se usa Kestrel como un servidor perimetral de acceso público o cuando el encabezado de host se reenvía directamente.
+> El [Middleware de encabezados reenviados](xref:host-and-deploy/proxy-load-balancer) también tiene una opción [ForwardedHeadersOptions.AllowedHosts](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.allowedhosts). El Middleware de encabezados reenviados y el Middleware de filtrado de hosts tienen una funcionalidad similar en diferentes escenarios. Establecer `AllowedHosts` con el Middleware de encabezados reenviados es adecuado cuando el encabezado `Host` no se conserva mientras se reenvían solicitudes con un servidor proxy inverso o un equilibrador de carga. Establecer `AllowedHosts` con el Middleware de filtrado de hosts es adecuado cuando se usa Kestrel como un servidor perimetral de acceso público o cuando el encabezado `Host` se reenvía directamente.
 >
-> Para más información sobre el Middleware de encabezados reenviados, vea [Configurar ASP.NET Core para trabajar con servidores proxy y equilibradores de carga](xref:host-and-deploy/proxy-load-balancer).
+> Para obtener más información sobre el Middleware de encabezados reenviados, consulte <xref:host-and-deploy/proxy-load-balancer>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
