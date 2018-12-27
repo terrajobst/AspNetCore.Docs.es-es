@@ -5,14 +5,14 @@ description: Obtenga información sobre la compresión de respuesta y cómo usar
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: performance/response-compression
-ms.openlocfilehash: 2516fbb30e55990dc4ad0d92069853bc26874bc9
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 51ab51652a7b3f9b4ef97b3abbffe2e398c0bfb5
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861893"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637760"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Compresión de respuesta en ASP.NET Core
 
@@ -33,10 +33,10 @@ Use el Middleware de compresión de respuesta cuando haya:
   * [Módulo mod_deflate de Apache](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [Nginx compresión y descompresión](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Que hospeda directamente en:
-  * [HTTP.sys](xref:fundamentals/servers/httpsys) server (anteriormente denominados [WebListener](xref:fundamentals/servers/weblistener))
-  * [Kestrel](xref:fundamentals/servers/kestrel) server
+  * [Servidor HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominados WebListener)
+  * [Servidor kestrel](xref:fundamentals/servers/kestrel)
 
-## <a name="response-compression"></a>Compresión de respuesta
+## <a name="response-compression"></a>Compresión de las respuestas
 
 Por lo general, cualquier respuesta comprimida de forma no nativa puede beneficiarse de la compresión de respuesta. Respuestas de forma no nativa comprimidas normalmente incluyen: CSS, JavaScript, HTML, XML y JSON. No debe comprimir activos comprimidos de forma nativa, como archivos PNG. Si se intenta comprimir aún más una respuesta cifrada de forma nativa, reducción adicional ninguna pequeño en el tiempo de tamaño y la transmisión probablemente resultar mínimo comparado con el tiempo que tardó en procesarse la compresión. No comprimir los archivos inferiores a aproximadamente 150-1000 bytes (según el contenido del archivo y la eficacia de compresión). La sobrecarga de la compresión de archivos pequeños puede producir un archivo comprimido mayor que el archivo descomprimido.
 
@@ -50,7 +50,7 @@ Cuando un cliente pueda procesar el contenido comprimido, el cliente debe inform
 | `deflate`                       | No                   | [Formato de datos comprimidos DEFLATE](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | No                   | [Intercambio de W3C XML eficaz](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Sí                  | [Formato de archivo GZIP](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Sí                  | Identificador de "Ninguna codificación": no se debe codificar la respuesta. |
+| `identity`                      | Sí                  | Identificador de "Ninguna codificación": No se debe codificar la respuesta. |
 | `pack200-gzip`                  | No                   | [Formato de transferencia de red para archivos de Java](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
 | `*`                             | Sí                  | Cualquier contenido disponible no solicitados explícitamente la codificación |
 
@@ -64,7 +64,7 @@ Cuando un cliente pueda procesar el contenido comprimido, el cliente debe inform
 | `deflate`                       | No                   | [Formato de datos comprimidos DEFLATE](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | No                   | [Intercambio de W3C XML eficaz](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Sí (valor predeterminado)        | [Formato de archivo GZIP](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Sí                  | Identificador de "Ninguna codificación": no se debe codificar la respuesta. |
+| `identity`                      | Sí                  | Identificador de "Ninguna codificación": No se debe codificar la respuesta. |
 | `pack200-gzip`                  | No                   | [Formato de transferencia de red para archivos de Java](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
 | `*`                             | Sí                  | Cualquier contenido disponible no solicitados explícitamente la codificación |
 
@@ -74,7 +74,7 @@ Para obtener más información, consulte el [IANA oficial de codificación lista
 
 El middleware le permite agregar proveedores de compresión adicional para las instalaciones personalizadas `Accept-Encoding` valores de encabezado. Para obtener más información, consulte [proveedores personalizados](#custom-providers) a continuación.
 
-El software intermedio es capaz de reaccionar ante el valor de calidad (qvalue, `q`) cuando los envía al cliente para dar prioridad a los esquemas de compresión de ponderación. Para obtener más información, consulte [RFC 7231: codificación aceptada](https://tools.ietf.org/html/rfc7231#section-5.3.4).
+El software intermedio es capaz de reaccionar ante el valor de calidad (qvalue, `q`) cuando los envía al cliente para dar prioridad a los esquemas de compresión de ponderación. Para obtener más información, consulte [RFC 7231: Codificación aceptada](https://tools.ietf.org/html/rfc7231#section-5.3.4).
 
 Algoritmos de compresión están sujetos a un equilibrio entre la velocidad de compresión y la eficacia de la compresión. *Eficacia* en este contexto se refiere al tamaño de la salida después de la compresión. El tamaño más pequeño se logra mediante el máximo *óptimo* compresión.
 
@@ -432,7 +432,7 @@ Si basa la compresión de respuestas en el `Accept-Encoding` encabezado, hay pot
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Problema de middleware cuando están detrás de un proxy inverso de Nginx
 
-Cuando una solicitud se redirigió mediante un proxy nginx, el `Accept-Encoding` se quita el encabezado. Eliminación de la `Accept-Encoding` encabezado evita que el middleware de compresión de la respuesta. Para obtener más información, consulte [NGINX: compresión y descompresión](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Este problema es controlando [averiguar la compresión de paso a través de Nginx (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123).
+Cuando una solicitud se redirigió mediante un proxy nginx, el `Accept-Encoding` se quita el encabezado. Eliminación de la `Accept-Encoding` encabezado evita que el middleware de compresión de la respuesta. Para obtener más información, consulte [NGINX: Compresión y descompresión](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Este problema es controlando [averiguar la compresión de paso a través de Nginx (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>Trabajar con la compresión dinámica de IIS
 
@@ -465,6 +465,6 @@ Usar una herramienta como [Fiddler](https://www.telerik.com/fiddler), [Firebug](
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/index>
 * [Mozilla Developer Network: Codificación aceptada](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
-* [La sección RFC 7231 3.1.2.1: Códigos de contenido](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
-* [RFC 7230 sección 4.2.3: Codificación Gzip](https://tools.ietf.org/html/rfc7230#section-4.2.3)
+* [Sección RFC 7231 3.1.2.1: Códigos de contenido](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
+* [RFC 7230 sección 4.2.3: Codificación gzip](https://tools.ietf.org/html/rfc7230#section-4.2.3)
 * [Versión de especificación del formato de archivo GZIP 4.3](http://www.ietf.org/rfc/rfc1952.txt)

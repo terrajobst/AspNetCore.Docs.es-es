@@ -4,16 +4,16 @@ title: Enrutamiento y selección de acción en ASP.NET Web API | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
-ms.date: 07/27/2012
+ms.date: 12/14/2018
 ms.assetid: bcf2d223-cb7f-411e-be05-f43e96a14015
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
-ms.openlocfilehash: b4912d3ee1e13651f2a63d54d7dbfd92e00f85f8
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ce54181996376cb5dde3b91c10c16f33b3c6a570
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836121"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425177"
 ---
 <a name="routing-and-action-selection-in-aspnet-web-api"></a>Enrutamiento y selección de acción en ASP.NET Web API
 ====================
@@ -62,7 +62,7 @@ Si proporciona valores predeterminados, la ruta se corresponderá con un URI que
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample4.cs)]
 
-El URI "`http://localhost/api/products`" coincide con esta ruta. El segmento "{category}" se asigna el valor predeterminado "all".
+Los URI `http://localhost/api/products/all` y `http://localhost/api/products` coinciden con la ruta anterior. En el URI de este último, la falta `{category}` segmento se asigna el valor predeterminado `all`.
 
 ### <a name="route-dictionary"></a>Diccionario de ruta
 
@@ -122,7 +122,7 @@ Antes de ver el algoritmo de selección, es necesario comprender algunas cosas s
 
 **Métodos HTTP.** El marco de trabajo solo elige las acciones que coinciden con el método HTTP de la solicitud, se determina como sigue:
 
-1. Puede especificar el método HTTP con un atributo: **AcceptVerbs**, **HttpDelete**, **HttpGet**, **HttpHead**,  **HttpOptions**, **HttpPatch**, **HttpPost**, o **HttpPut**.
+1. Puede especificar el método HTTP con un atributo: **AcceptVerbs**, **HttpDelete**, **HttpGet**, **HttpHead**, **HttpOptions**, **HttpPatch**, **HttpPost**, o **HttpPut**.
 2. En caso contrario, si el nombre del método controller comienza con "Get", "Post", "Put", "Delete", "Head", "Opciones" o "Revisión", a continuación, por convención, la acción es compatible con ese método HTTP.
 3. Si ninguno de los anteriores, el método admite la publicación.
 

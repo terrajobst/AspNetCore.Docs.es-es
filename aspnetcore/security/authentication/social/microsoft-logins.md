@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 89969370cea66b7b6632f1b0be59e135767c831e
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 4909a0084994654777ad7a6ebda866ac727f0528
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708405"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735757"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Configuración de inicio de sesión externo Account de Microsoft con ASP.NET Core
 
@@ -80,9 +80,9 @@ La plantilla de proyecto que se usa en este tutorial garantiza que [Microsoft.As
 Agregue el servicio de Microsoft Account en el `ConfigureServices` método *Startup.cs* archivo:
 
 ```csharp
-services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddDefaultTokenProviders();
+services.AddDefaultIdentity<IdentityUser>()
+        .AddDefaultUI(UIFramework.Bootstrap4)
+        .AddEntityFrameworkStores<ApplicationDbContext>();
 
 services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 {
@@ -119,7 +119,7 @@ Consulte la [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.m
 
 Ejecute la aplicación y haga clic en **inicie sesión**. Aparece una opción para iniciar sesión en Microsoft:
 
-![Registro de aplicación en la página Web: usuario no autenticado](index/_static/DoneMicrosoft.png)
+![Aplicación Web de registro en la página: Usuario no autenticado](index/_static/DoneMicrosoft.png)
 
 Al hacer clic en Microsoft, se le redirigirá a Microsoft para la autenticación. Después de iniciar sesión con su Account de Microsoft (si aún no ha iniciado sesión) se le indicará que permiten que la aplicación acceso a tu información:
 
@@ -129,7 +129,7 @@ Pulse **Sí** y se le redirigirá al sitio web donde puede establecer su correo 
 
 Ha iniciado sesión con sus credenciales de Microsoft:
 
-![Aplicación Web: usuario autenticado](index/_static/Done.png)
+![Aplicación Web: Usuario autenticado](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
@@ -138,7 +138,7 @@ Ha iniciado sesión con sus credenciales de Microsoft:
 * Si el proveedor de Microsoft Account le redirige a una página de error de inicio de sesión, tenga en cuenta el error título y descripción cadena parámetros de consulta justo después de la `#` (hashtag) en el Uri.
 
   Aunque parezca que el mensaje de error indica un problema con la autenticación de Microsoft, la causa más común es la aplicación del Uri no coincide con cualquiera de los **URI de redirección** especificado para el **Web** plataforma .
-* **ASP.NET Core 2.x solo:** identidad si no está configurado mediante una llamada a `services.AddIdentity` en `ConfigureServices`, intentando autenticarse producirá *ArgumentException: se debe proporcionar la opción 'SignInScheme'*. La plantilla de proyecto que se usa en este tutorial, se garantiza que esto se realiza.
+* **ASP.NET Core 2.x solo:** Si la identidad no está configurada mediante una llamada a `services.AddIdentity` en `ConfigureServices`, intentando autenticarse producirá *ArgumentException: Se debe proporcionar la opción 'SignInScheme'*. La plantilla de proyecto que se usa en este tutorial, se garantiza que esto se realiza.
 * Si la base de datos de sitio no se ha creado aplicando a la migración inicial, obtendrá *error en una operación de base de datos al procesar la solicitud* error. Pulse **aplicar migraciones** para crear la base de datos y actualizar para continuar más allá del error.
 
 ## <a name="next-steps"></a>Pasos siguientes

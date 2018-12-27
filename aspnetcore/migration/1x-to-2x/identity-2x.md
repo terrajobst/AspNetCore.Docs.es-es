@@ -3,14 +3,14 @@ title: Migrar de autenticación e identidad a ASP.NET Core 2.0
 author: scottaddie
 description: En este artículo se describe los pasos más comunes para migrar la autenticación de ASP.NET Core 1.x y la identidad a ASP.NET Core 2.0.
 ms.author: scaddie
-ms.date: 10/26/2017
+ms.date: 12/18/2018
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 6d457d42ad29ca579ba74e3b097d143bd6531b72
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: d28b4af483c7ec9d6cff6db3e2f1693e765d4202
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836152"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637617"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Migrar de autenticación e identidad a ASP.NET Core 2.0
 
@@ -283,7 +283,7 @@ Hay dos variaciones de autenticación de Windows:
 
 La primera variación que se ha descrito anteriormente se ve afectada por los cambios de 2.0.
 
-La segunda variación que se ha descrito anteriormente se ve afectada por los cambios de 2.0. Por ejemplo, puede permitir a los usuarios anónimos a la aplicación en IIS o [HTTP.sys](xref:fundamentals/servers/weblistener) pero autorizando a los usuarios en el nivel de controlador de capas. En este escenario, establezca el esquema predeterminado en `IISDefaults.AuthenticationScheme` en el `ConfigureServices` método *Startup.cs*:
+La segunda variación que se ha descrito anteriormente se ve afectada por los cambios de 2.0. Por ejemplo, puede permitir a los usuarios anónimos en su aplicación en IIS o [HTTP.sys](xref:fundamentals/servers/httpsys) pero autorizando a los usuarios en el nivel de controlador de capas. En este escenario, establezca el esquema predeterminado en `IISDefaults.AuthenticationScheme` en el `Startup.ConfigureServices` método:
 
 ```csharp
 services.AddAuthentication(IISDefaults.AuthenticationScheme);

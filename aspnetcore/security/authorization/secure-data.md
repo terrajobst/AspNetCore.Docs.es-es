@@ -3,15 +3,15 @@ title: Crear una aplicación ASP.NET Core con datos de usuario protegidos por au
 author: rick-anderson
 description: Obtenga información sobre cómo crear una aplicación de páginas de Razor con datos de usuario protegidos por autorización. Incluye HTTPS, autenticación, seguridad, ASP.NET Core Identity.
 ms.author: riande
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: d49ee7779b425d625b81c8a65694121c616bfba6
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: fa82d3d99f4e4b7ad17ed385fb7c029745797e8d
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121640"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637838"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crear una aplicación ASP.NET Core con datos de usuario protegidos por autorización
 
@@ -57,13 +57,13 @@ En la siguiente imagen, `admin@contoso.com` se registre y en la función Adminis
 
 El administrador tiene todos los privilegios. Puede leer, editar o eliminar cualquier contacto y cambiar el estado de los contactos.
 
-Se ha creado la aplicación por [scaffolding](xref:tutorials/first-mvc-app-xplat/adding-model#scaffold-the-moviecontroller) siguiente `Contact` modelo:
+Se ha creado la aplicación por [scaffolding](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) siguiente `Contact` modelo:
 
 [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet)]
 
 El ejemplo contiene los siguientes controladores de autorización:
 
-* `ContactIsOwnerAuthorizationHandler`: Se garantiza que un usuario solo puede modificar sus datos.
+* `ContactIsOwnerAuthorizationHandler`: Garantiza que un usuario solo puede modificar sus datos.
 * `ContactManagerAuthorizationHandler`: Permite a los administradores aprobar o rechazar los contactos.
 * `ContactAdministratorsAuthorizationHandler`: Permite que los administradores pueden aprobar o rechazar los contactos y editar o eliminar contactos.
 
@@ -284,7 +284,7 @@ Consulte [este problema](https://github.com/aspnet/Docs/issues/8502) para obtene
 
 Si ya no ha establecido una contraseña para cuentas de usuario inicializados, utilice el [herramienta Secret Manager](xref:security/app-secrets#secret-manager) para establecer una contraseña:
 
-* Elija una contraseña segura: Use ocho o más caracteres y al menos una mayúscula, número y símbolos. Por ejemplo, `Passw0rd!` cumple los requisitos de contraseña segura.
+* Elija una contraseña segura: Use ocho o más caracteres y al menos un carácter en mayúsculas, números y símbolos. Por ejemplo, `Passw0rd!` cumple los requisitos de contraseña segura.
 * Ejecute el siguiente comando desde la carpeta del proyecto, donde `<PW>` es la contraseña:
 
   ```console
