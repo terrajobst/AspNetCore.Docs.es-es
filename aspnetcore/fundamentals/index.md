@@ -4,14 +4,14 @@ author: rick-anderson
 description: Descubra los conceptos básicos para crear aplicaciones de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/index
-ms.openlocfilehash: 8bd447632f915cadcc5199ec50b292ad27f6c3ba
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 11dc6336ae7667038983c967f28232bef325f5bb
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861594"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637775"
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
@@ -41,7 +41,7 @@ Host de .NET Core:
 * Carga el [entorno de ejecución de .NET Core](https://github.com/dotnet/coreclr).
 * Usa el primer argumento de la línea de comandos como la ruta de acceso al binario administrado que contiene el punto de entrada (`Main`) e inicia la ejecución del código.
 
-El método `Main` usa <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>, que sigue el [patrón del generador](https://wikipedia.org/wiki/Builder_pattern) para crear un host de aplicación web. El generador tiene métodos que definen el servidor web (por ejemplo, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) y la clase de inicio (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). En el ejemplo anterior, se usa el servidor web [Kestrel](xref:fundamentals/servers/kestrel). Si se invoca el método de extensión adecuado, se pueden usar otros servidores web, como [WebListener](xref:fundamentals/servers/weblistener). `UseStartup` se explica en la sección siguiente.
+El método `Main` usa <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>, que sigue el [patrón del generador](https://wikipedia.org/wiki/Builder_pattern) para crear un host de aplicación web. El generador tiene métodos que definen el servidor web (por ejemplo, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) y la clase de inicio (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). En el ejemplo anterior, se usa el servidor web [Kestrel](xref:fundamentals/servers/kestrel). Otros servidores web, como [HTTP.sys](xref:fundamentals/servers/httpsys), se pueden usar al invocar el método de extensión adecuado. `UseStartup` se explica con más detalle en la sección [Inicio](#startup).
 
 `WebHostBuilder` proporciona muchos métodos opcionales, incluido <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> para hospedar en IIS e IIS Express, y <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> para especificar el directorio de contenido raíz. Los métodos <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder.Build*> y <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> crean el objeto <xref:Microsoft.AspNetCore.Hosting.IWebHost> que hospeda la aplicación y empieza a escuchar las solicitudes HTTP.
 
@@ -140,7 +140,7 @@ El modelo de hospedaje de ASP.NET Core no escucha directamente las solicitudes. 
 ASP.NET Core proporciona las siguientes implementaciones de servidor:
 
 * El servidor [Kestrel](xref:fundamentals/servers/kestrel) es un servidor web multiplataforma administrado. Kestrel se suele ejecutar en una configuración de proxy inverso con [IIS](https://www.iis.net/). Kestrel también puede ejecutarse como servidor perimetral de acceso público expuesto directamente a Internet en ASP.NET Core 2.0 o versiones posteriores.
-* El servidor HTTP de IIS (`IISHttpServer`) es un [servidor en proceso de IIS](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model).
+* El servidor HTTP de IIS (`IISHttpServer`) es un [servidor en proceso](xref:fundamentals/servers/index#in-process-hosting-model) de IIS.
 * El servidor [HTTP.sys](xref:fundamentals/servers/httpsys) es un servidor web para ASP.NET Core en Windows.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
