@@ -4,14 +4,14 @@ author: rick-anderson
 description: Aprenda a proporcionar y proteger los archivos estáticos y a configurar los comportamientos de middleware de hospedaje de archivos estáticos en una aplicación web de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/18/2018
+ms.date: 12/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: fb92141b1864574242b29ecc386024ce72a6be87
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 4c08d65cc1f658ef08a9b4b362ac7f8a3a243557
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570131"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637786"
 ---
 # <a name="static-files-in-aspnet-core"></a>Archivos estáticos en ASP.NET Core
 
@@ -246,7 +246,7 @@ Con el código anterior, una solicitud para un archivo con un tipo de contenido 
 
 * Las direcciones URL para el contenido que se expone a través de `UseDirectoryBrowser` y `UseStaticFiles` están sujetas a la distinción entre mayúsculas y minúsculas, y a restricciones de caracteres del sistema de archivos subyacente. Por ejemplo, Windows no distingue entre mayúsculas y minúsculas, pero macOS y Linux sí.
 
-* Las aplicaciones de ASP.NET Core hospedadas en IIS usan el [módulo de ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) para reenviar todas las solicitudes a la aplicación, incluidas las solicitudes de archivos estáticos. No se usa el controlador de archivos estáticos de IIS. No tiene ninguna posibilidad de controlar las solicitudes antes de que las controle el módulo.
+* Las aplicaciones de ASP.NET Core hospedadas en IIS usan el [módulo de ASP.NET Core](xref:host-and-deploy/aspnet-core-module) para reenviar todas las solicitudes a la aplicación, incluidas las solicitudes de archivos estáticos. No se usa el controlador de archivos estáticos de IIS. No tiene ninguna posibilidad de controlar las solicitudes antes de que las controle el módulo.
 
 * Complete los pasos siguientes en el Administrador de IIS para quitar el controlador de archivos estáticos de IIS en el nivel de servidor o de sitio web:
     1. Navegue hasta la característica **Módulos**.

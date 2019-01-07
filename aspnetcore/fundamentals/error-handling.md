@@ -4,14 +4,14 @@ author: tdykstra
 description: Descubra cómo controlar errores en aplicaciones ASP.NET Core.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: fbc86d36f66e71e6ebd84f536148fba2e3c452d8
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: f4358cba81d2aa47a26f90a8d5f4e77310bcad00
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570066"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637643"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Controlar errores en ASP.NET Core
 
@@ -226,7 +226,7 @@ Solo el nivel de hospedaje puede controlar las excepciones que tienen lugar dura
 
 El hospedaje solo puede mostrar una página de error para un error de inicio capturado si este se produce después del enlace de puerto/dirección del host. Si se produce un error en algún enlace por cualquier motivo, el nivel de hospedaje registra una excepción crítica, el proceso de dotnet se bloquea y no se muestra ninguna página de error si la aplicación se está ejecutando en el servidor de [Kestrel](xref:fundamentals/servers/kestrel).
 
-Si se ejecuta en [IIS](/iis) o [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) devuelve un *error de proceso 502.5* en caso de que el proceso no se pueda iniciar. Para obtener información sobre cómo solucionar problemas de inicio al hospedar con IIS, vea <xref:host-and-deploy/iis/troubleshoot>. Para obtener información sobre cómo solucionar problemas de inicio con Azure App Service, vea <xref:host-and-deploy/azure-apps/troubleshoot>.
+Si se ejecuta en [IIS](/iis) o [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) devuelve un *error de proceso 502.5* en caso de que el proceso no se pueda iniciar. Para obtener información sobre cómo solucionar problemas de inicio al hospedar con IIS, vea <xref:host-and-deploy/iis/troubleshoot>. Para obtener información sobre cómo solucionar problemas de inicio con Azure App Service, vea <xref:host-and-deploy/azure-apps/troubleshoot>.
 
 ## <a name="aspnet-core-mvc-error-handling"></a>Control de errores de ASP.NET Core MVC
 

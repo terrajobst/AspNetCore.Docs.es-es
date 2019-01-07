@@ -1,0 +1,1 @@
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-mvc-app/start-mvc/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
