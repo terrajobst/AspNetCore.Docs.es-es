@@ -8,12 +8,12 @@ ms.date: 03/28/2008
 ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: 2e0b1e1d4cbb282e7fd4b27e0a93ba1b9702edea
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 4883046aa16d5e67b7f0c92e15c897ef1a933b67
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41839208"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098940"
 ---
 <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>Descripción de página parcial se actualiza con ASP.NET AJAX
 ====================
@@ -46,18 +46,18 @@ Quizás la característica más visible de ASP.NET AJAX Extensions es la capacid
 
 La capacidad de integrar la representación de página parcial está integrada en ASP.NET con cambios mínimos en el proyecto.
 
-## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>Tutorial: Integración de representación parcial en un proyecto existente
+## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>Tutorial: Integración de la representación parcial en un proyecto existente
 
 
 1. En Microsoft Visual Studio 2008, cree un nuevo proyecto de sitio Web de ASP.NET, vaya a <em>archivo</em>  <em>- &gt; New</em>  <em>- &gt; el sitio Web</em> y seleccione el sitio Web de ASP.NET en el cuadro de diálogo. Puede asignarle el nombre que prefiera y puede instalar en el sistema de archivos o en Internet Information Services (IIS).
 2. Aparecerá la página en blanco de forma predeterminada con marcado básicos de ASP.NET (un formulario de servidor y un `@Page` directiva). Quitar una etiqueta denominada `Label1` y un botón denominado `Button1` hasta la página dentro del elemento de formulario. Puede establecer sus propiedades de texto que prefiera.
 3. En la vista Diseño, haga doble clic en `Button1` para generar un controlador de eventos de código subyacente. Dentro de este controlador de eventos, establecer `Label1.Text` al hacer clic en el botón! .
 
-**Listado 1: Marcado para default.aspx antes de habilita la representación parcial**
+**Listado 1: Marcado de default.aspx antes de habilita la representación parcial**
 
 [!code-aspx[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample1.aspx)]
 
-**Listado 2: Codebehind (recortada) en default.aspx.cs**
+**Listado 2: Código subyacente (recortada) en default.aspx.cs**
 
 [!code-csharp[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample2.cs)]
 
@@ -85,13 +85,13 @@ La capacidad de integrar la representación de página parcial está integrada e
 1. En cualquier lugar dentro de la `<form>` elemento, incluir un control ScriptManager haciendo doble clic en el `ScriptManager` elemento en el cuadro de herramientas.
 2. Editar el `<asp:ScriptManager>` etiquetar para que incluya el atributo `EnablePartialRendering= true`.
 
-**Listado 3: Marcado para default.aspx con la representación parcial habilitada**
+**Listado 3: Marcado de default.aspx con la representación parcial habilitada**
 
 [!code-aspx[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample3.aspx)]
 
 1. Abra el archivo web.config. Tenga en cuenta que Visual Studio ha agregado automáticamente una referencia de compilación a System.Web.Extensions.dll.
 
-1. Novedades de Visual Studio 2008: el archivo web.config que se incluye automáticamente con las plantillas de proyecto de sitio Web ASP.NET incluye todas las referencias necesarias a las extensiones de AJAX de ASP.NET e incluye secciones comentadas de información de configuración que puede ser sin comentada para habilitar la funcionalidad adicional. Visual Studio 2005 tenía plantillas similares al instalar ASP.NET 2.0 AJAX Extensions. Sin embargo, en Visual Studio 2008, las extensiones de AJAX son participar de forma predeterminada (es decir, se hace referencia de forma predeterminada, pero se pueden quitar como referencias).
+1. Novedades en Visual Studio 2008: El archivo web.config que se incluye con el sitio Web ASP.NET las plantillas de proyecto automáticamente incluye todas las referencias necesarias a las extensiones de AJAX de ASP.NET e incluye comentarios las secciones de información de configuración que puede ser sin comentada para habilitar adicionales funcionalidad. Visual Studio 2005 tenía plantillas similares al instalar ASP.NET 2.0 AJAX Extensions. Sin embargo, en Visual Studio 2008, las extensiones de AJAX son participar de forma predeterminada (es decir, se hace referencia de forma predeterminada, pero se pueden quitar como referencias).
 
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image8.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image7.png)
@@ -111,7 +111,7 @@ Visual Studio 2008 no parecen venir con una plantilla predefinida para un sitio 
 
 Propiedades de marcado habilitados:
 
-| **Nombre de propiedad** | **Type** | **Descripción** |
+| **Nombre de la propiedad** | **Type** | **Descripción** |
 | --- | --- | --- |
 | AllowCustomErrors-redirección | Bool | Especifica si se debe usar la sección de errores personalizados del archivo web.config para controlar los errores. |
 | Mensaje de AsyncPostBackError | String | Obtiene o establece el mensaje de error enviado al cliente si se produce un error. |
@@ -124,7 +124,7 @@ Propiedades de marcado habilitados:
 
 Propiedades de sólo código:
 
-| **Nombre de propiedad** | **Type** | **Descripción** |
+| **Nombre de la propiedad** | **Type** | **Descripción** |
 | --- | --- | --- |
 | AuthenticationService | AuthenticationService-Manager | Obtiene información detallada sobre el proxy de servicio de autenticación de ASP.NET que se enviará al cliente. |
 | IsDebuggingEnabled | Bool | Obtiene si scripts y está habilitada la depuración de código. |
@@ -153,7 +153,7 @@ Descendientes de marcado:
 
 El control ScriptManager es el núcleo esencial para las extensiones de AJAX de ASP.NET. Proporciona acceso a la biblioteca de scripts (incluido el sistema de tipos extenso del script de cliente), admite la representación parcial y proporciona una amplia compatibilidad para servicios adicionales de ASP.NET (por ejemplo, autenticación y generación de perfiles, sino también otros servicios Web). El control ScriptManager también proporciona compatibilidad con la globalización y localización los scripts de cliente.
 
-## <a name="providing-alterative-and-supplemental-scripts"></a>Proporciona secuencias de comandos adicionales y alternativo
+## <a name="providing-alternative-and-supplemental-scripts"></a>Proporciona secuencias de comandos adicionales y alternativos
 
 Aunque Microsoft ASP.NET 2.0 AJAX Extensions incluyen el código de secuencia de comandos completa en ambas versiones de depuración y versión ediciones como recursos incrustados en los ensamblados de referencia, los desarrolladores son gratuitos redirigir el ScriptManager a archivos de script personalizado, así como para registrar scripts necesarios adicionales.
 
@@ -185,7 +185,7 @@ El control ScriptManager ofrece una amplia compatibilidad para la localización 
 
 Propiedades de marcado habilitados:
 
-| **Nombre de propiedad** | **Type** | **Descripción** |
+| **Nombre de la propiedad** | **Type** | **Descripción** |
 | --- | --- | --- |
 | ChildrenAsTriggers | bool | Especifica si los controles secundarios invocan automáticamente la actualización en el postback. |
 | RenderMode | enum (bloque, en línea) | Especifica que la forma en que el contenido se presentarán visualmente. |
@@ -193,7 +193,7 @@ Propiedades de marcado habilitados:
 
 Propiedades de sólo código:
 
-| **Nombre de propiedad** | **Type** | **Descripción** |
+| **Nombre de la propiedad** | **Type** | **Descripción** |
 | --- | --- | --- |
 | IsInPartialRendering | bool | Obtiene si el control UpdatePanel es compatible con la representación parcial de la solicitud actual. |
 | ContentTemplate | ITemplate | Obtiene la plantilla de marcado para la solicitud de actualización. |
@@ -280,7 +280,7 @@ Por último, si una aplicación requiere que se usan los UpdatePanels, deben ayu
 
 Propiedades de marcado habilitados:
 
-| **Nombre de propiedad** | **Type** | **Descripción** |
+| **Nombre de la propiedad** | **Type** | **Descripción** |
 | --- | --- | --- |
 | AssociatedUpdate PanelID | String | Especifica el identificador de UpdatePanel que deben notificar este UpdateProgress en. |
 | DisplayAfter | Valor int. | Especifica el tiempo de espera en milisegundos antes de este control se muestra después de que comience la solicitud asincrónica. |

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: b15c6b5ac77f047c40704c9e164165c55b6ae93b
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 0c3add9c8860a47932cda3a8b07c83dc774bf1f1
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861529"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098979"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Exigir HTTPS en ASP.NET Core
 
@@ -69,9 +69,9 @@ Especifique el puerto HTTPS mediante cualquiera de los métodos siguientes:
 
   **Clave**: `https_port`  
   **Tipo**: *cadena*  
-  **Valor predeterminado**: no se establece un valor predeterminado.  
+  **Default**: No se establece un valor predeterminado.  
   **Establecer mediante**: `UseSetting`  
-  **Variable de entorno**: `<PREFIX_>HTTPS_PORT` (el prefijo es `ASPNETCORE_` cuando se usa el [Web Host](xref:fundamentals/host/web-host).)
+  **Variable de entorno**: `<PREFIX_>HTTPS_PORT` (El prefijo es `ASPNETCORE_` cuando se usa el [Web Host](xref:fundamentals/host/web-host).)
 
   Al configurar un <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder> en `Program`:
 
@@ -98,7 +98,7 @@ Ningún firewall entre el cliente y el servidor también debe tener los puertos 
 
 Si las solicitudes se reenvían en una configuración de proxy inverso, use [software intermedio de encabezados reenviados](xref:host-and-deploy/proxy-load-balancer) antes de llamar al Middleware de redireccionamiento de HTTPS. Reenvía las actualizaciones de software intermedio de encabezados el `Request.Scheme`, usando la `X-Forwarded-Proto` encabezado. Los middleware que permite redirección los identificadores URI y otras directivas de seguridad para que funcione correctamente. Cuando no se usa el software intermedio de encabezados reenviados, la aplicación de back-end no es posible que la combinación correcta de recepción y terminar en un bucle de redirección. Un mensaje de error de usuario final común es que se han producido demasiadas redirecciones.
 
-Al implementar en Azure App Service, siga las instrucciones de [Tutorial: enlazar un certificado SSL personalizado existente a Azure Web Apps](/azure/app-service/app-service-web-tutorial-custom-ssl).
+Al implementar en Azure App Service, siga las instrucciones de [Tutorial: Enlazar un certificado SSL personalizado existente a Azure Web Apps](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ### <a name="options"></a>Opciones
 
@@ -192,9 +192,9 @@ El código siguiente:
 
 `UseHsts` excluye los hosts de bucle invertido siguientes:
 
-* `localhost` : La dirección de bucle invertido de IPv4.
-* `127.0.0.1` : La dirección de bucle invertido de IPv4.
-* `[::1]` : La dirección de bucle invertido de IPv6.
+* `localhost`: La dirección de bucle invertido de IPv4.
+* `127.0.0.1`: La dirección de bucle invertido de IPv4.
+* `[::1]`: La dirección de bucle invertido de IPv6.
 
 ::: moniker-end
 
@@ -260,7 +260,7 @@ Consulte [este problema de GitHub](https://github.com/aspnet/Docs/issues/6199).
 ## <a name="additional-information"></a>Información adicional
 
 * <xref:host-and-deploy/proxy-load-balancer>
-* [Hospedaje de ASP.NET Core en Linux con Apache: configuración de SSL](xref:host-and-deploy/linux-apache#ssl-configuration)
-* [Hospedar ASP.NET Core en Linux con Nginx: configuración de SSL](xref:host-and-deploy/linux-nginx#configure-ssl)
+* [Hospedaje de ASP.NET Core en Linux con Apache: Configuración de HTTPS](xref:host-and-deploy/linux-apache#https-configuration)
+* [Hospedaje de ASP.NET Core en Linux con Nginx: Configuración de HTTPS](xref:host-and-deploy/linux-nginx#https-configuration)
 * [Cómo configurar SSL en IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis)
 * [Compatibilidad con exploradores de OWASP HSTS](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet#Browser_Support)

@@ -3,14 +3,14 @@ title: Almacenamiento en caché de respuesta en ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre cómo usar el almacenamiento en caché de respuestas para reducir los requisitos de ancho de banda y aumentar el rendimiento de las aplicaciones de ASP.NET Core.
 ms.author: riande
-ms.date: 09/20/2017
+ms.date: 01/07/2018
 uid: performance/caching/response
-ms.openlocfilehash: 99093cd281ffa8dddc574dc27254c0175e2651b3
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 5fbcaddff6e53d01a19ba8a7455c719feb614326
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207373"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098953"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Almacenamiento en caché de respuesta en ASP.NET Core
 
@@ -23,7 +23,7 @@ Por [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.co
 
 Almacenamiento en caché de respuesta reduce el número de solicitudes hace que un cliente o un proxy a un servidor web. Almacenamiento en caché de respuesta también reduce la cantidad de trabajo se realiza el servidor web para generar una respuesta. Almacenamiento en caché de respuesta se controla mediante los encabezados que especifican cómo desea que client, proxy y middleware en caché las respuestas.
 
-El servidor web puede almacenar en caché las respuestas al agregar [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware).
+El [del atributo ResponseCache](#responsecache-attribute) participa en la configuración de almacenamiento en caché de los encabezados, los clientes que pueden respetar al almacenar en caché las respuestas de respuesta. [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware) puede usarse para la memoria caché las respuestas en el servidor. Puede usar el middleware `ResponseCache` propiedades para influir en el comportamiento de almacenamiento en caché del lado servidor de atributos.
 
 ## <a name="http-based-response-caching"></a>Almacenamiento en caché de respuesta basado en HTTP
 
@@ -36,8 +36,8 @@ Common `Cache-Control` directivas se muestran en la tabla siguiente.
 | [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Una memoria caché puede almacenar la respuesta. |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | La respuesta no debe almacenarse en una memoria caché compartida. Una caché privada puede almacenar y reutilizar la respuesta. |
 | [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | El cliente no aceptará una respuesta cuya antigüedad es superior al número especificado de segundos. Ejemplos: `max-age=60` (60 segundos), `max-age=2592000` (1 mes) |
-| [no almacenar en caché](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **En las solicitudes**: una memoria caché no debe usar una respuesta almacenada para satisfacer la solicitud. Nota: El servidor de origen vuelve a genera la respuesta para el cliente y el software intermedio actualiza la respuesta almacenada en la memoria caché.<br><br>**En las respuestas**: la respuesta no debe usarse para una solicitud posterior sin validación en el servidor de origen. |
-| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **En las solicitudes**: una memoria caché no debe almacenar la solicitud.<br><br>**En las respuestas**: una memoria caché no debe almacenar cualquier parte de la respuesta. |
+| [no almacenar en caché](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **En las solicitudes**: Una memoria caché no debe usar una respuesta almacenada para satisfacer la solicitud. Nota: El servidor de origen vuelve a genera la respuesta para el cliente y el software intermedio actualiza la respuesta almacenada en la memoria caché.<br><br>**En las respuestas**: La respuesta no debe usarse para una solicitud posterior sin validación en el servidor de origen. |
+| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **En las solicitudes**: Una memoria caché no debe almacenar la solicitud.<br><br>**En las respuestas**: Una memoria caché no debe almacenar cualquier parte de la respuesta. |
 
 Otros encabezados de caché que desempeñan un papel en la caché se muestran en la tabla siguiente.
 
@@ -54,7 +54,7 @@ El [especificación HTTP 1.1 Caching para el encabezado Cache-Control](https://t
 
 Teniendo siempre cliente `Cache-Control` encabezados de solicitud tiene sentido si piensa que el objetivo del almacenamiento en caché de HTTP. En la especificación oficial, el almacenamiento en caché está pensado para reducir la sobrecarga de latencia y la red de satisfacer las solicitudes a través de una red de clientes, servidores proxy y servidores. No es necesariamente una manera de controlar la carga en un servidor de origen.
 
-No hay ningún control del desarrollador actual sobre este comportamiento de almacenamiento en caché cuando se usa el [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware) porque el middleware se ajusta al almacenamiento en caché de la especificación oficial. [Las futuras mejoras al middleware](https://github.com/aspnet/ResponseCaching/issues/96) permitirá configurar el middleware para omitir una solicitud `Cache-Control` encabezado de la hora de decidir atender una respuesta almacenada en caché. Esto le ofrecerá una oportunidad para controlar mejor la carga en el servidor cuando se usa el middleware.
+No hay ningún control del desarrollador sobre este comportamiento de almacenamiento en caché cuando se usa el [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware) porque el middleware se ajusta al almacenamiento en caché de la especificación oficial. [Planeado mejoras al middleware](https://github.com/aspnet/AspNetCore/issues/2612) son una oportunidad para configurar el middleware para omitir una solicitud `Cache-Control` encabezado de la hora de decidir atender una respuesta almacenada en caché. Las mejoras previstas ofrecen una oportunidad para una mejor carga del servidor de control.
 
 ## <a name="other-caching-technology-in-aspnet-core"></a>Otra tecnología de almacenamiento en caché en ASP.NET Core
 
@@ -91,7 +91,7 @@ El [ResponseCacheAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.ResponseCacheAt
 
 [VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) varía la respuesta almacenada en los valores de la lista de las claves de consulta determinada. Cuando el valor único `*` es siempre el middleware varía las respuestas de todos los parámetros de cadena de consulta de solicitud. `VaryByQueryKeys` requiere ASP.NET Core 1.1 o posterior.
 
-Debe habilitarse el Middleware de almacenamiento en caché de respuesta para establecer el `VaryByQueryKeys` propiedad; en caso contrario, se produce una excepción en tiempo de ejecución. No hay un encabezado HTTP correspondiente para el `VaryByQueryKeys` propiedad. La propiedad es una característica de HTTP controlada el Middleware de almacenamiento en caché de respuesta. Para que el middleware servir una respuesta almacenada en caché, la cadena de consulta y el valor de cadena de consulta deben coincidir con una solicitud anterior. Por ejemplo, considere la posibilidad de la secuencia de solicitudes y los resultados que se muestran en la tabla siguiente.
+[Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware) debe estar habilitado para establecer el `VaryByQueryKeys` propiedad; en caso contrario, se produce una excepción en tiempo de ejecución. No hay un encabezado HTTP correspondiente para el `VaryByQueryKeys` propiedad. La propiedad es una característica de HTTP controlada el Middleware de almacenamiento en caché de respuesta. Para que el middleware servir una respuesta almacenada en caché, la cadena de consulta y el valor de cadena de consulta deben coincidir con una solicitud anterior. Por ejemplo, considere la posibilidad de la secuencia de solicitudes y los resultados que se muestran en la tabla siguiente.
 
 | Solicitud                          | Resultado                   |
 | -------------------------------- | ------------------------ |

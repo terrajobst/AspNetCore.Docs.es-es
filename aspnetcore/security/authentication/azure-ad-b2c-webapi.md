@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 9c541644d276bbdc990bb01f8bd80c92862cd6f0
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 6d0365b103572d6059ce61c54b9b3406da9e5bd4
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284622"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098706"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticación en web API con Azure Active Directory B2C en ASP.NET Core
 
@@ -157,8 +157,8 @@ Para comprobar que la API web requiere autenticación, en primer lugar realice u
     ![respuesta 401 no autorizado](./azure-ad-b2c-webapi/postman-401-status.png)
 
 > [!IMPORTANT]
-> Si se produce un error "No se pudo obtener ninguna respuesta", es posible que deba deshabilitar comprobación del certificado SSL en el [configuración de Postman](https://learning.getpostman.com/docs/postman/launching_postman/settings). 
- 
+> Si recibe un error "No se pudo obtener ninguna respuesta", es posible que deba deshabilitar comprobación del certificado SSL en el [configuración de Postman](https://learning.getpostman.com/docs/postman/launching_postman/settings).
+
 ### <a name="obtain-a-bearer-token"></a>Obtener un token de portador
 
 Para realizar una solicitud autenticada a la API web, se requiere un token de portador. Postman facilita iniciar sesión el inquilino de Azure AD B2C y obtener un token.

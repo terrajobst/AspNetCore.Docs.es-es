@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 09/22/2018
 ms.custom: seodec18
 uid: security/authentication/2fa
-ms.openlocfilehash: 6f20928b0dec9b235fa17c1b44c81a48d031e9e0
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 48bfc50378fc0ec212f5b9d4e7ce05bb4fc97b9d
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121666"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098901"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>Autenticación en dos fases con SMS en ASP.NET Core
 
@@ -27,25 +27,25 @@ Este tutorial muestra cómo configurar la autenticación en dos fases (2FA) medi
 
 ## <a name="create-a-new-aspnet-core-project"></a>Crear un nuevo proyecto de ASP.NET Core
 
-Crear una nueva aplicación web de ASP.NET Core denominada `Web2FA` con cuentas de usuario individuales. Siga las instrucciones de [exigir SSL en una aplicación ASP.NET Core](xref:security/enforcing-ssl) para configurar y requieren SSL.
+Crear una nueva aplicación web de ASP.NET Core denominada `Web2FA` con cuentas de usuario individuales. Siga las instrucciones de <xref:security/enforcing-ssl> para configurar y requiere HTTPS.
 
 ### <a name="create-an-sms-account"></a>Crear una cuenta SMS
 
-Crear una cuenta SMS, por ejemplo, desde [twilio](https://www.twilio.com/) o [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/). Registre las credenciales de autenticación (twilio: accountSid y authToken para ASPSMS: Userkey y la contraseña).
+Crear una cuenta SMS, por ejemplo, desde [twilio](https://www.twilio.com/) o [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/). Registre las credenciales de autenticación (twilio: accountSid y authToken para ASPSMS: UserKey y la contraseña).
 
 #### <a name="figuring-out-sms-provider-credentials"></a>Averiguar las credenciales del proveedor de SMS
 
-**Twilio:** en la ficha Panel de la cuenta de Twilio, copie el **SID de cuenta** y **Auth token**.
+**Twilio:** En la ficha Panel de la cuenta de Twilio, copie el **SID de cuenta** y **Auth token**.
 
-**ASPSMS:** desde la configuración de su cuenta, vaya a **Userkey** y cópielo junto con su **contraseña**.
+**ASPSMS:** En la configuración de su cuenta, vaya a **Userkey** y cópielo junto con su **contraseña**.
 
 Más adelante, almacenaremos estos valores con la herramienta Administrador de secretos en el conjunto de claves `SMSAccountIdentification` y `SMSAccountPassword`.
 
 #### <a name="specifying-senderid--originator"></a>Especifica el Id. de remitente / originador
 
-**Twilio:** desde la ficha números, copie su Twilio **número de teléfono**.
+**Twilio:** En la ficha números, copie Twilio **número de teléfono**.
 
-**ASPSMS:** en el menú de los originadores desbloquear, desbloquear uno o varios de los originadores o elija un originador alfanumérico (no admitido todas las redes).
+**ASPSMS:** En el menú de los originadores desbloquear, desbloquear uno o varios de los originadores o elija un originador alfanumérico (no admitido todas las redes).
 
 Más adelante se almacenará este valor con la herramienta secret manager dentro de la clave `SMSAccountFrom`.
 
@@ -136,7 +136,7 @@ Si no recibe un mensaje de texto, consulte la página de registro de twilio.
 
 ## <a name="account-lockout-for-protecting-against-brute-force-attacks"></a>Bloqueo de cuenta para protegerse contra los ataques por fuerza bruta
 
-Se recomienda el bloqueo de cuenta con 2FA. Una vez que un usuario inicia sesión a través de una cuenta local o social, se almacena cada intento incorrecto en 2FA. Si se alcanza los intentos de acceso con error máximo, el usuario está bloqueado (valor predeterminado: bloqueo de 5 minutos después de 5 intentos de acceso). Una autenticación correcta restablece el número de intentos de acceso erróneos y restablece el reloj. El máximo intentos de acceso y se puede establecer el tiempo de bloqueo con [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) y [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan). El siguiente ejemplo configura el bloqueo de cuentas durante 10 minutos tras 10 intentos de acceso:
+Se recomienda el bloqueo de cuenta con 2FA. Una vez que un usuario inicia sesión a través de una cuenta local o social, se almacena cada intento incorrecto en 2FA. Si se alcanza los intentos de acceso con error máximo, el usuario está bloqueado (valor predeterminado: 5 minutos bloqueo tras 5 intentos de acceso). Una autenticación correcta restablece el número de intentos de acceso erróneos y restablece el reloj. El máximo intentos de acceso y se puede establecer el tiempo de bloqueo con [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) y [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan). El siguiente ejemplo configura el bloqueo de cuentas durante 10 minutos tras 10 intentos de acceso:
 
 [!code-csharp[](2fa/sample/Web2FA/Startup.cs?name=snippet2&highlight=13-17)]
 

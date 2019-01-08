@@ -4,14 +4,14 @@ author: mjrousos
 description: Sugerencias para aumentar el rendimiento en aplicaciones ASP.NET Core y evitar problemas de rendimiento comunes.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
-ms.date: 11/29/2018
+ms.date: 1/9/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: 9f3ed97bf4d4eb371ff5ae3874234b44745cc4ca
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: 25aa4c1e22ead7db4775c6e5e81b6fd627c6d7a6
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618121"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099070"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>Prácticas recomendadas de rendimiento de ASP.NET Core
 
@@ -19,8 +19,7 @@ Por [Mike Rousos](https://github.com/mjrousos)
 
 Este tema proporciona instrucciones para el rendimiento de los procedimientos recomendados con ASP.NET Core.
 
-<a name="hot"></a>
-<!-- TODO review hot code paths is jargon that won't MT (machine translate) and is not well defined for native speakers. --> En este documento, una ruta de acceso de código activo se define como una ruta de acceso del código que se llama con frecuencia y donde ocurre gran parte del tiempo de ejecución. Las rutas de acceso frecuente de código normalmente limitan la escalabilidad horizontal de la aplicación y el rendimiento.
+<a name="hot"></a> En este documento, una ruta de acceso de código activo se define como una ruta de acceso del código que se llama con frecuencia y donde ocurre gran parte del tiempo de ejecución. Las rutas de acceso frecuente de código normalmente limitan la escalabilidad horizontal de la aplicación y el rendimiento.
 
 ## <a name="cache-aggressively"></a>Caché de forma agresiva
 
@@ -129,6 +128,10 @@ Recomendaciones:
 
 * **Hacer** usar ASP.NET Core [compatibilidad integrada con](xref:client-side/bundling-and-minification) para agrupar y minificar recursos del cliente.
 * **Hacer** considere la posibilidad de otras herramientas de terceros como [Gulp](uid:client-side/bundling-and-minification#consume-bundleconfigjson-from-gulp) o [Webpack](https://webpack.js.org/) más compleja administración de clientes activos.
+
+## <a name="compress-responses"></a>Comprimir las respuestas
+
+ Reducir el tamaño de la respuesta normalmente aumenta la capacidad de respuesta de una aplicación, a menudo drásticamente. Una forma de reducir los tamaños de carga es comprimir las respuestas de una aplicación. Para obtener más información, consulte [compresión de respuesta](xref:performance/response-compression).
 
 ## <a name="use-the-latest-aspnet-core-release"></a>Use la versión más reciente de ASP.NET Core
 

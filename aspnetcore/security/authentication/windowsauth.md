@@ -2,62 +2,77 @@
 title: Configurar la autenticación de Windows en ASP.NET Core
 author: scottaddie
 description: Obtenga información sobre cómo configurar la autenticación de Windows en ASP.NET Core, usar IIS Express, IIS y HTTP.sys.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 12/18/2018
+ms.date: 12/23/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 94dff2f47b2b076cb15f8d385239179b52786678
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 64178c8fce71445fc6a728a236d811484b21e3e0
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637825"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099265"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurar la autenticación de Windows en ASP.NET Core
 
-Por [Steve Smith](https://ardalis.com) y [Scott Addie](https://twitter.com/Scott_Addie)
+Por [Scott Addie](https://twitter.com/Scott_Addie) y [Luke Latham](https://github.com/guardrex)
 
-Se puede configurar la autenticación de Windows para las aplicaciones de ASP.NET Core hospedadas en IIS o [HTTP.sys](xref:fundamentals/servers/httpsys).
+[Autenticación de Windows](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/) puede configurarse para las aplicaciones de ASP.NET Core hospedadas con [IIS](xref:host-and-deploy/iis/index) o [HTTP.sys](xref:fundamentals/servers/httpsys).
 
-## <a name="windows-authentication"></a>Autenticación de Windows
-
-Autenticación de Windows se basa en el sistema operativo para autenticar usuarios de aplicaciones de ASP.NET Core. Puede usar la autenticación de Windows cuando el servidor se ejecuta en una red corporativa mediante identidades de dominio de Active Directory o a otras cuentas de Windows para identificar a los usuarios. Autenticación de Windows se adapta mejor a los entornos de intranet en el que los usuarios, las aplicaciones cliente y servidores web pertenecen al mismo dominio de Windows.
-
-[Más información acerca de la autenticación de Windows e instalarla para IIS](/iis/configuration/system.webServer/security/authentication/windowsAuthentication/).
+Autenticación de Windows se basa en el sistema operativo para autenticar usuarios de aplicaciones de ASP.NET Core. Puede usar la autenticación de Windows cuando el servidor se ejecuta en una red corporativa mediante identidades de dominio de Active Directory o cuentas de Windows para identificar a los usuarios. Autenticación de Windows se adapta mejor a los entornos de intranet donde los usuarios, las aplicaciones cliente y servidores web pertenecen al mismo dominio de Windows.
 
 ## <a name="enable-windows-authentication-in-an-aspnet-core-app"></a>Habilitar la autenticación de Windows en una aplicación ASP.NET Core
 
-La plantilla de aplicación Web de Visual Studio puede configurarse para admitir la autenticación de Windows.
+El **aplicación Web** plantilla disponible a través de Visual Studio o la CLI de .NET Core puede configurarse para admitir la autenticación de Windows.
 
-### <a name="use-the-windows-authentication-app-template"></a>Usa la plantilla de aplicación de autenticación de Windows
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+### <a name="use-the-windows-authentication-app-template-for-a-new-project"></a>Usa la plantilla de aplicación de autenticación de Windows para un nuevo proyecto
 
 En Visual Studio:
 
-1. Cree una aplicación web de ASP.NET Core.
-1. Seleccione la aplicación Web en la lista de plantillas.
+1. Cree un nuevo **aplicación Web ASP.NET Core**.
+1. Seleccione **aplicación Web** en la lista de plantillas.
 1. Seleccione el **Cambiar autenticación** y seleccione **Windows autenticación**.
 
-Ejecute la aplicación. El nombre de usuario aparece en la parte superior derecha de la aplicación.
+Ejecute la aplicación. El nombre de usuario aparece en la interfaz de usuario de la aplicación representada.
 
-![Captura de pantalla del explorador de la autenticación de Windows](windowsauth/_static/browser-screenshot.png)
+### <a name="manual-configuration-for-an-existing-project"></a>Configuración manual de un proyecto existente
 
-Para el trabajo de desarrollo con IIS Express, la plantilla proporciona toda la configuración necesaria para utilizar la autenticación de Windows. En la sección siguiente se muestra cómo configurar manualmente una aplicación ASP.NET Core para la autenticación de Windows.
+Las propiedades del proyecto le permiten habilitar la autenticación de Windows y deshabilitar la autenticación anónima:
 
-### <a name="visual-studio-settings-for-windows-and-anonymous-authentication"></a>Configuración de Visual Studio para Windows y la autenticación anónima
+1. Haga clic en el proyecto en Visual Studio **el Explorador de soluciones** y seleccione **propiedades**.
+1. Seleccione la pestaña **Depurar**.
+1. Desactive la casilla de verificación **habilitar la autenticación anónima**.
+1. Seleccione la casilla de verificación **habilitar la autenticación de Windows**.
 
-El proyecto de Visual Studio **propiedades** la página **depurar** ficha proporciona casillas de verificación para la autenticación de Windows y la autenticación anónima.
+Como alternativa, se pueden configurar las propiedades en el `iisSettings` nodo de la *launchSettings.json* archivo:
 
-![Captura de pantalla de Windows autenticación explorador con las opciones de autenticación resaltadas](windowsauth/_static/vs-auth-property-menu.png)
+[!code-json[](windowsauth/sample_snapshot/launchSettings.json?highlight=2-3)]
 
-Como alternativa, se pueden configurar estas dos propiedades en el *launchSettings.json* archivo:
+# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
-[!code-json[](windowsauth/sample/launchSettings.json?highlight=3-4)]
+Use la **Windows autenticación** plantilla de aplicación.
+
+Ejecute el [dotnet nuevo](/dotnet/core/tools/dotnet-new) comando con el `webapp` argumento (aplicación Web de ASP.NET Core) y `--auth Windows` cambiar:
+
+```console
+dotnet new webapp --auth Windows
+```
+
+---
 
 ## <a name="enable-windows-authentication-with-iis"></a>Habilitar la autenticación de Windows con IIS
 
-IIS usa el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) para hospedar aplicaciones ASP.NET Core. Autenticación de Windows se configura en IIS, no la aplicación. Las secciones siguientes muestran cómo usar el Administrador de IIS para configurar una aplicación ASP.NET Core para usar la autenticación de Windows.
+IIS usa el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) para hospedar aplicaciones ASP.NET Core. Autenticación de Windows se configura para IIS a través de la *web.config* archivo. Las siguientes secciones muestran cómo:
+
+* Proporcionar una variable local *web.config* archivo que activa la autenticación de Windows en el servidor cuando se implementa la aplicación.
+* Use el Administrador de IIS para configurar el *web.config* archivos de una aplicación de ASP.NET Core que ya se ha implementado en el servidor.
 
 ### <a name="iis-configuration"></a>Configuración de IIS
+
+Si aún no lo ha hecho, habilite IIS para hospedar aplicaciones ASP.NET Core. Para obtener más información, consulta <xref:host-and-deploy/iis/index>.
 
 Habilite el servicio de rol IIS para la autenticación de Windows. Para obtener más información, consulte [Habilitar autenticación de Windows en servicios de rol de IIS (consulte el paso 2)](xref:host-and-deploy/iis/index#iis-configuration).
 
@@ -69,23 +84,53 @@ El módulo ASP.NET Core está configurado para reenviar el token de autenticaci�
 
 Especifique un nombre y una carpeta y permitir que se cree un nuevo grupo de aplicaciones.
 
-### <a name="customize-authentication"></a>Personalizar la autenticación
+### <a name="enable-windows-authentication-for-the-app-in-iis"></a>Habilitar la autenticación de Windows para la aplicación en IIS
 
-Abra las características de autenticación para el sitio.
+Use **cualquier** de los métodos siguientes:
 
-![Menú de la autenticación de IIS](windowsauth/_static/iis-authentication-menu.png)
+* [Configuración de desarrollo antes de publicar la aplicación](#development-side-configuration-with-a-local-webconfig-file) (*recomendado*)
+* [Configuración del servidor después de publicar la aplicación](#server-side-configuration-with-the-iis-manager)
 
-Deshabilitar la autenticación anónima y habilitar la autenticación de Windows.
+#### <a name="development-side-configuration-with-a-local-webconfig-file"></a>Configuración de desarrollo con un archivo local web.config
 
-![Configuración de autenticación IIS](windowsauth/_static/iis-auth-settings.png)
+Realice los pasos siguientes **antes** [publicar e implementar el proyecto](#publish-and-deploy-your-project-to-the-iis-site-folder).
 
-### <a name="publish-your-project-to-the-iis-site-folder"></a>Publique el proyecto en la carpeta del sitio IIS
+Agregue el siguiente *web.config* archivo a la raíz del proyecto:
 
-Con Visual Studio o la CLI de .NET Core, publicar la aplicación en la carpeta de destino.
+[!code-xml[](windowsauth/sample_snapshot/web_2.config)]
 
-![Cuadro de diálogo de publicación de Visual Studio](windowsauth/_static/vs-publish-app.png)
+Cuando se publica el proyecto mediante el SDK (sin el `<IsTransformWebConfigDisabled>` propiedad establecida en `true` en el archivo de proyecto), publicado *web.config* archivo incluye la `<location><system.webServer><security><authentication>` sección. Para obtener más información sobre la `<IsTransformWebConfigDisabled>` propiedad, vea <xref:host-and-deploy/iis/index#webconfig-file>.
 
-Obtenga más información sobre [publicar en IIS](xref:host-and-deploy/iis/index).
+#### <a name="server-side-configuration-with-the-iis-manager"></a>Configuración del servidor con el Administrador de IIS
+
+Realice los pasos siguientes **después** [publicar e implementar el proyecto](#publish-and-deploy-your-project-to-the-iis-site-folder).
+
+1. En el Administrador de IIS, seleccione el sitio IIS en el **sitios** nodo de la **conexiones** barra lateral.
+1. Haga doble clic en **autenticación** en el **IIS** área.
+1. Seleccione **autenticación anónima**. Seleccione **deshabilitar** en el **acciones** barra lateral.
+1. Seleccione **Windows autenticación**. Seleccione **habilitar** en el **acciones** barra lateral.
+
+Cuando se realizan estas acciones, el Administrador de IIS modifica la aplicación *web.config* archivo. Un `<system.webServer><security><authentication>` se agrega el nodo con la configuración actualizada para `anonymousAuthentication` y `windowsAuthentication`:
+
+[!code-xml[](windowsauth/sample_snapshot/web_1.config?highlight=4-5)]
+
+El `<system.webServer>` sección agregada a la *web.config* archivo por el Administrador de IIS está fuera de la aplicación `<location>` sección agregada por el SDK de .NET Core cuando se publique la aplicación. Dado que se agrega la sección fuera de la `<location>` nodo, la configuración se hereda por cualquier [las aplicaciones secundarias](xref:host-and-deploy/iis/index#sub-applications) a la aplicación actual. Para impedir la herencia, mover agregado `<security>` sección dentro de la `<location><system.webServer>` sección suministradas por el SDK.
+
+Cuando se usa el Administrador de IIS para agregar la configuración de IIS, solo afecta a la aplicación *web.config* archivo en el servidor. Una implementación posterior de la aplicación podría sobrescribir la configuración en el servidor si la copia del servidor de *web.config* se sustituye por el proyecto *web.config* archivo. Use **cualquier** de los métodos siguientes para administrar la configuración:
+
+* Use el Administrador de IIS para restablecer la configuración en el *web.config* archivo después de que el archivo se sobrescribe en la implementación.
+* Agregar un *archivo web.config* a la aplicación localmente con la configuración. Para obtener más información, consulte el [configuración del desarrollo](#development-side-configuration-with-a-local-webconfig-file) sección.
+
+### <a name="publish-and-deploy-your-project-to-the-iis-site-folder"></a>Publicar e implementar el proyecto a la carpeta del sitio IIS
+
+Con Visual Studio o la CLI de .NET Core, publicar e implementar la aplicación en la carpeta de destino.
+
+Para obtener más información sobre el hospedaje con IIS, publicación e implementación, vea los temas siguientes:
+
+* [dotnet publish](/dotnet/core/tools/dotnet-publish)
+* <xref:host-and-deploy/iis/index>
+* <xref:host-and-deploy/aspnet-core-module>
+* <xref:host-and-deploy/visual-studio-publish-profiles>
 
 Inicie la aplicación para comprobar que funciona la autenticación de Windows.
 
@@ -93,7 +138,7 @@ Inicie la aplicación para comprobar que funciona la autenticación de Windows.
 
 Aunque Kestrel no admite la autenticación de Windows, puede usar [HTTP.sys](xref:fundamentals/servers/httpsys) para admitir los escenarios Auto-hospedados en Windows. El ejemplo siguiente configura el host de la aplicación web para usar HTTP.sys con autenticación de Windows:
 
-[!code-csharp[](windowsauth/sample/Program2x.cs?highlight=9-14)]
+[!code-csharp[](windowsauth/sample_snapshot/Program.cs?highlight=9-14)]
 
 > [!NOTE]
 > HTTP.sys delega en la autenticación de modo kernel con el protocolo de autenticación de Kerberos. La autenticación de modo usuario no se admite con Kerberos y HTTP.sys. Se debe usar la cuenta de equipo para descifrar el token o el vale de Kerberos que se obtiene de Active Directory y que el cliente reenvía al servidor para autenticar al usuario. Registre el nombre de entidad de seguridad de servicio (SPN) para el host, no el usuario de la aplicación.
@@ -140,8 +185,8 @@ services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
 
 ### <a name="impersonation"></a>Suplantación
 
-ASP.NET Core no implementa la suplantación. Las aplicaciones se ejecutan con la identidad de aplicación para todas las solicitudes, utilizando la identidad de proceso o grupo de servidores de aplicación. Si necesita realizar explícitamente una acción en nombre de un usuario, use `WindowsIdentity.RunImpersonated`. Ejecutar una sola acción en este contexto y, a continuación, cierre el contexto.
+ASP.NET Core no implementa la suplantación. Las aplicaciones se ejecutan con la identidad de la aplicación para todas las solicitudes, utilizando la identidad de proceso o grupo de servidores de aplicación. Si necesita realizar explícitamente una acción en nombre de un usuario, use [WindowsIdentity.RunImpersonated](xref:System.Security.Principal.WindowsIdentity.RunImpersonated*) en un [software intermedio alineado terminal](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder) en `Startup.Configure`. Ejecutar una sola acción en este contexto y, a continuación, cierre el contexto.
 
-[!code-csharp[](windowsauth/sample/Startup.cs?name=snippet_Impersonate&highlight=10-18)]
+[!code-csharp[](windowsauth/sample_snapshot/Startup.cs?highlight=10-19)]
 
-Tenga en cuenta que `RunImpersonated` no es compatible con operaciones asincrónicas y no puede utilizarse para escenarios complejos. Por ejemplo, el ajuste de las solicitudes de todas o las cadenas de middleware no es compatible ni recomendable.
+`RunImpersonated` no es compatible con operaciones asincrónicas y no puede utilizarse para escenarios complejos. Por ejemplo, el ajuste de las solicitudes de todas o las cadenas de middleware no es compatible ni recomendable.
