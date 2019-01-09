@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/social/index
-ms.openlocfilehash: 47ac1f966ff727957e6ed700c3c68efa16b1b38b
-ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
+ms.openlocfilehash: 063d452fb6ab91b712ade7f7b7ed99823dbdc657
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53735731"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098823"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticación con Facebook, Google y proveedores externos en ASP.NET Core
 
@@ -46,11 +46,11 @@ Nota: Este tutorial se aplica a la versión 2.0 del SDK de ASP.NET Core, que se 
 * Escriba el correo electrónico y la contraseña de la cuenta nueva y, luego, seleccione **Registrarse**.
 * Siga estas instrucciones para aplicar las migraciones.
 
-## <a name="require-ssl"></a>Requerir SSL
+## <a name="require-https"></a>Requisito de HTTPS
 
-OAuth 2.0 requiere el uso de SSL para la autenticación mediante el protocolo HTTPS.
+OAuth 2.0 requiere el uso de SSL o TLS para la autenticación mediante el protocolo HTTPS.
 
-Los proyectos creados con las plantillas de proyecto **Aplicación web** o **API web** con ASP.NET Core 2.1 o versiones posteriores se configuran automáticamente para habilitar SSL. La aplicación se inicia con un punto de conexión predeterminado seguro si la opción **Cuentas de usuario individuales** está seleccionada en el **cuadro de diálogo Cambiar autenticación** del asistente para el proyecto.
+Los proyectos creados con las plantillas de proyecto **Aplicación web** o **API web** con ASP.NET Core 2.1 o versiones posteriores se configuran automáticamente para habilitar HTTPS. La aplicación se inicia con un punto de conexión predeterminado seguro si la opción **Cuentas de usuario individuales** está seleccionada en el **cuadro de diálogo Cambiar autenticación** del asistente para el proyecto.
 
 Para obtener más información, vea <xref:security/enforcing-ssl>.
 

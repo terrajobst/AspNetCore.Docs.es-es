@@ -6,16 +6,16 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/index
-ms.openlocfilehash: 579e472e01efd08bbafe949e37a3b655a42a5b46
-ms.sourcegitcommit: 04b55a5ce9d649ff2df926157ec28ae47afe79e2
+ms.openlocfilehash: 933501411169d89c4b24edda743c47591aa7a87a
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52156924"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098966"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Introducción a la seguridad de ASP.NET Core
 
-ASP.NET Core permite a los desarrolladores configurar y administrar con facilidad la seguridad de sus aplicaciones. ASP.NET Core contiene características para administrar la autenticación, autorización, protección de datos, cumplimiento de SSL, secretos de aplicación, protección contra falsificación de solicitudes y administración de CORS. Estas características de seguridad permiten compilar aplicaciones de ASP.NET Core sólidas y seguras.
+ASP.NET Core permite a los desarrolladores configurar y administrar con facilidad la seguridad de sus aplicaciones. ASP.NET Core contiene características para administrar la autenticación, autorización, protección de datos, cumplimiento de HTTPS, secretos de aplicación, protección contra falsificación de solicitudes y administración de CORS. Estas características de seguridad permiten compilar aplicaciones de ASP.NET Core sólidas y seguras.
 
 ## <a name="aspnet-core-security-features"></a>Características de seguridad de ASP.NET Core
 

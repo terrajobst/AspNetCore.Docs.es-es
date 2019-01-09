@@ -4,14 +4,14 @@ author: rick-anderson
 description: Descubra los conceptos básicos para crear aplicaciones de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/06/2019
 uid: fundamentals/index
-ms.openlocfilehash: 11dc6336ae7667038983c967f28232bef325f5bb
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: a56beebd796448705c7b84f47699e9739f451419
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637775"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099239"
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
@@ -63,7 +63,7 @@ El método `UseStartup` de `WebHostBuilder` especifica la clase `Startup` para l
 
 ::: moniker-end
 
-La clase `Startup` es donde se define la canalización de control de solicitudes y donde se configuran los servicios necesarios para la aplicación. La clase `Startup` debe ser pública y contener los siguientes métodos:
+La clase `Startup` es donde se configuran los servicios necesarios para la aplicación y donde se define la canalización de control de solicitudes. La clase `Startup` debe ser pública y normalmente contiene los siguientes métodos. `Startup.ConfigureServices` es opcional.
 
 ::: moniker range=">= aspnetcore-2.0"
 
