@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre cómo diagnosticar problemas con las implementaciones de Azure App Service de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 05bb024f5b0d2b554cc861c250a92fd7ae23437f
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: b36c321c6ba6801a32b5187651063337b4533fd1
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090750"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637657"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Solución de problemas de ASP.NET Core en Azure App Service
 
@@ -19,14 +19,14 @@ Por [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE [Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
-En este artículo se proporcionan instrucciones sobre cómo diagnosticar un problema de inicio de aplicaciones ASP.NET Core mediante herramientas de diagnóstico de Azure App Service. Puede encontrar consejos adicionales de solución de problemas en [Introducción a los diagnósticos de Azure App Service](/azure/app-service/app-service-diagnostics) y [Supervisión de Aplicaciones en Azure App Service](/azure/app-service/web-sites-monitor) en la documentación de Azure.
+En este artículo se proporcionan instrucciones sobre cómo diagnosticar un problema de inicio de aplicaciones ASP.NET Core mediante herramientas de diagnóstico de Azure App Service. Para obtener consejos adicionales de solución de problemas, consulte [Introducción a los diagnósticos de Azure App Service](/azure/app-service/app-service-diagnostics) y [Supervisión de aplicaciones en Azure App Service](/azure/app-service/web-sites-monitor) en la documentación de Azure.
 
 ## <a name="app-startup-errors"></a>Errores de inicio de aplicación
 
 **502.5 Error de proceso**  
 El proceso de trabajo no funciona. La aplicación no se inicia.
 
-El [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) intenta iniciar el proceso de trabajo, pero no lo consigue. Con frecuencia, examinar el registro de eventos de la aplicación ayuda a solucionar problemas de este tipo. El acceso al registro se explica en la sección [Registro de eventos de la aplicación](#application-event-log).
+El [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) intenta iniciar el proceso de trabajo, pero no lo consigue. Con frecuencia, examinar el registro de eventos de la aplicación ayuda a solucionar problemas de este tipo. El acceso al registro se explica en la sección [Registro de eventos de la aplicación](#application-event-log).
 
 La página *502.5 Error de proceso* se devuelve cuando una aplicación mal configurada provoca que el proceso de trabajo genere un error:
 

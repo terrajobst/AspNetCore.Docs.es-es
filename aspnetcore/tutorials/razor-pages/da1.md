@@ -4,14 +4,14 @@ author: rick-anderson
 description: Sepa cómo actualizar las páginas generadas en una aplicación ASP.NET Core.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
-ms.date: 12/3/2018
+ms.date: 12/20/2018
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: b88dcd12ee670eb2e0919bdb07b9b7556a5b80e7
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 396cb9b9eeaab2d3db6108feeba71dbc2bc8981d
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862413"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997206"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Actualizar las páginas generadas en una aplicación ASP.NET Core
 
@@ -69,21 +69,21 @@ Una solicitud a la página con la plantilla de ruta "{id:int}" que **no** incluy
 @page "{id:int?}"
 ```
 
-Para probar el comportamiento o `@page "{id:int?}"`:
+Para probar el comportamiento de `@page "{id:int?}"`:
 
 * Establezca la directiva de página de *Pages/Movies/Details.cshtml* en `@page "{id:int?}"`.
 * Establezca un punto de interrupción en `public async Task<IActionResult> OnGetAsync(int? id)` (en *Pages/Movies/Details.cshtml.cs*).
-* Vaya a `https://localhost:5001/Movies/Details/`.
+* Navegue a `https://localhost:5001/Movies/Details/`.
 
 Con la directiva `@page "{id:int}"`, el punto de interrupción nunca se alcanza. El motor de enrutamiento devuelve HTTP 404. Con `@page "{id:int?}"`, el método `OnGetAsync` devuelve `NotFound` (HTTP 404).
 
-Aunque no se recomienda, puede escribir el método delete como:
+Aunque no se recomienda, puede escribir el método `OnGetAsync` (en *Pages/Movies/Delete.cshtml.cs*) como:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Delete.cshtml.cs?name=snippet)]
 
 Pruebe el código anterior:
 
-* Seleccione un vínculo de eliminación.
+* Seleccione un vínculo **Eliminar**.
 * Quite el identificador de la dirección URL. Por ejemplo, cambie `https://localhost:5001/Movies/Delete/8` a `https://localhost:5001/Movies/Delete`.
 * Ejecute paso a paso el código del depurador.
 
@@ -125,7 +125,7 @@ Cuando se publica la página Movies/Edit:
   public Movie Movie { get; set; }
   ```
 
-* Si hay errores en el estado del modelo (por ejemplo, `ReleaseDate` no se puede convertir en una fecha), el formulario se vuelve a publicar con los valores enviados.
+* Si hay errores en el estado del modelo (por ejemplo, `ReleaseDate` no se puede convertir en una fecha), el formulario se muestra con los valores enviados.
 * Si no hay ningún error en el modelo, se guarda la película.
 
 Los métodos HTTP GET de las páginas de índice, creación y eliminación de Razor siguen un patrón similar. El método HTTP POST `OnPostAsync` de la página de creación de Razor sigue un patrón similar al del método `OnPostAsync` de la página de edición de Razor.
@@ -133,5 +133,5 @@ Los métodos HTTP GET de las páginas de índice, creación y eliminación de Ra
 La búsqueda se incluye en el tutorial siguiente.
 
 > [!div class="step-by-step"]
-> [Anterior: Trabajar con una base de datos](xref:tutorials/razor-pages/sql)
-> [Siguiente: Agregar búsqueda](xref:tutorials/razor-pages/search)
+> [Anterior: Trabajo con una base de datos](xref:tutorials/razor-pages/sql)
+> [Siguiente: Adición de búsqueda](xref:tutorials/razor-pages/search)

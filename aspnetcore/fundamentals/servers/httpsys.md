@@ -5,26 +5,23 @@ description: Obtenga información sobre HTTP.sys, un servidor web para ASP.NET C
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 8810fd295e8c4269812e712ce2fdc9b9fa2bbb4f
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: a779fee53109d4c1cabb2005896e757f23467540
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861698"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637630"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web HTTP.sys en ASP.NET Core
 
 Por [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://github.com/Tratcher) y [Stephen Halter](https://github.com/guardrex)
 
-> [!NOTE]
-> Este tema solo se aplica a ASP.NET Core 2.0 o posterior. En versiones anteriores de ASP.NET Core, HTTP.sys se denominaba [WebListener](xref:fundamentals/servers/weblistener).
-
 [HTTP.sys](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys) es un [servidor web de ASP.NET Core](xref:fundamentals/servers/index) que solo se ejecuta en Windows. HTTP.sys supone una alternativa al servidor [Kestrel](xref:fundamentals/servers/kestrel) y ofrece algunas características que este no facilita.
 
 > [!IMPORTANT]
-> HTTP.sys no es compatible con el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) y no se puede usar con IIS o IIS Express.
+> HTTP.sys no es compatible con el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) y no se puede usar con IIS o IIS Express.
 
 HTTP.sys admite las siguientes características:
 
@@ -131,16 +128,16 @@ HTTP.sys delega en la autenticación de modo kernel con el protocolo de autentic
 
 3. If usa Visual Studio, asegúrese de que la aplicación no está configurada para ejecutar IIS o IIS Express.
 
-   En Visual Studio, el perfil de inicio predeterminado corresponde a IIS Express. Para ejecutar el proyecto como aplicación de consola, cambie manualmente el perfil seleccionado, tal y como se muestra en la siguiente captura de pantalla:
+   En Visual Studio, el perfil de inicio predeterminado es para IIS Express. Para ejecutar el proyecto como aplicación de consola, cambie manualmente el perfil seleccionado, tal y como se muestra en la siguiente captura de pantalla:
 
-   ![Seleccionar el perfil de aplicación de consola](httpsys/_static/vs-choose-profile.png)
+   ![Seleccionar perfil de aplicación de consola](httpsys/_static/vs-choose-profile.png)
 
 ### <a name="configure-windows-server"></a>Configurar Windows Server
 
 1. Si la aplicación es una [implementación dependiente del marco](/dotnet/core/deploying/#framework-dependent-deployments-fdd), instale .NET Core, .NET Framework o ambos (si se trata de una aplicación de .NET Core que tiene como destino .NET Framework).
 
    * **.NET Core** &ndash; si la aplicación requiere .NET Core, obtenga y ejecute el instalador de .NET Core desde las [descargas de .NET](https://www.microsoft.com/net/download/all).
-   * **.NET Framework** &ndash; Si la aplicación requiere .NET Framework, vea [.NET Framework: Guía de instalación](/dotnet/framework/install/) para encontrar las instrucciones de instalación. Instale la versión necesaria de .NET Framework. El instalador de la versión más reciente de .NET Framework se puede encontrar en las [descargas de .NET](https://www.microsoft.com/net/download/all).
+   * **.NET Framework**: si la aplicación requiere .NET Framework, consulte [.NET Framework: Guía de instalación](/dotnet/framework/install/), donde encontrará las instrucciones de instalación. Instale la versión necesaria de .NET Framework. El instalador de la versión más reciente de .NET Framework se puede encontrar en las [descargas de .NET](https://www.microsoft.com/net/download/all).
 
 2. Configure los puertos y las direcciones URL de la aplicación.
 
@@ -190,7 +187,7 @@ HTTP.sys delega en la autenticación de modo kernel con el protocolo de autentic
 
    2. Si es necesario, cree certificados X.509 autofirmados.
 
-      [!INCLUDE [How to make an X.509 cert](../../includes/make-x509-cert.md)]
+      [!INCLUDE [How to make an X.509 cert](~/includes/make-x509-cert.md)]
 
 4. Abra puertos del firewall para permitir que el tráfico llegue a HTTP.sys. Use *netsh.exe* o [cmdlets de PowerShell](https://technet.microsoft.com/library/jj554906).
 

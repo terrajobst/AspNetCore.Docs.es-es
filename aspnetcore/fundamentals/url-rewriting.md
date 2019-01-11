@@ -4,14 +4,14 @@ author: guardrex
 description: Aprenda a reescribir y redireccionar URL con el middleware de reescritura de URL en aplicaciones ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 12/18/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 84052789717738a48c346d35d1a2642017a9ab93
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: d2dd5e9b7f196bcbd1940f7ef58331dabd2367a1
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861919"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637812"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware de reescritura de URL en ASP.NET Core
 
@@ -56,7 +56,7 @@ Al redirigir las solicitudes a otra dirección URL, se indica si la redirección
 
 * El código de estado *302: encontrado* se usa cuando el redireccionamiento es temporal o en general está sujeto a cambios. El código de estado 302 indica al cliente que no almacene la dirección URL y la use en el futuro.
 
-Para obtener más información sobre los códigos de estado, vea [RFC 2616: definiciones de código de estado](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+Para obtener más información sobre los códigos de estado, consulte [RFC 2616: Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (RFC 2616: definiciones de los códigos de estado).
 
 La *reescritura de URL* es una operación del lado servidor que proporciona un recurso desde una dirección de recursos distinta a la que el cliente ha solicitado. La reescritura de una dirección URL no requiere un recorrido de ida y vuelta al servidor. La dirección URL reescrita no se devuelve al cliente y no aparece en la barra de direcciones del explorador.
 
@@ -78,7 +78,7 @@ Use el middleware de reescritura de URL cuando no pueda usar los enfoques siguie
 * [Módulo mod_rewrite de Apache en el servidor Apache](https://httpd.apache.org/docs/2.4/rewrite/)
 * [Reescritura de URL en Nginx](https://www.nginx.com/blog/creating-nginx-rewrite-rules/)
 
-Además, use el middleware cuando la aplicación se hospede en el [servidor HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominado [WebListener](xref:fundamentals/servers/weblistener)).
+Además, use el middleware cuando la aplicación se hospede en el [servidor HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominado WebListener).
 
 Las principales razones para usar la tecnologías de reescritura de URL basadas en servidor en IIS, Apache y Nginx son las siguientes:
 

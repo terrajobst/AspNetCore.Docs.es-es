@@ -5,18 +5,18 @@ description: Obtenga más información sobre los analizadores de API web en Micr
 monikerRange: '>= aspnetcore-2.2'
 ms.author: pranavkm
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 uid: web-api/advanced/analyzers
-ms.openlocfilehash: 89424d89ec2b3125fd3c6b7c86fed2d292b153e6
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: 7558552586d3056c43d8bfd9ef74cbcb3396726f
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635405"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425099"
 ---
 # <a name="use-web-api-analyzers"></a>Uso de analizadores de API web
 
-ASP.NET Core 2.2 presenta el paquete NuGet [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers) que contiene analizadores para las API web. Los analizadores funcionan con los controladores anotados con <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> y se compilan con [convenciones de la API](xref:web-api/advanced/conventions).
+ASP.NET Core 2.2 (y versiones posteriores) incluye el paquete NuGet [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers), que contiene analizadores para las API web. Los analizadores funcionan con los controladores anotados con <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> y se compilan con [convenciones de la API](xref:web-api/advanced/conventions).
 
 ## <a name="package-installation"></a>Instalación del paquete
 
@@ -73,3 +73,9 @@ Uno de los analizadores del paquete inspecciona los controladores anotados con <
 [!code-csharp[](conventions/sample/Controllers/ContactsController.cs?name=missing404docs&highlight=9)]
 
 La acción anterior documenta el tipo de valor devuelto correcto HTTP 200, pero no documenta el código de estado de error HTTP 404. El analizador informa de la documentación que falta para el código de estado 404 de HTTP como una advertencia. Se proporciona una opción para corregir el problema.
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* <xref:web-api/advanced/conventions>
+* <xref:tutorials/web-api-help-pages-using-swagger>
+* [Anotación con el atributo ApiController](xref:web-api/index#annotation-with-apicontroller-attribute)

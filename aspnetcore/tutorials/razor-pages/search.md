@@ -7,11 +7,11 @@ ms.author: riande
 ms.date: 12/3/2018
 uid: tutorials/razor-pages/search
 ms.openlocfilehash: 8e047024180b20e3b649085647a9136140911fee
-ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892073"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735822"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>Agregar búsqueda a páginas de Razor de ASP.NET Core
 
@@ -109,4 +109,4 @@ Pruebe la aplicación al buscar por género, título de la película y ambos.
 
 > [!div class="step-by-step"]
 > [Anterior: Actualización de páginas](xref:tutorials/razor-pages/da1)
-> [Siguiente: Adición de un nuevo campo](xref:tutorials/razor-pages/new-field)
+> [Siguiente: ](xref:tutorials/razor-pages/new-field)Adición de un nuevo campo

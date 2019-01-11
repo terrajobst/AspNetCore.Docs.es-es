@@ -4,14 +4,14 @@ author: shirhatti
 description: Descubra la compatibilidad con la depuración de aplicaciones ASP.NET Core cuando se ejecutan detrás de IIS en Windows Server.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 51375e6a6bb25a469d467ca97a151abd305c1ece
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 44570bb28451ce4c5fde12ec77e3856fb5bd3062
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862387"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637669"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Compatibilidad de IIS de tiempo de desarrollo en Visual Studio para ASP.NET Core
 
@@ -54,9 +54,9 @@ Si la instalación de IIS ya tiene un **sitio web predeterminado** con un nombre
 ## <a name="enable-development-time-iis-support-in-visual-studio"></a>Habilitación de la compatibilidad con IIS en tiempo de desarrollo en Visual Studio
 
 1. Inicie el instalador de Visual Studio.
-1. Seleccione el componente **Compatibilidad con IIS en tiempo de desarrollo**. El componente se muestra como opcional en el panel **Resumen** de la carga de trabajo **Desarrollo de ASP.NET y web**. El componente instala el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), que es un módulo de IIS nativo necesario para ejecutar aplicaciones de ASP.NET Core con IIS.
+1. Seleccione el componente **Compatibilidad con IIS en tiempo de desarrollo**. El componente se muestra como opcional en el panel **Resumen** de la carga de trabajo **Desarrollo de ASP.NET y web**. El componente instala el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module), que es un módulo de IIS nativo necesario para ejecutar aplicaciones de ASP.NET Core con IIS.
 
-![Modificación de las características de Visual Studio: la pestaña Cargas de trabajo está seleccionada. En la sección Web and Cloud (Web y nube), el panel Desarrollo de ASP.NET y web está seleccionado. A la derecha, en la sección Opcional del panel Resumen, hay una casilla para la opción Compatibilidad con IIS en tiempo de desarrollo.](development-time-iis-support/_static/development_time_support.png)
+![Modificación de características de Visual Studio: la pestaña Cargas de trabajo está seleccionada. En la sección Web and Cloud (Web y nube), el panel Desarrollo de ASP.NET y web está seleccionado. A la derecha, en la sección Opcional del panel Resumen, hay una casilla para la opción Compatibilidad con IIS en tiempo de desarrollo.](development-time-iis-support/_static/development_time_support.png)
 
 ## <a name="configure-the-project"></a>Configuración del proyecto
 
@@ -146,6 +146,6 @@ Si se usa un certificado de desarrollo que no es de confianza, el explorador pue
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Hospedaje de ASP.NET Core en Windows con IIS](xref:host-and-deploy/iis/index)
-* [Introducción al módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module)
+* [Introducción al módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
 * [Referencia de configuración del módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
 * [Aplicación de HTTPS](xref:security/enforcing-ssl)

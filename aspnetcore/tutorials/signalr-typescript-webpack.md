@@ -2,17 +2,16 @@
 title: Uso de SignalR de ASP.NET Core con TypeScript y Webpack
 author: ssougnez
 description: En este tutorial, se configura Webpack para agrupar y compilar una aplicación web de SignalR de ASP.NET Core cuyo cliente está escrito en TypeScript.
-monikerRange: '>= aspnetcore-2.2'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/30/2018
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: b2d59dfc449953cc2d747b507295c00ac0f652dd
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 92709beb7a99289b8639135aab9d821937825103
+ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862257"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335291"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Uso de SignalR de ASP.NET Core con TypeScript y Webpack
 
@@ -145,7 +144,7 @@ Los pasos siguientes permiten configurar la conversión de TypeScript a JavaScri
     El elemento TypeScript anterior recupera las referencias a elementos DOM y adjunta dos controladores de eventos:
 
     * `keyup`: este evento se desencadena cuando el usuario escribe algo en el cuadro de texto identificado como `tbMessage`. La función `send` se llama cuando el usuario presiona la tecla **Entrar**.
-    * `click`: este evento se desencadena cuando el usuario clic en el botón **Enviar**. Se llama a la función `send`.
+    * `click`: este evento se desencadena cuando el usuario hace clic en el botón **Enviar**. Se llama a la función `send`.
 
 ## <a name="configure-the-aspnet-core-app"></a>Configuración de la aplicación ASP.NET Core
 

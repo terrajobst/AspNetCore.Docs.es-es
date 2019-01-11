@@ -4,14 +4,14 @@ author: rick-anderson
 description: Descubra cómo el enrutamiento de ASP.NET Core es responsable de asignar URI de solicitud a los selectores de punto de conexión y de distribuir las solicitudes entrantes a los puntos de conexión.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/15/2018
+ms.date: 12/29/2018
 uid: fundamentals/routing
-ms.openlocfilehash: f18ec1da2affbf67b7ada570b68f98a42c7256a5
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: c57b309e4474f9aff5c0594a3d9d1c796990d31e
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256598"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997362"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -292,6 +292,8 @@ Existen algunas diferencias entre el enrutamiento de punto de conexión de ASP.N
 En el ejemplo siguiente, un middleware usa la API `LinkGenerator` para crear el vínculo a un método de acción que enumera los productos de la tienda. El uso del generador de vínculos mediante su inserción en una clase y la llamada a `GenerateLink` está disponible para cualquier clase de una aplicación.
 
 ```csharp
+using Microsoft.AspNetCore.Routing;
+
 public class ProductsLinkMiddleware
 {
     private readonly LinkGenerator _linkGenerator;
@@ -303,8 +305,7 @@ public class ProductsLinkMiddleware
 
     public async Task InvokeAsync(HttpContext httpContext)
     {
-        var url = _linkGenerator.GenerateLink(new { controller = "Store",
-                                                    action = "ListProducts" });
+        var url = _linkGenerator.GetPathByAction("ListProducts", "Store");
 
         httpContext.Response.ContentType = "text/plain";
 
@@ -679,12 +680,23 @@ Transformadores de parámetros:
 
 Por ejemplo, un transformador de parámetros personalizado `slugify` en el patrón de ruta `blog\{article:slugify}` con `Url.Action(new { article = "MyTestArticle" })` genera `blog\my-test-article`.
 
+Para usar un transformador de parámetros en un patrón de ruta, configúrelo primero con <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> en `Startup.ConfigureServices`:
+
+```csharp
+services.AddRouting(options =>
+{
+    // Replace the type and the name used to refer to it with your own
+    // IOutboundParameterTransformer implementation
+    options.ConstraintMap["slugify"] = typeof(SlugifyParameterTransformer);
+});
+```
+
 El marco usa los transformadores de parámetros para transformar el URI en el que se resuelve un punto de conexión. Por ejemplo, ASP.NET Core MVC usa transformadores de parámetros para transformar el valor de ruta usado para hacer coincidir elementos `area`, `controller`, `action` y `page`.
 
 ```csharp
 routes.MapRoute(
     name: "default",
-    template: "{controller=Home:slugify}/{action=Index:slugify}/{id?}");
+    template: "{controller:slugify=Home}/{action:slugify=Index}/{id?}");
 ```
 
 Con la ruta anterior, la acción `SubscriptionManagementController.GetAll()` coincide con el URI `/subscription-management/get-all`. Un transformador de parámetros no cambia los valores de ruta usados para generar un vínculo. Por ejemplo, `Url.Action("GetAll", "SubscriptionManagement")` genera `/subscription-management/get-all`.

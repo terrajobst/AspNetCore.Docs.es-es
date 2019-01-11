@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar las comprobaciones de e
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/03/2018
+ms.date: 12/12/2018
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: d8fd43d9d689396cf30ca371763cdf7ac9423c77
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: cf2aea91221887dad5646604214f810493d4b175
+ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862690"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53329151"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Comprobaciones de estado en ASP.NET Core
 
@@ -36,10 +36,12 @@ Normalmente, las comprobaciones de estado se usan con un servicio de supervisió
 
 Haga referencia al [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) o agregue una referencia de paquete al paquete [Microsoft.AspNetCore.Diagnostics.HealthChecks](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics.HealthChecks).
 
-La aplicación de ejemplo proporciona código de inicio para mostrar las comprobaciones de estado para varios escenarios. El escenario [sondeo de bases de datos](#database-probe) sondea el estado de una conexión de base de datos mediante [BeatPulse](https://github.com/Xabaril/BeatPulse). El escenario [sondeo de DbContext](#entity-framework-core-dbcontext-probe) sondea una base de datos mediante un `DbContext` de EF Core. Para explorar los escenarios de la base de datos mediante la aplicación de ejemplo:
+La aplicación de ejemplo proporciona código de inicio para mostrar las comprobaciones de estado para varios escenarios. El escenario [sondeo de bases de datos](#database-probe) comprueba el estado de una conexión de base de datos mediante [BeatPulse](https://github.com/Xabaril/BeatPulse). El escenario [sondeo de DbContext](#entity-framework-core-dbcontext-probe) comprueba una base de datos mediante un elemento `DbContext` de EF Core. Para explorar los escenarios de la base de datos, la aplicación de ejemplo:
 
-* Cree una base de datos y proporcione su cadena de conexión en el archivo *appsettings.json* de la aplicación.
-* Agregue una referencia de paquete a [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/).
+* Crea una base de datos y proporciona su cadena de conexión en el archivo *appsettings.json*.
+* Tiene las siguientes referencias de paquete en su archivo de proyecto:
+  * [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/)
+  * [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/)
 
 > [!NOTE]
 > Microsoft no se encarga del mantenimiento de [BeatPulse](https://github.com/Xabaril/BeatPulse) ni ofrece soporte técnico.
@@ -50,7 +52,7 @@ Otro escenario de comprobación de estado muestra cómo filtrar las comprobacion
 
 Para muchas aplicaciones, una configuración de sondeo de estado básico que notifique la disponibilidad de la aplicación para procesar las solicitudes (*ejecución*) es suficiente para detectar el estado de la aplicación.
 
-La configuración básica registra los servicios de comprobación de estado y llama al Middleware de comprobaciones de estado para responder a un punto de conexión de dirección URL con una respuesta de estado. De forma predeterminada, no se registran comprobaciones de estado específicas para probar cualquier dependencia o subsistema concretos. La aplicación se considera correcta si es capaz de responder en la dirección URL de punto de conexión de estado. El escritor de respuesta predeterminado escribe el estado (`HealthCheckStatus`) como respuesta de texto no cifrado al cliente, que indica un estado `HealthCheckResult.Healthy` o `HealthCheckResult.Unhealthy`.
+La configuración básica registra los servicios de comprobación de estado y llama al Middleware de comprobaciones de estado para responder a un punto de conexión de dirección URL con una respuesta de estado. De forma predeterminada, no se registran comprobaciones de estado específicas para probar cualquier dependencia o subsistema concretos. La aplicación se considera correcta si es capaz de responder en la dirección URL de punto de conexión de estado. El escritor de respuesta predeterminado escribe el estado (`HealthStatus`) como respuesta de texto no cifrado al cliente, que indica un estado `HealthStatus.Healthy`, `HealthStatus.Degraded` o `HealthStatus.Unhealthy`.
 
 Registre los servicios de comprobación de estado con `AddHealthChecks` de `Startup.ConfigureServices`. Agregue el Middleware de comprobaciones de estado con `UseHealthChecks` en la canalización de procesamiento de solicitudes de `Startup.Configure`.
 
@@ -216,12 +218,12 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     app.UseHealthChecks("/health", new HealthCheckOptions()
     {
         // The following StatusCodes are the default assignments for
-        // the HealthCheckStatus properties.
+        // the HealthStatus properties.
         ResultStatusCodes =
         {
-            [HealthCheckStatus.Healthy] = StatusCodes.Status200OK,
-            [HealthCheckStatus.Degraded] = StatusCodes.Status200OK,
-            [HealthCheckStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
+            [HealthStatus.Healthy] = StatusCodes.Status200OK,
+            [HealthStatus.Degraded] = StatusCodes.Status200OK,
+            [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
         }
     });
 }
@@ -314,9 +316,17 @@ dotnet run --scenario db
 
 ## <a name="entity-framework-core-dbcontext-probe"></a>Sondeo de DbContext de Entity Framework Core
 
-La comprobación `DbContext` se admite en las aplicaciones que usan [Entity Framework (EF) Core](/ef/core/). Esta comprobación confirma que la aplicación puede comunicarse con la base de datos configurada para un `DbContext` de EF Core. De forma predeterminada, `DbContextHealthCheck` llama al método `CanConnectAsync` de EF Core. Puede personalizar qué operación se ejecuta al comprobar el estado mediante las sobrecargas del método `AddDbContextCheck`.
+La comprobación `DbContext` confirma que la aplicación puede comunicarse con la base de datos configurada para un elemento `DbContext` de EF Core. La comprobación `DbContext` se admite en las aplicaciones que:
 
-`AddDbContextCheck<TContext>` registra una comprobación de estado para un `DbContext` (`TContext`). De forma predeterminada, el nombre de la comprobación de estado es el nombre del tipo `TContext`. Hay disponible una sobrecarga para configurar el estado de error, las etiquetas y una consulta de prueba personalizada.
+* Usan [Entity Framework (EF) Core](/ef/core/).
+* Incluyen una referencia de paquete a [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/).
+
+`AddDbContextCheck<TContext>` registra una comprobación de estado para un elemento `DbContext`. El elemento `DbContext` se proporciona como `TContext` en el método. Hay disponible una sobrecarga para configurar el estado de error, las etiquetas y una consulta de prueba personalizada.
+
+De manera predeterminada:
+
+* `DbContextHealthCheck` llama al método `CanConnectAsync` de EF Core. Se puede personalizar qué operación se ejecuta al comprobar el estado con sobrecargas del método `AddDbContextCheck`.
+* El nombre de la comprobación de estado es el nombre del tipo `TContext`.
 
 En la aplicación de ejemplo, `AppDbContext` se proporciona para `AddDbContextCheck` y se registra como un servicio en `Startup.ConfigureServices`.
 

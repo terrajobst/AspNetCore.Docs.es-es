@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo publicar una aplicación de ASP.NET Core en Azure App Service con Visual Studio.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/06/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 7eab773746f76b00e8e796387c4ee1dc042a4c23
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: e71cb8badbbc852685c845e6bbb0bbb12ab5499f
+ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121276"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53577817"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Publicar una aplicación de ASP.NET Core en Azure con Visual Studio
 
@@ -33,7 +33,7 @@ En la página de inicio de Visual Studio, seleccione **Archivo > Nuevo > Proyect
 
 ![menú Archivo](publish-to-azure-webapp-using-vs/_static/file_new_project.png)
 
-Rellene el cuadro de diálogo **Nuevo proyecto**:
+Complete el cuadro de diálogo **Nuevo proyecto**:
 
 * En el panel izquierdo, seleccione **.NET Core**.
 * En el panel central, seleccione **Aplicación web de ASP.NET Core**.
@@ -140,7 +140,7 @@ En la página **Configuración** del cuadro de diálogo **Publicar**, haga lo si
 
 * Seleccione **Guardar**. Visual Studio volverá al cuadro de diálogo **Publicar**. 
 
-![Cuadro de diálogo Publicar: panel Configuración](publish-to-azure-webapp-using-vs/_static/pubs.png)
+![Cuadro de diálogo Publicar: Panel Configuración](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
 Haga clic en **Publicar**. Visual Studio publica la aplicación en Azure. Cuando la implementación termine, la aplicación se abre en un explorador.
 
@@ -154,7 +154,9 @@ Haga clic en **Publicar**. Visual Studio publica la aplicación en Azure. Cuando
 
 ### <a name="update-the-app"></a>Actualización de la aplicación
 
-* Edite la página de Razor *Pages/About.cshtml* y modifique su contenido. Por ejemplo, puede modificar el párrafo para que diga "¡Hola, ASP.NET Core!": [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
+* Edite la página de Razor *Pages/About.cshtml* y modifique su contenido. Por ejemplo, puede editar el párrafo para que incluya el mensaje "¡Hola, ASP.NET Core!":
+
+    [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
 
 * Haga clic con el botón derecho sobre el proyecto y vuelva a seleccionar **Publicar...**.
 
@@ -187,4 +189,5 @@ Cuando haya terminado de probar la aplicación, vaya a [Azure Portal](https://po
 * [Azure App Service](/azure/app-service/app-service-web-overview)
 * [Grupos de recursos de Azure](/azure/azure-resource-manager/resource-group-overview#resource-groups)
 * [Azure SQL Database](/azure/sql-database/)
+* <xref:host-and-deploy/visual-studio-publish-profiles>
 * <xref:host-and-deploy/azure-apps/troubleshoot>

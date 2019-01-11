@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre el host de web en ASP.NET Core, que es responsable de la administración de inicio y duración de la aplicación.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: bc77413127273aba207e68e7fbcb8ad916267e8e
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 7215027a083c0ed0bc3b15196e390a31c5dcfc14
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862283"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637851"
 ---
 # <a name="aspnet-core-web-host"></a>Host web de ASP.NET Core
 
@@ -57,7 +57,7 @@ public class Program
   * Variables de entorno.
   * Argumentos de la línea de comandos.
 * Configura el [registro](xref:fundamentals/logging/index) para la salida de consola y de depuración. El registro incluye reglas de [filtrado del registro](xref:fundamentals/logging/index#log-filtering) especificadas en una sección de configuración de registro de un archivo *appSettings.json* o *appsettings.{Environment}.json*.
-* Cuando se ejecuta detrás de IIS con el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), `CreateDefaultBuilder` habilita la [integración de IIS](xref:host-and-deploy/iis/index), que configura la dirección base y el puerto de la aplicación. La integración de IIS también configura la aplicación para que [capture errores de inicio](#capture-startup-errors). Para consultar las opciones predeterminadas de IIS, vea <xref:host-and-deploy/iis/index#iis-options>.
+* Cuando se ejecuta detrás de IIS con el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module), `CreateDefaultBuilder` habilita la [integración de IIS](xref:host-and-deploy/iis/index), que configura la dirección base y el puerto de la aplicación. La integración de IIS también configura la aplicación para que [capture errores de inicio](#capture-startup-errors). Para consultar las opciones predeterminadas de IIS, vea <xref:host-and-deploy/iis/index#iis-options>.
 * Establece [ServiceProviderOptions.ValidateScopes](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions.validatescopes) en `true` si el entorno de la aplicación es desarrollo. Para más información, vea [Validación del ámbito](#scope-validation).
 
 La configuración definida en `CreateDefaultBuilder` se puede reemplazar y aumentar mediante [ConfigureAppConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configureappconfiguration), [ConfigureLogging](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) y otros métodos y métodos de extensión de [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). A continuación, se presentan algunos ejemplos:
@@ -203,7 +203,7 @@ Establece el entorno de la aplicación.
 
 **Clave**: environment  
 **Tipo**: *cadena*  
-**Valor predeterminado**: producción  
+**Valor predeterminado**: Producción  
 **Establecer mediante**: `UseEnvironment`  
 **Variable de entorno**: `ASPNETCORE_ENVIRONMENT`
 
@@ -220,7 +220,7 @@ Establece los ensamblados de inicio de hospedaje de la aplicación.
 
 **Clave**: hostingStartupAssemblies  
 **Tipo**: *cadena*  
-**Valor predeterminado**: una cadena vacía  
+**Valor predeterminado**: Cadena vacía  
 **Establecer mediante**: `UseSetting`  
 **Variable de entorno**: `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`
 
@@ -237,8 +237,8 @@ WebHost.CreateDefaultBuilder(args)
 
 Establezca puerto de redirección HTTPS. Se usa en [Exigir HTTPS](xref:security/enforcing-ssl).
 
-**Clave**: https_port **Tipo**: *string*
-**Valor predeterminada**: no se establece un valor predeterminado.
+**Clave**: https_port **Tipo**: *cadena*
+**Valor predeterminado**: no se ha establecido ningún valor predeterminado.
 **Establecer mediante**: `UseSetting`
 **Variable de entorno**: `ASPNETCORE_HTTPS_PORT`
 
@@ -253,7 +253,7 @@ Una cadena delimitada por punto y coma de ensamblados de inicio de hospedaje par
 
 **Clave**: hostingStartupExcludeAssemblies  
 **Tipo**: *cadena*  
-**Valor predeterminado**: una cadena vacía  
+**Valor predeterminado**: Cadena vacía  
 **Establecer mediante**: `UseSetting`  
 **Variable de entorno**: `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 9a0d5a8e722487ccf7e08aadb39f838a0963451d
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 930a6f2b860c71b6f499cff53e0d909a130f7948
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090983"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637903"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Modelo de datos (5 de 8)
 
@@ -384,7 +384,7 @@ Un departamento puede tener varios cursos, por lo que hay una propiedad de naveg
 public ICollection<Course> Courses { get; set; }
 ```
 
-Nota: Por convención, EF Core permite la eliminación en cascada para las claves externas que no aceptan valores NULL y para las relaciones de varios a varios. La eliminación en cascada puede dar lugar a reglas de eliminación en cascada circular. Las reglas de eliminación en cascada circular provocan una excepción cuando se agrega una migración.
+Nota: Por convención, EF Core permite la eliminación en cascada de las claves externas que no acepten valores NULL ni relaciones de varios a varios. La eliminación en cascada puede dar lugar a reglas de eliminación en cascada circular. Las reglas de eliminación en cascada circular provocan una excepción cuando se agrega una migración.
 
 Por ejemplo, si no se ha definido que la propiedad `Department.InstructorID` acepta valores NULL:
 
@@ -444,7 +444,7 @@ Si la tabla `Enrollment` no incluyera información de calificaciones, solo tendr
 
 Las entidades `Instructor` y `Course` tienen una relación de varios a varios con una tabla combinada pura.
 
-Nota: EF 6.x es compatible con las tablas de combinación implícitas para relaciones de varios a varios, pero EF Core no. Para obtener más información, consulte [Many-to-many relationships in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/) (Relaciones de varios a varios en EF Core 2.0).
+Nota: EF 6.x es compatible con las tablas de combinación implícitas con relaciones de varios a varios, pero EF Core, no. Para obtener más información, consulte [Many-to-many relationships in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/) (Relaciones de varios a varios en EF Core 2.0).
 
 ## <a name="the-courseassignment-entity"></a>La entidad CourseAssignment
 
@@ -538,10 +538,7 @@ Actualice el código en *Data/DbInitializer.cs*:
 
 [!code-csharp[](intro/samples/cu21/Data/DbInitializer.cs?name=snippet_Final)]
 
-El código anterior proporciona datos de inicialización para las nuevas entidades. La mayor parte de este código crea objetos de entidad y carga los datos de ejemplo. Los datos de ejemplo se usan para pruebas. El código anterior crea las siguientes relaciones de varios a varios:
-
-* `Enrollments`
-* `CourseAssignment`
+El código anterior proporciona datos de inicialización para las nuevas entidades. La mayor parte de este código crea objetos de entidad y carga los datos de ejemplo. Los datos de ejemplo se usan para pruebas. Consulte `Enrollments` y `CourseAssignments` para obtener ejemplos de cómo pueden inicializarse las tablas de combinación de varios a varios.
 
 ## <a name="add-a-migration"></a>Agregar una migración
 
@@ -581,7 +578,7 @@ database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 Ahora que tiene una base de datos existente, debe pensar cómo aplicar los cambios futuros en ella. En este tutorial se muestran dos enfoques:
 
 * [Quitar y volver a crear la base de datos](#drop)
-* [Aplicar la migración a la base de datos existente](#applyexisting). Aunque este método es más complejo y lento, es el método preferido para entornos de producción del mundo real. **Nota**: Esta es una sección opcional del tutorial. Puede realizar la operación de quitar y volver a crear, y omitir esta sección. Si quiere seguir los pasos descritos en esta sección, no realice la operación de quitar y volver a crear. 
+* [Aplicar la migración a la base de datos existente](#applyexisting). Aunque este método es más complejo y lento, es el método preferido para entornos de producción del mundo real. **Nota**: Esta sección del tutorial es opcional. Puede realizar la operación de quitar y volver a crear, y omitir esta sección. Si quiere seguir los pasos descritos en esta sección, no realice la operación de quitar y volver a crear. 
 
 <a name="drop"></a>
 
