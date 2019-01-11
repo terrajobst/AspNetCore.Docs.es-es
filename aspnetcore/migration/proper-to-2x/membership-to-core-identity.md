@@ -4,14 +4,14 @@ author: isaac2004
 description: Obtenga información sobre cómo migrar aplicaciones existentes de ASP.NET mediante la autenticación de pertenencia a ASP.NET Core 2.0 Identity.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 04/24/2018
+ms.date: 01/10/2019
 uid: migration/proper-to-2x/membership-to-core-identity
-ms.openlocfilehash: 82158ec500151a0bb61fb1da55a53684367d9a4e
-ms.sourcegitcommit: 2e054638b69f2b14f6d67d9fa3664999172ee1b2
+ms.openlocfilehash: 0b7001a311eeaaa78e3d52e2ec66d33ad057c381
+ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41827519"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54207413"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a>Migrar de autenticación de pertenencia de ASP.NET a ASP.NET Core 2.0 Identity
 
@@ -36,28 +36,29 @@ ASP.NET Core 2.0 sigue la [identidad](/aspnet/identity/index) principio introduc
 
 Es la forma más rápida para ver el esquema para la identidad de ASP.NET Core 2.0 crear una nueva aplicación de ASP.NET Core 2.0. Siga estos pasos en Visual Studio 2017:
 
-* Seleccione **Archivo** > **Nuevo** > **Proyecto**.
-* Cree un nuevo **aplicación Web ASP.NET Core** y denomine al proyecto *CoreIdentitySample*.
-* Seleccione **ASP.NET Core 2.0** en la lista desplegable y, a continuación, seleccione **aplicación Web**. Esta plantilla genera un [las páginas de Razor](xref:razor-pages/index) app. Antes de hacer clic **Aceptar**, haga clic en **Cambiar autenticación**.
-* Elija **cuentas de usuario individuales** para las plantillas de identidad. Por último, haga clic en **Aceptar**, a continuación, **Aceptar**. Visual Studio crea un proyecto mediante la plantilla de ASP.NET Core Identity.
+1. Seleccione **Archivo** > **Nuevo** > **Proyecto**.
+1. Cree un nuevo **aplicación Web ASP.NET Core** proyecto denominado *CoreIdentitySample*.
+1. Seleccione **ASP.NET Core 2.0** en la lista desplegable y, a continuación, seleccione **aplicación Web**. Esta plantilla genera un [las páginas de Razor](xref:razor-pages/index) app. Antes de hacer clic **Aceptar**, haga clic en **Cambiar autenticación**.
+1. Elija **cuentas de usuario individuales** para las plantillas de identidad. Por último, haga clic en **Aceptar**, a continuación, **Aceptar**. Visual Studio crea un proyecto mediante la plantilla de ASP.NET Core Identity.
+1. Seleccione **herramientas** > **Administrador de paquetes de NuGet** > **Package Manager Console** para abrir el **Package Manager Console** Ventana (PMC).
+1. Navegue hasta la raíz del proyecto en la PMC y ejecute el [Entity Framework (EF) Core](/ef/core) `Update-Database` comando.
 
-Identidad de ASP.NET Core 2.0 usa [Entity Framework Core](/ef/core) para interactuar con la base de datos almacena los datos de autenticación. Para la aplicación recién creada para que funcione, debe ser una base de datos para almacenar los datos. Después de crear una nueva aplicación, la forma más rápida para inspeccionar el esquema en un entorno de base de datos es crear la base de datos mediante migraciones de Entity Framework. Este proceso crea una base de datos, ya sea localmente o en otra parte, que imita ese esquema. Revise la documentación anterior para obtener más información.
+    Identidad de ASP.NET Core 2.0 usa EF Core para interactuar con la base de datos almacena los datos de autenticación. Para la aplicación recién creada para que funcione, debe ser una base de datos para almacenar los datos. Después de crear una nueva aplicación, la forma más rápida para inspeccionar el esquema en un entorno de base de datos es crear la base de datos mediante [migraciones de EF Core](/ef/core/managing-schemas/migrations/). Este proceso crea una base de datos, ya sea localmente o en otra parte, que imita ese esquema. Revise la documentación anterior para obtener más información.
 
-Para crear una base de datos con el esquema de ASP.NET Core Identity, ejecute el `Update-Database` en Visual Studio **Package Manager Console** ventana (PMC)&mdash;se encuentra en **herramientas**  >  **Administrador de paquetes de NuGet** > **Package Manager Console**. Ejecución de comandos de Entity Framework admite la PMC.
+    Comandos EF Core usan la cadena de conexión para la base de datos especificada en *appsettings.json*. La siguiente cadena de conexión tiene como destino una base de datos en *localhost* denominado *asp-net-core-identity*. En esta configuración, EF Core está configurado para usar el `DefaultConnection` cadena de conexión.
 
-Comandos de Entity Framework usan la cadena de conexión para la base de datos especificada en *appsettings.json*. La siguiente cadena de conexión tiene como destino una base de datos en *localhost* denominado *asp-net-core-identity*. En esta configuración, Entity Framework está configurado para usar el `DefaultConnection` cadena de conexión.
+    ```json
+    {
+      "ConnectionStrings": {
+        "DefaultConnection": "Server=localhost;Database=aspnet-core-identity;Trusted_Connection=True;MultipleActiveResultSets=true"
+      }
+    }
+    ```
+1. Seleccione **vista** > **Explorador de objetos SQL Server**. Expanda el nodo correspondiente al nombre de la base de datos especificado en el `ConnectionStrings:DefaultConnection` propiedad de *appsettings.json*.
 
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=aspnet-core-identity;Trusted_Connection=True;MultipleActiveResultSets=true"
-  }
-}
-```
+    El `Update-Database` comando crea la base de datos especificada con el esquema y los datos necesarios para la inicialización de la aplicación. La siguiente imagen muestra la estructura de tabla que se crea con los pasos anteriores.
 
-Este comando crea la base de datos especificada con el esquema y los datos necesarios para la inicialización de la aplicación. La siguiente imagen muestra la estructura de tabla que se crea con los pasos anteriores.
-
-   ![Tablas de identidad](identity/_static/identity-tables.png)
+    ![Tablas de identidad](identity/_static/identity-tables.png)
 
 ## <a name="migrate-the-schema"></a>Migrar el esquema
 
@@ -65,105 +66,116 @@ Existen diferencias sutiles en los campos para la suscripción y ASP.NET Core Id
 
 ### <a name="users"></a>Usuarios
 
-| *Identity(AspNetUsers)* |   | *Membership(aspnet_Users/aspnet_Membership)* ||
-| --- | --- | --- | --- | --- | --- |
-| **Nombre de campo** | **Type**  |   **Nombre de campo** | **Type**  |
-|`Id` | cadena | `aspnet_Users.UserId` | cadena
-|`UserName` | cadena | `aspnet_Users.UserName` | cadena
-|`Email` | cadena | `aspnet_Membership.Email` | cadena
-|`NormalizedUserName` | cadena | `aspnet_Users.LoweredUserName` | cadena
-|`NormalizedEmail` | cadena | `aspnet_Membership.LoweredEmail` | cadena
-|`PhoneNumber` | cadena | `aspnet_Users.MobileAlias` | cadena
-|`LockoutEnabled` | bits | `aspnet_Membership.IsLockedOut` | bits
+|*Identidad<br>(dbo. AspNetUsers)*        ||*Pertenencia<br>(dbo.aspnet_Users / dbo.aspnet_Membership)*||
+|----------------------------------------|-----------------------------------------------------------|
+|**Nombre de campo**                 |**Type**|**Nombre de campo**                                    |**Type**|
+|`Id`                           |cadena  |`aspnet_Users.UserId`                             |cadena  |
+|`UserName`                     |cadena  |`aspnet_Users.UserName`                           |cadena  |
+|`Email`                        |cadena  |`aspnet_Membership.Email`                         |cadena  |
+|`NormalizedUserName`           |cadena  |`aspnet_Users.LoweredUserName`                    |cadena  |
+|`NormalizedEmail`              |cadena  |`aspnet_Membership.LoweredEmail`                  |cadena  |
+|`PhoneNumber`                  |cadena  |`aspnet_Users.MobileAlias`                        |cadena  |
+|`LockoutEnabled`               |bits     |`aspnet_Membership.IsLockedOut`                   |bits     |
 
 > [!NOTE]
 > No todas las asignaciones de campos son similares a las relaciones uno a uno de la pertenencia a ASP.NET Core Identity. La tabla anterior toma el esquema de usuario de pertenencia predeterminado y lo asigna al esquema de ASP.NET Core Identity. Los campos personalizados que se usaron para la suscripción deben asignarse manualmente. En esta asignación, no hay ningún mapa de las contraseñas, como los criterios de la contraseña y Sales de la contraseña no se migran entre los dos. **Se recomienda dejar la contraseña como null y pedir a los usuarios restablecer sus contraseñas.** En ASP.NET Core Identity, `LockoutEnd` debe establecerse en una fecha en el futuro, si el usuario está bloqueado. Esto se muestra en el script de migración.
 
 ### <a name="roles"></a>Roles
 
-| *Identity(AspNetRoles)* |   | *Membership(aspnet_Roles)* ||
-| --- | --- | --- | --- | --- | --- |
-| **Nombre de campo** | **Type**  |   **Nombre de campo** | **Type**  |
-|`Id` | cadena | `RoleId` | cadena
-|`Name` | cadena | `RoleName` | cadena
-|`NormalizedName` | cadena | `LoweredRoleName` | cadena
+|*Identidad<br>(dbo. AspNetRoles)*        ||*Pertenencia<br>(dbo.aspnet_Roles)*||
+|----------------------------------------|-----------------------------------|
+|**Nombre de campo**                 |**Type**|**Nombre de campo**   |**Type**         |
+|`Id`                           |cadena  |`RoleId`         | cadena          |
+|`Name`                         |cadena  |`RoleName`       | cadena          |
+|`NormalizedName`               |cadena  |`LoweredRoleName`| cadena          |
 
 ### <a name="user-roles"></a>Roles de usuario
 
-| *Identity(AspNetUserRoles)* |   | *Membership(aspnet_UsersInRoles)* ||
-| --- | --- | --- | --- | --- | --- |
-| **Nombre de campo** | **Type**  |   **Nombre de campo** | **Type**  |
-|`RoleId` | cadena | `RoleId` | cadena
-|`UserId` | cadena | `UserId` | cadena
+|*Identidad<br>(dbo. AspNetUserRoles)*||*Pertenencia<br>(dbo.aspnet_UsersInRoles)*||
+|------------------------------------|------------------------------------------|
+|**Nombre de campo**           |**Type**  |**Nombre de campo**|**Type**                   |
+|`RoleId`                 |cadena    |`RoleId`      |cadena                     |
+|`UserId`                 |cadena    |`UserId`      |cadena                     |
 
-Hacer referencia a las tablas de asignación anterior al crear un script de migración para *usuarios* y *Roles*. En el siguiente ejemplo se da por supuesto que tiene dos bases de datos en un servidor de base de datos. Una base de datos contiene el esquema de pertenencia de ASP.NET existente y los datos. La otra base de datos se creó mediante los pasos descritos anteriormente. Los comentarios están incluidas alineadas para obtener más detalles.
+Hacer referencia a las tablas de asignación anterior al crear un script de migración para *usuarios* y *Roles*. En el siguiente ejemplo se da por supuesto que tiene dos bases de datos en un servidor de base de datos. Una base de datos contiene el esquema de pertenencia de ASP.NET existente y los datos. El otro *CoreIdentitySample* base de datos se creó mediante los pasos descritos anteriormente. Los comentarios están incluidas alineadas para obtener más detalles.
 
 ```sql
 -- THIS SCRIPT NEEDS TO RUN FROM THE CONTEXT OF THE MEMBERSHIP DB
 BEGIN TRANSACTION MigrateUsersAndRoles
-use aspnetdb
+USE aspnetdb
 
 -- INSERT USERS
-INSERT INTO coreidentity.dbo.aspnetusers
-            (id,
-             username,
-             normalizedusername,
-             passwordhash,
-             securitystamp,
-             emailconfirmed,
-             phonenumber,
-             phonenumberconfirmed,
-             twofactorenabled,
-             lockoutend,
-             lockoutenabled,
-             accessfailedcount,
-             email,
-             normalizedemail)
-SELECT aspnet_users.userid,
-       aspnet_users.username,
-       aspnet_users.loweredusername,
-       --Creates an empty password since passwords don't map between the two schemas
+INSERT INTO CoreIdentitySample.dbo.AspNetUsers
+            (Id,
+             UserName,
+             NormalizedUserName,
+             PasswordHash,
+             SecurityStamp,
+             EmailConfirmed,
+             PhoneNumber,
+             PhoneNumberConfirmed,
+             TwoFactorEnabled,
+             LockoutEnd,
+             LockoutEnabled,
+             AccessFailedCount,
+             Email,
+             NormalizedEmail)
+SELECT aspnet_Users.UserId,
+       aspnet_Users.UserName,
+       -- The NormalizedUserName value is upper case in ASP.NET Core Identity
+       UPPER(aspnet_Users.UserName),
+       -- Creates an empty password since passwords don't map between the 2 schemas
        '',
-       --Security Stamp is a token used to verify the state of an account and is subject to change at any time. It should be initialized as a new ID.
+       /*
+        The SecurityStamp token is used to verify the state of an account and 
+        is subject to change at any time. It should be initialized as a new ID.
+       */
        NewID(),
-       --EmailConfirmed is set when a new user is created and confirmed via email. Users must have this set during migration to ensure they're able to reset passwords.
+       /*
+        EmailConfirmed is set when a new user is created and confirmed via email.
+        Users must have this set during migration to reset passwords.
+       */
        1,
-       aspnet_users.mobilealias,
+       aspnet_Users.MobileAlias,
        CASE
-         WHEN aspnet_Users.MobileAlias is null THEN 0
+         WHEN aspnet_Users.MobileAlias IS NULL THEN 0
          ELSE 1
        END,
-       --2-factor Auth likely wasn't setup in Membership for users, so setting as false.
+       -- 2FA likely wasn't setup in Membership for users, so setting as false.
        0,
        CASE
-         --Setting lockout date to time in the future (1000 years)
-         WHEN aspnet_membership.islockedout = 1 THEN Dateadd(year, 1000,
+         -- Setting lockout date to time in the future (1,000 years)
+         WHEN aspnet_Membership.IsLockedOut = 1 THEN Dateadd(year, 1000,
                                                      Sysutcdatetime())
          ELSE NULL
        END,
-       aspnet_membership.islockedout,
-       --AccessFailedAccount is used to track failed logins. This is stored in membership in multiple columns. Setting to 0 arbitrarily.
+       aspnet_Membership.IsLockedOut,
+       /*
+        AccessFailedAccount is used to track failed logins. This is stored in
+        Membership in multiple columns. Setting to 0 arbitrarily.
+       */
        0,
-       aspnet_membership.email,
-       aspnet_membership.loweredemail
-FROM   aspnet_users
-       LEFT OUTER JOIN aspnet_membership
-                    ON aspnet_membership.applicationid =
-                       aspnet_users.applicationid
-                       AND aspnet_users.userid = aspnet_membership.userid
-       LEFT OUTER JOIN coreidentity.dbo.aspnetusers
-                    ON aspnet_membership.userid = aspnetusers.id
-WHERE  aspnetusers.id IS NULL
+       aspnet_Membership.Email,
+       -- The NormalizedEmail value is upper case in ASP.NET Core Identity
+       UPPER(aspnet_Membership.Email)
+FROM   aspnet_Users
+       LEFT OUTER JOIN aspnet_Membership
+                    ON aspnet_Membership.ApplicationId =
+                       aspnet_Users.ApplicationId
+                       AND aspnet_Users.UserId = aspnet_Membership.UserId
+       LEFT OUTER JOIN CoreIdentitySample.dbo.AspNetUsers
+                    ON aspnet_Membership.UserId = AspNetUsers.Id
+WHERE  AspNetUsers.Id IS NULL
 
 -- INSERT ROLES
-INSERT INTO coreIdentity.dbo.aspnetroles(id,name)
-SELECT roleId,rolename
-FROM aspnet_roles;
+INSERT INTO CoreIdentitySample.dbo.AspNetRoles(Id, Name)
+SELECT RoleId, RoleName
+FROM aspnet_Roles;
 
 -- INSERT USER ROLES
-INSERT INTO coreidentity.dbo.aspnetuserroles(userid,roleid)
-SELECT userid,roleid
-FROM aspnet_usersinroles;
+INSERT INTO CoreIdentitySample.dbo.AspNetUserRoles(UserId, RoleId)
+SELECT UserId, RoleId
+FROM aspnet_UsersInRoles;
 
 IF @@ERROR <> 0
   BEGIN
@@ -174,7 +186,7 @@ IF @@ERROR <> 0
 COMMIT TRANSACTION MigrateUsersAndRoles
 ```
 
-Tras finalizar este script, la aplicación de ASP.NET Core Identity que creó anteriormente se rellena con usuarios de pertenencia. Los usuarios necesitan cambiar sus contraseñas antes de iniciar sesión.
+Cuando haya finalizado el script anterior, la aplicación de ASP.NET Core Identity que creó anteriormente se rellena con usuarios de pertenencia. Los usuarios necesitan cambiar sus contraseñas antes de iniciar sesión.
 
 > [!NOTE]
 > Si el sistema de pertenencia tenía usuarios con los nombres de usuario que no coincide con su dirección de correo electrónico, los cambios son necesarios para la aplicación que creó anteriormente para dar cabida a esto. La plantilla predeterminada espera `UserName` y `Email` sea el mismo. Para situaciones en las que son diferentes, debe modificarse para usar el proceso de inicio de sesión `UserName` en lugar de `Email`.

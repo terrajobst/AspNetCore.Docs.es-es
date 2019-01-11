@@ -2,156 +2,168 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
 title: Datos para mostrar los elementos y detalles | Microsoft Docs
 author: Erikre
-description: Esta serie de tutoriales aprenderá los conceptos básicos de la creación de una aplicación de formularios Web Forms ASP.NET con ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para se...
+description: Esta serie de tutoriales aprenderá los conceptos básicos de la creación de una aplicación de formularios Web Forms ASP.NET con ASP.NET 4.7 y Microsoft Visual Studio Community 2017 para Web
 ms.author: riande
-ms.date: 09/08/2014
+ms.date: 1/09/2019
 ms.assetid: 64a491a8-0ed6-4c2f-9c1c-412962eb6006
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
 msc.type: authoredcontent
-ms.openlocfilehash: 2184c04d5f2361526be0409178dc0a6c665ebc4f
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 73ae1660f5d6e3e28c1c155e745a62936e3502df
+ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41839059"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54207439"
 ---
-<a name="display-data-items-and-details"></a>Datos para mostrar los elementos y detalles
+<a name="display-data-items-and-details"></a>Mostrar los elementos de datos y detalles
 ====================
 por [Erik Reitan](https://github.com/Erikre)
 
-[Descargar el proyecto de ejemplo de Wingtip Toys (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [descargar eBook (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+> Esta serie de tutoriales aprenderá los aspectos básicos de la creación de una aplicación de formularios Web Forms ASP.NET con ASP.NET 4.7 y Microsoft Visual Studio Community 2017 para Web.
 
-> Esta serie de tutoriales aprenderá los conceptos básicos de la creación de una aplicación de formularios Web Forms ASP.NET con ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para Web. Un Visual Studio 2013 [proyecto con código fuente de C#](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) está disponible para acompañar esta serie de tutoriales.
+En este tutorial, obtendrá información sobre cómo mostrar los elementos de datos y los detalles del elemento de datos con formularios Web Forms ASP.NET y Entity Framework Code First. Este tutorial se basa en el tutorial anterior de "Interfaz de usuario y navegación" como parte de la serie de tutoriales de Wingtip Toys Store. En el tutorial completo, los productos en el *ProductsList.aspx* página y los detalles de un producto en el *ProductDetails.aspx* página se muestran.
 
+## <a name="what-you-learn"></a>¿Qué aprenderá
 
-Este tutorial describe cómo mostrar los elementos de datos y los detalles del elemento de datos con formularios Web Forms ASP.NET y Entity Framework Code First. Este tutorial se basa en el tutorial anterior "Interfaz de usuario y navegación" y forma parte de la serie de tutoriales de Wingtip Toys Store. Cuando haya completado este tutorial, podrá ver los productos en el *ProductsList.aspx* página y detalles sobre un producto individual en el *ProductDetails.aspx* página.
+- Agregue un control de datos para mostrar los productos de base de datos.
+- Conectar un control de datos a los datos seleccionados.
+- Agregue un control de datos para mostrar los detalles del producto.
+- Analizar un valor de cadena de consulta y usarla para filtrar los datos recuperados de la base de datos.
 
-## <a name="what-youll-learn"></a>Lo que aprenderá:
+Características presentadas en este tutorial incluyen el enlace de modelos y los proveedores de valor.
 
-- Cómo agregar un control de datos para mostrar los productos de la base de datos.
-- Cómo conectar un control de datos a los datos seleccionados.
-- Cómo agregar un control de datos para mostrar los detalles del producto de la base de datos.
-- Cómo recuperar un valor de la cadena de consulta y use ese valor para limitar los datos que se recuperan de la base de datos.
+## <a name="add-a-data-control-to-display-products"></a>Agregue un control de datos para mostrar los productos
+ 
+Tiene unas cuantas opciones para enlazar datos a un control de servidor. Entre los más comunes se incluyen:
 
-### <a name="these-are-the-features-introduced-in-the-tutorial"></a>Estas son las características introducidas en el tutorial:
+ * Agregar un control de origen de datos
+ * Agregar código a mano
+ * Enlace de modelos de implementación
 
-- Enlace de modelos
-- Proveedores de valor
+### <a name="use-a-data-source-control-to-bind-data"></a>Utilizar un control de origen de datos para enlazar datos
 
-## <a name="adding-a-data-control-to-display-products"></a>Agregar un Control de datos para mostrar los productos
+Al agregar un control de origen de datos, vincula el control de origen de datos al control que muestra los datos. Con este enfoque, puede mediante declaración, en lugar de conectarse mediante programación, controles de servidor a los orígenes de datos.
 
-Al enlazar datos a un control de servidor, hay algunas opciones diferentes que puede usar. Las opciones más comunes incluyen la adición de un control de origen de datos, agregar código a mano o mediante el enlace de modelo.
+### <a name="code-by-hand-to-bind-data"></a>Código a mano para enlazar datos
 
-### <a name="using-a-data-source-control-to-bind-data"></a>Uso de un Control de origen de datos para enlazar datos
+Codificar de manera manual implica:
 
-Agrega un control de origen de datos, podrá vincular el control de origen de datos al control que muestra los datos. Este enfoque le permite conectarse mediante declaración los controles de servidor directamente a orígenes de datos, en lugar de utilizar un enfoque de programación.
+1. Leer un valor
+2. Comprobar si es null
+3. Convierte en un tipo adecuado
+4. Comprobación correcta de conversión
+5. Realizar una consulta con el valor convertido 
 
-### <a name="coding-by-hand-to-bind-data"></a>Codificar de manera manual para enlazar datos
+Con este enfoque, tiene control total sobre la lógica de acceso a datos.
 
-Agregar código a mano implica leer el valor, comprobación de un valor null, intenta convertirlo al tipo adecuado, comprobando si la conversión tuvo éxito y por último, mediante el valor de la consulta. Podría usar este enfoque cuando deba conservar el control total sobre la lógica de acceso a datos.
+### <a name="use-model-binding-to-bind-data"></a>Utilizar el enlace de modelos para enlazar datos
 
-### <a name="using-model-binding-to-bind-data"></a>Uso de enlace para enlazar datos de modelos
+Con el enlace de modelos, enlazar los resultados con mucho menos código y ofrece la capacidad de volver a usar la funcionalidad en toda la aplicación. Simplifica el trabajo con lógica de acceso a datos centrada en el código mientras sigue proporcionando un marco de enlace de datos enriquecido.
 
-Uso de enlace de modelos le permite enlazar los resultados con mucho menos código y le ofrece la capacidad de volver a usar la funcionalidad en toda la aplicación. El enlace de modelos pretende simplifican el trabajo con lógica de acceso a datos centrada en el código mientras se conservan las ventajas de un marco de enlace de datos enriquecido.
+## <a name="display-products"></a>Mostrar los productos
 
-## <a name="displaying-products"></a>Visualización de productos
+En este tutorial, utiliza el enlace de modelos para enlazar datos. Para configurar un control de datos para utilizar el enlace de modelos para seleccionar datos, debe establecer el control `SelectMethod` propiedad a un método en el código de la página. El control de datos llama al método en el momento adecuado en el ciclo de vida de página y enlaza automáticamente los datos devueltos. No hace falta llamar explícitamente a la `DataBind` método.
 
-En este tutorial, usará el enlace de modelos para enlazar datos. Para configurar un control de datos para utilizar el enlace de modelos para seleccionar datos, debe establecer el control `SelectMethod` propiedad en el nombre de un método en el código de la página. El control de datos llama al método en el momento adecuado en el ciclo de vida de página y enlaza automáticamente los datos devueltos. No hace falta llamar explícitamente a la `DataBind` método.
+Trabajar con los pasos siguientes, modificar *ProductList.aspx* marcado para mostrar productos.
 
-Mediante los pasos siguientes, modificará el marcado en el *ProductList.aspx* página para que la página puede mostrar los productos.
+1. En **el Explorador de soluciones**, abra *ProductList.aspx*.
 
-1. En **el Explorador de soluciones**, abra el *ProductList.aspx* página.
-2. Reemplace el marcado existente por el siguiente marcado:   
+2. Reemplace el marcado existente por el siguiente marcado: 
 
-    [!code-aspx[Main](display_data_items_and_details/samples/sample1.aspx)]
+    [!code-aspx-csharp[Main](display_data_items_and_details/samples/sample1.aspx)]
 
-Este código usa un **ListView** control denominado "Listadeproductos" para mostrar los productos.
+El marcado anterior usa un **ListView** control denominado `productList` para mostrar los productos.
 
-[!code-aspx[Main](display_data_items_and_details/samples/sample2.aspx)]
+[!code-aspx-csharp[Main](display_data_items_and_details/samples/sample2.aspx)]
 
-El **ListView** control muestra los datos en un formato que se define mediante plantillas y estilos. Resulta útil para los datos en una estructura de repetición. Esto **ListView** ejemplo simplemente muestran los datos de la base de datos, pero puede habilitar a los usuarios editar, insertar y eliminar datos y ordenar y datos de la página, todo ello sin código.
+Con los estilos y plantillas, puede definir el modo **ListView** control muestra los datos. Resulta útil para los datos en una estructura de repetición. Aunque esto **ListView** ejemplo simplemente muestra la base de datos, también puede, sin código, permiten a los usuarios editar, insertar y eliminar datos y para ordenar y paginar los datos.
 
-Estableciendo el `ItemType` propiedad en el **ListView** controlar, la expresión de enlace de datos `Item` está disponible y el control pasa a ser inflexible. Como se mencionó en el tutorial anterior, puede seleccionar los detalles del objeto de elemento con IntelliSense, como especificar el `ProductName`:
+Al establecer el `ItemType` propiedad en el **ListView** controlar, la expresión de enlace de datos `Item` está disponible y el control pasa a ser inflexible. Como se mencionó en el tutorial anterior, puede seleccionar los detalles del objeto de elemento con IntelliSense, como especificar el `ProductName`:
 
 ![Mostrar datos de elementos y detalles - IntelliSense](display_data_items_and_details/_static/image1.png)
 
-Además, se utiliza un enlace de modelo para especificar un `SelectMethod` valor. Este valor (`GetProducts`) se corresponderá con el método que va a agregar al código subyacente para mostrar los productos en el paso siguiente.
+Con el enlace de modelos, debe especificar un `SelectMethod` valor (`GetProducts`). Este es el método que agregue al código de retraso para mostrar los productos en el paso siguiente.
 
-### <a name="adding-code-to-display-products"></a>Agregar código para mostrar los productos
+### <a name="add-code-to-display-products"></a>Agregue código para mostrar los productos
 
-En este paso, agregará código para rellenar el **ListView** control con datos de producto de la base de datos. El código será compatible con la que muestra los productos por categoría individual, así como que muestra todos los productos.
+En este paso, agregará código para rellenar el **ListView** control con datos de productos de base de datos. El código es compatible con la que muestra todos los productos y productos de categorías individuales.
 
-1. En **el Explorador de soluciones**, haga clic en *ProductList.aspx* y, a continuación, haga clic en **ver código**.
-2. Reemplace el código existente en el *ProductList.aspx.cs* archivo con el código siguiente:   
+1. En **el Explorador de soluciones**, haga clic en *ProductList.aspx* y, a continuación, seleccione **ver código**.
+2. Reemplace el código existente en el *ProductList.aspx.cs* archivo con esto:   
 
     [!code-csharp[Main](display_data_items_and_details/samples/sample3.cs)]
 
-Este código muestra la `GetProducts` método al que hace referencia el `ItemType` propiedad de la **ListView** en controlar la *ProductList.aspx* página. Para limitar los resultados a una categoría específica en la base de datos, el código establece la `categoryId` valor desde el valor de cadena de consulta pasan a la *ProductList.aspx* página cuando la *ProductList.aspx* es la página navega. El `QueryStringAttribute` clase en el `System.Web.ModelBinding` espacio de nombres se usa para recuperar el valor del identificador de variable de cadena de consulta. Esto indica que el enlace de modelos para intentar enlazar un valor de cadena de consulta que el `categoryId` parámetro en tiempo de ejecución.
+Este código muestra la `GetProducts` método que el **ListView** del control `ItemType` referencias de propiedad en *ProductList.aspx*. Para limitar los resultados a una categoría específica de la base de datos, el código establece la `categoryId` valor de la cadena de consulta pasada a *ProductList.aspx*. El `QueryStringAttribute` clase en el `System.Web.ModelBinding` espacio de nombres se usa para recuperar la variable de cadena de consulta `id`del valor. Esto indica que el enlace de modelos para, en tiempo de ejecución, enlazar un valor de cadena de consulta para el `categoryId` parámetro.
 
-Cuando se pasa una categoría válida como una cadena de consulta a la página, los resultados de la consulta se limitan a esos productos en la base de datos que coinciden con la `categoryId` valor. Por ejemplo, si la dirección URL para el *ProductsList.aspx* página es la siguiente:
+Cuando una categoría válida (`categoryId`) es pasado, los resultados se limitan a los productos de base de datos de esa categoría. Por ejemplo, si la *ProductsList.aspx* dirección URL de página es esto:
 
 [!code-console[Main](display_data_items_and_details/samples/sample4.cmd)]
 
-La página muestra solo los productos donde la `category` es igual a `1`.
+La página muestra solo los productos donde la `categoryId` es igual a `1`.
 
-Si no se incluye ninguna cadena de consulta cuando se desplace a la *ProductList.aspx* página, se mostrarán todos los productos.
+Si no se pasa ninguna cadena de consulta, se muestran todos los productos.
 
-Los orígenes de los valores de estos métodos se conocen como *proveedores de valor* (como *QueryString*), y se conocen los atributos de parámetro que indican qué proveedor de valor a utilizar como valor los atributos de proveedor (como "`id`"). ASP.NET incluye proveedores de valor y los atributos correspondientes para todos los orígenes de entrada de usuario habituales en una aplicación de formularios Web Forms, como la cadena de consulta, cookies, valores de formulario, controles, estado de vista, el estado de sesión y las propiedades de perfil. También puede escribir proveedores de valores personalizados.
+Los orígenes de los valores para estos métodos se denominan *proveedores de valor* (como `QueryString`), y se denominan los atributos de parámetro que indican qué proveedor de valor a utilizar *atributos de proveedor de valor* () como `id`). ASP.NET incluye proveedores de valor y los atributos de todos los formularios Web Forms aplicación usuario entrados orígenes habituales. Estos incluyen la cadena de consulta, cookies, valores de formulario, controles, estado de vista, el estado de sesión y las propiedades de perfil. También puede escribir proveedores de valores personalizados.
 
-### <a name="running-the-application"></a>Ejecutar la aplicación
+### <a name="run-the-application"></a>Ejecutar la aplicación
 
-Ejecute ahora la aplicación para ver cómo puede ver todos los productos o solo un conjunto de productos limitado por categoría.
+Ejecute la aplicación ahora para ver todos los productos o productos de una categoría.
 
-1. En el **el Explorador de soluciones**, haga clic en el *Default.aspx* página y seleccione **ver en el explorador**.  
- El explorador se abrirá y mostrará el *Default.aspx* página.
-2. Seleccione **automóviles** desde el menú de navegación de la categoría de producto.  
- El *ProductList.aspx* se muestra la página que muestra solo los productos incluidos en la categoría "Automóviles". Más adelante en este tutorial, mostrará los detalles del producto.  
+1. En Visual Studio, presione **F5** para ejecutar la aplicación.
+ El explorador se abre y muestra el *Default.aspx* página.
+
+2. En el menú de categoría de producto, seleccione **automóviles**.
+
+   El *ProductList.aspx* aparece la página, que muestra solo productos de la **automóviles** categoría. Más adelante en este tutorial, mostrar detalles del producto.
 
     ![Mostrar datos de elementos y detalles - automóviles](display_data_items_and_details/_static/image2.png)
-3. Seleccione **productos** en el menú de navegación en la parte superior.  
- Nuevamente, el *ProductList.aspx* se muestra la página, pero esta vez muestra toda la lista de productos.   
+
+3. Seleccione **productos** en el menú superior.
+ El *ProductList.aspx* página ahora muestra todos los productos. 
 
     ![Mostrar datos de elementos y detalles - productos](display_data_items_and_details/_static/image3.png)
+
 4. Cierre el explorador y vuelva a Visual Studio.
 
-### <a name="adding-a-data-control-to-display-product-details"></a>Agregar un Control de datos para mostrar los detalles del producto
+### <a name="add-a-data-control-to-display-product-details"></a>Agregue un Control de datos para mostrar los detalles del producto
 
-A continuación, modificará el marcado en el *ProductDetails.aspx* página que agregó en el tutorial anterior para que la página puede mostrar información sobre un producto individual.
+Modificar el *ProductDetails.aspx* marcado que agregó en el tutorial anterior para mostrar información de producto específico:
 
-1. En **el Explorador de soluciones**, abra el *ProductDetails.aspx* página.
-2. Reemplace el marcado existente por el siguiente marcado:   
+1. En **el Explorador de soluciones**, abra *ProductDetails.aspx*.
 
-    [!code-aspx[Main](display_data_items_and_details/samples/sample5.aspx)]
+2. Reemplace el marcado existente por este marcado:
 
-Este código usa un **FormView** control para mostrar los detalles sobre un producto individual. Este marcado usa métodos, como los que se usan para mostrar datos en el *ProductList.aspx* página. El **FormView** control se usa para mostrar un único registro a la vez desde un origen de datos. Cuando se usa el **FormView** control, crea plantillas para mostrar y editar valores enlazados a datos. Las plantillas contienen controles, expresiones de enlace y el formato que definen la apariencia y funcionalidad del formulario.
+    [!code-aspx-csharp[Main](display_data_items_and_details/samples/sample5.aspx)] 
 
-Para conectar el marcado anterior a la base de datos, debe agregar código adicional para la *ProductDetails.aspx* código.
+Este marcado usa un **FormView** control para mostrar los detalles de producto específico. Utiliza métodos como los que se usan para mostrar datos en *ProductList.aspx*. El **FormView** control se usa para mostrar un único registro a la vez desde un origen de datos. Cuando se usa el **FormView** control, crea plantillas para mostrar y editar valores enlazados a datos. Estas plantillas contienen controles, enlace de expresiones, y el formato que definen la apariencia y la funcionalidad del formulario.
 
-1. En **el Explorador de soluciones**, haga clic en *ProductDetails.aspx* y, a continuación, haga clic en **ver código**.  
-   El *ProductDetails.aspx.cs* se mostrará el archivo.
-2. Reemplace el código existente con el siguiente código:   
+Conectar el marcado anterior a la base de datos requiere código adicional.
+
+1. En **el Explorador de soluciones**, haga clic en *ProductDetails.aspx* y, a continuación, seleccione **ver código**.  
+   El *ProductDetails.aspx.cs* se muestra el archivo.
+
+2. Reemplace el código existente con este:   
 
     [!code-csharp[Main](display_data_items_and_details/samples/sample6.cs)]
 
-Este código comprueba si hay un "`productID`" valor de cadena de consulta. Si se encuentra un valor de cadena de consulta válida, se muestra el producto coincidente. Si no se encuentra ninguna cadena de consulta o el valor de cadena de consulta no es válido, no se muestra ningún producto en el *ProductDetails.aspx* página.
+Este código comprueba si hay un "`productID`" valor de cadena de consulta. Si se encuentra un valor válido, se muestra el producto coincidente. Si no se encuentra la cadena de consulta o su valor no es válido, no se muestra ningún producto.
 
-### <a name="running-the-application"></a>Ejecutar la aplicación
+### <a name="run-the-application"></a>Ejecutar la aplicación
 
-Ahora puede ejecutar la aplicación para ver un producto individual que se muestra según el identificador del producto.
+Ahora puede ejecutar la aplicación para ver los detalles de producto específico según el identificador de producto.
 
-1. Presione **F5** mientras se encuentre en Visual Studio para ejecutar la aplicación.  
- El explorador se abrirá y mostrará el *Default.aspx* página.
-2. Seleccione "Barcos" en el menú de navegación de la categoría.  
+1. En Visual Studio, presione **F5** para ejecutar la aplicación.  
+ El explorador se abre en *Default.aspx*.
+
+2. En el menú de la categoría, seleccione **barcos**.  
  El *ProductList.aspx* se muestra la página.
-3. Seleccione el producto "Papel barco" de la lista de productos.  
+
+3. Seleccione **papel barco**.  
  El *ProductDetails.aspx* se muestra la página.   
 
     ![Mostrar datos de elementos y detalles - productos](display_data_items_and_details/_static/image4.png)
-4. Cierre el explorador.
 
-## <a name="summary"></a>Resumen
-
-En este tutorial de la serie agregar marcado y código para mostrar una lista de productos y mostrar los detalles del producto. Durante este proceso ha aprendido acerca de los controles de datos fuertemente tipados, enlace de modelos y los proveedores de valor. En el siguiente tutorial, agregará un carro de la compra a la aplicación de ejemplo Wingtip Toys.
+En el siguiente tutorial, agregará un carro de la compra a la aplicación Wingtip Toys.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
