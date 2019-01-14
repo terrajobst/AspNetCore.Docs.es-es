@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo crear una aplicación web de ASP.NET Core con Visual Studio e implementarla en Azure App Service con Git para una implementación continua.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/14/2016
+ms.date: 12/06/2018
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 5ae8ce01610828417fc76ed6626e518c8493bd0f
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: e12c2ee0b78db105b431770e8644e7d19d915765
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340204"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284448"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Implementación continua en Azure con Visual Studio y Git con ASP.NET Core
 
@@ -71,7 +71,7 @@ Los pasos siguientes le permiten crear una aplicación web en Azure Portal:
 
 1. Seleccione **Web y móvil** > **Aplicación web**.
 
-   ![Microsoft Azure Portal: Botón Nuevo: Web y móvil en Marketplace: Botón Aplicación web en Aplicaciones destacadas](azure-continuous-deployment/_static/05-azure-newwebapp.png)
+   ![Microsoft Azure Portal: botón Nuevo: Web y móvil en Marketplace: Botón Aplicación web en Aplicaciones destacadas](azure-continuous-deployment/_static/05-azure-newwebapp.png)
 
 1. En la hoja **Aplicación web**, escriba un valor único para el **nombre del servicio de aplicaciones**.
 
@@ -84,7 +84,7 @@ Los pasos siguientes le permiten crear una aplicación web en Azure Portal:
 
 1. Seleccione **Crear**. Azure aprovisionará e iniciará la aplicación web.
 
-   ![Azure Portal: Hoja de Essentials SampleWebAppDemo01](azure-continuous-deployment/_static/07-azure-webappblade.png)
+   ![Azure Portal: Hoja SampleWebAppDemo01 de Essentials](azure-continuous-deployment/_static/07-azure-webappblade.png)
 
 ## <a name="enable-git-publishing-for-the-new-web-app"></a>Habilitar la publicación de Git para la nueva aplicación web
 
@@ -230,3 +230,4 @@ Para ver la aplicación web actualizada, seleccione **Examinar** en la hoja de l
 
 * [Creación de la primera canalización con Azure Pipelines](/azure/devops/pipelines/get-started-yaml)
 * [Proyecto Kudu](https://github.com/projectkudu/kudu/wiki)
+* <xref:host-and-deploy/visual-studio-publish-profiles>
