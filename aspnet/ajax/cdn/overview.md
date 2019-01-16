@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 2445d788df8ae80ccaad2dfeb19d1ccb91954d40
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 65eee9bc477fc8adf10e8d819b93375ffbb72d7b
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249586"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341844"
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 ====================
@@ -27,7 +27,7 @@ ms.locfileid: "54249586"
 ## <a name="table-of-contents"></a>Tabla de contenido
 
 **[AJAX.Microsoft.com ha cambiado a ajax.aspnetcdn.com](#ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18)**  
-**[Compatibilidad de Visual Studio .vsdoc](#Visual_Studio_vsdoc_Support_19)**  
+**[Visual Studio .vsdoc Support](#Visual_Studio_vsdoc_Support_19)**  
 **[Uso de Ajax de ASP.NET desde la red CDN](#Using_ASPNET_Ajax_from_the_CDN_20)**  
 **[Uso de jQuery desde la red CDN](#Using_jQuery_from_the_CDN_21)**  
 **[Mediante jQuery UI desde la red CDN](#Using_jQuery_UI_from_the_CDN_22)**  
@@ -797,6 +797,21 @@ Las siguientes versiones de [https://github.com/scottjehl/Respond](https://githu
 
 Las siguientes versiones de [getbootstrap.com](http://getbootstrap.com "getbootstrap.com") bootstrap se hospedan en la red CDN:
 
+#### <a name="bootstrap-version-421"></a>Versión 4.2.1 de bootstrap
+
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/bootstrap.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/bootstrap.min.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/bootstrap.bundle.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-grid.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-grid.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-grid.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-reboot.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-reboot.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-reboot.css.map
+
 #### <a name="bootstrap-version-411"></a>Versión de bootstrap 4.1.1
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/bootstrap.js
@@ -826,6 +841,22 @@ Las siguientes versiones de [getbootstrap.com](http://getbootstrap.com "getboots
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.min.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.css.map
+
+#### <a name="bootstrap-version-340"></a>Bootstrap versión 3.4.0
+
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/bootstrap.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/bootstrap.min.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap-theme.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap-theme.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap-theme.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.eot
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.svg
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.ttf
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.woff
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.woff2
 
 #### <a name="bootstrap-version-337"></a>Versión de bootstrap 3.3.7
 
@@ -1179,7 +1210,7 @@ Los siguientes archivos JavaScript SignalR de ASP.NET se hospedan en esta red CD
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.0.1.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.0.1.js
 
-#### <a name="aspnet-signalr-200"></a>SignalR de ASP.NET 2.0.0
+#### <a name="aspnet-signalr-200"></a>ASP.NET SignalR 2.0.0
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.0.0.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.0.0.js
@@ -1189,7 +1220,7 @@ Los siguientes archivos JavaScript SignalR de ASP.NET se hospedan en esta red CD
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.1.3.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.1.3.js
 
-#### <a name="aspnet-signalr-112"></a>1.1.2 de SignalR de ASP.NET
+#### <a name="aspnet-signalr-112"></a>ASP.NET SignalR 1.1.2
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.1.2.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.1.2.js

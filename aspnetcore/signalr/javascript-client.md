@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: cd64a65889227d84615768bc3d8fddcd362fbba4
-ms.sourcegitcommit: eef99d14d96dc8c3c1bb0e2c4cb14da152f8a952
+ms.openlocfilehash: acdb4d1a59d980010fe89fe381190425cbb12901
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53022484"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341465"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>Cliente ASP.NET Core SignalR JavaScript
 
@@ -60,7 +60,7 @@ Para evitar que un sitio malintencionado lea datos confidenciales de otro sitio,
 Los clientes JavaScript llamar a métodos públicos en concentradores a través de la [invocar](/javascript/api/%40aspnet/signalr/hubconnection#invoke) método de la [HubConnection](/javascript/api/%40aspnet/signalr/hubconnection). El `invoke` método acepta dos argumentos:
 
 * El nombre del método de concentrador. En el ejemplo siguiente, que es el nombre del método del concentrador `SendMessage`.
-* Los argumentos definidos en el método de concentrador. En el ejemplo siguiente, que es el nombre del argumento `message`.
+* Los argumentos definidos en el método de concentrador. En el ejemplo siguiente, que es el nombre del argumento `message`. El código de ejemplo usa la sintaxis de la función de flecha que se admiten en las versiones actuales de todos los exploradores principales, excepto Internet Explorer.
 
   [!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=24)]
 

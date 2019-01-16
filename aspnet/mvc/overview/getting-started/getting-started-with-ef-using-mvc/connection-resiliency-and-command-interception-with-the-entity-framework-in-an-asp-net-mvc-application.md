@@ -1,33 +1,39 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Resistencia de conexión e intercepción de comandos con Entity Framework en una aplicación ASP.NET MVC | Microsoft Docs
+title: 'Tutorial: Usar intercepción de comando y la resistencia de conexión con EF en una aplicación ASP.NET MVC'
 author: tdykstra
-description: La aplicación web de Contoso University muestra cómo crear aplicaciones de ASP.NET MVC 5 con Entity Framework 6 Code First y Visual Studio...
+description: En este tutorial obtendrá información sobre cómo usar intercepción de comando y la resistencia de conexión. Son dos características importantes de Entity Framework 6.
 ms.author: riande
-ms.date: 01/13/2015
+ms.date: 01/14/2018
+ms.topic: tutorial
 ms.assetid: c89d809f-6c65-4425-a3fa-c9f6e8ac89f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: ab6a553100d704746840eaad512ec140d4576c44
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: fae5c7e1ad1000ed90630c3620b853de3a735d60
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911791"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341737"
 ---
-<a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Resistencia de conexión e intercepción de comandos con Entity Framework en una aplicación ASP.NET MVC
-====================
-por [Tom Dykstra](https://github.com/tdykstra)
-
-[Descargue el proyecto completado](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> La aplicación web de Contoso University muestra cómo crear aplicaciones de ASP.NET MVC 5 con Entity Framework 6 Code First y Visual Studio. Para obtener información sobre la serie de tutoriales, consulte [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+# <a name="tutorial-use-connection-resiliency-and-command-interception-with-entity-framework-in-an-aspnet-mvc-app"></a>Tutorial: Usar intercepción de comando y la resistencia de conexión con Entity Framework en una aplicación ASP.NET MVC
 
 Hasta ahora la aplicación se ejecutaba localmente en IIS Express en el equipo de desarrollo. Para que una aplicación real disponible para otras personas a través de Internet, tendrá que implementarlo en un proveedor de hospedaje web, y se debe implementar la base de datos a un servidor de base de datos.
 
-En este tutorial obtendrá información sobre cómo usar dos características de Entity Framework 6 que son especialmente valiosas al que va a implementar en el entorno de nube: resistencia de conexión (reintentos automáticos de errores transitorios) e intercepción de comandos (capturar todas las consultas SQL Enviar a la base de datos con el fin de iniciar sesión o cambiarlos).
+En este tutorial obtendrá información sobre cómo usar intercepción de comando y la resistencia de conexión. Son dos características importantes de Entity Framework 6 son especialmente valiosas al que va a implementar en el entorno de nube: resistencia de conexión (reintentos automáticos de errores transitorios) e intercepción de comandos (catch todas las consultas SQL que se envían a la base de datos Para iniciar o cambiar).
 
 Este tutorial de intercepción de resistencia y el comando de conexión es opcional. Si omite este tutorial, algunos ajustes menores deberá realizarse en los tutoriales posteriores.
+
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Habilitar la resistencia de conexión
+> * Habilitar la intercepción de comandos
+> * Pruebe la nueva configuración
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* [Ordenar, filtrar y paginar](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
 ## <a name="enable-connection-resiliency"></a>Habilitar la resistencia de conexión
 
@@ -48,7 +54,7 @@ Puede configurar estas opciones manualmente en cualquier entorno de base de dato
 Lo único que debe hacer para habilitar la resistencia de conexión es crear una clase en el ensamblado que se deriva de la [DbConfiguration](https://msdn.microsoft.com/data/jj680699.aspx) clase y, en esa clase, establezca la base de datos SQL *estrategia de ejecución*, que en EF es otro término para *directiva de reintentos*.
 
 1. En la carpeta de la capa DAL, agregue un archivo de clase denominado *SchoolConfiguration.cs*.
-2. Reemplace el código de plantilla con el código siguiente:
+2. Reemplace el código de plantilla por el código siguiente:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
@@ -135,7 +141,7 @@ A continuación creará las clases que Entity Framework llamará a cada vez que 
 
     Ha escrito el código de simulación de error transitorio de forma que le permite producir errores transitorios especificando un valor diferente en la interfaz de usuario. Como alternativa, podría escribir el código del interceptor para generar la secuencia de excepciones transitorias siempre sin comprobar si un valor de parámetro determinado. Después, puede agregar el interceptor sólo cuando desea generar errores transitorios. Si hace esto, sin embargo, no agregue el interceptor hasta que una vez completada la inicialización de la base de datos. En otras palabras, realizar la operación de al menos una base de datos como una consulta en uno de los conjuntos de entidades antes de empezar a generar errores transitorios. Entity Framework se ejecutan varias consultas durante la inicialización de la base de datos y no se ejecutan en una transacción, por lo que podrían provocar que el contexto obtener un estado incoherente errores durante la inicialización.
 
-## <a name="test-logging-and-connection-resiliency"></a>Resistencia de conexión y registro de prueba
+## <a name="test-the-new-configuration"></a>Pruebe la nueva configuración
 
 1. Presione **F5** para ejecutar la aplicación en modo de depuración y, a continuación, haga clic en el **estudiantes** ficha.
 2. Examine el Visual Studio **salida** ventana para ver los resultados del seguimiento. Es posible que deba desplazarse hacia arriba, más allá de algunos errores de JavaScript para llegar a los registros escritos por el registrador.
@@ -167,14 +173,19 @@ A continuación creará las clases que Entity Framework llamará a cada vez que 
     ![Excepción ficticia](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 5. Quite el *SetExecutionStrategy* línea *SchoolConfiguration.cs*.
 
-## <a name="summary"></a>Resumen
-
-En este tutorial, ha visto cómo habilitar la resistencia de conexión y los comandos SQL que Entity Framework crea y envía a la base de datos de registro. En el siguiente tutorial, va a implementar la aplicación a Internet, mediante migraciones de Code First para implementar la base de datos.
-
-Deje comentarios sobre cómo le gustó de este tutorial y que podíamos mejorar.
+## <a name="additional-resources"></a>Recursos adicionales
 
 Pueden encontrar vínculos a otros recursos de Entity Framework en [acceso a datos de ASP.NET - recursos recomendados](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-> [!div class="step-by-step"]
-> [Anterior](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [Siguiente](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-steps"></a>Pasos siguientes
+
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Resistencia de conexión habilitado
+> * Intercepción de comandos habilitada
+> * Probar la nueva configuración
+
+Avance al siguiente artículo para obtener información acerca de las migraciones de Code First y la implementación de Azure.
+> [!div class="nextstepaction"]
+> [Código de migraciones primera y la implementación de Azure](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)

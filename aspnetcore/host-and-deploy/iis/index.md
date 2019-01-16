@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/11/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 3239b4652d739ed2ac205c9daae7754dbd8e918c
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 83c084beb059d803811e9739d34bdbdd6bcff463
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249564"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341802"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -312,11 +312,6 @@ Al implementar aplicaciones en servidores con [Web Deploy](/iis/publish/using-we
 ## <a name="create-the-iis-site"></a>Creación del sitio de IIS
 
 1. En el sistema de hospedaje, cree una carpeta para que contenga los archivos y las carpetas publicados de la aplicación. En el tema [Estructura de directorios](xref:host-and-deploy/directory-structure) se describe el diseño de implementación de una aplicación.
-
-1. Dentro de la nueva carpeta, cree una carpeta *logs* para hospedar los registros de stdout del módulo ASP.NET Core cuando esté habilitado el registro de stdout. Si la aplicación se ha implementado con una carpeta *logs* en la carga, omita este paso. Para instrucciones sobre cómo habilitar MSBuild para crear la carpeta *logs* automáticamente cuando el proyecto se crea de forma local, consulte el tema [Estructura de directorios](xref:host-and-deploy/directory-structure).
-
-   > [!IMPORTANT]
-   > Use solamente el registro de stdout para solucionar errores de inicio de aplicación. Nunca use el registro de stdout para el registro de aplicaciones rutinarias. No hay ningún límite en el tamaño del archivo de registro ni en el número de archivos de registro creados. El grupo de aplicaciones debe tener acceso de escritura a la ubicación en la que se escriben los registros. Todas las carpetas de la ruta de acceso a la ubicación del registro deben existir. Para más información sobre el registro de stdout, consulte [Creación y redirección de registros](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection). Para información sobre el registro en una aplicación ASP.NET Core, vea el tema [Registro](xref:fundamentals/logging/index).
 
 1. En **Administrador de IIS**, abra el nodo del servidor en el panel **Conexiones**. Haga clic con el botón derecho en la carpeta **Sitios**. Haga clic en **Agregar sitio web** en el menú contextual.
 
