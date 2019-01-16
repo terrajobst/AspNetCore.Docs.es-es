@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 12/4/2018
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: acfc446732803c67714943fe3e5b7a31055ebcd7
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 2b68523ac84596bda2914d9c348ddea8c7ea9465
+ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862010"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54207387"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Páginas de Razor con scaffolding en ASP.NET Core
 
@@ -57,6 +57,12 @@ El asistente de HTML `DisplayNameFor` inspecciona la propiedad `Title` a la que 
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
 La directiva `@model` especifica el tipo del modelo que se pasa a la página de Razor. En el ejemplo anterior, la línea `@model` permite que la clase derivada de `PageModel` esté disponible en la página de Razor. El modelo se usa en los [asistentes de HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers)`@Html.DisplayNameFor` y `@Html.DisplayFor` de la página.
+
+### <a name="the-layout-page"></a>Página de diseño
+
+Seleccione los vínculos de menú (**RazorPagesMovie** [Película de Razor Pages], **Home** [Inicio] y **Privacy** [Privacidad]). Cada página muestra el mismo diseño de menú. El diseño de menú se implementa en el archivo *Pages/Shared/_Layout.cshtml*. Abra el archivo *Pages/Shared/_Layout.cshtml*.
+
+Las plantillas de [diseño](xref:mvc/views/layout) permiten especificar el diseño del contenedor HTML del sitio en un solo lugar y, después, aplicarlo en varias páginas del sitio. Busque la línea `@RenderBody()`. `RenderBody` es un marcador de posición donde se mostrarán todas las vistas específicas de página que cree, *encapsuladas* en la página de diseño. Por ejemplo, si selecciona el vínculo **Privacy** (Privacidad), la vista **Pages/Privacy.cshtml** se representará dentro del método `RenderBody`.
 
 <a name="vd"></a>
 ### <a name="viewdata-and-layout"></a>Propiedades ViewData y Layout
@@ -168,5 +174,5 @@ El [asistente de etiquetas](xref:mvc/views/working-with-forms#the-label-tag-help
 El [asistente de etiquetas de entrada](xref:mvc/views/working-with-forms) (`<input asp-for="Movie.Title" class="form-control" />`) usa los atributos [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) y genera los atributos HTML necesarios para la validación de jQuery en el lado del cliente.
 
 > [!div class="step-by-step"]
-> [Anterior: Agregar un modelo](xref:tutorials/razor-pages/model)
+> [Anterior: Adición de un modelo](xref:tutorials/razor-pages/model)
 > [Siguiente: Base de datos](xref:tutorials/razor-pages/sql)

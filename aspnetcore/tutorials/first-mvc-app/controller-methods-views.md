@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo trabajar con métodos de controlad
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: e6bdaec6dfe681582a54bd39ce1c76bebe6f5fb2
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: cd1b0f2ccffaa660f137b8d739933e56018f2702
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997258"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249417"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Vistas y métodos de controlador en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-La aplicación de películas pinta bien, pero la presentación no es ideal. No queremos ver la hora (12:00:00 a.m. en la imagen siguiente) y **ReleaseDate** deben ser dos palabras.
+La aplicación de películas tiene buena pinta, pero la presentación no es la ideal. Por ejemplo, **FechaDeLanzamiento** debería escribirse en tres palabras.
 
 ![Vista de índice: ReleaseDate es una sola palabra (sin espacios) y en todas las fechas de lanzamiento de películas se muestra una hora de 12 a. m.](working-with-sql/_static/m55.png)
 

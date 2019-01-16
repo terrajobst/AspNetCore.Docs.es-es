@@ -4,14 +4,14 @@ author: scottaddie
 description: Obtenga información sobre los distintos tipos de valor devuelto de método de acción del controlador de ASP.NET Core Web API.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 01/04/2019
 uid: web-api/action-return-types
-ms.openlocfilehash: 84300eae4271c3ee4387be022c3576dc83e144eb
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 98d70e0379d353cff98a6d7a13f2dd00eb4da206
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207529"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098745"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Tipos de valor devuelto de acción del controlador de ASP.NET Core Web API
 
@@ -68,13 +68,18 @@ Veamos la siguiente acción asincrónica, en la que pueden darse dos tipos de va
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-En la acción anterior, se devuelve un código de estado 400 cuando se produce un error en la validación de modelos y se invoca el método del asistente [BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest). Por ejemplo, el siguiente modelo indica que las solicitudes deben proporcionar la propiedad `Name` y un valor. Por lo tanto, si no se proporciona una propiedad `Name` adecuada en la solicitud, se producirá un error en la validación de modelos.
+En el código anterior:
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6)]
+* El entorno de ejecución de ASP.NET Core devuelve un código de estado 400 ([BadRequest](xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*)) cuando la descripción del producto contiene "Widget XYZ".
+* Al crear un producto, el método [CreatedAtAction](xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*) genera un código de estado 201. En esta ruta de acceso de código, se devuelve el objeto `Product`.
 
-Otro código de retorno conocido de la acción anterior es un 201, que se genera con el método del asistente [CreatedAtAction](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction). En esta ruta de acceso, se devuelve el objeto `Product`.
+Por ejemplo, el siguiente modelo indica que las solicitudes deben incluir las propiedades `Name` y `Description`. Por lo tanto, si no se proporcionan `Name` y `Description` en la solicitud, se producirá un error en la validación de los modelos.
+
+[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6,8-9)]
 
 ::: moniker range=">= aspnetcore-2.1"
+
+En ASP.NET Core 2.1 o versiones posteriores, si se aplica el atributo [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute), los errores de validación de los modelos generarán un código de estado 400. Para obtener más información, consulte [Respuestas HTTP 400 automáticas](xref:web-api/index#automatic-http-400-responses).
 
 ## <a name="actionresultt-type"></a>Tipo ActionResult\<T>
 
@@ -114,7 +119,12 @@ Veamos una acción asincrónica, en la que pueden darse dos tipos de valor devue
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-Si se produce un error en la validación de modelos, se invoca el método [BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest#Microsoft_AspNetCore_Mvc_ControllerBase_BadRequest_Microsoft_AspNetCore_Mvc_ModelBinding_ModelStateDictionary_) para devolver un código de estado 400. La propiedad [ModelState](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.modelstate) que contiene los errores de validación específicos se pasan a dicho método. Si la validación de modelos se realiza correctamente, el producto se crea en la base de datos. Se devuelve un código de estado 201.
+En el código anterior:
+
+* El entorno de ejecución de ASP.NET Core devuelve un código de estado 400 ([BadRequest](xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*)) en los casos siguientes:
+  * El atributo [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) se ha aplicado y se produce un error de validación de los modelos.
+  * La descripción del producto contiene "Widget XYZ".
+* Al crear un producto, el método [CreatedAtAction](xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*) genera un código de estado 201. En esta ruta de acceso de código, se devuelve el objeto `Product`.
 
 > [!TIP]
 > A partir de ASP.NET Core 2.1, la inferencia del origen de enlace de los parámetros de la acción está habilitada cuando una clase de controlador incluye el atributo `[ApiController]`. Los parámetros de tipo complejo se enlazan automáticamente usando el cuerpo de solicitud. Por lo tanto, el parámetro `product` de la acción anterior no está anotado explícitamente con el atributo [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute).
