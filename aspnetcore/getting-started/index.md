@@ -4,14 +4,14 @@ author: rick-anderson
 description: Tutorial rápido que crea y ejecuta una aplicación Hola mundo sencilla mediante ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/11/2018
+ms.date: 01/15/2019
 uid: getting-started
-ms.openlocfilehash: dc85fe9189c93476859a6c00d60ec24d6eeec3fa
-ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
+ms.openlocfilehash: eee927f4306fa7757f3f361e6c6f367658512897
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335317"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341815"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Tutorial: Introducción a ASP.NET Core
 
@@ -87,7 +87,7 @@ cd aspnetcoreapp
 dotnet run
 ```
 
-Vaya a [https://localhost:5001](https://localhost:5001). Haga clic en **Aceptar** para aceptar la política de privacidad y de cookies. Esta aplicación no conserva información de carácter personal.
+Después de que el shell de comandos indique que se ha iniciado la aplicación, vaya a [https://localhost:5001](https://localhost:5001). Haga clic en **Aceptar** para aceptar la política de privacidad y de cookies. Esta aplicación no conserva información de carácter personal.
 
 ## <a name="edit-a-razor-page"></a>Editar una página de Razor
 

@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/11/2019
 uid: web-api/index
-ms.openlocfilehash: a826bdecdd3a25eb23597123166695c169ba4229
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 8ba20c51f38a43adca4133a402c6d741379a4c54
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249443"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341633"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Compilación de API web con ASP.NET Core
 
@@ -133,7 +133,9 @@ Un atributo de origen de enlace define la ubicación del valor del parámetro de
 > [!WARNING]
 > No use `[FromRoute]` si los valores pueden contener `%2f` (es decir, `/`). `%2f` no incluirá el carácter sin escape `/`. Use `[FromQuery]` si el valor puede contener `%2f`.
 
-Sin el `[ApiController]` atributo, los atributos de origen de enlace se definen explícitamente. En el ejemplo siguiente, el atributo `[FromQuery]` indica que el valor del parámetro `discontinuedOnly` se proporciona en la cadena de consulta de la dirección URL de la solicitud:
+Sin el `[ApiController]` atributo, los atributos de origen de enlace se definen explícitamente. Sin `[ApiController]` u otros atributos de origen de enlace, como `[FromQuery]`, el entorno de tiempo de ejecución de ASP.NET Core intenta usar el enlazador de modelos de objeto complejo. El enlazador de modelos de objeto complejo extrae los datos de los proveedores de valor (que tienen un orden definido). Por ejemplo, siempre se opta por recibir "body model binder".
+
+En el ejemplo siguiente, el atributo `[FromQuery]` indica que el valor del parámetro `discontinuedOnly` se proporciona en la cadena de consulta de la dirección URL de la solicitud:
 
 [!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=3)]
 
@@ -245,3 +247,4 @@ Use la propiedad `ClientErrorMapping` para configurar el contenido de la respues
 * <xref:web-api/advanced/formatting>
 * <xref:tutorials/web-api-help-pages-using-swagger>
 * <xref:mvc/controllers/routing>
+****

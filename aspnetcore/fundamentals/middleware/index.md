@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 4e5da1036b77e876899ccdea48bdec69454e1657
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: c55dbd5a9ac31f55daf1cb3146fb18b91b016919
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861490"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341594"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware de ASP.NET Core
 
@@ -20,7 +20,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Steve Smith](https://ard
 El software intermedio es un software que se ensambla en una canalización de una aplicación para controlar las solicitudes y las respuestas. Cada componente puede hacer lo siguiente:
 
 * Elegir si se pasa la solicitud al siguiente componente de la canalización.
-* Realizar trabajos antes y después de invocar al siguiente componente de la canalización.
+* Realizar trabajos antes y después del siguiente componente de la canalización.
 
 Los delegados de solicitudes se usan para crear la canalización de solicitudes. Estos también controlan las solicitudes HTTP.
 

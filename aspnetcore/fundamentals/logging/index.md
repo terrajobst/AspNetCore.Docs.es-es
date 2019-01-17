@@ -4,14 +4,14 @@ author: tdykstra
 description: Obtenga información sobre la plataforma de registro de ASP.NET Core. Descubra los proveedores de registro integrados y obtenga más información sobre proveedores de terceros conocidos.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/11/2018
+ms.date: 01/14/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: f7cfb3823a188f28398d59e0d009e9ddc159dc32
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 0908cc6eeaaba4006a0029ef86d3e47dcf3f9a28
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207581"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341750"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -272,7 +272,7 @@ El siguiente código crea los registros `Information` y `Warning`:
 
 En el código anterior, el primer parámetro es el [id. de evento del registro](#log-event-id). El segundo parámetro es una plantilla de mensaje con marcadores de posición para los valores de argumento proporcionados por el resto de parámetros de método. Los parámetros de método se explican detalladamente en la [sección de la plantilla de mensaje](#log-message-template) más adelante en este artículo.
 
-Los métodos de registro que incluyen el nivel en el nombre del método (por ejemplo `LogInformation` y `LogWarning`) son [métodos de extensión para ILogger](xref:Microsoft.Extensions.Logging.LoggerExtensions). Estos métodos llaman a un método `Log` que toma un parámetro `LogLevel`. Puede llamar directamente al método `Log` en lugar de a uno de estos métodos de extensión, pero la sintaxis es relativamente complicada. Para más información, vea la <xref:Microsoft.Extensions.Logging.ILogger> y el [código fuente de las extensiones de registrador](https://github.com/aspnet/Logging/blob/master/src/Microsoft.Extensions.Logging.Abstractions/LoggerExtensions.cs).
+Los métodos de registro que incluyen el nivel en el nombre del método (por ejemplo `LogInformation` y `LogWarning`) son [métodos de extensión para ILogger](xref:Microsoft.Extensions.Logging.LoggerExtensions). Estos métodos llaman a un método `Log` que toma un parámetro `LogLevel`. Puede llamar directamente al método `Log` en lugar de a uno de estos métodos de extensión, pero la sintaxis es relativamente complicada. Para más información, vea la <xref:Microsoft.Extensions.Logging.ILogger> y el [código fuente de las extensiones de registrador](https://github.com/aspnet/Extensions/blob/release/2.2/src/Logging/Logging.Abstractions/src/LoggerExtensions.cs).
 
 ASP.NET Core define los niveles de registro siguientes, que aquí se ordenan de menor a mayor gravedad.
 
@@ -863,7 +863,7 @@ El SDK de Application Insights puede recopilar y notificar los registros que la 
 
 * [Información general de Application Insights](/azure/application-insights/app-insights-overview)
 * [Application Insights para ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
-* [Microsoft/ApplicationInsights-aspnetcore Wiki: registro](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging).
+* [Microsoft/ApplicationInsights-aspnetcore Wiki: Logging](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging) (Registro).
 
 ::: moniker-end
 

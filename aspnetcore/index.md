@@ -4,14 +4,14 @@ author: rick-anderson
 description: Consulte una introducción a ASP.NET Core, un marco multiplataforma de código abierto y de alto rendimiento que tiene como finalidad compilar modernas aplicaciones conectadas a Internet y basadas en la nube.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/16/2018
+ms.date: 01/15/2019
 uid: index
-ms.openlocfilehash: fed81090f123084f3f33e75f86d09f55ac7fb481
-ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
+ms.openlocfilehash: e7c81ff82e5206a5aca217417f6cb1c339d72e89
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335304"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341412"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -118,7 +118,7 @@ En el archivo Markdown del tema se hace referencia al fragmento de código de C#
 [!code-csharp[](sample/SampleApp/Program.cs?name=snippet_FilterInCode)]
 ```
 
-Puede ignorar sin problemas (o incluso quitar) las instrucciones `#region` y `#end-region` que rodean el código. No altere el código de estas instrucciones y tiene planeado ejecutar los escenarios de ejemplo descritos en el tema. Puede alterarlo si quiere experimentar con otros escenarios.
+Puede ignorar sin problemas (o incluso quitar) las instrucciones `#region` y `#endregion` que rodean el código. No altere el código de estas instrucciones y tiene planeado ejecutar los escenarios de ejemplo descritos en el tema. Puede alterarlo si quiere experimentar con otros escenarios.
 
 Para obtener más información, consulte [Contribute to the ASP.NET documentation: Code snippets](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md#code-snippets) (Contribución a la documentación de ASP.NET: fragmentos de código).
 
