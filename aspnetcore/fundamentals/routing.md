@@ -4,14 +4,14 @@ author: rick-anderson
 description: Descubra cómo el enrutamiento de ASP.NET Core es responsable de asignar URI de solicitud a los selectores de punto de conexión y de distribuir las solicitudes entrantes a los puntos de conexión.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/29/2018
+ms.date: 01/14/2019
 uid: fundamentals/routing
-ms.openlocfilehash: c57b309e4474f9aff5c0594a3d9d1c796990d31e
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: 96d098115f2f9b150f796e08cf14e60611f59e17
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997362"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341763"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -46,7 +46,7 @@ services.AddMvc(options => options.EnableEndpointRouting = false)
     .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 ```
 
-Para obtener más información sobre el enrutamiento basado en <xref:Microsoft.AspNetCore.Routing.IRouter>, vea la [versión para ASP.NET Core 2.1 de este tema](xref:fundamentals/routing?view=aspnetcore-2.1).
+Para obtener más información sobre el enrutamiento basado en <xref:Microsoft.AspNetCore.Routing.IRouter>, vea la [versión para ASP.NET Core 2.1 de este tema](/aspnet/core/fundamentals/routing?view=aspnetcore-2.1).
 
 ::: moniker-end
 
