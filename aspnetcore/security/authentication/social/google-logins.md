@@ -4,162 +4,72 @@ author: rick-anderson
 description: En este tutorial se muestra la integración de autenticación de usuario de la cuenta de Google en una aplicación de ASP.NET Core existente.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 11/11/2018
+ms.date: 1/11/2019
 uid: security/authentication/google-logins
-ms.openlocfilehash: 4bb5a36cf654deb694d60da126fa42baf382f729
-ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
+ms.openlocfilehash: 98857a84238124e75d695242c8d421b9a29f02e7
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735770"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396100"
 ---
-# <a name="google-external-login-setup-in-aspnet-core"></a><span data-ttu-id="e9c58-103">Configuración de inicio de sesión externo de Google en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="e9c58-103">Google external login setup in ASP.NET Core</span></span>
+# <a name="google-external-login-setup-in-aspnet-core"></a><span data-ttu-id="daef6-103">Configuración de inicio de sesión externo de Google en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="daef6-103">Google external login setup in ASP.NET Core</span></span>
 
-<span data-ttu-id="e9c58-104">Por [Valeriy Novytskyy](https://github.com/01binary) y [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="e9c58-104">By [Valeriy Novytskyy](https://github.com/01binary) and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="daef6-104">Por [Valeriy Novytskyy](https://github.com/01binary) y [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="daef6-104">By [Valeriy Novytskyy](https://github.com/01binary) and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="e9c58-105">Este tutorial muestra cómo permitir que los usuarios iniciar sesión con su cuenta de Google + mediante un proyecto de ASP.NET Core 2.0 de ejemplo creado en el [página anterior](xref:security/authentication/social/index).</span><span class="sxs-lookup"><span data-stu-id="e9c58-105">This tutorial shows you how to enable your users to sign in with their Google+ account using a sample ASP.NET Core 2.0 project created on the [previous page](xref:security/authentication/social/index).</span></span> <span data-ttu-id="e9c58-106">Comenzamos siguiendo el [pasos oficiales](https://developers.google.com/identity/sign-in/web/devconsole-project) para crear una nueva aplicación en la consola de API de Google.</span><span class="sxs-lookup"><span data-stu-id="e9c58-106">We start by following the [official steps](https://developers.google.com/identity/sign-in/web/devconsole-project) to create a new app in Google API Console.</span></span>
+<span data-ttu-id="daef6-105">En enero de 2019 Google empezó a [apagar](https://developers.google.com/+/api-shutdown) Google + iniciar sesión y los desarrolladores deben mover a un nuevo inicio de sesión de Google en el sistema de marzo.</span><span class="sxs-lookup"><span data-stu-id="daef6-105">In January 2019 Google started to [shut down](https://developers.google.com/+/api-shutdown) Google+ sign in and developers must move to a new Google sign in system by March.</span></span> <span data-ttu-id="daef6-106">En febrero para dar cabida a los cambios, se actualizará la ASP.NET Core 2.1 y 2.2 paquetes para la autenticación de Google.</span><span class="sxs-lookup"><span data-stu-id="daef6-106">The ASP.NET Core 2.1 and 2.2 packages for Google Authentication will be updated in February to accommodate the changes.</span></span> <span data-ttu-id="daef6-107">Para obtener más información y mitigaciones temporales para ASP.NET Core, consulte [este problema de GitHub](https://github.com/aspnet/AspNetCore/issues/6486).</span><span class="sxs-lookup"><span data-stu-id="daef6-107">For more information and temporary mitigations for ASP.NET Core, see [this GitHub issue](https://github.com/aspnet/AspNetCore/issues/6486).</span></span> <span data-ttu-id="daef6-108">En este tutorial se ha actualizado con el nuevo proceso de instalación.</span><span class="sxs-lookup"><span data-stu-id="daef6-108">This tutorial has been updated with the new setup process.</span></span>
 
-## <a name="create-the-app-in-google-api-console"></a><span data-ttu-id="e9c58-107">Creación de la aplicación en la consola de API de Google</span><span class="sxs-lookup"><span data-stu-id="e9c58-107">Create the app in Google API Console</span></span>
+<span data-ttu-id="daef6-109">Este tutorial muestra cómo habilitar usuarios iniciar sesión con su cuenta de Google con el proyecto de ASP.NET Core 2.2 creado en el [página anterior](xref:security/authentication/social/index).</span><span class="sxs-lookup"><span data-stu-id="daef6-109">This tutorial shows you how to enable users to sign in with their Google account using the ASP.NET Core 2.2 project created on the [previous page](xref:security/authentication/social/index).</span></span>
 
-* <span data-ttu-id="e9c58-108">Vaya a [ https://console.developers.google.com/projectselector/apis/library ](https://console.developers.google.com/projectselector/apis/library) e inicie sesión.</span><span class="sxs-lookup"><span data-stu-id="e9c58-108">Navigate to [https://console.developers.google.com/projectselector/apis/library](https://console.developers.google.com/projectselector/apis/library) and sign in.</span></span> <span data-ttu-id="e9c58-109">Si no dispone de una cuenta de Google, use **más opciones** > **[crear cuenta](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api)**  vínculo para crear uno:</span><span class="sxs-lookup"><span data-stu-id="e9c58-109">If you don't already have a Google account, use **More options** > **[Create account](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api)** link to create one:</span></span>
+## <a name="create-a-google-api-console-project-and-client-id"></a><span data-ttu-id="daef6-110">Crear un identificador de cliente y el proyecto de consola de API de Google</span><span class="sxs-lookup"><span data-stu-id="daef6-110">Create a Google API Console project and client ID</span></span>
 
-![Consola de API de Google](index/_static/GoogleConsoleLogin.png)
+* <span data-ttu-id="daef6-111">Vaya a [la integración de Google signo In de la aplicación web](https://developers.google.com/identity/sign-in/web/devconsole-project) y seleccione **configurar un proyecto**.</span><span class="sxs-lookup"><span data-stu-id="daef6-111">Navigate to [Integrating Google Sign-In into your web app](https://developers.google.com/identity/sign-in/web/devconsole-project) and select **CONFIGURE A PROJECT**.</span></span>
+* <span data-ttu-id="daef6-112">En el **configuración del cliente de OAuth** cuadro de diálogo, seleccione **servidor Web**.</span><span class="sxs-lookup"><span data-stu-id="daef6-112">In the **Configure your OAuth client** dialog, select **Web server**.</span></span>
+* <span data-ttu-id="daef6-113">En el **URI de redireccionamiento autorizado** cuadro de entrada de texto, establecer el URI de redireccionamiento.</span><span class="sxs-lookup"><span data-stu-id="daef6-113">In the **Authorized redirect URIs** text entry box, set the redirect URI.</span></span> <span data-ttu-id="daef6-114">Por ejemplo, `https://localhost:5001/signin-google`.</span><span class="sxs-lookup"><span data-stu-id="daef6-114">For example, `https://localhost:5001/signin-google`</span></span>
+* <span data-ttu-id="daef6-115">Guardar el **Id. de cliente** y **secreto de cliente**.</span><span class="sxs-lookup"><span data-stu-id="daef6-115">Save the **Client ID** and **Client Secret**.</span></span>
+* <span data-ttu-id="daef6-116">Al implementar el sitio, registrar la nueva url pública desde el **Google Console**.</span><span class="sxs-lookup"><span data-stu-id="daef6-116">When deploying the site, register the new public url from the **Google Console**.</span></span>
 
-* <span data-ttu-id="e9c58-111">Se le redirigirá a **biblioteca API Manager** página:</span><span class="sxs-lookup"><span data-stu-id="e9c58-111">You are redirected to **API Manager Library** page:</span></span>
+## <a name="store-google-clientid-and-clientsecret"></a><span data-ttu-id="daef6-117">Store Google ClientID y ClientSecret</span><span class="sxs-lookup"><span data-stu-id="daef6-117">Store Google ClientID and ClientSecret</span></span>
 
-![En la página de la biblioteca del Administrador de la API de inicio](index/_static/GoogleConsoleSwitchboard.png)
+<span data-ttu-id="daef6-118">Store valores confidenciales, como Google `Client ID` y `Client Secret` con el [Secret Manager](xref:security/app-secrets).</span><span class="sxs-lookup"><span data-stu-id="daef6-118">Store sensitive settings such as the Google `Client ID` and `Client Secret` with the [Secret Manager](xref:security/app-secrets).</span></span> <span data-ttu-id="daef6-119">Para los fines de este tutorial, asigne el nombre de los tokens `Authentication:Google:ClientId` y `Authentication:Google:ClientSecret`:</span><span class="sxs-lookup"><span data-stu-id="daef6-119">For the purposes of this tutorial, name the tokens `Authentication:Google:ClientId` and `Authentication:Google:ClientSecret`:</span></span>
 
-* <span data-ttu-id="e9c58-113">Pulse **crear** y escriba su **nombre del proyecto**:</span><span class="sxs-lookup"><span data-stu-id="e9c58-113">Tap **Create** and enter your **Project name**:</span></span>
-
-![Cuadro de diálogo Nuevo proyecto](index/_static/GoogleConsoleNewProj.png)
-
-* <span data-ttu-id="e9c58-115">Después de aceptar el cuadro de diálogo, se le redirigirá a la página de la biblioteca que le permite elegir las características de la nueva aplicación.</span><span class="sxs-lookup"><span data-stu-id="e9c58-115">After accepting the dialog, you are redirected back to the Library page allowing you to choose features for your new app.</span></span> <span data-ttu-id="e9c58-116">Buscar **Google + API** en la lista y haga clic en el vínculo al agregar la característica de API:</span><span class="sxs-lookup"><span data-stu-id="e9c58-116">Find **Google+ API** in the list and click on its link to add the API feature:</span></span>
-
-![Busque "API de Google +" en la página de la biblioteca del Administrador de API](index/_static/GoogleConsoleChooseApi.png)
-
-* <span data-ttu-id="e9c58-118">Se muestra la página de la API recién agregada.</span><span class="sxs-lookup"><span data-stu-id="e9c58-118">The page for the newly added API is displayed.</span></span> <span data-ttu-id="e9c58-119">Pulse **habilitar** para agregar el inicio de sesión de Google + en función a la aplicación:</span><span class="sxs-lookup"><span data-stu-id="e9c58-119">Tap **Enable** to add Google+ sign in feature to your app:</span></span>
-
-![En la página Administrador de API de Google + API de inicio](index/_static/GoogleConsoleEnableApi.png)
-
-* <span data-ttu-id="e9c58-121">Después de habilitar la API, pulse **crear credenciales** para configurar los secretos:</span><span class="sxs-lookup"><span data-stu-id="e9c58-121">After enabling the API, tap **Create credentials** to configure the secrets:</span></span>
-
-![Crear el botón de credenciales en la página Administrador de API de Google + API](index/_static/GoogleConsoleGoCredentials.png)
-
-* <span data-ttu-id="e9c58-123">Elija:</span><span class="sxs-lookup"><span data-stu-id="e9c58-123">Choose:</span></span>
-  * <span data-ttu-id="e9c58-124">**Google + API**</span><span class="sxs-lookup"><span data-stu-id="e9c58-124">**Google+ API**</span></span>
-  * <span data-ttu-id="e9c58-125">**Servidor Web (por ejemplo, node.js, Tomcat)**, y</span><span class="sxs-lookup"><span data-stu-id="e9c58-125">**Web server (e.g. node.js, Tomcat)**, and</span></span>
-  * <span data-ttu-id="e9c58-126">**Datos de usuario**:</span><span class="sxs-lookup"><span data-stu-id="e9c58-126">**User data**:</span></span>
-
-![Página de credenciales de administrador de API: Descubra de qué tipo de credenciales necesita el panel](index/_static/GoogleConsoleChooseCred.png)
-
-* <span data-ttu-id="e9c58-128">Pulse **las credenciales que es necesario?** que le lleva al segundo paso de configuración de la aplicación, **crear un identificador de cliente de OAuth 2.0**:</span><span class="sxs-lookup"><span data-stu-id="e9c58-128">Tap **What credentials do I need?** which takes you to the second step of app configuration, **Create an OAuth 2.0 client ID**:</span></span>
-
-![Página de credenciales de administrador de API: Crear un identificador de cliente de OAuth 2.0](index/_static/GoogleConsoleCreateClient.png)
-
-* <span data-ttu-id="e9c58-130">Dado que vamos a crear un proyecto de Google + con una sola característica (inicio de sesión), podemos escribir el mismo **nombre** para el identificador de cliente de OAuth 2.0 que se usan para el proyecto.</span><span class="sxs-lookup"><span data-stu-id="e9c58-130">Because we are creating a Google+ project with just one feature (sign in), we can enter the same **Name** for the OAuth 2.0 client ID as the one we used for the project.</span></span>
-
-* <span data-ttu-id="e9c58-131">Escriba el URI de desarrollo con `/signin-google` anexado a la **URI de redireccionamiento autorizado** campo (por ejemplo: `https://localhost:44320/signin-google`).</span><span class="sxs-lookup"><span data-stu-id="e9c58-131">Enter your development URI with `/signin-google` appended into the **Authorized redirect URIs** field (for example: `https://localhost:44320/signin-google`).</span></span> <span data-ttu-id="e9c58-132">La autenticación de Google configurada más adelante en este tutorial controlará automáticamente las solicitudes en `/signin-google` ruta para implementar el flujo de OAuth.</span><span class="sxs-lookup"><span data-stu-id="e9c58-132">The Google authentication configured later in this tutorial will automatically handle requests at `/signin-google` route to implement the OAuth flow.</span></span>
-
-> [!NOTE]
-> <span data-ttu-id="e9c58-133">El segmento del URI `/signin-google` se establece como la devolución de llamada predeterminada del proveedor de autenticación de Google.</span><span class="sxs-lookup"><span data-stu-id="e9c58-133">The URI segment `/signin-google` is set as the default callback of the Google authentication provider.</span></span> <span data-ttu-id="e9c58-134">Puede cambiar el URI de devolución de forma predeterminada al configurar el middleware de autenticación de Google a través de los heredados [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) propiedad de la [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) clase.</span><span class="sxs-lookup"><span data-stu-id="e9c58-134">You can change the default callback URI while configuring the Google authentication middleware via the inherited [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) property of the [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) class.</span></span>
-
-* <span data-ttu-id="e9c58-135">Presione la tecla TAB para agregar la **URI de redireccionamiento autorizado** entrada.</span><span class="sxs-lookup"><span data-stu-id="e9c58-135">Press TAB to add the **Authorized redirect URIs** entry.</span></span>
-
-* <span data-ttu-id="e9c58-136">Pulse **crear Id. de cliente**, que le lleva al tercer paso, **configurar la pantalla de consentimiento de OAuth 2.0**:</span><span class="sxs-lookup"><span data-stu-id="e9c58-136">Tap **Create client ID**, which takes you to the third step, **Set up the OAuth 2.0 consent screen**:</span></span>
-
-![Página de credenciales de administrador de API: Configurar la pantalla de consentimiento de OAuth 2.0](index/_static/GoogleConsoleAddCred.png)
-
-* <span data-ttu-id="e9c58-138">Escriba su orientados al público **dirección de correo electrónico** y **nombre de producto** que se muestra para la aplicación cuando Google + pide al usuario que inicie sesión en.</span><span class="sxs-lookup"><span data-stu-id="e9c58-138">Enter your public facing **Email address** and the **Product name** shown for your app when Google+ prompts the user to sign in.</span></span> <span data-ttu-id="e9c58-139">Opciones adicionales están disponibles en **más opciones de personalización**.</span><span class="sxs-lookup"><span data-stu-id="e9c58-139">Additional options are available under **More customization options**.</span></span>
-
-* <span data-ttu-id="e9c58-140">Pulse **continuar** para continuar con el último paso, **descargar credenciales**:</span><span class="sxs-lookup"><span data-stu-id="e9c58-140">Tap **Continue** to proceed to the last step, **Download credentials**:</span></span>
-
-![Página de credenciales de administrador de API: Descargar credenciales](index/_static/GoogleConsoleFinish.png)
-
-* <span data-ttu-id="e9c58-142">Pulse **descargar** para guardar un archivo JSON con los secretos de aplicación, y **realiza** para completar la creación de la nueva aplicación.</span><span class="sxs-lookup"><span data-stu-id="e9c58-142">Tap **Download** to save a JSON file with application secrets, and **Done** to complete creation of the new app.</span></span>
-
-* <span data-ttu-id="e9c58-143">Al implementar el sitio, deberá volver a visitar la **Google Console** y registrar una nueva dirección url pública.</span><span class="sxs-lookup"><span data-stu-id="e9c58-143">When deploying the site you'll need to revisit the **Google Console** and register a new public url.</span></span>
-
-## <a name="store-google-clientid-and-clientsecret"></a><span data-ttu-id="e9c58-144">Store Google ClientID y ClientSecret</span><span class="sxs-lookup"><span data-stu-id="e9c58-144">Store Google ClientID and ClientSecret</span></span>
-
-<span data-ttu-id="e9c58-145">Vincular configuración confidencial, como Google `Client ID` y `Client Secret` para la configuración de aplicación mediante el [Secret Manager](xref:security/app-secrets).</span><span class="sxs-lookup"><span data-stu-id="e9c58-145">Link sensitive settings like Google `Client ID` and `Client Secret` to your application configuration using the [Secret Manager](xref:security/app-secrets).</span></span> <span data-ttu-id="e9c58-146">Para los fines de este tutorial, asigne el nombre de los tokens `Authentication:Google:ClientId` y `Authentication:Google:ClientSecret`.</span><span class="sxs-lookup"><span data-stu-id="e9c58-146">For the purposes of this tutorial, name the tokens `Authentication:Google:ClientId` and `Authentication:Google:ClientSecret`.</span></span>
-
-<span data-ttu-id="e9c58-147">Los valores para estos tokens pueden encontrarse en el archivo JSON descargado en el paso anterior en `web.client_id` y `web.client_secret`.</span><span class="sxs-lookup"><span data-stu-id="e9c58-147">The values for these tokens can be found in the JSON file downloaded in the previous step under `web.client_id` and `web.client_secret`.</span></span>
-
-## <a name="configure-google-authentication"></a><span data-ttu-id="e9c58-148">Configurar la autenticación de Google</span><span class="sxs-lookup"><span data-stu-id="e9c58-148">Configure Google Authentication</span></span>
-
-::: moniker range=">= aspnetcore-2.0"
-
-<span data-ttu-id="e9c58-149">Agregue el servicio de Google en el `ConfigureServices` método *Startup.cs* archivo:</span><span class="sxs-lookup"><span data-stu-id="e9c58-149">Add the Google service in the `ConfigureServices` method in *Startup.cs* file:</span></span>
-
-```csharp
-services.AddDefaultIdentity<IdentityUser>()
-        .AddDefaultUI(UIFramework.Bootstrap4)
-        .AddEntityFrameworkStores<ApplicationDbContext>();
-
-services.AddAuthentication().AddGoogle(googleOptions =>
-{
-    googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
-    googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-});
+```console
+dotnet user-secrets set "Authentication:Google:ClientId" "X.apps.googleusercontent.com"
+dotnet user-secrets set "Authentication:Google:ClientSecret" "<client secret>"
 ```
 
-[!INCLUDE [default settings configuration](includes/default-settings.md)]
+<span data-ttu-id="daef6-120">Puede administrar las credenciales de la API y el uso en el [consola de API](https://console.developers.google.com/apis/dashboard).</span><span class="sxs-lookup"><span data-stu-id="daef6-120">You can manage your API credentials and usage in the [API Console](https://console.developers.google.com/apis/dashboard).</span></span>
 
-[!INCLUDE[](includes/chain-auth-providers.md)]
+## <a name="configure-google-authentication"></a><span data-ttu-id="daef6-121">Configurar la autenticación de Google</span><span class="sxs-lookup"><span data-stu-id="daef6-121">Configure Google authentication</span></span>
 
-::: moniker-end
+<span data-ttu-id="daef6-122">Agregar el servicio de Google `Startup.ConfigureServices`.</span><span class="sxs-lookup"><span data-stu-id="daef6-122">Add the Google service to `Startup.ConfigureServices`.</span></span>
 
-::: moniker range="< aspnetcore-2.0"
+[!INCLUDE [default settings configuration](includes/default-settings2-2.md)]
 
-<span data-ttu-id="e9c58-150">La plantilla de proyecto que se usa en este tutorial garantiza que [Microsoft.AspNetCore.Authentication.Google](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Google) está instalado el paquete.</span><span class="sxs-lookup"><span data-stu-id="e9c58-150">The project template used in this tutorial ensures that [Microsoft.AspNetCore.Authentication.Google](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Google) package is installed.</span></span>
+## <a name="sign-in-with-google"></a><span data-ttu-id="daef6-123">Inicie sesión con Google</span><span class="sxs-lookup"><span data-stu-id="daef6-123">Sign in with Google</span></span>
 
-* <span data-ttu-id="e9c58-151">Para instalar este paquete con Visual Studio 2017, haga doble clic en el proyecto y seleccione **administrar paquetes de NuGet**.</span><span class="sxs-lookup"><span data-stu-id="e9c58-151">To install this package with Visual Studio 2017, right-click on the project and select **Manage NuGet Packages**.</span></span>
-* <span data-ttu-id="e9c58-152">Para instalar con la CLI de .NET Core, ejecute lo siguiente en el directorio del proyecto:</span><span class="sxs-lookup"><span data-stu-id="e9c58-152">To install with .NET Core CLI, execute the following in your project directory:</span></span>
-
-`dotnet add package Microsoft.AspNetCore.Authentication.Google`
-
-<span data-ttu-id="e9c58-153">Agregue el middleware de Google en el `Configure` método *Startup.cs* archivo:</span><span class="sxs-lookup"><span data-stu-id="e9c58-153">Add the Google middleware in the `Configure` method in *Startup.cs* file:</span></span>
-
-```csharp
-app.UseGoogleAuthentication(new GoogleOptions()
-{
-    ClientId = Configuration["Authentication:Google:ClientId"],
-    ClientSecret = Configuration["Authentication:Google:ClientSecret"]
-});
-```
-
-::: moniker-end
-
-<span data-ttu-id="e9c58-154">Consulte la [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) referencia de API para obtener más información sobre las opciones de configuración compatible con la autenticación de Google.</span><span class="sxs-lookup"><span data-stu-id="e9c58-154">See the [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) API reference for more information on configuration options supported by Google authentication.</span></span> <span data-ttu-id="e9c58-155">Esto puede utilizarse para solicitar información diferente sobre el usuario.</span><span class="sxs-lookup"><span data-stu-id="e9c58-155">This can be used to request different information about the user.</span></span>
-
-## <a name="sign-in-with-google"></a><span data-ttu-id="e9c58-156">Inicie sesión con Google</span><span class="sxs-lookup"><span data-stu-id="e9c58-156">Sign in with Google</span></span>
-
-<span data-ttu-id="e9c58-157">Ejecute la aplicación y haga clic en **inicie sesión**.</span><span class="sxs-lookup"><span data-stu-id="e9c58-157">Run your application and click **Log in**.</span></span> <span data-ttu-id="e9c58-158">Aparece una opción para iniciar sesión con Google:</span><span class="sxs-lookup"><span data-stu-id="e9c58-158">An option to sign in with Google appears:</span></span>
-
-![Aplicación Web que se ejecuta en Microsoft Edge: Usuario no autenticado](index/_static/DoneGoogle.png)
-
-<span data-ttu-id="e9c58-160">Al hacer clic en Google, se le redirigirá a Google para la autenticación:</span><span class="sxs-lookup"><span data-stu-id="e9c58-160">When you click on Google, you are redirected to Google for authentication:</span></span>
-
-![Cuadro de diálogo de autenticación de Google](index/_static/GoogleLogin.png)
-
-<span data-ttu-id="e9c58-162">Después de escribir sus credenciales de Google, a continuación, se le redirigirá al sitio web donde puede establecer su correo electrónico.</span><span class="sxs-lookup"><span data-stu-id="e9c58-162">After entering your Google credentials, then you are redirected back to the web site where you can set your email.</span></span>
-
-<span data-ttu-id="e9c58-163">Ha iniciado sesión con sus credenciales de Google:</span><span class="sxs-lookup"><span data-stu-id="e9c58-163">You are now logged in using your Google credentials:</span></span>
-
-![Aplicación Web que se ejecuta en Microsoft Edge: Usuario autenticado](index/_static/Done.png)
+* <span data-ttu-id="daef6-124">Ejecute la aplicación y haga clic en **inicie sesión**.</span><span class="sxs-lookup"><span data-stu-id="daef6-124">Run the app and click **Log in**.</span></span> <span data-ttu-id="daef6-125">Aparece una opción para iniciar sesión con Google.</span><span class="sxs-lookup"><span data-stu-id="daef6-125">An option to sign in with Google appears.</span></span>
+* <span data-ttu-id="daef6-126">Haga clic en el **Google** botón, que redirige a Google para la autenticación.</span><span class="sxs-lookup"><span data-stu-id="daef6-126">Click the **Google** button, which redirects to Google for authentication.</span></span>
+* <span data-ttu-id="daef6-127">Después de escribir sus credenciales de Google, se le redirigirá al sitio web.</span><span class="sxs-lookup"><span data-stu-id="daef6-127">After entering your Google credentials, you are redirected back to the web site.</span></span>
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
-## <a name="troubleshooting"></a><span data-ttu-id="e9c58-165">Solución de problemas</span><span class="sxs-lookup"><span data-stu-id="e9c58-165">Troubleshooting</span></span>
+[!INCLUDE[](includes/chain-auth-providers.md)]
 
-* <span data-ttu-id="e9c58-166">Si recibe un `403 (Forbidden)` página de error desde su propia aplicación al que se ejecute en modo de desarrollo (o interrumpir el depurador con el mismo error), asegúrese de que **Google + API** se ha habilitado en el **biblioteca del Administrador de la API** siguiendo los pasos enumerados [anteriores en esta página](#create-the-app-in-google-api-console).</span><span class="sxs-lookup"><span data-stu-id="e9c58-166">If you receive a `403 (Forbidden)` error page from your own app when running in development mode (or break into the debugger with the same error), ensure that **Google+ API** has been enabled in the **API Manager Library** by following the steps listed [earlier on this page](#create-the-app-in-google-api-console).</span></span> <span data-ttu-id="e9c58-167">Si no funciona el inicio de sesión y no recibe algún error, cambie al modo de desarrollo para hacer más fácil de depurar el problema.</span><span class="sxs-lookup"><span data-stu-id="e9c58-167">If the sign in doesn't work and you aren't getting any errors, switch to development mode to make the issue easier to debug.</span></span>
-* <span data-ttu-id="e9c58-168">**ASP.NET Core 2.x solo:** Si la identidad no está configurada mediante una llamada a `services.AddIdentity` en `ConfigureServices`, intentando autenticarse producirá *ArgumentException: Se debe proporcionar la opción 'SignInScheme'*.</span><span class="sxs-lookup"><span data-stu-id="e9c58-168">**ASP.NET Core 2.x only:** If Identity isn't configured by calling `services.AddIdentity` in `ConfigureServices`, attempting to authenticate will result in *ArgumentException: The 'SignInScheme' option must be provided*.</span></span> <span data-ttu-id="e9c58-169">La plantilla de proyecto que se usa en este tutorial, se garantiza que esto se realiza.</span><span class="sxs-lookup"><span data-stu-id="e9c58-169">The project template used in this tutorial ensures that this is done.</span></span>
-* <span data-ttu-id="e9c58-170">Si la base de datos de sitio no se ha creado aplicando a la migración inicial, obtendrá *error en una operación de base de datos al procesar la solicitud* error.</span><span class="sxs-lookup"><span data-stu-id="e9c58-170">If the site database has not been created by applying the initial migration, you will get *A database operation failed while processing the request* error.</span></span> <span data-ttu-id="e9c58-171">Pulse **aplicar migraciones** para crear la base de datos y actualizar para continuar más allá del error.</span><span class="sxs-lookup"><span data-stu-id="e9c58-171">Tap **Apply Migrations** to create the database and refresh to continue past the error.</span></span>
+<span data-ttu-id="daef6-128">Consulte la [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) referencia de API para obtener más información sobre las opciones de configuración compatible con la autenticación de Google.</span><span class="sxs-lookup"><span data-stu-id="daef6-128">See the [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) API reference for more information on configuration options supported by Google authentication.</span></span> <span data-ttu-id="daef6-129">Esto puede utilizarse para solicitar información diferente sobre el usuario.</span><span class="sxs-lookup"><span data-stu-id="daef6-129">This can be used to request different information about the user.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="e9c58-172">Pasos siguientes</span><span class="sxs-lookup"><span data-stu-id="e9c58-172">Next steps</span></span>
+## <a name="change-the-default-callback-uri"></a><span data-ttu-id="daef6-130">Cambiar el URI de devolución de llamada predeterminada</span><span class="sxs-lookup"><span data-stu-id="daef6-130">Change the default callback URI</span></span>
 
-* <span data-ttu-id="e9c58-173">Este artículo, mostramos cómo puede autenticar con Google.</span><span class="sxs-lookup"><span data-stu-id="e9c58-173">This article showed how you can authenticate with Google.</span></span> <span data-ttu-id="e9c58-174">Puede seguir un enfoque similar para autenticar con otros proveedores que se enumeran en la [página anterior](xref:security/authentication/social/index).</span><span class="sxs-lookup"><span data-stu-id="e9c58-174">You can follow a similar approach to authenticate with other providers listed on the [previous page](xref:security/authentication/social/index).</span></span>
+<span data-ttu-id="daef6-131">El segmento del URI `/signin-google` se establece como la devolución de llamada predeterminada del proveedor de autenticación de Google.</span><span class="sxs-lookup"><span data-stu-id="daef6-131">The URI segment `/signin-google` is set as the default callback of the Google authentication provider.</span></span> <span data-ttu-id="daef6-132">Puede cambiar el URI de devolución de forma predeterminada al configurar el middleware de autenticación de Google a través de los heredados [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) propiedad de la [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) clase.</span><span class="sxs-lookup"><span data-stu-id="daef6-132">You can change the default callback URI while configuring the Google authentication middleware via the inherited [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) property of the [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) class.</span></span>
 
-* <span data-ttu-id="e9c58-175">Una vez que publique su sitio web a la aplicación web de Azure, debe restablecer el `ClientSecret` en la consola de API de Google.</span><span class="sxs-lookup"><span data-stu-id="e9c58-175">Once you publish your web site to Azure web app, you should reset the `ClientSecret` in the Google API Console.</span></span>
+## <a name="troubleshooting"></a><span data-ttu-id="daef6-133">Solución de problemas</span><span class="sxs-lookup"><span data-stu-id="daef6-133">Troubleshooting</span></span>
 
-* <span data-ttu-id="e9c58-176">Establecer el `Authentication:Google:ClientId` y `Authentication:Google:ClientSecret` como configuración de la aplicación en Azure portal.</span><span class="sxs-lookup"><span data-stu-id="e9c58-176">Set the `Authentication:Google:ClientId` and `Authentication:Google:ClientSecret` as application settings in the Azure portal.</span></span> <span data-ttu-id="e9c58-177">El sistema de configuración está configurado para leer las claves de las variables de entorno.</span><span class="sxs-lookup"><span data-stu-id="e9c58-177">The configuration system is set up to read keys from environment variables.</span></span>
+* <span data-ttu-id="daef6-134">Si el inicio de sesión no funciona y no recibe algún error, cambie al modo de desarrollo para hacer más fácil de depurar el problema.</span><span class="sxs-lookup"><span data-stu-id="daef6-134">If the sign-in doesn't work and you aren't getting any errors, switch to development mode to make the issue easier to debug.</span></span>
+* <span data-ttu-id="daef6-135">Si la identidad no está configurada mediante una llamada a `services.AddIdentity` en `ConfigureServices`, al intentar autenticar los resultados en *ArgumentException: Se debe proporcionar la opción 'SignInScheme'*.</span><span class="sxs-lookup"><span data-stu-id="daef6-135">If Identity isn't configured by calling `services.AddIdentity` in `ConfigureServices`, attempting to authenticate results in *ArgumentException: The 'SignInScheme' option must be provided*.</span></span> <span data-ttu-id="daef6-136">La plantilla de proyecto que se usa en este tutorial, se garantiza que esto se realiza.</span><span class="sxs-lookup"><span data-stu-id="daef6-136">The project template used in this tutorial ensures that this is done.</span></span>
+* <span data-ttu-id="daef6-137">Si la base de datos de sitio no se ha creado aplicando a la migración inicial, obtendrá *error en una operación de base de datos al procesar la solicitud* error.</span><span class="sxs-lookup"><span data-stu-id="daef6-137">If the site database has not been created by applying the initial migration, you get *A database operation failed while processing the request* error.</span></span> <span data-ttu-id="daef6-138">Pulse **aplicar migraciones** para crear la base de datos y actualizar para continuar más allá del error.</span><span class="sxs-lookup"><span data-stu-id="daef6-138">Tap **Apply Migrations** to create the database and refresh to continue past the error.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="daef6-139">Pasos siguientes</span><span class="sxs-lookup"><span data-stu-id="daef6-139">Next steps</span></span>
+
+* <span data-ttu-id="daef6-140">Este artículo, mostramos cómo puede autenticar con Google.</span><span class="sxs-lookup"><span data-stu-id="daef6-140">This article showed how you can authenticate with Google.</span></span> <span data-ttu-id="daef6-141">Puede seguir un enfoque similar para autenticar con otros proveedores que se enumeran en la [página anterior](xref:security/authentication/social/index).</span><span class="sxs-lookup"><span data-stu-id="daef6-141">You can follow a similar approach to authenticate with other providers listed on the [previous page](xref:security/authentication/social/index).</span></span>
+* <span data-ttu-id="daef6-142">Una vez que publique la aplicación en Azure, restablezca el `ClientSecret` en la consola de API de Google.</span><span class="sxs-lookup"><span data-stu-id="daef6-142">Once you publish the app to Azure, reset the `ClientSecret` in the Google API Console.</span></span>
+* <span data-ttu-id="daef6-143">Establecer el `Authentication:Google:ClientId` y `Authentication:Google:ClientSecret` como configuración de la aplicación en Azure portal.</span><span class="sxs-lookup"><span data-stu-id="daef6-143">Set the `Authentication:Google:ClientId` and `Authentication:Google:ClientSecret` as application settings in the Azure portal.</span></span> <span data-ttu-id="daef6-144">El sistema de configuración está configurado para leer las claves de las variables de entorno.</span><span class="sxs-lookup"><span data-stu-id="daef6-144">The configuration system is set up to read keys from environment variables.</span></span>
