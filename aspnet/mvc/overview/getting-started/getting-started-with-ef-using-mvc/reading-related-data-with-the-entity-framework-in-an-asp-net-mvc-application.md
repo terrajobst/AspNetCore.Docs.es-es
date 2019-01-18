@@ -1,28 +1,22 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Leer datos relacionados con Entity Framework en una aplicación ASP.NET MVC | Microsoft Docs
+title: 'Tutorial: Lectura de datos relacionados con EF en una aplicación ASP.NET MVC'
+description: En este tutorial podrá leer y mostrar datos relacionados, es decir, los datos que Entity Framework carga en las propiedades de navegación.
 author: tdykstra
-description: /AJAX/tutorials/Using-AJAX-Control-Toolkit-Controls-and-control-Extenders-vb
 ms.author: riande
-ms.date: 11/07/2014
+ms.date: 01/17/2019
+ms.topic: tutorial
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 18d3720f891e2356af42b58389776f2d04eee39d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 8660a75655b801364cce7c4b59847c5c00562a27
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913208"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396212"
 ---
-<a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Lectura de datos relacionados con Entity Framework en una aplicación ASP.NET MVC
-====================
-por [Tom Dykstra](https://github.com/tdykstra)
-
-[Descargue el proyecto completado](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> La aplicación web de Contoso University muestra cómo crear aplicaciones de ASP.NET MVC 5 con Entity Framework 6 Code First y Visual Studio. Para obtener información sobre la serie de tutoriales, consulte [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+# <a name="tutorial-read-related-data-with-ef-in-an-aspnet-mvc-app"></a>Tutorial: Lectura de datos relacionados con EF en una aplicación ASP.NET MVC
 
 En el tutorial anterior se completó el modelo de datos School. En este tutorial podrá leer y mostrar datos relacionados, es decir, los datos que Entity Framework carga en las propiedades de navegación.
 
@@ -32,7 +26,18 @@ En las ilustraciones siguientes se muestran las páginas con las que va a trabaj
 
 ![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
-## <a name="lazy-eager-and-explicit-loading-of-related-data"></a>Carga diligente, explícita y diferida de los datos relacionados
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Obtenga información sobre cómo cargar datos relacionados
+> * Crear una página de cursos
+> * Crear una página de instructores
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* [Crear un modelo de datos más complejo](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
+
+## <a name="learn-how-to-load-related-data"></a>Obtenga información sobre cómo cargar datos relacionados
 
 Hay varias maneras de que Entity Framework puede cargar datos relacionados en las propiedades de navegación de una entidad:
 
@@ -54,7 +59,7 @@ Si sabe que necesita datos relacionados para cada entidad que se recupere, la ca
 
 Por otro lado, en algunos escenarios de la carga diferida es más eficaz. La carga diligente podría provocar una combinación muy compleja para generarse, que SQL Server no puede procesar eficazmente. O bien, si es necesario tener acceso a las propiedades de navegación de una entidad solo para un subconjunto de un conjunto de las entidades que está procesando, la carga diferida puede funcionar mejor porque la carga diligente recuperaría más datos de los que necesita. Si el rendimiento es crítico, es mejor probarlo de ambas formas para elegir la mejor opción.
 
-La carga diferida puede enmascarar el código que causa problemas de rendimiento. Por ejemplo, es posible que el código que no se especifica la carga diligente o explícita, pero procesa un gran volumen de entidades y usa varias propiedades de navegación en cada iteración puede ser muy ineficaz (debido a muchos ciclos de ida y la base de datos). Una aplicación que funcione bien en el desarrollo con un servidor SQL local podría tener problemas de rendimiento cuando se mueven a Azure SQL Database debido a la mayor latencia y la carga diferida. Las consultas de base de datos con una carga de prueba realista de generación de perfiles le ayudará a determinar si la carga diferida es adecuada. Para obtener más información, consulte [Desmitificación de estrategias de Entity Framework: cargar datos relacionados](https://msdn.microsoft.com/magazine/hh205756.aspx) y [mediante Entity Framework para reducir la latencia de red con SQL Azure](https://msdn.microsoft.com/magazine/gg309181.aspx).
+La carga diferida puede enmascarar el código que causa problemas de rendimiento. Por ejemplo, es posible que el código que no se especifica la carga diligente o explícita, pero procesa un gran volumen de entidades y usa varias propiedades de navegación en cada iteración puede ser muy ineficaz (debido a muchos ciclos de ida y la base de datos). Una aplicación que funcione bien en el desarrollo con un servidor SQL local podría tener problemas de rendimiento cuando se mueven a Azure SQL Database debido a la mayor latencia y la carga diferida. Las consultas de base de datos con una carga de prueba realista de generación de perfiles le ayudará a determinar si la carga diferida es adecuada. Para obtener más información, consulte [Desmitificación de estrategias de Entity Framework: Carga de datos relacionados](https://msdn.microsoft.com/magazine/hh205756.aspx) y [mediante Entity Framework para reducir la latencia de red a SQL Azure](https://msdn.microsoft.com/magazine/gg309181.aspx).
 
 ### <a name="disable-lazy-loading-before-serialization"></a>Deshabilitar la carga diferida antes de la serialización
 
@@ -73,13 +78,19 @@ Estos son algunos otros [formas de deshabilitar la carga diferida](https://msdn.
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Crear una página de cursos de ese nombre de departamento de muestra
+## <a name="create-a-courses-page"></a>Crear una página de cursos
 
 El `Course` entidad incluye una propiedad de navegación que contiene el `Department` entidad del departamento al que se asigna el curso. Para mostrar el nombre del departamento asignado en una lista de cursos, deberá obtener la `Name` propiedad desde la `Department` entidad que se encuentra en la `Course.Department` propiedad de navegación.
 
-Crear un controlador denominado `CourseController` (no CoursesController) para el `Course` tipo de entidad, con las mismas opciones para la **controlador MVC 5 con vistas, usando Entity Framework** proveedor de scaffolding que usó anteriormente para el `Student` controlador, tal como se muestra en la ilustración siguiente:
+Crear un controlador denominado `CourseController` (no CoursesController) para el `Course` tipo de entidad, con las mismas opciones para la **controlador MVC 5 con vistas, usando Entity Framework** proveedor de scaffolding que usó anteriormente para el `Student` controlador:
 
-![Add_Controller_dialog_box_for_Course_controller](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+| Parámetro | Valor |
+| ------- | ----- |
+| Clase de modelo | Seleccione **curso (ContosoUniversity.Models)**. |
+| Clase de contexto de datos | Seleccione **SchoolContext (ContosoUniversity.DAL)**. |
+| Nombre del controlador | Escriba *CourseController*. Nuevamente, no *CoursesController* con un *s*. Si seleccionó **curso (ContosoUniversity.Models)**, **nombre del controlador** valor se rellena automáticamente. Tendrá que cambiar el valor. |
+
+Deje los demás valores predeterminados y agregue el controlador.
 
 Abra *Controllers\CourseController.cs* y examine el `Index` método:
 
@@ -103,15 +114,9 @@ Tenga en cuenta que para la columna Department, se muestra el código con scaffo
 
 Ejecute la página (seleccione la **cursos** pestaña en la página principal de Contoso University) para ver la lista con los nombres de departamento.
 
-![Courses_index_page_with_department_names](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
+## <a name="create-an-instructors-page"></a>Crear una página de instructores
 
-## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Cree una página de instructores que se muestra los cursos y las inscripciones
-
-En esta sección creará un controlador y ver el `Instructor` entidad con el fin de mostrar la página Instructors:
-
-![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
-
-En esta página se leen y muestran los datos relacionados de las maneras siguientes:
+En esta sección creará un controlador y ver el `Instructor` entidad con el fin de mostrar la página de instructores. En esta página se leen y muestran los datos relacionados de las maneras siguientes:
 
 - La lista de instructores muestra datos relacionados de la `OfficeAssignment` entidad. Las entidades `Instructor` y `OfficeAssignment` se encuentran en una relación de uno a cero o uno. Usará la carga diligente para la `OfficeAssignment` entidades. Como se explicó anteriormente, la carga diligente normalmente es más eficaz cuando se necesitan los datos relacionados para todas las filas recuperadas de la tabla principal. En este caso, quiere mostrar las asignaciones de oficina para todos los instructores que se muestran.
 - Cuando el usuario selecciona un instructor, relacionados con `Course` se muestran las entidades. Las entidades `Instructor` y `Course` se encuentran en una relación de varios a varios. Usará la carga diligente para la `Course` entidades y sus relacionados `Department` entidades. En este caso, la carga diferida podría ser más eficaz porque necesita cursos solo para el instructor seleccionado. Pero en este ejemplo se muestra cómo usar la carga diligente para propiedades de navegación dentro de entidades que, a su vez, se encuentran en propiedades de navegación.
@@ -127,9 +132,15 @@ En el *ViewModels* carpeta, cree *InstructorIndexData.cs* y reemplace el código
 
 ### <a name="create-the-instructor-controller-and-views"></a>Crear el controlador de Instructor y vistas
 
-Crear un `InstructorController` (no InstructorsController) controlador con acciones de lectura/escritura EF como se muestra en la ilustración siguiente:
+Crear un `InstructorController` (no InstructorsController) controlador con acciones de lectura/escritura EF:
 
-![Add_Controller_dialog_box_for_Instructor_controller](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
+| Parámetro | Valor |
+| ------- | ----- |
+| Clase de modelo | Seleccione **Instructor (ContosoUniversity.Models)**. |
+| Clase de contexto de datos | Seleccione **SchoolContext (ContosoUniversity.DAL)**. |
+| Nombre del controlador | Escriba *InstructorController*. Nuevamente, no *InstructorsController* con un *s*. Si seleccionó **curso (ContosoUniversity.Models)**, **nombre del controlador** valor se rellena automáticamente. Tendrá que cambiar el valor. |
+
+Deje los demás valores predeterminados y agregue el controlador.
 
 Abra *Controllers\InstructorController.cs* y agregue un `using` instrucción para el `ViewModels` espacio de nombres:
 
@@ -193,8 +204,6 @@ Ha realizado los cambios siguientes en el código existente:
 
 Ejecute la aplicación y seleccione el **instructores** ficha. Muestra la página el `Location` propiedad de relacionados `OfficeAssignment` la celda cuando no hay entidades y una tabla vacía no relacionados con `OfficeAssignment` entidad.
 
-![Instructors_index_page_with_nothing_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
-
 En el *Views\Instructor\Index.cshtml* archivo después del cierre `table` elemento (al final del archivo), agregue el código siguiente. Este código muestra una lista de cursos relacionados con un instructor cuando se selecciona un instructor.
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample18.cshtml)]
@@ -203,8 +212,6 @@ Este código lee la propiedad `Courses` del modelo de vista para mostrar una lis
 
 Ejecute la página y seleccione un instructor. Ahora verá una cuadrícula en la que se muestran los cursos asignados al instructor seleccionado, y para cada curso, el nombre del departamento asignado.
 
-![Instructors_index_page_with_instructor_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
-
 Después del bloque de código que se acaba de agregar, agregue el código siguiente. Esto muestra una lista de los estudiantes que están inscritos en un curso cuando se selecciona ese curso.
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample19.cshtml)]
@@ -212,8 +219,6 @@ Después del bloque de código que se acaba de agregar, agregue el código sigui
 Este código lee la `Enrollments` propiedad del modelo de vista para mostrar una lista de alumnos inscritos en el curso.
 
 Ejecute la página y seleccione un instructor. Después, seleccione un curso para ver la lista de los estudiantes inscritos y sus calificaciones.
-
-![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
 ### <a name="adding-explicit-loading"></a>Adición de la carga explícita
 
@@ -239,14 +244,20 @@ Tenga en cuenta que usa el `Collection` método para cargar una propiedad de col
 
 Ejecute la página de índice de instructores ahora y no verá ninguna diferencia en lo que se muestra en la página, aunque haya cambiado la forma en que se recuperan los datos.
 
-## <a name="summary"></a>Resumen
-
-Ahora ha usado las tres formas (diferidas, diligente y explícitas) para cargar datos relacionados en las propiedades de navegación. En el siguiente tutorial, obtendrá información sobre cómo actualizar datos relacionados.
-
-Deje comentarios sobre cómo le gustó de este tutorial y que podíamos mejorar.
+## <a name="additional-resources"></a>Recursos adicionales
 
 Pueden encontrar vínculos a otros recursos de Entity Framework en el [acceso a datos de ASP.NET - recursos recomendados](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-> [!div class="step-by-step"]
-> [Anterior](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
-> [Siguiente](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-steps"></a>Pasos siguientes
+
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Ha aprendido cómo cargar datos relacionados
+> * Crea una página de cursos
+> * Crea una página de instructores
+
+Avance al siguiente artículo para obtener información sobre cómo actualizar datos relacionados.
+
+> [!div class="nextstepaction"]
+> [Actualización de datos relacionados](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
