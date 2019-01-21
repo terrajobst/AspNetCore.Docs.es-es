@@ -4,20 +4,20 @@ author: rick-anderson
 description: En este tutorial se muestra cómo crear una aplicación de ASP.NET Core 2.x mediante OAuth 2.0 con proveedores de autenticación externos.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 1/19/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 063d452fb6ab91b712ade7f7b7ed99823dbdc657
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 48dd8b772234ff18158423a36ed1716102bc2f31
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098823"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396147"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticación con Facebook, Google y proveedores externos en ASP.NET Core
 
 Por [Valeriy Novytskyy](https://github.com/01binary) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-En este tutorial se muestra cómo crear una aplicación de ASP.NET Core 2.x que permita a los usuarios iniciar sesión mediante OAuth 2.0 con credenciales de proveedores de autenticación externos.
+En este tutorial se muestra cómo crear una aplicación de ASP.NET Core 2.2 que permita a los usuarios iniciar sesión mediante OAuth 2.0 con credenciales de proveedores de autenticación externos.
 
 En las siguientes secciones se tratan los proveedores [Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins) y [Microsoft](xref:security/authentication/microsoft-logins). Hay disponibles otros proveedores en paquetes de terceros como [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) y [AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
 
@@ -30,29 +30,13 @@ Permitir que los usuarios inicien sesión con sus credenciales es práctico para
 * En Visual Studio 2017, cree un proyecto en la página de inicio o a través de **Archivo** > **Nuevo** > **Proyecto**.
 
 * Seleccione la plantilla **Aplicación web de ASP.NET Core** disponible en la categoría **Visual C#** > **.NET Core**:
-
-![Cuadro de diálogo Nuevo proyecto](index/_static/new-project.png)
-
-* Pulse **Aplicación web** y compruebe que la opción **Autenticación** está establecida en **Cuentas de usuario individuales**:
-
-![Cuadro de diálogo Nueva aplicación web](index/_static/select-project.png)
-
-Nota: Este tutorial se aplica a la versión 2.0 del SDK de ASP.NET Core, que se puede seleccionar en la parte superior del asistente.
+* Seleccione **Cambiar autenticación** y establezca la autenticación en **Cuentas de usuario individuales**.
 
 ## <a name="apply-migrations"></a>Aplicación de migraciones
 
-* Ejecute la aplicación y seleccione el vínculo **Iniciar sesión**.
-* Seleccione el vínculo **Register as a new user** Registrarse como usuario nuevo).
+* Ejecute la aplicación y seleccione el vínculo **Registrar**.
 * Escriba el correo electrónico y la contraseña de la cuenta nueva y, luego, seleccione **Registrarse**.
 * Siga estas instrucciones para aplicar las migraciones.
-
-## <a name="require-https"></a>Requisito de HTTPS
-
-OAuth 2.0 requiere el uso de SSL o TLS para la autenticación mediante el protocolo HTTPS.
-
-Los proyectos creados con las plantillas de proyecto **Aplicación web** o **API web** con ASP.NET Core 2.1 o versiones posteriores se configuran automáticamente para habilitar HTTPS. La aplicación se inicia con un punto de conexión predeterminado seguro si la opción **Cuentas de usuario individuales** está seleccionada en el **cuadro de diálogo Cambiar autenticación** del asistente para el proyecto.
-
-Para obtener más información, vea <xref:security/enforcing-ssl>.
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
@@ -83,11 +67,11 @@ Si el registro se realiza mediante un proveedor de inicio de sesión externo, no
 
 Para crear una contraseña e iniciar sesión con el correo electrónico establecido durante el proceso de inicio de sesión con proveedores externos:
 
-* Pulse el vínculo **Hola, &lt;alias de correo electrónico&gt;** situado en la esquina superior derecha para ir a la vista **Administración**.
+* Seleccione el vínculo **Hola, &lt;alias de correo electrónico&gt;** situado en la esquina superior derecha para ir a la vista **Administración**.
 
 ![Vista Administración de la aplicación web](index/_static/pass1a.png)
 
-* Pulse **Crear**.
+* Seleccione **Crear**.
 
 ![Página para establecer la contraseña](index/_static/pass2a.png)
 
