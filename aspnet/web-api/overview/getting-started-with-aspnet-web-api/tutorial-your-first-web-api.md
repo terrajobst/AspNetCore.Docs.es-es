@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 11/28/2017
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 62e99a41ba935470c39476c9aea8ee4193543425
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 7bec95af4532535f0d620bfe6862958907466874
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795298"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444264"
 ---
 <a name="get-started-with-aspnet-web-api-2-c"></a>Introducción a ASP.NET Web API 2 (C#)
 ====================
@@ -108,7 +108,7 @@ Ya está. Tiene una API web de trabajo. Cada método en el controlador correspon
 | Método de controlador | Identificador URI |
 | --- | --- |
 | GetAllProducts | productos/api / |
-| GetProduct | /API/productos/*Id.* |
+| GetProduct | /api/products/*id* |
 
 Para el `GetProduct` método, el *id* en el URI es un marcador de posición. Por ejemplo, para obtener el producto con el Id. de 5, el URI es `api/products/5`.
 
@@ -178,7 +178,7 @@ Si hace clic en la ficha cuerpo de respuesta, puede ver cómo la lista de produc
 
 ¿Desea ver el sitio terminado que se ejecuta como una aplicación web en directo? Puede implementar una versión completa de la aplicación en su cuenta de Azure, simplemente haga clic en el botón siguiente.
 
-[![](http://azuredeploy.net/deploybutton.png)](https://deploy.azure.com/?WT.mc_id=deploy_azure_aspnet&repository=https://github.com/tfitzmac/WebAPI-ProductsApp#/form/setup)
+[![](https://azuredeploy.net/deploybutton.png)](https://deploy.azure.com/?WT.mc_id=deploy_azure_aspnet&repository=https://github.com/tfitzmac/WebAPI-ProductsApp#/form/setup)
 
 Necesita una cuenta de Azure para implementar esta solución en Azure. Si no dispone de una cuenta, tiene las siguientes opciones:
 

@@ -1,36 +1,39 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Code First Migrations e implementación con Entity Framework en una aplicación ASP.NET MVC | Microsoft Docs
+title: 'Tutorial: Usa migraciones de EF en una aplicación ASP.NET MVC e implementarlo en Azure'
 author: tdykstra
-description: La aplicación web de Contoso University muestra cómo crear aplicaciones de ASP.NET MVC 5 con Entity Framework 6 Code First y Visual Studio...
+description: En este tutorial, habilite migraciones de Code First e implementar la aplicación en la nube en Azure.
 ms.author: riande
-ms.date: 10/08/2018
+ms.date: 01/16/2019
+ms.topic: tutorial
 ms.assetid: d4dfc435-bda6-4621-9762-9ba270f8de4e
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5c926c61cec5c7de43e2c3f0e377023b8ee799d0
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 131540113f5ac8ce9e15c8ab92b8dc7ee11de115
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913026"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444225"
 ---
-<a name="code-first-migrations-and-deployment-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Código de la primera implementación con Entity Framework en una aplicación ASP.NET MVC y migraciones
-====================
-por [Tom Dykstra](https://github.com/tdykstra)
+# <a name="tutorial-use-ef-migrations-in-an-aspnet-mvc-app-and-deploy-to-azure"></a>Tutorial: Usa migraciones de EF en una aplicación ASP.NET MVC e implementarlo en Azure
 
-[Descargue el proyecto completado](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> La aplicación web de Contoso University muestra cómo crear aplicaciones de ASP.NET MVC 5 con Entity Framework 6 Code First y Visual Studio. Para obtener información sobre la serie de tutoriales, consulte [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
-Hasta ahora la aplicación se ejecutaba localmente en IIS Express en el equipo de desarrollo. Para que una aplicación real disponible para otras personas a través de Internet, tendrá que implementarlo en un proveedor de hospedaje web. En este tutorial, implementará la aplicación Contoso University en la nube en Azure.
-
-El tutorial contiene las siguientes secciones:
+Hasta ahora la aplicación web de Contoso University se ejecutaba localmente en IIS Express en el equipo de desarrollo. Para que una aplicación real disponible para otras personas a través de Internet, tendrá que implementarlo en un proveedor de hospedaje web. En este tutorial, habilitar migraciones de Code First e implementar la aplicación en la nube en Azure:
 
 - Habilitar migraciones de Code First. La característica de migraciones le permite cambiar el modelo de datos e implementar los cambios en producción mediante la actualización del esquema de base de datos sin tener que quitar y volver a crear la base de datos.
 - Implementar en Azure. Este paso es opcional; se puede continuar con el resto de los tutoriales sin necesidad de implementar el proyecto.
 
 Se recomienda que utilice un proceso de integración continua con control de código fuente para la implementación, pero en este tutorial no se trata esos temas. Para obtener más información, consulte el [control de código fuente](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control) y [integración continua](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) capítulos de [Building Real-World Cloud Apps with Azure](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
+
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Habilitación de migraciones de Code First
+> * Implementar la aplicación en Azure (opcional)
+
+## <a name="prerequisites"></a>Requisitos previos
+
+- [Resistencia de la conexión e intercepción de comandos](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
 ## <a name="enable-code-first-migrations"></a>Habilitación de migraciones de Code First
 
@@ -55,15 +58,11 @@ Este método para mantener la base de datos sincronizada con el modelo de datos 
     add-migration InitialCreate
     ```
 
-    ![comando Enable-migrations](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
-
     El `enable-migrations` comando crea un *migraciones* carpeta del proyecto ContosoUniversity, y lo coloca en esa carpeta un *Configuration.cs* archivo que se puede editar para configurar las migraciones.
 
     (Si se perdió el paso anterior que le indica que cambie el nombre de la base de datos, las migraciones se encuentra la base de datos existente y realizar automáticamente la `add-migration` comando. Eso está bien, simplemente significa que no ejecuta una prueba del código de migraciones antes de implementar la base de datos. Más adelante al ejecutar el `update-database` comando no sucederá nada porque ya existe la base de datos.)
 
-    ![Carpeta de migraciones](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
-
-    Al igual que la clase de inicializador que vio anteriormente, el `Configuration` clase incluye un `Seed` método.
+    Abra el *ContosoUniversity\Migrations\Configuration.cs* archivo. Al igual que la clase de inicializador que vio anteriormente, el `Configuration` clase incluye un `Seed` método.
 
     [!code-csharp[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs)]
 
@@ -121,8 +120,6 @@ Si creó la migración inicial cuando la base de datos ya existía, se genera el
 
     `update-database`
 
-    ![](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
-
     El `update-database` comando ejecuta el `Up` método para crear la base de datos y, a continuación, se ejecuta el `Seed` método para rellenar la base de datos. El mismo proceso se ejecutará automáticamente en producción después de implementar la aplicación, como verá en la sección siguiente.
 2. Use **Explorador de servidores** para inspeccionar la base de datos como hizo en el primer tutorial y ejecutar la aplicación para comprobar que todo funciona igual que antes.
 
@@ -157,8 +154,6 @@ Implementará la base de datos a Azure SQL database. SQL database es un servicio
 
 2. Escriba una cadena en el **nombre de la aplicación** cuadro que se usará como la dirección URL única para la aplicación. La dirección URL completa consistirá en lo que escriba aquí además el dominio predeterminado de Azure App Services (. azurewebsites.net). Si el **nombre de la aplicación** ya está en uso, el asistente le proporcionará una roja *el nombre de la aplicación no está disponible* mensaje. Si el **nombre de la aplicación** está disponible, verá una marca de verificación verde.
 
-    ![Creación de vínculo de la base de datos en el Portal de administración](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/create-web-app-sql-resource.png)
-
 3. En el **suscripción** , seleccione la suscripción de Azure en el que desea que el **App Service** residir.
 
 4. En el **grupo de recursos** cuadro de texto, elija un grupo de recursos o cree uno nuevo. Esta configuración especifica el sitio web se ejecutará en el centro de datos. Para obtener más información acerca de los grupos de recursos, consulte [grupos de recursos](/azure/azure-resource-manager/resource-group-overview#resource-groups).
@@ -166,8 +161,6 @@ Implementará la base de datos a Azure SQL database. SQL database es un servicio
 5. Cree un nuevo **Plan de App Service** haciendo clic en el *sección App Service*, **crear nuevo**y rellene **plan de App Service** (puede ser mismo nombre que App Service), **ubicación**, y **tarifa** (hay una opción gratuita).
 
 6. Haga clic en **base de datos SQL**y, a continuación, elija **crear una nueva base de datos** o seleccione una base de datos existente.
-
-    ![](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/new-sql-database.png)
 
 7. En el **nombre** , escriba un nombre para la base de datos.
 8. Haga clic en el **TargetServer** cuadro y, a continuación, seleccione **crear un nuevo servidor**. Como alternativa, si ha creado anteriormente un servidor, puede seleccionar ese servidor en la lista de servidores disponibles.
@@ -187,8 +180,6 @@ Implementará la base de datos a Azure SQL database. SQL database es un servicio
 
 1. En Visual Studio, haga clic en el proyecto en **el Explorador de soluciones** y seleccione **publicar** en el menú contextual.
 
-    ![Publicar el elemento de menú en el Explorador de soluciones](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
-
 2. En el **elegir un destino de publicación** página, elija **App Service** y, a continuación, **seleccionar existente**y, a continuación, elija **publicar**.
 
     ![Seleccionar una página de destino de publicación](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/publish-select-existing-azure-app-service.png)
@@ -197,11 +188,7 @@ Implementará la base de datos a Azure SQL database. SQL database es un servicio
 
 4. En el **App Service** página, seleccione el **suscripción** agrega el servicio de aplicación. En **vista**, seleccione **grupo de recursos**. Expanda el grupo de recursos que agregó el servicio de aplicación y, a continuación, seleccione el servicio de aplicación. Elija **Aceptar** para publicar la aplicación.
 
-    ![Seleccione el servicio de aplicación](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/app-service-page.png)
-
 5. El **salida** ventana muestra qué acciones de implementación se realizaron e informa la correcta finalización de la implementación.
-
-    ![Ventana de salida de informes de implementación correcta](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/publish-output.png)
 
 6. Tras una implementación correcta, el explorador predeterminado se abre automáticamente en la dirección URL del sitio web implementado.
 
@@ -217,7 +204,7 @@ El proceso de implementación también crea una nueva cadena de conexión *(Scho
 
 ![Cadena de conexión en el archivo Web.config](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image26.png)
 
-Puede encontrar la versión implementada del archivo Web.config en su propio equipo en *ContosoUniversity\obj\Release\Package\PackageTmp\Web.config*. Puede acceder a implementado *Web.config* propio archivo mediante FTP. Para obtener instrucciones, consulte [implementación Web de ASP.NET con Visual Studio: implementar una actualización de código](xref:web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update). Siga las instrucciones que comienzan con "para usar una herramienta FTP, necesita tres cosas: la dirección URL de FTP, el nombre de usuario y la contraseña."
+Puede encontrar la versión implementada del archivo Web.config en su propio equipo en *ContosoUniversity\obj\Release\Package\PackageTmp\Web.config*. Puede acceder a implementado *Web.config* propio archivo mediante FTP. Para obtener instrucciones, consulte [implementación Web de ASP.NET con Visual Studio: Implementar una actualización de código](xref:web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update). Siga las instrucciones que comienzan con "para usar una herramienta FTP, necesita tres cosas: la dirección URL de FTP, el nombre de usuario y la contraseña."
 
 > [!NOTE]
 > La aplicación web no implementa la seguridad, por lo que cualquier persona que encuentre la dirección URL puede cambiar los datos. Para obtener instrucciones sobre cómo proteger el sitio web, consulte [implementar una aplicación ASP.NET MVC segura con pertenencia, OAuth y SQL database en Azure](/aspnet/core/security/authorization/secure-data). Puede impedir que otras personas mediante el sitio, detenga el servicio mediante el Portal de administración de Azure o **Explorador de servidores** en Visual Studio.
@@ -234,16 +221,24 @@ Para obtener información sobre otros escenarios de migración, consulte [migrac
 
 En la sección de implementación, vio la [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) inicializador que se va a usar. Código primero también proporciona otros inicializadores, incluidos [CreateDatabaseIfNotExists](https://msdn.microsoft.com/library/gg679221(v=vs.103).aspx) (valor predeterminado), [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=VS.103).aspx) (que usó anteriormente) y [ DropCreateDatabaseAlways](https://msdn.microsoft.com/library/gg679506(v=VS.103).aspx). El `DropCreateAlways` inicializador puede ser útil para configurar las condiciones para las pruebas unitarias. También puede escribir a sus propios inicializadores, y se puede llamar a un inicializador explícitamente si no desea esperar hasta que la aplicación lee o escribe en la base de datos.
 
-Para obtener más información sobre los inicializadores, vea [descripción inicializadores de base de datos en Entity Framework Code First](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm) y el capítulo 6 del libro [Programming Entity Framework: Code First](http://shop.oreilly.com/product/0636920022220.do) , Julie Lerman y Rowan Miller.
+Para obtener más información sobre los inicializadores, vea [descripción inicializadores de base de datos en Entity Framework Code First](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm) y el capítulo 6 del libro [Programming Entity Framework: Code First](http://shop.oreilly.com/product/0636920022220.do) por Julie Lerman y Rowan Miller.
 
-## <a name="summary"></a>Resumen
+## <a name="get-the-code"></a>Obtención del código
 
-En este tutorial, aprendió a habilitar migraciones e implementar la aplicación. En el siguiente, comenzará examinando temas más avanzados expandiendo el modelo de datos.
+[Descargue el proyecto completado](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-Deje comentarios sobre cómo le gustó de este tutorial y que podíamos mejorar.
+## <a name="additional-resources"></a>Recursos adicionales
 
 Pueden encontrar vínculos a otros recursos de Entity Framework en [acceso a datos de ASP.NET - recursos recomendados](xref:whitepapers/aspnet-data-access-content-map).
 
-> [!div class="step-by-step"]
-> [Anterior](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)
-> [Siguiente](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)
+## <a name="next-steps"></a>Pasos siguientes
+
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Migraciones de Code First habilitadas
+> * Implementar la aplicación en Azure (opcional)
+
+Avance al siguiente artículo para obtener información sobre cómo crear un modelo de datos más complejo para una aplicación ASP.NET MVC.
+> [!div class="nextstepaction"]
+> [Crear un modelo de datos más complejo](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)

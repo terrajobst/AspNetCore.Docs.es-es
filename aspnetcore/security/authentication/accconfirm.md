@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo compilar una aplicación de ASP.NE
 ms.author: riande
 ms.date: 7/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 4c2e62335bc7dd004829dbc2a8c1f62ea91f334f
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 0dc9907f9f54c8a0daf2e05a3769897e5145935f
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253044"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444147"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Confirmación de la cuenta y la recuperación de contraseñas en ASP.NET Core
 
@@ -204,7 +204,7 @@ Seleccione el nombre de usuario en el explorador: ![ventana del explorador con e
 
 Es posible que deba expandir la barra de navegación para ver el nombre de usuario.
 
-![barra de navegación](accconfirm/_static/x.png)
+![navbar](accconfirm/_static/x.png)
 
 Se muestra la página de administración con el **perfil** pestaña seleccionada. El **correo electrónico** muestra una casilla de verificación que indica el correo electrónico se ha confirmado.
 
