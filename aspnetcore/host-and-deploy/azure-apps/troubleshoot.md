@@ -1,17 +1,17 @@
 ---
-title: Solución de problemas de errores de inicio de ASP.NET Core en Azure App Service
+title: Solución de problemas de ASP.NET Core en Azure App Service
 author: guardrex
 description: Obtenga información sobre cómo diagnosticar problemas con las implementaciones de Azure App Service de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/11/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: b36c321c6ba6801a32b5187651063337b4533fd1
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 65a5e355bc15db6de9060331395c441160c8b62d
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637657"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341646"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Solución de problemas de ASP.NET Core en Azure App Service
 
@@ -49,17 +49,17 @@ El módulo ASP.NET Core está configurado con un valor predeterminado *startupTi
 
 ### <a name="application-event-log"></a>Registro de eventos de aplicación
 
-Para acceder al registro de eventos de la aplicación, use la hoja **Diagnose and solve problems** (Diagnosticar y resolver problemas) de Azure Portal:
+Para acceder al registro de eventos de la aplicación, use la hoja **Diagnose and solve problems** (Diagnosticar y solucionar problemas) de Azure Portal:
 
-1. En Azure Portal, abra la hoja de la aplicación en la hoja **App Services**.
-1. Seleccione la hoja **Diagnose and solve problems** (Diagnosticar y resolver problemas).
-1. En **Seleccione una categoría de problema**, seleccione el botón abajo **Aplicación web**.
-1. En **Suggested Solutions** (Soluciones sugeridas), abra el panel de **Open Application Event Logs** (Abrir registros de eventos de la aplicación). Seleccione el botón **Open Application Event Logs** (Abrir registros de eventos de la aplicación).
-1. Examine el error más reciente proporcionado por *IIS AspNetCoreModule* en la columna **Origen**.
+1. En Azure Portal, abra la aplicación en **App Services**.
+1. Seleccione **Diagnosticar y solucionar problemas**.
+1. Seleccione el título **Herramientas de diagnóstico**.
+1. En **Herramientas de soporte técnico**, seleccione el botón **Eventos de la aplicación**.
+1. Examine el error más reciente que hayan proporcionado las entradas *IIS AspNetCoreModule* o *IIS AspNetCoreModule V2* en la columna **Origen**.
 
 Una alternativa al uso de la hoja **Diagnose and solve problems** (Diagnosticar y resolver problemas) es examinar el archivo de registro de eventos de la aplicación directamente mediante [Kudu](https://github.com/projectkudu/kudu/wiki):
 
-1. Seleccione la hoja **Herramientas avanzadas** en el área **Herramientas de desarrollo**. Seleccione el botón **Ir&rarr;**. Se abre la consola de Kudu en una nueva pestaña o ventana del explorador.
+1. Abra **Herramientas avanzadas** en el área **Herramientas de desarrollo**. Seleccione el botón **Ir&rarr;**. Se abre la consola de Kudu en una nueva pestaña o ventana del explorador.
 1. Mediante la barra de navegación de la parte superior de la página, abra la **consola de depuración** y seleccione **CMD**.
 1. Abra la carpeta **LogFiles**.
 1. Seleccione el icono de lápiz junto al archivo *eventlog.xml*.
@@ -69,7 +69,7 @@ Una alternativa al uso de la hoja **Diagnose and solve problems** (Diagnosticar 
 
 Muchos errores de inicio no generan información útil en el registro de eventos de la aplicación. Puede ejecutar la aplicación en la consola de ejecución remota de [Kudu](https://github.com/projectkudu/kudu/wiki) para detectar el error:
 
-1. Seleccione la hoja **Herramientas avanzadas** en el área **Herramientas de desarrollo**. Seleccione el botón **Ir&rarr;**. Se abre la consola de Kudu en una nueva pestaña o ventana del explorador.
+1. Abra **Herramientas avanzadas** en el área **Herramientas de desarrollo**. Seleccione el botón **Ir&rarr;**. Se abre la consola de Kudu en una nueva pestaña o ventana del explorador.
 1. Mediante la barra de navegación de la parte superior de la página, abra la **consola de depuración** y seleccione **CMD**.
 1. Abra las carpetas para la ruta de acceso **site** > **wwwroot**.
 1. En la consola, ejecute la aplicación mediante la ejecución del ensamblado de la aplicación.
@@ -95,7 +95,7 @@ El registro stdout del módulo ASP.NET Core con frecuencia registra mensajes de 
 1. Inspeccione la columna **Modificado** y seleccione el icono de lápiz para editar el registro de stdout con la última fecha de modificación.
 1. Cuando se abre el archivo de registro, se muestra el error.
 
-**¡Importante!** Deshabilite el registro de stdout cuando la solución de problemas haya finalizado.
+Deshabilite el registro de stdout una vez haya solucionado los problemas:
 
 1. En la **consola de diagnóstico** de Kudu, vuelva a la ruta de acceso **site** > **wwwroot** para mostrar el archivo *web.config*. Seleccione el icono de lápiz para abrir de nuevo el archivo **web.config**.
 1. Establezca **stdoutLogEnabled** en `false`.
@@ -106,7 +106,37 @@ El registro stdout del módulo ASP.NET Core con frecuencia registra mensajes de 
 >
 > Para el registro general en una aplicación ASP.NET Core, use una biblioteca de registro que limite el tamaño del archivo de registro y realice la rotación de los registros. Para más información, consulte los [proveedores de registro de terceros](xref:fundamentals/logging/index#third-party-logging-providers).
 
-## <a name="common-startup-errors"></a>Errores comunes de inicio 
+::: moniker range=">= aspnetcore-2.2"
+
+### <a name="aspnet-core-module-debug-log"></a>Registro de depuración del módulo de ASP.NET Core
+
+El registro de depuración del módulo de ASP.NET Core ofrece un registro adicional, más profundo, del módulo ASP.NET Core. Para habilitar y ver los registros de stdout:
+
+1. Para habilitar el registro de diagnóstico mejorado, realice cualquiera de las acciones siguientes:
+   * Siga las instrucciones de [Registros de diagnóstico mejorados](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) para configurar la aplicación para un registro de diagnóstico mejorado. Vuelva a implementar la aplicación.
+   * Agregue la `<handlerSettings>` que se muestra en [Registros de diagnóstico mejorados](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) al archivo *web.config* de la aplicación activa mediante la consola de Kudu:
+     1. Abra **Herramientas avanzadas** en el área **Herramientas de desarrollo**. Seleccione el botón **Ir&rarr;**. Se abre la consola de Kudu en una nueva pestaña o ventana del explorador.
+     1. Mediante la barra de navegación de la parte superior de la página, abra la **consola de depuración** y seleccione **CMD**.
+     1. Abra las carpetas para la ruta de acceso **site** > **wwwroot**. Seleccione el icono de lápiz para editar el archivo *web.config*. Agregue la sección `<handlerSettings>` como se muestra en [Registros de diagnóstico mejorados](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs). Seleccione el botón **Guardar**.
+1. Abra **Herramientas avanzadas** en el área **Herramientas de desarrollo**. Seleccione el botón **Ir&rarr;**. Se abre la consola de Kudu en una nueva pestaña o ventana del explorador.
+1. Mediante la barra de navegación de la parte superior de la página, abra la **consola de depuración** y seleccione **CMD**.
+1. Abra las carpetas para la ruta de acceso **site** > **wwwroot**. Si no ha proporcionado una ruta de acceso para el archivo *aspnetcore debug.log*, el archivo aparece en la lista. Si ha proporcionado una ruta de acceso, vaya a la ubicación del archivo de registro.
+1. Abra el archivo de registro con el botón de lápiz situado junto al nombre del archivo.
+
+Deshabilite el registro de depuración una vez haya solucionado los problemas:
+
+1. Para deshabilitar el registro de depuración mejorado, realice cualquiera de las acciones siguientes:
+   * Quite localmente la `<handlerSettings>` del archivo *web.config* y vuelva a implementar la aplicación.
+   * Use la consola de Kudu para editar el archivo *web.config* y quite la sección `<handlerSettings>`. Guarde el archivo.
+
+> [!WARNING]
+> Si no deshabilita el registro de depuración, es posible que se produzcan errores en la aplicación o el servidor. No hay ningún límite para el tamaño del archivo de registro. Use únicamente el registro de depuración para solucionar problemas de inicio de la aplicación.
+>
+> Para el registro general en una aplicación ASP.NET Core, use una biblioteca de registro que limite el tamaño del archivo de registro y realice la rotación de los registros. Para más información, consulte los [proveedores de registro de terceros](xref:fundamentals/logging/index#third-party-logging-providers).
+
+::: moniker-end
+
+## <a name="common-startup-errors"></a>Errores comunes de inicio
 
 Vea <xref:host-and-deploy/azure-iis-errors-reference>. La mayoría de los problemas comunes que impiden el inicio de la aplicación se tratan en el tema de referencia.
 
@@ -157,7 +187,7 @@ Continúe para activar el registro de diagnóstico:
 1. Realice una solicitud a la aplicación.
 1. Dentro de los datos de la secuencia de registro, se indica la causa del error.
 
-**¡Importante!** No olvide deshabilitar el registro de stdout cuando finalice la solución de problemas. Consulte las instrucciones de la sección [Registro de stdout del módulo ASP.NET Core](#aspnet-core-module-stdout-log).
+No olvide deshabilitar el registro de stdout cuando finalice la solución de problemas. Consulte las instrucciones de la sección [Registro de stdout del módulo ASP.NET Core](#aspnet-core-module-stdout-log).
 
 Para ver los registros de seguimiento de solicitudes con error (registros FREB):
 

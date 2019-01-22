@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/06/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: 3a649f88699d61636d9aa7fbfe4468ca67b3b018
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 6c32269181ea3311c4aea99c08a1c043e7833b05
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225413"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341459"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Compatibilidad con WebSockets en ASP.NET Core
 
@@ -156,13 +156,7 @@ En cambio, sí que envían el encabezado `Origin` al emitir solicitudes de WebSo
 
 Si hospeda su servidor en "https://server.com" y su cliente en "https://client.com", agregue "https://client.com" a la lista `AllowedOrigins` de WebSockets para efectuar la comprobación.
 
-```csharp
-app.UseWebSockets(new WebSocketOptions()
-{
-    AllowedOrigins.Add("https://client.com");
-    AllowedOrigins.Add("https://www.client.com");
-});
-```
+[!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=UseWebSocketsOptionsAO&highlight=6-7)]
 
 > [!NOTE]
 > El encabezado `Origin` está controlado por el cliente y, al igual que el encabezado `Referer`, se puede falsificar. **No** use estos encabezados como mecanismo de autenticación.
@@ -198,7 +192,7 @@ Para habilitar la compatibilidad con el protocolo WebSocket en Windows Server 8 
 > Estos pasos no son necesarios cuando se usa IIS Express
 
 1. Vaya a **Panel de control** > **Programas** > **Programas y características** > **Activar o desactivar las características de Windows** (lado izquierdo de la pantalla).
-1. Abra los siguientes nodos: **Internet Information Services** > **Servicios World Wide Web** > **Características de desarrollo de aplicaciones**.
+1. Abra los nodos siguientes: **Internet Information Services** > **Servicios World Wide Web** > **Características de desarrollo de aplicaciones**.
 1. Seleccione la característica **Protocolo WebSocket**. Seleccione **Aceptar**.
 
 ### <a name="disable-websocket-when-using-socketio-on-nodejs"></a>Deshabilitar WebSocket al usar socket.io en Node.js

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/11/2018
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: ee0bebb8b5c688f8471d6420d1641b87ac271f6c
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 4bc5ead8e24c4bb7fe6cd2f52fd2aa622187180c
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284570"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341399"
 ---
 # <a name="aspnet-core-directory-structure"></a>Estructura de directorios de ASP.NET Core
 
@@ -37,7 +37,7 @@ El directorio *publish* representa la *ruta de acceso raíz del contenido*, tamb
 
 El directorio *wwwroot*, si existe, solo contiene recursos estáticos.
 
-El directorio *Logs* de stdout se puede crear para la implementación mediante uno de los dos enfoques siguientes:
+Se puede crear un directorio *Logs* para la implementación mediante uno de los dos enfoques siguientes:
 
 * Agregue el siguiente elemento `<Target>` al archivo del proyecto:
 
@@ -57,6 +57,8 @@ El directorio *Logs* de stdout se puede crear para la implementación mediante u
 * Cree físicamente el directorio *Logs* en el servidor de la implementación.
 
 El directorio de implementación requiere permisos de lectura y ejecución. El directorio *Logs* requiere permisos de lectura y escritura. Otros directorios donde se escriben los archivos requieren permisos de lectura y escritura.
+
+El [registro de stdout del módulo de ASP.NET Core](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection) no requiere una carpeta *Logs* en la implementación. Al crearse el archivo de registro, el módulo es capaz de crear carpetas en la ruta de acceso de `stdoutLogFile`. Crear una carpeta *Logs* es útil para el [registro de depuración mejorado del módulo de ASP.NET Core](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs). El módulo no crea automáticamente las carpetas de la ruta de acceso proporcionada al valor `<handlerSetting>`, que deben existir previamente en la implementación para permitir que el módulo escriba el registro de depuración.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

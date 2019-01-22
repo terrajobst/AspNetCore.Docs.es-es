@@ -5,12 +5,12 @@ description: Aprenda a controlar el comportamiento de las aplicaciones en varios
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: 865257d127084671036147dd1f28c9c4843feef6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 642af9e8f9e322e3624dad46bb1463f6525f5c9e
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206853"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341672"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Usar varios entornos en ASP.NET Core
 
@@ -22,7 +22,7 @@ ASP.NET Core configura el comportamiento de las aplicaciones en función del ent
 
 ## <a name="environments"></a>Entornos
 
-ASP.NET Core lee la variable de entorno `ASPNETCORE_ENVIRONMENT` al inicio de la aplicación y almacena el valor en [IHostingEnvironment.EnvironmentName](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname). Puede establecer `ASPNETCORE_ENVIRONMENT` en cualquier valor, pero el marco de trabajo admite [tres valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname): [Development](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Staging](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging) y [Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Si no se establece `ASPNETCORE_ENVIRONMENT`, el valor predeterminado es `Production`.
+ASP.NET Core lee la variable de entorno `ASPNETCORE_ENVIRONMENT` al inicio de la aplicación y almacena el valor en [IHostingEnvironment.EnvironmentName](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname). Puede establecer `ASPNETCORE_ENVIRONMENT` en cualquier valor, pero el marco admite [tres valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname): [Development](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Staging](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging) y [Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Si no se establece `ASPNETCORE_ENVIRONMENT`, el valor predeterminado es `Production`.
 
 [!code-csharp[](environments/sample/EnvironmentsSample/Startup.cs?name=snippet)]
 
@@ -111,9 +111,9 @@ En el siguiente fragmento de JSON se muestran tres perfiles de un archivo *launc
 
 Cuando la aplicación se inicia con [dotnet run](/dotnet/core/tools/dotnet-run), se usa el primer perfil con `"commandName": "Project"`. El valor de `commandName` especifica el servidor web que se va a iniciar. `commandName` puede ser uno de los siguientes:
 
-* IIS Express
-* IIS
-* Project (que inicia Kestrel)
+* `IISExpress`
+* `IIS`
+* `Project` (que inicia Kestrel)
 
 Cuando una aplicación se inicia con [dotnet run](/dotnet/core/tools/dotnet-run):
 
@@ -183,7 +183,7 @@ Para establecer el entorno en [Azure App Service](https://azure.microsoft.com/se
 1. En el grupo **CONFIGURACIÓN**, seleccione la hoja **Configuración de la aplicación**.
 1. En el área **Configuración de la aplicación**, haga clic en **Agregar nueva configuración**.
 1. Para **Escriba un nombre**, proporcione `ASPNETCORE_ENVIRONMENT`. Para **Escriba un valor**, proporcione el entorno (por ejemplo, `Staging`).
-1. Active la casilla **Configuración de ranuras** si quiere que la configuración del entorno permanezca con la ranura actual cuando se intercambien las ranuras de implementación. Para obtener más información, vea [Configuración de entornos de ensayo en Azure App Service](/azure/app-service/web-sites-staged-publishing).
+1. Active la casilla **Configuración de ranuras** si quiere que la configuración del entorno permanezca con la ranura actual cuando se intercambien las ranuras de implementación. Para obtener más información, consulte [Azure Documentation: Which settings are swapped?](/azure/app-service/web-sites-staged-publishing) (Documentación de Azure: ¿qué opciones de configuración se intercambian?).
 1. Haga clic en **Guardar** en la parte superior de la hoja.
 
 Azure App Service reinicia automáticamente la aplicación después de que se agregue, cambie o elimine una configuración de aplicación (variable de entorno) en Azure Portal.
@@ -276,8 +276,8 @@ Para distribuciones de Linux, use el comando `export` en un símbolo del sistema
 
 Para cargar la configuración por entorno, se recomienda lo siguiente:
 
-* Archivos *appSettings* (*appsettings.&lt;<Environment>&gt;.json). Vea [Configuración: proveedor de configuración de archivo](xref:fundamentals/configuration/index#file-configuration-provider).
-* Variables de entorno (establecidas en todos los sistemas donde se hospede la aplicación). Vea [Configuración: proveedor de configuración de archivo](xref:fundamentals/configuration/index#file-configuration-provider) y [Almacenamiento seguro de secretos de aplicación en desarrollo: variables de entorno](xref:security/app-secrets#environment-variables).
+* Archivos *appSettings* (*appsettings.&lt;<Environment>&gt;.json). Consulte [Configuration: File configuration provider](xref:fundamentals/configuration/index#file-configuration-provider) (Configuración: proveedor de configuración de archivos).
+* Variables de entorno (establecidas en todos los sistemas donde se hospede la aplicación). Consulte [Configuration: File configuration provider](xref:fundamentals/configuration/index#file-configuration-provider) (Configuración: proveedor de configuración de archivos) y [Safe storage of app secrets in development: Environment variables](xref:security/app-secrets#environment-variables) (Almacenamiento seguro de secretos de aplicación en desarrollo: variables de entorno).
 * Administrador de secretos (solo en el entorno de desarrollo). Vea <xref:security/app-secrets>.
 
 ## <a name="environment-based-startup-class-and-methods"></a>Métodos y clase Startup basados en entorno

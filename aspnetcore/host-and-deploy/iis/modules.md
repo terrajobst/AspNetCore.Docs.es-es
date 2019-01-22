@@ -4,14 +4,14 @@ author: guardrex
 description: Descubra módulos activos e inactivos de IIS para aplicaciones ASP.NET Core y cómo administrar módulos de IIS.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 01/17/2019
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: c6a6cc9b6b3410267c6f5034f824648a1ebbe10f
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 8c32a668b3945f0da0194162e19e965b4aed3934
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862244"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396277"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Módulos de IIS con ASP.NET Core
 
@@ -105,13 +105,13 @@ Para más información sobre la deshabilitación de los módulos con valores de 
 
 Si opta por quitar un módulo con un valor de configuración en *web.config*, desbloquee primero el módulo y la sección `<modules>` de *web.config*:
 
-1. Desbloquee el módulo en el nivel de servidor. Seleccione el servidor de IIS en la barra lateral **Conexiones** del Administrador de IIS. Abra **Módulos** en el área **IIS**. Seleccione el módulo de la lista. En la barra lateral **Acciones** e la derecha, seleccione **Desbloquear**. Desbloquee tantos módulos como quiera quitar de *web.config* más tarde.
+1. Desbloquee el módulo en el nivel de servidor. Seleccione el servidor de IIS en la barra lateral **Conexiones** del Administrador de IIS. Abra **Módulos** en el área **IIS**. Seleccione el módulo de la lista. En la barra lateral **Acciones** e la derecha, seleccione **Desbloquear**. Si la entrada de acción para el módulo aparece como **Bloqueo**, el módulo ya está desbloqueado y no se requiere ninguna acción. Desbloquee tantos módulos como quiera quitar de *web.config* más tarde.
 
 2. Implemente la aplicación sin una sección `<modules>` en *web.config*. Si una aplicación se implementa con un archivo *web.config* que contiene la sección `<modules>` sin haber desbloqueado primero la sección en el Administrador de IIS, Configuration Manager produce una excepción al intentar desbloquear la sección. Por lo tanto, implemente la aplicación sin una sección `<modules>`.
 
-3. Desbloquee la sección `<modules>` de *web.config*. En la barra lateral **Conexiones**, seleccione el sitio web en **Sitios**. En el área **Administración**, abra el **error de configuración**. Use los controles de navegación para seleccionar la sección `system.webServer/modules`. En la barra lateral **Acciones** de la derecha, seleccione **Desbloquear** la sección.
+3. Desbloquee la sección `<modules>` de *web.config*. En la barra lateral **Conexiones**, seleccione el sitio web en **Sitios**. En el área **Administración**, abra el **error de configuración**. Use los controles de navegación para seleccionar la sección `system.webServer/modules`. En la barra lateral **Acciones** de la derecha, seleccione **Desbloquear** la sección. Si la entrada de acción para la sección del módulo aparece como **Sección de bloqueo**, la sección del módulo ya está desbloqueada y no se requiere ninguna acción.
 
-4. En este punto, se puede agregar una sección `<modules>` al archivo *web.config* con un elemento `<remove>` para quitar el módulo de la aplicación. Se pueden agregar varios elementos `<remove>` para quitar varios módulos. Si se realizan cambios en *web.config* en el servidor, realice inmediatamente los mismos cambios en el archivo *web.config* el proyecto de forma local. Quitar un módulo de esta manera no afecta al uso del módulo con otras aplicaciones del servidor.
+4. Agregue una sección `<modules>` al archivo local *web.config* de la aplicación con un elemento `<remove>` para quitar el módulo de la aplicación. Agregue varios elementos `<remove>` para quitar varios módulos. Si se realizan cambios en *web.config* en el servidor, realice inmediatamente los mismos cambios en el archivo *web.config* el proyecto de forma local. Quitar un módulo según este enfoque no afecta al uso del módulo con otras aplicaciones del servidor.
 
    ```xml
    <configuration>
@@ -122,6 +122,26 @@ Si opta por quitar un módulo con un valor de configuración en *web.config*, de
     </system.webServer>
    </configuration>
    ```
+   
+Para agregar o quitar módulos para IIS Express mediante *web.config*, modifique *applicationHost.config* para desbloquear la sección `<modules>`:
+
+1. Abra *{APPLICATION ROOT}\\.vs\config\applicationhost.config*.
+
+1. Localice el elemento `<section>` para los módulos de IIS y cambie `overrideModeDefault` de `Deny` a `Allow`:
+
+   ```xml
+   <section name="modules" 
+            allowDefinition="MachineToApplication" 
+            overrideModeDefault="Allow" />
+   ```
+   
+1. Localice la sección `<location path="" overrideMode="Allow"><system.webServer><modules>`. Para los módulos que desee quitar, establezca `lockItem` entre `true` y `false`. En el ejemplo siguiente, se desbloquea el módulo CGI:
+
+   ```xml
+   <add name="CgiModule" lockItem="false" />
+   ```
+   
+1. Una vez la sección `<modules>` y los módulos individuales se desbloquean, tiene la opción de agregar o quitar los módulos de IIS mediante el archivo *web.config* de la aplicación para ejecutar la aplicación en IIS Express.
 
 Un módulo de IIS también se puede quitar con *Appcmd.exe*. Proporcione `MODULE_NAME` y `APPLICATION_NAME` en el comando:
 
