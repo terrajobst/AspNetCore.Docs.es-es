@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: a3ac1ac389892681e8c122d569e6325353ed6e88
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341685"
----
 # [Documentación de ASP.NET Core](/aspnet/#pivot=core)
 
 # Información general
@@ -25,6 +17,8 @@ ms.locfileid: "54341685"
 ## Aplicaciones de API web
 ### [Creación de una API web](xref:tutorials/first-web-api)
 ### [API web con MongoDB](xref:tutorials/first-mongo-app)
+### [Back-end para dispositivos móviles](xref:mobile/native-mobile-backend)
+
 ## Aplicaciones web
 ### [Páginas de Razor](xref:tutorials/razor-pages/index)
 ### [MVC](xref:tutorials/first-mvc-app/index)
@@ -32,7 +26,6 @@ ms.locfileid: "54341685"
 ## Aplicaciones web en tiempo real
 ### [SignalR con JavaScript](xref:tutorials/signalr)
 ### [SignalR con TypeScript](xref:tutorials/signalr-typescript-webpack)
-## [Creación de servicios back-end para aplicaciones móviles nativas](xref:mobile/native-mobile-backend)
 
 ## Acceso a datos
 ### [EF Core con Razor Pages](xref:data/ef-rp/index)
@@ -50,16 +43,13 @@ ms.locfileid: "54341685"
 ## [Opciones](xref:fundamentals/configuration/options)
 ## [Registro](xref:fundamentals/logging/index)
 ## [Control de errores](xref:fundamentals/error-handling)
-## Software intermedio
-### [Información general](xref:fundamentals/middleware/index)
-### [Middleware basado en Factory](xref:fundamentals/middleware/extensibility)
-### [Middleware basado en Factory con un contenedor de terceros](xref:fundamentals/middleware/extensibility-third-party-container)
+## [Middleware](xref:fundamentals/middleware/index)
 ## administrador de flujos de trabajo
 ### [Información general](xref:fundamentals/host/index)
 ### [Host web](xref:fundamentals/host/web-host)
 ### [Host genérico](xref:fundamentals/host/generic-host)
 ## [Servidores](xref:fundamentals/servers/index)
-## [Inicio de solicitudes HTTP](xref:fundamentals/http-requests)
+## [Realización de solicitudes HTTP](xref:fundamentals/http-requests)
 
 # Aplicaciones web
 ## Páginas de Razor
@@ -286,6 +276,7 @@ ms.locfileid: "54341685"
 ### [Creación de imágenes de Docker](/dotnet/articles/core/docker/building-net-docker-images)
 ### [Visual Studio Tools](xref:host-and-deploy/docker/visual-studio-tools-for-docker)
 ### [Publicación en una imagen de Docker](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
+### [Imágenes de Docker de muestra](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md)
 ## [Configuración del proxy y del equilibrador de carga](xref:host-and-deploy/proxy-load-balancer)
 ## [Hospedaje en una granja de servidores web](xref:host-and-deploy/web-farm)
 ## [Perfiles de publicación de Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles)
@@ -373,7 +364,7 @@ ms.locfileid: "54341685"
 #### [Proveedores de protección de datos efímeros](xref:security/data-protection/implementation/key-storage-ephemeral)
 ### Compatibilidad
 #### [Información general](xref:security/data-protection/compatibility/index)
-#### [Reemplazar <machineKey> en ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)
+#### [Sustitución de machineKey en ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)
 ## [Protección de secretos en el desarrollo](xref:security/app-secrets)
 ## [Aplicación de HTTPS](xref:security/enforcing-ssl)
 ## [Compatibilidad con el Reglamento general de protección de datos (GDPR) de la UE](xref:security/gdpr)
@@ -396,12 +387,14 @@ ms.locfileid: "54341685"
 ## [Herramientas de diagnóstico](xref:performance/diagnostic-tools)
 ## [Pruebas de esfuerzo y carga](xref:test/loadtests)
 
-# Otros temas
-## [Globalización y localización](xref:fundamentals/localization)
-## [Localización de un objeto portátil con Orchard Core](xref:fundamentals/portable-object-localization)
+# Globalización y localización
+## [Información general](xref:fundamentals/localization)
+## [Localización de un objeto portátil](xref:fundamentals/portable-object-localization)
+
+# Avanzadas
 ## [Reescritura de direcciones URL](xref:fundamentals/url-rewriting)
 ## [Proveedores de archivos](xref:fundamentals/file-providers)
-## [Solicitud de características](xref:fundamentals/request-features)
+## [Interfaces de solicitud de características](xref:fundamentals/request-features)
 ## [Acceso a HttpContext](xref:fundamentals/httpcontext)
 ## [Cambio de tokens](xref:fundamentals/change-tokens)
 ## [Apertura de la interfaz web para .NET (OWIN)](xref:fundamentals/owin)
@@ -411,6 +404,8 @@ ms.locfileid: "54341685"
 ## [Metapaquete Microsoft.AspNetCore.All](xref:fundamentals/metapackage)
 ## [Registro con LoggerMessage](xref:fundamentals/logging/loggermessage)
 ## [Uso de un monitor de archivos](xref:tutorials/dotnet-watch)
+### [Middleware basado en Factory](xref:fundamentals/middleware/extensibility)
+### [Middleware basado en Factory con un contenedor de terceros](xref:fundamentals/middleware/extensibility-third-party-container)
 
 # Migración
 ## [2.2 a 3.0](xref:migration/22-to-30)
