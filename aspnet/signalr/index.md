@@ -1,19 +1,19 @@
 ---
 uid: signalr/index
 title: SignalR | Microsoft Docs
-author: rick-anderson
+author: bradygaster
 description: Microsoft ASP.NET SignalR es una biblioteca para desarrolladores de ASP.NET que simplifica el proceso de agregar funcionalidad web en tiempo real a sus aplicaciones.
-ms.author: riande
+ms.author: bradyg
 ms.date: 10/24/2012
 ms.assetid: 282a521f-2b86-4fac-bcf6-b6d5e0fe969c
 msc.legacyurl: /signalr
 msc.type: categoryindex
-ms.openlocfilehash: 75978763451b3cb88146fde3c8dfd5d4b327dc5d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 52a36a2790de31e82d7ec7bae9f4c24439749009
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "48256445"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837616"
 ---
 <a name="signalr"></a>SignalR
 ====================
@@ -27,7 +27,7 @@ ms.locfileid: "48256445"
         - [Tutorial: Introducción a SignalR 2 y MVC 5](overview/getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
         - [Tutorial: Alta frecuencia en tiempo real con SignalR 2](overview/getting-started/tutorial-high-frequency-realtime-with-signalr.md)
         - [Tutorial: Difusión de servidores con SignalR 2](overview/getting-started/tutorial-server-broadcast-with-signalr.md)
-        - [Laboratorio práctico: Aplicaciones web en tiempo real con SignalR](overview/getting-started/real-time-web-applications-with-signalr.md)
+        - [Laboratorio práctico: Aplicaciones Web en tiempo real con SignalR](overview/getting-started/real-time-web-applications-with-signalr.md)
     - [Guía de la API](overview/guide-to-the-api/index.md)
 
         - [Guía de la API Hubs - Servidor (C#)](overview/guide-to-the-api/hubs-api-guide-server.md)
@@ -57,7 +57,7 @@ ms.locfileid: "48256445"
         - [Usar los contadores de rendimiento de SignalR en un rol web de Azure](overview/performance/using-signalr-performance-counters-in-an-azure-web-role.md)
     - [Implementación y hospedaje](overview/deployment/index.md)
 
-        - [Tutorial: Prueba interna de SignalR](overview/deployment/tutorial-signalr-self-host.md)
+        - [Tutorial: Interna de SignalR](overview/deployment/tutorial-signalr-self-host.md)
         - [Usar SignalR con Web Apps en Azure App Service](overview/deployment/using-signalr-with-azure-web-sites.md)
     - [Avanzadas](overview/advanced/index.md)
 

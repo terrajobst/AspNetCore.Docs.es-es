@@ -4,17 +4,17 @@ title: 'Tutorial: Implementar la funcionalidad CRUD con Entity Framework en ASP.
 description: Revisar y personalizar el crear, leer, actualizar, eliminar (CRUD) código que el scaffolding de MVC crea automáticamente en los controladores y vistas.
 author: tdykstra
 ms.author: riande
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 ms.topic: tutorial
 ms.assetid: a2f70ba4-83d1-4002-9255-24732726c4f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9c6f8f3a2ffc0a9c5e15111ae47c331dab24ff43
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
-ms.translationtype: MT
+ms.openlocfilehash: 42971b4e15c4aaf85d0ea50bf63934ba4a78ed91
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341729"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836239"
 ---
 # <a name="tutorial-implement-crud-functionality-with-the-entity-framework-in-aspnet-mvc"></a>Tutorial: Implementar la funcionalidad CRUD con Entity Framework en ASP.NET MVC
 
@@ -245,6 +245,10 @@ La base de `Controller` la clase ya implementa la `IDisposable` interfaz, por lo
 ## <a name="handle-transactions"></a>Controlar transacciones
 
 De forma predeterminada, Entity Framework implementa las transacciones de manera implícita. En escenarios donde realizar cambios en varias filas o tablas y, a continuación, llame a `SaveChanges`, Entity Framework garantiza automáticamente que todos los cambios se realizan correctamente o producirá un error en todos. Si primero se realizan algunos cambios y después se produce un error, los cambios se revierten automáticamente. Para escenarios donde se necesita más control&mdash;por ejemplo, si desea incluir operaciones realizadas fuera de Entity Framework en una transacción&mdash;vea [trabajar con transacciones](/ef/ef6/saving/transactions).
+
+## <a name="get-the-code"></a>Obtención del código
+
+[Descargue el proyecto completado](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

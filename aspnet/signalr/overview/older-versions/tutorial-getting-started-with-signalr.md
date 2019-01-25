@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr
 title: 'Tutorial: Introducción a SignalR 1.x | Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: Usar SignalR de ASP.NET para compilar una aplicación de chat en tiempo real en una página HTML.
-ms.author: riande
+ms.author: bradyg
 ms.date: 02/18/2013
 ms.assetid: fdc3599a-5217-44c1-951f-0eec9812dce7
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 720a4879f5fbe3c0c2b4c7809cb94c22547329c3
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: b4b632a84e40aa0b73dfc7a30da0cf28249cc5b4
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287381"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836641"
 ---
 <a name="tutorial-getting-started-with-signalr-1x"></a>Tutorial: Introducción a SignalR 1.x
 ====================
@@ -171,6 +171,6 @@ Puede realizar la aplicación de ejemplo en este tutorial u otras aplicaciones d
 
 Para obtener información sobre los conceptos más avanzados de los desarrollos de SignalR, visite los sitios siguientes para recursos y código fuente de SignalR:
 
-- [Proyecto de SignalR](http://signalr.net)
+- [SignalR Project](http://signalr.net)
 - [SignalR Github y ejemplos](https://github.com/SignalR/SignalR)
 - [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)

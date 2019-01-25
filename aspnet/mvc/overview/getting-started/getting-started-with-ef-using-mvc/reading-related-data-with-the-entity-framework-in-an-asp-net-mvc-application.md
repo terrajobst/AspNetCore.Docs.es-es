@@ -4,17 +4,17 @@ title: 'Tutorial: Lectura de datos relacionados con EF en una aplicación ASP.NE
 description: En este tutorial podrá leer y mostrar datos relacionados, es decir, los datos que Entity Framework carga en las propiedades de navegación.
 author: tdykstra
 ms.author: riande
-ms.date: 01/17/2019
+ms.date: 01/22/2019
 ms.topic: tutorial
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 8660a75655b801364cce7c4b59847c5c00562a27
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
-ms.translationtype: MT
+ms.openlocfilehash: 5f45820cd7abd60e69c19368cee50e91e31a75a0
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396212"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836836"
 ---
 # <a name="tutorial-read-related-data-with-ef-in-an-aspnet-mvc-app"></a>Tutorial: Lectura de datos relacionados con EF en una aplicación ASP.NET MVC
 
@@ -243,6 +243,10 @@ Después, carga explícitamente cada `Enrollment` entidad relacionada con la `St
 Tenga en cuenta que usa el `Collection` método para cargar una propiedad de colección, pero para una propiedad que contiene una sola entidad, usar el `Reference` método.
 
 Ejecute la página de índice de instructores ahora y no verá ninguna diferencia en lo que se muestra en la página, aunque haya cambiado la forma en que se recuperan los datos.
+
+## <a name="get-the-code"></a>Obtención del código
+
+[Descargue el proyecto completado](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

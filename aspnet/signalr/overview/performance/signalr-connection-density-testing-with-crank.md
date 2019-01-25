@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/performance/signalr-connection-density-testing-with-crank
 title: Densidad de la conexión de SignalR las pruebas con Crank | Microsoft Docs
-author: Rick-Anderson
+author: bradygaster
 description: Densidad de la conexión de SignalR las pruebas con Crank
-ms.author: riande
+ms.author: bradyg
 ms.date: 02/22/2015
 ms.assetid: 148d9ca7-1af1-44b6-a9fb-91e261b9b463
 msc.legacyurl: /signalr/overview/performance/signalr-connection-density-testing-with-crank
 msc.type: authoredcontent
-ms.openlocfilehash: 308fed51953b085506488c5e0dda1ced9f4d09fb
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 40c9764f0c47b83df8300553b4b290429937345c
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287595"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836550"
 ---
 <a name="signalr-connection-density-testing-with-crank"></a>Densidad de la conexión de SignalR las pruebas con Crank
 ====================
@@ -46,13 +46,13 @@ Una vez haya descargado y compilado el código base e instala los contadores de 
 
 Las opciones disponibles para la herramienta manivela incluyen:
 
-- **/?** : Muestra la pantalla de ayuda. También se muestran las opciones disponibles si el **Url** se omite el parámetro.
-- **/ Dirección Url**: La dirección URL para las conexiones SignalR. Este parámetro es necesario. Para una aplicación de SignalR mediante la asignación predeterminada, se finalizará la ruta de acceso en "/ signalr".
-- **/ Transporte**: El nombre del transporte utilizado. El valor predeterminado es `auto`, lo que seleccionará el mejor protocolo disponible. Las opciones incluyen `WebSockets`, `ServerSentEvents`, y `LongPolling` (`ForeverFrame` no es una opción para manivela, desde el cliente de .NET en lugar de Internet Explorer se usa). Para obtener más información sobre cómo SignalR selecciona los transportes, consulte [transportes y reservas](../getting-started/introduction-to-signalr.md#transports).
-- **/ BatchSize**: El número de clientes que se agregan en cada lote. El valor predeterminado es 50.
-- **/ ConnectInterval**: El intervalo en milisegundos entre la adición de conexiones. El valor predeterminado es 500.
+- **/?**: Muestra la pantalla de ayuda. También se muestran las opciones disponibles si el **Url** se omite el parámetro.
+- **/Url**: La dirección URL para las conexiones SignalR. Este parámetro es necesario. Para una aplicación de SignalR mediante la asignación predeterminada, se finalizará la ruta de acceso en "/ signalr".
+- **/Transport**: El nombre del transporte utilizado. El valor predeterminado es `auto`, lo que seleccionará el mejor protocolo disponible. Las opciones incluyen `WebSockets`, `ServerSentEvents`, y `LongPolling` (`ForeverFrame` no es una opción para manivela, desde el cliente de .NET en lugar de Internet Explorer se usa). Para obtener más información sobre cómo SignalR selecciona los transportes, consulte [transportes y reservas](../getting-started/introduction-to-signalr.md#transports).
+- **/BatchSize**: El número de clientes que se agregan en cada lote. El valor predeterminado es 50.
+- **/ConnectInterval**: El intervalo en milisegundos entre la adición de conexiones. El valor predeterminado es 500.
 - **/ Conexiones**: El número de conexiones que se usa para la aplicación de prueba de carga. El valor predeterminado es 100.000.
-- **/ ConnectTimeout**: El tiempo de espera en segundos antes de anular la prueba. El valor predeterminado es 300.
+- **/ConnectTimeout**: El tiempo de espera en segundos antes de anular la prueba. El valor predeterminado es 300.
 - **MinServerMBytes**: El número de megabytes de servidor mínima para llegar a. El valor predeterminado es 500.
 - **SendBytes**: El tamaño de la carga enviada al servidor en bytes. El valor predeterminado es 0.
 - **SendInterval**: El retraso en milisegundos entre los mensajes al servidor. El valor predeterminado es 500.

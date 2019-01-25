@@ -1,26 +1,26 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 title: 'Tutorial: Chat en tiempo real con SignalR 2 y MVC 5. | Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: Este tutorial muestra cómo usar ASP.NET SignalR 2 para crear una aplicación de chat en tiempo real. Agregar SignalR a una aplicación de MVC 5.
-ms.author: riande
-ms.date: 01/02/2019
+ms.author: bradyg
+ms.date: 01/22/2019
 ms.assetid: 80bfe5fb-bdfc-41fe-ac43-2132e5d69fac
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: eb4b7e1403f4070d65702b756bf98c5294c7fb17
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 1b02aecc68a93dbd6373ca5304530e76c9d0b6b5
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098609"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837006"
 ---
 # <a name="tutorial-real-time-chat-with-signalr-2-and-mvc-5"></a>Tutorial: Chat en tiempo real con SignalR 2 y MVC 5
 
 Este tutorial muestra cómo usar ASP.NET SignalR 2 para crear una aplicación de chat en tiempo real. Agregar SignalR a una aplicación de MVC 5 y crear una vista de conversación para enviar y mostrar mensajes.
 
-En este tutorial, puede:
+En este tutorial ha:
 
 > [!div class="checklist"]
 > * Configurar el proyecto
@@ -176,11 +176,15 @@ Este código abre una conexión con el centro.
 
 El código inicia la conexión y, a continuación, pasa una función para controlar el evento click en la **enviar** botón en la página de Chat.
 
+## <a name="get-the-code"></a>Obtención del código
+
+[Descargue el proyecto completado](http://code.msdn.microsoft.com/Getting-Started-with-c366b2f3)
+
 ## <a name="additional-resources"></a>Recursos adicionales
 
 Para obtener más información acerca de SignalR, consulte los siguientes recursos:
 
-* [Proyecto de SignalR](http://signalr.net)
+* [SignalR Project](http://signalr.net)
 
 * [SignalR GitHub y ejemplos](https://github.com/SignalR/SignalR)
 
@@ -188,7 +192,7 @@ Para obtener más información acerca de SignalR, consulte los siguientes recurs
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, puede:
+En este tutorial ha:
 
 > [!div class="checklist"]
 > * Configurar el proyecto

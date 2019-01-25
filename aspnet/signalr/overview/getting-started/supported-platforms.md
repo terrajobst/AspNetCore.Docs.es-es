@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/getting-started/supported-platforms
 title: Plataformas compatibles | Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: En este artículo se describe qué servidores y clientes son compatibles con SignalR.
-ms.author: riande
+ms.author: bradyg
 ms.date: 04/18/2018
 ms.assetid: eac31beb-0f46-4afa-9def-e80904dea4f0
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: e270f9a328f36854fdfb3e23b78e0b40cdda6411
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 60fa74b54797efbe14ba525160b2f750a4f5a451
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287387"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836056"
 ---
 <a name="supported-platforms"></a>Plataformas compatibles
 ====================
@@ -124,7 +124,7 @@ SignalR se puede usar en aplicaciones de Windows Store y aplicaciones de Windows
 
 **Windows Store y los requisitos de transporte de Windows Phone**
 
-| Transporte | Windows Store / .NET | Windows Store / JavaScript | Windows Phone / IE | Windows Phone y .NET |
+| Transporte | Windows Store/ .NET | Windows Store / JavaScript | Windows Phone / IE | Windows Phone y .NET |
 | --- | --- | --- | --- | --- |
 | WebSockets | N/D | Win8 + | 8+ | N/D |
 | Marco para siempre | N/D | Win8 + | 7.5+ | N/D |

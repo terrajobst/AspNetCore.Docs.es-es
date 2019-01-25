@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/older-versions/signalr-1x-hubs-api-guide-server
 title: Guía de API de ASP.NET SignalR Hubs - servidor (SignalR 1.x) | Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: Este documento proporciona una introducción a la programación del lado servidor de la API de concentradores de SignalR de ASP.NET para SignalR versión 1.1, con demonstratin de ejemplos de código...
-ms.author: riande
+ms.author: bradyg
 ms.date: 04/17/2013
 ms.assetid: 03e4b9f5-0fea-4d94-959f-014b2762a301
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: a51a2077e0b6cde80bc679e3a310c0c804d19d68
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 8d544e81f87998581afb2a1228233b4d374ad70a
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53288032"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837395"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-signalr-1x"></a>Guía de API de ASP.NET SignalR Hubs - servidor (SignalR 1.x)
 ====================

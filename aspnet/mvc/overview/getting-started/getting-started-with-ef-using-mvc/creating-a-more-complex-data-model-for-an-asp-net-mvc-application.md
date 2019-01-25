@@ -4,17 +4,17 @@ title: 'Tutorial: Crear un modelo de datos más compleja para una aplicación AS
 author: tdykstra
 description: En este tutorial agregará más entidades y relaciones, y personalizará el modelo de datos mediante la especificación de formato, validación y las reglas de asignación de base de datos.
 ms.author: riande
-ms.date: 01/16/2019
+ms.date: 01/22/2019
 ms.topic: tutorial
 ms.assetid: 46f7f3c9-274f-4649-811d-92222a9b27e2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 50cbc184983b3e37c34332dad52bc0d70ade18c2
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
-ms.translationtype: MT
+ms.openlocfilehash: 5d05d456315c019c545a91b527bb05510126c06b
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396303"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836637"
 ---
 # <a name="tutorial-create-a-more-complex-data-model-for-an-aspnet-mvc-app"></a>Tutorial: Crear un modelo de datos más compleja para una aplicación ASP.NET MVC
 
@@ -397,6 +397,10 @@ No cree una clase de modelo para el `CourseInstructor` tabla. Como se explicó a
 Haga clic en el `CourseInstructor` de tabla y seleccione **mostrar datos de tabla** para comprobar que tiene datos en ella como resultado de la `Instructor` las entidades que se ha agregado a la `Course.Instructors` propiedad de navegación.
 
 ![Table_data_in_CourseInstructor_table](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image17.png)
+
+## <a name="get-the-code"></a>Obtención del código
+
+[Descargue el proyecto completado](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

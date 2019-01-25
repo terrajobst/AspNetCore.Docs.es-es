@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 title: 'Tutorial: Difusión de servidores con ASP.NET SignalR 1.x | Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: Este tutorial muestra cómo crear una aplicación web que usa SignalR de ASP.NET para proporcionar funcionalidad de difusión de servidor. Significa que communic de difusión de servidores...
-ms.author: riande
+ms.author: bradyg
 ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: d5c09f6493c4dedb4fc2ecbf9055dd014ede71f2
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 258a55bf72c4b3425d001f478620fa9651952b3f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53288058"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837473"
 ---
 <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Tutorial: Difusión de servidores con ASP.NET SignalR 1.x
 ====================
@@ -117,8 +117,8 @@ Solo quiere una instancia de la clase StockTicker para ejecutarse en el servidor
 2. Si tiene Visual Studio 2012 con la [ASP.NET y Web Tools 2012.2 Update](https://go.microsoft.com/fwlink/?LinkId=279941), haga clic en **Web** en **Visual C#** y seleccione el **SignalR Hub clase** plantilla de elemento. En caso contrario, seleccione el **clase** plantilla.
 3. Nombre de la nueva clase *StockTickerHub.cs*y, a continuación, haga clic en **agregar**.
 
-    ![Agregar StockTickerHub.cs](tutorial-server-broadcast-with-aspnet-signalr/_static/image5.png)
-4. Reemplace el código de plantilla con el código siguiente:
+    ![Add StockTickerHub.cs](tutorial-server-broadcast-with-aspnet-signalr/_static/image5.png)
+4. Reemplace el código de plantilla por el código siguiente:
 
     [!code-csharp[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample3.cs)]
 
@@ -208,7 +208,7 @@ Ahora ha completado la configuración el código del servidor. En la sección si
 ## <a name="set-up-the-client-code"></a>Configurar el código de cliente
 
 1. Crear un nuevo archivo HTML en la carpeta del proyecto y asígnele el nombre *StockTicker.html*.
-2. Reemplace el código de plantilla con el código siguiente:
+2. Reemplace el código de plantilla por el código siguiente:
 
     [!code-html[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample13.html)]
 
@@ -219,7 +219,7 @@ Ahora ha completado la configuración el código del servidor. En la sección si
    > Asegúrese de que el archivo JavaScript hace referencia en *StockTicker.html* son correctos. Es decir, asegúrese de que la versión de jQuery en la etiqueta de script (1.8.2 en el ejemplo) es la misma que la versión de jQuery en su proyecto *Scripts* carpeta y asegúrese de que la versión de SignalR en la etiqueta de script es el mismo que el objeto de SignalR versión del proyecto *Scripts* carpeta. Si es necesario, cambie los nombres de archivo en las etiquetas de script.
 4. En **el Explorador de soluciones**, haga clic en *StockTicker.html*y, a continuación, haga clic en **establecer como página de inicio**.
 5. Cree un nuevo archivo JavaScript en la carpeta del proyecto y denomínelo *StockTicker.js*...
-6. Reemplace el código de plantilla con el código siguiente:
+6. Reemplace el código de plantilla por el código siguiente:
 
     [!code-javascript[Main](tutorial-server-broadcast-with-aspnet-signalr/samples/sample14.js)]
 
@@ -413,6 +413,6 @@ Para ver tutoriales que muestran escenarios de comunicación punto a punto, cons
 Para obtener información sobre los conceptos más avanzados de desarrollo de SignalR, visite los sitios siguientes para recursos y código fuente de SignalR:
 
 - [SignalR de ASP.NET](https://asp.net/signalr/)
-- [Proyecto de SignalR](http://signalr.net/)
+- [SignalR Project](http://signalr.net/)
 - [SignalR Github y ejemplos](https://github.com/SignalR/SignalR)
 - [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)

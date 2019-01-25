@@ -3,18 +3,18 @@ uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 title: 'Tutorial: Difusión de servidores con SignalR 2 | Microsoft Docs'
 author: tdykstra
 description: Este tutorial muestra cómo crear una aplicación web que usa ASP.NET SignalR 2 para proporcionar funcionalidad de difusión de servidor.
-ms.author: riande
+ms.author: bradyg
 ms.date: 01/02/2019
 ms.topic: tutorial
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: a6014e604613492db91b2dc6f846c3c73d938d99
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: a243c78c7d552f1c82a88c6083871fcd16538618
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099304"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837434"
 ---
 # <a name="tutorial-server-broadcast-with-signalr-2"></a>Tutorial: Servidor de difusión con SignalR 2
 
@@ -26,7 +26,7 @@ La aplicación que creará en este tutorial simula un tablero de cotizaciones, u
 
 ![Creación de web](tutorial-server-broadcast-with-signalr/_static/image1.png)
 
-En este tutorial, puede:
+En este tutorial ha:
 
 > [!div class="checklist"]
 > * Crear el proyecto
@@ -81,7 +81,7 @@ Usará la API de concentrador SignalR para controlar la interacción con el clie
 
 Solo quiere una instancia de la `StockTicker` clase para ejecutar en el servidor, por lo que necesitará configurar una referencia de cada `StockTickerHub` instancia para el singleton `StockTicker` instancia. El `StockTicker` clase debe difundir a los clientes porque tiene los datos de acciones y desencadenadores de las actualizaciones, pero `StockTicker` no es un `Hub` clase. La `StockTicker` clase tiene que obtener una referencia al objeto de contexto de conexión de concentrador SignalR. También puede usar el objeto de contexto de conexión de SignalR para difundir a los clientes.
 
-#### <a name="create-stocktickerhubcs"></a>Crear StockTickerHub.cs
+#### <a name="create-stocktickerhubcs"></a>Create StockTickerHub.cs
 
 1. En **el Explorador de soluciones**, haga clic en el proyecto y seleccione **agregar** > **nuevo elemento**.
 
@@ -105,7 +105,7 @@ El `HubName` atributo especifica cómo la aplicación hará referencia el concen
 
 Como verá más adelante cuando se crea el `StockTicker` (clase), la aplicación crea una instancia singleton de esa clase en su estático `Instance` propiedad. Esa instancia singleton de `StockTicker` está en memoria independientemente de cuántos clientes conexión o desconexión. Esa instancia es lo que el `GetAllStocks()` método se usa para devolver información bursátil actual.
 
-#### <a name="create-stocktickercs"></a>Crear StockTicker.cs
+#### <a name="create-stocktickercs"></a>Create StockTicker.cs
 
 1. En **el Explorador de soluciones**, haga clic en el proyecto y seleccione **agregar** > **clase**.
 
@@ -195,7 +195,7 @@ En esta sección, se establece el código que se ejecuta en el cliente.
 
 La página HTML mostrará los datos y el archivo JavaScript va a organizar los datos.
 
-#### <a name="create-stocktickerhtml"></a>Crear StockTicker.html
+#### <a name="create-stocktickerhtml"></a>Create StockTicker.html
 
 En primer lugar, agregará al cliente HTML.
 
@@ -232,7 +232,7 @@ En primer lugar, agregará al cliente HTML.
 
 1. En **el Explorador de soluciones**, haga clic en *StockTicker.html*y, a continuación, seleccione **establecer como página de inicio**.
 
-#### <a name="create-stocktickerjs"></a>Crear StockTicker.js
+#### <a name="create-stocktickerjs"></a>Create StockTicker.js
 
 Ahora cree el archivo de JavaScript.
 
@@ -481,13 +481,13 @@ Para ver tutoriales que muestran escenarios de comunicación punto a punto, cons
 Para obtener más información acerca de SignalR, consulte los siguientes recursos:
 
 * [SignalR de ASP.NET](../../index.md)
-* [Proyecto de SignalR](http://signalr.net/)
+* [SignalR Project](http://signalr.net/)
 * [SignalR GitHub y ejemplos](https://github.com/SignalR/SignalR)
 * [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, puede:
+En este tutorial ha:
 
 > [!div class="checklist"]
 > * Crear el proyecto

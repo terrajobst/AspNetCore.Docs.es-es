@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/index
 title: Guía de SignalR | Microsoft Docs
-author: rick-anderson
+author: bradygaster
 description: ''
-ms.author: riande
+ms.author: bradyg
 ms.date: 10/24/2012
 ms.assetid: e57da75a-1d98-4e3c-8787-f1d7e1eb2d86
 msc.legacyurl: /signalr/overview
 msc.type: book
-ms.openlocfilehash: d22f9e561d8d22c2562bc2f723beb2189592fdda
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2ab5094e863c5762c0c4c70a15f4da1088bc52e7
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "48256832"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837577"
 ---
 <a name="signalr-guidance"></a>Guía de SignalR
 ====================
@@ -25,7 +25,7 @@ ms.locfileid: "48256832"
     - [Tutorial: Introducción a SignalR 2 y MVC 5](getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
     - [Tutorial: Alta frecuencia en tiempo real con SignalR 2](getting-started/tutorial-high-frequency-realtime-with-signalr.md)
     - [Tutorial: Difusión de servidores con SignalR 2](getting-started/tutorial-server-broadcast-with-signalr.md)
-    - [Laboratorio práctico: Aplicaciones web en tiempo real con SignalR](getting-started/real-time-web-applications-with-signalr.md)
+    - [Laboratorio práctico: Aplicaciones Web en tiempo real con SignalR](getting-started/real-time-web-applications-with-signalr.md)
 - [Guía de la API](guide-to-the-api/index.md)
 
     - [Guía de la API Hubs - Servidor (C#)](guide-to-the-api/hubs-api-guide-server.md)
@@ -55,7 +55,7 @@ ms.locfileid: "48256832"
     - [Usar los contadores de rendimiento de SignalR en un rol web de Azure](performance/using-signalr-performance-counters-in-an-azure-web-role.md)
 - [Implementación y hospedaje](deployment/index.md)
 
-    - [Tutorial: Prueba interna de SignalR](deployment/tutorial-signalr-self-host.md)
+    - [Tutorial: Interna de SignalR](deployment/tutorial-signalr-self-host.md)
     - [Usar SignalR con Web Apps en Azure App Service](deployment/using-signalr-with-azure-web-sites.md)
 - [Avanzadas](advanced/index.md)
 

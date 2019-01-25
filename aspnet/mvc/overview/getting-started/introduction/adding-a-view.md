@@ -3,18 +3,18 @@ title: Agregar una vista a una aplicación MVC
 author: Rick-Anderson
 description: Agregar una vista a una aplicación MVC
 ms.author: riande
-ms.date: 09/1721/2017
+ms.date: 01/23/2019
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: 47447c82506cc0eb4dafabe272b3204f76a2edd7
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: afa7584529566ebe82a0eb3849de89bd0df064bd
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098667"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837759"
 ---
 <a name="adding-a-view"></a>Agregar una vista
 ====================
-por [Rick Anderson]((https://twitter.com/RickAndMSFT))
+by [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
@@ -60,7 +60,7 @@ Como alternativa, ejecute la aplicación y vaya a la `HelloWorld` controlador (`
 
 ![](adding-a-view/_static/image6.png)
 
-Parece bastante bueno. Sin embargo, tenga en cuenta que se muestra la barra de título del explorador &quot;Index - Mis fac ASP.NET "y el vínculo grande en la parte superior de la página lee"Application name". Dependiendo de cómo realizar la ventana del explorador, es posible que deba haga clic en las tres barras en la esquina superior derecha para ver el para el **inicio**, **sobre**, **póngase en contacto con**, **Registrar** y **iniciarla** vínculos.
+Parece bastante bueno. Sin embargo, tenga en cuenta que se muestra la barra de título del explorador "Índice – mi aplicación ASP.NET," y el vínculo grande en la parte superior de la página se lee "Application name". Dependiendo de cómo realizar la ventana del explorador, es posible que deba haga clic en las tres barras en la esquina superior derecha para ver el para el **inicio**, **sobre**, **póngase en contacto con**, **Registrar** y **iniciarla** vínculos.
 
 ## <a name="changing-views-and-layout-pages"></a>Cambiar vistas y páginas de diseño
 
@@ -112,7 +112,7 @@ Nuestra pequeña cantidad de &quot;datos&quot; (en este caso el &quot;Hola desde
 
 Antes de hablar acerca de los modelos y vaya a una base de datos, sin embargo, en primer lugar hablemos acerca de cómo pasar información desde el controlador a una vista. Las clases de controlador se invocan en respuesta a una solicitud de dirección URL entrante. Una clase de controlador es donde se escribe el código que controla el explorador entrante solicita, recupera datos de una base de datos y, en última instancia decida qué tipo de respuesta para enviar al explorador. Plantillas de vista, a continuación, pueden utilizarse desde un controlador para generar y dar formato a una respuesta HTML al explorador.
 
-Los controladores son responsables de proporcionar los datos u objetos son necesarios para una plantilla de vista presentar una respuesta al explorador. Una práctica recomendada: **Una plantilla de vista nunca debe realizar la lógica de negocios ni interactuar directamente con una base de datos**. En su lugar, una plantilla de vista deban trabajar solo con los datos que se proporcionan el controlador. Esto mantiene &quot;separación de preocupaciones&quot; ayuda a mantener el código limpio, fácil de probar y más fácil de mantener.
+Los controladores son responsables de proporcionar los datos u objetos son necesarios para una plantilla de vista presentar una respuesta al explorador. Procedimiento recomendado: **Una plantilla de vista nunca debe realizar la lógica de negocios ni interactuar directamente con una base de datos**. En su lugar, una plantilla de vista deban trabajar solo con los datos que se proporcionan el controlador. Esto mantiene &quot;separación de preocupaciones&quot; ayuda a mantener el código limpio, fácil de probar y más fácil de mantener.
 
 Actualmente, el `Welcome` método de acción en el `HelloWorldController` clase toma un `name` y un `numTimes` parámetro y, a continuación, obtiene los valores directamente en el explorador. En lugar de que el controlador represente esta respuesta como una cadena, vamos a cambiar el controlador para que use una plantilla de vista en su lugar. La plantilla de vista generará una respuesta dinámica, lo que significa que debe pasar las partes de datos adecuadas desde el controlador a la vista para que se genere la respuesta. Para ello, indique al controlador que coloque los datos dinámicos (parámetros) que necesita la plantilla de vista en un `ViewBag` objeto que puede tener acceso la plantilla de vista.
 

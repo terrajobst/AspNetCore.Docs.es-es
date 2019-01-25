@@ -1,18 +1,18 @@
 ---
 title: Hospedaje de producción de ASP.NET Core SignalR y escalado
-author: tdykstra
+author: bradygaster
 description: Obtenga información sobre cómo evitar el rendimiento y escalado de problemas en las aplicaciones que usan ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/scale
-ms.openlocfilehash: 94791ffb73b58a9026942d632bce59773e3fda5b
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 4ac4509acc89d0091a3757c7cfbc9981614f29ad
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452982"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836927"
 ---
 # <a name="aspnet-core-signalr-hosting-and-scaling"></a>Hospedaje de ASP.NET Core SignalR y escalado
 
