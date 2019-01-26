@@ -5,12 +5,12 @@ description: Descubra cómo habilitar la generación de código QR para las apli
 ms.author: riande
 ms.date: 08/14/2018
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 437f354f71128a98bae9abdced291e04efc9f48e
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: cf99cc21a7a1bb4d01c7cc092106d23375a1a76f
+ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225387"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073132"
 ---
 # <a name="enable-qr-code-generation-for-totp-authenticator-apps-in-aspnet-core"></a>Habilitar la generación de código QR para aplicaciones de authenticator TOTP en ASP.NET Core
 
@@ -25,6 +25,8 @@ Códigos QR requiere ASP.NET Core 2.0 o posterior.
 ASP.NET Core se distribuye con el soporte técnico para las aplicaciones de authenticator para la autenticación individual. Dos aplicaciones de autenticador de autenticación (2FA) de factor, con una duración definida por única vez contraseña algoritmo (TOTP), son el enfoque para 2FA recomendado en el sector. 2FA uso TOTP es preferible a SMS 2FA. Una aplicación authenticator proporciona un código de 6 a 8 dígitos que los usuarios deben escribir después de confirmar su nombre de usuario y contraseña. Normalmente, una aplicación de autenticador está instalada en un Smartphone.
 
 Las plantillas de aplicación web de ASP.NET Core admiten autenticadores, pero no proporcionan compatibilidad para la generación de CódigoQR. Los generadores de CódigoQR facilitan la instalación de 2FA. Este documento le guiará a través de agregar [código QR](https://wikipedia.org/wiki/QR_code) generación a la página de configuración 2FA.
+
+Autenticación en dos fases no se realiza mediante un proveedor de autenticación externo, como [Google](xref:security/authentication/google-logins) o [Facebook](xref:security/authentication/facebook-logins). Inicios de sesión externos están protegidos mediante cualquier mecanismo que proporciona el proveedor de inicio de sesión externo. Considere, por ejemplo, el [Microsoft](xref:security/authentication/microsoft-logins) proveedor de autenticación requiere una clave de hardware u otro enfoque de 2FA. Si las plantillas predeterminadas aplican 2FA "local", a continuación, los usuarios se necesitarían para satisfacer dos enfoques 2FA, que no es un escenario frecuente.
 
 ## <a name="adding-qr-codes-to-the-2fa-configuration-page"></a>Agregar códigos QR en la página de configuración de 2FA
 

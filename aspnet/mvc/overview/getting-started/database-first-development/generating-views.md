@@ -1,60 +1,63 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/generating-views
-title: 'EF Database First con MVC de ASP.NET: generación de vistas | Microsoft Docs'
+title: 'Tutorial: Generar vistas para EF Database First con la aplicación de ASP.NET MVC'
+description: En este artículo se centra en usar el Scaffolding de ASP.NET para generar los controladores y vistas.
 author: Rick-Anderson
-description: Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Este tutorial seri...
 ms.author: riande
-ms.date: 12/29/2014
+ms.date: 01/23/2019
+ms.topic: tutorial
 ms.assetid: 669367cf-8e30-4eb6-821d-10a7d9bb906c
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: 7d925573dd4cdf5c1a36e51f312e18093bd35043
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: e1f6646cdf10d293268b92f44b018709e70c0f86
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021097"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889787"
 ---
-<a name="ef-database-first-with-aspnet-mvc-generating-views"></a>EF Database First con MVC de ASP.NET: generación de vistas
-====================
-por [Tom FitzMacken](https://github.com/tfitzmac)
+# <a name="tutorial-generate-views-for-ef-database-first-with-aspnet-mvc-app"></a>Tutorial: Generar vistas para EF Database First con la aplicación de ASP.NET MVC
 
-> Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Esta serie de tutoriales muestra cómo generar el código que permite a los usuarios mostrar, editar, crear automáticamente y eliminar datos que residen en una tabla de base de datos. El código generado corresponde a las columnas de la tabla de base de datos.
-> 
-> Esta parte de la serie se centra en usar el Scaffolding de ASP.NET para generar los controladores y vistas.
+Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Esta serie de tutoriales muestra cómo generar el código que permite a los usuarios mostrar, editar, crear automáticamente y eliminar datos que residen en una tabla de base de datos. El código generado corresponde a las columnas de la tabla de base de datos.
 
+En este artículo se centra en usar el Scaffolding de ASP.NET para generar los controladores y vistas.
+
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Agregar scaffold
+> * Agregar vínculos a las nuevas vistas
+> * Mostrar las vistas de alumno
+> * Mostrar las vistas de inscripción
+
+## <a name="prerequisite"></a>Requisito previo
+
+* [Crear modelos de datos y aplicaciones de web](creating-the-web-application.md)
 
 ## <a name="add-scaffold"></a>Agregar scaffold
 
 Está listo para generar el código que le proporcionará las operaciones de datos estándar para las clases del modelo. Agregue el código mediante la adición de un elemento de scaffolding. Hay muchas opciones para el tipo de scaffolding que puede agregar; en este tutorial, las plantillas scaffold incluirá un controlador y vistas que corresponden a los modelos de inscripción y estudiantes que creó en la sección anterior.
 
-Para mantener la coherencia en el proyecto, agregará el nuevo controlador existente **controladores** carpeta. Haga clic en el **controladores** carpeta y seleccione **agregar** – **nuevo elemento de scaffolding**.
-
-![Agregar scaffold](generating-views/_static/image1.png)
+Para mantener la coherencia en el proyecto, agregará el nuevo controlador existente **controladores** carpeta. Haga clic en el **controladores** carpeta y seleccione **agregar** > **nuevo elemento de scaffolding**.
 
 Seleccione el **controlador MVC 5 con vistas, usando Entity Framework** opción. Esta opción generará el controlador y vistas para actualizar, eliminar, crear y mostrar los datos en el modelo.
 
 ![Agregar controlador de mvc](generating-views/_static/image2.png)
 
-Seleccione **estudiante** para la clase de modelo y seleccione el **ContosoUniversityEntities** para la clase de contexto. Mantenga el nombre del controlador como **StudentsController**,
-
-![Especifique el controlador](generating-views/_static/image3.png)
+Seleccione **Student (ContosoSite.Models)** para la clase de modelo y seleccione el **ContosoUniversityDataEntities (ContosoSite.Models)** para la clase de contexto. Mantenga el nombre del controlador como **StudentsController**.
 
 Haga clic en **Agregar**.
 
 Si recibe un error, es posible que no se compiló el proyecto en la sección anterior. Si es así, intente compilar el proyecto y, a continuación, vuelva a agregar el elemento con scaffolding.
 
-Una vez completado el proceso de generación de código, verá un nuevo controlador y vistas en el proyecto.
+Una vez completado el proceso de generación de código, verá un nuevo controlador y vistas en el proyecto **controladores** y **vistas** > **estudiantes** carpetas .
 
-![Mostrar vistas](generating-views/_static/image4.png)
 
-Vuelva a realizar los mismos pasos, pero agregar una scaffold para la clase de inscripción. Cuando termine, debe tener un **EnrollmentsController.cs** archivo y una carpeta bajo **vistas** denominado **inscripciones** con crear, eliminar, detalles, edición e índice Vistas.
-
-![Mostrar vistas](generating-views/_static/image5.png)
+Vuelva a realizar los mismos pasos, pero agregar scaffolding para el **inscripción** clase. Cuando termine, tendrá un **EnrollmentsController.cs** archivo y una carpeta bajo **vistas** denominado **inscripciones** con las vistas de crear, eliminar, detalles, edición e índice.
 
 ## <a name="add-links-to-new-views"></a>Agregar vínculos a las nuevas vistas
 
-Para facilitar la vaya a las nuevas vistas, puede agregar un par de hipervínculos a las vistas de índice para estudiantes y las inscripciones. Abra el archivo en **Views/Home/Index.cshtml**, que es la página principal de su sitio. Agregue el código siguiente debajo del jumbotron.
+Para facilitar la vaya a las nuevas vistas, puede agregar un par de hipervínculos a las vistas de índice para estudiantes y las inscripciones. Abra el archivo en **vistas** > **principal** > *Index.cshtml*, que es la página principal de su sitio. Agregue el código siguiente debajo del jumbotron.
 
 [!code-cshtml[Main](generating-views/samples/sample1.cshtml)]
 
@@ -64,31 +67,15 @@ El método ActionLink, el primer parámetro es el texto que se muestra en el ví
 
 Comprobará que el código que se agregó correctamente a su proyecto muestra una lista de los estudiantes y permite a los usuarios editar, crear o eliminar los registros de alumnos en la base de datos.
 
-Haga clic en el **Views/Home/Index.cshtml** de archivo y seleccione **ver en el explorador**. En esta página, haga clic en el vínculo para obtener la lista de alumnos.
+Haga clic en el **vistas** > **inicio** > *Index.cshtml* de archivo y seleccione **ver en el explorador**. En la página de inicio de la aplicación, seleccione **lista de alumnos**.
 
 ![](generating-views/_static/image6.png)
 
-En esta página, observe la lista de los estudiantes y vínculos para modificar estos datos.
+En el **índice** página, observe la lista de los estudiantes y vínculos para modificar estos datos. Seleccione el **crear nuevo** vincular y proporcione valores para un alumno nuevo. Haga clic en **crear**y observe el alumno nuevo se agrega a la lista.
 
-![lista de estudiantes](generating-views/_static/image7.png)
-
-Haga clic en el **crear nuevo** vincular y proporcione valores para un alumno nuevo.
-
-![Crear nuevo alumno](generating-views/_static/image8.png)
-
-Haga clic en **crear**y observe el alumno nuevo se agrega a la lista.
-
-![lista con nuevo alumno](generating-views/_static/image9.png)
-
-Seleccione el **editar** vincular y cambiar algunos de los valores de un alumno.
-
-![Editar alumno](generating-views/_static/image10.png)
-
-Haga clic en **guardar**y observe el registro de estudiante ha cambiado.
+En el **índice** página, seleccione el **editar** vincular y cambiar algunos de los valores de un alumno. Haga clic en **guardar**y observe el registro de estudiante ha cambiado.
 
 Por último, seleccione el **eliminar** vincular y confirmar que desea eliminar el registro, haga clic en el **eliminar** botón.
-
-![Eliminar alumno](generating-views/_static/image11.png)
 
 Sin escribir ningún código, ha agregado vistas que realizan operaciones comunes en los datos en la tabla Student.
 
@@ -96,16 +83,24 @@ Es podrán que haya observado que la etiqueta de texto para un campo se basa en 
 
 ## <a name="display-enrollment-views"></a>Mostrar las vistas de inscripción
 
-La base de datos incluye una relación uno a varios entre las tablas Student e inscripción y una relación uno a varios entre las tablas Course y Enrollment. Las vistas para la inscripción de controlan correctamente estas relaciones. Vaya a la página principal de su sitio y seleccione el **lista de inscripciones de** vínculo y, a continuación, el **crear nuevo** vínculo. La vista muestra un formulario para crear un nuevo registro de inscripción. En concreto, tenga en cuenta que el formulario contiene dos listas desplegables que se rellenan con valores de las tablas relacionadas.
+La base de datos incluye una relación uno a varios entre las tablas Student e inscripción y una relación uno a varios entre las tablas Course y Enrollment. Las vistas para la inscripción de controlan correctamente estas relaciones. Vaya a la página principal de su sitio y seleccione el **lista de inscripciones de** vínculo y, a continuación, el **crear nuevo** vínculo.
 
-![crear la inscripción](generating-views/_static/image12.png)
+La vista muestra un formulario para crear un nuevo registro de inscripción. En concreto, tenga en cuenta que el formulario contiene un **CourseID** lista desplegable y un **StudentID** lista desplegable. Ambos se rellenan con valores de las tablas relacionadas.
 
-Además, la validación de los valores proporcionados se aplica automáticamente en función del tipo de datos del campo. Nivel requiere un número, por lo que se muestra un mensaje de error si intenta proporcionar un valor incompatible.
-
-![mensaje de validación](generating-views/_static/image13.png)
+Además, la validación de los valores proporcionados se aplica automáticamente en función del tipo de datos del campo. **Grado** requiere un número, por lo que se muestra un mensaje de error si intenta proporcionar un valor incompatible: *El nivel de campo debe ser un número.*
 
 Ha comprobado que las vistas genera automáticamente los usuarios pueden trabajar con los datos en la base de datos. En el siguiente tutorial de esta serie, va a actualizar la base de datos y haga los cambios correspondientes en la aplicación web.
 
-> [!div class="step-by-step"]
-> [Anterior](creating-the-web-application.md)
-> [Siguiente](changing-the-database.md)
+## <a name="next-steps"></a>Pasos siguientes
+
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Se ha agregado scaffold
+> * Se han agregado vínculos a las nuevas vistas
+> * Vistas de alumno mostrados
+> * Vistas de inscripción mostrados
+
+Avance al siguiente artículo para obtener información sobre cómo cambiar la base de datos.
+> [!div class="nextstepaction"]
+> [Cambiar la base de datos](changing-the-database.md)
