@@ -4,14 +4,14 @@ author: rick-anderson
 description: Compilación de una API web con ASP.NET Core MVC
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/10/2018
+ms.date: 01/24/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 03936ee74836c7b214cb3dc4023a6e3c252f2a26
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 65af70be2cec68d30dd712b80312ebcd40ea0624
+ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207452"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55065053"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Tutorial: Creación de una API web con ASP.NET Core MVC
 
@@ -168,13 +168,9 @@ El *contexto de base de datos* es la clase principal que coordina la funcionalid
 
 * Haga clic con el botón derecho en la carpeta *Models* y seleccione **Agregar** > **Clase**. Asigne a la clase el nombre *TodoContext* y haga clic en **Agregar**.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
 
 * Agregue una clase `TodoContext` a la carpeta *Models*.
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
-
-* Agregue una clase `TodoContext` a la carpeta *Models*:
 
 ---
 
@@ -207,13 +203,9 @@ El código anterior:
 
   ![Cuadro de diálogo Agregar nuevo elemento con la palabra "controller" en el cuadro de búsqueda y la opción Clase de controlador de API web seleccionada](first-web-api/_static/new_controller.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
 
 * En la carpeta *Controllers*, cree una clase denominada `TodoController`.
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
-
-* En la carpeta *Controllers*, agregue la clase `TodoController`.
 
 ---
 
@@ -265,13 +257,11 @@ El atributo [`[HttpGet]`](/dotnet/api/microsoft.aspnetcore.mvc.httpgetattribute)
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=TodoController&highlight=3)]
 
 * Reemplace `[controller]` por el nombre del controlador, que convencionalmente es el nombre de clase de controlador sin el sufijo "Controller". En este ejemplo, el nombre de clase de controlador es **Todo**Controller; por tanto, el nombre del controlador es "todo". El [enrutamiento](xref:mvc/controllers/routing) en ASP.NET Core no distingue entre mayúsculas y minúsculas.
-* Si el atributo `[HttpGet]` tiene una plantilla de ruta (por ejemplo `[HttpGet("/products")]`), anéxela a la ruta de acceso. En este ejemplo no se usa una plantilla. Para más información, vea [Enrutamiento mediante atributos con atributos Http[Verb]](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
+* Si el atributo `[HttpGet]` tiene una plantilla de ruta (por ejemplo, `[HttpGet("products")]`), anéxela a la ruta de acceso. En este ejemplo no se usa una plantilla. Para más información, vea [Enrutamiento mediante atributos con atributos Http[Verb]](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
 
 En el siguiente método `GetTodoItem`, `"{id}"` es una variable de marcador de posición correspondiente al identificador único de la tarea pendiente. Al invocar a `GetTodoItem`, el valor `"{id}"` de la dirección URL se proporciona al método en su parámetro `id`.
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
-
-El parámetro `Name = "GetTodo"` crea una ruta con nombre. Más adelante verá cómo la aplicación puede usar el nombre para crear un vínculo HTTP mediante el nombre de ruta.
 
 ## <a name="return-values"></a>Valores devueltos
 
@@ -313,9 +303,9 @@ El código anterior es un método HTTP POST, según indica el atributo [[HttpPos
 
 El método `CreatedAtAction` realiza las acciones siguientes:
 
-* Devuelve una respuesta 201. HTTP 201 es la respuesta estándar para un método HTTP POST que crea un recurso en el servidor.
-* Agrega un encabezado de ubicación a la respuesta. El encabezado de ubicación especifica el URI de la tarea pendiente recién creada. Para obtener más información, consulte [10.2.2 201 creado](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
-* Usa la ruta denominada "GetTodo" para crear la dirección URL. La ruta con nombre "GetTodo" se define en `GetTodoItem`:
+* Devuelve un código de estado HTTP 201 cuando se ha ejecutado correctamente. HTTP 201 es la respuesta estándar para un método HTTP POST que crea un recurso en el servidor.
+* Agrega un encabezado `Location` a la respuesta. El encabezado `Location` especifica el identificador URI de la tarea pendiente recién creada. Para obtener más información, consulte [10.2.2 201 creado](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+* Hace referencia a la acción `GetTodoItem` para crear el identificador URI del encabezado `Location`. La palabra clave `nameof` de C# se usa para evitar que se codifique de forma rígida el nombre de acción en la llamada a `CreatedAtAction`.
 
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 

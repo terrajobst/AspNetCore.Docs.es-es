@@ -5,14 +5,14 @@ description: Obtenga información sobre las ventajas de precompilar archivos Raz
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/23/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: f5888cf43d8d8192acedaa33b3fa0f313737fc9b
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 2720708f8e58fdc55b82bfb56665005170e79934
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011292"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889761"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Compilación de archivos de Razor en ASP.NET Core
 
@@ -95,6 +95,25 @@ Se crea un archivo *<Nombre_proyecto>.PrecompiledViews.dll*, que contiene los ar
 ![Vistas de Razor dentro de DLL](view-compilation/_static/razor-views-in-dll.png)
 
 ::: moniker-end
+
+## <a name="recompile-razor-files-on-change"></a>Recompilación de archivos de Razor al cambiar
+
+<xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions> `AllowRecompilingViewsOnFileChange` obtiene o establece un valor que determina si los archivos de Razor (vistas y Razor Pages) se vuelven a compilar y actualizar si cambian los archivos en el disco.
+
+Cuando se establece en `true`, [IFileProvider.Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*) observa los cambios realizados en los archivos de Razor en las instancias de <xref:Microsoft.Extensions.FileProviders.IFileProvider> configuradas.
+
+El valor predeterminado es `true` para:
+
+* Aplicaciones ASP.NET Core 2.1 o versiones anteriores.
+* Aplicaciones ASP.NET Core 2.2 o versiones posteriores en el entorno de desarrollo.
+
+`AllowRecompilingViewsOnFileChange` se asocia con un modificador de compatibilidad y puede proporcionar un comportamiento diferente según la versión de compatibilidad configurada para la aplicación. La configuración de la aplicación estableciendo `AllowRecompilingViewsOnFileChange` tiene prioridad sobre el valor implícito en la versión de compatibilidad de la aplicación.
+
+Si se establece la versión de compatibilidad de la aplicación en <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> o versiones anteriores, `AllowRecompilingViewsOnFileChange` se establece en `true`, a menos que se haya configurado explícitamente.
+
+Si se establece la versión de compatibilidad de la aplicación en `CompatibilityVersion.Version_2_2` o versiones posteriores, `AllowRecompilingViewsOnFileChange` se establece en `false`, a menos que el entorno sea el de desarrollo o el valor se configure explícitamente.
+
+Para obtener instrucciones y ejemplos de configuración de la versión de compatibilidad de la aplicación, consulte <xref:mvc/compatibility-version>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

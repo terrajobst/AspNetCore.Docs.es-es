@@ -34,7 +34,7 @@ Para cada archivo con Markdown, puede haber una carpeta para las imágenes y una
 ![description of image for alt attribute](configuration/index/_static/imagename.png)
 ```
 
-Todas las imágenes deben tener [texto alternativo (alt)](https://wikipedia.org/wiki/Alt_attribute). Para obtener consejos sobre cómo especificar el texto alternativo, eche un vistazo a recursos en línea, como [WebAIM: Alternative Text](https://webaim.org/techniques/alttext/) (WebAIM: Texto alternativo).
+Todas las imágenes deben tener [texto alternativo (alt)](https://wikipedia.org/wiki/Alt_attribute). Para obtener consejos sobre cómo especificar texto alternativo, consulte recursos en línea, como [WebAIM: Alternative Text](https://webaim.org/techniques/alttext/) (WebAIM: Texto alternativo).
 
 Use minúsculas para nombres de archivo Markdown y nombres de archivo de imagen.
 
@@ -124,22 +124,20 @@ DocFX necesita:
 
 ### <a name="mono-instructions"></a>Instrucciones para Mono
 
-* Instale Mono a través de Homebrew: `brew install mono`.
+* Instale Mono a través de Homebrew:
+
+  ```
+  brew install mono
+  ```
 * Descargue la [versión más reciente de DocFX](https://github.com/dotnet/docfx/releases).
-* Extraiga en `\bin\docfx`.
-* Cree un alias para **docfx**:
+* Extraiga el archivo en *$HOME/bin/docfx*.
+* Cree un par de alias para **docfx** en un shell de Bash. El primer alias se usa para generar la documentación. El segundo alias se usa para crear y publicar la documentación.
 
   ```
-  function docfx {
-    mono $HOME/bin/docfx/docfx.exe
-  }
-    
-  function docfx-serve {
-    mono $HOME/bin/docfx/docfx.exe serve _site
-  }
+  alias docfx='mono $HOME/bin/docfx/docfx.exe'
+  alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
   ```
-
-* Ejecute `docfx` en el directorio *Docs\aspnet* o *Docs\aspnetcore* para compilar el sitio. Ejecute `docfx-serve` para ver el sitio en `http://localhost:8080`.
+* Ejecute `docfx` desde la raíz del repositorio para crear el sitio. Ejecute `docfx-serve` para ver el sitio en `http://localhost:8080`.
 
 ## <a name="voice-and-tone"></a>Voz y tono
 

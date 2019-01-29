@@ -5,20 +5,20 @@ description: Obtenga información sobre cómo usar la interfaz IHttpClientFactor
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 08/07/2018
+ms.date: 01/25/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 693e9d64f47704400cbfa9e46b866f39278d82f6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 4fc4e602b809563ea78b6a3af5e5eb5c0ebeddea
+ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207646"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55065040"
 ---
 # <a name="initiate-http-requests"></a>Inicio de solicitudes HTTP
 
 Por [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak) y [Steve Gordon](https://github.com/stevejgordon)
 
-Se puede registrar y usar un [IHttpClientFactory](/dotnet/api/system.net.http.ihttpclientfactory) para crear y configurar instancias de [HttpClient](/dotnet/api/system.net.http.httpclient) en una aplicación. Esto reporta las siguientes ventajas:
+Se puede registrar y usar una interfaz <xref:System.Net.Http.IHttpClientFactory> para crear y configurar instancias de <xref:System.Net.Http.HttpClient> en una aplicación. Esto reporta las siguientes ventajas:
 
 * Proporciona una ubicación central para denominar y configurar instancias de `HttpClient` lógicas. Así, por ejemplo, se puede registrar y configurar un cliente *github* para tener acceso a GitHub. y, de igual modo, registrar otro cliente predeterminado para otros fines.
 * Codifica el concepto de middleware saliente a través de controladores de delegación en `HttpClient` y proporciona extensiones para middleware basado en Polly para poder sacar partido de este.
@@ -48,11 +48,11 @@ Se puede registrar un `IHttpClientFactory` llamando al método de extensión `Ad
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet1)]
 
-Una vez registrado, el código puede aceptar un `IHttpClientFactory` en cualquier parte donde se puedan insertar servicios por medio de la [inserción de dependencias](xref:fundamentals/dependency-injection). El `IHttpClientFactory` se puede usar para crear una instancia de `HttpClient`:
+Una vez registrado, el código puede aceptar una interfaz `IHttpClientFactory` en cualquier parte donde se puedan insertar servicios por medio de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection). El `IHttpClientFactory` se puede usar para crear una instancia de `HttpClient`:
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Pages/BasicUsage.cshtml.cs?name=snippet1&highlight=9-12,21)]
 
-Cuando `IHttpClientFactory` se usa de este modo, constituye una excelente manera de refactorizar una aplicación existente. No tiene efecto alguno en la forma en que `HttpClient` se usa. En aquellos sitios en los que ya se hayan creado instancias de `HttpClient`, reemplace esas apariciones por una llamada a [CreateClient](/dotnet/api/system.net.http.ihttpclientfactory.createclient).
+Cuando `IHttpClientFactory` se usa de este modo, constituye una excelente manera de refactorizar una aplicación existente. No tiene efecto alguno en la forma en que `HttpClient` se usa. En aquellos sitios en los que ya se hayan creado instancias de `HttpClient`, reemplace esas apariciones por una llamada a <xref:System.Net.Http.IHttpClientFactory.CreateClient*>.
 
 ### <a name="named-clients"></a>Clientes con nombre
 
@@ -80,7 +80,7 @@ Un cliente con tipo acepta un parámetro `HttpClient` en su constructor:
 
 En el código anterior, la configuración se mueve al cliente con tipo. El objeto `HttpClient` se expone como una propiedad pública. Se pueden definir métodos específicos de API que exponen la funcionalidad `HttpClient`. El método `GetAspNetDocsIssues` encapsula el código necesario para consultar y analizar los últimos problemas abiertos de un repositorio de GitHub.
 
-Para registrar un cliente con tipo, se puede usar el método de extensión genérico `AddHttpClient` dentro de `Startup.ConfigureServices`, especificando la clase del cliente con tipo:
+Para registrar un cliente con tipo, se puede usar el método de extensión genérico <xref:Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions.AddHttpClient*> dentro de `Startup.ConfigureServices`, especificando la clase del cliente con tipo:
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet3)]
 
@@ -157,21 +157,41 @@ public class ValuesController : ControllerBase
 
 `HttpClient` ya posee el concepto de controladores de delegación, que se pueden vincular entre sí para las solicitudes HTTP salientes. `IHttpClientFactory` permite definir fácilmente los controladores que se usarán en cada cliente con nombre. Admite el registro y encadenamiento de varios controladores para crear una canalización de middleware de solicitud saliente. Cada uno de estos controladores es capaz de realizar la tarea antes y después de la solicitud de salida. Este patrón es similar a la canalización de middleware de entrada de ASP.NET Core. Dicho patrón proporciona un mecanismo para administrar cuestiones transversales relativas a las solicitudes HTTP, como el almacenamiento en caché, el control de errores, la serialización y el registro.
 
-Para crear un controlador, defina una clase que se derive de `DelegatingHandler`. Invalide el método `SendAsync` para ejecutar el código antes de pasar la solicitud al siguiente controlador de la canalización:
+Para crear un controlador, defina una clase que se derive de <xref:System.Net.Http.DelegatingHandler>. Invalide el método `SendAsync` para ejecutar el código antes de pasar la solicitud al siguiente controlador de la canalización:
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Handlers/ValidateHeaderHandler.cs?name=snippet1)]
 
 El código anterior define un controlador básico. Comprueba si se ha incluido un encabezado `X-API-KEY` en la solicitud. Si no está presente, puede evitar la llamada HTTP y devolver una respuesta adecuada.
 
-Durante el registro, se pueden agregar uno o varios controladores a la configuración de un `HttpClient`. Esta tarea se realiza a través de métodos de extensión en [IHttpClientBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder).
+Durante el registro, se pueden agregar uno o varios controladores a la configuración de un `HttpClient`. Esta tarea se realiza a través de métodos de extensión en <xref:Microsoft.Extensions.DependencyInjection.IHttpClientBuilder>.
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet5)]
 
-En el código anterior, `ValidateHeaderHandler` se ha registrado con inserción de dependencias. El controlador **debe** estar registrado en la inserción de dependencias como transitorio. Una vez registrado, se puede llamar a [AddHttpMessageHandler](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.addhttpmessagehandler) pasando el tipo del controlador.
+::: moniker range=">= aspnetcore-2.2"
+
+En el código anterior, `ValidateHeaderHandler` se ha registrado con inserción de dependencias. `IHttpClientFactory` crea un ámbito de inserción de dependencias independiente para cada controlador. Los controladores pueden depender de servicios de cualquier ámbito. Los servicios de los que dependen los controladores se eliminan cuando se elimina el controlador.
+
+Una vez registrado, se puede llamar a <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.AddHttpMessageHandler*>, pasando el tipo del controlador.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+En el código anterior, `ValidateHeaderHandler` se ha registrado con inserción de dependencias. El controlador **debe** estar registrado en la inserción de dependencias como servicio transitorio, nunca como servicio con ámbito. Si el controlador está registrado como un servicio con ámbito y los servicios de los que depende el controlador son descartables, los servicios del controlador podrían eliminarse antes de que el controlador salga del ámbito, lo que haría que se produjeran errores en el controlador.
+
+Una vez registrado, se puede llamar a <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.AddHttpMessageHandler*>, con lo que se pasa el tipo de controlador.
+
+::: moniker-end
 
 Se pueden registrar varios controladores en el orden en que deben ejecutarse. Cada controlador contiene el siguiente controlador hasta que el último `HttpClientHandler` ejecuta la solicitud:
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet6)]
+
+Use uno de los siguientes enfoques para compartir el estado por solicitud con controladores de mensajes:
+
+* Pase datos al controlador usando `HttpRequestMessage.Properties`.
+* Use `IHttpContextAccessor` para acceder a la solicitud actual.
+* Cree un objeto de almacenamiento `AsyncLocal` personalizado para pasar los datos.
 
 ## <a name="use-polly-based-handlers"></a>Usar controladores basados en Polly
 
@@ -221,15 +241,17 @@ Encontrará más información sobre `IHttpClientFactory` y las integraciones de 
 
 ## <a name="httpclient-and-lifetime-management"></a>HttpClient y administración de la duración
 
-Cada vez que se llama a `CreateClient` en `IHttpClientFactory`, se devuelve una nueva instancia de `HttpClient`. Habrá un [HttpMessageHandler](/dotnet/api/system.net.http.httpmessagehandler) por cada cliente con nombre. `IHttpClientFactory` agrupa las instancias de `HttpMessageHandler` creadas por Factory para reducir el consumo de recursos. Se puede reutilizar una instancia de `HttpMessageHandler` del grupo al crear una instancia de `HttpClient` si su duración aún no ha expirado.
+Cada vez que se llama a `CreateClient` en `IHttpClientFactory`, se devuelve una nueva instancia de `HttpClient`. Hay un controlador <xref:System.Net.Http.HttpMessageHandler> por cliente con nombre. La fábrica administra la duración de las instancias de `HttpMessageHandler`.
+
+`IHttpClientFactory` agrupa las instancias de `HttpMessageHandler` creadas por Factory para reducir el consumo de recursos. Se puede reutilizar una instancia de `HttpMessageHandler` del grupo al crear una instancia de `HttpClient` si su duración aún no ha expirado.
 
 Se recomienda agrupar controladores porque cada uno de ellos normalmente administra sus propias conexiones HTTP subyacentes. Crear más controladores de los necesarios puede provocar retrasos en la conexión. Además, algunos controladores dejan las conexiones abiertas de forma indefinida, lo que puede ser un obstáculo a la hora de reaccionar ante los cambios de DNS.
 
-La duración de controlador predeterminada es dos minutos. El valor predeterminado se puede reemplazar individualmente en cada cliente con nombre. Para ello, llame a [SetHandlerLifetime](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.sethandlerlifetime) en la interfaz `IHttpClientBuilder` que se devuelve cuando se crea el cliente:
+La duración de controlador predeterminada es dos minutos. El valor predeterminado se puede reemplazar individualmente en cada cliente con nombre. Para ello, llame a <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.SetHandlerLifetime*> en el `IHttpClientBuilder` que se devuelve cuando se crea el cliente:
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet11)]
 
-No hace falta eliminar el cliente, ya que se cancelan las solicitudes salientes y la instancia de `HttpClient` determinada no se puede usar después de llamar a [Dispose](/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose). `IHttpClientFactory` realiza un seguimiento y elimina los recursos que usan las instancias de `HttpClient`. Normalmente, las instancias de `HttpClient` pueden tratarse como objetos de .NET que no requieren eliminación.
+No hace falta eliminar el cliente, ya que se cancelan las solicitudes salientes y la instancia de `HttpClient` determinada no se puede usar después de llamar a <xref:System.IDisposable.Dispose*>. `IHttpClientFactory` realiza un seguimiento y elimina los recursos que usan las instancias de `HttpClient`. Normalmente, las instancias de `HttpClient` pueden tratarse como objetos de .NET que no requieren eliminación.
 
 Mantener una sola instancia de `HttpClient` activa durante un período prolongado es un patrón común que se utiliza antes de la concepción de `IHttpClientFactory`. Este patrón se convierte en innecesario tras la migración a `IHttpClientFactory`.
 
@@ -249,6 +271,6 @@ Si el nombre del cliente se incluye en la categoría de registro, dicho registro
 
 Puede que sea necesario controlar la configuración del elemento `HttpMessageHandler` interno usado por un cliente.
 
-Se devuelve un `IHttpClientBuilder` cuando se agregan clientes con nombre o con tipo. El método de extensión [ConfigurePrimaryHttpMessageHandler](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.configureprimaryhttpmessagehandler) puede utilizarse para definir un delegado. Este delegado servirá para crear y configurar el elemento principal `HttpMessageHandler` que ese cliente usa:
+Se devuelve un `IHttpClientBuilder` cuando se agregan clientes con nombre o con tipo. Se puede usar el método de extensión <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.ConfigurePrimaryHttpMessageHandler*> para definir un delegado. Este delegado servirá para crear y configurar el elemento principal `HttpMessageHandler` que ese cliente usa:
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet12)]

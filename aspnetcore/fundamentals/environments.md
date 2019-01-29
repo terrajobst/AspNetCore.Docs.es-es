@@ -3,14 +3,14 @@ title: Usar varios entornos en ASP.NET Core
 author: rick-anderson
 description: Aprenda a controlar el comportamiento de las aplicaciones en varios entornos en aplicaciones ASP.NET Core.
 ms.author: riande
-ms.date: 07/03/2018
+ms.date: 01/22/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 642af9e8f9e322e3624dad46bb1463f6525f5c9e
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 39e1b48481832a6d76de605b37410fe2e16dcd88
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341672"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836745"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Usar varios entornos en ASP.NET Core
 
@@ -237,6 +237,20 @@ Cuando la variable de entorno `ASPNETCORE_ENVIRONMENT` se establece de forma glo
 **web.config**
 
 Para establecer la variable de entorno `ASPNETCORE_ENVIRONMENT` con *web.config*, vea la sección *Establecimiento de variables de entorno* de <xref:host-and-deploy/aspnet-core-module#setting-environment-variables>. Cuando la variable de entorno `ASPNETCORE_ENVIRONMENT` se establece con *web.config*, su valor reemplaza a un valor en el nivel de sistema.
+
+::: moniker range=">= aspnetcore-2.2"
+
+**Archivo del proyecto o perfil de publicación**
+
+**Para las implementaciones de IIS de Windows:** Incluya la propiedad `<EnvironmentName>` del perfil de publicación (*.pubxml*) o un archivo de proyecto. Este método establece el entorno en *web.config* cuando se publica el proyecto:
+
+```xml
+<PropertyGroup>
+  <EnvironmentName>Development</EnvironmentName>
+</PropertyGroup>
+```
+
+::: moniker-end
 
 **Por grupo de aplicaciones de IIS**
 

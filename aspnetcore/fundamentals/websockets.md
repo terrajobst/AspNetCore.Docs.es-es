@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo empezar a usar WebSockets en ASP.N
 monikerRange: '>= aspnetcore-1.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/06/2018
+ms.date: 01/17/2019
 uid: fundamentals/websockets
-ms.openlocfilehash: 6c32269181ea3311c4aea99c08a1c043e7833b05
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 76acb9c96ed5e8bbbaf39eeb6cb23307bb44fb8d
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341459"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836863"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Compatibilidad con WebSockets en ASP.NET Core
 
@@ -144,6 +144,12 @@ El código antes mostrado que acepta la solicitud WebSocket pasa el objeto `WebS
 Cuando la conexión WebSocket se acepta antes de que el bucle comience, la canalización de middleware finaliza. Tras cerrar el socket, se desenreda la canalización. Es decir, la solicitud deja de avanzar en la canalización cuando WebSocket se acepta, pero cuando el bucle termina y el socket se cierra, la solicitud vuelve a recorrer la canalización.
 
 ::: moniker range=">= aspnetcore-2.2"
+
+### <a name="handle-client-disconnects"></a>Control de las desconexiones del cliente
+
+No se informa automáticamente al servidor cuando el cliente se desconecta debido a la pérdida de conectividad. El servidor recibe un mensaje de desconexión solo si el cliente lo envía, acción que no se puede realizar si se pierde la conexión a Internet. Si desea realizar alguna acción cuando eso suceda, establezca un tiempo de expiración después de que no se reciba del cliente dentro de un determinado período.
+
+Si el cliente no siempre está enviando mensajes y no quiere que se agote el tiempo de expiración solo porque la conexión está inactiva, haga que el cliente utilice un temporizador para enviar un mensaje de ping cada equis segundos. En el servidor, si aún no ha llegado un mensaje dentro de 2\*X segundos después del anterior, termine la conexión e informe que ha desconectado el cliente. Espere el doble del intervalo de tiempo esperado para dejar tiempo extra para los retrasos de la red que podrían retener el mensaje de ping.
 
 ### <a name="websocket-origin-restriction"></a>Restricción de los orígenes de WebSocket
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 16f3a435af267a5a17a24ee9fbda2b1c7c8818fd
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: c21decd39b7855cf2eefb2bb482e5e91b9487863
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121627"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889943"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Crear asistentes de etiquetas en ASP.NET Core
 
@@ -96,7 +96,7 @@ Actualice la clase `EmailTagHelper` con lo siguiente:
 
 [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailTo.cs?range=6-22)]
 
-* Los nombres de clase y propiedad con grafía Pascal para los asistentes de etiquetas se convierten a su [grafía kebab en minúsculas](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). Por tanto, para usar el atributo `MailTo`, usará su equivalente `<email mail-to="value"/>`.
+* Los nombres de clase y propiedad con grafía Pascal para los asistentes de etiquetas se convierten a su [grafía kebab](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). Por tanto, para usar el atributo `MailTo`, usará su equivalente `<email mail-to="value"/>`.
 
 * La última línea establece el contenido completado para nuestro asistente de etiquetas mínimamente funcional.
 
@@ -189,7 +189,7 @@ También puede usar `[HtmlTargetElement]` para cambiar el nombre del elemento de
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/WebsiteInformationTagHelper.cs)]
 
-   * Como se ha indicado anteriormente, los asistentes de etiquetas convierten las propiedades y nombres de clase de C# con grafía Pascal para asistentes de etiquetas en [grafía kebab en minúsculas](http://wiki.c2.com/?KebabCase). Por tanto, para usar `WebsiteInformationTagHelper` en Razor, deberá escribir `<website-information />`.
+   * Como se ha indicado anteriormente, los asistentes de etiquetas convierten las propiedades y nombres de clase de C# con grafía Pascal para asistentes de etiquetas en [grafía kebab](http://wiki.c2.com/?KebabCase). Por tanto, para usar `WebsiteInformationTagHelper` en Razor, deberá escribir `<website-information />`.
 
    * No está identificando de manera explícita el elemento de destino con el atributo `[HtmlTargetElement]`, por lo que el destino será el valor predeterminado de `website-information`. Si ha aplicado el atributo siguiente (tenga en cuenta que no tiene grafía kebab, pero coincide con el nombre de clase):
 
@@ -197,7 +197,7 @@ También puede usar `[HtmlTargetElement]` para cambiar el nombre del elemento de
    [HtmlTargetElement("WebsiteInformation")]
    ```
 
-   La etiqueta con grafía kebab en minúsculas `<website-information />` no coincidiría. Si quiere usar el atributo `[HtmlTargetElement]`, debe usar la grafía kebab como se muestra a continuación:
+   La etiqueta con grafía kebab `<website-information />` no coincidiría. Si quiere usar el atributo `[HtmlTargetElement]`, debe usar la grafía kebab como se muestra a continuación:
 
    ```csharp
    [HtmlTargetElement("Website-Information")]

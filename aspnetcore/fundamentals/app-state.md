@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 23bbb3063d696f588abecb1fe05ea3381ab2346d
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: a510e4f49e158203dd7c5e1e0bd28472541f7925
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341698"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836342"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Estado de sesión y aplicación en ASP.NET Core
 
@@ -48,7 +48,7 @@ Preste atención al [reglamento general de protección de datos (GDPR) de la Uni
 
 ## <a name="session-state"></a>Estado de sesión
 
-El estado de sesión es un escenario de ASP.NET Core para el almacenamiento de datos de usuario mientras el usuario examina una aplicación web. El estado de sesión usa un almacén mantenido por la aplicación para conservar los datos en las solicitudes de un cliente. Los datos de sesión están respaldados por una memoria caché y se consideran datos efímeros y el sitio debería continuar funcionando correctamente sin los datos de sesión.
+El estado de sesión es un escenario de ASP.NET Core para el almacenamiento de datos de usuario mientras el usuario examina una aplicación web. El estado de sesión usa un almacén mantenido por la aplicación para conservar los datos en las solicitudes de un cliente. Los datos de sesión están respaldados por una memoria caché y se consideran datos efímeros y el sitio debería continuar funcionando correctamente sin los datos de sesión. Los datos críticos de aplicaciones deben almacenarse en la base de datos de usuario y almacenarse en caché en la sesión solo para optimizar el rendimiento.
 
 > [!NOTE]
 > La sesión no es compatible con aplicaciones [SignalR](xref:signalr/index) porque un [concentrador SignalR](xref:signalr/hubs) podría ejecutarse independientemente de un contexto HTTP. Por ejemplo, esto puede ocurrir cuando un concentrador mantiene abierta una solicitud de sondeo larga más allá de la duración del contexto HTTP de la solicitud.

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/14/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 96d098115f2f9b150f796e08cf14e60611f59e17
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: c5303ad418660fa31fe9094f0e61ee31f5d988f7
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341763"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54890021"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -666,6 +666,26 @@ Para obtener más información sobre la sintaxis de expresiones regulares, vea [
 
 Para restringir un parámetro a un conjunto conocido de valores posibles, use una expresión regular. Por ejemplo, `{action:regex(^(list|get|create)$)}` solo hace coincidir el valor de ruta `action` con `list`, `get` o `create`. Si se pasa al diccionario de restricciones, la cadena `^(list|get|create)$` es equivalente. Las restricciones que se pasan al diccionario de restricciones (no insertado en una plantilla) que no coinciden con una de las restricciones conocidas también se tratan como expresiones regulares.
 
+## <a name="custom-route-constraints"></a>Restricciones de ruta personalizadas
+
+Además de las restricciones de ruta integradas, se pueden crear restricciones de ruta personalizadas implementando la interfaz <xref:Microsoft.AspNetCore.Routing.IRouteConstraint>. La interfaz `IRouteConstraint` contiene un único método, `Match`, que devuelve `true` si se cumple la restricción, y `false` en caso contrario.
+
+Para utilizar una restricción `IRouteConstraint` personalizada, el tipo de restricción de ruta debe registrarse con el parámetro `RouteOptions.ConstraintMap` de la aplicación en el contenedor de servicios de la aplicación. <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> es un diccionario que asigna claves de restricciones de ruta a implementaciones de `IRouteConstraint` que validen esas restricciones. El parámetro `RouteOptions.ConstraintMap` de una aplicación puede actualizarse en `Startup.ConfigureServices` como parte de una llamada a `services.AddRouting` o configurando `RouteOptions` directamente con `services.Configure<RouteOptions>`. Por ejemplo:
+
+```csharp
+services.AddRouting(options =>
+{
+    options.ConstraintMap.Add("customName", typeof(MyCustomConstraint));
+});
+```
+
+La restricción puede aplicarse a las rutas de la manera habitual, usando el nombre especificado al registrar el tipo de restricción. Por ejemplo:
+
+```csharp
+[HttpGet("{id:customName}")]
+public ActionResult<string> Get(string id)
+```
+
 ::: moniker range=">= aspnetcore-2.2"
 
 ## <a name="parameter-transformer-reference"></a>Referencia de transformadores de parámetros
@@ -737,3 +757,9 @@ routes.MapRoute("blog_route", "blog/{*slug}",
 ```
 
 La generación de vínculos solo genera un vínculo para esta ruta si se proporcionan los valores coincidentes para `controller` y `action`.
+
+## <a name="complex-segments"></a>Segmentos complejos
+
+Los segmentos complejos (por ejemplo, `[Route("/x{token}y")]`), se procesan buscando coincidencias de literales de derecha a izquierda de un modo no expansivo. Consulte [este código](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) para obtener una explicación detallada de cómo se comparan los segmentos complejos. El [código de ejemplo](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) no se usa en ASP.NET Core, pero proporciona una buena explicación de los segmentos complejos.
+<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/aspnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
+-->

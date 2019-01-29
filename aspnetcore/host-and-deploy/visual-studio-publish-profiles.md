@@ -4,14 +4,14 @@ author: rick-anderson
 description: Aprenda a crear perfiles de publicación en Visual Studio y usarlos para administrar implementaciones de aplicaciones ASP.NET Core en diversos destinos.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/06/2018
+ms.date: 01/22/2019
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 3d24cd2cd4697e8e7cf7e4bdf4d076a09b6a6a23
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 03acaa73fc2ebdc62522a1e081ca6ed72515483f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284713"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836498"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Perfiles de publicación de Visual Studio para la implementación de aplicaciones ASP.NET Core
 
@@ -157,7 +157,7 @@ El recurso compartido de red se especifica con barras diagonales (*//r8/*) y fun
 
 Confirme que la aplicación publicada para la implementación no se está ejecutando. Los archivos de la carpeta *publish* quedan bloqueados mientras se ejecuta la aplicación. No se puede llevar a cabo la implementación porque no se pueden copiar los archivos bloqueados.
 
-## <a name="publish-profiles"></a>Perfiles de publicación
+## <a name="publish-profiles"></a>Publicar los perfiles
 
 En esta sección se usa Visual Studio 2017 o versiones posteriores para crear un perfil de publicación. Una vez creado el perfil, es posible realizar la publicación desde Visual Studio o la línea de comandos.
 
@@ -336,6 +336,16 @@ dotnet msbuild "AzureWebApp.csproj"
 
 > [!NOTE]
 > El comando [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild) es multiplataforma y permite compilar aplicaciones ASP.NET Core en macOS y Linux. Sin embargo, MSBuild en macOS y Linux no permite implementar una aplicación en Azure ni en otro punto de conexión de MSDeploy. MSDeploy solo está disponible en Windows.
+
+## <a name="set-the-environment"></a>Establecimiento del entorno
+
+Incluya la propiedad `<EnvironmentName>` en el perfil de publicación (*.pubxml*) o el archivo del proyecto para configurar el [entorno](xref:fundamentals/environments) de la aplicación:
+
+```xml
+<PropertyGroup>
+  <EnvironmentName>Development</EnvironmentName>
+</PropertyGroup>
+```
 
 ## <a name="exclude-files"></a>Archivos de exclusión
 

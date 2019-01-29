@@ -4,23 +4,20 @@ author: ardalis
 description: Obtenga información sobre cómo funcionan los filtros y cómo se pueden usar en ASP.NET Core MVC.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 1/15/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: d4fe49a9225b9980a956ef9c773ad631beb557ae
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: fe3082481b51c968fd361dbcc9553c4e35a36f2a
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207465"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444355"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtros en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra/) y [Steve Smith](https://ardalis.com/)
 
 Los *filtros* en ASP.NET Core MVC permiten ejecutar código antes o después de determinadas fases de la canalización de procesamiento de la solicitud.
-
-> [!IMPORTANT]
-> Este tema **no** es válido con páginas de Razor. ASP.NET Core 2.1 y versiones posteriores admiten [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) e [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) para las páginas de Razor. Para más información, vea [Filter methods for Razor Pages](xref:razor-pages/filter) (Métodos de filtrado para páginas de Razor).
 
  Los filtros integrados se encargan de tareas como las siguientes:
 
@@ -32,7 +29,7 @@ Se pueden crear filtros personalizados que se encarguen de cuestiones transversa
 
 [Vea o descargue el ejemplo de GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
 
-## <a name="how-do-filters-work"></a>¿Cómo funcionan los filtros?
+## <a name="how-filters-work"></a>Funcionamiento de los filtros
 
 Los filtros se ejecutan dentro de la *canalización de invocación de acción de MVC*, a veces denominada *canalización de filtro*.  La canalización de filtro se ejecuta después de que MVC seleccione la acción que se va a ejecutar.
 
@@ -46,7 +43,7 @@ Cada tipo de filtro se ejecuta en una fase diferente dentro de la canalización 
 
 * Los [filtros de recursos](#resource-filters) son los primeros en atender la solicitud después de que se haya autorizado.  Pueden ejecutar código antes de pasar al resto de la canalización de filtro y después de que esta se haya completado. Son útiles para implementar el almacenamiento en caché o para cortocircuitar la canalización de filtro por motivos de rendimiento. Se ejecutan antes del enlace de modelos, de modo que pueden influir en el enlace de modelos.
 
-* Los [filtros de acciones](#action-filters) pueden ejecutar código inmediatamente antes y después de llamar a un método de acción individual. Se pueden usar para manipular los argumentos pasados a una acción y el resultado obtenido de la acción.
+* Los [filtros de acciones](#action-filters) pueden ejecutar código inmediatamente antes y después de llamar a un método de acción individual. Se pueden usar para manipular los argumentos pasados a una acción y el resultado obtenido de la acción. Los filtros de acción no se admiten en Razor Pages.
 
 * Los [filtros de excepciones](#exception-filters) sirven para aplicar directivas globales a las excepciones no controladas que se producen antes de que se escriba algo en el cuerpo de respuesta.
 
@@ -68,14 +65,13 @@ Los filtros asincrónicos definen un solo método On*Stage*ExecutionAsync. Este 
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleAsyncActionFilter.cs?highlight=6,8-10,13)]
 
-Se pueden implementar interfaces que abarquen varias fases de filtro en una sola clase. Por ejemplo, la clase [ActionFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionfilterattribute?view=aspnetcore-2.0) implementa `IActionFilter` e `IResultFilter`, así como sus equivalentes asincrónicos.
+Se pueden implementar interfaces que abarquen varias fases de filtro en una sola clase. Por ejemplo, la clase <xref:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute> implementa `IActionFilter`, `IResultFilter` y sus equivalentes asincrónicos.
 
 > [!NOTE]
-> Implemente la versión sincrónica **o** la versión asincrónica de una interfaz de filtro, pero no ambas. El marco comprueba primero si el filtro implementa la interfaz asincrónica y, si es así, es a la interfaz que llama. De lo contrario, llamará a métodos de interfaz sincrónicos. Si se implementaran ambas interfaces en una clase, solamente se llamaría al método asincrónico. Cuando se usan clases abstractas como [ActionFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionfilterattribute?view=aspnetcore-2.0), se invalidan solo los métodos sincrónicos o el método asincrónico de cada tipo de filtro.
+> Implemente la versión sincrónica **o** la versión asincrónica de una interfaz de filtro, pero no ambas. El marco comprueba primero si el filtro implementa la interfaz asincrónica y, si es así, es a la interfaz que llama. De lo contrario, llamará a métodos de interfaz sincrónicos. Si se implementaran ambas interfaces en una clase, solamente se llamaría al método asincrónico. Cuando se usan clases abstractas como <xref:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute>, se invalidan solo los métodos sincrónicos o el método asincrónico de cada tipo de filtro.
 
 ### <a name="ifilterfactory"></a>IFilterFactory
-
-[IFilterFactory](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory) implementa [IFilterMetadata](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifiltermetadata). Por tanto, una instancia de `IFilterFactory` se puede usar como una instancia de `IFilterMetadata` en cualquier parte de la canalización de filtro. Cuando el marco se prepara para invocar el filtro, intenta convertirlo a un `IFilterFactory`. Si esa conversión se realiza correctamente, se llama al método [CreateInstance](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory.createinstance) para crear la instancia de `IFilterMetadata` que se va a invocar. Esto proporciona un diseño flexible, dado que no hay que establecer la canalización de filtro exacta de forma explícita cuando la aplicación se inicia.
+[IFilterFactory](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory) implementa <xref:Microsoft.AspNetCore.Mvc.Filters.IFilterMetadata>. Por tanto, una instancia de `IFilterFactory` se puede usar como una instancia de `IFilterMetadata` en cualquier parte de la canalización de filtro. Cuando el marco se prepara para invocar el filtro, intenta convertirlo a un `IFilterFactory`. Si esa conversión se realiza correctamente, se llama al método [CreateInstance](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory.createinstance) para crear la instancia de `IFilterMetadata` que se va a invocar. Esto proporciona un diseño flexible, dado que no hay que establecer la canalización de filtro exacta de forma explícita cuando la aplicación se inicia.
 
 Puede implementar `IFilterFactory` en sus propias implementaciones de atributo como método alternativo para crear filtros:
 
@@ -280,6 +276,9 @@ El [filtro de recursos de cortocircuito](#short-circuiting-resource-filter) most
 
 ## <a name="action-filters"></a>Filtros de acciones
 
+> [!IMPORTANT]
+> Los filtros de acción **no** se aplican a Razor Pages. Razor Pages admite <xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter> y <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncPageFilter>. Para más información, vea [Filter methods for Razor Pages](xref:razor-pages/filter) (Métodos de filtrado para páginas de Razor).
+
 Los *filtros de acciones*:
 
 * Implementan la interfaz `IActionFilter` o `IAsyncActionFilter`.
@@ -289,13 +288,13 @@ Este es un filtro de acciones de ejemplo:
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?name=snippet_ActionFilter)]
 
-[ActionExecutingContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionexecutingcontext) proporciona las siguientes propiedades:
+<xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext> ofrece las siguientes propiedades:
 
 * `ActionArguments`: permite manipular las entradas en la acción.
 * `Controller`: permite manipular la instancia del controlador. 
 * `Result`: si se establece, cortocircuita la ejecución del método de acción y de los filtros de acciones posteriores. Producir una excepción también impide que el método de acción y los filtros posteriores se ejecuten, pero se considera un error en vez de un resultado correcto.
 
-[ActionExecutedContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionexecutedcontext) proporciona `Controller` y `Result`, además de las siguientes propiedades:
+<xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext> proporciona `Controller` y `Result`, además de las siguientes propiedades:
 
 * `Canceled`: será true si otro filtro ha cortocircuitado la ejecución de la acción.
 * `Exception`: será distinto de null si la acción o un filtro de acción posterior han producido una excepción. Si esta propiedad se establece en null, se "controlará" una excepción de forma eficaz y `Result` se ejecutará como si se hubiera devuelto desde el método de acción con normalidad.
@@ -391,4 +390,5 @@ Los filtros de middleware se ejecutan en la misma fase de la canalización de fi
 
 ## <a name="next-actions"></a>Siguientes acciones
 
-Para experimentar con los filtros, [descargue, pruebe y modifique este ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
+* Consulte [Métodos de filtrado para páginas de Razor](xref:razor-pages/filter).
+* Para experimentar con los filtros, [descargue, pruebe y modifique el ejemplo de GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).

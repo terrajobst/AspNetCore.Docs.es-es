@@ -5,12 +5,12 @@ description: Agregar una vista a una aplicación sencilla de ASP.NET Core MVC
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 321ffd6b0168d4befc950a58035d19561e879491
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: f241a19c8821019f327fb160f01fe01eca53c5d0
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249456"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836914"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Agregar una vista a una aplicación de ASP.NET Core MVC
 
@@ -104,7 +104,7 @@ En el marcado anterior, se omitió el [atributo del asistente de etiquetas delim
 
 **Nota**: El controlador `Movies` no se ha implementado. En este momento, el vínculo `Movie App` no es funcional.
 
-Guarde los cambios y seleccione el vínculo **Privacy** (Privacidad). Observe cómo el título de la pestaña del explorador muestra ahora **Privacy - Movie App** (Privacidad - Aplicación de película) en lugar de **Privacy - Mvc Movie** (Privacidad - Aplicación de MVC):
+Guarde los cambios y seleccione el vínculo **Privacy** (Privacidad). Observe cómo el título de la pestaña del explorador muestra ahora **Privacy Policy - Movie Ap** (Directiva de privacidad - Aplicación de película) en lugar de **Privacy Policy - Mvc Movie** (Directiva de privacidad - Aplicación de MVC):
 
 ![Pestaña Privacy (Privacidad)](~/tutorials/first-mvc-app/adding-view/_static/about2.png)
 
