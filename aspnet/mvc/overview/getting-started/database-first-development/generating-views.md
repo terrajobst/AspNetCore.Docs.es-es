@@ -1,26 +1,26 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/generating-views
 title: 'Tutorial: Generar vistas para EF Database First con la aplicación de ASP.NET MVC'
-description: En este artículo se centra en usar el Scaffolding de ASP.NET para generar los controladores y vistas.
+description: En este tutorial se centra en usar el Scaffolding de ASP.NET para generar los controladores y vistas.
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.assetid: 669367cf-8e30-4eb6-821d-10a7d9bb906c
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: e1f6646cdf10d293268b92f44b018709e70c0f86
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: 7a56c0f9197a99427bcde6103ebc69d245e8ce63
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889787"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236424"
 ---
 # <a name="tutorial-generate-views-for-ef-database-first-with-aspnet-mvc-app"></a>Tutorial: Generar vistas para EF Database First con la aplicación de ASP.NET MVC
 
 Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Esta serie de tutoriales muestra cómo generar el código que permite a los usuarios mostrar, editar, crear automáticamente y eliminar datos que residen en una tabla de base de datos. El código generado corresponde a las columnas de la tabla de base de datos.
 
-En este artículo se centra en usar el Scaffolding de ASP.NET para generar los controladores y vistas.
+En este tutorial se centra en usar el Scaffolding de ASP.NET para generar los controladores y vistas.
 
 En este tutorial ha:
 
@@ -101,6 +101,6 @@ En este tutorial ha:
 > * Vistas de alumno mostrados
 > * Vistas de inscripción mostrados
 
-Avance al siguiente artículo para obtener información sobre cómo cambiar la base de datos.
+En el siguiente tutorial para aprender a cambiar la base de datos.
 > [!div class="nextstepaction"]
 > [Cambiar la base de datos](changing-the-database.md)

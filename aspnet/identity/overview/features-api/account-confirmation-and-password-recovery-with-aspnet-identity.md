@@ -4,35 +4,32 @@ title: La cuenta de confirmación y la recuperación de contraseña con ASP.NET 
 author: HaoK
 description: Antes de realizar este tutorial que debe completar primero cree una aplicación web de ASP.NET MVC 5 segura con inicio de sesión, restablecimiento de confirmación y la contraseña de correo electrónico. En este tutorial...
 ms.author: riande
-ms.date: 03/26/2015
+ms.date: 01/23/2019
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 84f35cfc0f0e0f1c268e0e9c18fd47aa68deb7d1
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 47dc2c1044a5964624ba2f8af4f174a2fd99d3e8
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577839"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236411"
 ---
-<a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Confirmación de la cuenta y contraseña de recuperación con ASP.NET Identity (C#)
-====================
-por [Hao Kung](https://github.com/HaoK), [Pranav Rastogi](https://github.com/rustd), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Suhas Joshi](https://github.com/suhasj)
+# <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Confirmación y la contraseña de recuperación con ASP.NET Identity de la cuenta (C#)
 
-> Antes de realizar este tutorial debe completar primero [crear una aplicación web de ASP.NET MVC 5 segura con inicio de sesión, restablecimiento de confirmación y la contraseña de correo electrónico](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md). Este tutorial contiene información más detallada y le mostrará cómo configurar el correo electrónico de confirmación de la cuenta local y permitir a los usuarios restablecer su contraseña olvidada en ASP.NET Identity. En este artículo se escribió por Rick Anderson ([@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)), Pranav Rastogi ([@rustd](https://twitter.com/rustd)), Hao Kung y Suhas Joshi. El ejemplo de NuGet se ha escrito principalmente por Hao Kung.
-
+> Antes de realizar este tutorial debe completar primero [crear una aplicación web de ASP.NET MVC 5 segura con inicio de sesión, restablecimiento de confirmación y la contraseña de correo electrónico](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md). Este tutorial contiene información más detallada y le mostrará cómo configurar el correo electrónico de confirmación de la cuenta local y permitir a los usuarios restablecer su contraseña olvidada en ASP.NET Identity.
 
 Una cuenta de usuario local requiere que el usuario crear una contraseña para la cuenta, y esa contraseña se almacena (de forma segura) en la aplicación web. ASP.NET Identity también es compatible con cuentas de redes sociales, que no requieren que el usuario crear una contraseña para la aplicación. [Cuentas de redes sociales](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) usar terceros (por ejemplo, Google, Twitter, Facebook o Microsoft) para autenticar a los usuarios. En este tema se trata los siguientes:
 
 - [Crear una aplicación ASP.NET MVC](#createMvc) y explore las características de ASP.NET Identity.
-- [Compilando el ejemplo de identidad](#build)
+- [Generar el ejemplo de identidad](#build)
 - [Configuración de correo electrónico de confirmación](#email)
 
 Los nuevos usuarios registran su alias de correo electrónico, que crea una cuenta local.
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image1.png)
 
-Al hacer clic en el botón Registrar envía un correo electrónico de confirmación que contiene un token de validación a su dirección de correo electrónico.
+Seleccione el botón Registrar envía un correo electrónico de confirmación que contiene un token de validación a su dirección de correo electrónico.
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image2.png)
 
@@ -40,7 +37,7 @@ El usuario se envía un correo electrónico con un token de confirmación de su 
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image3.png)
 
-Al hacer clic en el vínculo, se confirma la cuenta.
+Al seleccionar el vínculo, confirma la cuenta.
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image4.png)
 
@@ -55,33 +52,30 @@ Los usuarios locales que olvida su contraseña pueden tener un token de segurida
 El usuario en breve recibirá un correo electrónico con un vínculo que lo que les permite restablecer su contraseña.  
   
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image6.png)  
-Al hacer clic en el vínculo llevará a la página de restablecimiento.  
+Al seleccionar el vínculo llevará a la página de restablecimiento.  
   
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image7.png)  
   
-Al hacer clic en el **restablecer** botón confirmará que se ha restablecido la contraseña.  
+Seleccionar el **restablecer** botón confirmará que se ha restablecido la contraseña.  
   
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image8.png)
 
 <a id="createMvc"></a>
 
-## <a name="create-an-aspnet-web-app"></a>Crear una aplicación Web de ASP.NET
+## <a name="create-an-aspnet-web-app"></a>Crear una aplicación web ASP.NET
 
-Comience por instalar y ejecutar [Visual Studio Express 2013 para Web](https://go.microsoft.com/fwlink/?LinkId=299058) o [Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566). Instalar Visual Studio [2013 Update 2](https://go.microsoft.com/fwlink/?LinkId=390521) o superior.
-
-> [!NOTE]
-> Advertencia: Debe instalar Visual Studio [2013 Update 2](https://go.microsoft.com/fwlink/?LinkId=390521) para completar este tutorial.
+Comience por instalar y ejecutar [Visual Studio 2017](https://visualstudio.microsoft.com/).
 
 
-1. Cree un nuevo proyecto Web ASP.NET y seleccione la plantilla MVC. Formularios Web Forms también es compatible con ASP.NET Identity, por lo que podría seguir pasos similares en una aplicación de formularios web.
-2. Deje la autenticación predeterminada como **cuentas de usuario individuales**.
-3. Ejecute la aplicación, haga clic en el **registrar** vincular y registrar un usuario. En este momento, es la única validación en el correo electrónico con el [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) atributo.
-4. En el Explorador de servidores, vaya a **datos Connections\DefaultConnection\Tables\AspNetUsers**, haga clic y seleccione **Abrir definición de tabla**.
+1. Cree un nuevo proyecto Web ASP.NET y seleccione la plantilla MVC. Formularios Web Forms también admiten la identidad de ASP.NET, por lo que podría seguir pasos similares en una aplicación de formularios web.
+2. Cambie a **cuentas de usuario individuales**.
+3. Ejecute la aplicación, seleccione la **registrar** vincular y registrar un usuario. En este momento, es la única validación en el correo electrónico con el [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) atributo.
+4. En el Explorador de servidores, vaya a **datos Connections\DefaultConnection\Tables\AspNetUsers**, haga clic en y seleccione **Abrir definición de tabla**.
 
     La siguiente imagen muestra la `AspNetUsers` esquema:
 
     ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image9.png)
-5. Haga clic con el botón derecho en el **AspNetUsers** de tabla y seleccione **mostrar datos de tabla**.  
+5. Haga doble clic en el **AspNetUsers** de tabla y seleccione **mostrar datos de tabla**.  
   
     ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image10.png)  
   
@@ -97,7 +91,7 @@ El middleware de cookies, comprueba la cookie en cada solicitud. El `SecuritySta
 
 Por los comentarios en el código, el `UseCookieAuthentication` método admite la autenticación de cookies. El `SecurityStamp` asociado y campo código proporciona una capa adicional de seguridad a la aplicación, al cambiar la contraseña, se registrarán fuera del explorador que inició sesión. El `SecurityStampValidator.OnValidateIdentity` método permite que la aplicación validar el token de seguridad cuando el usuario inicia sesión, que se usa cuando se cambia una contraseña o usa el inicio de sesión externo. Esto es necesario para asegurarse de que los tokens (cookies) generados con la contraseña antigua se invalidan. En el proyecto de ejemplo, si cambia la contraseña del usuario, a continuación, un nuevo token se genera para el usuario, se invalidan los tokens anteriores y `SecurityStamp` se actualiza el campo.
 
-El sistema de identidad le permiten configurar la aplicación, cuando cambia el perfil de seguridad de los usuarios (por ejemplo, cuando el usuario cambia su contraseña o los cambios asociados inicio de sesión (por ejemplo, Facebook, Google, cuenta de Microsoft, etc.), el usuario ha iniciado de todos los instancias del explorador. Por ejemplo, la imagen siguiente muestra el [cierre de sesión único ejemplo](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/SingleSignOutSample/readme.txt) app, que permite al usuario cerrar la sesión de todas las instancias del explorador (en este caso, Internet Explorer, Firefox y Chrome), haga clic en un botón. Como alternativa, el ejemplo permite sólo cerrar sesión en una instancia del explorador específico.
+El sistema de identidad le permiten configurar la aplicación, cuando cambia el perfil de seguridad de los usuarios (por ejemplo, cuando el usuario cambia su contraseña o los cambios asociados inicio de sesión (por ejemplo, Facebook, Google, cuenta de Microsoft, etc.), el usuario ha iniciado de todos los instancias del explorador. Por ejemplo, la imagen siguiente muestra el [cierre de sesión único ejemplo](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/SingleSignOutSample/readme.txt) app, que permite al usuario cerrar la sesión de todas las instancias del explorador (en este caso, Internet Explorer, Firefox y Chrome) seleccionando un botón. Como alternativa, el ejemplo permite sólo cerrar sesión en una instancia del explorador específico.
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image11.png)
 
@@ -138,25 +132,25 @@ OWIN `AuthenticationManager.SignIn` método pasa el `ClaimsIdentity` e inicia se
 
 ## <a name="email-confirmation"></a>Confirmación por correo electrónico
 
-Es una buena idea para confirmar el correo electrónico de un nuevo usuario registrarlo para comprobar que no están suplantando persona (es decir, se hayan registrado con el correo electrónico de otra persona). Supongamos que tenemos un foro de discusión, ¿puede evitar `"bob@example.com"` registrar como `"joe@contoso.com"`. Sin confirmación por correo electrónico, `"joe@contoso.com"` podría obtener correo electrónico no deseado de su aplicación. Supongamos que Bob accidentalmente registrado como `"bib@example.com"` y se había dado cuenta, no sería capaz de usar la recuperación de contraseña porque la aplicación no tiene su correo electrónico correcta. Confirmación por correo electrónico proporciona una protección limitada solo desde los bots y no proporciona protección de correo basura determinado, tienen muchos alias de correo electrónico de trabajo que pueden usar para registrar. En el ejemplo siguiente, el usuario no podrá cambiar su contraseña hasta que se ha confirmado su cuenta (por ellos al hacer clic en un vínculo de confirmación recibido en la cuenta de correo electrónico que se registraron.) Puede aplicar este flujo de trabajo a otros escenarios, por ejemplo, al enviar un vínculo para confirmar y restablecer la contraseña en las cuentas nuevas creadas por el administrador, enviar al usuario un correo electrónico cuando ha cambiado su perfil y así sucesivamente. Por lo general desea impedir que todos los datos del sitio web de registro antes de que se han confirmado por correo electrónico, un mensaje de texto SMS u otro mecanismo de nuevos usuarios. <a id="build"></a>
+Es una buena idea para confirmar el correo electrónico de un nuevo usuario registrarlo para comprobar que no están suplantando persona (es decir, se hayan registrado con el correo electrónico de otra persona). Supongamos que tenemos un foro de discusión, ¿puede evitar `"bob@example.com"` registrar como `"joe@contoso.com"`. Sin confirmación por correo electrónico, `"joe@contoso.com"` podría obtener correo electrónico no deseado de su aplicación. Supongamos que Bob accidentalmente registrado como `"bib@example.com"` y se había dado cuenta, no sería capaz de usar la recuperación de contraseña porque la aplicación no tiene su correo electrónico correcta. Confirmación por correo electrónico proporciona una protección limitada solo desde los bots y no proporciona protección de correo basura determinado, tienen muchos alias de correo electrónico de trabajo que pueden usar para registrar. En el ejemplo siguiente, el usuario no podrá cambiar su contraseña hasta que se ha confirmado su cuenta (por ellos seleccionando un vínculo de confirmación recibido en la cuenta de correo electrónico que se registraron.) Puede aplicar este flujo de trabajo a otros escenarios, por ejemplo, al enviar un vínculo para confirmar y restablecer la contraseña en las cuentas nuevas creadas por el administrador, enviar al usuario un correo electrónico cuando ha cambiado su perfil y así sucesivamente. Por lo general desea impedir que todos los datos del sitio web de registro antes de que se han confirmado por correo electrónico, un mensaje de texto SMS u otro mecanismo de nuevos usuarios. <a id="build"></a>
 
-## <a name="building-a-more-complete-sample"></a>Creación de un ejemplo más completo
+## <a name="build-a-more-complete-sample"></a>Compilar un ejemplo más completo
 
 En esta sección, usará NuGet para descargar un ejemplo más completo, con que vamos a trabajar.
 
 1. Cree un nuevo ***vacía*** proyecto Web de ASP.NET.
-2. En la consola de administrador de paquetes, escriba lo siguiente los siguientes comandos: 
+2. En la consola de administrador de paquetes, escriba los siguientes comandos: 
 
     [!code-console[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample4.cmd)]
 
    En este tutorial, vamos a usar [SendGrid](http://sendgrid.com/) para enviar correo electrónico. El `Identity.Samples` paquete instala el código que se trabajará con.
 3. Establecer el [proyecto para usar SSL](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
-4. Creación de cuenta local de pruebas mediante la ejecución de la aplicación, al hacer clic en el **registrar** vincular y publicar el formulario de registro.
-5. Haga clic en el vínculo de correo electrónico de demostración, lo que simula la confirmación por correo electrónico.
+4. Creación de cuenta local de pruebas mediante la ejecución de la aplicación, seleccionando la **registrar** vincular y publicar el formulario de registro.
+5. Seleccione el vínculo de correo electrónico de demostración, lo que simula la confirmación por correo electrónico.
 6. Eliminar el código de confirmación del vínculo de correo electrónico de demostración de la muestra (el `ViewBag.Link` código en el controlador de cuentas. Consulte la `DisplayEmail` y `ForgotPasswordConfirmation` los métodos de acción y las vistas de razor).
 
-> [!NOTE]
-> Advertencia: Si cambia la configuración de seguridad en este ejemplo, las aplicaciones de producción debe someterse a una auditoría de seguridad que se llame explícitamente a los cambios realizados.
+> [!WARNING]
+> Si cambia la configuración de seguridad en este ejemplo, las aplicaciones de producción debe someterse a una auditoría de seguridad que se llame explícitamente a los cambios realizados.
 
 
 ## <a name="examine-the-code-in-appstartidentityconfigcs"></a>Examine el código de aplicación\_Start\IdentityConfig.cs
@@ -176,7 +170,7 @@ Cuando un usuario registra una cuenta local, el `HTTP Post Register` se llama al
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample6.cs)]
 
-El código anterior usa los datos del modelo para crear una nueva cuenta de usuario mediante el correo electrónico y la contraseña. Si el alias de correo electrónico está en el almacén de datos, se produce un error en la creación de la cuenta y volverá a aparecer el formulario. El `GenerateEmailConfirmationTokenAsync` método crea un token de confirmación seguro y lo almacena en el almacén de datos de ASP.NET Identity. El [Url.Action](https://msdn.microsoft.com/library/dd505232(v=vs.118).aspx) método crea un vínculo que contiene el `UserId` y token de confirmación. Este vínculo, a continuación, se envía por correo electrónico al usuario, el usuario puede hacer clic en el vínculo en su aplicación de correo electrónico para confirmar su cuenta.
+El código anterior usa los datos del modelo para crear una nueva cuenta de usuario mediante el correo electrónico y la contraseña. Si el alias de correo electrónico está en el almacén de datos, se produce un error en la creación de la cuenta y volverá a aparecer el formulario. El `GenerateEmailConfirmationTokenAsync` método crea un token de confirmación seguro y lo almacena en el almacén de datos de ASP.NET Identity. El [Url.Action](https://msdn.microsoft.com/library/dd505232(v=vs.118).aspx) método crea un vínculo que contiene el `UserId` y token de confirmación. Este vínculo, a continuación, se envía por correo electrónico al usuario, el usuario puede seleccionar el vínculo de su aplicación de correo electrónico para confirmar su cuenta.
 
 <a id="email"></a>
 
@@ -198,9 +192,9 @@ El código siguiente muestra cómo enviar correo electrónico con el [MailMessag
 > Seguridad: nunca almacene de datos confidenciales en el código fuente. La cuenta y las credenciales se almacenan en la appSetting. En Azure, puede almacenar con seguridad estos valores en el **[configurar](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** ficha en el portal de Azure. Consulte [procedimientos recomendados para implementar contraseñas y otros datos confidenciales en ASP.NET y Azure](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
 
 
-Escriba sus credenciales de SendGrid, ejecute la aplicación, registrarse con un alias de correo electrónico puede haga clic en el vínculo de confirmación en el correo electrónico. Para ver cómo hacerlo con su [Outlook.com](http://outlook.com) cuentas de correo electrónico, consulte de John Atten [configuración SMTP de C# para el Host de SMTP Outlook.Com](http://typecastexception.com/post/2013/12/20/C-SMTP-Configuration-for-OutlookCom-SMTP-Host.aspx) y su[Identity de ASP.NET 2.0: configuración de validación de la cuenta Autorización de dos fases y](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) publicaciones.
+Escriba sus credenciales de SendGrid, ejecute la aplicación, registrarse con un alias de correo electrónico puede seleccionar el vínculo de confirmación en el correo electrónico. Para ver cómo hacerlo con su [Outlook.com](http://outlook.com) cuentas de correo electrónico, consulte de John Atten [ C# configuración SMTP para el Host de SMTP Outlook.Com](http://typecastexception.com/post/2013/12/20/C-SMTP-Configuration-for-OutlookCom-SMTP-Host.aspx) y su[Identity de ASP.NET 2.0: Configuración de validación de la cuenta y la autorización de dos fases](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) publicaciones.
 
-Una vez que un usuario hace clic en el **registrar** botón se envía un correo electrónico de confirmación que contiene un token de validación a su dirección de correo electrónico.
+Una vez que un usuario selecciona el **registrar** botón se envía un correo electrónico de confirmación que contiene un token de validación a su dirección de correo electrónico.
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image12.png)
 
@@ -216,7 +210,7 @@ En el código siguiente se muestra el método `POST ForgotPassword`.
 
 El método produce un error silencioso si no se ha confirmado el correo electrónico del usuario. Si se ha registrado un error para una dirección de correo electrónico no válida, los usuarios malintencionados podrían usar esa información para encontrar el identificador de usuario válido (alias de correo electrónico) a los ataques.
 
-El código siguiente muestra el `ConfirmEmail` método del controlador de cuentas que se llama cuando el usuario hace clic en el vínculo de confirmación en el correo electrónico enviado a ellas:
+El código siguiente muestra el `ConfirmEmail` método del controlador de cuentas que se llama cuando el usuario selecciona el vínculo de confirmación en el correo electrónico enviado a ellas:
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample10.cs)]
 
@@ -230,13 +224,13 @@ El código siguiente muestra el método de confirmación de correo electrónico:
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample12.cs)]
 
- Para que la aplicación más segura, ASP.NET Identity admite autenticación en dos fases (2FA). Consulte [Identity de ASP.NET 2.0: configuración de validación de la cuenta y la autorización de dos fases](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) por John Atten. Aunque puede establecer el bloqueo de cuenta en errores de intento de contraseña de inicio de sesión, ese enfoque hace que el inicio de sesión pueda sufrir [DOS](http://en.wikipedia.org/wiki/Denial-of-service_attack) bloqueos. Se recomienda que usar el bloqueo de cuenta solo con 2FA.  
+ Para que la aplicación más segura, ASP.NET Identity admite autenticación en dos fases (2FA). Consulte [Identity de ASP.NET 2.0: Configuración de validación de la cuenta y la autorización de dos fases](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) por John Atten. Aunque puede establecer el bloqueo de cuenta en errores de intento de contraseña de inicio de sesión, ese enfoque hace que el inicio de sesión pueda sufrir [DOS](http://en.wikipedia.org/wiki/Denial-of-service_attack) bloqueos. Se recomienda que usar el bloqueo de cuenta solo con 2FA.  
 <a id="addRes"></a>
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 - [Información general sobre los proveedores de almacenamiento personalizado para ASP.NET Identity](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
 - [Aplicación de MVC 5 con Facebook, Twitter, LinkedIn y Google OAuth2 Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) también muestra cómo agregar información de perfil a la tabla de usuarios.
-- [Identidad 2.0 y ASP.NET MVC: comprender los aspectos básicos](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx) por John Atten.
+- [ASP.NET MVC e identidad 2.0: Comprender los aspectos básicos](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx) por John Atten.
 - [Introducción a ASP.NET Identity](../getting-started/introduction-to-aspnet-identity.md)
 - [Anuncio de RTM de ASP.NET Identity 2.0.0](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx) de Pranav Rastogi.

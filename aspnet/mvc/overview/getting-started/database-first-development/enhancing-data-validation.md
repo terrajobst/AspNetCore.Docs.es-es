@@ -1,28 +1,36 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/enhancing-data-validation
-title: 'EF Database First con MVC de ASP.NET: mejora de la validación de datos | Microsoft Docs'
+title: 'Tutorial: Mejorar la validación de datos para EF Database First con la aplicación de ASP.NET MVC'
+description: En este tutorial se centra en Agregar anotaciones de datos al modelo de datos para especificar los requisitos de validación y formato para mostrar.
 author: Rick-Anderson
-description: Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Este tutorial seri...
 ms.author: riande
-ms.date: 12/29/2014
+ms.date: 01/28/2019
+ms.topic: tutorial
 ms.assetid: 0ed5e67a-34c0-4b57-84a6-802b0fb3cd00
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: df2cd99619f097c9f392e8fe7352c1ce3a69c8df
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 85299d70c6cba52c1d40a42edfd429c96318134a
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021669"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236489"
 ---
-<a name="ef-database-first-with-aspnet-mvc-enhancing-data-validation"></a>EF Database First con MVC de ASP.NET: mejora de la validación de datos
-====================
-por [Tom FitzMacken](https://github.com/tfitzmac)
+# <a name="tutorial-enhance-data-validation-for-ef-database-first-with-aspnet-mvc-app"></a>Tutorial: Mejorar la validación de datos para EF Database First con la aplicación de ASP.NET MVC
 
-> Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Esta serie de tutoriales muestra cómo generar el código que permite a los usuarios mostrar, editar, crear automáticamente y eliminar datos que residen en una tabla de base de datos. El código generado corresponde a las columnas de la tabla de base de datos.
-> 
-> Esta parte de la serie se centra en Agregar anotaciones de datos al modelo de datos para especificar los requisitos de validación y formato para mostrar. Se ha mejorado en función de los comentarios de los usuarios en la sección Comentarios.
+Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Esta serie de tutoriales muestra cómo generar el código que permite a los usuarios mostrar, editar, crear automáticamente y eliminar datos que residen en una tabla de base de datos. El código generado corresponde a las columnas de la tabla de base de datos.
 
+En este tutorial se centra en Agregar anotaciones de datos al modelo de datos para especificar los requisitos de validación y formato para mostrar. Se ha mejorado en función de los comentarios de los usuarios en la sección Comentarios.
+
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Agregar anotaciones de datos
+> * Agregar clases de metadatos
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* [Personalizar una vista](customizing-a-view.md)
 
 ## <a name="add-data-annotations"></a>Agregar anotaciones de datos
 
@@ -30,25 +38,21 @@ Como se vio en un tema anterior, algunas reglas de validación de datos se aplic
 
 En este tutorial, agregará las anotaciones de datos para restringir la longitud de los valores proporcionados para las propiedades FirstName, LastName y MiddleName. En la base de datos, estos valores se limitan a 50 caracteres. Sin embargo, en la aplicación web ese límite de caracteres actualmente no se aplica. Si un usuario proporciona más de 50 caracteres para uno de esos valores, la página se bloqueará al intentar guardar el valor en la base de datos. También limitará el grado de valores entre 0 y 4.
 
-Abra el **Student.cs** de archivos en el **modelos** carpeta. Agregue el código resaltado siguiente a la clase.
+Seleccione **modelos** > **ContosoModel.edmx** > **ContosoModel.tt** y abra el *Student.cs* archivo. Agregue el código resaltado siguiente a la clase.
 
 [!code-csharp[Main](enhancing-data-validation/samples/sample1.cs?highlight=5,15,17,20)]
 
-En Enrollment.cs, agregue el siguiente código resaltado.
+Abra *Enrollment.cs* y agregue el siguiente código resaltado.
 
 [!code-csharp[Main](enhancing-data-validation/samples/sample2.cs?highlight=5,10)]
 
-Compila la solución.
+Compile la solución.
 
-Vaya a la página de edición o creación de un alumno. Si se intenta escribir más de 50 caracteres, se muestra un mensaje de error.
+Haga clic en **lista de alumnos** y seleccione **editar**. Si se intenta escribir más de 50 caracteres, se muestra un mensaje de error.
 
 ![Mostrar mensaje de error](enhancing-data-validation/_static/image1.png)
 
-Vaya a la página para editar las inscripciones e intenta proporcionar un nivel por encima de 4.
-
-![error de intervalo de nivel](enhancing-data-validation/_static/image2.png)
-
-Para obtener una lista completa de las anotaciones de validación de datos se puede aplicar a las clases y propiedades, vea [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx).
+Vuelva a la página principal. Haga clic en **lista de inscripciones de** y seleccione **editar**. Intenta proporcionar un nivel por encima de 4. Recibirá este error: *El campo que categoría debe estar comprendido entre 0 y 4.*
 
 ## <a name="add-metadata-classes"></a>Agregar clases de metadatos
 
@@ -56,11 +60,9 @@ Agregar los atributos de validación directamente a la clase del modelo funciona
 
 Para evitar este problema, puede agregar una clase de metadatos que contiene los atributos. Al asociar la clase del modelo a la clase de metadatos, esos atributos se aplican al modelo. En este enfoque, puede volver a generar la clase del modelo sin perder todos los atributos que se han aplicado a la clase de metadatos.
 
-En el **modelos** carpeta, agregue una clase denominada **Metadata.cs**.
+En el **modelos** carpeta, agregue una clase denominada *Metadata.cs*.
 
-![Agregar clase de metadatos](enhancing-data-validation/_static/image3.png)
-
-Reemplace el código en Metadata.cs con el código siguiente.
+Reemplace el código de *Metadata.cs* con el código siguiente.
 
 [!code-csharp[Main](enhancing-data-validation/samples/sample3.cs)]
 
@@ -68,7 +70,7 @@ Estas clases de metadatos contienen todos los atributos de validación que habí
 
 Ahora, debe asociar las clases del modelo con las clases de metadatos.
 
-En el **modelos** carpeta, agregue una clase denominada **PartialClasses.cs**.
+En el **modelos** carpeta, agregue una clase denominada *PartialClasses.cs*.
 
 Reemplace el contenido del archivo con el código siguiente.
 
@@ -76,14 +78,24 @@ Reemplace el contenido del archivo con el código siguiente.
 
 Tenga en cuenta que cada clase está marcada como un `partial` clase y cada uno de ellos coincide con el nombre y espacio de nombres como la clase que se genera automáticamente. Al aplicar el atributo de metadatos a la clase parcial, se asegura que se aplicará a la clase genera automáticamente los atributos de validación de datos. Estos atributos no se perderán al volver a generar las clases del modelo porque se aplica el atributo de metadatos en clases parciales que no se vuelven a generar.
 
-Para volver a generar las clases generadas automáticamente, abra el archivo ContosoModel.edmx. Una vez más, haga doble clic en la superficie de diseño y seleccione **actualizar modelo desde base de datos**. Aunque no ha cambiado la base de datos, este proceso volverá a generar las clases. En el **actualizar** ficha, seleccione **tablas** y **finalizar**.
+Para volver a generar las clases generadas automáticamente, abra el *ContosoModel.edmx* archivo. Una vez más, haga doble clic en la superficie de diseño y seleccione **actualizar modelo desde base de datos**. Aunque no ha cambiado la base de datos, este proceso volverá a generar las clases. En el **actualizar** ficha, seleccione **tablas** y **finalizar**.
 
-![actualizar tablas](enhancing-data-validation/_static/image4.png)
+Guardar el *ContosoModel.edmx* archivo para aplicar los cambios.
 
-Guarde el archivo ContosoModel.edmx para aplicar los cambios.
+Abra el *Student.cs* archivo o la *Enrollment.cs* archivo y tenga en cuenta que los atributos de validación de datos que aplicó anteriormente ya no están en el archivo. Sin embargo, ejecute la aplicación y observe que todavía se aplican las reglas de validación al escribir datos.
 
-Abra el archivo Student.cs o Enrollment.cs y tenga en cuenta que los atributos de validación de datos que aplicó anteriormente ya no están en el archivo. Sin embargo, ejecute la aplicación y observe que todavía se aplican las reglas de validación al escribir datos.
+## <a name="additional-resources"></a>Recursos adicionales
 
-> [!div class="step-by-step"]
-> [Anterior](customizing-a-view.md)
-> [Siguiente](publish-to-azure.md)
+Para obtener una lista completa de las anotaciones de validación de datos se puede aplicar a las clases y propiedades, vea [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Anotaciones de datos agregados
+> * Clases de metadatos agregados
+
+En el siguiente tutorial para aprender a publicar la aplicación web y la base de datos en Azure.
+> [!div class="nextstepaction"]
+> [Publicar en Azure](publish-to-azure.md)

@@ -1,26 +1,26 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/setting-up-database
 title: 'Tutorial: Introducción a EF Database First con MVC 5'
-description: En este artículo se muestra cómo comenzar con una existente de base de datos y crear rápidamente una aplicación web que permite a los usuarios interactuar con los datos.
+description: Este tutorial muestra cómo comenzar con una existente de base de datos y crear rápidamente una aplicación web que permite a los usuarios interactuar con los datos.
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: 8b094b7c334eaad510c46b55a99ec727b9c381c2
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: a503e3db63c873249178fd4783d322f4067c3208
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889930"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236385"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>Tutorial: Introducción a EF Database First con MVC 5
 
 Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Esta serie de tutoriales muestra cómo generar el código que permite a los usuarios mostrar, editar, crear automáticamente y eliminar datos que residen en una tabla de base de datos. El código generado corresponde a las columnas de la tabla de base de datos. En la última parte de la serie, se implementará el sitio y la base de datos en Azure.
 
-En este artículo se muestra cómo comenzar con una existente de base de datos y crear rápidamente una aplicación web que permite a los usuarios interactuar con los datos. Usa el Entity Framework 6 y MVC 5 para compilar la aplicación web. La característica de Scaffolding de ASP.NET le permite generar automáticamente código para mostrar, actualizar, crear y eliminar datos. Con las herramientas de publicación en Visual Studio, puede implementar fácilmente el sitio y la base de datos en Azure.
+Este tutorial muestra cómo comenzar con una existente de base de datos y crear rápidamente una aplicación web que permite a los usuarios interactuar con los datos. Usa el Entity Framework 6 y MVC 5 para compilar la aplicación web. La característica de Scaffolding de ASP.NET le permite generar automáticamente código para mostrar, actualizar, crear y eliminar datos. Con las herramientas de publicación en Visual Studio, puede implementar fácilmente el sitio y la base de datos en Azure.
 
 Esta parte de la serie se centra en crear una base de datos y rellenarlo con datos.
 
@@ -37,7 +37,7 @@ En este tutorial ha:
 
 ## <a name="introduction"></a>Introducción
 
-Este artículo aborda la situación donde tiene una base de datos y desea generar código para una aplicación web basada en los campos de esa base de datos. Este enfoque se denomina desarrollo Database First. Si no dispone de una base de datos existente, puede usar en su lugar un enfoque de desarrollo Code First que implica definir clases de datos y generar la base de datos de las propiedades de clase.
+En este tutorial se aborda la situación donde tiene una base de datos y desea generar código para una aplicación web basada en los campos de esa base de datos. Este enfoque se denomina desarrollo Database First. Si no dispone de una base de datos existente, puede usar en su lugar un enfoque de desarrollo Code First que implica definir clases de datos y generar la base de datos de las propiedades de clase.
 
 ## <a name="set-up-the-database"></a>Configurar la base de datos
 
@@ -102,6 +102,6 @@ En este tutorial ha:
 > [!div class="checklist"]
 > * Configurar la base de datos
 
-Avance al siguiente artículo para obtener información sobre cómo crear modelos de datos y aplicación de la web.
+En el siguiente tutorial para obtener información sobre cómo crear modelos de datos y aplicación de la web.
 > [!div class="nextstepaction"]
 > [Crear modelos de datos y aplicaciones de web](creating-the-web-application.md)

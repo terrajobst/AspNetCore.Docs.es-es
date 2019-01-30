@@ -8,16 +8,16 @@ ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: c465b0bac9af90a892d6e62a327ba36977d08d4a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 0dea8b077878139a3f513cb51447b86a93fe55b8
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836376"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236541"
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>Usar el Inspector de página en ASP.NET MVC
 ====================
-por Tim Ammann
+by Tim Ammann
 
 > Inspector de página en Visual Studio 2012 es una herramienta de desarrollo web con un explorador integrado. Seleccione cualquier elemento en el explorador integrado y el Inspector de página al instante resalta del elemento origen y CSS. Puede examinar cualquier vista MVC, rápidamente buscar los orígenes de marcado representado y usar las herramientas del explorador directamente en el entorno de Visual Studio.
 > 
@@ -81,7 +81,7 @@ En **el Explorador de soluciones**, expanda el **vistas** carpeta y, a continuac
 
 ![Ver Index.cshtml en Inspector de página](using-page-inspector-in-aspnet-mvc/_static/image8.png)
 
-De forma predeterminada, el Inspector de página está acoplado como una ventana en el lado izquierdo del entorno de Visual Studio. Si lo prefiere, puede acoplarlo en otro lugar o desacoplar la ventana. Consulte [Cómo: organizar y acoplar Windows](https://msdn.microsoft.com/library/z4y0hsax.aspx).
+De forma predeterminada, el Inspector de página está acoplado como una ventana en el lado izquierdo del entorno de Visual Studio. Si lo prefiere, puede acoplarlo en otro lugar o desacoplar la ventana. Vea [Cómo: ordenar y acoplar las ventanas](https://msdn.microsoft.com/library/z4y0hsax.aspx).
 
 El panel superior de la ventana del Inspector de página muestra la página actual en una ventana del explorador. El panel inferior muestra la página en el marcado HTML, junto con algunas de las pestañas que le permiten consultar distintos aspectos de la página. El panel inferior es similar a la [herramientas de desarrollo F12](https://msdn.microsoft.com/ie/aa740478) en Internet Explorer.
 
@@ -161,7 +161,7 @@ En la ventana de explorador del Inspector de página, mueva el puntero del mouse
 
 ![Mantener el mouse sobre el contenedor de div.content](using-page-inspector-in-aspnet-mvc/_static/image26.png)
 
-Haga clic en la sección div.content contenedor una vez y, a continuación, mueva el puntero del mouse hasta el **estilos** ventana. El **Syles** ventana muestra todas las reglas CSS para este elemento. Desplácese hacia abajo hasta encontrar el contenedor de .content .featured selector de clase. Ahora, desactive la casilla de la propiedad de color de fondo.
+Haga clic en la sección div.content contenedor una vez y, a continuación, mueva el puntero del mouse hasta el **estilos** ventana. El **estilos** ventana muestra todas las reglas CSS para este elemento. Desplácese hacia abajo hasta encontrar el contenedor de .content .featured selector de clase. Ahora, desactive la casilla de la propiedad de color de fondo.
 
 ![Color de fondo claro](using-page-inspector-in-aspnet-mvc/_static/image28.png)
 
@@ -186,7 +186,7 @@ Haga clic en **inspeccionar** para poner Inspector de página en modo de inspecc
 
 En el Explorador de Inspector de página, mueva el puntero del mouse sobre la sección "Página principal" hasta que el **div.content contenedor** etiqueta aparece. Haga clic una vez para seleccionar este elemento.
 
-El **Syles** ventana muestra todas las reglas CSS para este elemento. Desplácese hacia abajo hasta encontrar el contenedor de .content .featured selector de clase. Haga clic en ".featured .content-contenedor". Inspector de página abre el archivo CSS que define este estilo (Site.css) y resalta el estilo CSS correspondiente.
+El **estilos** ventana muestra todas las reglas CSS para este elemento. Desplácese hacia abajo hasta encontrar el contenedor de .content .featured selector de clase. Haga clic en ".featured .content-contenedor". Inspector de página abre el archivo CSS que define este estilo (Site.css) y resalta el estilo CSS correspondiente.
 
 ![](using-page-inspector-in-aspnet-mvc/_static/image32.png)
 

@@ -1,26 +1,26 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/creating-the-web-application
 title: 'Tutorial: Crear la base de datos de la aplicación Web y los modelos de datos para EF primero con ASP.NET MVC'
-description: En este artículo se centra en crear la aplicación web y generar los modelos de datos basados en las tablas de base de datos.
+description: En este tutorial se centra en crear la aplicación web y generar los modelos de datos basados en las tablas de base de datos.
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.assetid: bc8f2bd5-ff57-4dcd-8418-a5bd517d8953
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/creating-the-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 095d355866c9ab8fba3759f3e05e2a521992f3d6
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: dced55386c3f810e406c5c2b3f0071b45e3b2dbd
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889774"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236372"
 ---
 # <a name="tutorial-create-the-the-web-application-and-data-models-for-ef-database-first-with-aspnet-mvc"></a>Tutorial: Crear la base de datos de la aplicación Web y los modelos de datos para EF primero con ASP.NET MVC
 
  Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Esta serie de tutoriales muestra cómo generar el código que permite a los usuarios mostrar, editar, crear automáticamente y eliminar datos que residen en una tabla de base de datos. El código generado corresponde a las columnas de la tabla de base de datos.
 
-En este artículo se centra en crear la aplicación web y generar los modelos de datos basados en las tablas de base de datos.
+En este tutorial se centra en crear la aplicación web y generar los modelos de datos basados en las tablas de base de datos.
 
 En este tutorial ha:
 
@@ -102,6 +102,6 @@ En este tutorial ha:
 > * Crea una aplicación web ASP.NET
 > * Genera los modelos
 
-Avance al siguiente artículo para obtener información sobre cómo crear generar código basado en los modelos de datos.
+Avance al siguiente tutorial para aprender a crear generar código basado en los modelos de datos.
 > [!div class="nextstepaction"]
 > [Generación de vistas](generating-views.md)
