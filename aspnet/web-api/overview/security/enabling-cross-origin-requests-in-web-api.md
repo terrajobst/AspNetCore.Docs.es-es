@@ -4,16 +4,16 @@ title: Habilitación de solicitudes entre orígenes en ASP.NET Web API 2 | Micro
 author: MikeWasson
 description: Muestra cómo admitir el uso compartido de recursos entre orígenes (CORS) en ASP.NET Web API.
 ms.author: riande
-ms.date: 10/10/2018
+ms.date: 01/29/2019
 ms.assetid: 9b265a5a-6a70-4a82-adce-2d7c56ae8bdd
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 118b779c89edb874f7f928315d1094738be5f097
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 97a0027194b019b09e220493dcb593e682027fe3
+ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348525"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55428452"
 ---
 <a name="enable-cross-origin-requests-in-aspnet-web-api-2"></a>Habilitar solicitudes entre orígenes en ASP.NET Web API 2
 ====================
@@ -67,7 +67,7 @@ Estas direcciones URL tienen orígenes diferentes de los dos anteriores:
 
    [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample1.cs)]
 
-4. Puede ejecutar la aplicación localmente o implementar en Azure. (Para las capturas de pantalla en este tutorial, la aplicación se implementa en Azure App Service Web Apps.) Para comprobar que funciona la API web, vaya a `http://hostname/api/test/`, donde *hostname* es el dominio donde se implementa la aplicación. Debería ver el texto de respuesta, &quot;obtener: mensaje de prueba&quot;.
+4. Puede ejecutar la aplicación localmente o implementar en Azure. (Para las capturas de pantalla en este tutorial, la aplicación se implementa en Azure App Service Web Apps.) Para comprobar que funciona la API web, vaya a `http://hostname/api/test/`, donde *hostname* es el dominio donde se implementa la aplicación. Debería ver el texto de respuesta, &quot;obtener: Mensaje de prueba&quot;.
 
    ![Mensaje de prueba de que se muestra de explorador Web](enabling-cross-origin-requests-in-web-api/_static/image4.png)
 
@@ -90,7 +90,7 @@ Al hacer clic en el botón "Pruébelo", se envía una solicitud AJAX a la aplica
 !['Try' error en el explorador](enabling-cross-origin-requests-in-web-api/_static/image7.png)
 
 > [!NOTE]
-> Si observa que el tráfico HTTP en una herramienta como [Fiddler](http://www.telerik.com/fiddler), verá que el explorador envía la solicitud GET y la solicitud se realiza correctamente, pero la llamada AJAX devuelve un error. Es importante comprender que la directiva de mismo origen no evita que el Explorador de *enviar* la solicitud. En su lugar, impide que la aplicación vean el *respuesta*.
+> Si observa que el tráfico HTTP en una herramienta como [Fiddler](https://www.telerik.com/fiddler), verá que el explorador envía la solicitud GET y la solicitud se realiza correctamente, pero la llamada AJAX devuelve un error. Es importante comprender que la directiva de mismo origen no evita que el Explorador de *enviar* la solicitud. En su lugar, impide que la aplicación vean el *respuesta*.
 
 ![Depurador de Fiddler web que muestra las solicitudes web](enabling-cross-origin-requests-in-web-api/_static/image8.png)
 
@@ -156,7 +156,7 @@ Este es un ejemplo de una solicitud de preflight:
 
 La solicitud preparatoria usa el método HTTP OPTIONS. Incluye dos encabezados especiales:
 
-- Access-Control-Request-Method: el método HTTP que se usará para la solicitud real.
+- Acceso Access-Control-Request-Method: El método HTTP que se usará para la solicitud real.
 - Access-Control-Request-Headers: Una lista de encabezados de solicitud que el *aplicación* establecida en la solicitud real. (Nuevamente, esto no incluye los encabezados que establece el explorador.)
 
 Este es un ejemplo de respuesta, suponiendo que el servidor permite la solicitud:
@@ -164,6 +164,22 @@ Este es un ejemplo de respuesta, suponiendo que el servidor permite la solicitud
 [!code-console[Main](enabling-cross-origin-requests-in-web-api/samples/sample9.cmd?highlight=6-7)]
 
 La respuesta incluye un encabezado Access-Control-Allow-Methods que enumera los métodos permitidos y, opcionalmente, un encabezado Access-Control-Allow-Headers, que muestra los encabezados permitidos. Si la solicitud de comprobaciones preparatorias se realiza correctamente, el explorador envía la solicitud real, como se ha descrito anteriormente.
+
+Herramientas usadas normalmente para probar los puntos de conexión con las solicitudes preparatorias OPTIONS (por ejemplo, [Fiddler](https://www.telerik.com/fiddler) y [Postman](https://www.getpostman.com/)) no enviar los encabezados necesarios de las opciones de forma predeterminada. Confirme que la `Access-Control-Request-Method` y `Access-Control-Request-Headers` encabezados se envían con la solicitud y que los encabezados de las opciones llegue a la aplicación a través de IIS.
+
+Para configurar IIS para permitir que una aplicación ASP.NET recibir y controlar las solicitudes de opción, agregue la siguiente configuración a la aplicación *web.config* de archivos en el `<system.webServer><handlers>` sección:
+
+```xml
+<system.webServer>
+  <handlers>
+    <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+    <remove name="OPTIONSVerbHandler" />
+    <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
+  </handlers>
+</system.webServer>
+```
+
+La eliminación de `OPTIONSVerbHandler` evita que IIS controle las solicitudes de las opciones. La sustitución de `ExtensionlessUrlHandler-Integrated-4.0` permite que las solicitudes de las opciones llegar a la aplicación, ya que el registro de módulo predeterminada sólo permite las solicitudes GET, HEAD, POST y depuración con direcciones URL sin extensión.
 
 ## <a name="scope-rules-for-enablecors"></a>Reglas de ámbito para [EnableCors]
 
@@ -181,7 +197,7 @@ Si establece **[EnableCors]** en la clase de controlador, se aplica a todas las 
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample11.cs)]
 
-**Globalmente**
+**Globally**
 
 Para habilitar CORS para todos los controladores de API Web en la aplicación, pase un **EnableCorsAttribute** de instancia para el **EnableCors** método:
 
@@ -225,12 +241,12 @@ Si establece *encabezados* para que no sea "\*", debe incluir al menos "accept",
 
 De forma predeterminada, el explorador no expone todos los encabezados de respuesta a la aplicación. Los encabezados de respuesta que están disponibles de forma predeterminada son:
 
-- Control de caché
+- Cache-Control
 - Idioma del contenido
 - Content-Type
 - Expires
 - Last-Modified
-- pragma
+- Pragma
 
 La especificación CORS llama a estos [encabezados de respuesta simple](https://dvcs.w3.org/hg/cors/raw-file/tip/Overview.html#simple-response-header). Para que otros encabezados disponibles para la aplicación, establezca el *exposedHeaders* parámetro de **[EnableCors]**.
 
