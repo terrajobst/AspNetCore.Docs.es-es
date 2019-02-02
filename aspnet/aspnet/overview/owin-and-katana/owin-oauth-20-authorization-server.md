@@ -4,20 +4,18 @@ title: Servidor de autorización de OAuth 2.0 de OWIN | Microsoft Docs
 author: hongyes
 description: Este tutorial le guiará para implementar un servidor de autorización de OAuth 2.0 con middleware de OWIN OAuth. Esto es un tutorial avanzado que sólo figuración...
 ms.author: riande
-ms.date: 03/20/2014
+ms.date: 01/28/2019
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 095dad49a8e9f963d941a84398afe9da0f46ce0b
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b8451d2d9e346bd5e2f51ba45e48030a5221b549
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912272"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667653"
 ---
-<a name="owin-oauth-20-authorization-server"></a>Servidor de autorización de OAuth 2.0 de OWIN
-====================
-por [Hongye Sun](https://github.com/hongyes), [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
+# <a name="owin-oauth-20-authorization-server"></a>Servidor de autorización de OAuth 2.0 de OWIN
 
 > Este tutorial le guiará para implementar un servidor de autorización de OAuth 2.0 con middleware de OWIN OAuth. Se trata de un tutorial avanzado que solo se describe los pasos para crear un servidor de autorización de OWIN OAuth 2.0. Esto no es un tutorial paso a paso. [Descargar el código de ejemplo](https://code.msdn.microsoft.com/OWIN-OAuth-20-Authorization-ba2b8783/file/114932/1/AuthorizationServer.zip).
 >
@@ -29,9 +27,9 @@ por [Hongye Sun](https://github.com/hongyes), [Praburaj Thiagarajan](https://git
 >
 > | **Se muestra en el tutorial** | **También funciona con** |
 > | --- | --- |
-> | Windows 8.1 | Windows 8, Windows 7 |
-> | [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) | [Visual Studio 2013 Express para escritorio](https://my.visualstudio.com/Downloads?q=visual%20studio%202013#d-2013-express). Visual Studio 2012 con la actualización más reciente debería funcionar, pero el tutorial no se ha probado con él, y algunas opciones de menú y los cuadros de diálogo son diferentes. |
-> | .NET 4.5 |  |
+> | Windows 8.1 | Windows 10, Windows 8, Windows 7 |
+> | [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+> | .NET 4.7.2 |  |
 >
 > ## <a name="questions-and-comments"></a>Preguntas y comentarios
 >
@@ -53,7 +51,7 @@ Este tutorial tratará:
 <a id="prerequisites"></a>
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-editions) o la versión gratuita [Visual Studio Express 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-express), como se indica en **versiones de Software** en la parte superior de la página.
+- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) como se indica en **versiones de Software** en la parte superior de la página.
 - Debe estar familiarizado con OWIN. Consulte [introducción con el proyecto Katana](https://msdn.microsoft.com/magazine/dn451439.aspx) y [Novedades de OWIN y Katana](index.md).
 - Familiaridad con [OAuth](http://tools.ietf.org/html/rfc6749) terminología, incluyendo [Roles](http://tools.ietf.org/html/rfc6749#section-1.1), [protocolo flujo](http://tools.ietf.org/html/rfc6749#section-1.2), y [concesión de autorización](http://tools.ietf.org/html/rfc6749#section-1.3). [Introducción de OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-1) proporciona una buena introducción.
 
@@ -81,11 +79,11 @@ El `UseOAuthAuthorizationServer` método de extensión consiste en configurar el
 
 - `AuthorizeEndpointPath`: La ruta de acceso de solicitud que las aplicaciones cliente redirigirá el agente de usuario con el fin de obtener los usuarios de dar su consentimiento para emitir un token o código. Debe comenzar con una barra inicial, por ejemplo, "`/Authorize`".
 - `TokenEndpointPath`: Las aplicaciones de cliente de la ruta de acceso de solicitud se comunican directamente para obtener el token de acceso. Debe comenzar con una barra inicial, como "/ Token". Si el cliente ha emitido una [cliente\_secreto](http://tools.ietf.org/html/rfc6749#appendix-A.2), pero se debe proporcionar a este extremo.
-- `ApplicationCanDisplayErrors`: Establézcalo en `true` si desea implementar la aplicación web generar una página de error personalizado para los errores de validación del cliente en `/Authorize` punto de conexión. Esto solo es necesario para los casos donde no se redirige el Explorador de nuevo a la aplicación cliente, por ejemplo, cuando el `client_id` o `redirect_uri` son incorrectas. El `/Authorize` punto de conexión debería ver la "oauth. Error","oauth. ErrorDescription"y"oauth. Propiedades de ErrorUri"se agregan al entorno OWIN.
+- `ApplicationCanDisplayErrors`: Establecido en `true` si desea implementar la aplicación web generar una página de error personalizado para los errores de validación del cliente en `/Authorize` punto de conexión. Esto solo es necesario para los casos donde no se redirige el Explorador de nuevo a la aplicación cliente, por ejemplo, cuando el `client_id` o `redirect_uri` son incorrectas. El `/Authorize` punto de conexión debería ver la "oauth. Error","oauth. ErrorDescription"y"oauth. Propiedades de ErrorUri"se agregan al entorno OWIN.
 
     > [!NOTE]
     > Si no es true, el servidor de autorización devolverá una página de error predeterminada con los detalles del error.
-- `AllowInsecureHttp`: True para permitir autorizar y solicitudes de token para llegar de direcciones URI HTTP y permitir la entrada `redirect_uri` autorizar a los parámetros de solicitud tenga direcciones URI de HTTP.
+- `AllowInsecureHttp`: Es True para permitir autorizar y solicitudes de token para llegar de direcciones URI HTTP y permitir la entrada `redirect_uri` autorizar a los parámetros de solicitud tenga direcciones URI de HTTP.
 
     > [!WARNING]
     > Seguridad: Esto es solamente para desarrollo.

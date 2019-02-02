@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
 uid: spa/react
-ms.openlocfilehash: c83b119e81d7d0abfd727cb8c72abb09763d9448
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: d83bff8abcd5b59d8bc4a51a101510755394f0c4
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011436"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667692"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de React con ASP.NET Core
 
@@ -97,14 +97,22 @@ El proyecto está configurado para iniciar su propia instancia del servidor de d
 
 Sin embargo, esta configuración predeterminada tiene un inconveniente. Cada vez que modifica el código de C# y la aplicación ASP.NET Core debe reiniciarse, el servidor de CRA se reinicia. Se necesitan unos segundos para iniciar la copia de seguridad. Sin realiza frecuentes modificaciones en el código de C# y no quiere esperar a que se reinicie el servidor de CRA, ejecute el servidor de CRA externamente, con independencia del proceso de ASP.NET Core. Para ello:
 
-1. En un símbolo del sistema, cambie al subdirectorio *ClientApp* e inicie el servidor de desarrollo de CRA:
+1. Agregar un *.env* del archivo a la *ClientApp* subdirectorio con la siguiente configuración:
+
+    ```
+    BROWSER=none
+    ```
+    
+    Esto impedirá que el explorador web al abrir al iniciar el servidor CRA externamente.
+
+2. En un símbolo del sistema, cambie al subdirectorio *ClientApp* e inicie el servidor de desarrollo de CRA:
 
     ```console
     cd ClientApp
     npm start
     ```
 
-2. Modifique la aplicación ASP.NET Core para usar la instancia del servidor de CRA externo en lugar de iniciar una de las suyas. En la clase *Startup*, reemplace la invocación de `spa.UseReactDevelopmentServer` por lo siguiente:
+3. Modifique la aplicación ASP.NET Core para usar la instancia del servidor de CRA externo en lugar de iniciar una de las suyas. En la clase *Startup*, reemplace la invocación de `spa.UseReactDevelopmentServer` por lo siguiente:
 
     ```csharp
     spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");

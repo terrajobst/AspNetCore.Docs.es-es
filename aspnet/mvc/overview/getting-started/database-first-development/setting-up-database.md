@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: a503e3db63c873249178fd4783d322f4067c3208
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: dfc6c7a7083524a1e7049fdc879fe679f951084d
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236385"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667744"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>Tutorial: Introducción a EF Database First con MVC 5
 
-Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Esta serie de tutoriales muestra cómo generar el código que permite a los usuarios mostrar, editar, crear automáticamente y eliminar datos que residen en una tabla de base de datos. El código generado corresponde a las columnas de la tabla de base de datos. En la última parte de la serie, se implementará el sitio y la base de datos en Azure.
+Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Esta serie de tutoriales muestra cómo generar el código que permite a los usuarios mostrar, editar, crear automáticamente y eliminar datos que residen en una tabla de base de datos. El código generado corresponde a las columnas de la tabla de base de datos. En la última parte de la serie, obtendrá información sobre cómo agregar anotaciones de datos al modelo de datos para especificar los requisitos de validación y formato para mostrar. Cuando haya terminado, puede avanzar a un artículo de Azure para obtener información sobre cómo implementar una aplicación .NET y SQL database en Azure App Service.
 
 Este tutorial muestra cómo comenzar con una existente de base de datos y crear rápidamente una aplicación web que permite a los usuarios interactuar con los datos. Usa el Entity Framework 6 y MVC 5 para compilar la aplicación web. La característica de Scaffolding de ASP.NET le permite generar automáticamente código para mostrar, actualizar, crear y eliminar datos. Con las herramientas de publicación en Visual Studio, puede implementar fácilmente el sitio y la base de datos en Azure.
 
@@ -51,7 +51,7 @@ Inicie Visual Studio y cree un **el proyecto de base de datos de SQL Server**. D
 
 ![Crear proyecto de base de datos](setting-up-database/_static/image1.png)
 
-Ahora tiene un proyecto de base de datos vacía. Se implementará esta base de datos en Azure, más adelante en este tutorial, por lo que necesitará establecer la base de datos de SQL Azure como la plataforma de destino para el proyecto. Configuración de la plataforma de destino no implementa realmente la base de datos; sólo significa que el proyecto de base de datos comprobará que el diseño de la base de datos es compatible con la plataforma de destino. Para establecer la plataforma de destino, abra el **propiedades** para el proyecto y seleccione **Microsoft Azure SQL Database** para la plataforma de destino.
+Ahora tiene un proyecto de base de datos vacía. Para asegurarse de que puede implementar esta base de datos en Azure, Azure SQL Database se configuran como la plataforma de destino para el proyecto. Configuración de la plataforma de destino no implementa realmente la base de datos; sólo significa que el proyecto de base de datos comprobará que el diseño de la base de datos es compatible con la plataforma de destino. Para establecer la plataforma de destino, abra el **propiedades** para el proyecto y seleccione **Microsoft Azure SQL Database** para la plataforma de destino.
 
 Puede crear las tablas necesarias en este tutorial, agregando scripts SQL que definen las tablas. Haga clic en el proyecto y agregar un nuevo elemento. Seleccione **tablas y vistas** > **tabla** y asígnele el nombre *estudiante*.
 

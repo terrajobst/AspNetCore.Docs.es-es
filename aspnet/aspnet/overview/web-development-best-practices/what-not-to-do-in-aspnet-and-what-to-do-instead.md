@@ -4,20 +4,18 @@ title: Lo que no se debe hacer en ASP.NET y qué hacer en su lugar | Microsoft D
 author: Rick-Anderson
 description: En este tema se describe varios errores comunes que las personas dentro de los proyectos web ASP.NET. Se proporcionan recomendaciones sobre lo que debe hacer para evitar estos cargándola...
 ms.author: riande
-ms.date: 05/08/2014
+ms.date: 01/28/2019
 ms.assetid: c39b9965-545c-4b04-8f55-21be7f28a9e5
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
-ms.openlocfilehash: 69040ca6a1ddeaf029062da45475dd2171b1afa6
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 512d2e2b39467635390fa175546f79d8c9f89f4a
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021448"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667718"
 ---
-<a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>Lo que no se debe hacer en ASP.NET y qué hacer en su lugar
-====================
-por [Tom FitzMacken](https://github.com/tfitzmac)
+# <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>Qué no se debe hacer en ASP.NET y qué hacer en su lugar
 
 > En este tema se describe varios errores comunes que las personas dentro de los proyectos web ASP.NET. Se proporcionan recomendaciones sobre lo que debe hacer para evitar estos errores comunes. Se basa en un [presentación](http://vimeo.com/68390507) por **Damian Edwards** en corona conferencia para desarrolladores.
 
@@ -67,13 +65,13 @@ Recomendación: Dejar de usar adaptadores de control para procesamiento adaptabl
 
 Adaptadores de controles se introdujeron en .NET 2.0 para representar el código de presentación que se ha personalizado para dispositivos diferentes y entornos. Ahora, se puede lograr este procesamiento adaptable con CSS y HTML. Debe dejar de usar adaptadores de Control y convertir a todos los adaptadores existentes en CSS y HTML.
 
-Para obtener más información, consulte [las consultas de medios](http://www.w3.org/TR/css3-mediaqueries/) y [Cómo: agregar páginas móviles a la de formularios Web Forms ASP.NET / MVC Application](../../../whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application.md).
+Para obtener más información, consulte [las consultas de medios](http://www.w3.org/TR/css3-mediaqueries/) y [How To: Agregar páginas móviles a los formularios Web Forms ASP.NET / MVC aplicación](../../../whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application.md).
 
 <a id="styleprop"></a>
 
 ### <a name="style-properties-on-controls"></a>Propiedades de estilo de los controles
 
-Recomendación: Detenga al establecer los valores de estilo de marcado del control y, en su lugar, establezca los valores de formato en las hojas de estilo CSS.
+Recomendación: Dejar de establecer los valores de estilo en el marcado del control y, en su lugar, establezca los valores de formato en las hojas de estilo CSS.
 
 Controles de servidor Web contienen docenas de propiedades que se pueden usar para establecer las propiedades de estilo en línea. Por ejemplo, la propiedad ForeColor establece el color del texto de un control. Puede realizar este mismo efecto más eficazmente a través de las hojas de estilo CSS. Las hojas de estilo le permiten centralizar los valores de estilo y evite establecer estos valores en toda la aplicación.
 
@@ -87,9 +85,9 @@ En el ejemplo siguiente se muestra cómo se aplican dinámicamente a la clase CS
 
 <a id="callback"></a>
 
-### <a name="page-and-control-callbacks"></a>Página y devoluciones de llamada de Control
+### <a name="page-and-control-callbacks"></a>Devoluciones de llamada de la página y control
 
-Recomendación: Dejar de utilizar las devoluciones de llamada de la página y el control y, en su lugar, use cualquiera de las siguientes acciones: AJAX, UpdatePanel, los métodos de acción de MVC, Web API o SignalR.
+Recomendación: Dejar de utilizar las devoluciones de llamada de la página y de control y, en su lugar, use cualquiera de los siguientes: AJAX, UpdatePanel, MVC métodos de acción, Web API y SignalR.
 
 En versiones anteriores de ASP.NET, los métodos de devolución de llamada de página y Control habilitado para actualizar parte de la página web sin actualizar una página completa. Ahora puede realizar actualizaciones parciales de página a través de [AJAX](../../../ajax/index.md), [UpdatePanel](https://msdn.microsoft.com/library/bb386454.aspx), [MVC](../../../mvc/index.md), [API Web](../../../web-api/index.md) o [SignalR](../../../signalr/index.md). Debe detenerse mediante los métodos de devolución de llamada porque pueden causar problemas con direcciones URL descriptivas y enrutamiento. De forma predeterminada, los controles no permiten a los métodos de devolución de llamada, pero si habilita esta característica en un control, debe deshabilitarlo.
 
@@ -97,7 +95,7 @@ En versiones anteriores de ASP.NET, los métodos de devolución de llamada de p�
 
 ### <a name="browser-capability-detection"></a>Detección de capacidad del explorador
 
-Recomendación: Dejar de usar detección de capacidad del explorador estático y, en su lugar, use la detección dinámica de características.
+Recomendación: Dejar de usar la detección de capacidad del explorador estático y, en su lugar, use la detección dinámica de características.
 
 En versiones anteriores de ASP.NET, las características admitidas para cada explorador se almacenaban en un archivo XML. Detectar compatibilidad con las características a través de una búsqueda estática no es el mejor enfoque. Ahora, puede detectar dinámicamente un explorador las características compatibles con un marco de trabajo de detección de características, como [Modernizr](http://modernizr.com/). Detección de características determina la compatibilidad con cualquier intento de usar un método o propiedad y, a continuación, comprueba si el explorador produce el resultado deseado. De forma predeterminada, Modernizr se incluye en las plantillas de aplicación Web.
 
@@ -109,7 +107,7 @@ En versiones anteriores de ASP.NET, las características admitidas para cada exp
 
 ### <a name="request-validation"></a>La validación de solicitudes
 
-Recomendación: Validar la entrada del usuario y codifique la salida de los usuarios.
+Recomendación: Validar entrada de usuario y codifique la salida de los usuarios.
 
 Validación de la solicitud es una característica de ASP.NET que inspecciona cada solicitud y se detiene la solicitud si no se encuentra una amenaza percibida. No dependen de la validación de solicitudes para proteger la aplicación frente a ataques de scripting entre sitios. En su lugar, validar todas las entradas de los usuarios y codifique la salida. En algunos casos limitados, puede usar expresiones regulares para validar la entrada, pero en casos más complicados que debe validar entrada de usuario mediante las clases de .NET que determinan si el valor coincide con los valores permitidos.
 
@@ -207,9 +205,9 @@ Puede usar el [PreSendRequestHeaders](https://msdn.microsoft.com/library/system.
 
 <a id="asyncevents"></a>
 
-### <a name="asynchronous-page-events-with-web-forms"></a>Eventos de página asincrónica con formularios Web Forms
+### <a name="asynchronous-page-events-with-web-forms"></a>Eventos de página asincrónica con formularios web forms
 
-Recomendación: En formularios Web Forms, evitar la escritura de async void métodos para los eventos de ciclo de vida de página y, en su lugar use [Page.RegisterAsyncTask](https://msdn.microsoft.com/library/system.web.ui.page.registerasynctask.aspx) para código asincrónico.
+Recomendación: En formularios Web Forms, evite escribir async void métodos para los eventos de ciclo de vida de página y, en su lugar use [Page.RegisterAsyncTask](https://msdn.microsoft.com/library/system.web.ui.page.registerasynctask.aspx) para código asincrónico.
 
 Al marcar un evento de página con **async** y **void**, no se puede determinar cuándo ha finalizado el código asincrónico. En su lugar, utilice Page.RegisterAsyncTask para ejecutar el código asincrónico de forma que permite realizar un seguimiento de su finalización.
 
@@ -217,7 +215,7 @@ El ejemplo siguiente se muestra un botón, haga clic en el controlador que conti
 
 [!code-csharp[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample11.cs)]
 
-Si usa tareas asincrónicas, establezca la plataforma de destino en tiempo de ejecución de Http a la versión 4.5 en el archivo Web.config. Establecer la plataforma de destino en 4.5 activa en el nuevo contexto de sincronización que se agregó en .NET 4.5. Este valor se establece de forma predeterminada en los nuevos proyectos en Visual Studio 2012, pero no es estar establecida si está trabajando con un proyecto existente.
+Si usa tareas asincrónicas, establezca la plataforma de destino en tiempo de ejecución de Http a 4.5 (o posterior) en el archivo Web.config. Establecer la plataforma de destino en 4.5 activa en el nuevo contexto de sincronización que se agregó en .NET 4.5. Este valor se establece de forma predeterminada en los nuevos proyectos en Visual Studio, pero no es estar establecida si está trabajando con un proyecto existente.
 
 [!code-xml[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample12.xml)]
 
@@ -257,7 +255,7 @@ En un proyecto MVC, no debe llamar a Response.Redirect. En su lugar, devuelven u
 
 ### <a name="enableviewstate-and-viewstatemode"></a>EnableViewState y ViewStateMode
 
-Recomendación: Use ViewStateMode, en lugar de EnableViewState para proporcionar control granular sobre qué controles utilizar el estado de vista.
+Recomendación: Use ViewStateMode, en lugar de EnableViewState, para proporcionar control granular sobre qué controles utilizar el estado de vista.
 
 Cuando EnableViewState se establece en false en la directiva de página, el estado de vista está deshabilitado para todos los controles dentro de la página y no se puede habilitar. Si desea habilitar el estado de vista para solo ciertos controles en la página, establezca ViewStateMode en deshabilitado para la página.
 
@@ -273,7 +271,7 @@ Al habilitar el estado de vista de solo los controles que lo necesiten, puede re
 
 ### <a name="sqlmembershipprovider"></a>SqlMembershipProvider
 
-Recomendación: Use proveedores universales.
+Recomendación: Usar proveedores universales.
 
 En las plantillas de proyecto actual, SqlMembershipProvider ha sido reemplazado por [ASP.NET Universal Providers](http://www.nuget.org/packages/Microsoft.AspNet.Providers), que está disponible como un paquete de NuGet. Si utilizas SqlMembershipProvider en un proyecto que se creó con una versión anterior de las plantillas, debe cambiar a los proveedores universales. Los proveedores universales funcionan con todas las bases de datos que son compatibles con Entity Framework.
 
@@ -281,9 +279,9 @@ Para obtener más información, consulte [Introducción a ASP.NET Universal Prov
 
 <a id="long"></a>
 
-### <a name="long-running-requests-110-seconds"></a>Las solicitudes de ejecución prolongada (> 110 segundos)
+### <a name="long-running-requests-110-seconds"></a>Solicitudes de ejecución prolongada (> 110 segundos)
 
-Recomendación: Use [WebSockets](https://msdn.microsoft.com/library/system.net.websockets.websocket.aspx) o [SignalR](../../../signalr/index.md) para los clientes conectados y use operaciones asincrónicas de E/S.
+Recomendación: Usar [WebSockets](https://msdn.microsoft.com/library/system.net.websockets.websocket.aspx) o [SignalR](../../../signalr/index.md) para los clientes conectados y use operaciones asincrónicas de E/S.
 
 Solicitudes de ejecución prolongada pueden causar resultados imprevisibles y un rendimiento deficiente en la aplicación web. El valor de tiempo de espera predeterminado para una solicitud es de 110 segundos. Si usa el estado de sesión con una solicitud de ejecución prolongada, ASP.NET volverá a liberar el bloqueo en el objeto de sesión después de 110 segundos. Sin embargo, la aplicación puede estar en el medio de una operación en el objeto de sesión cuando se libere el bloqueo y la operación no se puede completar correctamente. Si una segunda solicitud del usuario se bloquea mientras se ejecuta la primera solicitud, la segunda solicitud puede tener acceso al objeto de sesión en un estado incoherente.
 
