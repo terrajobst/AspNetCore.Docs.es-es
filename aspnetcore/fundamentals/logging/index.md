@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/14/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 0908cc6eeaaba4006a0029ef86d3e47dcf3f9a28
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 81620f0c844f3dbb1a2da0e9f1c319f87d9790b6
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341750"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667706"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -863,7 +863,7 @@ El SDK de Application Insights puede recopilar y notificar los registros que la 
 
 * [Información general de Application Insights](/azure/application-insights/app-insights-overview)
 * [Application Insights para ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
-* [Microsoft/ApplicationInsights-aspnetcore Wiki: Logging](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging) (Registro).
+* [Adaptadores de registro de Application Insights](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md)
 
 ::: moniker-end
 

@@ -5,18 +5,22 @@ description: Esta serie de tutoriales muestra cómo usar Razor Pages en ASP.NET 
 ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 929bc72b16e302a5018038bc449704b7078dd33a
-ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
+ms.openlocfilehash: bec5838c2efaffb933828260eaf1a840ff202140
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53425086"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667770"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Tutorial: Introducción a Razor Pages en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Este es el primer tutorial de una serie. En la [serie](xref:tutorials/razor-pages/index) se enseñan los conceptos básicos de la compilación de una aplicación web de Razor Pages en ASP.NET Core. Al final de la serie, tendrá una aplicación que puede administrar una base de datos de películas.  
+Este es el primer tutorial de una serie. En la [serie](xref:tutorials/razor-pages/index) se enseñan los conceptos básicos de la compilación de una aplicación web de Razor Pages en ASP.NET Core.
+
+[!INCLUDE[](~/includes/advancedRP.md)]
+
+Al final de la serie, tendrá una aplicación que puede administrar una base de datos de películas.  
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
@@ -29,7 +33,7 @@ En este tutorial va a:
 
 Al final de este tutorial, tendrá una aplicación web de Razor Pages que compilará en los tutoriales posteriores.
 
-[Página Inicio o Índice](razor-pages-start/_static/home2.2.png)
+![Página Inicio o Índice](razor-pages-start/_static/home2.2.png)
 
 [!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: c21decd39b7855cf2eefb2bb482e5e91b9487863
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: dbfb63bb7406ee8e20ae25b366162702ac87942c
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889943"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236463"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Crear asistentes de etiquetas en ASP.NET Core
 
@@ -213,12 +213,12 @@ También puede usar `[HtmlTargetElement]` para cambiar el nombre del elemento de
 
 1. Agregue el marcado siguiente a la vista *About.cshtml*. En el marcado resaltado se muestra la información del sitio web.
 
-   [!code-html[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?highlight=1,12-999)]
+   [!code-html[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?highlight=1,4-8, 18-999)]
 
    > [!NOTE]
    > En el marcado de Razor que se muestra a continuación:
    >
-   > [!code-html[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?range=13-17)]
+   > [!code-html[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?range=18-18)]
    >
    > Razor sabe que el atributo `info` es una clase, no una cadena, y usted quiere escribir código de C#. Todos los atributos de asistentes de etiquetas que no sean una cadena deben escribirse sin el carácter `@`.
 

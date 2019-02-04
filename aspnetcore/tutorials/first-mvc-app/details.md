@@ -5,12 +5,12 @@ description: Obtenga información sobre la vista y el método de controlador Det
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: c02a85b7c92a0cfa6125c5033b6cadd965f1662e
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: f674ca1761f85ce127121603286c97d5936f6716
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997193"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236333"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Examinar los métodos Details y Delete de una aplicación ASP.NET Core
 
@@ -24,7 +24,7 @@ El motor de scaffolding de MVC que creó este método de acción agrega un comen
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Startup.cs?highlight=5&name=snippet_1)]
 
-EF facilita el proceso de búsqueda de datos mediante el método `SingleOrDefaultAsync`. Una característica de seguridad importante integrada en el método es que el código comprueba que el método de búsqueda haya encontrado una película antes de intentar hacer nada con ella. Por ejemplo, un pirata informático podría introducir errores en el sitio cambiando la dirección URL creada por los vínculos de `http://localhost:xxxx/Movies/Details/1` a algo parecido a `http://localhost:xxxx/Movies/Details/12345` (o algún otro valor que no represente una película real). Si no comprobara una película null, la aplicación generaría una excepción.
+EF facilita el proceso de búsqueda de datos mediante el método `FirstOrDefaultAsync`. Una característica de seguridad importante integrada en el método es que el código comprueba que el método de búsqueda haya encontrado una película antes de intentar hacer nada con ella. Por ejemplo, un pirata informático podría introducir errores en el sitio cambiando la dirección URL creada por los vínculos de `http://localhost:xxxx/Movies/Details/1` a algo parecido a `http://localhost:xxxx/Movies/Details/12345` (o algún otro valor que no represente una película real). Si no comprobara una película null, la aplicación generaría una excepción.
 
 Examine los métodos `Delete` y `DeleteConfirmed`.
 
