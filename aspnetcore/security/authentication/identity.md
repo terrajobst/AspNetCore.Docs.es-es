@@ -5,12 +5,12 @@ description: Usar identidad con una aplicación ASP.NET Core. Obtenga informaci�
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: 03f89114b516a37ee1d06934f2e549b4d56ff099
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 1a4e7fb3ac6a767ca17127dd58a9b9e65ed9a00b
+ms.sourcegitcommit: e418cb9cddeb3de06fa0cb4fdb5529da03ff6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098774"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55739688"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introducción a la identidad en ASP.NET Core
 
@@ -47,7 +47,7 @@ Cree un proyecto de aplicación Web ASP.NET Core con cuentas de usuario individu
 
 * Seleccione **Archivo** > **Nuevo** > **Proyecto**.
 * Seleccione **Aplicación web de ASP.NET Core**. Denomine el proyecto **WebApp1** tener el mismo espacio de nombres como la descarga del proyecto. Haga clic en **Aceptar**.
-* Seleccione una de ASP.NET Core **aplicación Web** para ASP.NET Core 2.1, a continuación, seleccione **Cambiar autenticación**.
+* Seleccione una de ASP.NET Core **aplicación Web**, a continuación, seleccione **Cambiar autenticación**.
 * Seleccione **cuentas de usuario individuales** y haga clic en **Aceptar**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
@@ -58,30 +58,32 @@ dotnet new webapp --auth Individual -o WebApp1
 
 ---
 
-Proporciona el proyecto generado [ASP.NET Core Identity](xref:security/authentication/identity) como un [biblioteca de clases de Razor](xref:razor-pages/ui-class).
+Proporciona el proyecto generado [ASP.NET Core Identity](xref:security/authentication/identity) como un [biblioteca de clases de Razor](xref:razor-pages/ui-class). La biblioteca de clases de identidad Razor expone los puntos de conexión con el `Identity` área. Por ejemplo:
+
+* / Identidad o cuenta/inicio de sesión
+* / Identidad o cuenta/cierre de sesión
+* / Identidad o cuenta/administrar
 
 ### <a name="test-register-and-login"></a>Inicio de sesión y de registro de prueba
 
 Ejecute la aplicación y registrar un usuario. Según el tamaño de pantalla, es posible que deba seleccionar el botón de alternancia de navegación para ver el **registrar** y **inicio de sesión** vínculos.
-
-![botón de Alternar barra de navegación](identity/_static/navToggle.png)
 
 [!INCLUDE[](~/includes/view-identity-db.md)]
 
 <a name="pw"></a>
 ### <a name="configure-identity-services"></a>Configurar servicios de identidad
 
-Se agregan los servicios en `ConfigureServices`. El patrón habitual consiste en llamar a todos los métodos `Add{Service}` y, luego, a todos los métodos `services.Configure{Service}`. El código siguiente no incluye la plantilla genera `CookiePolicyOptions`:
+Se agregan los servicios en `ConfigureServices`. El patrón habitual consiste en llamar a todos los métodos `Add{Service}` y, luego, a todos los métodos `services.Configure{Service}`.
 
 ::: moniker range=">= aspnetcore-2.1"
 
-   [!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Startup.cs?name=snippet_configureservices)]
+[!code-csharp[](identity/sample/WebApp1/Startup.cs?name=snippet_configureservices)]
 
 El código anterior configura la identidad con valores de la opción predeterminada. Los servicios están disponibles para la aplicación a través de [inserción de dependencias](xref:fundamentals/dependency-injection).
 
    Se habilita la identidad mediante una llamada a [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_). `UseAuthentication` Agrega autenticación [middleware](xref:fundamentals/middleware/index) a la canalización de solicitud.
 
-   [!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Startup.cs?name=snippet_configure&highlight=18)]
+   [!code-csharp[](identity/sample/WebApp1/Startup.cs?name=snippet_configure&highlight=18)]
 
 ::: moniker-end
 
@@ -124,6 +126,7 @@ Agregue los archivos de registro, inicio de sesión y cierre de sesión.
 Si ha creado el proyecto con el nombre **WebApp1**, ejecute los siguientes comandos. En caso contrario, use el espacio de nombres correcto para el `ApplicationDbContext`:
 
 ```cli
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
 
@@ -137,7 +140,7 @@ PowerShell usa el punto y coma como separador de comandos. Cuando se usa PowerSh
 
    Cuando un usuario hace clic en el **registrar** vínculo, el `RegisterModel.OnPostAsync` se invoca la acción. El usuario se crea por [CreateAsync](/dotnet/api/microsoft.aspnetcore.identity.usermanager-1.createasync#Microsoft_AspNetCore_Identity_UserManager_1_CreateAsync__0_System_String_) en el `_userManager` objeto. `_userManager` se proporciona mediante la inserción de dependencias):
 
-   [!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Register.cshtml.cs?name=snippet&highlight=7,22)]
+   [!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Register.cshtml.cs?name=snippet&highlight=7,22)]
 
 ::: moniker-end
 
@@ -164,7 +167,7 @@ Se muestra el formulario de inicio de sesión cuando:
 
 Cuando se envía el formulario de la página de inicio de sesión, el `OnPostAsync` se llama a la acción. `PasswordSignInAsync` se llama en el `_signInManager` objeto (proporcionado por la inserción de dependencias).
 
-   [!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Login.cshtml.cs?name=snippet&highlight=10-11)]
+   [!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Login.cshtml.cs?name=snippet&highlight=10-11)]
 
    La base de `Controller` clase expone un `User` propiedad que se puede acceder desde los métodos de controlador. Por ejemplo, puede enumerar `User.Claims` y tomar decisiones de autorización. Para obtener más información, consulta <xref:security/authorization/introduction>.
 
@@ -188,13 +191,13 @@ La base de (`Controller` o `PageModel`) clase expone un `User` propiedad. Por ej
 
 El **cerrar sesión** vínculo invoca el `LogoutModel.OnPost` acción. 
 
-[!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/Logout.cshtml.cs)]
+[!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Logout.cshtml.cs)]
 
 [SignOutAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.signoutasync#Microsoft_AspNetCore_Identity_SignInManager_1_SignOutAsync) borra las notificaciones de usuario almacenadas en una cookie. No redirigir después de llamar a `SignOutAsync` o que el usuario **no** cerrar la sesión.
 
 POST se especifica en el *Pages/Shared/_LoginPartial.cshtml*:
 
-[!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/_LoginPartial.cshtml?highlight=10)]
+[!code-csharp[](identity/sample/WebApp1/Pages/Shared/_LoginPartial.cshtml?highlight=16)]
 
 ::: moniker-end
 
@@ -210,11 +213,11 @@ POST se especifica en el *Pages/Shared/_LoginPartial.cshtml*:
 
 ## <a name="test-identity"></a>Comprobar la identidad
 
-Las plantillas de proyecto de web predeterminada permiten accesos anónimos a las páginas principales. Para probar la identidad, agregue [ `[Authorize]` ](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute) a la página About.
+Las plantillas de proyecto de web predeterminada permiten accesos anónimos a las páginas principales. Para probar la identidad, agregue [ `[Authorize]` ](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute) a la página de privacidad.
 
-[!code-csharp[](identity/sample/src/ASPNETv2.1-IdentityDemo/About.cshtml.cs)]
+[!code-csharp[](identity/sample/WebApp1/Pages/Privacy.cshtml.cs?highlight=6)]
 
-Si ha iniciado sesión, cerrar sesión. Ejecute la aplicación y seleccione el **sobre** vínculo. Se le redirigirá a la página de inicio de sesión.
+Si ha iniciado sesión, cerrar sesión. Ejecute la aplicación y seleccione el **privacidad** vínculo. Se le redirigirá a la página de inicio de sesión.
 
 ::: moniker range=">= aspnetcore-2.1"
 
