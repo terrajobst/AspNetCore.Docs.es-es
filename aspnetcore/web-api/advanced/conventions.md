@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 892fb8898c78a1645c766544715a8256462207c6
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 5ae96b213a19464045e1d0b1a76f8eb81089dc5b
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249391"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236346"
 ---
 # <a name="use-web-api-conventions"></a>Uso de convenciones de API web
 
@@ -58,7 +58,7 @@ Para obtener más información sobre `[ProducesDefaultResponseType]`, vea [Defau
 
     [!code-csharp[](conventions/sample/Controllers/ContactsConventionController.cs?name=snippet_ApiConventionTypeAttribute&highlight=2)]
 
-1. `Microsoft.AspNetCore.Mvc.ApiConventionTypeAttribute` aplicado a un ensamblado: se aplica el tipo de convención especificado a todos los controladores del ensamblado actual. Se recomienda aplicar atributos de nivel de ensamblado a la clase `Startup`.
+1. `Microsoft.AspNetCore.Mvc.ApiConventionTypeAttribute` aplicado a un ensamblado: se aplica el tipo de convención especificado a todos los controladores del ensamblado actual. Como recomendación, aplique los atributos de nivel de ensamblado al archivo *Startup.cs*.
 
     En el ejemplo siguiente, el conjunto predeterminado de convenciones se aplica a todos los controladores del ensamblado:
 

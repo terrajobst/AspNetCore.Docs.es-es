@@ -4,14 +4,14 @@ author: prkhandelwal
 description: En este tutorial se muestra cómo crear una API web de ASP.NET Core con una base de datos NoSQL de MongoDB.
 ms.author: scaddie
 ms.custom: mvc, seodec18
-ms.date: 01/23/2019
+ms.date: 01/31/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 6375ae618816671bd9c64f038603747c64cdce56
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 5e146261fdc8354fc9f4295a8af317e5cc36332f
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54835601"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667341"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Creación de una API Web con ASP.NET Core y MongoDB
 
@@ -145,10 +145,10 @@ La base de datos está lista. Puede empezar a crear la API web de ASP.NET Core.
 1. Vaya a **Archivo** > **Nuevo** > **Proyecto**.
 1. Seleccione **Aplicación web de ASP.NET Core**, ponga al proyecto el nombre *BooksApi*y haga clic en **Aceptar**.
 1. Seleccione el marco de destino **.NET Core** y **ASP.NET Core 2.1**. Seleccione la plantilla de proyecto **API** y haga clic en **Aceptar**:
-1. En la ventana **Consola del Administrador de paquetes**, desplácese hasta la raíz del proyecto. Ejecute el siguiente comando para instalar el controlador .NET para MongoDB:
+1. Visite la [galería de NuGet: MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) para determinar la última versión estable del controlador .NET para MongoDB. En la ventana **Consola del Administrador de paquetes**, desplácese hasta la raíz del proyecto. Ejecute el siguiente comando para instalar el controlador .NET para MongoDB:
 
     ```powershell
-    Install-Package MongoDB.Driver -Version 2.7.2
+    Install-Package MongoDB.Driver -Version {VERSION}
     ```
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
@@ -163,10 +163,10 @@ La base de datos está lista. Puede empezar a crear la API web de ASP.NET Core.
     Se genera un nuevo proyecto de API web de ASP.NET Core destinado a .NET Core, que puede abrir en Visual Studio Code.
 
 1. Haga clic en **Sí** cuando aparezca la notificación *Required assets to build and debug are missing from 'BooksApi'. Add them?* (Faltan los activos necesarios para compilar y depurar en 'BooksApi'. ¿Desea agregarlos?).
-1. Abra **Terminal integrado** y navegue hasta la raíz del proyecto. Ejecute el siguiente comando para instalar el controlador .NET para MongoDB:
+1. Visite la [galería de NuGet: MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) para determinar la última versión estable del controlador .NET para MongoDB. Abra **Terminal integrado** y navegue hasta la raíz del proyecto. Ejecute el siguiente comando para instalar el controlador .NET para MongoDB:
 
     ```console
-    dotnet add BooksApi.csproj package MongoDB.Driver -v 2.7.2
+    dotnet add BooksApi.csproj package MongoDB.Driver -v {VERSION}
     ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)

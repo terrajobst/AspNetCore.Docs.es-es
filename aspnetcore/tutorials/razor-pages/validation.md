@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 87171beb7c214b1370d4d4144a79cb6d2c56098f
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 99b1073fe025ee8693d9fe833402d245f78a603d
+ms.sourcegitcommit: e7276930515216338a33c4a03c0d7a87fc718ffe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862374"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55293525"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Agregar la validación a una página de Razor de ASP.NET Core
 
@@ -140,9 +140,9 @@ En [Get started with Razor Pages and EF Core](xref:data/ef-rp/intro) (Introducci
 
 ### <a name="publish-to-azure"></a>Publicar en Azure
 
-Para obtener información sobre la implementación en Azure, consulte [Tutorial: Creación de una aplicación ASP.NET en Azure con SQL Database](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Estas instrucciones son para una aplicación ASP.NET, no para una aplicación ASP.NET Core, pero los pasos son los mismos.
+Para obtener información sobre la implementación en Azure, consulte [Tutorial: Compilación de una aplicación ASP.NET en Azure con SQL Database](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Estas instrucciones son para una aplicación ASP.NET, no para una aplicación ASP.NET Core, pero los pasos son los mismos.
 
-Gracias por seguir esta introducción a las páginas de Razor. Le agradeceremos cualquier comentario. [Introducción a MVC con Razor Pages y EF Core](xref:data/ef-rp/intro) es un excelente artículo de seguimiento de este tutorial.
+Gracias por seguir esta introducción a las páginas de Razor. [Introducción a MVC con Razor Pages y EF Core](xref:data/ef-rp/intro) es un excelente artículo de seguimiento de este tutorial.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -152,4 +152,4 @@ Gracias por seguir esta introducción a las páginas de Razor. Le agradeceremos 
 * <xref:mvc/views/tag-helpers/authoring>
 
 > [!div class="step-by-step"]
-> [Anterior: Adición de un nuevo campo](xref:tutorials/razor-pages/new-field)
+> [Anterior: ](xref:tutorials/razor-pages/new-field)Adición de un nuevo campo
