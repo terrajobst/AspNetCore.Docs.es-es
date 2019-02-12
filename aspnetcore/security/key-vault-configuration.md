@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar el proveedor de configuració
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 02/08/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: d255321f6083747ce9b452e1efd4da5bc015bf64
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
+ms.openlocfilehash: f70389c86420d81e284ecc863ac8386f726ed2cf
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854437"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103116"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Proveedor de configuración de almacén de claves de Azure en ASP.NET Core
 
@@ -271,8 +271,8 @@ var cert = store.Certificates
         config["CertificateThumbprint"], false);
 
 config.AddAzureKeyVault(
-    builtConfig["Vault"],
-    builtConfig["ClientId"],
+    builtConfig["KeyVaultName"],
+    builtConfig["AzureADApplicationId"],
     cert.OfType<X509Certificate2>().Single(),
     new EnvironmentSecretManager(context.HostingEnvironment.ApplicationName));
 
@@ -342,8 +342,8 @@ Cuando no se puede cargar la configuración mediante el proveedor de la aplicaci
 * La aplicación no está autorizada para acceder al almacén de claves.
 * La directiva de acceso no incluye `Get` y `List` permisos.
 * En el almacén de claves, los datos de configuración (par nombre-valor) denominados incorrectamente, falta, deshabilitado o expirado.
-* La aplicación tiene el nombre de almacén de claves incorrecto (`Vault`), Id. de aplicación de Azure AD (`ClientId`), o la clave de Azure AD (`ClientSecret`).
-* La clave de Azure AD (`ClientSecret`) ha expirado.
+* La aplicación tiene el nombre de almacén de claves incorrecto (`KeyVaultName`), Id. de aplicación de Azure AD (`AzureADApplicationId`), o la contraseña (secreto de cliente) de Azure AD (`AzureADPassword`).
+* La contraseña (secreto de cliente) de Azure AD (`AzureADPassword`) ha expirado.
 * La clave de configuración (nombre) es incorrecta en la aplicación para el valor que está intentando cargar.
 
 ## <a name="additional-resources"></a>Recursos adicionales

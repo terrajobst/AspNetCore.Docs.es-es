@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo almacenar los datos en la memoria caché en ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/15/2018
+ms.date: 02/11/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 54b4029362c6b26254cb08397ef2e9131f6291d4
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9a7727ad41a05f39d74877af3c8f2e3f7a620c7d
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207256"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103077"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Almacenar en caché en memoria en ASP.NET Core
 
@@ -33,7 +33,7 @@ El `IMemoryCache` caché expulsará las entradas de caché bajo presión de memo
 
 ::: moniker-end
 
-La memoria caché en memoria puede almacenar cualquier objeto; la interfaz de la memoria caché distribuida se limita a `byte[]`.
+La memoria caché en memoria puede almacenar cualquier objeto; la interfaz de la memoria caché distribuida se limita a `byte[]`. Los elementos de caché de almacén de caché en memoria y distribuidas como pares clave-valor.
 
 ## <a name="systemruntimecachingmemorycache"></a>System.Runtime.Caching/MemoryCache
 
@@ -97,7 +97,7 @@ Almacenado en caché `DateTime` valor permanece en la memoria caché mientras ha
 
 ![Vista de índice con dos horas diferentes muestra](memory/_static/time.png)
 
-El siguiente código utiliza [GetOrCreate](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreate__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry___0__) y [GetOrCreateAsync](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreateAsync__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry_System_Threading_Tasks_Task___0___) en caché los datos. 
+El siguiente código utiliza [GetOrCreate](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreate__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry___0__) y [GetOrCreateAsync](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions#Microsoft_Extensions_Caching_Memory_CacheExtensions_GetOrCreateAsync__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_System_Func_Microsoft_Extensions_Caching_Memory_ICacheEntry_System_Threading_Tasks_Task___0___) en caché los datos.
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet2&highlight=3-7,14-19)]
 
@@ -105,7 +105,7 @@ El código siguiente llama [obtener](/dotnet/api/microsoft.extensions.caching.me
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_gct)]
 
-Consulte [IMemoryCache métodos](/dotnet/api/microsoft.extensions.caching.memory.imemorycache) y [CacheExtensions métodos](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) para obtener una descripción de los métodos de la memoria caché.
+<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreate*> , <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreateAsync*>, y [obtener](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.get#Microsoft_Extensions_Caching_Memory_CacheExtensions_Get__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object_) forman parte de los métodos de extensión de la [CacheExtensions](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) clase que amplía la funcionalidad de <xref:Microsoft.Extensions.Caching.Memory.IMemoryCache>. Consulte [IMemoryCache métodos](/dotnet/api/microsoft.extensions.caching.memory.imemorycache) y [CacheExtensions métodos](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) para obtener una descripción de otros métodos de la memoria caché.
 
 ## <a name="memorycacheentryoptions"></a>MemoryCacheEntryOptions
 
