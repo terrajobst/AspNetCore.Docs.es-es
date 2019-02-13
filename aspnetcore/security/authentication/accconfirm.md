@@ -3,14 +3,14 @@ title: Confirmación de la cuenta y la recuperación de contraseñas en ASP.NET 
 author: rick-anderson
 description: Obtenga información sobre cómo compilar una aplicación de ASP.NET Core con el restablecimiento de confirmación y la contraseña de correo electrónico.
 ms.author: riande
-ms.date: 7/11/2018
+ms.date: 2/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 0dc9907f9f54c8a0daf2e05a3769897e5145935f
-ms.sourcegitcommit: e418cb9cddeb3de06fa0cb4fdb5529da03ff6d63
+ms.openlocfilehash: 77d7b209d57f9ee44f158798ff780ce85c87aaf2
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "54444147"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56159413"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Confirmación de la cuenta y la recuperación de contraseñas en ASP.NET Core
 
@@ -166,7 +166,7 @@ Para implementar `IEmailSender`, crear *Services/EmailSender.cs* con código sim
 
 Agregue el código siguiente a la `ConfigureServices` método en el *Startup.cs* archivo:
 
-* Agregar `EmailSender` como un servicio de singleton.
+* Agregar `EmailSender` como un servicio transitorio.
 * Registrar el `AuthMessageSenderOptions` instancia de configuración.
 
 [!code-csharp[](accconfirm/sample/WebPWrecover21/Startup.cs?name=snippet2&highlight=12-99)]
@@ -213,7 +213,7 @@ Se muestra la página de administración con el **perfil** pestaña seleccionada
 * Si ha iniciado sesión, seleccione **Logout**.
 * Seleccione el **iniciarla** vínculo y seleccione el **¿olvidó su contraseña?** vínculo.
 * Escriba el correo electrónico usado para registrar la cuenta.
-* Se envía un correo electrónico con un vínculo para restablecer su contraseña. Compruebe su correo electrónico y haga clic en el vínculo para restablecer la contraseña. Después de que se ha restablecido correctamente su contraseña, puede iniciar sesión con su correo electrónico y la nueva contraseña.
+* Se envía un correo electrónico con un vínculo para restablecer su contraseña. Compruebe su correo electrónico y haga clic en el vínculo para restablecer la contraseña. Una vez que se ha restablecido correctamente su contraseña, puede iniciar sesión con su correo electrónico y la contraseña nueva.
 
 <a name="debug"></a>
 
