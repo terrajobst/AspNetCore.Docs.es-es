@@ -5,12 +5,12 @@ description: Obtenga información sobre la administración de claves de protecci
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/configuration/default-settings
-ms.openlocfilehash: beff17dd81143db02a0cbc79fa7cb3a6a4deeda6
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 2f022a4c7519485fe629ce47c27d214c8c27d5bc
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095104"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159216"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>Administración de claves de protección de datos y la duración en ASP.NET Core
 
@@ -26,6 +26,13 @@ La aplicación intenta detectar su entorno operativo y controlar la configuraci�
    * Las ranuras de implementación independientes, por ejemplo, almacenamiento provisional y producción, no comparten ningún anillo de clave. Al intercambiar las ranuras de implementación, por ejemplo, intercambio de ensayo y producción o usando A pruebas a/b, cualquier aplicación con la protección de datos no podrá descifrar los datos almacenados mediante el conjunto de claves dentro de la ranura anterior. Esto conduce a los usuarios que se están registrados fuera de una aplicación que utiliza la autenticación de cookies estándar de ASP.NET Core, ya que usa la protección de datos para proteger sus cookies. Si así lo desea llaveros independiente de la ranura, utilice un proveedor de anillo de clave externa, como Azure Blob Storage, Azure Key Vault, un almacén de SQL, o de Redis cache.
 
 1. Si el perfil de usuario está disponible, las claves se conservan en el *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys* carpeta. Si el sistema operativo es Windows, las claves se cifran en reposo mediante DPAPI.
+
+   El grupo de aplicaciones [setProfileEnvironment atributo](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration) también debe estar habilitada. El valor predeterminado de `setProfileEnvironment` es `true`. En algunos escenarios (por ejemplo, SO Windows), `setProfileEnvironment` está establecido en `false`. Si las claves no se almacenan en el directorio del perfil de usuario como se esperaba:
+
+   1. Navegue hasta la *%windir%/system32/inetsrv/config* carpeta.
+   1. Abra el *applicationHost.config* archivo.
+   1. Busque el elemento `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>` .
+   1. Confirme que la `setProfileEnvironment` atributo no está presente, cuyo valor predeterminado es el valor a `true`, o establecer explícitamente el valor del atributo en `true`.
 
 1. Si la aplicación se hospeda en IIS, las claves se guardan en el registro HKLM en una clave del registro especial que se incluye sólo la cuenta de proceso de trabajo. Las claves se cifran en reposo con DPAPI.
 
