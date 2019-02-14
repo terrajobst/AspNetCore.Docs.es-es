@@ -4,14 +4,14 @@ author: ssougnez
 description: En este tutorial, se configura Webpack para agrupar y compilar una aplicación web de SignalR de ASP.NET Core cuyo cliente está escrito en TypeScript.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 02/11/2019
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: 8292ab2e0ad1f5c67ac7f15c280b49700f6717ad
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: aaf9aa59928ed6b17bc0586d97dbdefc9e30362c
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836329"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102957"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Uso de SignalR de ASP.NET Core con TypeScript y Webpack
 
@@ -80,13 +80,13 @@ Los pasos siguientes permiten configurar la conversión de TypeScript a JavaScri
 1. Instale los paquetes npm necesarios. Ejecute el comando siguiente desde la raíz del proyecto:
 
     ```console
-    npm install -D -E clean-webpack-plugin@0.1.19 css-loader@0.28.11 html-webpack-plugin@3.2.0 mini-css-extract-plugin@0.4.0 ts-loader@4.4.1 typescript@2.9.2 webpack@4.12.0 webpack-cli@3.0.6
+    npm install -D -E clean-webpack-plugin@1.0.1 css-loader@2.1.0 html-webpack-plugin@4.0.0-beta.5 mini-css-extract-plugin@0.5.0 ts-loader@5.3.3 typescript@3.3.3 webpack@4.29.3 webpack-cli@3.2.3
     ```
 
     Algunos detalles del comando para tener en cuenta:
 
     * En cada nombre de paquete, un número de versión sigue al signo `@`. npm instala esas versiones de paquete específicas.
-    * La opción `-E` deshabilita el comportamiento predeterminado de npm de escribir operadores de intervalo de [versionamiento semántico](https://semver.org/) en *package.json*. Por ejemplo, se usa `"webpack": "4.12.0"` en lugar de `"webpack": "^4.12.0"`. Esta opción impide actualizaciones no deseadas a versiones más recientes del paquete.
+    * La opción `-E` deshabilita el comportamiento predeterminado de npm de escribir operadores de intervalo de [versionamiento semántico](https://semver.org/) en *package.json*. Por ejemplo, se usa `"webpack": "4.29.3"` en lugar de `"webpack": "^4.29.3"`. Esta opción impide actualizaciones no deseadas a versiones más recientes del paquete.
 
     Vea la documentación oficial de [npm-install](https://docs.npmjs.com/cli/install) para obtener más detalles.
 
