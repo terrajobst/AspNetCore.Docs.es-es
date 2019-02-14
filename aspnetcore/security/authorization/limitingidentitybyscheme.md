@@ -5,12 +5,12 @@ description: En este artículo se explica cómo limitar la identidad de un esque
 ms.author: riande
 ms.date: 10/22/2018
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: fbe9f32e01a214f41b5a6e9f43e8fdee5fc612df
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 778bb61f472ab2e76f85da5999d3c79238188f19
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089401"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248204"
 ---
 # <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>Autorizar con un esquema específico en ASP.NET Core
 
@@ -201,6 +201,6 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Como se invalida la directiva de autorización de forma predeterminada, es posible usar una sencilla `[Authorize]` atributo en los controladores. El controlador, a continuación, acepta las solicitudes con el token JWT emitido por el emisor de primer o segundo.
+Como se invalida la directiva de autorización de forma predeterminada, es posible usar el `[Authorize]` atributo en los controladores. El controlador, a continuación, acepta las solicitudes con el token JWT emitido por el emisor de primer o segundo.
 
 ::: moniker-end

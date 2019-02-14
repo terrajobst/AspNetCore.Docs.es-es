@@ -4,26 +4,36 @@ title: Search | Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: riande
-ms.date: 05/22/2015
+ms.date: 01/17/2019
 ms.assetid: df001954-18bf-4550-b03d-43911a0ea186
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: 31fd35ac63f3eb31d824e1710833ad83a0852ac9
-ms.sourcegitcommit: a91e8dd2f4b788114c8bc834507277f4b5e8d6c5
+ms.openlocfilehash: ada125c917656f3a83524ff39e53b4cfc041a497
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55712268"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248386"
 ---
 <a name="search"></a>Buscar
 ====================
-by [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 ## <a name="adding-a-search-method-and-search-view"></a>Agregar un método de búsqueda y la vista de búsqueda
 
 En esta sección agregará capacidad de búsqueda para el `Index` método de acción que le permite buscar películas por género o un nombre.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Para que coincida con las capturas de pantalla de esta sección, deberá ejecutar la aplicación (F5) y agregue las películas siguientes a la base de datos.
+
+| Título | Fecha de lanzamiento | Genre | Precio |
+| ----- | ------------ | ----- | ----- |
+| Ghostbusters | 6/8/1984 | Comedia | 6.99 |
+| Ghostbusters II | 6/16/1989 | Comedia | 6.99 |
+| Mundial de la Simios | 3/27/1986 | Acción | 5.99 |
+
 
 ## <a name="updating-the-index-form"></a>Actualizar el formulario de índice
 
@@ -68,7 +78,7 @@ Ahora puede pasar el título de la búsqueda como datos de ruta (un segmento de 
 
 ![](adding-search/_static/image2.png)
 
-Sin embargo, no se puede esperar que los usuarios modifiquen la dirección URL cada vez que quieran buscar una película. Ahora va a agregar la interfaz de usuario para ayudar a ellos filtrar las películas. Si ha cambiado la firma de la `Index` método para probar cómo pasar el parámetro de identificador enlazado a una ruta, cámbielo para que su `Index` método toma un parámetro de cadena denominado `searchString`:
+Sin embargo, no se puede esperar que los usuarios modifiquen la dirección URL cada vez que quieran buscar una película. Por lo tanto, ahora deberá agregar la interfaz de usuario con la que podrán filtrar las películas. Si ha cambiado la firma de la `Index` método para probar cómo pasar el parámetro de identificador enlazado a una ruta, cámbielo para que su `Index` método toma un parámetro de cadena denominado `searchString`:
 
 [!code-csharp[Main](adding-search/samples/sample7.cs)]
 
@@ -120,7 +130,7 @@ El código siguiente es una consulta LINQ que recupera todos los géneros de la 
 
 [!code-csharp[Main](adding-search/samples/sample12.cs)]
 
-El código usa el `AddRange` método de la clase genérica `List` colección para agregar los distintos géneros a la lista. (Sin el `Distinct` modificador, se agregaría géneros duplicados, por ejemplo, Comedia se agregaría dos veces en nuestro ejemplo). El código, a continuación, almacena la lista de géneros de la `ViewBag.MovieGenre` objeto. Almacenamiento de datos de categoría (del tal un género de película) como un [SelectList](https://msdn.microsoft.cus/library/system.web.mvc.selectlist(v=vs.108).aspx) objeto en un `ViewBag`, entonces obtener acceso a los datos de categoría en un cuadro de lista desplegable es un enfoque típico para las aplicaciones MVC.
+El código usa el `AddRange` método de la clase genérica `List` colección para agregar los distintos géneros a la lista. (Sin el `Distinct` modificador, se agregaría géneros duplicados, por ejemplo, Comedia se agregaría dos veces en nuestro ejemplo). El código, a continuación, almacena la lista de géneros de la `ViewBag.MovieGenre` objeto. Almacenar datos de categoría (este tipo una géneros de película) como un [SelectList](https://msdn.microsoft.cus/library/system.web.mvc.selectlist(v=vs.108).aspx) objeto en un `ViewBag`, a continuación, obtener acceso a los datos de categoría en un cuadro de lista desplegable es un enfoque típico para las aplicaciones MVC.
 
 El código siguiente muestra cómo comprobar el `movieGenre` parámetro. Si no está vacía, el código más restringe la consulta de películas para limitar las películas seleccionadas para el género especificado.
 

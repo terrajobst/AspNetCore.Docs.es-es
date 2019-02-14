@@ -2,26 +2,19 @@
 title: Uso de la plantilla de proyecto de Angular con ASP.NET Core
 author: SteveSandersonMS
 description: Aprenda cómo comenzar a trabajar con la plantilla de proyecto de aplicación de página única (SPA) de ASP.NET Core para Angular y la CLI de Angular.
-monikerRange: '>= aspnetcore-2.0'
-ms.author: scaddie
+monikerRange: '>= aspnetcore-2.1'
+ms.author: stevesa
 ms.custom: mvc
-ms.date: 02/21/2018
+ms.date: 02/13/2019
 uid: spa/angular
-ms.openlocfilehash: 8283fe9e96acb57942040dd4c90fabd204a19663
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 35a839e31369e8dbf00f5dbfb3751a2985335755
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326048"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248126"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de Angular con ASP.NET Core
-
-::: moniker range="= aspnetcore-2.0"
-
-> [!NOTE]
-> Esta documentación no trata sobre la plantilla de proyecto de Angular incluida en ASP.NET Core 2.0. Trata sobre la nueva plantilla de Angular que puede actualizar manualmente. La plantilla se incluye de forma predeterminada en ASP.NET Core 2.1.
-
-::: moniker-end
 
 La plantilla de proyecto de Angular actualizada proporciona un práctico punto de partida para las aplicaciones ASP.NET Core que usan Angular y la CLI de Angular para implementar una completa interfaz de usuario (UI) del lado cliente.
 
@@ -29,17 +22,7 @@ La plantilla es equivalente a crear un proyecto de ASP.NET Core que funciona com
 
 ## <a name="create-a-new-app"></a>Creación de una nueva aplicación
 
-::: moniker range="= aspnetcore-2.0"
-
-Si usa ASP.NET Core 2.0, asegúrese de que ha [instalado la plantilla de proyecto de Angular actualizada](xref:spa/index#installation).
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
 Si tiene ASP.NET Core 2.1 instalado, no es necesario instalar la plantilla de proyecto de Angular.
-
-::: moniker-end
 
 En un símbolo del sistema, cree un nuevo proyecto con el comando `dotnet new angular` en un directorio vacío. Por ejemplo, los siguientes comandos crean la aplicación en un directorio *my-new-app* y cambian a ese directorio:
 
@@ -70,7 +53,7 @@ Now listening on: http://localhost:<port>
 
 Vaya a esta dirección URL en un explorador.
 
-La aplicación inicia en segundo plano una instancia del servidor de la CLI de Angular. Se registra un mensaje similar al siguiente: *El servidor de desarrollo de NG Live escucha en localhost:&lt;otherport&gt;, abra el explorador en http://localhost:&lt;otherport&gt;/*. Omita este mensaje, no **es** la dirección URL de la aplicación combinada de ASP.NET Core y la CLI de Angular.
+La aplicación inicia en segundo plano una instancia del servidor de la CLI de Angular. Se registra un mensaje similar al siguiente: *NG Live Development Server está escuchando en localhost:&lt;otherport&gt;, abra el explorador en http://localhost:&lt; otherport&gt;/*. Omita este mensaje, no **es** la dirección URL de la aplicación combinada de ASP.NET Core y la CLI de Angular.
 
 ---
 

@@ -2,26 +2,19 @@
 title: Uso de la plantilla de proyecto React-with-Redux con ASP.NET Core
 author: SteveSandersonMS
 description: Aprenda cómo comenzar a trabajar con la plantilla de proyecto de aplicación de página única (SPA) de ASP.NET Core para React with Redux y create-react-app.
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 02/21/2018
+ms.date: 02/13/2019
 uid: spa/react-with-redux
-ms.openlocfilehash: c1aedcf1e14a9e7b339b60dd02c4267cd5945a49
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: ed2e9aea449ddb09fef049a391f40f57452786a8
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341625"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248087"
 ---
 # <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto React-with-Redux con ASP.NET Core
-
-::: moniker range="= aspnetcore-2.0"
-
-> [!NOTE]
-> Esta documentación no pertenecen a la plantilla de proyecto React con Redux incluida en ASP.NET Core 2.0. Que pertenece a la plantilla de React con Redux más reciente que se puede actualizar manualmente. La plantilla está disponible en ASP.NET Core 2.1 o posterior.
-
-::: moniker-end
 
 La plantilla de proyecto actualizada de React-with-Redux ofrece un práctico punto de partida para las aplicaciones ASP.NET Core que usan React, Redux y las convenciones [create-react-app](https://github.com/facebookincubator/create-react-app) (CRA) para implementar una completa interfaz de usuario (UI) en el lado cliente.
 

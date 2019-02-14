@@ -3,14 +3,14 @@ title: Migración de ASP.NET MVC a ASP.NET Core MVC
 author: ardalis
 description: Obtenga información sobre cómo empezar a migrar un proyecto de MVC de ASP.NET a ASP.NET Core MVC.
 ms.author: riande
-ms.date: 03/07/2017
+ms.date: 02/13/2019
 uid: migration/mvc
-ms.openlocfilehash: 7c9d927bbd06f96f130d53e946a2963b5804960b
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 2ca51a145243444722ad8081fd8cdbb65d72b53a
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505744"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248048"
 ---
 # <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migración de ASP.NET MVC a ASP.NET Core MVC
 
@@ -27,9 +27,9 @@ Para demostrar la actualización, comenzamos creando una aplicación ASP.NET MVC
 
 ![El cuadro de diálogo de Visual Studio de nuevo proyecto](mvc/_static/new-project.png)
 
-![Cuadro de diálogo nueva aplicación Web: plantilla de proyecto MVC seleccionada en el panel de plantillas ASP.NET](mvc/_static/new-project-select-mvc-template.png)
+![Cuadro de diálogo nueva aplicación Web: Plantilla de proyecto MVC seleccionada en el panel de plantillas ASP.NET](mvc/_static/new-project-select-mvc-template.png)
 
-*Opcional:* cambiar el nombre de la solución desde *WebApp1* a *Mvc5*. Visual Studio muestra el nuevo nombre de la solución (*Mvc5*), lo que facilita indicar este proyecto desde el proyecto siguiente.
+*Opcional:* Cambiar el nombre de la solución desde *WebApp1* a *Mvc5*. Visual Studio muestra el nuevo nombre de la solución (*Mvc5*), lo que facilita indicar este proyecto desde el proyecto siguiente.
 
 ## <a name="create-the-aspnet-core-project"></a>Crear el proyecto de ASP.NET Core
 
@@ -37,9 +37,9 @@ Cree un nuevo *vacía* aplicación web de ASP.NET Core con el mismo nombre que e
 
 ![Cuadro de diálogo Nuevo proyecto](mvc/_static/new_core.png)
 
-![Cuadro de diálogo nueva aplicación Web de ASP.NET: plantilla de proyecto vacía seleccionada en el panel de plantillas de ASP.NET Core](mvc/_static/new-project-select-empty-aspnet5-template.png)
+![Cuadro de diálogo nueva aplicación Web de ASP.NET: Plantilla de proyecto vacía seleccionada en el panel de plantillas de ASP.NET Core](mvc/_static/new-project-select-empty-aspnet5-template.png)
 
-* *Opcional:* crear una nueva aplicación ASP.NET Core usando la *aplicación Web* plantilla de proyecto. Denomine el proyecto *WebApp1*y seleccione una opción de autenticación de **cuentas de usuario individuales**. Cambiar el nombre de esta aplicación *FullAspNetCore*. Este proyecto le ahorra tiempo a crear en la conversión. Puede mirar el código generado con plantilla para ver el resultado final o copie el código en el proyecto de conversión. También es útil cuando se bloquea en un paso de conversión que se compara con el proyecto generado con plantilla.
+* *Opcional:* Crear una nueva aplicación ASP.NET Core mediante la *aplicación Web* plantilla de proyecto. Denomine el proyecto *WebApp1*y seleccione una opción de autenticación de **cuentas de usuario individuales**. Cambiar el nombre de esta aplicación *FullAspNetCore*. Este proyecto le ahorra tiempo a crear en la conversión. Puede mirar el código generado con plantilla para ver el resultado final o copie el código en el proyecto de conversión. También es útil cuando se bloquea en un paso de conversión que se compara con el proyecto generado con plantilla.
 
 ## <a name="configure-the-site-to-use-mvc"></a>Configurar el sitio para usar MVC
 
@@ -149,7 +149,7 @@ Proyecto de la antigua de ASP.NET MVC usa [Bootstrap](https://getbootstrap.com/)
 
 * Crear un *Views/Shared* carpeta.
 
-* *Opcional:* copia *_ViewImports.cshtml* desde el *FullAspNetCore* del proyecto de MVC *vistas* carpeta en el proyecto de ASP.NET Core  *Vistas* carpeta. Quitar las declaraciones de espacio de nombres en el *_ViewImports.cshtml* archivo. El *_ViewImports.cshtml* archivo proporciona los espacios de nombres para todos los archivos de vista y se pone [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro). Aplicaciones auxiliares de etiquetas se usan en el nuevo archivo de diseño. El *_ViewImports.cshtml* archivo es nuevo en ASP.NET Core.
+* *Opcional:* Copia *_ViewImports.cshtml* desde el *FullAspNetCore* del proyecto de MVC *vistas* carpeta en el proyecto de ASP.NET Core *vistas* carpeta. Quitar las declaraciones de espacio de nombres en el *_ViewImports.cshtml* archivo. El *_ViewImports.cshtml* archivo proporciona los espacios de nombres para todos los archivos de vista y se pone [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro). Aplicaciones auxiliares de etiquetas se usan en el nuevo archivo de diseño. El *_ViewImports.cshtml* archivo es nuevo en ASP.NET Core.
 
 * Copia el *_Layout.cshtml* archivo desde el proyecto de ASP.NET MVC antiguo *Views/Shared* carpeta en el proyecto de ASP.NET Core *Views/Shared* carpeta.
 
@@ -188,7 +188,7 @@ La actualización *_Layout.cshtml* archivo se muestra a continuación:
 
 Ver el sitio en el explorador. Ahora deberían cargarse correctamente, con los estilos esperados en su lugar.
 
-* *Opcional:* desea intentar usar el nuevo archivo de diseño. Para este proyecto puede copiar el archivo de diseño de la *FullAspNetCore* proyecto. El nuevo archivo de diseño usa [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) y tiene otras mejoras.
+* *Opcional:* Es posible que desee intentar usar el nuevo archivo de diseño. Para este proyecto puede copiar el archivo de diseño de la *FullAspNetCore* proyecto. El nuevo archivo de diseño usa [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) y tiene otras mejoras.
 
 ## <a name="configure-bundling-and-minification"></a>Configurar la unión y minificación
 
@@ -204,5 +204,5 @@ ASP.NET Core convierte las excepciones no controladas en una aplicación web en 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Desarrollo del lado cliente](xref:client-side/index)
-* [Asistentes de etiquetas](xref:mvc/views/tag-helpers/intro)
+* <xref:razor-components/index>
+* <xref:mvc/views/tag-helpers/intro>

@@ -2,26 +2,19 @@
 title: Uso de la plantilla de proyecto de React con ASP.NET Core
 author: SteveSandersonMS
 description: Aprenda cómo comenzar a trabajar con la plantilla de proyecto de aplicación de página única (SPA) de ASP.NET Core para React y create-react-app.
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 02/21/2018
+ms.date: 02/13/2019
 uid: spa/react
-ms.openlocfilehash: d83bff8abcd5b59d8bc4a51a101510755394f0c4
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: aa08a9d8d06d8b52be564fabf904d4923684d4e4
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667692"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248035"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de React con ASP.NET Core
-
-::: moniker range="= aspnetcore-2.0"
-
-> [!NOTE]
-> Esta documentación no trata sobre la plantilla de proyecto de React incluida en ASP.NET Core 2.0. Trata sobre la nueva plantilla de React que puede actualizar manualmente. La plantilla se incluye de forma predeterminada en ASP.NET Core 2.1.
-
-::: moniker-end
 
 La plantilla de proyecto actualizada de React ofrece un práctico punto de partida para las aplicaciones ASP.NET Core que usan React y las convenciones [create-react-app](https://github.com/facebookincubator/create-react-app) (CRA) para implementar una completa interfaz de usuario (UI) en el lado cliente.
 
@@ -29,17 +22,7 @@ La plantilla es equivalente a crear un proyecto de ASP.NET Core para que funcion
 
 ## <a name="create-a-new-app"></a>Creación de una nueva aplicación
 
-::: moniker range="= aspnetcore-2.0"
-
-Si usa ASP.NET Core 2.0, asegúrese de que ha [instalado la plantilla de proyecto actualizada de React](xref:spa/index#installation).
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
 Si tiene ASP.NET Core 2.1 instalado, no es necesario instalar la plantilla de proyecto de React.
-
-::: moniker-end
 
 En un símbolo del sistema, cree un nuevo proyecto con el comando `dotnet new react` en un directorio vacío. Por ejemplo, los siguientes comandos crean la aplicación en un directorio *my-new-app* y cambian a ese directorio:
 

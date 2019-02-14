@@ -4,17 +4,17 @@ title: 'Tutorial: Introducción a EF Database First con MVC 5'
 description: Este tutorial muestra cómo comenzar con una existente de base de datos y crear rápidamente una aplicación web que permite a los usuarios interactuar con los datos.
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/28/2019
+ms.date: 01/15/2019
 ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: dfc6c7a7083524a1e7049fdc879fe679f951084d
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: d99fdb5382037038d4428ff1946f39aee380fb75
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667744"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248230"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>Tutorial: Introducción a EF Database First con MVC 5
 
@@ -33,17 +33,16 @@ En este tutorial ha:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 
-## <a name="introduction"></a>Introducción
-
-En este tutorial se aborda la situación donde tiene una base de datos y desea generar código para una aplicación web basada en los campos de esa base de datos. Este enfoque se denomina desarrollo Database First. Si no dispone de una base de datos existente, puede usar en su lugar un enfoque de desarrollo Code First que implica definir clases de datos y generar la base de datos de las propiedades de clase.
 
 ## <a name="set-up-the-database"></a>Configurar la base de datos
 
 Para imitar el entorno de tener una base de datos existente, creará primero una base de datos con algunos datos previamente rellenadas y, a continuación, cree la aplicación web que se conecta a la base de datos.
 
-En este tutorial se desarrolló con LocalDB. Puede usar un servidor de base de datos existente en lugar de LocalDB, pero según la versión de Visual Studio y el tipo de base de datos, todas las herramientas de datos en Visual Studio podrían no admitirse. Si las herramientas no están disponibles para la base de datos, deberá realizar algunos de los pasos específicos de la base de datos dentro del paquete de administración de la base de datos.
+
+En este tutorial se desarrolló con LocalDB con Visual Studio 2017. Puede usar un servidor de base de datos existente en lugar de LocalDB, pero según la versión de Visual Studio y el tipo de base de datos, todas las herramientas de datos en Visual Studio podrían no admitirse. Si las herramientas no están disponibles para la base de datos, deberá realizar algunos de los pasos específicos de la base de datos dentro del paquete de administración de la base de datos.
+
 
 Si tiene un problema con las herramientas de base de datos en su versión de Visual Studio, asegúrese de que ha instalado la versión más reciente de las herramientas de base de datos. Para obtener información sobre cómo actualizar o instalar las herramientas de base de datos, vea [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027).
 

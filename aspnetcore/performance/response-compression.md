@@ -5,14 +5,14 @@ description: Obtenga información sobre la compresión de respuesta y cómo usar
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 02/13/2019
 uid: performance/response-compression
-ms.openlocfilehash: a9f72a6816298b11e7b7d30b2b4bd44083baab3a
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: e87480ebb81791ed233f3e2308e35e21e081824f
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099044"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248373"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Compresión de respuesta en ASP.NET Core
 
@@ -30,7 +30,7 @@ Use el Middleware de compresión de respuesta cuando haya:
 
 * No se puede usar las siguientes tecnologías de compresión basada en servidor:
   * [Módulo de compresión dinámica de IIS](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
-  * [Módulo mod_deflate de Apache](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
+  * [Apache mod_deflate module](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [Nginx compresión y descompresión](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Que hospeda directamente en:
   * [Servidor HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominados WebListener)
@@ -143,7 +143,7 @@ public class Startup
 }
 ```
 
-Notas: 
+Notas:
 
 * `app.UseResponseCompression` debe llamarse antes `app.UseMvc`.
 * Usar una herramienta como [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), o [Postman](https://www.getpostman.com/) para establecer el `Accept-Encoding` encabezado de solicitud y estudiar los encabezados de respuesta, el tamaño y el cuerpo.
@@ -174,7 +174,7 @@ Enviar una solicitud a la aplicación de ejemplo con el `Accept-Encoding: gzip` 
 
 ### <a name="brotli-compression-provider"></a>Proveedor de la compresión Brotli
 
-Use la `BrotliCompressionProvider` para comprimir las respuestas con el [formato de datos comprimidos Brotli](https://tools.ietf.org/html/rfc7932).
+Use la <xref:Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProvider> para comprimir las respuestas con el [formato de datos comprimidos Brotli](https://tools.ietf.org/html/rfc7932).
 
 Si no hay proveedores de compresión se agregan explícitamente a la <xref:Microsoft.AspNetCore.ResponseCompression.CompressionProviderCollection>:
 
@@ -190,22 +190,9 @@ public void ConfigureServices(IServiceCollection services)
 
 Cuando se agregan explícitamente todos los proveedores de compresión, se debe agregar el proveedor de compresión Brotoli:
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddResponseCompression(options =>
-    {
-        options.Providers.Add<BrotliCompressionProvider>();
-        options.Providers.Add<GzipCompressionProvider>();
-        options.Providers.Add<CustomCompressionProvider>();
-        options.MimeTypes = 
-            ResponseCompressionDefaults.MimeTypes.Concat(
-                new[] { "image/svg+xml" });
-    });
-}
-```
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=5)]
 
-Establecer nivel con la compresión `BrotliCompressionProviderOptions`. El proveedor de la compresión Brotli el valor predeterminado es el nivel de compresión más rápido ([CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel)), que no podría producir la compresión más eficaz. Si se desea la compresión más eficaz, configure el middleware de compresión óptima.
+Establecer nivel con la compresión <xref:Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProviderOptions>. El proveedor de la compresión Brotli el valor predeterminado es el nivel de compresión más rápido ([CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel)), que no podría producir la compresión más eficaz. Si se desea la compresión más eficaz, configure el middleware de compresión óptima.
 
 | Nivel de compresión | Descripción |
 | ----------------- | ----------- |
@@ -258,30 +245,11 @@ El proveedor de compresión Gzip deben agregarse cuando se agregan explícitamen
 
 ::: moniker range=">= aspnetcore-2.2"
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddResponseCompression(options =>
-    {
-        options.Providers.Add<BrotliCompressionProvider>();
-        options.Providers.Add<GzipCompressionProvider>();
-        options.Providers.Add<CustomCompressionProvider>();
-        options.MimeTypes = 
-            ResponseCompressionDefaults.MimeTypes.Concat(
-                new[] { "image/svg+xml" });
-    });
-}
-```
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=6)]
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
-
-[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=5)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
+::: moniker range="< aspnetcore-2.2"
 
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5)]
 
@@ -315,48 +283,15 @@ Uso de la aplicación de ejemplo, el cliente envía una solicitud con el `Accept
 
 ::: moniker range=">= aspnetcore-2.2"
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddResponseCompression(options =>
-    {
-        options.Providers.Add<BrotliCompressionProvider>();
-        options.Providers.Add<GzipCompressionProvider>();
-        options.Providers.Add<CustomCompressionProvider>();
-        options.MimeTypes = 
-            ResponseCompressionDefaults.MimeTypes.Concat(
-                new[] { "image/svg+xml" });
-    });
-}
-```
-
-```csharp
-public class CustomCompressionProvider : ICompressionProvider
-{
-    public string EncodingName => "mycustomcompression";
-    public bool SupportsFlush => true;
-
-    public Stream CreateStream(Stream outputStream)
-    {
-        // Create a custom compression stream wrapper here
-        return outputStream;
-    }
-}
-```
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
-
-[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=6,12-15)]
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=7)]
 
 [!code-csharp[](response-compression/samples/2.x/CustomCompressionProvider.cs?name=snippet1)]
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-2.0"
+::: moniker range="< aspnetcore-2.2"
 
-[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6,12-15)]
+[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6)]
 
 [!code-csharp[](response-compression/samples/1.x/CustomCompressionProvider.cs?name=snippet1)]
 
@@ -383,30 +318,11 @@ Reemplazar o anexar los tipos MIME con las opciones de Middleware de compresión
 
 ::: moniker range=">= aspnetcore-2.2"
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddResponseCompression(options =>
-    {
-        options.Providers.Add<BrotliCompressionProvider>();
-        options.Providers.Add<GzipCompressionProvider>();
-        options.Providers.Add<CustomCompressionProvider>();
-        options.MimeTypes = 
-            ResponseCompressionDefaults.MimeTypes.Concat(
-                new[] { "image/svg+xml" });
-    });
-}
-```
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=8-10)]
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
-
-[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=7-9)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
+::: moniker range="< aspnetcore-2.2"
 
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7-9)]
 
@@ -466,7 +382,7 @@ Usar una herramienta como [Fiddler](https://www.telerik.com/fiddler), [Firebug](
 
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/index>
-* [Mozilla Developer Network: Codificación aceptada](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
+* [Mozilla Developer Network: Accept-Encoding](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
 * [Sección RFC 7231 3.1.2.1: Códigos de contenido](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
 * [RFC 7230 sección 4.2.3: Codificación gzip](https://tools.ietf.org/html/rfc7230#section-4.2.3)
 * [Versión de especificación del formato de archivo GZIP 4.3](http://www.ietf.org/rfc/rfc1952.txt)
