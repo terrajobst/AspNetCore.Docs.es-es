@@ -4,14 +4,14 @@ author: rick-anderson
 description: Consulte una introducción a ASP.NET Core, un marco multiplataforma de código abierto y de alto rendimiento que tiene como finalidad compilar modernas aplicaciones conectadas a Internet y basadas en la nube.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 02/13/2019
 uid: index
-ms.openlocfilehash: e7c81ff82e5206a5aca217417f6cb1c339d72e89
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: c3f07814bfab19a0f070e0b48b0d2ef6cfc1594e
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341412"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248165"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -44,7 +44,7 @@ ASP.NET Core MVC proporciona características para crear [API web](xref:tutorial
 
 ## <a name="client-side-development"></a>Desarrollo del lado cliente
 
-ASP.NET Core se integra perfectamente con bibliotecas y marcos de trabajo populares del lado cliente, que incluyen [Angular](xref:spa/angular), [React](xref:spa/react) y [Bootstrap](https://getbootstrap.com/). Para obtener más información, vea [Desarrollo del lado cliente](xref:client-side/index).
+ASP.NET Core se integra perfectamente con las bibliotecas y los marcos de trabajo más populares del lado cliente, que incluyen [Razor Components](xref:razor-components/index), [Angular](xref:spa/angular), [React](xref:spa/react) y [Bootstrap](https://getbootstrap.com/). Para obtener más información, consulte [Introducción a Razor Components](xref:razor-components/index) y los temas al respecto en *Desarrollo del lado cliente*.
 
 <a name="target-framework"></a>
 
