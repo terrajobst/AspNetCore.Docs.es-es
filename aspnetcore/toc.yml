@@ -416,28 +416,6 @@ items:
       href: /azure/vs-storage-aspnet5-getting-started-tables/
 - name: Desarrollo del lado cliente
   items:
-  - uid: client-side/index
-    name: Información general
-  - uid: client-side/using-gulp
-    name: Gulp
-  - uid: client-side/using-grunt
-    name: Grunt
-  - name: LibMan
-    items:
-    - uid: client-side/libman/index
-      name: Información general
-    - uid: client-side/libman/libman-cli
-      name: CLI
-    - uid: client-side/libman/libman-vs
-      name: Programa para la mejora
-  - uid: client-side/bower
-    name: Bower
-  - uid: client-side/less-sass-fa
-    name: LESS, Sass y Font Awesome
-  - uid: client-side/bundling-and-minification
-    name: Agrupar y minimizar
-  - uid: client-side/using-browserlink
-    name: Vínculo con exploradores
   - name: Componentes de Razor
     items:
     - uid: razor-components/index
@@ -470,8 +448,36 @@ items:
         name: Configurar el enlazador
   - name: Aplicaciones de una sola página
     items:
-    - uid: spa/index
-      name: Información general
+    - name: Blazor
+      items:
+      - uid: spa/blazor/index
+        name: Información general
+      - uid: spa/blazor/get-started
+        name: Primeros pasos
+      - uid: tutorials/first-razor-components-app
+        name: Compilación de la primera aplicación
+      - uid: razor-components/components
+        name: Componentes
+      - uid: razor-components/class-libraries
+        name: Bibliotecas de los componentes
+      - uid: razor-components/layouts
+        name: Diseños
+      - uid: razor-components/dependency-injection
+        name: Inserción de dependencias
+      - uid: razor-components/routing
+        name: Enrutamiento
+      - uid: razor-components/javascript-interop
+        name: Interoperabilidad de JavaScript
+      - uid: razor-components/debug
+        name: Depuración
+      - uid: razor-components/hosting-models
+        name: Modelos de hospedaje
+      - name: Hospedaje e implementación
+        items:
+        - uid: host-and-deploy/razor-components/index
+          name: Información general
+        - uid: host-and-deploy/razor-components/configure-linker
+          name: Configurar el enlazador
     - uid: spa/angular
       name: Angular
     - uid: spa/react
@@ -480,6 +486,26 @@ items:
       name: React con Redux
     - uid: client-side/spa-services
       name: JavaScriptServices
+  - name: LibMan
+    items:
+    - uid: client-side/libman/index
+      name: Información general
+    - uid: client-side/libman/libman-cli
+      name: CLI
+    - uid: client-side/libman/libman-vs
+      name: Programa para la mejora
+  - uid: client-side/using-gulp
+    name: Gulp
+  - uid: client-side/using-grunt
+    name: Grunt
+  - uid: client-side/bower
+    name: Bower
+  - uid: client-side/less-sass-fa
+    name: LESS, Sass y Font Awesome
+  - uid: client-side/bundling-and-minification
+    name: Agrupar y minimizar
+  - uid: client-side/using-browserlink
+    name: Vínculo con exploradores
 - name: Hospedaje e implementación
   items:
   - uid: host-and-deploy/index
@@ -532,6 +558,8 @@ items:
       name: Solucionar problemas
     - uid: host-and-deploy/azure-iis-errors-reference
       name: Referencia de errores
+    - uid: host-and-deploy/iis/transform-webconfig
+      name: Transformación de web.config
   - uid: fundamentals/servers/kestrel
     name: Kestrel
   - uid: fundamentals/servers/httpsys
@@ -852,9 +880,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Contribuir
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: 202bb46df6692e84e8abcefbd333abf3a3fafb7f
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: d2015955147460621d64ea6035f5f8118a02469b
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103142"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248399"
