@@ -18,7 +18,7 @@ ms.locfileid: "54836368"
 
 ## <a name="what-is-signalr"></a>¿Qué es SignalR?
 
-ASP.NET Core SignalR es una biblioteca de código abierto que simplifica agregar la funcionalidad a las aplicaciones web en tiempo real. La funcionalidad web en tiempo real permite que el código de servidor para insertar contenido a los clientes al instante.
+ASP.NET Core SignalR es una biblioteca de código abierto que simplifica agregar la funcionalidad a las aplicaciones web en tiempo real. La funcionalidad web en tiempo real permite que el código añada contenido al cliente instantaneamente.
 
 Buenos candidatos para SignalR:
 
