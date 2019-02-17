@@ -22,7 +22,7 @@ Aprenderá a:
 > [!div class="checklist"]
 > * Crear un proyecto de aplicación web.
 > * Habilitar HTTPS local.
-> * Ejecute la aplicación.
+> * Ejecutar la aplicación.
 > * Editar una página de Razor.
 
 Al final, tendrá una aplicación web en funcionamiento ejecutándose en el equipo local.
