@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar y usar Middleware de al
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/26/2017
+ms.date: 02/16/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: 4b2c71aad4b5bcfee14a271303df5874ccfedb90
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: bb265d04022ec2f8fdb3f2f3bc42f6b3f0b2b338
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207334"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410328"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 
@@ -22,7 +22,7 @@ Por [Halter](https://github.com/guardrex) y [John Luo](https://github.com/JunTao
 
 En este artículo se explica cómo configurar el Middleware de almacenamiento en caché de respuestas en una aplicación ASP.NET Core. El middleware determina cuando las respuestas son almacenables en caché, las respuestas de los almacenes y respuestas de sirve de memoria caché. Para obtener una introducción al almacenamiento en caché de HTTP y el `ResponseCache` atributo, vea [almacenamiento en caché de respuesta](xref:performance/caching/response).
 
-## <a name="package"></a>Package
+## <a name="package"></a>Paquete
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -103,9 +103,9 @@ Almacenamiento en caché de respuesta por el middleware se configura mediante lo
 | Header | Detalles |
 | ------ | ------- |
 | Autorización | La respuesta no se almacenan en caché si existe el encabezado. |
-| Control de caché | El middleware solo tiene en cuenta de almacenamiento en caché las respuestas marcadas con el `public` la directiva de caché. Controlar el almacenamiento en caché con los parámetros siguientes:<ul><li>max-age</li><li>Max-stale&#8224;</li><li>min-nuevo</li><li>Directiva must-revalidate</li><li>no almacenar en caché</li><li>no-store</li><li>solo-if-cached</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate.&#8225;</li></ul>&#8224;Si no se especifica ningún límite para `max-stale`, el middleware no realiza ninguna acción.<br>&#8225;`proxy-revalidate`tiene el mismo efecto que `must-revalidate`.<br><br>Para obtener más información, consulte [RFC 7231: las directivas de solicitud de Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
-| pragma | Un `Pragma: no-cache` encabezado de la solicitud produce el mismo efecto que `Cache-Control: no-cache`. Este encabezado se haya reemplazado por las directivas correspondientes en el `Cache-Control` encabezado, si está presente. Se considera para mantener la compatibilidad con HTTP/1.0. |
-| Set-Cookie. | La respuesta no se almacenan en caché si existe el encabezado. Cualquier software intermedio en la canalización de procesamiento de solicitudes que establece una o más cookies impide que el Middleware de almacenamiento en caché de respuestas de almacenamiento en caché la respuesta (por ejemplo, el [proveedor TempData basado en cookie](xref:fundamentals/app-state#tempdata)).  |
+| Cache-Control | El middleware solo tiene en cuenta de almacenamiento en caché las respuestas marcadas con el `public` la directiva de caché. Controlar el almacenamiento en caché con los parámetros siguientes:<ul><li>max-age</li><li>Max-stale&#8224;</li><li>min-nuevo</li><li>must-revalidate</li><li>no-cache</li><li>no-store</li><li>only-if-cached</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate.&#8225;</li></ul>&#8224;Si no se especifica ningún límite para `max-stale`, el middleware no realiza ninguna acción.<br>&#8225;`proxy-revalidate`tiene el mismo efecto que `must-revalidate`.<br><br>Para obtener más información, consulte [RFC 7231: Las directivas de Control de caché de solicitud](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| Pragma | Un `Pragma: no-cache` encabezado de la solicitud produce el mismo efecto que `Cache-Control: no-cache`. Este encabezado se haya reemplazado por las directivas correspondientes en el `Cache-Control` encabezado, si está presente. Se considera para mantener la compatibilidad con HTTP/1.0. |
+| Set-Cookie | La respuesta no se almacenan en caché si existe el encabezado. Cualquier software intermedio en la canalización de procesamiento de solicitudes que establece una o más cookies impide que el Middleware de almacenamiento en caché de respuestas de almacenamiento en caché la respuesta (por ejemplo, el [proveedor TempData basado en cookie](xref:fundamentals/app-state#tempdata)).  |
 | Variar | El `Vary` encabezado se usa para variar la respuesta almacenada en caché por otro encabezado. Por ejemplo, almacenar en caché las respuestas mediante la codificación mediante la inclusión de la `Vary: Accept-Encoding` encabezado, que se almacena en caché las respuestas de solicitudes con encabezados `Accept-Encoding: gzip` y `Accept-Encoding: text/plain` por separado. Una respuesta con un valor de encabezado de `*` nunca se almacena. |
 | Expires | Una respuesta que se considera obsoleta en este encabezado no es almacenar o recuperar a menos que se reemplaza por otro `Cache-Control` encabezados. |
 | If-None-Match | La respuesta completa se sirve desde la memoria caché si el valor no es `*` y `ETag` de la respuesta no coincide con ninguno de los valores proporcionados. En caso contrario, se envía una respuesta 304 (no modificado). |
@@ -138,7 +138,7 @@ Cuando las pruebas y solución de problemas de comportamiento de almacenamiento 
 
 * La solicitud debe dar como resultado una respuesta del servidor con un código de estado 200 (OK).
 * El método de solicitud debe ser GET o HEAD.
-* Middleware de Terminal, como [Middleware de archivos estáticos](xref:fundamentals/static-files), no se debe procesar la respuesta antes de Middleware de almacenamiento en caché de respuestas.
+* Middleware Terminal no debe procesar la respuesta antes de Middleware de almacenamiento en caché de respuestas.
 * El `Authorization` encabezado no debe estar presente.
 * `Cache-Control` parámetros del encabezado deben ser válidos y se debe marcar la respuesta `public` y no marcado `private`.
 * El `Pragma: no-cache` encabezado no debe estar presente si el `Cache-Control` encabezado no está presente, como la `Cache-Control` encabezado reemplaza el `Pragma` encabezado cuando está presente.
@@ -148,7 +148,7 @@ Cuando las pruebas y solución de problemas de comportamiento de almacenamiento 
 * El [IHttpSendFileFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) no se usa.
 * La respuesta no debe ser obsoleta según lo especificado por el `Expires` encabezado y el `max-age` y `s-maxage` las directivas de caché.
 * Almacenamiento en búfer de respuesta debe ser correcta, y el tamaño de la respuesta debe ser menor que el configurado o default `SizeLimit`.
-* La respuesta debe ser almacenables en caché según la [RFC 7234](https://tools.ietf.org/html/rfc7234) especificaciones. Por ejemplo, el `no-store` directiva no debe existir en los campos de encabezado de solicitud o respuesta. Consulte *sección 3: almacenamiento de respuestas en las memorias caché* de [RFC 7234](https://tools.ietf.org/html/rfc7234) para obtener más información.
+* La respuesta debe ser almacenables en caché según la [RFC 7234](https://tools.ietf.org/html/rfc7234) especificaciones. Por ejemplo, el `no-store` directiva no debe existir en los campos de encabezado de solicitud o respuesta. Consulte *sección 3: Almacenar las respuestas en las memorias caché* de [RFC 7234](https://tools.ietf.org/html/rfc7234) para obtener más información.
 
 > [!NOTE]
 > El sistema antifalsificación para generar tokens de seguridad para evitar la falsificación de solicitud entre sitios (CSRF) attacks conjuntos el `Cache-Control` y `Pragma` encabezados a `no-cache` para que no se almacenan en caché las respuestas. Para obtener información sobre cómo deshabilitar los tokens antifalsificación para los elementos de formulario HTML, vea [configuración de ASP.NET Core antifalsificación](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration).

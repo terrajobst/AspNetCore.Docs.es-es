@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/21/2017
 uid: security/authorization/policies
-ms.openlocfilehash: 937c73c26cd3935c5069d4735e754d1a567f41f4
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: be4812487c92a16c44e3983b234bc9e31be65190
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248113"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410394"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>Autorización basada en directivas en ASP.NET Core
 
@@ -120,7 +120,7 @@ El `HandleRequirementAsync` método se implementa en un controlador de autorizac
 
 Por ejemplo, MVC pasa una instancia de [AuthorizationFilterContext](/dotnet/api/?term=AuthorizationFilterContext) en el `Resource` propiedad. Esta propiedad proporciona acceso a `HttpContext`, `RouteData`y todo lo contrario, proporcionada por MVC y páginas de Razor.
 
-El uso de la `Resource` propiedad es el marco específico. Uso de la información la `Resource` propiedad limita sus directivas de autorización para marcos de trabajo determinados. Primero debe convertir el `Resource` propiedad mediante la `as` palabra clave y, a continuación, confirme la conversión se realizará correctamente para asegurarse de que no se bloquee el código con un `InvalidCastException` cuando se ejecuta en otros marcos de trabajo:
+El uso de la `Resource` propiedad es el marco específico. Uso de la información la `Resource` propiedad limita sus directivas de autorización para marcos de trabajo determinados. Primero debe convertir el `Resource` propiedad mediante la `is` palabra clave y, a continuación, confirme la conversión se realizó correctamente para asegurarse de que no se bloquee el código con un `InvalidCastException` cuando se ejecuta en otros marcos de trabajo:
 
 ```csharp
 // Requires the following import:

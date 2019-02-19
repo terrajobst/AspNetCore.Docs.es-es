@@ -8,12 +8,12 @@ ms.date: 10/11/2018
 ms.assetid: f79fbf7f-59e5-4279-a832-c1a0294630f4
 msc.legacyurl: /mvc/mvc5
 msc.type: content
-ms.openlocfilehash: c958d39c7eff0d581de6b05890b8e6df8bdb5207
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 14fcf863a4ef5f6c9180cdf9e7b632ccdb1ebcb0
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348265"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410474"
 ---
 <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 ====================
@@ -43,7 +43,7 @@ Ahora puede reemplazar los filtros que se aplican a un método de acción determ
 
 ### <a name="attribute-routing"></a>Enrutamiento mediante atributos
 
-ASP.NET MVC ahora admite [enrutamiento mediante atributos](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx), gracias a una contribución de Tim McCall, el autor de [ http://attributerouting.net ](http://attributerouting.net). Con el enrutamiento mediante atributos puede especificar sus rutas anotando las acciones y los controladores.
+ASP.NET MVC ahora admite [enrutamiento mediante atributos](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx), gracias a una contribución de Tim McCall, el autor de [AttributeRouting](https://github.com/mccalltd/AttributeRouting). Con el enrutamiento mediante atributos puede especificar sus rutas anotando las acciones y los controladores.
 
 ## <a name="new-web-project-experience"></a>Nueva experiencia de proyecto Web
 
