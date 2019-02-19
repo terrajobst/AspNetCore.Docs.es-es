@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo agregar clases para administrar películas en una base de datos con Entity Framework Core (EF Core).
 ms.author: riande
 monikerRange: '>= aspnetcore-2.2'
-ms.date: 12/3/2018
+ms.date: 02/12/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 5693fb833d19375ef53e0f367bc6064e239b01d3
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: ab2bf372b305672a95d34879ad2c13a620d93c7a
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444109"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159293"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core
 
@@ -243,7 +243,7 @@ El nombre de la cadena de conexión se pasa al contexto mediante una llamada a u
 
 ---
 
-El comando `Add-Migration` genera el código para crear el esquema de base de datos inicial. El esquema se basa en el modelo especificado en `RazorPagesMovieContext` (en el archivo *Data/RazorPagesMovieContext.cs*). El argumento `Initial` se usa para asignar nombre a las migraciones. Se puede usar cualquier nombre, pero, por convención, se utiliza uno que describa la migración. Vea [Introduction to migrations](xref:data/ef-mvc/migrations#introduction-to-migrations) (Introducción a las migraciones) para obtener más información.
+El comando `Add-Migration` genera el código para crear el esquema de base de datos inicial. El esquema se basa en el modelo especificado en `RazorPagesMovieContext` (en el archivo *Data/RazorPagesMovieContext.cs*). El argumento `Initial` se usa para asignar nombre a las migraciones. Se puede usar cualquier nombre, pero, por convención, se utiliza uno que describa la migración. Para obtener más información, vea <xref:data/ef-mvc/migrations>.
 
 El comando `Update-Database` ejecuta el método `Up` en el archivo *Migrations/{time-stamp}_InitialCreate.cs*, con lo que se crea la base de datos.
 

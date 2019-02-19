@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre cómo solucionar errores comunes al hospedar aplicaciones ASP.NET Core en Azure App Service e IIS.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/11/2018
+ms.date: 02/05/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 887482d61ffa74bc8ffb39d0af8507fd10199eb8
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 976f7e3fbeab9e81ba99e2dd7d09a892b854651b
+ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341503"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55854466"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Referencia de errores comunes de Azure App Service e IIS con ASP.NET Core
 
@@ -97,7 +97,7 @@ Solución del problema:
 
 * **Registro de aplicación:** No hay ninguna entrada
 
-* **Registro de stdout del módulo ASP.NET Core:** No se ha creado el archivo de registro.
+* **Registro de stdout del módulo de ASP.NET Core:** No se ha creado el archivo de registro.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -125,7 +125,7 @@ Confirme que están habilitados el rol y las características correctos. Vea [Co
 
 * **Registro de aplicación:** No hay ninguna entrada
 
-* **Registro de stdout del módulo ASP.NET Core:** No se ha creado el archivo de registro.
+* **Registro de stdout del módulo de ASP.NET Core:** No se ha creado el archivo de registro.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -143,7 +143,7 @@ Consulte la opción **Configuración básica** del sitio web de IIS y la carpeta
 
 * **Registro de aplicación:** No hay ninguna entrada
 
-* **Registro de stdout del módulo ASP.NET Core:** No se ha creado el archivo de registro.
+* **Registro de stdout del módulo de ASP.NET Core:** No se ha creado el archivo de registro.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -193,7 +193,7 @@ Solución del problema:
 
 * Compruebe el atributo *processPath* del elemento `<aspNetCore>` de *web.config* para confirmar que es `dotnet` para una implementación dependiente del marco (FDD) o `.\{ASSEMBLY}.exe` para una [implementación independiente (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
 
-* En el caso de una FDD, *dotnet.exe* podría no ser accesible a través del valor PATH. Confirme que *C:\Archivos de programa\dotnet\* existe en el valor PATH del sistema.
+* En el caso de una FDD, *dotnet.exe* podría no ser accesible a través del valor PATH. Confirme que *C:\Archivos de programa\dotnet\\* existe en el valor PATH del sistema.
 
 * En el caso de una FDD, es posible que la identidad del usuario del grupo de aplicaciones no pueda acceder a *dotnet.exe*. Confirme que la identidad del usuario del grupo de aplicaciones tiene acceso al directorio *C:\Archivos de programa\dotnet*. Confirme que no haya ninguna regla de denegación configurada para la identidad del usuario del grupo de aplicaciones en los directorios *C:\Archivos de programa\dotnet* y de la aplicación.
 

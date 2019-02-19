@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/22/2019
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 03acaa73fc2ebdc62522a1e081ca6ed72515483f
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: e1e8f99be18d6f395a146bda805f71c46cd0346d
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836498"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248360"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Perfiles de publicación de Visual Studio para la implementación de aplicaciones ASP.NET Core
 
@@ -347,6 +347,8 @@ Incluya la propiedad `<EnvironmentName>` en el perfil de publicación (*.pubxml*
 </PropertyGroup>
 ```
 
+Si necesita transformaciones de *web.config* (por ejemplo, establecer variables de entorno basadas en la configuración, el perfil o el entorno), consulte <xref:host-and-deploy/iis/transform-webconfig>.
+
 ## <a name="exclude-files"></a>Archivos de exclusión
 
 Al publicar aplicaciones web de ASP.NET Core, se incluyen los artefactos de compilación y el contenido de la carpeta *wwwroot*. `msbuild` admite los [patrones globales](https://gruntjs.com/configuring-tasks#globbing-patterns). Por ejemplo, el siguiente elemento `<Content>` excluye todo los archivos de texto (*.txt*) de la carpeta *wwwroot/content* y de todas sus subcarpetas.
@@ -521,3 +523,4 @@ Seleccione el elemento de menú [Consola de depuración](https://github.com/proj
 * [Web Deploy](https://www.iis.net/downloads/microsoft/web-deploy) (MSDeploy) simplifica la implementación de aplicaciones web y sitios web en servidores de IIS.
 * [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues): problemas de archivos y características de solicitud para la implementación.
 * [Publicación de una aplicación web ASP.NET en una máquina virtual de Azure desde Visual Studio](/azure/virtual-machines/windows/publish-web-app-from-visual-studio)
+* <xref:host-and-deploy/iis/transform-webconfig>

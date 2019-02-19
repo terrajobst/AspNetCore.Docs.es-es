@@ -4,14 +4,14 @@ description: Aprenda a configurar Apache como servidor proxy inverso en CentOS p
 author: spboyer
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 12/20/2018
+ms.date: 02/13/2019
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 217dc840748ef33173ae6a8c001aee558864ec59
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 0dec9c657134bba3224a1fbb69aaefaaba753404
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099414"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248269"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hospedar ASP.NET Core en Linux con Apache
 
@@ -57,7 +57,7 @@ Cualquier componente que dependa del esquema (como la autenticación, la generac
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Invoque el método [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) en `Startup.Configure` antes de llamar a [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication) o a un middleware de esquema de autenticación similar. Configure el middleware para reenviar los encabezados `X-Forwarded-For` y `X-Forwarded-Proto`:
+Invoque el método <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> en `Startup.Configure` antes de llamar a <xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*> o un middleware de esquema de autenticación similar. Configure el middleware para reenviar los encabezados `X-Forwarded-For` y `X-Forwarded-Proto`:
 
 ```csharp
 app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -72,7 +72,7 @@ app.UseAuthentication();
 
 ::: moniker range="< aspnetcore-2.0"
 
-Invoque el método [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) en `Startup.Configure` antes de llamar a [UseIdentity](/dotnet/api/microsoft.aspnetcore.builder.builderextensions.useidentity) y [UseFacebookAuthentication](/dotnet/api/microsoft.aspnetcore.builder.facebookappbuilderextensions.usefacebookauthentication) o un middleware de esquema de autenticación similar. Configure el middleware para reenviar los encabezados `X-Forwarded-For` y `X-Forwarded-Proto`:
+Invoque el método <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> en `Startup.Configure` antes de llamar a <xref:Microsoft.AspNetCore.Builder.BuilderExtensions.UseIdentity*> y <xref:Microsoft.AspNetCore.Builder.FacebookAppBuilderExtensions.UseFacebookAuthentication*> o un middleware de esquema de autenticación similar. Configure el middleware para reenviar los encabezados `X-Forwarded-For` y `X-Forwarded-Proto`:
 
 ```csharp
 app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -90,7 +90,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 ::: moniker-end
 
-Si no se especifica ningún valor [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) para el software intermedio, los encabezados predeterminados para reenviar son `None`.
+Si no se especifica ningún valor <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> para el middleware, los encabezados predeterminados para reenviar son `None`.
 
 Solo los servidores proxy que se ejecutan en localhost (127.0.0.1, [::1]) son de confianza de forma predeterminada. Si otras redes o servidores proxy de confianza de la organización tramitan solicitudes entre Internet y el servidor web, agréguelos a la lista de <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownProxies*> o <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownNetworks*> con <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions>. En el ejemplo siguiente se agrega un servidor proxy de confianza en la dirección IP 10.0.0.100 al middleware de encabezados reenviados `KnownProxies` en `Startup.ConfigureServices`:
 

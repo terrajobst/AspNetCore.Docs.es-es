@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/14/2019
 uid: mvc/models/validation
-ms.openlocfilehash: 7c8255097dfc72480794930ebe4d6cb568edbd7c
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: ca7ee54b8e6b6ae5091b0cb133e448ad9c04da8f
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396199"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248524"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Validación de modelos en ASP.NET Core MVC
 
@@ -151,9 +151,9 @@ La variable `movie` anterior representa un objeto `Movie` que contiene los datos
 
 Cuando un usuario modifica el campo `Genre` y envía el formulario, el método `IsValid` de `ClassicMovieAttribute` comprueba si la película es un clásico. Al igual que con cualquier atributo integrado, aplique `ClassicMovieAttribute` a una propiedad como `ReleaseDate` para asegurarse de que se produce la validación, tal como se muestra en el ejemplo de código anterior. Puesto que el ejemplo solo funciona con tipos `Movie`, una mejor opción es usar `IValidatableObject` tal y como se muestra en el párrafo siguiente.
 
-Si lo prefiere, puede colocar este mismo código en el modelo, implementando el método `Validate` en la interfaz `IValidatableObject`. Aunque los atributos de validación personalizada funcionan bien para validar propiedades individuales, puede implementar `IValidatableObject` para implementar la validación de nivel de clase como se ve aquí.
+Si lo prefiere, puede colocar este mismo código en el modelo, implementando el método `Validate` en la interfaz `IValidatableObject`. Aunque los atributos de validación personalizada funcionan bien para validar propiedades individuales, puede implementar `IValidatableObject` para implementar la validación de nivel de clase:
 
-[!code-csharp[](validation/sample/MovieIValidatable.cs?name=snippet_Validate)]
+[!code-csharp[](validation/sample/MovieIValidatable.cs?name=snippet&highlight=1,26-34)]
 
 ## <a name="client-side-validation"></a>Validación del lado cliente
 

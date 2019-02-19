@@ -1,26 +1,19 @@
 ---
-title: 'ASP.NET Core MVC con EF Core: Lectura de datos relacionados (6 de 10)'
-author: rick-anderson
+title: 'Tutorial: Lectura de datos relacionados: ASP.NET MVC con EF Core'
 description: En este tutorial podrá leer y mostrar datos relacionados, es decir, los datos que Entity Framework carga en propiedades de navegación.
+author: rick-anderson
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: a310c9e4b9cec6e2ab2477461f395c9bbd3fa364
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: 73e225c2cd6d9f88079c54115cccad48f43d7d0c
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063291"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103051"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>ASP.NET Core MVC con EF Core: Lectura de datos relacionados (6 de 10)
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-En la aplicación web de ejemplo Contoso University se muestra cómo crear aplicaciones web de ASP.NET Core MVC con Entity Framework Core y Visual Studio. Para obtener información sobre la serie de tutoriales, consulte [el primer tutorial de la serie](intro.md).
+# <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Tutorial: Lectura de datos relacionados: ASP.NET MVC con EF Core
 
 En el tutorial anterior, completó el modelo de datos School. En este tutorial podrá leer y mostrar datos relacionados, es decir, los datos que Entity Framework carga en propiedades de navegación.
 
@@ -30,7 +23,19 @@ En las ilustraciones siguientes se muestran las páginas con las que va a trabaj
 
 ![Página de índice de instructores](read-related-data/_static/instructors-index.png)
 
-## <a name="eager-explicit-and-lazy-loading-of-related-data"></a>Carga diligente, explícita y diferida de datos relacionados
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Obtiene información sobre cómo cargar datos relacionados
+> * Crea una página de cursos
+> * Crea una página de instructores
+> * Obtiene información sobre la carga explícita
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* [Creación de un modelo de datos más complejo con EF Core para una aplicación web de ASP.NET Core MVC](complex-data-model.md)
+
+## <a name="learn-how-to-load-related-data"></a>Obtiene información sobre cómo cargar datos relacionados
 
 Existen varias formas para que el software de asignación relacional de objetos (ORM) como Entity Framework pueda cargar datos relacionados en las propiedades de navegación de una entidad:
 
@@ -54,7 +59,7 @@ Si sabe que necesita datos relacionados para cada entidad que se recupere, la ca
 
 Por otro lado, en algunos escenarios, las consultas independientes son más eficaces. Es posible que la carga diligente de todos los datos relacionados en una consulta genere una combinación muy compleja que SQL Server no pueda procesar eficazmente. O bien, si necesita tener acceso a las propiedades de navegación de una entidad solo para un subconjunto de un conjunto de las entidades que está procesando, es posible que las consultas independientes den mejores resultados porque la carga diligente de todo el contenido por adelantado recuperaría más datos de los que necesita. Si el rendimiento es crítico, es mejor probarlo de ambas formas para elegir la mejor opción.
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Crear una página de cursos en la que se muestre el nombre de departamento
+## <a name="create-a-courses-page"></a>Crea una página de cursos
 
 La entidad Course incluye una propiedad de navegación que contiene la entidad Department del departamento al que se asigna el curso. Para mostrar el nombre del departamento asignado en una lista de cursos, tendrá que obtener la propiedad Name de la entidad Department que se encuentra en la propiedad de navegación `Course.Department`.
 
@@ -88,7 +93,7 @@ Ejecute la aplicación y haga clic en la pestaña **Courses** para ver la lista 
 
 ![Página de índice de cursos](read-related-data/_static/courses-index.png)
 
-## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Crear una página de instructores en la que se muestran los cursos y las inscripciones
+## <a name="create-an-instructors-page"></a>Crea una página de instructores
 
 En esta sección, creará un controlador y una vista de la entidad Instructor con el fin de mostrar la página Instructors:
 
@@ -226,7 +231,7 @@ Vuelva a actualizar la página y seleccione un instructor. Después, seleccione 
 
 ![Instructor y curso seleccionados en la página de índice de instructores](read-related-data/_static/instructors-index.png)
 
-## <a name="explicit-loading"></a>Carga explícita
+## <a name="about-explicit-loading"></a>Acerca de la carga explícita
 
 Cuando se recuperó la lista de instructores en *InstructorsController.cs*, se especificó la carga diligente de la propiedad de navegación `CourseAssignments`.
 
@@ -238,12 +243,20 @@ El nuevo código quita las llamadas al método *ThenInclude* para los datos de i
 
 Ejecute la aplicación, vaya a la página de índice de instructores ahora y no verá ninguna diferencia en lo que se muestra en la página, aunque haya cambiado la forma en que se recuperan los datos.
 
-## <a name="summary"></a>Resumen
+## <a name="get-the-code"></a>Obtención del código
 
-Ha usado la carga diligente con una consulta y con varias para leer datos relacionados en las propiedades de navegación. En el siguiente tutorial, obtendrá información sobre cómo actualizar datos relacionados.
+[Descargue o vea la aplicación completa.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Pasos siguientes
 
->[!div class="step-by-step"]
->[Anterior](complex-data-model.md)
->[Siguiente](update-related-data.md)
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Obtenido información sobre cómo cargar datos relacionados
+> * Creado una página de cursos
+> * Creado una página de instructores
+> * Obtenido información sobre la carga explícita
+
+Pase al artículo siguiente para obtener información sobre cómo actualizar datos relacionados.
+> [!div class="nextstepaction"]
+> [Actualización de datos relacionados](update-related-data.md)

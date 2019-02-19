@@ -3,14 +3,14 @@ title: Agregar un modelo a una aplicación de ASP.NET Core MVC
 author: rick-anderson
 description: Agregue un modelo a una aplicación sencilla de ASP.NET Core.
 ms.author: riande
-ms.date: 12/8/2017
+ms.date: 02/12/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 062a248ffdf8e30ed01a72e0a555c1c9a1ab1b6d
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: da30c1c97cbf40a89d163b2116c8d5f9ad422b25
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341617"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159245"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Agregar un modelo a una aplicación de ASP.NET Core MVC
 
@@ -141,56 +141,57 @@ Debe crear la base de datos y usar para ello la característica [Migraciones](xr
 
 ## <a name="initial-migration"></a>Migración inicial
 
-<!-- VS -------------------------->
-
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-En esta sección, la Consola del administrador de paquetes (PMC) se utiliza para:
+En esta sección, se completan las tareas siguientes:
 
 * Agregar una migración inicial.
 * Actualizar la base de datos con la migración inicial.
 
-En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-  ![Menú de PMC](~/tutorials/first-mvc-app/adding-model/_static/pmc.png)
+1. En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes** (PMC).
 
-En PCM, escriba los siguientes comandos:
+   ![Menú de PMC](~/tutorials/first-mvc-app/adding-model/_static/pmc.png)
 
-```PMC
-Add-Migration Initial
-Update-Database
-```
+1. En PCM, escriba los siguientes comandos:
 
-El comando `Add-Migration` genera el código para crear el esquema de base de datos inicial.
-<!-- Code -------------------------->
+   ```console
+   Add-Migration Initial
+   Update-Database
+   ```
+
+   El comando `Add-Migration` genera el código para crear el esquema de base de datos inicial.
+
+   El esquema de la base de datos se basa en el modelo especificado en la clase `MvcMovieContext` (en el archivo *Data/MvcMovieContext.cs*). El argumento `Initial` es el nombre de la migración. Se puede usar cualquier nombre, pero, por convención, se utiliza uno que describa la migración. Para obtener más información, vea <xref:data/ef-mvc/migrations>.
+
+   El comando `Update-Database` ejecuta el método `Up` en el archivo *Migrations/{time-stamp}_InitialCreate.cs*, con lo que se crea la base de datos.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
+
 El comando `ef migrations add InitialCreate` genera el código para crear el esquema de base de datos inicial.
 
+El esquema de la base de datos se basa en el modelo especificado en la clase `MvcMovieContext` (en el archivo *Data/MvcMovieContext.cs*). El argumento `InitialCreate` es el nombre de la migración. Se puede usar cualquier nombre, pero, por convención, se selecciona uno que describa la migración.
+
 ---  
-<!-- End of VS tabs -->
 
-Los comandos anteriores generan la advertencia siguiente: "No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'." ("No se ha especificado ningún tipo en la columna decimal 'Price' en el tipo de entidad 'Movie'. Esto hará que los valores se trunquen inadvertidamente si no caben según la precisión y escala predeterminados. Especifique expresamente el tipo de columna de SQL Server que tenga cabida para todos los valores usando 'HasColumnType()'.")
+Los comandos anteriores generan la advertencia siguiente:
 
-Puede omitir dicha advertencia, ya que se corregirá en un tutorial posterior.
+```text
+No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+```
 
-El esquema se basa en el modelo especificado en `DbContext` (en el archivo *Models/MvcMovieContext.cs*). El argumento `InitialCreate` se usa para asignar nombre a las migraciones. Se puede usar cualquier nombre, pero, por convención, se selecciona uno que describa la migración.
-
-El comando `ef database update` ejecuta el método `Up` en el archivo *Migrations/\<time-stamp>_InitialCreate.cs*. El método `Up` crea la base de datos.
-
-<!-- VS -------------------------->
-
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+Esa advertencia se puede omitir. Se corregirá en un tutorial posterior.
 
 ## <a name="examine-the-context-registered-with-dependency-injection"></a>Examinar el contexto registrado con la inserción de dependencias
 
-ASP.NET Core integra la [inserción de dependencias](xref:fundamentals/dependency-injection). Los servicios (como el contexto de base de datos de EF Core) se registran con inserción de dependencias durante el inicio de la aplicación. Estos servicios se proporcionan a los componentes que los necesitan (como las páginas de Razor) a través de parámetros de constructor. El código de constructor que obtiene una instancia de contexto de base de datos se muestra más adelante en el tutorial.
+ASP.NET Core integra la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection). Los servicios (como el contexto de base de datos de EF Core) se registran con inserción de dependencias durante el inicio de la aplicación. Estos servicios se proporcionan a los componentes que los necesitan (como las páginas de Razor) a través de parámetros de constructor. El código de constructor que obtiene una instancia de contexto de base de datos se muestra más adelante en el tutorial.
 
-La herramienta de scaffolding ha creado un contexto de base de datos de forma automática y lo ha registrado con el contenedor de inserción de dependencias.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Examine el método `Startup.ConfigureServices`. El proveedor de scaffolding ha agregado la línea resaltada:
+La herramienta de scaffolding creó de forma automática un contexto de base de datos y lo registró con el contenedor de inserción de dependencias.
+
+Consulte el siguiente método `Startup.ConfigureServices`. El proveedor de scaffolding ha agregado la línea resaltada:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
 
@@ -198,22 +199,15 @@ El elemento `MvcMovieContext` coordina la funcionalidad de EF Core (creación, l
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Data/MvcMovieContext.cs)]
 
-El código anterior crea una propiedad [`DbSet<Movie>`](/dotnet/api/microsoft.entityframeworkcore.dbset-1) para el conjunto de entidades. En la terminología de Entity Framework, un conjunto de entidades suele corresponder a una tabla de base de datos. Una entidad se corresponde con una fila de la tabla.
+En el código anterior se crea una propiedad [DbSet\<Movie>](/dotnet/api/microsoft.entityframeworkcore.dbset-1) para el conjunto de entidades. En la terminología de Entity Framework, un conjunto de entidades suele corresponder a una tabla de base de datos. Una entidad se corresponde con una fila de la tabla.
 
 El nombre de la cadena de conexión se pasa al contexto mediante una llamada a un método en un objeto [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions). Para el desarrollo local, el [sistema de configuración de ASP.NET Core](xref:fundamentals/configuration/index) lee la cadena de conexión desde el archivo *appsettings.json*.
-<!-- Code -------------------------->
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
-
-ASP.NET Core integra la [inserción de dependencias](xref:fundamentals/dependency-injection). Los servicios (como el contexto de base de datos de EF Core) se registran con inserción de dependencias durante el inicio de la aplicación. Estos servicios se proporcionan a los componentes que los necesitan (como las páginas de Razor) a través de parámetros de constructor. El código de constructor que obtiene una instancia de contexto de base de datos se muestra más adelante en el tutorial.
 
 Ha creado un contexto de base de datos y lo ha registrado con el contenedor de inserción de dependencias.
 
 ---
-
-El esquema se basa en el modelo especificado en `MvcMovieContext` (en el archivo *Data/MvcMovieContext.cs*). El argumento `Initial` se usa para asignar nombre a las migraciones. Se puede usar cualquier nombre, pero, por convención, se utiliza uno que describa la migración. Vea [Introduction to migrations](xref:data/ef-mvc/migrations#introduction-to-migrations) (Introducción a las migraciones) para obtener más información.
-
-El comando `Update-Database` ejecuta el método `Up` en el archivo *Migrations/{time-stamp}_InitialCreate.cs*, con lo que se crea la base de datos.
 
 <a name="test"></a>
 

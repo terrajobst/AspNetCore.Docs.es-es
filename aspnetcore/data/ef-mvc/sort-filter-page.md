@@ -1,26 +1,19 @@
 ---
-title: 'ASP.NET Core MVC con EF Core: ordenación, filtrado y paginación (3 de 10)'
+title: 'Tutorial: Adición de ordenación, filtrado y paginación: ASP.NET MVC con EF Core'
+description: En este tutorial agregaremos la funcionalidad de ordenación, filtrado y paginación a la página de índice de Students. También crearemos una página que realice agrupaciones sencillas.
 author: rick-anderson
-description: En este tutorial agregará la funcionalidad de ordenación, filtrado y paginación a la página usando ASP.NET Core y Entity Framework Core.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 02/04/2019
+ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 1f80faf0e36332c28e8337ddc331cc8b4c4970d7
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 51b6b08d2410652f93427371aec299eb4c8789f1
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38193954"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103064"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a>ASP.NET Core MVC con EF Core: ordenación, filtrado y paginación (3 de 10)
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-En la aplicación web de ejemplo Contoso University se muestra cómo crear aplicaciones web de ASP.NET Core MVC con Entity Framework Core y Visual Studio. Para obtener información sobre la serie de tutoriales, consulte [el primer tutorial de la serie](intro.md).
+# <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>Tutorial: Adición de ordenación, filtrado y paginación: ASP.NET MVC con EF Core
 
 En el tutorial anterior, implementamos un conjunto de páginas web para operaciones básicas de CRUD para las entidades Student. En este tutorial agregaremos la funcionalidad de ordenación, filtrado y paginación a la página de índice de Students. También crearemos una página que realice agrupaciones sencillas.
 
@@ -28,7 +21,21 @@ En la siguiente ilustración se muestra el aspecto que tendrá la página cuando
 
 ![Página de índice de Students](sort-filter-page/_static/paging.png)
 
-## <a name="add-column-sort-links-to-the-students-index-page"></a>Agregar vínculos de ordenación de columnas en la página de índice de Students
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Agrega vínculos de ordenación de columnas
+> * Agrega un cuadro de búsqueda
+> * Agrega paginación al índice de Students
+> * Agrega paginación al método Index
+> * Agrega vínculos de paginación
+> * Crea una página About
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* [Implementación de la funcionalidad CRUD con EF Core en una aplicación web de ASP.NET Core MVC](crud.md)
+
+## <a name="add-column-sort-links"></a>Agrega vínculos de ordenación de columnas
 
 Para agregar ordenación a la página de índice de Student, deberá cambiar el método `Index` del controlador de Students y agregar código a la vista de índice de Student.
 
@@ -71,7 +78,7 @@ Ejecute la aplicación, seleccione la ficha **Students** y haga clic en los enca
 
 ![Página de índice de Students ordenada por nombre](sort-filter-page/_static/name-order.png)
 
-## <a name="add-a-search-box-to-the-students-index-page"></a>Agregar un cuadro de búsqueda a la página de índice de Students
+## <a name="add-a-search-box"></a>Agrega un cuadro de búsqueda
 
 Para agregar filtrado a la página de índice de Students, agregue un cuadro de texto y un botón de envío a la vista y haga los cambios correspondientes en el método `Index`. El cuadro de texto le permite escribir la cadena que quiera buscar en los campos de nombre y apellido.
 
@@ -86,7 +93,7 @@ Ha agregado un parámetro `searchString` al método `Index`. El valor de la cade
 > [!NOTE]
 > Aquí se llama al método `Where` en un objeto `IQueryable` y el filtro se procesa en el servidor. En algunos escenarios, puede hacer una llamada al método `Where` como un método de extensión en una colección en memoria. (Por ejemplo, imagine que cambia la referencia a `_context.Students`, de modo que, en lugar de hacer referencia a EF `DbSet`, haga referencia a un método de repositorio que devuelva una colección `IEnumerable`). Lo más habitual es que el resultado fuera el mismo, pero en algunos casos puede ser diferente.
 >
->Por ejemplo, la implementación de .NET Framework del método `Contains` realiza de forma predeterminada una comparación que diferencia entre mayúsculas y minúsculas, pero en SQL Server se determina por la configuración de intercalación de la instancia de SQL Server. De forma predeterminada, esta opción de configuración no diferencia entre mayúsculas y minúsculas. Podría hacer una llamada al método `ToUpper` para hacer explícitamente que la prueba no diferenciara entre mayúsculas y minúsculas: *donde (s => s.LastName.ToUpper().Contains(searchString.ToUpper())*. Esto garantiza que los resultados permanezcan invariables aunque cambie el código más adelante para usar un repositorio que devuelva una colección `IEnumerable` en vez de un objeto `IQueryable`. (Al hacer una llamada al método `Contains` en una colección `IEnumerable`, obtendrá la implementación de .NET Framework; al hacer una llamada a un objeto `IQueryable`, obtendrá la implementación del proveedor de base de datos). En cambio, el rendimiento de esta solución se ve reducido. El código `ToUpper` tendría que poner una función en la cláusula WHERE de la instrucción SELECT de TSQL. Esto impediría que el optimizador usara un índice. Dado que principalmente SQL se instala de forma que no diferencia entre mayúsculas y minúsculas, es mejor que evite el código `ToUpper` hasta que migre a un almacén de datos que distinga entre mayúsculas y minúsculas.
+>Por ejemplo, la implementación de .NET Framework del método `Contains` realiza de forma predeterminada una comparación que diferencia entre mayúsculas y minúsculas, pero en SQL Server se determina por la configuración de intercalación de la instancia de SQL Server. De forma predeterminada, esta opción de configuración no diferencia entre mayúsculas y minúsculas. Podría llamar al método `ToUpper` para hacer explícitamente que la prueba no distinga entre mayúsculas y minúsculas:  *Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())*. Esto garantiza que los resultados permanezcan invariables aunque cambie el código más adelante para usar un repositorio que devuelva una colección `IEnumerable` en vez de un objeto `IQueryable`. (Al hacer una llamada al método `Contains` en una colección `IEnumerable`, obtendrá la implementación de .NET Framework; al hacer una llamada a un objeto `IQueryable`, obtendrá la implementación del proveedor de base de datos). En cambio, el rendimiento de esta solución se ve reducido. El código `ToUpper` tendría que poner una función en la cláusula WHERE de la instrucción SELECT de TSQL. Esto impediría que el optimizador usara un índice. Dado que principalmente SQL se instala de forma que no diferencia entre mayúsculas y minúsculas, es mejor que evite el código `ToUpper` hasta que migre a un almacén de datos que distinga entre mayúsculas y minúsculas.
 
 ### <a name="add-a-search-box-to-the-student-index-view"></a>Agregar un cuadro de búsqueda a la vista de índice de Student
 
@@ -94,7 +101,7 @@ En *Views/Student/Index.cshtml*, agregue el código resaltado justo antes de la 
 
 [!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
-Este código usa la [aplicación auxiliar de etiquetas](xref:mvc/views/tag-helpers/intro) `<form>` para agregar el cuadro de texto de búsqueda y el botón. De forma predeterminada, la aplicación auxiliar de etiquetas `<form>` envía datos de formulario con POST, lo que significa que los parámetros se pasan en el cuerpo del mensaje HTTP y no en la dirección URL como cadenas de consulta. Al especificar HTTP GET, los datos de formulario se pasan en la dirección URL como cadenas de consulta, lo que permite que los usuarios marquen la dirección URL. Las directrices de W3C recomiendan que use GET cuando la acción no produzca ninguna actualización.
+Este código usa el [asistente de etiquetas](xref:mvc/views/tag-helpers/intro)`<form>` para agregar el cuadro de texto de búsqueda y el botón. De forma predeterminada, el asistente de etiquetas `<form>` envía datos de formulario con POST, lo que significa que los parámetros se pasan en el cuerpo del mensaje HTTP y no en la dirección URL como cadenas de consulta. Al especificar HTTP GET, los datos de formulario se pasan en la dirección URL como cadenas de consulta, lo que permite que los usuarios marquen la dirección URL. Las directrices de W3C recomiendan que use GET cuando la acción no produzca ninguna actualización.
 
 Ejecute la aplicación, seleccione la ficha **Students**, escriba una cadena de búsqueda y haga clic en Search para comprobar que el filtrado funciona correctamente.
 
@@ -110,7 +117,7 @@ Si marca esta página, obtendrá la lista filtrada al usar el marcador. El hecho
 
 En esta fase, si hace clic en un vínculo de ordenación del encabezado de columna, el valor de filtro que especificó en el cuadro de **búsqueda** se perderá. Podrá corregirlo en la siguiente sección.
 
-## <a name="add-paging-functionality-to-the-students-index-page"></a>Agregar la funcionalidad de paginación a la página de índice de Students
+## <a name="add-paging-to-students-index"></a>Agrega paginación al índice de Students
 
 Para agregar paginación a la página de índice de Students, tendrá que crear una clase `PaginatedList` que use las instrucciones `Skip` y `Take` para filtrar los datos en el servidor en lugar de recuperar siempre todas las filas de la tabla. A continuación, podrá realizar cambios adicionales en el método `Index` y agregar botones de paginación a la vista `Index`. La ilustración siguiente muestra los botones de paginación.
 
@@ -124,7 +131,7 @@ El método `CreateAsync` en este código toma el tamaño y el número de la pág
 
 Para crear el objeto `PaginatedList<T>`, se usa un método `CreateAsync` en vez de un constructor, porque los constructores no pueden ejecutar código asincrónico.
 
-## <a name="add-paging-functionality-to-the-index-method"></a>Agregar la funcionalidad de paginación al método Index
+## <a name="add-paging-to-index-method"></a>Agrega paginación al método Index
 
 En *StudentsController.cs*, reemplace el método `Index` por el código siguiente.
 
@@ -167,7 +174,7 @@ return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pa
 
 El método `PaginatedList.CreateAsync` toma un número de página. Los dos signos de interrogación representan el operador de uso combinado de NULL. El operador de uso combinado de NULL define un valor predeterminado para un tipo que acepta valores NULL; la expresión `(page ?? 1)` devuelve el valor de `page` si tiene algún valor o devuelve 1 si `page` es NULL.
 
-## <a name="add-paging-links-to-the-student-index-view"></a>Agregar vínculos de paginación a la vista de índice de Student
+## <a name="add-paging-links"></a>Agrega vínculos de paginación
 
 En *Views/Students/Index.cshtml*, reemplace el código existente por el código siguiente. Los cambios aparecen resaltados.
 
@@ -181,7 +188,7 @@ Los vínculos del encabezado de la columna usan la cadena de consulta para pasar
 <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter ="@ViewData["CurrentFilter"]">Enrollment Date</a>
 ```
 
-Los botones de paginación se muestran mediante aplicaciones auxiliares de etiquetas:
+Los botones de paginación se muestran mediante asistentes de etiquetas:
 
 ```html
 <a asp-action="Index"
@@ -199,7 +206,7 @@ Ejecute la aplicación y vaya a la página Students.
 
 Haga clic en los vínculos de paginación en distintos criterios de ordenación para comprobar que la paginación funciona correctamente. A continuación, escriba una cadena de búsqueda e intente llevar a cabo la paginación de nuevo, para comprobar que la paginación también funciona correctamente con filtrado y ordenación.
 
-## <a name="create-an-about-page-that-shows-student-statistics"></a>Creación de una página About que muestra las estadísticas de los alumnos
+## <a name="create-an-about-page"></a>Crea una página About
 
 En la página **About** del sitio web de Contoso University, se muestran cuántos alumnos se han inscrito en cada fecha de inscripción. Esto requiere realizar agrupaciones y cálculos sencillos en los grupos. Para conseguirlo, haga lo siguiente:
 
@@ -243,14 +250,22 @@ Reemplace el código del archivo *Views/Home/About.cshtml* por el código siguie
 
 Ejecute la aplicación y vaya a la página About. En una tabla se muestra el número de alumnos para cada fecha de inscripción.
 
-![Página About](sort-filter-page/_static/about.png)
+## <a name="get-the-code"></a>Obtención del código
 
-## <a name="summary"></a>Resumen
+[Descargue o vea la aplicación completa.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-En este tutorial, ha visto cómo realizar la ordenación, el filtrado, la paginación y la agrupación. En el siguiente tutorial, aprenderá a controlar los cambios en el modelo de datos mediante migraciones.
+## <a name="next-steps"></a>Pasos siguientes
 
-::: moniker-end
+En este tutorial ha:
 
-> [!div class="step-by-step"]
-> [Anterior](crud.md)
-> [Siguiente](migrations.md)
+> [!div class="checklist"]
+> * Agregado vínculos de ordenación de columnas
+> * Agregado un cuadro de búsqueda
+> * Agregado paginación al índice de Students
+> * Agregado paginación al método Index
+> * Agregado vínculos de paginación
+> * Creado una página About
+
+Pase al artículo siguiente para obtener información sobre cómo controlar los cambios en el modelo de datos mediante migraciones.
+> [!div class="nextstepaction"]
+> [Control de los cambios en el modelo de datos](migrations.md)

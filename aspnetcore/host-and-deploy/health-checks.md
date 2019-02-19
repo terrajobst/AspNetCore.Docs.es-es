@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar las comprobaciones de e
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/12/2018
+ms.date: 02/13/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: cf2aea91221887dad5646604214f810493d4b175
-ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
+ms.openlocfilehash: e186a3cb484035199a8f355540c3e985db87ad98
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53329151"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248580"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Comprobaciones de estado en ASP.NET Core
 
@@ -52,9 +52,9 @@ Otro escenario de comprobación de estado muestra cómo filtrar las comprobacion
 
 Para muchas aplicaciones, una configuración de sondeo de estado básico que notifique la disponibilidad de la aplicación para procesar las solicitudes (*ejecución*) es suficiente para detectar el estado de la aplicación.
 
-La configuración básica registra los servicios de comprobación de estado y llama al Middleware de comprobaciones de estado para responder a un punto de conexión de dirección URL con una respuesta de estado. De forma predeterminada, no se registran comprobaciones de estado específicas para probar cualquier dependencia o subsistema concretos. La aplicación se considera correcta si es capaz de responder en la dirección URL de punto de conexión de estado. El escritor de respuesta predeterminado escribe el estado (`HealthStatus`) como respuesta de texto no cifrado al cliente, que indica un estado `HealthStatus.Healthy`, `HealthStatus.Degraded` o `HealthStatus.Unhealthy`.
+La configuración básica registra los servicios de comprobación de estado y llama al Middleware de comprobaciones de estado para responder a un punto de conexión de dirección URL con una respuesta de estado. De forma predeterminada, no se registran comprobaciones de estado específicas para probar cualquier dependencia o subsistema concretos. La aplicación se considera correcta si es capaz de responder en la dirección URL de punto de conexión de estado. El escritor de respuesta predeterminado escribe el estado (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>) como respuesta de texto no cifrado al cliente, que indica un estado [HealthStatus.Healthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus), [HealthStatus.Degraded](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) o [HealthStatus.Unhealthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus).
 
-Registre los servicios de comprobación de estado con `AddHealthChecks` de `Startup.ConfigureServices`. Agregue el Middleware de comprobaciones de estado con `UseHealthChecks` en la canalización de procesamiento de solicitudes de `Startup.Configure`.
+Registre los servicios de comprobación de estado con <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> de `Startup.ConfigureServices`. Agregue el Middleware de comprobaciones de estado con <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> en la canalización de procesamiento de solicitudes de `Startup.Configure`.
 
 En la aplicación de ejemplo, el punto de conexión de la comprobación de estado se crea en `/health` (*BasicStartup.cs*):
 
@@ -76,7 +76,7 @@ HEALTHCHECK CMD curl --fail http://localhost:5000/health || exit
 
 ## <a name="create-health-checks"></a>Creación de comprobaciones de estado
 
-Las comprobaciones de estado se crean mediante la implementación de la interfaz de `IHealthCheck`. El método `IHealthCheck.CheckHealthAsync` devuelve un elemento `Task<HealthCheckResult>` que indica el estado como `Healthy`, `Degraded` o `Unhealthy`. El resultado se escribe como una respuesta de texto no cifrado con un código de estado configurable. (La configuración se describe en la sección [Opciones de comprobación de estado](#health-check-options)). `HealthCheckResult` también puede devolver pares clave-valor opcionales.
+Las comprobaciones de estado se crean mediante la implementación de la interfaz de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck>. El método <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck.CheckHealthAsync*> devuelve un elemento `Task<` <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult> `>` que indica el estado como `Healthy`, `Degraded` o `Unhealthy`. El resultado se escribe como una respuesta de texto no cifrado con un código de estado configurable. (La configuración se describe en la sección [Opciones de comprobación de estado](#health-check-options)). <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult> también puede devolver pares clave-valor opcionales.
 
 ### <a name="example-health-check"></a>Comprobación de estado de ejemplo
 
@@ -113,7 +113,7 @@ public class ExampleHealthCheck : IHealthCheck
 
 ### <a name="register-health-check-services"></a>Registro de los servicios de comprobación de estado
 
-El tipo `ExampleHealthCheck` se agrega a los servicios de comprobación de estado con `AddCheck`:
+El tipo `ExampleHealthCheck` se agrega a los servicios de comprobación de estado con <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*>:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -123,7 +123,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-La sobrecarga `AddCheck` que se muestra en el ejemplo siguiente establece el estado de error (`HealthStatus`) para notificar cuándo la comprobación de estado informa de un error. Si el estado de error se establece en `null` (valor predeterminado), `HealthStatus.Unhealthy` se notifica. Esta sobrecarga es un escenario útil para los creadores de bibliotecas en los que la aplicación ejecuta el estado de error indicado por la biblioteca cuando se produce un error de comprobación de estado si la implementación de la comprobación de estado respeta la configuración.
+La sobrecarga <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> que se muestra en el ejemplo siguiente establece el estado de error (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>) para notificar cuándo la comprobación de estado informa de un error. Si el estado de error se establece en `null` (valor predeterminado), [HealthStatus.Unhealthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) se notifica. Esta sobrecarga es un escenario útil para los creadores de bibliotecas en los que la aplicación ejecuta el estado de error indicado por la biblioteca cuando se produce un error de comprobación de estado si la implementación de la comprobación de estado respeta la configuración.
 
 Las *etiquetas* pueden usarse para filtrar las comprobaciones de estado, que se describen con más detalle en la sección [Filtrado de las comprobaciones de estado](#filter-health-checks).
 
@@ -135,7 +135,7 @@ services.AddHealthChecks()
         tags: new[] { "example" });
 ```
 
-`AddCheck` también puede ejecutar una función lambda. En el ejemplo siguiente, el nombre de la comprobación de estado se especifica como `Example` y la comprobación siempre devuelve un estado correcto:
+<xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> también puede ejecutar una función lambda. En el ejemplo siguiente, el nombre de la comprobación de estado se especifica como `Example` y la comprobación siempre devuelve un estado correcto:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -148,7 +148,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="use-health-checks-middleware"></a>Uso del Middleware de comprobaciones de estado
 
-En `Startup.Configure`, llame a `UseHealthChecks` en la canalización de procesamiento con la dirección URL del punto de conexión o la ruta de acceso relativa:
+En `Startup.Configure`, llame a <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> en la canalización de procesamiento con la dirección URL del punto de conexión o la ruta de acceso relativa:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -157,7 +157,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Si las comprobaciones de estado deben realizar la escucha en un puerto específico, use una sobrecarga de `UseHealthChecks` para establecer el puerto, como se describe con más detalle en la sección [Filtrado por puerto](#filter-by-port):
+Si las comprobaciones de estado deben realizar la escucha en un puerto específico, use una sobrecarga de <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> para establecer el puerto, como se describe con más detalle en la sección [Filtrado por puerto](#filter-by-port):
 
 ```csharp
 app.UseHealthChecks("/health", port: 8000);
@@ -167,7 +167,7 @@ El Middleware de comprobaciones de estado es un *middleware terminal* en la cana
 
 ## <a name="health-check-options"></a>Opciones de comprobación de estado
 
-El elemento `HealthCheckOptions` ofrece una oportunidad para personalizar el comportamiento de las comprobaciones de estado:
+El elemento <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions> ofrece una oportunidad para personalizar el comportamiento de las comprobaciones de estado:
 
 * [Filtrado de las comprobaciones de estado](#filter-health-checks)
 * [Personalización del código de estado HTTP](#customize-the-http-status-code)
@@ -176,7 +176,7 @@ El elemento `HealthCheckOptions` ofrece una oportunidad para personalizar el com
 
 ### <a name="filter-health-checks"></a>Filtrado de las comprobaciones de estado
 
-De forma predeterminada, el Middleware de comprobaciones de estado ejecuta todas las comprobaciones de estado registradas. Para ejecutar un subconjunto de comprobaciones de estado, proporcione una función que devuelva un valor booleano para la opción `Predicate`. En el ejemplo siguiente, la etiqueta (`bar_tag`) de la comprobación de estado `Bar` la filtra, en la instrucción condicional de la función, donde `true` solo se devuelve si la propiedad `Tag` de la comprobación de estado coincide con `foo_tag` o `baz_tag`:
+De forma predeterminada, el Middleware de comprobaciones de estado ejecuta todas las comprobaciones de estado registradas. Para ejecutar un subconjunto de comprobaciones de estado, proporcione una función que devuelva un valor booleano para la opción <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.Predicate>. En el ejemplo siguiente, la etiqueta (`bar_tag`) de la comprobación de estado `Bar` la filtra, en la instrucción condicional de la función, donde `true` solo se devuelve si la propiedad <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckRegistration.Tags> de la comprobación de estado coincide con `foo_tag` o `baz_tag`:
 
 ```csharp
 using System.Threading.Tasks;
@@ -207,7 +207,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ### <a name="customize-the-http-status-code"></a>Personalización del código de estado HTTP
 
-Use `ResultStatusCodes` para personalizar la asignación del estado de mantenimiento de los códigos de estado HTTP. Las siguientes asignaciones de `StatusCode` son los valores predeterminados que el middleware utiliza. Cambie los valores de código de estado para satisfacer sus necesidades.
+Use <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResultStatusCodes> para personalizar la asignación del estado de mantenimiento de los códigos de estado HTTP. Las siguientes asignaciones de <xref:Microsoft.AspNetCore.Http.StatusCodes> son los valores predeterminados que el middleware utiliza. Cambie los valores de código de estado para satisfacer sus necesidades.
 
 ```csharp
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -231,7 +231,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ### <a name="suppress-cache-headers"></a>Supresión de los encabezados de caché
 
-`AllowCachingResponses` controla si el Middleware de comprobaciones de estado agrega encabezados HTTP a una respuesta de sondeo para evitar el almacenamiento en caché de respuesta. Si el valor es `false` (valor predeterminado), el middleware establece o invalida los encabezados `Cache-Control`, `Expires` y `Pragma` para evitar el almacenamiento en caché de respuesta. Si el valor es `true`, el middleware no modifica los encabezados de caché de la respuesta.
+<xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.AllowCachingResponses> controla si el Middleware de comprobaciones de estado agrega encabezados HTTP a una respuesta de sondeo para evitar el almacenamiento en caché de respuesta. Si el valor es `false` (valor predeterminado), el middleware establece o invalida los encabezados `Cache-Control`, `Expires` y `Pragma` para evitar el almacenamiento en caché de respuesta. Si el valor es `true`, el middleware no modifica los encabezados de caché de la respuesta.
 
 ```csharp
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -249,7 +249,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ### <a name="customize-output"></a>Personalización del resultado
 
-La opción `ResponseWriter` obtiene o establece un delegado que se usa para escribir la respuesta. El delegado predeterminado escribe una respuesta de texto no cifrado mínima con el valor de cadena `HealthReport.Status`.
+La opción <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResponseWriter> obtiene o establece un delegado que se usa para escribir la respuesta. El delegado predeterminado escribe una respuesta de texto no cifrado mínima con el valor de cadena [HealthReport.Status](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthReport.Status).
 
 ```csharp
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -297,7 +297,7 @@ Proporcione una cadena de conexión a base de datos válida en el archivo *appse
 
 [!code-json[](health-checks/samples/2.x/HealthChecksSample/appsettings.json?highlight=3)]
 
-Registre los servicios de comprobación de estado con `AddHealthChecks` de `Startup.ConfigureServices`. La aplicación de ejemplo llama al método `AddSqlServer` de BeatPulse con la cadena de conexión de la base de datos (*DbHealthStartup.cs*):
+Registre los servicios de comprobación de estado con <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> de `Startup.ConfigureServices`. La aplicación de ejemplo llama al método `AddSqlServer` de BeatPulse con la cadena de conexión de la base de datos (*DbHealthStartup.cs*):
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/DbHealthStartup.cs?name=snippet_ConfigureServices)]
 
@@ -399,11 +399,11 @@ Un [servicio hospedado](xref:fundamentals/host/hosted-services) (*Services/Start
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/Services/StartupHostedService.cs?name=snippet1&highlight=18-20)]
 
-La comprobación de estado se registra con `AddCheck` en `Startup.ConfigureServices` junto con el servicio hospedado. Dado que el servicio hospedado debe establecer la propiedad en la comprobación de estado, esta también se registra en el contenedor de servicios (*LivenessProbeStartup.cs*):
+La comprobación de estado se registra con <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> en `Startup.ConfigureServices` junto con el servicio hospedado. Dado que el servicio hospedado debe establecer la propiedad en la comprobación de estado, esta también se registra en el contenedor de servicios (*LivenessProbeStartup.cs*):
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/LivenessProbeStartup.cs?name=snippet_ConfigureServices)]
 
-Llame al Middleware de comprobaciones de estado en la canalización de procesamiento de la aplicación en `Startup.Configure`. En la aplicación de ejemplo, se crean puntos de conexión de la comprobación de estado en `/health/ready` para la comprobación de preparación y en `/health/live` para la comprobación de ejecución. La comprobación de preparación filtra las comprobaciones de estado con la etiqueta `ready`. La comprobación de ejecución filtra el elemento `StartupHostedServiceHealthCheck` y devuelve `false` en `HealthCheckOptions.Predicate`. Para obtener más información, consulte [Filtrado de las comprobaciones de estado](#filter-health-checks):
+Llame al Middleware de comprobaciones de estado en la canalización de procesamiento de la aplicación en `Startup.Configure`. En la aplicación de ejemplo, se crean puntos de conexión de la comprobación de estado en `/health/ready` para la comprobación de preparación y en `/health/live` para la comprobación de ejecución. La comprobación de preparación filtra las comprobaciones de estado con la etiqueta `ready`. La comprobación de ejecución filtra el elemento `StartupHostedServiceHealthCheck` y devuelve `false` en [HealthCheckOptions.Predicate](xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.Predicate). Para obtener más información, consulte [Filtrado de las comprobaciones de estado](#filter-health-checks):
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/LivenessProbeStartup.cs?name=snippet_Configure)]
 
@@ -413,7 +413,9 @@ Para ejecutar el escenario de configuración de la preparación/ejecución media
 dotnet run --scenario liveness
 ```
 
-En un explorador, visite `/health/ready` varias veces hasta que hayan pasado 15 segundos. La comprobación de estado notifica un estado `Unhealthy` durante los primeros 15 segundos. Pasados 15 segundos, el punto de conexión notifica un estado `Healthy`, lo que indica que el servicio hospedado ya ha finalizado la tarea de ejecución prolongada.
+En un explorador, visite `/health/ready` varias veces hasta que hayan pasado 15 segundos. La comprobación de estado notifica un estado *Incorrecto* durante los primeros 15 segundos. Pasados 15 segundos, el punto de conexión notifica un estado *Correcto*, lo que indica que el servicio hospedado ya ha finalizado la tarea de ejecución prolongada.
+
+En este ejemplo también se crea un publicador de la comprobación de estado (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> implementación) que ejecuta la primera comprobación de preparación con un retraso de dos segundos. Para obtener más información, consulte la sección [Publicador de la comprobación de estado](#health-check-publisher).
 
 ### <a name="kubernetes-example"></a>Ejemplo de Kubernetes
 
@@ -442,11 +444,11 @@ spec:
 
 La aplicación de ejemplo muestra una comprobación de estado de memoria con un escritor de respuesta personalizada.
 
-`MemoryHealthCheck` notifica un estado degradado si la aplicación usa más de un umbral de memoria determinado (1 GB en la aplicación de ejemplo). El elemento `HealthCheckResult` incluye información del recolector de elementos no utilizados (GC) de la aplicación (*MemoryHealthCheck.cs*):
+`MemoryHealthCheck` notifica un estado degradado si la aplicación usa más de un umbral de memoria determinado (1 GB en la aplicación de ejemplo). El elemento <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult> incluye información del recolector de elementos no utilizados (GC) de la aplicación (*MemoryHealthCheck.cs*):
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/MemoryHealthCheck.cs?name=snippet1)]
 
-Registre los servicios de comprobación de estado con `AddHealthChecks` de `Startup.ConfigureServices`. En lugar de pasar la comprobación de estado a `AddCheck` para habilitarla, `MemoryHealthCheck` se registra como servicio. Todos los servicios registrados de `IHealthCheck` están disponibles para los servicios de comprobación de estado y middleware. Se recomienda registrar los servicios de comprobación de estado como los servicios de Singleton.
+Registre los servicios de comprobación de estado con <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> de `Startup.ConfigureServices`. En lugar de pasar la comprobación de estado a <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> para habilitarla, `MemoryHealthCheck` se registra como servicio. Todos los servicios registrados de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck> están disponibles para los servicios de comprobación de estado y middleware. Se recomienda registrar los servicios de comprobación de estado como los servicios de Singleton.
 
 *CustomWriterStartup.cs*:
 
@@ -473,7 +475,7 @@ dotnet run --scenario writer
 
 ## <a name="filter-by-port"></a>Filtrado por puerto
 
-Una llamada a `UseHealthChecks` con un puerto restringe las solicitudes de comprobación de estado al puerto especificado. Esto se usa normalmente en un entorno de contenedor para exponer un puerto para los servicios de supervisión.
+Una llamada a <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> con un puerto restringe las solicitudes de comprobación de estado al puerto especificado. Esto se usa normalmente en un entorno de contenedor para exponer un puerto para los servicios de supervisión.
 
 La aplicación de ejemplo configura el puerto con el [proveedor de configuración de variable de entorno](xref:fundamentals/configuration/index#environment-variables-configuration-provider). El puerto se establece en el archivo *launchSettings.json* y se pasa al proveedor de configuración a través de una variable de entorno. También debe configurar el servidor para que escuche las solicitudes en el puerto de administración.
 
@@ -501,12 +503,12 @@ El siguiente archivo *launchSettings.json* no se incluye en los archivos de proy
 }
 ```
 
-Registre los servicios de comprobación de estado con `AddHealthChecks` de `Startup.ConfigureServices`. La llamada a `UseHealthChecks` especifica el puerto de administración (*ManagementPortStartup.cs*):
+Registre los servicios de comprobación de estado con <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> de `Startup.ConfigureServices`. La llamada a <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> especifica el puerto de administración (*ManagementPortStartup.cs*):
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/ManagementPortStartup.cs?name=snippet1&highlight=12,18)]
 
 > [!NOTE]
-> Para evitar la creación del archivo *launchSettings.json* en la aplicación de ejemplo, configure las direcciones URL y el puerto de administración explícitamente en código. En *Program.cs*, donde se crea `WebHostBuilder`, agregue una llamada a `UseUrls` y proporcione el punto de conexión de respuesta normal de la aplicación y el punto de conexión del puerto de administración. En *ManagementPortStartup.cs*, donde se llama a `UseHealthChecks`, especifique explícitamente el puerto de administración.
+> Para evitar la creación del archivo *launchSettings.json* en la aplicación de ejemplo, configure las direcciones URL y el puerto de administración explícitamente en código. En *Program.cs*, donde se crea <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>, agregue una llamada a <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseUrls*> y proporcione el punto de conexión de respuesta normal de la aplicación y el punto de conexión del puerto de administración. En *ManagementPortStartup.cs*, donde se llama a <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*>, especifique explícitamente el puerto de administración.
 >
 > *Program.cs*:
 >
@@ -541,7 +543,7 @@ dotnet run --scenario port
 
 Para distribuir una comprobación de estado como una biblioteca, haga lo siguiente:
 
-1. Escriba una comprobación de estado que implemente la interfaz de `IHealthCheck` como una clase independiente. La clase puede depender de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection), de la activación del tipo y de las [opciones denominadas](xref:fundamentals/configuration/options) para acceder a los datos de configuración.
+1. Escriba una comprobación de estado que implemente la interfaz de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck> como una clase independiente. La clase puede depender de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection), de la activación del tipo y de las [opciones denominadas](xref:fundamentals/configuration/options) para acceder a los datos de configuración.
 
    ```csharp
    using System;
@@ -601,7 +603,7 @@ Para distribuir una comprobación de estado como una biblioteca, haga lo siguien
    * nombre de la comprobación de estado (`name`). En el caso de `null`, se utiliza `example_health_check`.
    * punto de datos de cadena para la comprobación de estado (`data1`).
    * punto de datos enteros para la comprobación de estado (`data2`). En el caso de `null`, se utiliza `1`.
-   * estado de error (`HealthStatus`). De manera predeterminada, es `null`. Si se utiliza `null`, `HealthStatus.Unhealthy` se notifica para un estado de error.
+   * estado de error (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>). De manera predeterminada, es `null`. Si `null`, [HealthStatus.Unhealthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) se notifica para un estado de error.
    * etiquetas (`IEnumerable<string>`).
 
    ```csharp
@@ -631,13 +633,52 @@ Para distribuir una comprobación de estado como una biblioteca, haga lo siguien
 
 ## <a name="health-check-publisher"></a>Publicador de la comprobación de estado
 
-Cuando un elemento `IHealthCheckPublisher` se agrega al contenedor de servicios, el sistema de comprobación de estado ejecuta periódicamente las comprobaciones de estado y llama a `PublishAsync` con el resultado. Esto es útil en un escenario de sistema de seguimiento de estado basado en inserción en el que se espera que cada proceso llame periódicamente al sistema de seguimiento con el fin de determinar el estado.
+Cuando un elemento <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> se agrega al contenedor de servicios, el sistema de comprobación de estado ejecuta periódicamente las comprobaciones de estado y llama a `PublishAsync` con el resultado. Esto es útil en un escenario de sistema de seguimiento de estado basado en inserción en el que se espera que cada proceso llame periódicamente al sistema de seguimiento con el fin de determinar el estado.
 
-La interfaz de `IHealthCheckPublisher` tiene un único método:
+La interfaz de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> tiene un único método:
 
 ```csharp
 Task PublishAsync(HealthReport report, CancellationToken cancellationToken);
 ```
+
+<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions> le permiten establecer:
+
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Delay> &ndash; El retraso inicial aplicado tras iniciarse la aplicación antes de ejecutar instancias de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>. El retraso se aplica una vez durante el inicio y no se aplica a las iteraciones posteriores. El valor predeterminado es cinco segundos.
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Period> &ndash; El período de ejecución de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>. El valor predeterminado es 30 segundos.
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Predicate> &ndash; Si <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Predicate> es `null` (valor predeterminado), el servicio de publicador de la comprobación de estado ejecuta todas las comprobaciones de estado registradas. Para ejecutar un subconjunto de comprobaciones de estado, proporcione una función que filtre el conjunto de comprobaciones. El predicado se evalúa cada período.
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Timeout> &ndash; El tiempo de expiración para ejecutar las comprobaciones de estado para todas las instancias de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>. Use <xref:System.Threading.Timeout.InfiniteTimeSpan> para ejecutar sin tiempo de expiración. El valor predeterminado es 30 segundos.
+
+::: moniker range="= aspnetcore-2.2"
+
+> [!WARNING]
+> En la versión de ASP.NET Core 2.2, el establecimiento de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Period> no se asigna por medio de la implementación de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>; establece el valor de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Delay>. Este problema se corregirá en ASP.NET Core 3.0. Para obtener más información, consulte [HealthCheckPublisherOptions.Period establece el valor de .Delay](https://github.com/aspnet/Extensions/issues/1041).
+
+::: moniker-end
+
+En la aplicación de ejemplo, `ReadinessPublisher` es una implementación de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>. El estado de comprobación de estado se registra en `Entries` y para cada comprobación:
+
+[!code-csharp[](health-checks/samples/2.x/HealthChecksSample/ReadinessPublisher.cs?name=snippet_ReadinessPublisher&highlight=20,22-23)]
+
+En el ejemplo `LivenessProbeStartup` de la aplicación de ejemplo, la comprobación de preparación `StartupHostedService` tiene un retraso de inicio de dos segundos y ejecuta la comprobación cada 30 segundos. Para activar la implementación de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>, el ejemplo registra `ReadinessPublisher` como servicio singleton en el contenedor de [inserción de dependencias (DI)](xref:fundamentals/dependency-injection):
+
+[!code-csharp[](health-checks/samples/2.x/HealthChecksSample/LivenessProbeStartup.cs?name=snippet_ConfigureServices&highlight=12-17,28)]
+
+::: moniker range="= aspnetcore-2.2"
+
+> [!NOTE]
+> La siguiente solución alternativa permite la adición de una instancia de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher> al contenedor del servicio cuando uno o más servicios hospedados ya se han agregado a la aplicación. Esta solución alternativa no se requerirá con el lanzamiento de ASP.NET Core 3.0. Para obtener más información, vea https://github.com/aspnet/Extensions/issues/639.
+>
+> ```csharp
+> private const string HealthCheckServiceAssembly = 
+>     "Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherHostedService";
+>
+> services.TryAddEnumerable(
+>     ServiceDescriptor.Singleton(typeof(IHostedService), 
+>         typeof(HealthCheckPublisherOptions).Assembly
+>             .GetType(HealthCheckServiceAssembly)));
+> ```
+
+::: moniker-end
 
 > [!NOTE]
 > [BeatPulse](https://github.com/Xabaril/BeatPulse) incluye editores para varios sistemas, incluido [Application Insights](/azure/application-insights/app-insights-overview).

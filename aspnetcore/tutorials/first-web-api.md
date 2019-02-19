@@ -4,14 +4,14 @@ author: rick-anderson
 description: Compilación de una API web con ASP.NET Core MVC
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/24/2019
+ms.date: 02/4/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 65af70be2cec68d30dd712b80312ebcd40ea0624
-ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
+ms.openlocfilehash: 5d72cb214a3d5565452b3b95f364818a71be44b7
+ms.sourcegitcommit: 98e9c7187772d4ddefe6d8e85d0d206749dbd2ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55065053"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55737647"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Tutorial: Creación de una API web con ASP.NET Core MVC
 
@@ -351,6 +351,8 @@ Agregue el siguiente método `PutTodoItem`:
 `PutTodoItem` es similar a `PostTodoItem`, salvo por el hecho de que usa HTTP PUT. La respuesta es [204 Sin contenido](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). Según la especificación HTTP, una solicitud PUT requiere que el cliente envíe toda la entidad actualizada, no solo los cambios. Para admitir actualizaciones parciales, use [HTTP PATCH](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute).
 
 ### <a name="test-the-puttodoitem-method"></a>Prueba del método PutTodoItem
+
+En este ejemplo se usa una base de datos en memoria que se debe iniciar cada vez que se inicia la aplicación. Debe haber un elemento en la base de datos antes de que realice una llamada PUT. Llame a GET para asegurarse de que hay un elemento en la base de datos antes de realizar una llamada PUT.
 
 Actualice la tarea pendiente que tiene el id. = 1 y establezca su nombre en "feed fish":
 

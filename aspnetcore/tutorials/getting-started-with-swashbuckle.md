@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Obtenga información sobre cómo agregar Swashbuckle a un proyecto de ASP.NET Core Web API para integrar la interfaz de usuario de Swagger.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 02/06/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: a8c3d999cfddb4d3d888455d7cc0b899a71e427e
-ms.sourcegitcommit: ea215df889e89db44037a6ac2f01baede0450da9
+ms.openlocfilehash: 9239a46889691135dce5c99f8fc9b8c7b38ab457
+ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53595352"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55854424"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introducción a Swashbuckle y ASP.NET Core
 
@@ -204,7 +204,7 @@ Puede habilitar los comentarios XML para proporcionar información de depuració
 warning CS1591: Missing XML comment for publicly visible type or member 'TodoController.GetAll()'
 ```
 
-Para eliminar las advertencias a nivel de proyecto, defina una lista delimitada por punto y coma de códigos de advertencia que se deban omitir en el archivo de proyecto. Al anexar los códigos de advertencia a `$(NoWarn);`, se aplican también los valores predeterminados de C#.
+Para eliminar las advertencias a nivel de proyecto, defina una lista delimitada por punto y coma de códigos de advertencia que se deban omitir en el archivo de proyecto. Al anexar los códigos de advertencia a `$(NoWarn);`, se aplican también los [valores predeterminados de C#](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16).
 
 ::: moniker range=">= aspnetcore-2.0"
 

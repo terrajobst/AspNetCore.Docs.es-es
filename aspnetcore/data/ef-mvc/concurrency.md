@@ -1,27 +1,20 @@
 ---
-title: 'ASP.NET Core MVC con EF Core: Simultaneidad (8 de 10)'
-author: rick-anderson
+title: 'Tutorial: Control de simultaneidad: ASP.NET MVC con EF Core'
 description: Este tutorial muestra cómo tratar los conflictos cuando varios usuarios actualizan la misma entidad al mismo tiempo.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 0ae566a76a2ef656843452ed537b8fdfbddaed22
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 7b18927d5d528ec2951087502e26b2b30214f389
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090906"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103025"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>ASP.NET Core MVC con EF Core: Simultaneidad (8 de 10)
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-En la aplicación web de ejemplo Contoso University se muestra cómo crear aplicaciones web de ASP.NET Core MVC con Entity Framework Core y Visual Studio. Para obtener información sobre la serie de tutoriales, consulte [el primer tutorial de la serie](intro.md).
+# <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Tutorial: Control de simultaneidad: ASP.NET MVC con EF Core
 
 En los tutoriales anteriores, aprendió a actualizar los datos. Este tutorial muestra cómo tratar los conflictos cuando varios usuarios actualizan la misma entidad al mismo tiempo.
 
@@ -30,6 +23,23 @@ Podrá crear páginas web que funcionan con la entidad Department y controlan lo
 ![Página Edit Department](concurrency/_static/edit-error.png)
 
 ![Página Department Delete](concurrency/_static/delete-error.png)
+
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Obtiene información sobre los conflictos de simultaneidad
+> * Agrega una propiedad de seguimiento
+> * Crea un controlador y vistas de Departments
+> * Actualiza la vista de índice
+> * Actualiza los métodos de edición
+> * Actualiza la vista de edición
+> * Prueba los conflictos de simultaneidad
+> * Actualizar la página Delete
+> * Actualizar las vistas Details y Create
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* [Actualización de datos relacionados con EF Core en una aplicación web de ASP.NET Core MVC](update-related-data.md)
 
 ## <a name="concurrency-conflicts"></a>Conflictos de simultaneidad
 
@@ -87,7 +97,7 @@ Puede resolver los conflictos controlando las excepciones `DbConcurrencyExceptio
 
 En el resto de este tutorial agregará una propiedad de seguimiento `rowversion` para la entidad Department, creará un controlador y vistas, y comprobará que todo funciona correctamente.
 
-## <a name="add-a-tracking-property-to-the-department-entity"></a>Agregar una propiedad de seguimiento a la entidad Department
+## <a name="add-a-tracking-property"></a>Agrega una propiedad de seguimiento
 
 En *Models/Department.cs*, agregue una propiedad de seguimiento denominada RowVersion:
 
@@ -114,7 +124,7 @@ dotnet ef migrations add RowVersion
 dotnet ef database update
 ```
 
-## <a name="create-a-departments-controller-and-views"></a>Crear un controlador y vistas de Departments
+## <a name="create-departments-controller-and-views"></a>Crea un controlador y vistas de Departments
 
 Aplique la técnica scaffolding a un controlador y vistas de Departments como lo hizo anteriormente para Students, Courses e Instructors.
 
@@ -124,7 +134,7 @@ En el archivo *DepartmentsController.cs*, cambie las cuatro repeticiones de "Fir
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
-## <a name="update-the-departments-index-view"></a>Actualizar la vista de índice de Departments
+## <a name="update-index-view"></a>Actualiza la vista de índice
 
 El motor de scaffolding creó una columna RowVersion en la vista Index, pero ese campo no debería mostrarse.
 
@@ -134,7 +144,7 @@ Reemplace el código de *Views/Departments/Index.cshtml* con el código siguient
 
 Esto cambia el encabezado por "Departments", elimina la columna RowVersion y muestra el nombre completo en lugar del nombre del administrador.
 
-## <a name="update-the-edit-methods-in-the-departments-controller"></a>Actualizar los métodos Edit en el controlador de Departments
+## <a name="update-edit-methods"></a>Actualiza los métodos de edición
 
 En el método `Edit` de HttpGet y el método `Details`, agregue `AsNoTracking`. En el método `Edit` de HttpGet, agregue carga diligente para el administrador.
 
@@ -172,7 +182,7 @@ Por último, el código establece el valor `RowVersion` de `departmentToUpdate` 
 
 La instrucción `ModelState.Remove` es necesaria porque `ModelState` tiene el valor `RowVersion` antiguo. En la vista, el valor `ModelState` de un campo tiene prioridad sobre los valores de propiedad de modelo cuando ambos están presentes.
 
-## <a name="update-the-department-edit-view"></a>Actualizar la vista Department Edit
+## <a name="update-edit-view"></a>Actualiza la vista de edición
 
 En *Views/Departments/Edit.cshtml*, realice los cambios siguientes:
 
@@ -182,7 +192,7 @@ En *Views/Departments/Edit.cshtml*, realice los cambios siguientes:
 
 [!code-html[](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
-## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Comprobar los conflictos de simultaneidad en la página Edit
+## <a name="test-concurrency-conflicts"></a>Prueba los conflictos de simultaneidad
 
 Ejecute la aplicación y vaya a la página de índice de Departments. Haga clic con el botón derecho en el hipervínculo **Edit** del departamento de inglés, seleccione **Abrir en nueva pestaña** y, después, haga clic en el hipervínculo **Edit** del departamento de inglés. Las dos pestañas del explorador ahora muestran la misma información.
 
@@ -276,12 +286,29 @@ Reemplace el código de *Views/Departments/Create.cshtml* para agregar una opci�
 
 [!code-html[](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
-## <a name="summary"></a>Resumen
+## <a name="get-the-code"></a>Obtención del código
 
-Con esto finaliza la introducción para el control de los conflictos de simultaneidad. Para obtener más información sobre cómo administrar la simultaneidad en EF Core, vea [Concurrency conflicts](/ef/core/saving/concurrency) (Conflictos de simultaneidad). El siguiente tutorial muestra cómo implementar la herencia de tabla por jerarquía para las entidades Instructor y Student.
+[Descargue o vea la aplicación completa.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="additional-resources"></a>Recursos adicionales
 
-> [!div class="step-by-step"]
-> [Anterior](update-related-data.md)
-> [Siguiente](inheritance.md)
+ Para obtener más información sobre cómo administrar la simultaneidad en EF Core, vea [Concurrency conflicts](/ef/core/saving/concurrency) (Conflictos de simultaneidad).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+En este tutorial ha:
+
+> [!div class="checklist"]
+> * Obtenido información sobre los conflictos de simultaneidad
+> * Agregado una propiedad de seguimiento
+> * Creado un controlador y vistas de Departments
+> * Actualizado la vista de índice
+> * Actualizado los métodos de edición
+> * Actualizado la vista de edición
+> * Probado los conflictos de simultaneidad
+> * Actualizado la página Delete
+> * Actualizado las vistas Details y Create
+
+Pase al artículo siguiente para obtener información sobre cómo implementar la herencia de tabla por jerarquía para las entidades Instructor y Student.
+> [!div class="nextstepaction"]
+> [Implementación de la herencia de tabla por jerarquía](inheritance.md)
