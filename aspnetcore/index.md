@@ -42,9 +42,9 @@ ASP.NET Core MVC proporciona características para crear [API web](xref:tutorial
 * El [enlace de modelo](xref:mvc/models/model-binding) asigna automáticamente datos de solicitudes HTTP a parámetros de método de acción.
 * La [validación de modelos](xref:mvc/models/validation) efectúa una validación del lado cliente y del lado servidor de forma automática.
 
-## <a name="client-side-development"></a>Desarrollo del lado cliente
+## <a name="client-side-development"></a>Desarrollo del lado del cliente
 
-ASP.NET Core se integra perfectamente con las bibliotecas y los marcos de trabajo más populares del lado cliente, que incluyen [Razor Components](xref:razor-components/index), [Angular](xref:spa/angular), [React](xref:spa/react) y [Bootstrap](https://getbootstrap.com/). Para obtener más información, consulte [Introducción a Razor Components](xref:razor-components/index) y los temas al respecto en *Desarrollo del lado cliente*.
+ASP.NET Core se integra perfectamente con las bibliotecas y los marcos de trabajo más populares del lado del cliente, que incluyen [Razor Components](xref:razor-components/index), [Angular](xref:spa/angular), [React](xref:spa/react) y [Bootstrap](https://getbootstrap.com/). Para obtener más información, consulte [Introducción a Razor Components](xref:razor-components/index) y los temas al respecto en *Desarrollo del lado del cliente*.
 
 <a name="target-framework"></a>
 
