@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo trabajar con métodos de controlad
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: cd1b0f2ccffaa660f137b8d739933e56018f2702
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 36c8141ba5827366572dabcfd0fdf9600c745706
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249417"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410526"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Vistas y métodos de controlador en ASP.NET Core
 
@@ -100,7 +100,7 @@ El atributo `ValidateAntiForgeryToken` se usa para [impedir la falsificación de
 
 El [asistente de etiquetas de formulario](xref:mvc/views/working-with-forms) genera un token antifalsificación oculto que debe coincidir con el token antifalsificación generado por `[ValidateAntiForgeryToken]` en el método `Edit` del controlador Movies. Para más información, vea [Prevención de ataques de falsificación de solicitudes](xref:security/anti-request-forgery).
 
-El método `HttpGet Edit` toma el parámetro `ID` de la película, busca la película con el método `SingleOrDefaultAsync` de Entity Framework y devuelve la película seleccionada a la vista de edición. Si no se encuentra una película, se devuelve `NotFound` (HTTP 404).
+El método `HttpGet Edit` toma el parámetro `ID` de la película, busca la película con el método `FindAsync` de Entity Framework y devuelve la película seleccionada a la vista de edición. Si no se encuentra una película, se devuelve `NotFound` (HTTP 404).
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit1)]
 
