@@ -5,12 +5,12 @@ description: Obtenga información sobre la forma en que las vistas controlan la 
 ms.author: riande
 ms.date: 12/12/2017
 uid: mvc/views/overview
-ms.openlocfilehash: 276540a5d77b1d65119d1b2104508d77f45d5588
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 6c5b4d7b89ac07a85b5aad626e37855de98064eb
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219373"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410448"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Vistas de ASP.NET Core MVC
 
@@ -34,7 +34,7 @@ Los [componentes de la vista](xref:mvc/views/view-components) se asemejan a las 
 
 ## <a name="benefits-of-using-views"></a>Ventajas de utilizar las vistas
 
-Las vistas separan el marcado de la interfaz de usuario de otras partes de la aplicación con el fin de ayudar a establecer una [separación de intereses (SoC)](http://deviq.com/separation-of-concerns/) dentro de una aplicación MVC. Diseñar respetando el principio SoC hace que la aplicación sea modular, lo que ofrece varias ventajas:
+Las vistas separan el marcado de la interfaz de usuario de otras partes de la aplicación con el fin de ayudar a establecer una [separación de intereses](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) dentro de una aplicación MVC. Diseñar respetando el principio SoC hace que la aplicación sea modular, lo que ofrece varias ventajas:
 
 * La aplicación es más fácil de mantener, ya que está mejor organizada. Las vistas generalmente se agrupan por característica de la aplicación. Esto facilita la búsqueda de vistas relacionadas cuando se trabaja en una característica.
 * Las partes de la aplicación están acopladas de forma ligera. Las vistas de la aplicación se pueden compilar y actualizar por separado de los componentes de la lógica de negocios y el acceso a datos. Las vistas de la aplicación se pueden modificar sin necesidad de tener que actualizar otras partes de la aplicación.
@@ -53,7 +53,7 @@ El contenido de la vista mostrado anteriormente es solo una parte de toda la pá
 
 ## <a name="how-controllers-specify-views"></a>Cómo especifican los controladores las vistas
 
-Las vistas normalmente las devuelven acciones como [ViewResult](/dotnet/api/microsoft.aspnetcore.mvc.viewresult), que es un tipo de [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult). El método de acción puede crear y devolver `ViewResult` directamente, pero no es lo más común. Puesto que la mayoría de los controladores heredan de [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controller), simplemente se usa el método auxiliar `View` para devolver `ViewResult`:
+Las vistas normalmente las devuelven acciones como [ViewResult](/dotnet/api/microsoft.aspnetcore.mvc.viewresult), que es un tipo de [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult). El método de acción puede crear y devolver `ViewResult` directamente, pero no es lo más común. Puesto que la mayoría de los controladores heredan de [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controller), simplemente se usa el método del asistente `View` para devolver `ViewResult`:
 
 *HomeController.cs*
 
@@ -63,7 +63,7 @@ Cuando esta acción devuelve un resultado, la vista *About.cshtml* mostrada en l
 
 ![Página Acerca de representada en el explorador Edge](overview/_static/about-page.png)
 
-El método auxiliar `View` tiene varias sobrecargas. También puede especificar:
+El método del asistente `View` tiene varias sobrecargas. También puede especificar:
 
 * Una vista explícita para devolver:
 
@@ -393,8 +393,8 @@ Esta característica proporciona la flexibilidad, pero no ofrece protección de 
 
 ## <a name="more-view-features"></a>Más características de vista
 
-Las [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) permiten agregar fácilmente el comportamiento del lado servidor a las etiquetas HTML existentes. El uso de aplicaciones auxiliares de etiquetas evita la necesidad de escribir código personalizado o aplicaciones auxiliares en las vistas. Las aplicaciones auxiliares de etiquetas se aplican como atributos a elementos HTML y son ignoradas por los editores que no pueden procesarlas. Esto permite editar y representar el marcado de la vista con varias herramientas.
+Los [asistentes de etiquetas](xref:mvc/views/tag-helpers/intro) permiten agregar fácilmente el comportamiento del lado servidor a las etiquetas HTML existentes. El uso de asistentes de etiquetas evita la necesidad de escribir código personalizado o asistentes en las vistas. Los asistentes de etiquetas se aplican como atributos a elementos HTML y son ignoradas por los editores que no pueden procesarlas. Esto permite editar y representar el marcado de la vista con varias herramientas.
 
-Hay muchas aplicaciones auxiliares de HTML integradas que permiten generar marcado HTML personalizado. La lógica más compleja de la interfaz de usuario se puede administrar mediante [componentes de vista](xref:mvc/views/view-components). Los componentes de vista proporcionan la misma SoC que los controladores y las vistas. En este sentido, pueden eliminar la necesidad de acciones y vistas que se encargan de los datos utilizados por elementos comunes de la interfaz de usuario.
+Hay muchos asistentes de HTML integradas que permiten generar marcado HTML personalizado. La lógica más compleja de la interfaz de usuario se puede administrar mediante [componentes de vista](xref:mvc/views/view-components). Los componentes de vista proporcionan la misma SoC que los controladores y las vistas. En este sentido, pueden eliminar la necesidad de acciones y vistas que se encargan de los datos utilizados por elementos comunes de la interfaz de usuario.
 
 Al igual que muchos otros aspectos de ASP.NET Core, las vistas admiten [inserción de dependencias](xref:fundamentals/dependency-injection), lo que permite que los servicios se puedan [insertar en las vistas](xref:mvc/views/dependency-injection).

@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo usar diseños comunes, compartir d
 ms.author: riande
 ms.date: 10/18/2018
 uid: mvc/views/layout
-ms.openlocfilehash: b23fd4e0b1d91a4dd5aae548aa2b2081aa37a561
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 1bd225c804b333efea834a46b7d9ba46b1bb69d8
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391302"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410578"
 ---
 # <a name="layout-in-aspnet-core"></a>Diseño en ASP.NET Core
 
@@ -33,7 +33,7 @@ La mayoría de las aplicaciones web tienen un diseño común que ofrece al usuar
 
 ![Ejemplo de diseño de página](layout/_static/page-layout.png)
 
-Las estructuras HTML comunes, como los scripts y las hojas de estilos también se usan con frecuencia en muchas páginas dentro de una aplicación. Todos estos elementos compartidos se pueden definir en un archivo de *diseño*, al que se puede hacer referencia por cualquier vista que se use en la aplicación. Los diseños reducen el código duplicado en las vistas y ayudan a seguir el principio [Una vez y solo una (DRY)](http://deviq.com/don-t-repeat-yourself/).
+Las estructuras HTML comunes, como los scripts y las hojas de estilos también se usan con frecuencia en muchas páginas dentro de una aplicación. Todos estos elementos compartidos se pueden definir en un archivo de *diseño*, al que se puede hacer referencia por cualquier vista que se use en la aplicación. Los diseños reducen el código duplicado en las vistas.
 
 Por convención, el diseño predeterminado para una aplicación ASP.NET Core se denomina *_Layout.cshtml*. El archivo de diseño para los nuevos proyectos de ASP.NET Core creados con las plantillas:
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 3626ce834b904db64c1976aefc77dc60a7bfdf1c
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 5e5b9746da9bbc13a147b807aabfd3d9ab90a0ca
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253174"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410513"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -437,10 +437,9 @@ Por lo general, la aplicación no debe usar estas propiedades directamente. En s
 Los procedimientos recomendados son:
 
 * Diseñar servicios para usar la inserción de dependencias a fin de obtener sus dependencias.
-* Evitar llamadas a métodos estáticas y con estado (una práctica conocida como [estática](https://deviq.com/static-cling/)).
+* Evite las llamadas de método estático y con estado.
 * Evitar la creación directa de instancias de clases dependientes dentro de los servicios. La creación directa de instancias se acopla al código de una implementación particular.
-
-Si sigue los [principios SOLID del diseño orientado a objetos](https://deviq.com/solid/), las clases de aplicaciones tenderán de forma natural a ser pequeñas, estarán correctamente factorizadas y podrán probarse fácilmente.
+* Cree clases de aplicación pequeñas, bien factorizadas y probadas con facilidad.
 
 Si una clase parece tener demasiadas dependencias insertadas, suele indicar que la clase tiene demasiadas responsabilidades y que esto infringe el [principio de responsabilidad única (SRP)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#single-responsibility). Trate de mover algunas de las responsabilidades de la clase a una nueva para intentar refactorizarla. Tenga en cuenta que las clases del modelo de página de Razor Pages y las clases de controlador MVC deben centrarse en aspectos de la interfaz de usuario. Los detalles de implementación de las reglas de negocio y del acceso a datos se deben mantener en las clases pertinentes para [cada uno de estos aspectos](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns).
 
@@ -488,7 +487,7 @@ El contenedor de servicios integrado está pensado para atender las necesidades 
 * Administración personalizada del ciclo de vida
 * Compatibilidad con `Func<T>` para la inicialización diferida
 
-Vea el [archivo readme.md de inserción de dependencias](https://github.com/aspnet/DependencyInjection#using-other-containers-with-microsoftextensionsdependencyinjection) para obtener una lista de algunos de los contenedores que admiten adaptadores.
+Vea el [archivo readme.md de inserción de dependencias](https://github.com/aspnet/Extensions/tree/master/src/DependencyInjection) para obtener una lista de algunos de los contenedores que admiten adaptadores.
 
 En el ejemplo siguiente se reemplaza el contenedor integrado por [Autofac](https://autofac.org/):
 
@@ -560,8 +559,7 @@ La inserción de dependencias es una *alternativa* a los patrones de acceso a ob
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/extensibility>
 * [Escritura de código limpio en ASP.NET Core con inserción de dependencias (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
-* [Preludio del diseño de aplicaciones administradas por contenedor: ¿cuál es el lugar del contenedor?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
+* [Container-Managed Application Design, Prelude: Where does the Container Belong?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/) (Diseño de aplicaciones administradas por contenedor, preludio: ¿a qué lugar pertenece el contenedor?)
 * [Principio de dependencias explícitas](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies)
 * [Los contenedores de inversión de control y el patrón de inserción de dependencias (Martin Fowler)](https://www.martinfowler.com/articles/injection.html)
-* [La unión como novedad ("unir" código a una implementación particular)](https://ardalis.com/new-is-glue)
 * [Cómo registrar un servicio con varias interfaces de inserción de dependencias de ASP.NET Core](https://andrewlock.net/how-to-register-a-service-with-multiple-interfaces-for-in-asp-net-core-di/)

@@ -5,12 +5,12 @@ description: Obtenga información sobre las áreas, una característica de ASP.N
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/controllers/areas
-ms.openlocfilehash: b78bb5146f1ab9039fa9ff015471654510718ed6
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 19e818fa198936ea1bee0da8039e88a3c0abbf6b
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312223"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410617"
 ---
 # <a name="areas-in-aspnet-core"></a>Áreas de ASP.NET Core
 
@@ -40,38 +40,22 @@ Características de las áreas:
 
 Veamos un ejemplo para ilustrar cómo se crean y se usan las áreas. Supongamos que tiene una aplicación de tienda con dos grupos distintos de controladores y vistas: Productos y Servicios. Una estructura de carpetas típica para dicha aplicación con áreas de MVC tendría un aspecto similar al siguiente:
 
-* Nombre de proyecto
-
+* Nombre del proyecto
   * Áreas
-
     * Productos
-
       * Controladores
-
         * HomeController.cs
-
         * ManageController.cs
-
       * Vistas
-
         * Página principal
-
           * Index.cshtml
-
         * Administrar
-
           * Index.cshtml
-
     * Servicios
-
       * Controladores
-
         * HomeController.cs
-
       * Vistas
-
         * Página principal
-
           * Index.cshtml
 
 Cuando MVC intenta representar una vista en un área, de forma predeterminada, busca en las ubicaciones siguientes:

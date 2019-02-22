@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo los controladores de ASP.NET Core 
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 12247dbbbb6de3f8feb7bc37caec4ecf4bd21719
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9d9d0a68927da62fad8df72c868eaf4b8ada440d
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206347"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410276"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>Inserción de dependencias en controladores en ASP.NET Core
 
@@ -24,7 +24,7 @@ Los controladores de ASP.NET Core MVC deben solicitar sus dependencias explícit
 
 ## <a name="dependency-injection"></a>Inserción de dependencias
 
-La inserción de dependencias es una técnica que sigue el [principio de inversión de dependencias](http://deviq.com/dependency-inversion-principle/), lo que permite que las aplicaciones consten de módulos de acoplamiento flexible. ASP.NET Core tiene compatibilidad integrada para [inserción de dependencias](../../fundamentals/dependency-injection.md), lo que facilita las tareas de prueba y mantenimiento de las aplicaciones.
+ASP.NET Core tiene compatibilidad integrada para [inserción de dependencias](../../fundamentals/dependency-injection.md), lo que facilita las tareas de prueba y mantenimiento de las aplicaciones.
 
 ## <a name="constructor-injection"></a>Inserción de constructores
 
@@ -63,7 +63,7 @@ Una vez que se ha configurado el servicio, al ejecutar la aplicación y navegar 
 ![Saludo del servidor](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> Vea [Testing controller logic](testing.md) (Comprobación de la lógica de controlador) para obtener información sobre cómo solicitar explícitamente dependencias [http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/) en controladores para facilitar la comprobación de código.
+> Vea [Testing controller logic](testing.md) (Comprobación de la lógica de controlador) para obtener información sobre cómo solicitar explícitamente dependencias en controladores para facilitar la comprobación de código.
 
 La inserción de dependencias integrada de ASP.NET Core es compatible con tener un solo constructor para las clases que soliciten servicios. Si se tiene más de un constructor, es posible recibir la siguiente excepción:
 
@@ -101,4 +101,4 @@ Una vez que haya especificado un objeto de configuración fuertemente tipado (en
 
 [!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
 
-Seguir el patrón de opciones permite desacoplar entre sí los valores y la configuración, y garantiza que el controlador respete la [separación de intereses](http://deviq.com/separation-of-concerns/), ya que no necesita saber cómo ni dónde encontrar la información de configuración. También hace que sea más fácil realizar una prueba unitaria de la [lógica del controlador](testing.md), puesto que no hay efecto [static cling](http://deviq.com/static-cling/) ni creación directa de instancias de clases de configuración dentro de la clase de controlador.
+Seguir el patrón de opciones permite desacoplar entre sí los valores y la configuración, y garantiza que el controlador respete la [separación de intereses](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns), ya que no necesita saber cómo ni dónde encontrar la información de configuración. También hace que sea más fácil realizar una [prueba unitaria](testing.md), puesto que no hay creación directa de instancias de clases de configuración dentro de la clase de controlador.

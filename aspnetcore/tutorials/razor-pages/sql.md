@@ -2,16 +2,15 @@
 title: Trabajar con una base de datos y ASP.NET Core
 author: rick-anderson
 description: En este artículo se explica cómo se trabaja con una base de datos y ASP.NET Core.
-monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.date: 12/07/2017
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 817102a7b89ef4f078d7d0a0bf03ba7cb2745a5d
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 3e05f5dbc73c35f1f938346b2eaab8c0fa7d8ab9
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861282"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410302"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Trabajar con una base de datos y ASP.NET Core
 
@@ -179,5 +178,5 @@ La aplicación muestra los datos inicializados:
 El siguiente tutorial limpia la presentación de los datos.
 
 > [!div class="step-by-step"]
-> [Anterior: Páginas de Razor con scaffolding](xref:tutorials/razor-pages/page)
-> [Siguiente: Actualización de las páginas](xref:tutorials/razor-pages/da1)
+> [Anterior: Razor Pages con scaffolding](xref:tutorials/razor-pages/page)
+> [Siguiente: Actualización de páginas](xref:tutorials/razor-pages/da1)

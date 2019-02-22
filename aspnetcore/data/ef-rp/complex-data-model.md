@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 930a6f2b860c71b6f499cff53e0d909a130f7948
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 1dc9f1278e502cd5040e82c18d99e2da6f139568
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637903"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410591"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Modelo de datos (5 de 8)
 
@@ -71,7 +71,7 @@ El atributo `DisplayFormat` puede usarse por sí solo. Normalmente se recomienda
 
 Para obtener más información, vea la [documentación del asistente de etiquetas \<entrada&gt;](xref:mvc/views/working-with-forms#the-input-tag-helper).
 
-Ejecute la aplicación. Vaya a la página de índice de Students. Ya no se muestran las horas. Todas las vistas que usa el modelo `Student` muestran la fecha sin hora.
+Ejecutar la aplicación. Vaya a la página de índice de Students. Ya no se muestran las horas. Todas las vistas que usa el modelo `Student` muestran la fecha sin hora.
 
 ![Página de índice de estudiantes en la que se muestran las fechas sin horas](complex-data-model/_static/dates-no-times.png)
 
@@ -610,7 +610,7 @@ dotnet ef database update
 
 ------
 
-Ejecute la aplicación. Ejecutar la aplicación ejecuta el método `DbInitializer.Initialize`. `DbInitializer.Initialize` rellena la base de datos nueva.
+Ejecutar la aplicación. Ejecutar la aplicación ejecuta el método `DbInitializer.Initialize`. `DbInitializer.Initialize` rellena la base de datos nueva.
 
 Abra la base de datos en SSOX:
 
@@ -654,7 +654,9 @@ Actualice el método `Up` de las clases `ComplexDataModel`:
 
 [!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
 
-Agregue el código resaltado siguiente. El nuevo código va después del bloque `.CreateTable( name: "Department"`: [!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
+Agregue el código resaltado siguiente. El nuevo código va después del bloque `.CreateTable( name: "Department"`:
+
+ [!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
 Con los cambios anteriores, las filas `Course` existentes estarán relacionadas con el departamento "Temp" después de ejecutar el método `ComplexDataModel` de `Up`.
 

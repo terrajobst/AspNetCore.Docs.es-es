@@ -5,12 +5,12 @@ description: Esta serie de tutoriales muestra cómo usar Razor Pages en ASP.NET 
 ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: bec5838c2efaffb933828260eaf1a840ff202140
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: acebe52719e1876dc6808441fcff6fe849e36983
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667770"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410419"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Tutorial: Introducción a Razor Pages en ASP.NET Core
 
@@ -28,7 +28,7 @@ En este tutorial va a:
 
 > [!div class="checklist"]
 > * Crear una aplicación web de Razor Pages.
-> * Ejecute la aplicación.
+> * Ejecutar la aplicación.
 > * Examinar los archivos de proyecto.
 
 Al final de este tutorial, tendrá una aplicación web de Razor Pages que compilará en los tutoriales posteriores.

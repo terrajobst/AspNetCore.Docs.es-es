@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo se usan los componentes de vista e
 ms.author: riande
 ms.date: 1/30/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: d0e528fcf9e20afee98e74fbc09c67b81e123e95
-ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
+ms.openlocfilehash: d979c9480f7bffff993f0ea526bdc231b940baa2
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55428400"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410487"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componentes de vista en ASP.NET Core
 
@@ -240,7 +240,7 @@ Si la vista PVC no se representa, compruebe que está llamando al componente de 
 
 ![Salida de la lista de tareas pendientes con la vista de componentes Shared](view-components/_static/shared.png)
 
-### <a name="avoiding-magic-strings"></a>Evitar cadenas mágicas
+### <a name="avoiding-hard-coded-strings"></a>Evitar cadenas codificadas de forma rígida
 
 Si busca seguridad en tiempo de compilación, puede reemplazar el nombre del componente de vista codificado de forma rígida por el nombre de clase. Cree el componente de vista sin el sufijo "ViewComponent":
 

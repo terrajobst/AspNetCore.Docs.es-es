@@ -5,12 +5,12 @@ description: ''
 ms.author: riande
 ms.date: 07/03/2017
 uid: mvc/controllers/actions
-ms.openlocfilehash: 3f3f565021d484b69401a3e03a2a966c92764a49
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 8289424b3cd3678bea18a25c7850e409795d1577
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275665"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410447"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Control de solicitudes con controladores en ASP.NET Core MVC
 
@@ -33,7 +33,7 @@ Un controlador es una clase instanciable en la que se cumple al menos una de las
 
 Una clase de controlador no debe tener asociado un atributo `[NonController]`.
 
-Los controladores deben seguir el [principio de dependencias explícitas](http://deviq.com/explicit-dependencies-principle/). Existen dos maneras de implementar este principio. Si varias acciones de controlador requieren el mismo servicio, considere la posibilidad de usar la [inserción de constructores](xref:mvc/controllers/dependency-injection#constructor-injection) para solicitar esas dependencias. Si el servicio solo lo requiere un único método de acción, considere la posibilidad de usar la [inserción de acciones](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) para solicitar la dependencia.
+Los controladores deben seguir el [principio de dependencias explícitas](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies). Existen dos maneras de implementar este principio. Si varias acciones de controlador requieren el mismo servicio, considere la posibilidad de usar la [inserción de constructores](xref:mvc/controllers/dependency-injection#constructor-injection) para solicitar esas dependencias. Si el servicio solo lo requiere un único método de acción, considere la posibilidad de usar la [inserción de acciones](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) para solicitar la dependencia.
 
 En el patrón de **M**odel-**V**iew-**C**ontroller, un controlador se encarga del procesamiento inicial de la solicitud y la creación de instancias del modelo. Por lo general, las decisiones empresariales deben realizarse dentro del modelo.
 
@@ -49,9 +49,9 @@ Los métodos de acción deben contener lógica para asignar una solicitud a una 
 
 Las acciones pueden devolver de todo, pero suelen devolver una instancia de `IActionResult` (o `Task<IActionResult>` para métodos asincrónicos) que genera una respuesta. El método de acción se encarga de elegir el *tipo de respuesta*. El resultado de la acción se encarga de la *respuesta*.
 
-### <a name="controller-helper-methods"></a>Métodos auxiliares de controlador
+### <a name="controller-helper-methods"></a>métodos del asistente de controlador
 
-Los controladores normalmente heredan de [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controller), aunque esto no es necesario. Al derivar de `Controller`, se proporciona acceso a tres categorías de métodos auxiliares:
+Los controladores normalmente heredan de [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controller), aunque esto no es necesario. Al derivar de `Controller`, se proporciona acceso a tres categorías de métodos del asistente:
 
 #### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. Métodos que producen un cuerpo de respuesta vacío
 
@@ -61,7 +61,7 @@ Hay dos tipos de resultados en esta categoría: redireccionamiento y código de 
 
 * **Código de estado HTTP**
 
-    Este tipo devuelve un código de estado HTTP. `BadRequest`, `NotFound` y `Ok` son ejemplos de métodos auxiliares de este tipo. Por ejemplo, `return BadRequest();` genera un código de estado 400 cuando se ejecuta. Cuando métodos como `BadRequest`, `NotFound` y `Ok` están sobrecargados, ya no se consideran respondedores de código de estado HTTP, dado que se lleva a cabo una negociación de contenido.
+    Este tipo devuelve un código de estado HTTP. `BadRequest`, `NotFound` y `Ok` son ejemplos de métodos del asistente de este tipo. Por ejemplo, `return BadRequest();` genera un código de estado 400 cuando se ejecuta. Cuando métodos como `BadRequest`, `NotFound` y `Ok` están sobrecargados, ya no se consideran respondedores de código de estado HTTP, dado que se lleva a cabo una negociación de contenido.
 
 * **Redireccionamiento**
 
@@ -71,9 +71,9 @@ Hay dos tipos de resultados en esta categoría: redireccionamiento y código de 
 
 #### <a name="2-methods-resulting-in-a-non-empty-response-body-with-a-predefined-content-type"></a>2. Métodos que producen un cuerpo de respuesta no vacío con un tipo de contenido predefinido
 
-La mayoría de los métodos auxiliares de esta categoría incluye una propiedad `ContentType`, lo que permite establecer el encabezado de respuesta `Content-Type` para describir el cuerpo de la respuesta.
+La mayoría de los métodos del asistente de esta categoría incluye una propiedad `ContentType`, lo que permite establecer el encabezado de respuesta `Content-Type` para describir el cuerpo de la respuesta.
 
-Hay dos tipos de resultados en esta categoría: [vista](xref:mvc/views/overview) y [respuesta con formato](xref:web-api/advanced/formatting).
+Hay dos tipos de resultados en esta categoría: [Vista](xref:mvc/views/overview) y [Respuesta con formato](xref:web-api/advanced/formatting).
 
 * **Vista**
 
@@ -83,17 +83,17 @@ Hay dos tipos de resultados en esta categoría: [vista](xref:mvc/views/overview)
 
     Este tipo devuelve JSON o un formato similar de intercambio de datos para representar un objeto de una manera específica. Por ejemplo, `return Json(customer);` serializa el objeto proporcionado en formato JSON.
     
-    Otros métodos comunes de este tipo son `File`, `PhysicalFile` y `VirtualFile`. Por ejemplo, `return PhysicalFile(customerFilePath, "text/xml");` devuelve un archivo XML descrito por un valor de encabezado de respuesta `Content-Type` de "text/xml".
+    Otros métodos comunes de este tipo son `File` y `PhysicalFile`. Por ejemplo, `return PhysicalFile(customerFilePath, "text/xml");` devuelve [PhysicalFileResult](/dotnet/api/microsoft.aspnetcore.mvc.physicalfileresult).
 
 #### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. Métodos que producen un cuerpo de respuesta no vacío con formato en un tipo de contenido negociado con el cliente
 
 Esta categoría también se conoce como **negociación de contenido**. La [negociación de contenido](xref:web-api/advanced/formatting#content-negotiation) se aplica siempre que una acción devuelve un tipo [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult) o un valor distinto de una implementación [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult). Si una acción devuelve una implementación que no sea `IActionResult` (por ejemplo, `object`), también devolverá una respuesta con formato.
 
-Algunos métodos auxiliares de este tipo son `BadRequest`, `CreatedAtRoute` y `Ok`. Algunos ejemplos de estos métodos son `return BadRequest(modelState);`, `return CreatedAtRoute("routename", values, newobject);` y `return Ok(value);`, respectivamente. Tenga en cuenta que `BadRequest` y `Ok` realizan la negociación de contenido solo cuando se pasa un valor; si no se pasa un valor, actúan como tipos de resultado de código de estado HTTP. Por otro lado, el método `CreatedAtRoute` siempre realiza la negociación de contenido, ya que todas sus sobrecargas requieren que se pase un valor.
+Algunos métodos del asistente de este tipo son `BadRequest`, `CreatedAtRoute` y `Ok`. Algunos ejemplos de estos métodos son `return BadRequest(modelState);`, `return CreatedAtRoute("routename", values, newobject);` y `return Ok(value);`, respectivamente. Tenga en cuenta que `BadRequest` y `Ok` realizan la negociación de contenido solo cuando se pasa un valor; si no se pasa un valor, actúan como tipos de resultado de código de estado HTTP. Por otro lado, el método `CreatedAtRoute` siempre realiza la negociación de contenido, ya que todas sus sobrecargas requieren que se pase un valor.
 
 ### <a name="cross-cutting-concerns"></a>Cuestiones transversales
 
-Normalmente, las aplicaciones comparten partes de su flujo de trabajo. Un ejemplo de esto podría ser una aplicación que requiere autenticación para obtener acceso al carro de la compra o una aplicación que almacena en caché datos en algunas páginas. Para llevar a cabo la lógica antes o después de un método de acción, use un *filtro*. El uso de [filtros](xref:mvc/controllers/filters) en cuestiones transversales puede reducir la duplicación, lo que permite seguir el [principio "Una vez y solo una" (DRY)](http://deviq.com/don-t-repeat-yourself/).
+Normalmente, las aplicaciones comparten partes de su flujo de trabajo. Un ejemplo de esto podría ser una aplicación que requiere autenticación para obtener acceso al carro de la compra o una aplicación que almacena en caché datos en algunas páginas. Para llevar a cabo la lógica antes o después de un método de acción, use un *filtro*. El uso de [filtros](xref:mvc/controllers/filters) en cuestiones transversales puede reducir la duplicación.
 
 La mayoría de los atributos de filtro, como `[Authorize]`, se puede aplicar en el nivel de controlador o de acción en función del nivel deseado de granularidad.
 
