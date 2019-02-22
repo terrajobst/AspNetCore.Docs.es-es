@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar y usar Middleware de al
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/16/2019
+ms.date: 02/20/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: bb265d04022ec2f8fdb3f2f3bc42f6b3f0b2b338
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: c7c3dbd0c9cf029fa6921d77450e780768c8aa6e
+ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410328"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56647920"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 
@@ -138,7 +138,7 @@ Cuando las pruebas y solución de problemas de comportamiento de almacenamiento 
 
 * La solicitud debe dar como resultado una respuesta del servidor con un código de estado 200 (OK).
 * El método de solicitud debe ser GET o HEAD.
-* Middleware Terminal no debe procesar la respuesta antes de Middleware de almacenamiento en caché de respuestas.
+* En `Startup.Configure`, Middleware de almacenamiento en caché de respuestas deben colocarse antes de middleware que requieren compresión. Para obtener más información, consulta <xref:fundamentals/middleware/index>.
 * El `Authorization` encabezado no debe estar presente.
 * `Cache-Control` parámetros del encabezado deben ser válidos y se debe marcar la respuesta `public` y no marcado `private`.
 * El `Pragma: no-cache` encabezado no debe estar presente si el `Cache-Control` encabezado no está presente, como la `Cache-Control` encabezado reemplaza el `Pragma` encabezado cuando está presente.
