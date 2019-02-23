@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar el proveedor de configuració
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 02/22/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: f70389c86420d81e284ecc863ac8386f726ed2cf
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 2188929d6f380327465e8ce0fd8ad659188416d3
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103116"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743990"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Proveedor de configuración de almacén de claves de Azure en ASP.NET Core
 
@@ -116,7 +116,7 @@ Las instrucciones proporcionadas por el [inicio rápido: Establecer y recuperar 
 Configurar Azure AD, Azure Key Vault y la aplicación utiliza un identificador de la aplicación y una contraseña (secreto de cliente) para autenticarse en un almacén de claves **cuando la aplicación se hospeda fuera de Azure**.
 
 > [!NOTE]
-> Aunque se admite el uso de un identificador de la aplicación y una contraseña (secreto de cliente) para las aplicaciones hospedadas en Azure, se recomienda usar [administra las identidades de los recursos de Azure](#use-managed-identities-for-azure-resources) al hospedar una aplicación en Azure. Las identidades administradas requieren almacenamiento de credenciales en la aplicación o su configuración, por lo que se considera como un enfoque suele ser más seguro.
+> Aunque se admite el uso de un identificador de la aplicación y una contraseña (secreto de cliente) para las aplicaciones hospedadas en Azure, se recomienda usar [administra las identidades de los recursos de Azure](#use-managed-identities-for-azure-resources) al hospedar una aplicación en Azure. Las identidades administradas no requiere almacenar las credenciales de la aplicación o su configuración, por lo que se considera como un enfoque suele ser más seguro.
 
 La aplicación de ejemplo usa un identificador de la aplicación y una contraseña (secreto de cliente) cuando el `#define` instrucción en la parte superior de la *Program.cs* archivo se establece en `Basic`.
 

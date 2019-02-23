@@ -4,16 +4,16 @@ title: Trabajar con SSL en API Web | Microsoft Docs
 author: MikeWasson
 description: Muestra cómo usar SSL con ASP.NET Web API, incluido el uso de certificados de cliente SSL.
 ms.author: riande
-ms.date: 12/12/2012
+ms.date: 02/22/2019
 ms.assetid: 97f6164f-59cf-45c0-b820-e4aa29b45396
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: b11b35f58a1f033423f5e6ea5f5373df0d1fcb5f
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 69c0d217f605096d968435c062ee9931f8dff75f
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837194"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744110"
 ---
 <a name="working-with-ssl-in-web-api"></a>Trabajar con SSL en Web API
 ====================
@@ -59,7 +59,7 @@ Para configurar IIS para que acepte certificados de cliente, abra el Administrad
 3. En **certificados de cliente**, seleccione una de estas opciones: 
 
     - **Aceptar**: IIS aceptará un certificado desde el cliente, pero no requiere una.
-    - **Requerir**: requieren un certificado de cliente. (Para habilitar esta opción, también debe seleccionar "Requerir SSL")
+    - **Requerir**: Requiere un certificado de cliente. (Para habilitar esta opción, también debe seleccionar "Requerir SSL")
 
 También puede establecer estas opciones en el archivo ApplicationHost.config:
 
@@ -69,7 +69,7 @@ El **SslNegotiateCert** marca significa IIS aceptará un certificado desde el cl
 
 ### <a name="creating-a-client-certificate-for-testing"></a>Creación de un certificado de cliente de prueba
 
-Con fines de prueba, puede usar [MakeCert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx) para crear un certificado de cliente. En primer lugar, cree una entidad emisora raíz de prueba:
+Con fines de prueba, puede usar [MakeCert.exe](/windows/desktop/SecCrypto/makecert) para crear un certificado de cliente. En primer lugar, cree una entidad emisora raíz de prueba:
 
 [!code-console[Main](working-with-ssl-in-web-api/samples/sample4.cmd)]
 

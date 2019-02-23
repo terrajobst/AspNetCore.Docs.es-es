@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 12/07/2016
 uid: migration/http-modules
-ms.openlocfilehash: 9dd28b86966912cce87166feb37e65adf3dd6dcb
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 601b93fb12ab5b37b7d8ad8fd9825accc6e314cd
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902676"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743860"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migración de módulos y controladores HTTP a middleware de ASP.NET Core
 
@@ -96,7 +96,7 @@ Como se muestra en el [Middleware](xref:fundamentals/middleware/index) página, 
 
 [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
 
-La plantilla de middleware anterior se ha tomado de la sección [escribir middleware](xref:fundamentals/middleware/index#write-middleware).
+La plantilla de middleware anterior se ha tomado de la sección [escribir middleware](xref:fundamentals/middleware/write).
 
 El *MyMiddlewareExtensions* clase auxiliar resulta más fácil de configurar su middleware en su `Startup` clase. El `UseMyMiddleware` método agrega la clase de middleware a la canalización de solicitudes. Los servicios requeridos por el middleware se insertarán en el constructor del middleware.
 
@@ -379,6 +379,5 @@ El `SetCookies` el método de devolución de llamada podría ser similar al sigu
 
 * [Introducción a los módulos y controladores HTTP](/iis/configuration/system.webserver/)
 * [Configuración](xref:fundamentals/configuration/index)
-* 
-  [Inicio de aplicaciones](xref:fundamentals/startup)
+* [Inicio de aplicaciones](xref:fundamentals/startup)
 * [Middleware](xref:fundamentals/middleware/index)

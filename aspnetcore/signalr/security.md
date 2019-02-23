@@ -7,12 +7,12 @@ ms.author: anurse
 ms.custom: mvc
 ms.date: 11/06/2018
 uid: signalr/security
-ms.openlocfilehash: 52cfac6be8e61572acdf0b19dab574b607314d97
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 6e9f849ed856cf1cbf989b8b16cab5209c465471
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836069"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743792"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>Consideraciones de seguridad en ASP.NET Core SignalR
 
@@ -77,7 +77,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
       Request starting HTTP/1.1 GET http://localhost:5000/myhub?access_token=1234
 ```
 
-Si le preocupa sobre el registro de estos datos con los registros de servidor, puede deshabilitar este registro mediante la configuración de la `Microsoft.AspNetCore.Hosting` registrador para el `Warning` nivel o superior (estos mensajes se escriben en `Info` nivel). Consulte la documentación sobre [filtrado del registro](xref:fundamentals/logging/index#log-filtering) para obtener más información. Si aún desea cierta información de solicitud de registro, puede [escribir un middleware](xref:fundamentals/middleware/index#write-middleware) para registrar los datos que necesita y filtra el `access_token` el valor de cadena de consulta (si existe).
+Si le preocupa sobre el registro de estos datos con los registros de servidor, puede deshabilitar este registro mediante la configuración de la `Microsoft.AspNetCore.Hosting` registrador para el `Warning` nivel o superior (estos mensajes se escriben en `Info` nivel). Consulte la documentación sobre [filtrado del registro](xref:fundamentals/logging/index#log-filtering) para obtener más información. Si aún desea cierta información de solicitud de registro, puede [escribir un middleware](xref:fundamentals/middleware/write) para registrar los datos que necesita y filtra el `access_token` el valor de cadena de consulta (si existe).
 
 ## <a name="exceptions"></a>Excepciones
 
