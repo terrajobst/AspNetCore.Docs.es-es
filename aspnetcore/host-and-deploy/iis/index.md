@@ -4,14 +4,8 @@ author: guardrex
 description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET Core en Windows Server Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 5d6ba8b7ee6f09a7d00aa0285802cf0aad267a1d
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248425"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -296,13 +290,14 @@ Para obtener una versión anterior del instalador:
 
 ### <a name="install-the-hosting-bundle"></a>Instalación del conjunto de hospedaje
 
-1. Ejecute el instalador en el servidor. Los modificadores siguientes están disponibles cuando se ejecuta el instalador desde un símbolo del sistema de administrador:
+1. Ejecute el instalador en el servidor. Los parámetros siguientes están disponibles cuando se ejecuta el instalador desde un shell de comandos de administrador:
 
    * `OPT_NO_ANCM=1` &ndash; Omita la instalación del módulo de ASP.NET Core.
    * `OPT_NO_RUNTIME=1` &ndash; Omita la instalación del entorno de ejecución de .NET Core.
    * `OPT_NO_SHAREDFX=1` &ndash; Omita la instalación del marco compartido de ASP.NET (entorno de ejecución de ASP.NET).
-   * `OPT_NO_X86=1` &ndash; Omita la instalación de entornos de ejecución x86. Utilice este conmutador cuando sepa que no va a hospedar aplicaciones de 32 bits. Si hay alguna posibilidad que vaya a hospedar aplicaciones de 32 bits y 64 bits en el futuro, no use este modificador e instale ambos entornos de ejecución.
-1. Reinicie el sistema o ejecute **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema. Al reiniciar IIS, se recoge un cambio en la variable PATH del sistema, que es una variable de entorno, realizado por el programa de instalación.
+   * `OPT_NO_X86=1` &ndash; Omita la instalación de entornos de ejecución x86. Utilice este parámetro cuando sepa que no va a hospedar aplicaciones de 32 bits. Si hay alguna posibilidad de que vaya a hospedar aplicaciones de 32 bits y 64 bits en el futuro, no use este parámetro e instale ambos entornos de ejecución.
+   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; Deshabilite la comprobación para usar una configuración compartida de IIS cuando la configuración compartida (*applicationHost.config*) esté en la misma máquina que la instalación de IIS. *Solo disponible para ASP.NET Core 2.2 o instaladores del conjunto de hospedaje posteriores.* Para obtener más información, vea <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
+1. Reinicie el sistema o ejecute **net stop was /y** seguido de **net start w3svc** desde un shell de comandos. Al reiniciar IIS, se recoge un cambio en la variable PATH del sistema, que es una variable de entorno, realizado por el programa de instalación.
 
 Si el instalador del conjunto de hospedaje de Windows detecta que IIS requiere un reinicio para completar la instalación, el instalador reinicia IIS. Si el instalador desencadena un reinicio de IIS, se reiniciarán todos los sitios web y los grupos de aplicaciones de IIS.
 
