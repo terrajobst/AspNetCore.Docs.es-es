@@ -136,7 +136,7 @@ Si se llama a `UseUrls` en una aplicación de ASP.NET Core 1.0, hágalo **antes*
 
 ::: moniker-end
 
-Para obtener más información sobre el hospedaje, consulte [Hospedaje en ASP.NET Core](xref:fundamentals/host/index).
+Para obtener más información sobre el hospedaje, consulte [Hospedaje en ASP.NET Core](xref:fundamentals/index#host).
 
 ### <a name="iis-options"></a>Opciones de IIS
 
@@ -478,7 +478,7 @@ Al hospedar una aplicación secundaria que no es de ASP.NET Core bajo una aplica
 
 Los vínculos a los recursos estáticos dentro de la aplicación secundaria deben utilizar una notación de una tilde con una barra diagonal (`~/`). La notación de tilde barra diagonal desencadena un [asistente de etiquetas](xref:mvc/views/tag-helpers/intro) para anteponer la ruta de acceso de la aplicación secundaria al vínculo relativo representado. Para una aplicación secundaria en `/subapp_path`, una imagen vinculada con `src="~/image.png"` se representa como `src="/subapp_path/image.png"`. El middleware de archivos estáticos de la aplicación raíz no procesa la solicitud de archivo estático. La solicitud se procesa mediante el middleware de archivos estáticos de la aplicación secundaria.
 
-Si el atributo `src` de un recurso estático se establece en una ruta de acceso absoluta (por ejemplo, `src="/image.png"`), el vínculo se representa sin la base de la ruta de acceso de la aplicación secundaria. El middleware de archivos estáticos de la aplicación raíz intenta atender al recurso desde el [webroot](xref:fundamentals/index#web-root-webroot), lo que resulta en una respuesta *404 - No encontrado* a menos que el recurso estático esté disponible desde la aplicación raíz.
+Si el atributo `src` de un recurso estático se establece en una ruta de acceso absoluta (por ejemplo, `src="/image.png"`), el vínculo se representa sin la base de la ruta de acceso de la aplicación secundaria. El middleware de archivos estáticos de la aplicación raíz intenta atender al recurso desde el [web root](xref:fundamentals/index#web-root), lo que resulta en una respuesta *404 - No encontrado* a menos que el recurso estático esté disponible desde la aplicación raíz.
 
 Para hospedar una aplicación ASP.NET Core como aplicación secundaria en otra aplicación ASP.NET Core:
 
