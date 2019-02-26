@@ -4,7 +4,7 @@ author: rick-anderson
 description: 'Consulte una introducción a ASP.NET Core, un marco multiplataforma de código abierto y de alto rendimiento que tiene como finalidad compilar modernas aplicaciones conectadas a Internet y basadas en la nube.'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/14/2019
 uid: index
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
@@ -38,7 +38,7 @@ ASP.NET Core MVC proporciona características para crear [API web](xref:tutorial
 
 ## <a name="client-side-development"></a>Desarrollo del lado del cliente
 
-ASP.NET Core se integra perfectamente con las bibliotecas y los marcos de trabajo más populares del lado del cliente, que incluyen [Razor Components](xref:razor-components/index), [Angular](xref:spa/angular), [React](xref:spa/react) y [Bootstrap](https://getbootstrap.com/). Para obtener más información, consulte [Introducción a Razor Components](xref:razor-components/index) y los temas al respecto en *Desarrollo del lado del cliente*.
+ASP.NET Core se integra perfectamente con las bibliotecas y los marcos de trabajo más populares del lado cliente, que incluyen [Razor Components](xref:razor-components/index), [Angular](xref:spa/angular), [React](xref:spa/react) y [Bootstrap](https://getbootstrap.com/). Para obtener más información, consulte [Introducción a Razor Components](xref:razor-components/index) y los temas al respecto en *Desarrollo del lado cliente*.
 
 <a name="target-framework"></a>
 
@@ -62,6 +62,34 @@ El uso de .NET Core como destino cuenta con varias ventajas que van en aumento c
 * Código Abierto
 
 Estamos trabajando intensamente para cerrar la brecha de API entre .NET Framework y .NET Core. El [paquete de compatibilidad de Windows](/dotnet/core/porting/windows-compat-pack) ha permitido que miles de API solo de Windows estén disponibles en .NET Core. Estas API no estaban disponibles en .NET Core 1.x.
+
+## <a name="recommended-learning-path"></a>Ruta de aprendizaje recomendada
+
+Se recomienda la siguiente secuencia de tutoriales y artículos para obtener una introducción para desarrollar aplicaciones de ASP.NET Core:
+
+1. Siga un tutorial para el tipo de aplicación que quiere desarrollar o mantener:
+
+   |Tipo de aplicación  |Escenario  |Tutorial  |
+   |----------|----------|----------|
+   |Aplicación web       | Para un nuevo desarrollo        |[Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start) |
+   |Aplicación web       | Para mantener una aplicación MVC |[Introducción a MVC](xref:tutorials/first-mvc-app/start-mvc)|
+   |Web API       |                            |[Creación de una API web](xref:tutorials/first-web-api)\*  |
+   |Aplicación en tiempo real |                            |[Introducción a SignalR](xref:tutorials/signalr) |
+
+1. Siga un tutorial que muestra cómo realizar el acceso a datos básicos:
+
+   |Escenario  |Tutorial  |
+   |----------|----------|
+   | Para un nuevo desarrollo        |[ Razor Pages con Entity Framework Core](xref:data/ef-rp/intro) |
+   | Para mantener una aplicación MVC |[MVC con Entity Framework Core](xref:data/ef-mvc/intro)
+
+1. Lea una introducción a las características de ASP.NET Core que se aplican a todos los tipos de aplicaciones:
+
+   * [Aspectos básicos](xref:fundamentals/index)
+
+1. Examine la tabla de contenido para ver otros temas de interés.
+
+\* Hay un nuevo [tutorial de API web que sigue completamente en el explorador](https://docs.microsoft.com/learn/modules/build-web-api-net-core), no es necesaria una instalación del IDE local.  El código se ejecuta en un [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) y se usa [curl](https://curl.haxx.se/) para realizar pruebas.
 
 ## <a name="how-to-download-a-sample"></a>Cómo descargar un ejemplo
 
@@ -120,7 +148,7 @@ Para obtener más información, consulte [Contribute to the ASP.NET documentatio
 
 Para obtener más información, vea los siguientes recursos:
 
-* [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start)
+* <xref:getting-started>
 * <xref:tutorials/publish-to-azure-webapp-using-vs>
 * [Conceptos básicos de ASP.NET Core](xref:fundamentals/index)
 * [La reunión semanal de la comunidad de ASP.NET](https://live.asp.net/) trata el progreso y los planes del equipo. Incluye nuevos blogs y nuevo software de terceros.

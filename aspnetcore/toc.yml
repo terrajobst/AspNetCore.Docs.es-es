@@ -58,35 +58,35 @@ items:
   - uid: fundamentals/index
     name: Información general
   - uid: fundamentals/startup
-    name: Inicio de la aplicación
+    name: Clase Startup
   - uid: fundamentals/dependency-injection
     name: Inserción de dependencias (servicios)
-  - uid: fundamentals/routing
-    name: Enrutamiento
-  - uid: fundamentals/environments
-    name: Entornos (desarrollo, preparación, producción)
-  - uid: fundamentals/configuration/index
-    name: Configuración
-  - uid: fundamentals/configuration/options
-    name: Opciones
-  - uid: fundamentals/logging/index
-    name: Registro
-  - uid: fundamentals/error-handling
-    name: Control de errores
   - uid: fundamentals/middleware/index
     name: Software intermedio
-  - name: administrador de flujos de trabajo
+  - name: El host
     items:
-    - uid: fundamentals/host/index
-      name: Información general
     - uid: fundamentals/host/web-host
       name: Host web
     - uid: fundamentals/host/generic-host
       name: Host genérico
   - uid: fundamentals/servers/index
     name: Servidores
+  - uid: fundamentals/configuration/index
+    name: Configuración
+  - uid: fundamentals/configuration/options
+    name: Opciones
+  - uid: fundamentals/environments
+    name: Entornos (desarrollo, preparación, producción)
+  - uid: fundamentals/logging/index
+    name: Registro
+  - uid: fundamentals/routing
+    name: Enrutamiento
+  - uid: fundamentals/error-handling
+    name: Control de errores
   - uid: fundamentals/http-requests
     name: Realización de solicitudes HTTP
+  - uid: fundamentals/static-files
+    name: Archivos estáticos
 - name: Aplicaciones web
   items:
   - name: Páginas de Razor
@@ -210,8 +210,6 @@ items:
         href: mvc/views/working-with-forms.md#the-validation-summary-tag-helper
   - uid: mvc/views/layout
     name: Diseño
-  - uid: fundamentals/static-files
-    name: Archivos estáticos
   - uid: mvc/models/model-binding
     name: Enlace de modelos
   - uid: mvc/models/validation
@@ -414,7 +412,7 @@ items:
       href: /azure/vs-storage-aspnet5-getting-started-queues/
     - name: Table Storage
       href: /azure/vs-storage-aspnet5-getting-started-tables/
-- name: Desarrollo del lado cliente
+- name: Desarrollo del lado del cliente
   items:
   - name: Componentes de Razor
     items:
@@ -814,6 +812,8 @@ items:
     name: Localización de un objeto portátil
 - name: Avanzadas
   items:
+  - uid: fundamentals/middleware/write
+    name: Escritura de software intermedio
   - uid: fundamentals/url-rewriting
     name: Reescritura de direcciones URL
   - uid: fundamentals/file-providers
@@ -880,9 +880,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Contribuir
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: d2015955147460621d64ea6035f5f8118a02469b
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: e55cfa30103c2a89007f2bc5e9d133dea7f8c6d5
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248399"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744003"

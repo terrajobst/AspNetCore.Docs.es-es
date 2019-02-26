@@ -6,12 +6,6 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/15/2019
 uid: getting-started
-ms.openlocfilehash: eee927f4306fa7757f3f361e6c6f367658512897
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341815"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Tutorial: Introducción a ASP.NET Core
 
@@ -107,7 +101,7 @@ En este tutorial ha aprendido a:
 > * Ejecute el proyecto.
 > * Realizar un cambio.
 
-Para obtener más información sobre ASP.NET Core, vea la introducción:
+Para obtener más información sobre ASP.NET Core, vea la ruta de aprendizaje recomendada en la introducción:
 
 > [!div class="nextstepaction"]
-> <xref:index>
+> <xref:index#recommended-learning-path>
