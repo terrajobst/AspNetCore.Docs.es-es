@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar la autenticación de Wi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 01/15/2019
+ms.date: 02/25/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: c98bdedcf943a9057c96a8e5d62615e400074899
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 15fc41efba77f88fc8129f875b85836ac1b5f886
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341659"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833701"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurar la autenticación de Windows en ASP.NET Core
 
@@ -36,7 +36,7 @@ En Visual Studio:
 1. Seleccione **aplicación Web** en la lista de plantillas.
 1. Seleccione el **Cambiar autenticación** y seleccione **Windows autenticación**.
 
-Ejecute la aplicación. El nombre de usuario aparece en la interfaz de usuario de la aplicación representada.
+Ejecutar la aplicación. El nombre de usuario aparece en la interfaz de usuario de la aplicación representada.
 
 ### <a name="manual-configuration-for-an-existing-project"></a>Configuración manual de un proyecto existente
 
@@ -192,3 +192,7 @@ ASP.NET Core no implementa la suplantación. Las aplicaciones se ejecutan con la
 [!code-csharp[](windowsauth/sample_snapshot/Startup.cs?highlight=10-19)]
 
 `RunImpersonated` no es compatible con operaciones asincrónicas y no puede utilizarse para escenarios complejos. Por ejemplo, el ajuste de las solicitudes de todas o las cadenas de middleware no es compatible ni recomendable.
+
+### <a name="claims-transformations"></a>Transformaciones de notificaciones
+
+Al hospedar con el modo en proceso IIS, <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> no se llama internamente para inicializar un usuario. Por lo tanto, un <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> implementación se usa para transformar las notificaciones después de cada autenticación no está activada de forma predeterminada. Para obtener más información y un ejemplo de código que activa las transformaciones de notificaciones cuando se hospedan en proceso, consulte <xref:host-and-deploy/aspnet-core-module#in-process-hosting-model>.

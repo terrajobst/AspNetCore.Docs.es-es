@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: b10731261ca0c748548fcba94a229ba055d46eb5
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: ccd56d0c15639e1ad29094e947f8055702ee2264
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090841"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833675"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Proveedores de almacenamiento personalizados para ASP.NET Core Identity
 
@@ -90,7 +90,7 @@ Encapsula la información para conectarse a su mecanismo de persistencia y ejecu
 
 Almacena y recupera información de usuario (por ejemplo, hash de nombre y la contraseña de usuario). [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
-### <a name="role-storage"></a>Almacenamiento de rol
+### <a name="role-storage"></a>Role Storage
 
 Almacena y recupera información de funciones (por ejemplo, el nombre del rol). [Ejemplo](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1)
 
@@ -106,7 +106,7 @@ Almacena y recupera información de inicio de sesión de usuario (por ejemplo, u
 
 Almacena y recupera los roles asignados a los usuarios. [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
-**Sugerencia:** implementar sólo las clases que va a usar en la aplicación.
+**PROPINA:** Implementar sólo las clases que va a usar en la aplicación.
 
 En las clases de acceso a datos, proporcionar código para realizar operaciones de datos para el mecanismo de persistencia. Por ejemplo, dentro de un proveedor personalizado, podría tener el código siguiente para crear un nuevo usuario en el *almacenar* clase:
 
@@ -133,7 +133,7 @@ Crear un `UserStore` clase que proporciona los métodos para todas las operacion
 * [IUserPasswordStore](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1)
 * [IUserSecurityStampStore](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1)
 * [IUserEmailStore](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1)
-* [IPhoneNumberStore](/dotnet/api/microsoft.aspnetcore.identity.iphonenumberstore-1)
+* [IUserPhoneNumberStore](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1)
 * [IQueryableUserStore](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1)
 * [IUserLoginStore](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1)
 * [IUserTwoFactorStore](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)
@@ -200,9 +200,9 @@ La siguiente es una clase de función de ejemplo:
 
 Puede crear un `RoleStore` clase que proporciona los métodos para todas las operaciones de datos en roles. Esta clase es equivalente a la [RoleStore&lt;; TRole&gt; ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) clase. En el `RoleStore` (clase), implementa la `IRoleStore<TRole>` y, opcionalmente, el `IQueryableRoleStore<TRole>` interfaz.
 
-* **IRoleStore&lt;; TRole&gt;**  
+* **IRoleStore&lt;TRole&gt;**  
  El [IRoleStore&lt;; TRole&gt; ](/dotnet/api/microsoft.aspnetcore.identity.irolestore-1) interfaz define los métodos para implementar en la clase de almacén de rol. Contiene métodos para crear, actualizar, eliminar y recuperar roles.
-* **RoleStore&lt;; TRole&gt;**  
+* **RoleStore&lt;TRole&gt;**  
  Para personalizar `RoleStore`, cree una clase que implementa el `IRoleStore<TRole>` interfaz. 
 
 ## <a name="reconfigure-app-to-use-a-new-storage-provider"></a>Volver a configurar la aplicación para que use un nuevo proveedor de almacenamiento
