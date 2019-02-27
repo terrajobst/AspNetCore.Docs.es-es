@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: spa/react
-ms.openlocfilehash: aa08a9d8d06d8b52be564fabf904d4923684d4e4
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 3b2b2e67b5d577872bafefef5624a13ca1a22449
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248035"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899182"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de React con ASP.NET Core
 
@@ -102,3 +102,6 @@ Sin embargo, esta configuración predeterminada tiene un inconveniente. Cada vez
     ```
 
 Cuando inicie la aplicación ASP.NET Core, no se iniciará un servidor de CRA. En su lugar, se usa la instancia que inició manualmente. Esto le permite iniciar y reiniciar con mayor rapidez. Ya no tiene que esperar a que la aplicación de React se recompile de una vez a otra.
+
+> [!IMPORTANT]
+> "Representación del lado servidor" no es una característica compatible con esta plantilla. Nuestro objetivo con esta plantilla es satisfacer la paridad con "create de react-app". Por lo tanto, escenarios y características no incluidas en un proyecto de "creación de react-app" (por ejemplo, el SSR) no se admiten y se dejan como un ejercicio para el usuario.

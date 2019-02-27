@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: dd40a64d3c8405e92337ac640ad5cbe913cd849f
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: db9a8bbc8f111728f0827e3639e40785149bf79e
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54835575"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899221"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>Cliente ASP.NET Core SignalR JavaScript
 
@@ -45,7 +45,7 @@ Referencia del cliente de JavaScript de SignalR en el `<script>` elemento.
 
 El código siguiente se crea e inicia una conexión. Nombre del concentrador distingue mayúsculas de minúsculas.
 
-[!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
+[!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=9-13,43-45)]
 
 ### <a name="cross-origin-connections"></a>Conexiones de origen cruzado
 
@@ -86,7 +86,7 @@ SignalR determina qué método de cliente para llamar a haciendo coincidir el no
 
 Cadena de un `catch` método al final de la `start` método para controlar los errores del lado cliente. Use `console.error` para errores de salida a la consola del explorador.
 
-[!code-javascript[Error handling](javascript-client/sample/wwwroot/js/chat.js?range=43-45)]
+[!code-javascript[Error handling](javascript-client/sample/wwwroot/js/chat.js?range=49-51)]
 
 Seguimiento de registro del lado cliente instalación pasando un registrador y el tipo de evento que se registran cuando se realiza la conexión. Los mensajes se registran con el nivel de registro especificado y versiones posteriores. Los niveles de registro disponibles son los siguientes:
 

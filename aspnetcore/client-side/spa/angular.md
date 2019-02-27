@@ -7,12 +7,12 @@ ms.author: stevesa
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: spa/angular
-ms.openlocfilehash: 35a839e31369e8dbf00f5dbfb3751a2985335755
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: f33f4b96faf71440c3e8878c0480f2908ace70d1
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248126"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899260"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de Angular con ASP.NET Core
 
@@ -117,51 +117,6 @@ Sin embargo, esta configuración predeterminada tiene un inconveniente. Cada vez
     ```
 
 Cuando inicie la aplicación ASP.NET Core, no se iniciará un servidor de la CLI de Angular. En su lugar, se usa la instancia que inició manualmente. Esto le permite iniciar y reiniciar con mayor rapidez. Ya no tiene que esperar a que la CLI de Angular vuelva a compilar la aplicación cliente una y otra vez.
-
-## <a name="server-side-rendering"></a>Representación del lado servidor
-
-Como característica de rendimiento, puede elegir representar previamente su aplicación de Angular en el servidor, así como ejecutarla en el cliente. Esto significa que los exploradores reciben marcado HTML que representa la interfaz de usuario inicial de la aplicación, de modo que lo muestran incluso antes de descargar y ejecutar las agrupaciones de JavaScript. La mayor parte de la implementación de esta representación procede de una característica de Angular llamada [Angular Universal](https://universal.angular.io/).
-
-> [!TIP]
-> Habilitar la representación del lado servidor (SSR) conlleva una serie de complicaciones adicionales tanto durante el desarrollo como durante la implementación. La las [desventajas de SSR](#drawbacks-of-ssr) para determinar si SSR es una buena opción para sus requisitos.
-
-Para habilitar SSR, deberá realizar varias adiciones al proyecto.
-
-En la clase *Startup*, *después de* la línea que configura `spa.Options.SourcePath`, y *antes de* la llamada a `UseAngularCliServer` o `UseProxyToSpaDevelopmentServer`, agregue el siguiente código:
-
-[!code-csharp[](sample/AngularServerSideRendering/Startup.cs?name=snippet_Call_UseSpa&highlight=5-12)]
-
-En modo de desarrollo, este código intenta compilar la agrupación de SSR mediante la ejecución del script `build:ssr`, que se define en *ClientApp\package.json*. Esta acción compila una aplicación de Angular denominada `ssr`, que aún no se ha definido.
-
-Al final de la matriz `apps` en *ClientApp/.angular-cli.json*, defina una aplicación adicional con el nombre `ssr`. Use las siguientes opciones:
-
-[!code-json[](sample/AngularServerSideRendering/ClientApp/.angular-cli.json?range=24-41)]
-
-Esta nueva configuración de aplicación habilitada para SSR requiere dos archivos más: *tsconfig.server.json* y *main.server.ts*. El archivo *tsconfig.server.json* especifica las opciones de compilación de TypeScript. El archivo *main.server.ts* sirve de punto de entrada de código durante SSR.
-
-Agregue un nuevo archivo llamado *tsconfig.server.json* dentro de *ClientApp/src* (al lado del archivo *tsconfig.app.json* existente), que contenga lo siguiente:
-
-[!code-json[](sample/AngularServerSideRendering/ClientApp/src/tsconfig.server.json)]
-
-Este archivo configura el compilador AoT de Angular para buscar un módulo llamado `app.server.module`. Para agregar el archivo, cree un nuevo archivo en *ClientApp/src/app/app.server.module.ts* (al lado del archivo *app.module.ts* existente), que contenga lo siguiente:
-
-[!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/app/app.server.module.ts)]
-
-Este módulo hereda del objeto `app.module` del lado cliente y define qué módulos adicionales de Angular están disponibles durante SSR.
-
-Recuerde que la nueva entrada `ssr` en *.angular-cli.json* hacía referencia a un archivo de punto de entrada llamado *main.server.ts*. Ese archivo no se ha agregado aún, y ahora es el momento de hacerlo. Cree un nuevo archivo en *ClientApp/src/main.server.ts* (junto al archivo *main.ts* existente), que contenga lo siguiente:
-
-[!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/main.server.ts)]
-
-El código de este archivo es lo que ejecuta ASP.NET Core en cada solicitud cuando ejecuta el middleware `UseSpaPrerendering` que agregó a la clase *Startup*. Se encarga de recibir `params` del código de .NET (como la dirección URL que se solicita), y realiza llamadas a las API de SSR de Angular para obtener el HTML resultante.
-
-Estrictamente hablando, esto es suficiente para habilitar SSR en modo de desarrollo. Para que la aplicación funcione correctamente cuando se publica, es fundamental realizar un cambio final. En el archivo *.csproj* principal de la aplicación, establezca el valor de propiedad `BuildServerSideRenderer` en `true`:
-
-[!code-xml[](sample/AngularServerSideRendering/AngularServerSideRendering.csproj?name=snippet_EnableBuildServerSideRenderer)]
-
-Este valor configura el proceso de compilación para ejecutar `build:ssr` durante la publicación e implementar los archivos SSR en el servidor. Si no se habilita, SSR produce un error en producción.
-
-Cuando la aplicación se ejecuta en modo de desarrollo o de producción, el código de Angular se representa previamente como HTML en el servidor. El código del lado cliente se ejecuta con normalidad.
 
 ### <a name="pass-data-from-net-code-into-typescript-code"></a>Paso de datos del código de .NET al código de TypeScript
 

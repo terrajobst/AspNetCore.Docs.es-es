@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre cómo usar una caché distribuida de ASP.NET Core para mejorar el rendimiento de la aplicación y la escalabilidad, especialmente en un entorno de granja de servidores en la nube o servidor.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 uid: performance/caching/distributed
-ms.openlocfilehash: a157eb075874d2118e3e34b51410b539a1ec37df
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 7337ee3b823064c942832d8a44e4d4289bc4fd0e
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248593"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899429"
 ---
 # <a name="distributed-caching-in-aspnet-core"></a>Almacenamiento en caché en ASP.NET Core distribuido
 
@@ -33,7 +33,15 @@ Configuración de caché distribuida es específico de la implementación. En es
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-2.2"
+
+Para usar un servidor SQL Server distributed cache, referencia del [Microsoft.AspNetCore.App metapaquete](xref:fundamentals/metapackage-app) o agregar una referencia de paquete para el [Microsoft.Extensions.Caching.SqlServer](https://www.nuget.org/packages/Microsoft.Extensions.Caching.SqlServer) paquete.
+
+Para usar un Redis caché, referencia distribuida el [Microsoft.AspNetCore.App metapaquete](xref:fundamentals/metapackage-app) y agregue una referencia de paquete para el [Microsoft.Extensions.Caching.StackExchangeRedis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis) paquete. El paquete de Redis no se incluye en el `Microsoft.AspNetCore.App` del paquete, por lo que debe hacer referencia el paquete de Redis por separado en el archivo de proyecto.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.1"
 
 Para usar un servidor SQL Server distributed cache, referencia del [Microsoft.AspNetCore.App metapaquete](xref:fundamentals/metapackage-app) o agregar una referencia de paquete para el [Microsoft.Extensions.Caching.SqlServer](https://www.nuget.org/packages/Microsoft.Extensions.Caching.SqlServer) paquete.
 

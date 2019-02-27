@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Conozca y solucione advertencias y errores en proyectos de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 02/26/2019
 uid: test/troubleshoot
-ms.openlocfilehash: 7a3361970bde2b8761c76884fc1905957d075c5c
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: c8b34f51fd329eb9a7c34f7be93bd7f2aa054283
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450780"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899299"
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>Solución de problemas de proyectos de ASP.NET Core
 
@@ -22,7 +22,7 @@ Los vínculos siguientes proporcionan orientación para la solución:
 * <xref:host-and-deploy/azure-apps/troubleshoot>
 * <xref:host-and-deploy/iis/troubleshoot>
 * <xref:host-and-deploy/azure-iis-errors-reference>
-* [Conferencia NDC (London, 2018): Diagnóstico de problemas en aplicaciones ASP.NET Core](https://www.youtube.com/watch?v=RYI0DHoIVaA)
+* [Conferencia NDC (London, 2018): Diagnosticar problemas en aplicaciones ASP.NET Core](https://www.youtube.com/watch?v=RYI0DHoIVaA)
 * [Blog de ASP.NET: Solucionar problemas de rendimiento de ASP.NET Core](https://blogs.msdn.microsoft.com/webdev/2018/05/23/asp-net-core-performance-improvements/)
 
 ## <a name="net-core-sdk-warnings"></a>Advertencias de SDK de .NET core
@@ -63,12 +63,12 @@ En el **nuevo proyecto** cuadro de diálogo para ASP.NET Core, es posible que ve
 
 ![Captura de pantalla del cuadro de diálogo OneASP.NET que muestra el mensaje de advertencia](troubleshoot/_static/NoNetCore.png)
 
-Esta advertencia aparece cuando la variable de entorno `PATH` no apunta a ningún SDK de .NET Core en el equipo. Para resolver este problema:
+Esta advertencia aparece cuando la variable de entorno `PATH` no apunta a ningún SDK de .NET Core en el equipo (por ejemplo, `C:\Program Files\dotnet\` y `C:\Program Files (x86)\dotnet\`). Para resolver este problema:
 
-* Instalar o comprobar que está instalado el SDK de .NET Core.
+* Instalar o comprobar que está instalado el SDK de .NET Core. Obtener el instalador más reciente de [descargas de .NET](https://dotnet.microsoft.com/download). 
 * Compruebe que el `PATH` variable de entorno se apunta a la ubicación donde está instalado el SDK. El instalador se establece normalmente el `PATH`.
 
-## <a name="obtain-data-from-an-app"></a>Obtener datos desde una aplicación
+## <a name="obtain-data-from-an-app"></a>Obtención de datos de una aplicación
 
 Si una aplicación es capaz de responder a las solicitudes, puede obtener los siguientes datos de la aplicación con middleware:
 
