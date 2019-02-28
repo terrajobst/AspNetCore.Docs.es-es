@@ -5,14 +5,8 @@ description: Este artículo contiene vínculos a recursos de implementación y h
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 02/26/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 4c7f2348b13207fb6f2ff830bbf67ffa30e5489c
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248243"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -22,10 +16,10 @@ ms.locfileid: "56248243"
 
 La [documentación de Web Apps](/azure/app-service/) de Azure es un recurso que incluye documentación, tutoriales, ejemplos, guías de procedimientos y otros recursos de aplicaciones de Azure. Dos tutoriales importantes que pertenecen al hospedaje de aplicaciones de ASP.NET Core son:
 
-[Inicio rápido: Crear una aplicación web de ASP.NET Core en Azure](/azure/app-service/app-service-web-get-started-dotnet)  
+[Creación de una aplicación web ASP.NET Core en Azure](/azure/app-service/app-service-web-get-started-dotnet)  
 Usar Visual Studio para crear e implementar una aplicación web de ASP.NET Core para Azure App Service en Windows.
 
-[Inicio rápido: Crear una aplicación web de .NET Core en App Service en Linux](/azure/app-service/containers/quickstart-dotnetcore)  
+[Creación de una aplicación ASP.NET Core en App Service en Linux](/azure/app-service/containers/quickstart-dotnetcore)  
 Usar la línea de comandos para crear e implementar una aplicación web de ASP.NET Core para Azure App Service en Linux.
 
 Los artículos siguientes están disponibles en la documentación de ASP.NET Core:
