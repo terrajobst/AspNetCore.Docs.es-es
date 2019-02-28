@@ -5,14 +5,14 @@ description: Aprenda a controlar al enlazador de lenguaje intermedio (IL) al cre
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 uid: host-and-deploy/razor-components/configure-linker
-ms.openlocfilehash: c3c38ec2509344cc02f3895d5d0c2d35059d1d8e
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: 7c53e7912ec3b0ae471ea38777f874f55a32487d
+ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668068"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56647946"
 ---
 # <a name="configure-the-linker-for-blazor"></a>Configuración del enlazador para Blazor
 
@@ -73,7 +73,7 @@ A continuación, se muestra un archivo de configuración de ejemplo (*Linker.xml
 </linker>
 ```
 
-Para más información sobre el formato de archivo del archivo de configuración, consulte [IL Linker: Syntax of xml descriptor](https://github.com/mono/linker/blob/master/linker/README.md#syntax-of-xml-descriptor) (Vinculador de IL: sintaxis del descriptor xml).
+Para más información sobre el formato de archivo del archivo de configuración, consulte [IL Linker: Syntax of xml descriptor](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor) (Vinculador de IL: sintaxis del descriptor xml).
 
 Especifique el archivo de configuración en el archivo de proyecto con el elemento `BlazorLinkerDescriptor`:
 
