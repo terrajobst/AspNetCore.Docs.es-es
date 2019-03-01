@@ -1,28 +1,51 @@
 ---
 title: Host genérico de .NET
 author: guardrex
-description: Obtenga información sobre el host genérico en .NET, que es responsable de la administración de inicio y duración de la aplicación.
+description: Obtenga información sobre el host genérico de ASP.NET Core, que es responsable de la administración de inicio y duración de la aplicación.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 4d435984d8169b558ab026ef8541c90f7a2a96b9
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: a128b7c19d544d1dd28ab16f7a208ceef680ce81
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618160"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743847"
 ---
 # <a name="net-generic-host"></a>Host genérico de .NET
 
 Por [Luke Latham](https://github.com/guardrex)
 
-Las aplicaciones de .NET Core configuran e inician un *host*. El host es responsable de la administración del inicio y la duración de la aplicación. En este tema se trata el host genérico de ASP.NET Core (<xref:Microsoft.Extensions.Hosting.HostBuilder>), muy útil para hospedar aplicaciones que no procesan solicitudes HTTP. Para la cobertura del host de web (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>), consulte <xref:fundamentals/host/web-host>.
+::: moniker range="<= aspnetcore-2.2"
 
-El objetivo del host genérico es desacoplar la canalización HTTP de la API host web para habilitar una variedad de escenarios de host. Se trata de la mensajería, tareas en segundo plano y otras cargas de trabajo no HTTP basadas en la ventaja de host genérico de capacidades transversales, como la configuración, la inserción de dependencias (DI) y el registro.
+Las aplicaciones ASP.NET Core configuran e inician un host. El host es responsable de la administración del inicio y la duración de la aplicación.
 
-El host genérico es una novedad de ASP.NET Core 2.1 y no es adecuado para escenarios de hospedaje web. Para escenarios de hospedaje web, use el [host web](xref:fundamentals/host/web-host). El host genérico se está desarrollando para reemplazar el host web en una próxima versión y actuar como la API del host principal tanto en escenarios que sean del tipo HTTP como los que no.
+En este artículo se trata el host genérico de ASP.NET Core (<xref:Microsoft.Extensions.Hosting.HostBuilder>), que se usa para hospedar aplicaciones que no procesan solicitudes HTTP.
+
+El objetivo del host genérico es desacoplar la canalización HTTP de la API host web para habilitar una mayor variedad de escenarios de host. La mensajería, las tareas en segundo plano y otras cargas de trabajo que no son de HTTP basadas en la ventaja de host genérico se benefician de funcionalidades transversales, como la configuración, la inserción de dependencias (DI) y el registro.
+
+El host genérico es una novedad de ASP.NET Core 2.1 y no es adecuado para escenarios de hospedaje web. Para escenarios de hospedaje web, use el [host web](xref:fundamentals/host/web-host). El host genérico reemplazará al host web en una próxima versión y actuará como la API de host principal tanto en escenarios de HTTP como los que no lo son.
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+Las aplicaciones ASP.NET Core configuran e inician un host. El host es responsable de la administración del inicio y la duración de la aplicación.
+
+En este artículo se describe el host genérico de .NET Core (<xref:Microsoft.Extensions.Hosting.HostBuilder>).
+
+El host genérico se diferencia del host web en que desacopla la canalización HTTP de la API de host web para habilitar una mayor variedad de escenarios de host. La mensajería, las tareas en segundo plano y otras cargas de trabajo que no son de HTTP pueden usar el host genérico y beneficiarse de funcionalidades transversales, como la configuración, la inserción de dependencias (DI) y el registro.
+
+A partir de ASP.NET Core 3.0, se recomienda el host genérico para las cargas de trabajo de HTTP y las que no sean de HTTP. Una implementación de servidor HTTP, si se incluye, se ejecuta como una implementación de <xref:Microsoft.Extensions.Hosting.IHostedService>. `IHostedService` es una interfaz que también se puede usar para otras cargas de trabajo.
+
+El host web ya no se recomienda para las aplicaciones web, pero sigue estando disponible para la compatibilidad con versiones anteriores.
+
+> [!NOTE]
+> El resto de este artículo todavía no se ha actualizado para la versión 3.0.
+
+::: moniker-end
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
@@ -119,7 +142,7 @@ Establece el [entorno](xref:fundamentals/environments) de la aplicación.
 
 **Clave**: environment  
 **Tipo**: *cadena*  
-**Valor predeterminado**: producción  
+**Valor predeterminado**: Producción  
 **Establecer mediante**: `UseEnvironment`  
 **Variable de entorno**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` es [opcional y definido por el usuario](#configurehostconfiguration))
 

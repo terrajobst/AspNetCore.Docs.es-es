@@ -1,21 +1,23 @@
 ---
 title: Host web de ASP.NET Core
 author: guardrex
-description: Obtenga información sobre el host de web en ASP.NET Core, que es responsable de la administración de inicio y duración de la aplicación.
+description: Obtenga información sobre el host web en ASP.NET Core, que es responsable de la administración de inicio y duración de la aplicación.
 ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 7215027a083c0ed0bc3b15196e390a31c5dcfc14
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 878fbaa1a61946dadf23ba8fefbf22021e547cc2
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637851"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744097"
 ---
 # <a name="aspnet-core-web-host"></a>Host web de ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex)
+
+Las aplicaciones de ASP.NET Core configuran e inician un *host*. El host es responsable de la administración del inicio y la duración de la aplicación. Como mínimo, el host configura un servidor y una canalización de procesamiento de solicitudes. El host también puede configurar el registro, la inserción de dependencias y la configuración.
 
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -23,7 +25,17 @@ Para obtener la versión 1.1 de este tema, descargue [ASP.NET Core Web Host (ver
 
 ::: moniker-end
 
-Las aplicaciones de ASP.NET Core configuran e inician un *host*. El host es responsable de la administración del inicio y la duración de la aplicación. Como mínimo, el host configura un servidor y una canalización de procesamiento de solicitudes. En este tema se aborda el host web de ASP.NET Core ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)), muy útil para hospedar aplicaciones web. Para conocer la cobertura del host genérico de .NET ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)), vea <xref:fundamentals/host/generic-host>.
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+En este artículo se describe el host web de ASP.NET Core (<xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder>), que sirve para hospedar aplicaciones web. Para obtener información sobre el host genérico de .NET ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)), vea <xref:fundamentals/host/generic-host>.
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+En este artículo se describe el host web de ASP.NET Core ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)). En ASP.NET Core 3.0, el host genérico reemplaza al host web. Para obtener más información, vea [El host](xref:fundamentals/index#host).
+
+::: moniker-end
 
 ## <a name="set-up-a-host"></a>Configuración de un host
 
@@ -313,7 +325,7 @@ Kestrel tiene su propia API de configuración de punto de conexión. Para obtene
 
 ### <a name="shutdown-timeout"></a>Tiempo de espera de apagado
 
-Especifica la cantidad de tiempo que se espera hasta el cierre del host de web.
+Especifica la cantidad de tiempo que se espera hasta el cierre del host web.
 
 **Clave**: shutdownTimeoutSeconds  
 **Tipo**: *int*  
@@ -520,7 +532,7 @@ using (var host = WebHost.Start(router => router
 
 Utilice las siguientes solicitudes de explorador con el ejemplo:
 
-| Solicitud                                    | Respuesta                                 |
+| Request                                    | Respuesta                                 |
 | ------------------------------------------ | ---------------------------------------- |
 | `http://localhost:5000/hello/Martin`       | Hello, Martin!                           |
 | `http://localhost:5000/buenosdias/Catrina` | Buenos dias, Catrina!                    |
@@ -669,7 +681,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-`IHostingEnvironment` puede insertarse en el método `Invoke` al crear [middleware](xref:fundamentals/middleware/index#write-middleware) personalizado:
+`IHostingEnvironment` puede insertarse en el método `Invoke` al crear [middleware](xref:fundamentals/middleware/write) personalizado:
 
 ```csharp
 public async Task Invoke(HttpContext context, IHostingEnvironment env)

@@ -3,14 +3,14 @@ title: Diseño en ASP.NET Core
 author: ardalis
 description: Obtenga información sobre cómo usar diseños comunes, compartir directivas y ejecutar código común antes de representar vistas en una aplicación ASP.NET Core.
 ms.author: riande
-ms.date: 10/18/2018
+ms.date: 02/26/2019
 uid: mvc/views/layout
-ms.openlocfilehash: 1bd225c804b333efea834a46b7d9ba46b1bb69d8
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 7a60ee15e688d6f0e531302457604fa759213758
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410578"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899247"
 ---
 # <a name="layout-in-aspnet-core"></a>Diseño en ASP.NET Core
 
@@ -49,15 +49,15 @@ Este diseño define una plantilla de nivel superior para las vistas en la aplica
 
 Este código muestra el archivo de diseño para un proyecto creado mediante plantilla con un controlador y vistas:
 
-[!code-html[](~/common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=44,72)]
+[!code-cshtml[](~/common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=44,72)]
 
 ## <a name="specifying-a-layout"></a>Especificar un diseño
 
 Las vistas de Razor tienen una propiedad `Layout`. Las vistas individuales especifican un diseño al configurar esta propiedad:
 
-[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
-El diseño especificado puede usar una ruta de acceso completa (por ejemplo, */Pages/Shared/_Layout.cshtml* o */Views/Shared/_Layout.cshtml*) o un nombre parcial (ejemplo: `_Layout`). Cuando se proporciona un nombre parcial, el motor de vista de Razor buscará el archivo de diseño mediante su proceso de detección estándar. Primero se busca la carpeta donde existe el método de controlador (o controlador), seguida de la carpeta *Shared*. Este proceso de detección es idéntico al usado para detectar [vistas parciales](partial.md).
+El diseño especificado puede usar una ruta de acceso completa (por ejemplo, */Pages/Shared/_Layout.cshtml* o */Views/Shared/_Layout.cshtml*) o un nombre parcial (ejemplo: `_Layout`). Cuando se proporciona un nombre parcial, el motor de vista de Razor busca el archivo de diseño mediante su proceso de detección estándar. Primero se busca la carpeta donde existe el método de controlador (o controlador), seguida de la carpeta *Shared*. Este proceso de detección es idéntico al que se usa para detectar [vistas parciales](xref:mvc/views/partial#partial-view-discovery).
 
 De forma predeterminada, todos los diseños deben llamar a `RenderBody`. Cada vez que se realiza la llamada a `RenderBody`, se representa el contenido de la vista.
 
@@ -123,7 +123,7 @@ El archivo no es compatible con otras características de Razor, como las funcio
 
 Archivo `_ViewImports.cshtml` de ejemplo:
 
-[!code-html[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
 El archivo *_ViewImports.cshtml* para una aplicación ASP.NET Core MVC normalmente se coloca en la carpeta *Pages* (o *Views*). Un archivo *_ViewImports.cshtml* puede colocarse dentro de cualquier carpeta, en cuyo caso solo se aplicará a páginas o vistas dentro de esa carpeta y sus subcarpetas. Los archivos `_ViewImports` se procesan a partir del nivel de raíz y, después, para cada carpeta que llevó a la ubicación de la propia página o vista. La configuración `_ViewImports` especificada en el nivel de raíz se puede reemplazar en el nivel de carpeta.
 
@@ -151,7 +151,7 @@ El código que debe ejecutarse antes de cada vista o página se debería colocar
 
 Un archivo *_ViewStart.cshtml* de ejemplo:
 
-[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
 
 El archivo anterior especifica que todas las vistas usarán el diseño *_Layout.cshtml*.
 

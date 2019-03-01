@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre la manera en que ASP.NET Core implementa la inserción de dependencias y cómo se usa.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/25/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 5e5b9746da9bbc13a147b807aabfd3d9ab90a0ca
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 5e1522e0819d989a7029c2928c1c33624c1774c7
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410513"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899364"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -179,7 +179,7 @@ En la aplicación de ejemplo, la instancia `IMyDependency` se solicita y usa par
 
 ## <a name="framework-provided-services"></a>Servicios proporcionados por el marco de trabajo
 
-El método `Startup.ConfigureServices` se encarga de definir los servicios que la aplicación usa, incluidas las características de plataforma como Entity Framework Core y ASP.NET Core MVC. Inicialmente, el valor `IServiceCollection` proporcionado a `ConfigureServices` tiene los siguientes servicios definidos (en función de [cómo se configurara el host](xref:fundamentals/host/index)):
+El método `Startup.ConfigureServices` se encarga de definir los servicios que la aplicación usa, incluidas las características de plataforma como Entity Framework Core y ASP.NET Core MVC. Inicialmente, el valor `IServiceCollection` proporcionado a `ConfigureServices` tiene los siguientes servicios definidos (en función de [cómo se configurara el host](xref:fundamentals/index#host)):
 
 | Tipo de servicio | Período de duración |
 | ------------ | -------- |
@@ -253,7 +253,7 @@ Cuando se resuelven los servicios mediante `ActivatorUtilities`, la inserción d
 
 ## <a name="entity-framework-contexts"></a>Contextos de Entity Framework
 
-Es necesario agregar contextos de Entity Framework al contenedor de servicios mediante la duración con ámbito. Esto se controla automáticamente con una llamada al método [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) al registrar el contexto de la base de datos. Los servicios que usan el contexto de la base de datos deben usar también la duración con ámbito.
+Los contextos de Entity Framework normalmente se agregan al contenedor de servicios mediante la [duración con ámbito](#service-lifetimes) porque las operaciones de base de datos de aplicación web se suelen limitar a la solicitud. La duración predeterminada se limita si no se especifica una duración mediante una sobrecarga de <xref:Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext*> al registrar el contexto de base de datos. En los servicios de una duración determinada no se debe usar un contexto de base de datos con una duración más corta que el servicio.
 
 ## <a name="lifetime-and-registration-options"></a>Opciones de registro y duración
 

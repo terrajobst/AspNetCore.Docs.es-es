@@ -5,14 +5,14 @@ description: Obtenga información sobre HTTP.sys, un servidor web para ASP.NET C
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 859e3daeba125ab1a9392c1bdbf2733de2f79a34
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: abb426b1a41226e52d9b9b5c00c41ff816890d36
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248347"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744136"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web HTTP.sys en ASP.NET Core
 
@@ -86,7 +86,7 @@ HTTP.sys delega en la autenticación de modo kernel con el protocolo de autentic
 
 1. No se requiere una referencia de paquete en el archivo de proyecto cuando se usa el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)) (ASP.NET Core 2.1 o posterior). Si no usa el metapaquete `Microsoft.AspNetCore.App`, agregue una referencia de paquete a [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/).
 
-2. Llame al método de extensión <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions.UseHttpSys*> al compilar el host de web y especifique las <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions> necesarias:
+2. Llame al método de extensión <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions.UseHttpSys*> al compilar el host web y especifique las <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions> necesarias:
 
    [!code-csharp[](httpsys/sample/Program.cs?name=snippet1&highlight=4-12)]
 
@@ -135,7 +135,9 @@ HTTP.sys delega en la autenticación de modo kernel con el protocolo de autentic
 
 ### <a name="configure-windows-server"></a>Configurar Windows Server
 
-1. Determine los puertos que se abrirán para la aplicación y use el Firewall de Windows o los [cmdlet de PowerShell](https://technet.microsoft.com/library/jj554906) para abrir los puertos del firewall y permitir que el tráfico llegue a HTTP.sys. Cuando realice una implementación en una máquina virtual de Azure, abra los puertos del [grupo de seguridad de red](/azure/virtual-network/security-overview). En los comandos y la configuración de la aplicación siguientes, se usa el puerto 443.
+1. Determine los puertos que se van a abrir para la aplicación y use el [Firewall de Windows](/windows/security/threat-protection/windows-firewall/create-an-inbound-port-rule) o el cmdlet [New-NetFirewallRule](/powershell/module/netsecurity/new-netfirewallrule) de PowerShell para abrir los puertos del firewall y permitir que el tráfico llegue a HTTP.sys. En los comandos y la configuración de la aplicación siguientes, se usa el puerto 443.
+
+1. Cuando realice una implementación en una máquina virtual de Azure, abra los puertos del [grupo de seguridad de red](/azure/virtual-machines/windows/nsg-quickstart-portal). En los comandos y la configuración de la aplicación siguientes, se usa el puerto 443.
 
 1. Si es necesario, obtenga e instale los certificados X.509.
 
@@ -253,7 +255,7 @@ HTTP.sys delega en la autenticación de modo kernel con el protocolo de autentic
    * [Comandos Netsh para protocolo de transferencia de hipertexto (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
    * [Cadenas de UrlPrefix](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
-1. Ejecute la aplicación.
+1. Ejecutar la aplicación.
 
    No se necesitan privilegios de administrador para ejecutar la aplicación al enlazar a localhost mediante HTTP (no HTTPS) con un número de puerto mayor que 1024. Para otras configuraciones (por ejemplo, usar una dirección IP local o enlazar al puerto 443), ejecute la aplicación con privilegios de administrador.
 
@@ -272,5 +274,5 @@ En el caso de las aplicaciones hospedadas por HTTP.sys que interactúan con las 
 * [Habilitación de la autenticación de Windows con HTTP.sys](xref:security/authentication/windowsauth#enable-windows-authentication-with-httpsys)
 * [API HTTP Server](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
 * [Repositorio aspnet/HttpSysServer de GitHub (código fuente)](https://github.com/aspnet/HttpSysServer/)
-* <xref:fundamentals/host/index>
+* [El host](xref:fundamentals/index#host)
 * <xref:test/troubleshoot>

@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 685b496943642b349321a36a7200d6d51ecf4d6e
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: cfd0a57d5d0b60862b017a170b6d5cbddf56f15a
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396238"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744188"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Inicio de la aplicación en ASP.NET Core
 
@@ -31,7 +31,7 @@ El runtime llama a `ConfigureServices` y `Configure` al iniciarse la aplicación
 
 [!code-csharp[](startup/sample_snapshot/Startup1.cs?highlight=4,10)]
 
-La clase `Startup` se especifica para la aplicación al generar su [host](xref:fundamentals/host/index). El host de la aplicación se genera cuando `Build` se llama en el generador de host de la clase `Program`. Habitualmente, la clase `Startup` se especifica mediante una llamada al método [WebHostBuilderExtensions.UseStartup\<TStartup >](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) en el generador de host:
+La clase `Startup` se especifica para la aplicación al generar su [host](xref:fundamentals/index#host). El host de la aplicación se genera cuando `Build` se llama en el generador de host de la clase `Program`. Habitualmente, la clase `Startup` se especifica mediante una llamada al método [WebHostBuilderExtensions.UseStartup\<TStartup >](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) en el generador de host:
 
 [!code-csharp[](startup/sample_snapshot/Program3.cs?name=snippet_Program&highlight=10)]
 
@@ -47,7 +47,7 @@ Un uso común de la [inserción de dependencias](xref:fundamentals/dependency-in
 
 Una alternativa a la inserción de `IHostingEnvironment` consiste en utilizar un enfoque basado en convenciones. Cuando la aplicación define clases `Startup` independientes para otros entornos (por ejemplo, `StartupDevelopment`), la clase `Startup` correspondiente se selecciona en tiempo de ejecución. La clase cuyo sufijo de nombre coincide con el entorno actual se establece como prioritaria. Si la aplicación se ejecuta en el entorno de desarrollo e incluye tanto la clase `Startup` como la clase `StartupDevelopment`, se utiliza la clase `StartupDevelopment`. Para obtener más información, consulte [Uso de varios entornos](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 
-Para obtener más información sobre el host, vea <xref:fundamentals/host/index>. Para obtener información sobre cómo controlar los errores que se producen durante el inicio, consulte [Control de excepciones de inicio](xref:fundamentals/error-handling#startup-exception-handling).
+Para obtener más información sobre el host, vea [El host](xref:fundamentals/index#host). Para obtener información sobre cómo controlar los errores que se producen durante el inicio, consulte [Control de excepciones de inicio](xref:fundamentals/error-handling#startup-exception-handling).
 
 ## <a name="the-configureservices-method"></a>Método ConfigureServices
 
@@ -59,7 +59,7 @@ El método <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> es
 
 El patrón habitual consiste en llamar a todos los métodos `Add{Service}` y, luego, a todos los métodos `services.Configure{Service}`. Por ejemplo, consulte [Configurar servicios de identidad](xref:security/authentication/identity#pw).
 
-El host puede configurar algunos servicios antes de que se llame a los métodos `Startup`. Para obtener más información, vea <xref:fundamentals/host/index>.
+El host puede configurar algunos servicios antes de que se llame a los métodos `Startup`. Para obtener más información, vea [El host](xref:fundamentals/index#host).
 
 Para las características que requieren una configuración sustancial, hay métodos de extensión `Add{Service}` en <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>. Una aplicación ASP.NET Core típica registra los servicios de Entity Framework, Identity y MVC:
 
@@ -134,7 +134,7 @@ Una implementación de <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> permi
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* <xref:fundamentals/host/index>
+* [El host](xref:fundamentals/index#host)
 * <xref:fundamentals/environments>
 * <xref:fundamentals/middleware/index>
 * <xref:fundamentals/logging/index>
