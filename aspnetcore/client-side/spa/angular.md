@@ -5,14 +5,14 @@ description: Aprenda cómo comenzar a trabajar con la plantilla de proyecto de a
 monikerRange: '>= aspnetcore-2.1'
 ms.author: stevesa
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/27/2019
 uid: spa/angular
-ms.openlocfilehash: f33f4b96faf71440c3e8878c0480f2908ace70d1
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 41990be4910ad35cdc2826f268fcbb659be9de75
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899260"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345725"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de Angular con ASP.NET Core
 
@@ -90,7 +90,7 @@ npm install --save <package_name>
 
 En el desarrollo, la aplicación se ejecuta en modo optimizado para comodidad del desarrollador. Por ejemplo, las agrupaciones de JavaScript incluyen asignaciones de origen (de modo que, durante la depuración, puede ver el código original de TypeScript). La aplicación inspecciona los cambios en los archivos de TypeScript, HTML y CSS en el disco y, automáticamente, realiza una nueva compilación y recarga cuando observa que esos archivos han cambiado.
 
-En producción, use una versión de la aplicación que esté optimizada para el rendimiento. Esto se configura para que tenga lugar automáticamente. Al publicar, la configuración de compilación emite una compilación Ahead Of Time (AoT) reducida del código del lado cliente. A diferencia de la compilación de desarrollo, la compilación de producción no requiere la instalación de Node.js en el servidor (a no ser que haya habilitado la [representación previa del lado servidor](#server-side-rendering)).
+En producción, use una versión de la aplicación que esté optimizada para el rendimiento. Esto se configura para que tenga lugar automáticamente. Al publicar, la configuración de compilación emite una compilación Ahead Of Time (AoT) reducida del código del lado cliente. A diferencia de la compilación de desarrollo, la compilación de producción no requiere Node.js esté instalado en el servidor (a menos que se ha habilitado la representación del lado servidor (SSR)).
 
 Puede usar [métodos de implementación y hospedaje de ASP.NET Core](xref:host-and-deploy/index) estándar.
 

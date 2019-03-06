@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.date: 10/24/2018
 ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: e5bddde41291c9573f58d749bbf830de9ea9319d
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 906aae3fd4b4abd0becc8847b0f54c372bda300a
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121601"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346312"
 ---
 # <a name="continuous-integration-and-deployment"></a>Integración e implementación continuas
 
@@ -60,9 +60,9 @@ Quite la implementación de Git local con los pasos siguientes. Las canalizacion
 
     ![término de búsqueda de la aplicación Web de ensayo](media/cicd/portal-search-box.png)
 
-1. Haga clic en **opciones de implementación**. Aparece un nuevo panel. Haga clic en **desconexión** para quitar la configuración de control de código fuente de Git local que se agregó en el capítulo anterior. Confirmar la operación de eliminación, haga clic en el **Sí** botón.
+1. Haga clic en **centro de implementación**. Aparece un nuevo panel. Haga clic en **desconexión** para quitar la configuración de control de código fuente de Git local que se agregó en el capítulo anterior. Confirmar la operación de eliminación, haga clic en el **Sí** botón.
 1. Navegue hasta la *mywebapp < unique_number >* App Service. Como recordatorio, cuadro de búsqueda del portal puede utilizarse para localizar rápidamente el servicio de aplicación.
-1. Haga clic en **opciones de implementación**. Aparece un nuevo panel. Haga clic en **desconexión** para quitar la configuración de control de código fuente de Git local que se agregó en el capítulo anterior. Confirmar la operación de eliminación, haga clic en el **Sí** botón.
+1. Haga clic en **centro de implementación**. Aparece un nuevo panel. Haga clic en **desconexión** para quitar la configuración de control de código fuente de Git local que se agregó en el capítulo anterior. Confirmar la operación de eliminación, haga clic en el **Sí** botón.
 
 ## <a name="create-an-azure-devops-organization"></a>Creación de una organización de Azure DevOps
 
@@ -262,7 +262,7 @@ El **origen (definición de compilación)** valor representa la definición de c
 
 ![Captura de pantalla que se muestran tareas de canalización de versión](media/cicd/release-definition-tasks.png)
 
-La canalización de versiones consta de dos tareas: *implementar Azure App Service para la ranura* y *administrar Azure App Service: intercambio de ranura*. Al hacer clic en la primera tarea, se muestra la configuración de la tarea siguiente:
+La canalización de versiones consta de dos tareas: *Implementación de Azure App Service a ranura* y *administrar Azure App Service: intercambio de ranura*. Al hacer clic en la primera tarea, se muestra la configuración de la tarea siguiente:
 
 ![Canalización de versiones de captura de pantalla que muestra la tarea de implementación](media/cicd/release-definition-task1.png)
 

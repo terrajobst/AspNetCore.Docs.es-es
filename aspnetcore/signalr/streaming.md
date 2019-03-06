@@ -1,18 +1,18 @@
 ---
 title: Usar la transmisión por secuencias en ASP.NET Core SignalR
 author: bradygaster
-description: ''
+description: Obtenga información sobre cómo devolver secuencias de valores de los métodos de concentrador de servidor y consumir los flujos con los clientes de .NET y JavaScript.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/streaming
-ms.openlocfilehash: ade2d6fb6e799d53ff3aaa69c641d0088acdee95
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: fb7183f7189d62c181f69ffdb170e3da25612919
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837408"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345592"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>Usar la transmisión por secuencias en ASP.NET Core SignalR
 
@@ -24,10 +24,32 @@ ASP.NET Core SignalR es compatible con la transmisión por secuencias los valore
 
 ## <a name="set-up-the-hub"></a>Configurar el centro
 
-Un método de concentrador se convierte automáticamente en un método de concentrador de transmisión por secuencias cuando vuelve una `ChannelReader<T>` o `Task<ChannelReader<T>>`. A continuación es un ejemplo que muestra los conceptos básicos de transmisión de datos al cliente. Cada vez que se escribe un objeto en el `ChannelReader` ese objeto inmediatamente se envía al cliente. Al final, el `ChannelReader` completada para indicar al cliente la secuencia está cerrada.
+::: moniker range=">= aspnetcore-3.0"
+
+Un método de concentrador se convierte automáticamente en un método de concentrador de transmisión por secuencias cuando vuelve una `ChannelReader<T>`, `IAsyncEnumerable<T>`, `Task<ChannelReader<T>>`, o `Task<IAsyncEnumerable<T>>`.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Un método de concentrador se convierte automáticamente en un método de concentrador de transmisión por secuencias cuando vuelve una `ChannelReader<T>` o `Task<ChannelReader<T>>`.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+En ASP.NET Core 3.0 o posterior, puede devolver la transmisión por secuencias los métodos de concentrador `IAsyncEnumerable<T>` además `ChannelReader<T>`. La manera más sencilla para devolver `IAsyncEnumerable<T>` está haciendo que el método de concentrador un método de iterador asincrónico como se muestra en el ejemplo siguiente. Métodos de iterador de async de concentrador pueden aceptar un `CancellationToken` parámetro que se desencadena cuando el cliente cancela la suscripción de la secuencia. Métodos de iterador asincrónicos muy fácil evitar problemas comunes con los canales como no devolver el `ChannelReader` lo suficientemente pronto o sale del método sin completar la `ChannelWriter`.
+
+[!INCLUDE[](~/includes/csharp-8-required.md)]
+
+[!code-csharp[Streaming hub async iterator method](streaming/sample/Hubs/AsyncEnumerableHub.cs?name=snippet_AsyncIterator)]
+
+::: moniker-end
+
+El ejemplo siguiente muestra los conceptos básicos de transmisión de datos al cliente utilizando los canales. Cada vez que se escribe un objeto en el `ChannelWriter` ese objeto inmediatamente se envía al cliente. Al final, el `ChannelWriter` completada para indicar al cliente la secuencia está cerrada.
 
 > [!NOTE]
-> * Escribir en el `ChannelReader` en un subproceso en segundo plano y vuelva el `ChannelReader` tan pronto como sea posible. Las demás invocaciones de concentrador se bloqueará hasta que un `ChannelReader` se devuelve.
+> * Escribir en el `ChannelWriter` en un subproceso en segundo plano y vuelva el `ChannelReader` tan pronto como sea posible. Las demás invocaciones de concentrador se bloqueará hasta que un `ChannelReader` se devuelve.
 > * Encapsular la lógica en un `try ... catch` y complete el `Channel` en la captura y fuera de la instrucción catch para asegurarse de que el centro de invocación del método se completó correctamente.
 
 ::: moniker range="= aspnetcore-2.1"
@@ -51,8 +73,8 @@ El `StreamAsChannelAsync` método `HubConnection` se utiliza para invocar un mé
 ::: moniker range=">= aspnetcore-2.2"
 
 ```csharp
-// Call "Cancel" on this CancellationTokenSource to send a cancellation message to 
-// the server, which will trigger the corresponding token in the Hub method.
+// Call "Cancel" on this CancellationTokenSource to send a cancellation message to
+// the server, which will trigger the corresponding token in the hub method.
 var cancellationTokenSource = new CancellationTokenSource();
 var channel = await hubConnection.StreamAsChannelAsync<int>(
     "Counter", 10, 500, cancellationTokenSource.Token);
@@ -113,6 +135,25 @@ Para finalizar la secuencia desde el cliente, llame a la `dispose` método en el
 ::: moniker range=">= aspnetcore-2.2"
 
 Para finalizar la secuencia desde el cliente, llame a la `dispose` método en el `ISubscription` que se devuelve desde el `subscribe` método. Llamar a este método hará que el `CancellationToken` parámetro del método de concentrador (si se proporciona uno) se cancele.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+## <a name="java-client"></a>Cliente de Java
+El cliente de SignalR Java usa el `stream` método para invocar métodos de transmisión por secuencias. Acepta tres o más argumentos:
+
+* El tipo esperado de los elementos de flujo 
+* El nombre del método de concentrador.
+* Argumentos definidos en el método de concentrador. 
+
+```java
+hubConnection.stream(String.class, "ExampleStreamingHubMethod", "Arg1")
+    .subscribe(
+        (item) -> {/* Define your onNext handler here. */ },
+        (error) -> {/* Define your onError handler here. */},
+        () -> {/* Define your onCompleted handler here. */});
+```
+El `stream` método `HubConnection` devuelve un objeto Observable del tipo de elemento de secuencia. El tipo Observable `subscribe` método es donde se definen los `onNext`, `onError` y `onCompleted` controladores.
 
 ::: moniker-end
 
