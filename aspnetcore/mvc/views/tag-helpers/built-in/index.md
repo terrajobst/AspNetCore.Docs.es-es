@@ -6,18 +6,13 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 58840d6ecd09bd2ae7f96c046a0cb93c018f9645
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325489"
 ---
+
 # <a name="aspnet-core-built-in-tag-helpers"></a>Asistentes de etiquetas integradas de ASP.NET Core
 
 Por [Peter Kellner](http://peterkellner.net)
 
-Para obtener información general de asistentes de etiquetas, consulte <xref:mvc/views/tag-helpers/intro>.
+Para obtener información general sobre asistentes de etiquetas, vea <xref:mvc/views/tag-helpers/intro>.
 
 > [!NOTE]
 > Hay asistentes de etiquetas integradas que no se describen en la documentación. Estos asistentes de etiquetas se usan internamente por el motor de vista de [Razor](xref:mvc/views/razor). Esto incluye un asistente de etiquetas para el carácter `~`, que se expande hasta la ruta de acceso raíz del sitio web.
@@ -35,6 +30,8 @@ Para obtener información general de asistentes de etiquetas, consulte <xref:mvc
 [comment]: **[FormActionTagHelper](xref:mvc/views/tag-helpers/builtin-th/form-action-tag-helper)**
 
 **[Asistente de etiquetas de formulario](xref:mvc/views/working-with-forms#the-form-tag-helper)**
+
+**[Asistente de etiquetas de acción de formulario](xref:mvc/views/working-with-forms#the-form-action-tag-helper)**
 
 **[Asistente de etiquetas de imagen](xref:mvc/views/tag-helpers/builtin-th/image-tag-helper)**
 

@@ -4,7 +4,7 @@ author: guardrex
 description: Obtenga información sobre cómo usar la API de configuración para una aplicación ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/25/2019
+ms.date: 03/04/2019
 uid: fundamentals/configuration/index
 ---
 # <a name="configuration-in-aspnet-core"></a>Configuración en ASP.NET Core
@@ -128,7 +128,26 @@ Al iniciar la aplicación, los orígenes de configuración se leen en el orden e
 
 Los proveedores de configuración de archivo tienen la capacidad de recargar la configuración cuando se modifica un archivo de configuración subyacente después del inicio de la aplicación. El proveedor de configuración de archivo se describe más adelante en este tema.
 
-<xref:Microsoft.Extensions.Configuration.IConfiguration> está disponible en el contenedor [Inserción de dependencias (DI)](xref:fundamentals/dependency-injection) de la aplicación. Los proveedores de configuración no pueden usar la inserción de dependencias, porque no está disponible cuando el host los configura.
+<xref:Microsoft.Extensions.Configuration.IConfiguration> está disponible en el contenedor de [inserción de dependencias (DI)](xref:fundamentals/dependency-injection) de la aplicación. <xref:Microsoft.Extensions.Configuration.IConfiguration> se puede insertar en <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> de Razor Pages para obtener la configuración de la clase:
+
+```csharp
+// using Microsoft.Extensions.Configuration;
+
+public class IndexModel : PageModel
+{
+    private readonly IConfiguration _config;
+
+    public IndexModel(IConfiguration config)
+    {
+        _config = config;
+    }
+        
+    // The _config local variable is used to obtain configuration 
+    // throughout the class.
+}
+```
+
+Los proveedores de configuración no pueden usar la inserción de dependencias, porque no está disponible cuando el host los configura.
 
 Las claves de configuración adoptan las convenciones siguientes:
 
@@ -256,6 +275,8 @@ Llame a <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration
 [!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=19)]
 
 ::: moniker-end
+
+La configuración proporcionada a la aplicación en <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> está disponible durante el inicio de la aplicación, incluido `Startup.ConfigureServices`. Para obtener más información, vea la sección [Acceso a la configuración durante el inicio](#access-configuration-during-startup).
 
 ## <a name="command-line-configuration-provider"></a>Proveedor de configuración de línea de comandos
 
@@ -1305,10 +1326,29 @@ var host = new WebHostBuilder()
 
 [ConfigurationBinder.GetValue&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) extrae un valor de la configuración con una clave especificada y lo convierte al tipo especificado. Una sobrecarga permite proporcionar un valor predeterminado si no se encuentra la clave.
 
-El ejemplo siguiente extrae el valor de cadena desde la configuración con la clave `NumberKey`, escribe el valor como `int` y almacena el valor en la variable `intValue`. Si `NumberKey` no se encuentra en las claves de configuración, `intValue` recibe el valor predeterminado de `99`:
+En el ejemplo siguiente:
+
+* Se extrae el valor de cadena de la configuración con la clave `NumberKey`. Si `NumberKey` no se encuentra en las claves de configuración, se usa el valor predeterminado de `99`.
+* Se escribe el valor como `int`.
+* Se almacena el valor en la propiedad `NumberConfig` para usarlo en la página.
 
 ```csharp
-var intValue = config.GetValue<int>("NumberKey", 99);
+// using Microsoft.Extensions.Configuration;
+
+public class IndexModel : PageModel
+{
+    public IndexModel(IConfiguration config)
+    {
+        _config = config;
+    }
+    
+    public int NumberConfig { get; private set; }
+        
+    public void OnGet()
+    {
+        NumberConfig = _config.GetValue<int>("NumberKey", 99);
+    }
+}
 ```
 
 ## <a name="getsection-getchildren-and-exists"></a>GetSection, GetChildren y Exists
