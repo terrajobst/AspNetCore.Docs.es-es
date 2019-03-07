@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 3dbb2d358ec9e3dcdd96c3771576911d906d796f
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 622f28f3b4348820c8781e0ba14ae5137136e797
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248438"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346572"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -583,7 +583,7 @@ En la tabla siguiente se muestran algunas plantillas de ruta de ejemplo y su com
 | `{Page=Home}`                            | `/Contact`              | Coincide y establece `Page` en `Contact`.                                      |
 | `{controller}/{action}/{id?}`            | `/Products/List`        | Se asigna al controlador `Products` y la acción `List`.                       |
 | `{controller}/{action}/{id?}`            | `/Products/Details/123` | Se asigna al controlador `Products` y la acción `Details` (`id` se establece en 123). |
-| `{controller=Home}/{action=Index}/{id?`} | `/`                     | Se asigna al controlador `Home` y al método `Index` (`id` se omite).        |
+| `{controller=Home}/{action=Index}/{id?}` | `/`                     | Se asigna al controlador `Home` y al método `Index` (`id` se omite).        |
 
 El uso de una plantilla suele ser el método de enrutamiento más sencillo. Las restricciones y los valores predeterminados también se pueden especificar fuera de la plantilla de ruta.
 
