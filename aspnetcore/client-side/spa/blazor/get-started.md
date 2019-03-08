@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/12/2019
 uid: spa/blazor/get-started
-ms.openlocfilehash: 26336f73f6c8976ed5de819cebc3c5c50274ab03
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 667c57d536450fa2f8ae1cabc7c5a76a16d38a55
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410013"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665592"
 ---
 # <a name="get-started-with-blazor"></a>Introducción a Blazor
 
@@ -32,7 +32,7 @@ Para crear su primer proyecto Blazor en Visual Studio:
 1. Asegúrese de las plantillas de Blazor disponibles para su uso con la CLI de .NET Core ejecutando el siguiente comando en un shell de comandos:
 
    ```console
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.8.0-preview-19104-04
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.9.0-preview3-19154-02
    ```
 
 1. Seleccione **archivo** > **nuevo proyecto** > **Web** > **aplicación Web ASP.NET Core**.
@@ -97,7 +97,7 @@ Requisitos previos:
 1. Agregar las plantillas Blazor ejecutando el siguiente comando en un shell de comandos:
 
    ```console
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.8.0-preview-19104-04
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.9.0-preview3-19154-02
    ```
 
 1. Cree su primer proyecto Blazor en un shell de comandos:
@@ -118,7 +118,7 @@ Requisitos previos:
 
 Cuando se ejecuta la aplicación, están disponibles las fichas en la barra lateral de varias páginas:
 
-* Página principal
+* Inicio
 * Contador
 * Recuperar datos
 
@@ -133,7 +133,7 @@ Una solicitud para `/counter` en el explorador, según lo especificado por el `@
 Cada vez que el **Click me** está seleccionado:
 
 * El `onclick` desencadena el evento.
-* Se llama al método `IncrementCount` .
+* Se llama al método `IncrementCount`.
 * El `currentCount` se incrementa.
 * El componente se representa de nuevo.
 
@@ -145,7 +145,7 @@ En *Pages/index.cshtml*, reemplace el componente de encuesta de símbolo del sis
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index1.cshtml?highlight=7)]
 
-Ejecutar la aplicación. La página principal tiene su propio contador.
+Ejecute la aplicación. La página principal tiene su propio contador.
 
 Para agregar un parámetro para el componente de contador, actualice el componente `@functions` bloque:
 
@@ -162,7 +162,7 @@ Especifique un parámetro `IncrementAmount` en el elemento `<Counter>` del compo
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index2.cshtml)]
 
-Ejecutar la aplicación. La página principal tiene su propio contador que se incrementa en diez cada vez que el **Click me** botón está seleccionado.
+Ejecute la aplicación. La página principal tiene su propio contador que se incrementa en diez cada vez que el **Click me** botón está seleccionado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

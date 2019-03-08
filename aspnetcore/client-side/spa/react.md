@@ -5,14 +5,14 @@ description: Aprenda cómo comenzar a trabajar con la plantilla de proyecto de a
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: 3b2b2e67b5d577872bafefef5624a13ca1a22449
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7b07f696ae071531c88c9f8cf528fc6f0bf97b46
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899182"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665566"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de React con ASP.NET Core
 
@@ -105,3 +105,7 @@ Cuando inicie la aplicación ASP.NET Core, no se iniciará un servidor de CRA. E
 
 > [!IMPORTANT]
 > "Representación del lado servidor" no es una característica compatible con esta plantilla. Nuestro objetivo con esta plantilla es satisfacer la paridad con "create de react-app". Por lo tanto, escenarios y características no incluidas en un proyecto de "creación de react-app" (por ejemplo, el SSR) no se admiten y se dejan como un ejercicio para el usuario.
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* <xref:security/authentication/identity/spa>

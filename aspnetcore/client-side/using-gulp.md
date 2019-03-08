@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/04/2018
 uid: client-side/using-gulp
-ms.openlocfilehash: e280eabecbd427f3e1418b3d7a60e0ea3df46a5a
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 43277dc5910971374187f49031e74769c9e29e1f
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450611"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665631"
 ---
 # <a name="use-gulp-in-aspnet-core"></a>Usar Gulp en ASP.NET Core
 
@@ -56,13 +56,13 @@ paths.concatCssDest = paths.webroot + "css/site.min.css";
 
 El código anterior especifica qué módulos de nodo son necesarios. El `require` cada módulo importaciones de función para que las tareas dependientes pueden utilizar sus características. Cada uno de los módulos importados se asigna a una variable. Los módulos pueden encontrarse por nombre o ruta de acceso. En este ejemplo, los módulos denominan `gulp`, `rimraf`, `gulp-concat`, `gulp-cssmin`, y `gulp-uglify` se recuperan por su nombre. Además, se crean una serie de rutas de acceso para que se pueden volver a usar las ubicaciones de archivos CSS y JavaScript y hacer referencia en las tareas. En la tabla siguiente se proporciona descripciones de los módulos incluidos en *gulpfile.js*.
 
-| Nombre del módulo | Descripción |
+| Nombre de módulo | Descripción |
 | ----------- | ----------- |
 | Gulp        | La transmisión por secuencias del sistema de compilación Gulp. Para obtener más información, consulte [gulp](https://www.npmjs.com/package/gulp). |
 | rimraf      | Un módulo de eliminación de nodo. Para obtener más información, consulte [rimraf](https://www.npmjs.com/package/rimraf). |
 | gulp-concat | Un módulo que concatena los archivos según el carácter de nueva línea del sistema operativo. Para obtener más información, consulte [gulp-concat](https://www.npmjs.com/package/gulp-concat). |
-| gulp cssmin | Un módulo que minifica objeto archivos CSS. Para obtener más información, consulte [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin). |
-| a que uglify de gulp | Un módulo que minifica objeto *.js* archivos. Para obtener más información, consulte [a que uglify gulp](https://www.npmjs.com/package/gulp-uglify). |
+| gulp-cssmin | Un módulo que minifica objeto archivos CSS. Para obtener más información, consulte [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin). |
+| gulp-uglify | Un módulo que minifica objeto *.js* archivos. Para obtener más información, consulte [a que uglify gulp](https://www.npmjs.com/package/gulp-uglify). |
 
 Una vez que se importan los módulos necesarios, se pueden especificar las tareas. Aquí hay seis tareas registrado, representado por el código siguiente:
 
@@ -97,11 +97,11 @@ En la tabla siguiente proporciona una explicación de las tareas especificadas e
 
 |Nombre de tarea|Descripción|
 |--- |--- |
-|limpiar: js|Una tarea que usa el módulo de eliminación de nodo rimraf para quitar la versión del archivo site.js minimizada.|
-|limpiar: css|Una tarea que usa el módulo de eliminación de nodo rimraf para quitar la versión del archivo site.css minimizada.|
-|Limpiar|Una tarea que llama a la `clean:js` tarea, seguido por la `clean:css` tarea.|
+|clean:js|Una tarea que usa el módulo de eliminación de nodo rimraf para quitar la versión del archivo site.js minimizada.|
+|clean:css|Una tarea que usa el módulo de eliminación de nodo rimraf para quitar la versión del archivo site.css minimizada.|
+|clean|Una tarea que llama a la `clean:js` tarea, seguido por la `clean:css` tarea.|
 |min:js|Una tarea que minifica objeto y se concatena todos los archivos .js en la carpeta para js. El. min.js archivos se excluyen.|
-|min:CSS|Una tarea que minifica objeto y se concatena todos los archivos .css dentro de la carpeta de css. El. min.css archivos se excluyen.|
+|min:css|Una tarea que minifica objeto y se concatena todos los archivos .css dentro de la carpeta de css. El. min.css archivos se excluyen.|
 |min|Una tarea que llama a la `min:js` tarea, seguido por la `min:css` tarea.|
 
 ## <a name="running-default-tasks"></a>Ejecución de tareas predeterminado
@@ -337,7 +337,7 @@ Una tarea de Gulp está registrada con un nombre de función. Puede especificar 
 |src   |`gulp.src(globs[, options]) { }`|El `src` función proporciona archivos que coinciden con los valores de elemento glob. El `glob` parámetro es un `string` o `array` que determina qué archivos para leer. El `options` parámetro proporciona opciones de archivo adicionales.|
 |dest  |`gulp.dest(path[, options]) { }`|El `dest` función define una ubicación a la que se pueden escribir archivos. El `path` parámetro es una cadena o una función que determina la carpeta de destino. El `options` parámetro es un objeto que especifica las opciones de carpeta de salida.|
 
-Para obtener información adicional sobre la referencia de API de Gulp, consulte [Gulp Docs API](https://github.com/gulpjs/gulp/blob/master/docs/API.md).
+Para obtener información adicional sobre la referencia de API de Gulp, consulte [Gulp Docs API](https://gulpjs.org/API.html).
 
 ## <a name="gulp-recipes"></a>Recetas de gulp
 

@@ -1,99 +1,115 @@
 ---
 title: Introducción a la autenticación para aplicaciones de página única en ASP.NET Core
-author: ''
-description: Usar la identidad con una aplicación hospeda dentro de una aplicación ASP.NET Core.
-ms.author: ''
-ms.date: 03/05/2018
+author: javiercn
+description: Usar la identidad con una única aplicación de página que se hospeda dentro de una aplicación ASP.NET Core.
+monikerRange: '>= aspnetcore-3.0'
+ms.author: scaddie
+ms.custom: mvc
+ms.date: 03/07/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: cf04ec1ff0ae9afea066fd1864ab0a7956ace32c
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 4afc9ac0a3c54b452c6a1b23e4de31d7e2fc5284
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346789"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665342"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Autenticación y autorización para las spa
 
-En ASP.NET 3.0 estamos introduciendo soporte para la autenticación en aplicaciones de página única con nuestra nueva compatibilidad para la autorización de API. Esta compatibilidad se basa en una combinación de ASP.NET Core Identity para autenticar y almacenar los usuarios y el servidor de identidad para la implementación de OpenID Connect.
+ASP.NET Core 3.0 o posterior ofrece una autenticación en aplicaciones de una sola página (SPA) mediante la compatibilidad para la autorización de API. ASP.NET Core Identity para autenticar y almacenar los usuarios se combina con [IdentityServer](https://identityserver.io/) para la implementación de OpenID Connect.
 
-Hemos agregado un nuevo parámetro de autenticación para nuestro Angular y React plantillas que es similar al parámetro de autenticación en nuestras plantillas de páginas de razor y mvc con los valores permiten 'None' y 'Individual'.
+Se agregó un parámetro de autenticación a la **Angular** y **reaccionar** plantillas que es similar al parámetro de la autenticación de proyecto la **aplicación Web (Model-View-Controller)**  (MVC) y **aplicación Web** (las páginas de Razor) plantillas de proyecto. Los valores de parámetros permitidos son **ninguno** y **individuales**. El **React.js y Redux** plantilla de proyecto no es compatible con el parámetro de autenticación en este momento.
 
-## <a name="create-an-angular-app-with-api-authorization-support"></a>Crear una aplicación Angular con compatibilidad con la autorización de API
+## <a name="create-an-app-with-api-authorization-support"></a>Crear una aplicación con el soporte técnico de autorización de API
 
-Para crear una nueva aplicación Angular con compatibilidad para la autenticación y autorización de usuarios, abra un shell de comandos y ejecute el siguiente comando:
+Autorización y autenticación de usuario pueden utilizarse con Angular y React spa. Abra un shell de comandos y ejecute el siguiente comando:
+
+**Angular**:
 
 ```console
 dotnet new angular -o <output_directory_name> -au Individual
 ```
 
-El comando anterior crea una aplicación de ASP.NET Core con un *ClientApp* directorio que contiene la aplicación Angular.
-
-## <a name="create-a-react-app-with-api-authorization-support"></a>Crear una aplicación de React con compatibilidad con la autorización de API
-
-Para crear una nueva aplicación React con compatibilidad para la autenticación y autorización de usuarios, abra un shell de comandos y ejecute el siguiente comando:
+**React**:
 
 ```console
 dotnet new react -o <output_directory_name> -au Individual
 ```
 
-El comando anterior crea una aplicación de ASP.NET Core con un *ClientApp* directorio que contiene la aplicación React.
+El comando anterior crea una aplicación de ASP.NET Core con un *ClientApp* directorio que contiene la SPA.
 
 ## <a name="general-description-of-the-aspnet-core-components-of-the-app"></a>Descripción general de los componentes de ASP.NET Core de la aplicación
 
-Hay varias adiciones al proyecto cuando se incluye compatibilidad con la autenticación:
+Las secciones siguientes describen las adiciones al proyecto cuando se incluye compatibilidad con la autenticación:
 
 ### <a name="startup-class"></a>Clase de inicio
 
-Si observamos el código de la clase Startup a continuación podemos agradecemos las inclusiones siguientes:
-* Dentro de `public void ConfigureServices(IServiceCollection services)`:
-  * Identidad con la interfaz de usuario predeterminada.
+La `Startup` clase tiene las siguientes adiciones:
+
+* Dentro de la `Startup.ConfigureServices` método:
+  * Identidad con la interfaz de usuario predeterminada:
+
     ```csharp
     services.AddDbContext<ApplicationDbContext>(options =>
-      options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+        options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
     services.AddDefaultIdentity<ApplicationUser>()
-      .AddDefaultUI(UIFramework.Bootstrap4)
-      .AddEntityFrameworkStores<ApplicationDbContext>();
+        .AddDefaultUI(UIFramework.Bootstrap4)
+        .AddEntityFrameworkStores<ApplicationDbContext>();
     ```
-  * Servidor de identidad con un método de aplicación auxiliar AddApiAuthorization adicional que las instalaciones algunos predeterminada ASP.NET convenciones sobre el servidor de identidades.
+
+  * IdentityServer con más `AddApiAuthorization` método auxiliar que configuraciones algunas convenciones de ASP.NET Core en la parte superior IdentityServer de predeterminado:
+
     ```csharp
     services.AddIdentityServer()
-      .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+        .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
     ```
-  * Autenticación con un método auxiliar AddIdentityServerJwt adicional que configure la aplicación para validar los tokens de Jwt generados por Identity Server. 
+
+  * Autenticación con otros `AddIdentityServerJwt` método auxiliar que configura la aplicación para validar los tokens JWT generado por IdentityServer:
+
     ```csharp
     services.AddAuthentication()
-      .AddIdentityServerJwt();
+        .AddIdentityServerJwt();
     ```
-* Dentro de `public void Configure(IApplicationBuilder app)`:
-  * El middleware de autenticación que se encarga de validar las credenciales en la solicitud entrante y establecer el usuario en el contexto de solicitud.
+
+* Dentro de la `Startup.Configure` método:
+  * El middleware de autenticación que se encarga de validar las credenciales de la solicitud y establecer el usuario en el contexto de solicitud:
+
     ```csharp
     app.UseAuthentication();
     ```
-  * El middleware de servidor de identidades que expone los puntos de conexión de OpenID Connect.
+
+  * El middleware IdentityServer que expone los puntos de conexión de Open ID Connect:
+
     ```csharp
     app.UseIdentityServer();
     ```
 
-### <a name="addapiauthorization"></a>AddApiAuthorization 
-Este método auxiliar configura el servidor de identidades para utilizar nuestra configuración admitida. Servidor de identidades es un marco muy eficaz y extensible para controlar cuestiones de seguridad de la aplicación pero al mismo tiempo que expone mucha complejidad que no tenemos que saber acerca de los escenarios más comunes, así que elegimos un conjunto de convenciones y Opciones de configuración que consideramos que son un buen punto de partida. Una vez que cambian las necesidades de su autenticación toda la funcionalidad de Identity Server sigue estando disponible para usted para que pueda personalizar para satisfacer sus necesidades.
+### <a name="addapiauthorization"></a>AddApiAuthorization
+
+Este método auxiliar configura IdentityServer para usar la configuración admitida. IdentityServer es un marco eficaz y extensible para controlar cuestiones de seguridad de la aplicación. Al mismo tiempo, que expone una complejidad innecesaria para los escenarios más comunes. Por lo tanto, se proporciona un conjunto de convenciones y las opciones de configuración que se consideran un buen punto de partida. Una vez que la autenticación de sus necesidades evolucionan, toda la eficacia de IdentityServer sigue estando disponible para personalizar la autenticación para satisfacer sus necesidades.
 
 ### <a name="addidentityserverjwt"></a>AddIdentityServerJwt
-Este método auxiliar configura una combinación de directivas para la aplicación como el controlador de autenticación predeterminado. La directiva está configurada para permitir que la identidad de controlar todas las solicitudes que se envían a cualquier subtrazado en el espacio de direcciones url de identidad "/ Identity" y para permitirle controlar todas las demás solicitudes a la JwtBearerHandler.
-Addionally este método registra un `<<ApplicationName>>API` recurso de la Api con el servidor de identidad con un ámbito predeterminado de `<<ApplicationName>>API` y configura el middleware del token de portador de JWT para validar los tokens emitidos por Identity Server para la aplicación.
+
+Este método auxiliar configura una combinación de directivas para la aplicación como el controlador de autenticación predeterminado. La directiva está configurada para permitir que la identidad de controlar todas las solicitudes que se enrutan a cualquier subtrazado en el espacio de direcciones URL de identidad "/ identidad". El `JwtBearerHandler` controla todas las demás solicitudes. Además, este método registra un `<<ApplicationName>>API` recurso de API con IdentityServer con un ámbito predeterminado de `<<ApplicationName>>API` y configura el middleware del token de portador de JWT para validar los tokens emitidos por IdentityServer para la aplicación.
 
 ### <a name="sampledatacontroller"></a>SampleDataController
-Si observamos el archivo Controllers\SampleDataController.cs nos podemos observar la `[Authorize]` atributo aplicado a la clase que indica que el usuario debe tener autorización en función de la directiva predeterminada para tener acceso al recurso. La directiva de autorización predeterminado ocurre deberá estar configurado para usar el esquema de autenticación predeterminado que se configura de forma `AddIdentityServerJwt` a la combinación de directivas que se mencionó anteriormente, que hace el controlador JwtBearer configurado por el método de este tipo auxiliar del controlador predeterminado para solicitudes a la aplicación.
+
+En el *Controllers\SampleDataController.cs* de archivo, tenga en cuenta el `[Authorize]` atributo aplicado a la clase que indica que el usuario debe tener autorización en función de la directiva predeterminada para tener acceso al recurso. La directiva de autorización predeterminado ocurre deberá estar configurado para usar el esquema de autenticación predeterminado, que se configura de forma `AddIdentityServerJwt` en el esquema de la directiva que se ha mencionado anteriormente, que hace el `JwtBearerHandler` configurado por el método de este tipo auxiliar del controlador predeterminado para solicitudes a la aplicación.
 
 ### <a name="applicationdbcontext"></a>ApplicationDbContext
-Si observamos el archivo en Data\ApplicationDbContext.cs podemos ver el mismo DbContext que usamos en identidad con la excepción que extiende ApiAuthorizationDbContext (una clase más derivada de IdentityDbContext) para incluir el esquema para el servidor de identidades.
-Si queremos control total sobre el esquema de base de datos simplemente podemos heredar de una de las clases DbContext de identidad disponibles y configurar el contexto para incluir el esquema de identidad mediante una llamada a `builder.ConfigurePersistedGrantContext(_operationalStoreOptions.Value)` en el `OnModelCreating` método.
+
+En el *Data\ApplicationDbContext.cs* de archivos, haremos lo mismo `DbContext` identidad se usa con la excepción que extiende `ApiAuthorizationDbContext` (más derivado de clase de `IdentityDbContext`) para incluir el esquema para IdentityServer.
+
+Para tener control total sobre el esquema de base de datos, hereda de una de las identidades disponibles `DbContext` clases y configurar el contexto para incluir el esquema de identidad mediante una llamada a `builder.ConfigurePersistedGrantContext(_operationalStoreOptions.Value)` en el `OnModelCreating` método.
 
 ### <a name="oidcconfigurationcontroller"></a>OidcConfigurationController
-Si nos centramos en el archivo Controllers\OidcConfigurationController.cs podemos ver el punto de conexión que nos breves para atender los parámetros OIDC que el cliente debe usar.
+
+En el *Controllers\OidcConfigurationController.cs* de archivo, tenga en cuenta el punto de conexión que se aprovisiona para dar servicio a los parámetros OIDC que el cliente debe usar.
 
 ### <a name="appsettingsjson"></a>appsettings.json
-Si observamos el archivo appsettings.json en la raíz del proyecto, podemos ver un nuevo `IdentityServer` configurado de sección que describe la lista de clientes y podemos ver que hay un solo cliente. El nombre del cliente corresponde al nombre de la aplicación y se puede asignar por convención para el parámetro de ClientId de oAuth. El perfil indica qué tipo de aplicación, vamos a configurar y se usa internamente para las convenciones de la unidad que simplifican el proceso de configuración para el servidor. Hay disponibles varios perfiles, se explica en la sección siguiente.
+
+En el *appsettings.json* archivo de la raíz del proyecto, hay un nuevo `IdentityServer` configurado de sección que describe la lista de clientes. En el ejemplo siguiente, hay un solo cliente. El nombre del cliente corresponde con el nombre de la aplicación y se asigna por convención para el OAuth `ClientId` parámetro. El perfil indica el tipo de aplicación que se está configurando. Se usa internamente para las convenciones de la unidad que simplifican el proceso de configuración para el servidor. Hay varios perfiles disponibles, como se explica en el [perfiles de aplicación](#application-profiles) sección.
 
 ```json
 "IdentityServer": {
@@ -106,81 +122,94 @@ Si observamos el archivo appsettings.json en la raíz del proyecto, podemos ver 
 ```
 
 ### <a name="appsettingsdevelopmentjson"></a>appsettings.Development.json
-Si miramos a appsettings. Archivo Development.JSON en la raíz del proyecto, podemos ver un nuevo `IdentityServer` sección que describe la clave se usa para firmar los tokens. Cuando se implementa en producción debe una clave se aprovisione e implemente junto con la aplicación tal como se explica más adelante.
+
+En el *appsettings. Development.JSON* archivo de la raíz del proyecto, hay un `IdentityServer` sección que describe la clave utilizada para firmar los tokens. Al implementar en producción, debe una clave se aprovisione e implemente junto con la aplicación, como se explica en el [implementar en producción](#deploy-to-production) sección.
 
 ```json
-  "IdentityServer": {
-    "Key": {
-      "Type": "Development"
-    }
+"IdentityServer": {
+  "Key": {
+    "Type": "Development"
   }
 }
 ```
 
-## <a name="general-description-of-the-angular-application"></a>Descripción general de la aplicación Angular
-La compatibilidad para la autenticación y autorización de API en la plantilla de Angular reside en su propio módulo de Angular. Bajo ClientApp\src\api autorización y se compone de los siguientes elementos:
+## <a name="general-description-of-the-angular-app"></a>Descripción general de la aplicación Angular
+
+Admiten la autenticación y autorización de API en el Angular plantilla reside en su propio módulo Angular en el *ClientApp\src\api autorización* directory. El módulo se compone de los siguientes elementos:
+
 * 3 componentes:
-  * Componente de inicio de sesión: Controla el flujo de inicio de sesión para la aplicación.
-  * Componente de cierre de sesión: Controla el flujo de cierre de sesión para la aplicación.
-  * Componente de menú de inicio de sesión: Un widget que muestra el usuario autenticado actual con vínculos para administrar el perfil de usuario y cierre de sesión o los vínculos para iniciar sesión o registrarse cuando el usuario no está autenticado.
+  * *login.component.ts*: Controla el flujo de inicio de sesión de la aplicación.
+  * *logout.component.ts*: Controla el flujo de cierre de sesión de la aplicación.
+  * *login-menu.component.ts*: Un widget que muestra uno de los siguientes conjuntos de vínculos:
+    * Administración de perfiles de usuario y vínculos cuando el usuario se autentica al cerrar la sesión.
+    * Registro y registro en los vínculos cuando el usuario no está autenticado.
 * Una restricción de ruta `AuthorizeGuard` que pueden agregarse a las rutas y requiere que el usuario se autentique antes de visitar la ruta.
-* Un interceptor http `AuthorizeInterceptor` que asocia el token de acceso a las solicitudes HTTP salientes destinadas a la API cuando se autentica el usuario.
-* Un servicio `AuthorizeService` que controla los detalles de nivel inferior del proceso de autenticación y expone información sobre el usuario autenticado para el resto de la aplicación para su uso.
-* Un módulo de angular que define las rutas asociadas con las partes de la autenticación de la aplicación y expone el componente de menú de inicio de sesión, el interceptor, la protección y el servicio para el consumo del resto de la aplicación.
+* Un interceptor HTTP `AuthorizeInterceptor` que asocia el token de acceso a las solicitudes HTTP salientes destinadas a la API cuando se autentica el usuario.
+* Un servicio `AuthorizeService` que controla los detalles de bajo nivel del proceso de autenticación y expone información sobre el usuario autenticado para el resto de la aplicación para su uso.
+* Un módulo Angular que define las rutas asociadas a las partes de la autenticación de la aplicación. Expone el componente de menú de inicio de sesión, el interceptor, la protección y el servicio para el consumo del resto de la aplicación.
 
-## <a name="general-description-of-the-react-application"></a>Descripción general de la aplicación React
-La compatibilidad para la autenticación y autorización de API en la vida de la plantilla de React en ClientApp\src\components\api authorization\ y se compone de los siguientes elementos:
+## <a name="general-description-of-the-react-app"></a>Descripción general de la aplicación React
+
+La compatibilidad para la autenticación y autorización de API en la plantilla de React reside en el *ClientApp\src\components\api autorización* directory. Se compone de los siguientes elementos:
+
 * 4 componentes:
-  * Componente de inicio de sesión: Controla el flujo de inicio de sesión para la aplicación.
-  * Componente de cierre de sesión: Controla el flujo de cierre de sesión para la aplicación.
-  * Componente de menú de inicio de sesión: Un widget que muestra el usuario autenticado actual con vínculos para administrar el perfil de usuario y cierre de sesión o los vínculos para iniciar sesión o registrarse cuando el usuario no está autenticado.
-  * AuthorizeRoute: Un componente de ruta que requiere que el usuario se autentique antes de representar el componente indicado en el parámetro de componente.
-  * Un exportado `authService` instancia de clase `AuthorizeService` que controla los detalles de nivel inferior del proceso de autenticación y expone información sobre el usuario autenticado para el resto de la aplicación para su uso.
+  * *Login.js*: Controla el flujo de inicio de sesión de la aplicación.
+  * *Logout.js*: Controla el flujo de cierre de sesión de la aplicación.
+  * *LoginMenu.js*: Un widget que muestra uno de los siguientes conjuntos de vínculos:
+    * Administración de perfiles de usuario y vínculos cuando el usuario se autentica al cerrar la sesión.
+    * Registro y registro en los vínculos cuando el usuario no está autenticado.
+  * *AuthorizeRoute.js*: Indica un componente de ruta que requiere que el usuario se autentique antes de representar el componente en el `Component` parámetro.
+* Un exportado `authService` instancia de clase `AuthorizeService` que controla los detalles de bajo nivel del proceso de autenticación y expone información sobre el usuario autenticado para el resto de la aplicación para su uso.
 
-Ahora que hemos visto los componentes principales de la solución, podemos echamos un vistazo específico en distintos escenarios para la aplicación:
+Ahora que ha visto los componentes principales de la solución, se puede echar un vistazo más profundo en distintos escenarios para la aplicación.
 
-## <a name="requiring-authorization-on-a-new-api"></a>Requerir autorización sobre una nueva API
-El sistema está configurado de fábrica que resulte trivial para solicitar autorización para las nuevas API. Para ello, basta con crear un nuevo controlador y agregue el `[Authorize]` atributo a la clase de controlador o a cualquier acción en el controlador.
+## <a name="require-authorization-on-a-new-api"></a>Requerir autorización sobre una nueva API
 
-## <a name="protecting-a-client-side-route-angular"></a>Protección de una ruta del lado cliente (Angular)
-Protección de una ruta de lado cliente se realiza mediante la adición de la protección de autorizar a la lista de restricciones que se ejecutará cuando la configuración de una ruta. Por ejemplo puede ver cómo se configura la ruta de la captura de datos dentro del módulo angular de la aplicación principal:
+De forma predeterminada, el sistema está configurado para requerir autorización fácilmente para las nuevas API. Para ello, cree un nuevo controlador y agregue el `[Authorize]` atributo a la clase de controlador o a cualquier acción en el controlador.
 
-```ts
+## <a name="protect-a-client-side-route-angular"></a>Proteger una ruta del lado cliente (Angular)
+
+Protección de una ruta del lado cliente se realiza mediante la adición de la protección de autorizar a la lista de restricciones que se ejecutará cuando la configuración de una ruta. Por ejemplo, puede ver cómo el `fetch-data` ruta está configurada en el módulo de aplicación principal Angular:
+
+```typescript
 RouterModule.forRoot([
   // ...
   { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
 ])
 ```
 
-Es importante mencionar que la protección de una ruta no protege el punto de conexión real (que todavía se requiere un `[Authorize]` atributo aplicado a él), pero que solo se evita que el usuario de navegación a la ruta del lado cliente determinado cuando no está autenticada.
+Es importante mencionar que la protección de una ruta no protege el punto de conexión real (que todavía se requiere un `[Authorize]` atributo aplicado a él), pero que solo se evita que el usuario de navegación a la ruta del lado cliente dada al que no está autenticado.
 
 ## <a name="authenticate-api-requests-angular"></a>Autenticar solicitudes de API (Angular)
 
-Autenticar solicitudes a las API hospedadas a lo largo del lado de que la aplicación se realiza automáticamente mediante el uso del interceptor de cliente HTTP definido por la aplicación.
+Autenticar solicitudes a las API hospedadas por la aplicación se realiza automáticamente mediante el uso del interceptor de cliente HTTP definido por la aplicación.
 
 ## <a name="protect-a-client-side-route-react"></a>Proteger una ruta del lado cliente (React)
 
-Protección de una ruta de lado cliente se realiza mediante el componente AuthorizeRoute en lugar del componente de ruta sin formato. Por ejemplo puede ver cómo se configura la ruta de la captura de datos dentro del componente de aplicación:
+Proteger una ruta del lado cliente mediante el `AuthorizeRoute` componente en lugar de con el valor plain `Route` componente. Por ejemplo, observe cómo la `fetch-data` ruta está configurada en el `App` componente:
 
 ```jsx
 <AuthorizeRoute path='/fetch-data' component={FetchData} />
 ```
 
-Es importante mencionar que la protección de una ruta no protege el punto de conexión real (que todavía se requiere un `[Authorize]` atributo aplicado a él), pero que solo se evita que el usuario de navegación a la ruta del lado cliente determinado cuando no está autenticada.
+Protección de una ruta:
+
+* No protege el punto de conexión real (que todavía se requiere un `[Authorize]` atributo aplicado a él).
+* Solo impide al usuario navegar a la ruta del lado cliente dada al que no está autenticado.
 
 ## <a name="authenticate-api-requests-react"></a>Autenticar solicitudes de API (React)
 
-Autenticar las solicitudes con react se realiza mediante la importación de la primera la `authService` instancia desde el `AuthorizeService` y, a continuación, recuperar el token de acceso de la authService y conectarlo a la solicitud, tal como se muestra a continuación. En los componentes de react normalmente esto se hace en el método de ciclo de vida de componentDidMount o como resultado de una interacción del usuario.
+Autenticar las solicitudes con React se realiza mediante la importación de la primera la `authService` instancia desde el `AuthorizeService`. El token de acceso se recupera de la `authService` y se adjunta a la solicitud, tal como se muestra a continuación. En los componentes de React, este trabajo se realiza normalmente en el `componentDidMount` método del ciclo de vida o que el resultado de una interacción del usuario.
 
 ### <a name="import-the-authservice-into-your-component"></a>Importar el authService su componente
 
-```js
+```javascript
 import authService from './api-authorization/AuthorizeService'
 ```
 
 ### <a name="retrieve-and-attach-the-access-token-to-the-response"></a>Recuperar y adjunte el token de acceso a la respuesta
 
-```js
+```javascript
 async populateWeatherData() {
   const token = await authService.getAccessToken();
   const response = await fetch('api/SampleData/WeatherForecasts', {
@@ -191,99 +220,116 @@ async populateWeatherData() {
 }
 ```
 
-## <a name="deploy-into-production"></a>Implementar en producción
+## <a name="deploy-to-production"></a>Implementar en producción
 
-Para implementar la aplicación en producción, es necesario aprovisionar varios recursos:
-* Concede a una base de datos para almacenar las cuentas de usuario de identidad y el servidor de identidad.
+Para implementar la aplicación en producción, deben aprovisionar los recursos siguientes:
+
+* Una base de datos para almacenar las cuentas de usuario de identidad y las concesiones IdentityServer.
 * Un certificado de producción que se usará para firmar los tokens.
   * No hay ningún requisito específico para este certificado; puede ser un certificado autofirmado o un certificado a través de una entidad CA.
-  * Se puede generar a través de herramientas estándares, como powershell o openssl.
-  * Puede ser instalado en el almacén de certificados en los equipos de destino o implementar como un archivo pfx con una contraseña segura.
+  * Se puede generar a través de herramientas estándares, como PowerShell o OpenSSL.
+  * Puede ser instalado en el almacén de certificados en los equipos de destino o implementar como un *.pfx* archivo con una contraseña segura.
 
-### <a name="example-deploy-into-azure-websites"></a>Ejemplo: Implementar en sitios Web de Azure
+### <a name="example-deploy-to-azure-websites"></a>Ejemplo: Implemente en Azure Websites
 
-En esta sección vamos a implementar la aplicación en Azure websites que usan un certificado almacenado en el almacén de certificados. Es necesario modificar la aplicación para cargar un certicate del almacén de certificados. Para ello, nuestro plan de app service debe ser al menos en el nivel estándar cuando se configura en un paso posterior. En nuestra aplicación, basta con modificar la sección IdentityServer en appsettings.json para incluir los detalles de la clave:
+Esta sección describe la implementación de la aplicación en Azure websites que usan un certificado almacenado en el almacén de certificados. Para modificar la aplicación para cargar un certificado del almacén de certificados, el plan de App Service debe ser al menos el nivel estándar cuando se configura en un paso posterior. En la aplicación *appsettings.json* de archivos, modifique la `IdentityServer` sección deben incluir los detalles claves:
+
 ```json
-  "IdentityServer": {
-    "Key": {
-      "Type": "Store",
-      "StoreName": "My",
-      "StoreLocation": "CurrentUser",
-      "Name": "CN=MyApplication"
+"IdentityServer": {
+  "Key": {
+    "Type": "Store",
+    "StoreName": "My",
+    "StoreLocation": "CurrentUser",
+    "Name": "CN=MyApplication"
+  }
+}
+```
+
+* La propiedad nombre de certificado se corresponde con el distintivo asunto del certificado.
+* La ubicación del almacén representa dónde se debe cargar el certificado desde (`CurrentUser` o `LocalMachine`).
+* El nombre del almacén representa el nombre del almacén de certificados donde se almacena el certificado. En este caso, señala al almacén personal del usuario.
+
+Para implementar en Azure Websites, implemente la aplicación siguiendo los pasos de [implementar la aplicación en Azure](xref:tutorials/publish-to-azure-webapp-using-vs#deploy-the-app-to-azure) para crear los recursos de Azure necesarios e implementar la aplicación en producción.
+
+Después de seguir las instrucciones anteriores, la aplicación se implementa en Azure pero todavía no es funcional. El certificado utilizado por la aplicación todavía debe configurarse. Busque la huella digital del certificado que se usará y siga los pasos descritos en [cargar sus certificados](/azure/app-service/app-service-web-ssl-cert-load#load-your-certificates).
+
+Aunque estos pasos mencionan SSL, no hay un **certificados privados** sección en el portal donde puede cargar el certificado aprovisionado para usar con la aplicación.
+
+Después de este paso, reinicie la aplicación y debe ser funcional.
+
+## <a name="other-configuration-options"></a>Otras opciones de configuración
+
+La compatibilidad para la autorización de API se basa en IdentityServer con un conjunto de convenciones, valores predeterminados y mejoras para simplificar la experiencia para las spa. Obviamente, toda la eficacia de IdentityServer está disponible en segundo plano si las aplicaciones integradas de ASP.NET Core no cubren su escenario. La compatibilidad de ASP.NET Core se centra en las aplicaciones "propias", donde todas las aplicaciones se crean e implementan en nuestra organización. Por lo tanto, no se ofrece soporte técnico para cosas como el consentimiento o la federación. Para esos escenarios, use IdentityServer y seguir su documentación.
+
+### <a name="application-profiles"></a>Perfiles de aplicación
+
+Perfiles de aplicación son configuraciones predefinidas para las aplicaciones que definan sus parámetros. En este momento, se admiten los siguientes perfiles:
+
+* `IdentityServerSPA`: Representa una SPA hospedada por IdentityServer como una sola unidad.
+  * El `redirect_uri` el valor predeterminado es `/authentication/login-callback`.
+  * El `post_logout_redirect_uri` el valor predeterminado es `/authentication/logout-callback`.
+  * El conjunto de ámbitos incluye el `openid`, `profile`y cada ámbito definido para las API en la aplicación.
+  * El conjunto de tipos permitidos de respuesta OIDC es `id_token token` o cada uno de ellos individualmente (`id_token`, `token`).
+  * El modo de respuesta permitidos es `fragment`.
+* `SPA`: Representa una SPA no está hospedada con IdentityServer.
+  * El conjunto de ámbitos incluye el `openid`, `profile`y cada ámbito definido para las API en la aplicación.
+  * El conjunto de tipos permitidos de respuesta OIDC es `id_token token` o cada uno de ellos individualmente (`id_token`, `token`).
+  * El modo de respuesta permitidos es `fragment`.
+* `IdentityServerJwt`: Representa una API que se hospeda junto con IdentityServer.
+  * La aplicación está configurada para tener un ámbito que el valor predeterminado es el nombre de la aplicación.
+* `API`: Representa una API que no está hospedada con IdentityServer.
+  * La aplicación está configurada para tener un ámbito que el valor predeterminado es el nombre de la aplicación.
+
+### <a name="configuration-through-appsettings"></a>Configuración a través de AppSettings
+
+Configure las aplicaciones a través del sistema de configuración agregándolos a la lista de `Clients` o `Resources`.
+
+Configuración de cada cliente `redirect_uri` y `post_logout_redirect_uri` propiedad, como se muestra en el ejemplo siguiente:
+
+```json
+"IdentityServer": {
+  "Clients": {
+    "MySPA": {
+      "Profile": "SPA",
+      "RedirectUri": "https://www.example.com/authentication/login-callback",
+      "LogoutUri": "https://www.example.com/authentication/logout-callback"
     }
   }
 }
 ```
-* La propiedad nombre de certificado se corresponde con el distintivo asunto del certificado.
-* La ubicación del almacén representa dónde se debe cargar el certificado desde (CurrentUrser o LocalMachine).
-* El nombre del almacén representa el nombre del almacén de certificados donde se almacena el certificado, en este caso apunta al almacén personal del usuario.
 
-Para implementar en Azure Websites, implemente la aplicación siguiendo los pasos de [implementar la aplicación en Azure](xref:tutorials/publish-to-azure-webapp-using-vs#deploy-the-app-to-azure) para crear los recursos de Azure necesarios e implementar la aplicación en producción.
+Al configurar los recursos, puede configurar los ámbitos para el recurso tal y como se muestra a continuación:
 
-Una vez hecho esto, la aplicación se implementa en Azure, pero aún no está completamente funcional todavía es necesario configurar el certificado que va a usar la aplicación. Para ello, necesitamos tener la huella digital del certificado que vamos a usar y siga los pasos descritos en [cargar sus certificados](/azure/app-service/app-service-web-ssl-cert-load#load-your-certificates).
-
-Aunque estos pasos mencionan SSL, hay una sección "Certificados privados" en el portal donde podemos cargar nuestro certificado aprovisionado para usar con nuestra aplicación.
-
-Después de este paso, debemos poder reiniciar la aplicación y debe ser completamente funcional.
-
-## <a name="other-configuration-options"></a>Otras opciones de configuración
-La compatibilidad para la autorización de API se basa en Identity Server con un conjunto de convenciones, valores predeterminados y mejoras para simplificar la experiencia para aplicaciones de página única. Obviamente, toda la funcionalidad de Identity Server está disponible en segundo plano si las integraciones que ofrecemos no cubren su escenario. Nuestro soporte técnico se centra en lo que llamamos aplicaciones "propias", donde todas las aplicaciones se crean e implementan en nuestra organización. Por lo tanto no ofrecemos soporte para cosas como el consentimiento o la federación. Para estos escenarios, nuestra recomendación es utilizar servidor de identidades y seguir su documentación.
-
-### <a name="application-profiles"></a>Perfiles de aplicación
-Perfiles de aplicación son configuraciones predefinidas para las aplicaciones que definan sus parámetros. En este momento se admiten dos perfiles:
-* IdentityServerSPA: Representa una aplicación hospedada por Identity Server como una sola unidad.
-  * Los redirect_uri el valor predeterminado es `/authentication/login-callback`.
-  * Valor predeterminado es el post_logout_redirect_uri `/authentication/logout-callback`.
-  * El conjunto de ámbitos incluye el `openid`, `profile`y cada ámbito definido para las API en la aplicación.
-  * El conjunto de tipos permitidos de respuesta OIDC es `id_token token` o cada uno de ellos individualmente (`id_token`, `token`).
-  * El modo de respuesta permitidos es `fragment`.
-* SPA: Representa una aplicación de página única que no esté hospedada con Identity Server.
-  * El conjunto de ámbitos incluye el `openid`, `profile`y cada ámbito definido para las API en la aplicación.
-  * El conjunto de tipos permitidos de respuesta OIDC es `id_token token` o cada uno de ellos individualmente (`id_token`, `token`).
-  * El modo de respuesta permitidos es `fragment`.
-* IdentityServerJwt: Representa una API que se hospeda junto con Identity Server.
-  * La aplicación está configurada para tener un ámbito que el valor predeterminado es el nombre de la aplicación.
-* API: Representa una API que no esté hospedada con Identity Server.
-  * La aplicación está configurada para tener un ámbito que el valor predeterminado es el nombre de la aplicación.
-
-### <a name="configuration-through-appsettings"></a>Configuración a través de AppSettings
-Podemos configurar las aplicaciones a través de nuestro sistema de configuración mediante la adición a la lista de clientes o recursos, respectivamente. 
-
-Al configurar los clientes podemos configurar el `redirect_uri` y `post_logout_redirect_uri` tal como se muestra a continuación:
-```json
-  "IdentityServer": {
-    "Clients": {
-      "MySPA": {
-        "Profile": "SPA",
-        "RedirectUri": "https://www.example.com/authentication/login-callback",
-        "LogoutUri": "https://www.example.com/authentication/logout-callback"
-      }
-    }
-  }
-```
-
-Al configurar recursos podemos configurar los ámbitos para el recurso tal y como se muestra a continuación:
 ```json
 "IdentityServer": {
   "Resources": {
     "MyExternalApi": {
       "Profile": "API",
-      "Scopes": "a b c",
+      "Scopes": "a b c"
     }
   }
 }
 ```
 
 ### <a name="configuration-through-code"></a>Configuración mediante código
-También podemos configurar los clientes y los recursos a través de código mediante una sobrecarga de AddApiAuthorization que realiza una acción para configurar las opciones.
+
+También puede configurar los clientes y los recursos a través de código mediante una sobrecarga de `AddApiAuthorization` que realiza una acción para configurar las opciones.
+
 ```csharp
 AddApiAuthorization<ApplicationUser, ApplicationDbContext>(options =>
 {
     options.Clients.AddSPA(
-        "My SPA",
-        spa => spa.WithRedirectUri("http://www.example.com/authentication/login-callback")
-            .WithLogoutRedirectUri("http://www.example.com/authentication/logout-callback"));
+        "My SPA", spa =>
+        spa.WithRedirectUri("http://www.example.com/authentication/login-callback")
+           .WithLogoutRedirectUri(
+               "http://www.example.com/authentication/logout-callback"));
 
-    options.ApiResources.AddApiResource("MyExternalApi", resource => resource.WithScopes("a", "b", "c"));
+    options.ApiResources.AddApiResource("MyExternalApi", resource =>
+        resource.WithScopes("a", "b", "c"));
 });
 ```
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* <xref:spa/angular>
+* <xref:spa/react>
