@@ -6,12 +6,6 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: cc881ff42d57ab1654f492a70006a995939e4844
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53709559"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -173,7 +167,7 @@ El archivo *Index.cshtml* contiene el siguiente marcado para crear un vínculo d
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-El [asistente de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usado el atributo `asp-route-{value}` para generar un vínculo a la página de edición. El vínculo contiene datos de ruta con el identificador del contacto. Por ejemplo: `http://localhost:5000/Edit/1`.
+El [asistente de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usado el atributo `asp-route-{value}` para generar un vínculo a la página de edición. El vínculo contiene datos de ruta con el identificador del contacto. Por ejemplo: `http://localhost:5000/Edit/1`. Use el atributo `asp-area` para especificar un área. Para obtener más información, vea <xref:mvc/controllers/areas>.
 
 El archivo *Pages/Edit.cshtml*:
 
@@ -401,6 +395,14 @@ Vincular el nombre relativo es útil al crear sitios con una estructura compleja
 
 ::: moniker range=">= aspnetcore-2.1"
 
+Para redirigir a una página en otra [área](xref:mvc/controllers/areas), especifique el área:
+
+```csharp
+RedirectToPage("/Index", new { area = "Services" });
+```
+
+Para obtener más información, vea <xref:mvc/controllers/areas>.
+
 ## <a name="viewdata-attribute"></a>Atributo ViewData
 
 Se pueden pasar datos a una página con [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Los valores de las propiedades de controladores o modelos de página de Razor decoradas con `[ViewData]` se almacenan y cargan desde [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
@@ -547,6 +549,7 @@ services.AddMvc()
 
 * <xref:index>
 * <xref:mvc/views/razor>
+* <xref:mvc/controllers/areas>
 * <xref:tutorials/razor-pages/razor-pages-start>
 * <xref:security/authorization/razor-pages-authorization>
 * <xref:razor-pages/razor-pages-conventions>

@@ -120,7 +120,7 @@ Siga uno de estos procedimientos:
 
 ### <a name="install-the-preview-site-extension"></a>Instalación de la extensión de sitio de versión preliminar
 
-Si tiene algún problema al usar la extensión de sitio de versión preliminar, abra una incidencia en [GitHub](https://github.com/aspnet/azureintegration/issues/new).
+Si tiene algún problema al usar la extensión de sitio de versión preliminar, abra una [incidencia en aspnet/AspNetCore](https://github.com/aspnet/AspNetCore/issues).
 
 1. En Azure Portal, vaya a App Service.
 1. Seleccione la aplicación web.

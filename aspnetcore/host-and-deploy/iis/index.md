@@ -286,7 +286,7 @@ Para obtener una versión anterior del instalador:
 1. Descargue el instalador mediante el vínculo **Runtime & Hosting Bundle** (Runtime y conjunto de hospedaje).
 
 > [!WARNING]
-> Algunos instaladores contienen versiones que han alcanzado el final del ciclo de vida (EOL) y ya no son compatibles con Microsoft. Para obtener más información, consulte la [política de soporte técnico](https://www.microsoft.com/net/download/dotnet-core/2.0).
+> Algunos instaladores contienen versiones que han alcanzado el final del ciclo de vida (EOL) y ya no son compatibles con Microsoft. Para obtener más información, consulte la [política de soporte técnico](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 ### <a name="install-the-hosting-bundle"></a>Instalación del conjunto de hospedaje
 
