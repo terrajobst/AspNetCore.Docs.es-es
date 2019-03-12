@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/07/2018
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 71d68a7ee249c31efa78d98247017e85c009ed8b
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: a6c264e460855c9f1d6f5a363eb7ee2cf69619ee
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997323"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346299"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Simultaneidad (8 de 8)
 
@@ -306,6 +306,9 @@ Vea [Herencia](xref:data/ef-mvc/inheritance) para obtener información sobre có
 
 * [Tokens de simultaneidad en EF Core](/ef/core/modeling/concurrency)
 * [Controlar la simultaneidad en EF Core](/ef/core/saving/concurrency)
+* [Versión de YouTube de este tutorial (gestión de conflictos de simultaneidad)](https://youtu.be/EosxHTFgYps)
+* [Versión en YouTube de este tutorial (parte 2)](https://www.youtube.com/watch?v=kcxERLnaGO0)
+* [Versión en YouTube de este tutorial (parte 3)](https://www.youtube.com/watch?v=d4RbpfvELRs)
 
 > [!div class="step-by-step"]
 > [Anterior](xref:data/ef-rp/update-related-data)

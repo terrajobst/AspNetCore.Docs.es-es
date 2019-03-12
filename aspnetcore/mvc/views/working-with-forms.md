@@ -4,18 +4,18 @@ author: rick-anderson
 description: En este tema se describen los asistentes de etiquetas que se usan en los formularios.
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/11/2019
+ms.date: 02/27/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: cd15c641fbf702071bd57510a1d51737f6ab8e19
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: a0fbeac51bd1bfbc50c4d369a479ce5f3091358b
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099018"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346260"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Asistentes de etiquetas en formularios de ASP.NET Core
 
-Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](https://twitter.com/Dave_Paquette) y [Jerrie Pelser](https://github.com/jerriep)
+Por [Rick Anderson](https://twitter.com/RickAndMSFT), [N. Taylor Mullen](https://github.com/NTaylorMullen), [Dave Paquette](https://twitter.com/Dave_Paquette) y [Jerrie Pelser](https://github.com/jerriep)
 
 En este documento se explica cómo trabajar con formularios y se detallan los elementos HTML que se usan habitualmente en un formulario. El elemento HTML [Form](https://www.w3.org/TR/html401/interact/forms.html) proporciona el mecanismo principal que las aplicaciones web usan a la hora de devolver datos al servidor. La mayor parte de este documento se centra en describir los [asistentes de etiquetas](tag-helpers/intro.md) y cómo pueden servir para crear formularios HTML eficaces de manera productiva. Se recomienda leer [Introduction to Tag Helpers](tag-helpers/intro.md) (Introducción a los asistentes de etiquetas) antes de este documento.
 
@@ -66,6 +66,98 @@ Muchas de las vistas de la carpeta *Views/Account* (que se genera cuando se crea
 
 >[!NOTE]
 >Con las plantillas integradas, `returnUrl` se rellena automáticamente solo cuando alguien intenta obtener acceso a un recurso autorizado, pero no se ha autenticado o no tiene autorización. Si se intenta realizar un acceso no autorizado, el middleware de seguridad redirige a la página de inicio de sesión con `returnUrl` configurado.
+
+## <a name="the-form-action-tag-helper"></a>Asistente de etiquetas de acción de formulario
+
+El asistente de etiquetas de acción de formulario genera el atributo `formaction` en la etiqueta `<button ...>` o `<input type="image" ...>` generadas. El atributo `formaction` controla el lugar donde un formulario envía sus datos. Enlaza con los elementos [\<input>](https://www.w3.org/wiki/HTML/Elements/input) de tipo `image` y los elementos [\<button>](https://www.w3.org/wiki/HTML/Elements/button). El asistente de etiquetas de acción de formulario permite el uso de varios atributos [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-` para controlar qué vínculo `formaction` se genera para el elemento correspondiente.
+
+Atributos [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) admitidos para controlar el valor de `formaction`:
+
+|Atributo|Descripción|
+|---|---|
+|[asp-controller](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-controller)|El nombre del controlador.|
+|[asp-action](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-action)|El nombre del método de acción.|
+|[asp-area](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-area)|El nombre del área.|
+|[asp-page](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|El nombre de la página de Razor.|
+|[asp-page-handler](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|El nombre del controlador de páginas de Razor.|
+|[asp-route](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|El nombre de la ruta.|
+|[asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Un valor único de ruta de dirección URL. Por ejemplo: `asp-route-id="1234"`.|
+|[asp-all-route-data](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|Todos los valores de ruta.|
+|[asp-fragment](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|El fragmento de dirección URL.|
+
+### <a name="submit-to-controller-example"></a>Ejemplo de envío al controlador
+
+El marcado siguiente envía el formulario a la acción `Index` de `HomeController` cuando se selecciona el elemento input o button:
+
+```cshtml
+<form method="post">
+    <button asp-controller="Home" asp-action="Index">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" asp-controller="Home" 
+                                asp-action="Index" />
+</form>
+```
+
+El marcado anterior genera el siguiente código HTML:
+
+```html
+<form method="post">
+    <button formaction="/Home">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" formaction="/Home" />
+</form>
+```
+
+### <a name="submit-to-page-example"></a>Ejemplo de envío a la página
+
+El marcado siguiente envía el formulario a la página de Razor `About`:
+
+```cshtml
+<form method="post">
+    <button asp-page="About">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" asp-page="About" />
+</form>
+```
+
+El marcado anterior genera el siguiente código HTML:
+
+```html
+<form method="post">
+    <button formaction="/About">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" formaction="/About" />
+</form>
+```
+
+### <a name="submit-to-route-example"></a>Ejemplo de envío a la ruta
+
+Tenga en cuenta el punto de conexión `/Home/Test`:
+
+```csharp
+public class HomeController : Controller
+{
+    [Route("/Home/Test", Name = "Custom")]
+    public string Test()
+    {
+        return "This is the test page";
+    }
+}
+```
+
+El marcado siguiente envía el formulario al punto de conexión `/Home/Test`.
+
+```cshtml
+<form method="post">
+    <button asp-route="Custom">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" asp-route="Custom" />
+</form>
+```
+
+El marcado anterior genera el siguiente código HTML:
+
+```html
+<form method="post">
+    <button formaction="/Home/Test">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" formaction="/Home/Test" />
+</form>
+```
 
 ## <a name="the-input-tag-helper"></a>Asistente de etiquetas de entrada (Input)
 

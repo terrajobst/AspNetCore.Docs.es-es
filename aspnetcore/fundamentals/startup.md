@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: cfd0a57d5d0b60862b017a170b6d5cbddf56f15a
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: d629c2f02f9021454d8f8539018f3e2ca4703a00
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56744188"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346403"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Inicio de la aplicación en ASP.NET Core
 
@@ -40,7 +40,7 @@ El host proporciona servicios que están disponibles para el constructor de clas
 Un uso común de la [inserción de dependencias](xref:fundamentals/dependency-injection) en la clase `Startup` consiste en insertar:
 
 * <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment> para configurar servicios según el entorno.
-* <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> para leer la configuración.
+* <xref:Microsoft.Extensions.Configuration.IConfiguration> para leer la configuración.
 * <xref:Microsoft.Extensions.Logging.ILoggerFactory> para crear un registrador en `Startup.ConfigureServices`.
 
 [!code-csharp[](startup/sample_snapshot/Startup2.cs?highlight=7-8)]
@@ -73,7 +73,7 @@ El método <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> se usa par
 
 Las [plantillas de ASP.NET Core](/dotnet/core/tools/dotnet-new) configuran la canalización con compatibilidad para lo siguiente:
 
-* [Página de excepciones para el desarrollador](xref:fundamentals/error-handling#the-developer-exception-page)
+* [Página de excepciones para el desarrollador](xref:fundamentals/error-handling#developer-exception-page)
 * [Controlador de excepciones](xref:fundamentals/error-handling#configure-a-custom-exception-handling-page)
 * [Seguridad de transporte estricta de HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts)
 * [Redireccionamiento de HTTPS](xref:security/enforcing-ssl)

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: cf8733e1e806c4be0c4b217fc45c7a338a03a3ce
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 140f482e136acf4daba1248fecc87e06db6866f3
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207561"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345902"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Lectura de datos relacionados (6 de 8)
 
@@ -330,6 +330,11 @@ Tenga en cuenta que en el código anterior `.AsNoTracking()` se convierte en com
 Pruebe la aplicación. Desde la perspectiva de los usuarios, la aplicación se comporta exactamente igual a la versión anterior.
 
 En el siguiente tutorial se muestra cómo actualizar datos relacionados.
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Versión en YouTube de este tutorial (parte 1)](https://www.youtube.com/watch?v=PzKimUDmrvE)
+* [Versión en YouTube de este tutorial (parte 2)](https://www.youtube.com/watch?v=xvDDrIHv5ko)
 
 >[!div class="step-by-step"]
 >[Anterior](xref:data/ef-rp/complex-data-model)

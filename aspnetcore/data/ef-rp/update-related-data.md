@@ -5,12 +5,12 @@ description: En este tutorial, actualizará datos relacionados mediante la actua
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 4306118240c052585a5c2eeb2053ce03534b547c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: c3dbfe57a832ba63c5da2f89c0d29e443a1277a7
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207548"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345767"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Actualización de datos relacionados (7 de 8)
 
@@ -224,6 +224,11 @@ En el código anterior se realizan los cambios siguientes:
 * Se usa la carga diligente para la propiedad de navegación `CourseAssignments`. Es necesario incluir `CourseAssignments` o no se eliminarán cuando se elimine el instructor. Para evitar la necesidad de leerlos, configure la eliminación en cascada en la base de datos.
 
 * Si el instructor que se va a eliminar está asignado como administrador de cualquiera de los departamentos, quita la asignación de instructor de esos departamentos.
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Versión en YouTube de este tutorial (parte 1)](https://www.youtube.com/watch?v=Csh6gkmwc9E)
+* [Versión en YouTube de este tutorial (parte 2)](https://www.youtube.com/watch?v=mOAankB_Zgc)
 
 > [!div class="step-by-step"]
 > [Anterior](xref:data/ef-rp/read-related-data)

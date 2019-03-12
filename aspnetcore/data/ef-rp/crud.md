@@ -5,12 +5,12 @@ description: Se muestra cómo crear, leer, actualizar y eliminar con EF Core
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 4af16bdf3928609214c1255cdd411312c8b7d3f3
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: adb281277599456356251c6ee30772a25f14ac58
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477441"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346059"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: CRUD (2 de 8)
 
@@ -191,9 +191,9 @@ Una entidad puede estar en uno de los [estados siguientes](/dotnet/api/microsoft
 
 * `Unchanged`: no es necesario guardar cambios con esta entidad. Una entidad tiene este estado cuando se lee desde la base de datos.
 
-* `Modified`: se han modificado algunos o todos los valores de propiedad de la entidad. El método `SaveChanges` emite una instrucción UPDATE.
+* `Modified`: Se han modificado algunos o todos los valores de propiedad de la entidad. El método `SaveChanges` emite una instrucción UPDATE.
 
-* `Deleted`: la entidad se ha marcado para su eliminación. El método `SaveChanges` emite una instrucción DELETE.
+* `Deleted`: La entidad se ha marcado para su eliminación. El método `SaveChanges` emite una instrucción DELETE.
 
 * `Detached`: el contexto de base de datos no está realizando el seguimiento de la entidad.
 
@@ -247,6 +247,10 @@ Compruebe que la página de Razor contiene la directiva `@page` correcta. Por ej
 Cada página de Razor debe incluir la directiva `@page`.
 
 ::: moniker-end
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Versión en YouTube de este tutorial](https://www.youtube.com/watch?v=F0SP7Ry4flQ&list=PLnVvOWNfuhGV45HnNgd0vuIIkoQ1UaVBf)
 
 > [!div class="step-by-step"]
 > [Anterior](xref:data/ef-rp/intro)

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: 0c12aa983f01285e27c10bba4e622b2d2ae0a1f2
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
+ms.openlocfilehash: ac9bb9163cb1d5da1017ec204c37f3ac82aaae97
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854450"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346273"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Páginas de Razor con Entity Framework Core en ASP.NET Core: Tutorial 1 de 8
 
@@ -315,6 +315,10 @@ Para obtener más información sobre la programación asincrónica en .NET, vea 
 En el siguiente tutorial, se examinan las operaciones CRUD (crear, leer, actualizar y eliminar) básicas.
 
 ::: moniker-end
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Versión en YouTube de este tutorial](https://www.youtube.com/watch?v=P7iTtQnkrNs)
 
 > [!div class="step-by-step"]
 > [Siguiente](xref:data/ef-rp/crud)

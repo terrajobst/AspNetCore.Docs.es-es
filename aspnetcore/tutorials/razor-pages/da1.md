@@ -5,12 +5,12 @@ description: Sepa cómo actualizar las páginas generadas en una aplicación ASP
 ms.author: riande
 ms.date: 12/20/2018
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: 62385f33dc86609726305728fbc19dd9ff27dc87
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 19f54e04e748f5cf0469c2b5428800694d2c9344
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410199"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346111"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Actualizar las páginas generadas en una aplicación ASP.NET Core
 
@@ -130,6 +130,10 @@ Cuando se publica la página Movies/Edit:
 Los métodos HTTP GET de las páginas de índice, creación y eliminación de Razor siguen un patrón similar. El método HTTP POST `OnPostAsync` de la página de creación de Razor sigue un patrón similar al del método `OnPostAsync` de la página de edición de Razor.
 
 La búsqueda se incluye en el tutorial siguiente.
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Versión en YouTube de este tutorial](https://youtu.be/yLnnleREMtQ)
 
 > [!div class="step-by-step"]
 > [Anterior: Trabajo con una base de datos](xref:tutorials/razor-pages/sql)

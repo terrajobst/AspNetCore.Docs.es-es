@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre cómo solucionar errores comunes al hospedar aplicaciones ASP.NET Core en Azure App Service e IIS.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/21/2019
+ms.date: 02/28/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: d1cdac4d27ee1bc3ebb4329c1bbd3bdacb34a58c
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 1c8cb31b306b38ec17596af0a84f22ca0e3d911c
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743952"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346231"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Referencia de errores comunes de Azure App Service e IIS con ASP.NET Core
 
@@ -56,6 +56,39 @@ Si el sistema no tiene acceso a Internet al [instalar la agrupación de hospedaj
 Solución del problema:
 
 Los archivos que no son de SO del directorio **C:\Windows\SysWOW64\inetsrv** no se conservan durante una actualización del sistema operativo. Este problema se produce si ha instalado el módulo ASP.NET Core antes de una actualización del sistema operativo y, a continuación, ejecuta cualquier grupo de aplicaciones en modo de 32 bits después de una actualización del sistema operativo. Después de actualizar el sistema operativo, repare el módulo ASP.NET Core. Consulte [Instalación de la agrupación de hospedaje de .NET Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Seleccione **Reparar** cuando se ejecute el instalador.
+
+## <a name="missing-site-extension-32-bit-x86-and-64-bit-x64-site-extensions-installed-or-wrong-process-bitness-set"></a>Falta la extensión de sitio, se han instalado extensiones de sitio de 32 bits (x86) y 64 bits (x64) o se ha definido un valor de bits de proceso incorrecto
+
+*Se aplica a las aplicaciones hospedadas por Azure App Services.*
+
+* **Explorador:** Error HTTP 500.0: error de carga del controlador en proceso ANCM 
+
+* **Registro de aplicación:** No se ha podido invocar a hostfxr para encontrar el controlador de la solicitud en proceso ni se han encontrado dependencias nativas. No se ha podido encontrar el controlador de la solicitud en proceso. Resultado obtenido al invocar a hostfxr: No se ha podido encontrar ninguna versión de Framework compatible. El marco especificado "Microsoft.AspNetCore.App", versión "{VERSION}-preview-\*" no se ha podido encontrar. No se pudo iniciar la aplicación "/LM/W3SVC/1416782824/ROOT", código de error "0x8000ffff".
+
+* **Registro de stdout del módulo de ASP.NET Core:** No se ha podido encontrar ninguna versión de Framework compatible. El marco especificado "Microsoft.AspNetCore.App", versión "{VERSION}-preview-\*" no se ha podido encontrar.
+
+::: moniker range=">= aspnetcore-2.2"
+
+* **Registro de depuración del módulo de ASP.NET Core:** No se ha podido invocar a hostfxr para encontrar el controlador de la solicitud en proceso ni se han encontrado dependencias nativas. Lo más probable es que esto signifique que la aplicación no está configurada correctamente. Compruebe las versiones de Microsoft.NetCore.App y de Microsoft.AspNetCore.App que la aplicación tiene como destino y que están instaladas en el equipo. Se ha devuelto un valor HRESULT con errores: 0x8000ffff. No se ha podido encontrar el controlador de la solicitud en proceso. No se ha podido encontrar ninguna versión de Framework compatible. El marco especificado "Microsoft.AspNetCore.App", versión "{VERSION}-preview-\*" no se ha podido encontrar.
+
+::: moniker-end
+
+Solución del problema:
+
+* Si ejecuta la aplicación en un entorno de ejecución en versión preliminar, instale la extensión de sitio de 32 bits (x86) **o** de 64 bits (x64) que coincida con el valor de bits de la aplicación y la versión del entorno de ejecución de la aplicación. **No instale al mismo tiempo ambas extensiones o varias versiones del entorno de ejecución de la extensión.**
+
+  * ASP.NET Core {RUNTIME VERSION} (x86) Runtime
+  * ASP.NET Core {RUNTIME VERSION} (x64) Runtime
+
+  Reinicie la aplicación. Espere unos segundos a que finalice la operación. 
+
+* Si ejecuta la aplicación en un entorno de ejecución en versión preliminar y están instaladas las [extensiones de sitio](xref:host-and-deploy/azure-apps/index#install-the-preview-site-extension) de 32 bits (x86) y 64 bits (x64), desinstale la extensión de sitio que no coincida con el valor de bits de la aplicación. A continuación, reinicie la aplicación. Espere unos segundos a que finalice la operación.
+
+* Si va a ejecutar la aplicación en un entorno de ejecución en versión preliminar y el valor de bits de la extensión de sitio coincide con el de la aplicación, confirme que la *versión del entorno de ejecución* de la extensión de sitio coincide con la versión del entorno de ejecución de la aplicación.
+
+* Confirme que el valor de **Plataforma** de la aplicación en **Configuración de la aplicación** coincide con el valor de bits de la aplicación.
+
+Para obtener más información, vea <xref:host-and-deploy/azure-apps/index#install-the-preview-site-extension>.
 
 ## <a name="an-x86-app-is-deployed-but-the-app-pool-isnt-enabled-for-32-bit-apps"></a>Se ha implementado una aplicación x86, pero el grupo de aplicaciones no está habilitado para aplicaciones de 32 bits
 
