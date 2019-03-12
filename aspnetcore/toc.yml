@@ -8,7 +8,7 @@ items:
   - uid: fundamentals/choose-between-aspnet-and-aspnetcore
     name: Comparación de ASP.NET Core y ASP.NET
   - name: Comparación de .NET Core y .NET Framework
-    href: /dotnet/standard/choosing-core-framework-server
+    href: /dotnet/standard/choosing-core-framework-server?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
 - uid: getting-started
   name: Primeros pasos
 - name: Novedades
@@ -36,12 +36,52 @@ items:
       displayName: tutorial
   - name: Aplicaciones web
     items:
-    - uid: tutorials/razor-pages/index
-      name: Páginas de Razor
+    - name: Páginas de Razor
       displayName: tutorial
-    - uid: tutorials/first-mvc-app/index
-      name: MVC
+      items:
+      - uid: tutorials/razor-pages/index
+        name: Información general
+      - uid: tutorials/razor-pages/razor-pages-start
+        name: Primeros pasos
+      - uid: tutorials/razor-pages/model
+        name: Adición de un modelo
+      - uid: tutorials/razor-pages/page
+        name: Scaffolding
+      - uid: tutorials/razor-pages/sql
+        name: Trabajar con una base de datos
+      - uid: tutorials/razor-pages/da1
+        name: Actualización de las páginas
+      - uid: tutorials/razor-pages/search
+        name: Adición de búsqueda
+      - uid: tutorials/razor-pages/new-field
+        name: Agregar un campo nuevo
+      - uid: tutorials/razor-pages/validation
+        name: Agregar validación
+    - name: MVC
       displayName: tutorial
+      items:
+      - uid: tutorials/first-mvc-app/index
+        name: Información general
+      - uid: tutorials/first-mvc-app/start-mvc
+        name: Primeros pasos
+      - uid: tutorials/first-mvc-app/adding-controller
+        name: Incorporación de un controlador
+      - uid: tutorials/first-mvc-app/adding-view
+        name: Agregar una vista
+      - uid: tutorials/first-mvc-app/adding-model
+        name: Adición de un modelo
+      - uid: tutorials/first-mvc-app/working-with-sql
+        name: Trabajar con una base de datos
+      - uid: tutorials/first-mvc-app/controller-methods-views
+        name: Acciones y vistas del controlador
+      - uid: tutorials/first-mvc-app/search
+        name: Adición de búsqueda
+      - uid: tutorials/first-mvc-app/new-field
+        name: Agregar un campo nuevo
+      - uid: tutorials/first-mvc-app/validation
+        name: Agregar validación
+      - uid: tutorials/first-mvc-app/details
+        name: Examinar los métodos Details y Delete
   - name: Aplicaciones web en tiempo real
     items:
     - uid: tutorials/signalr
@@ -52,17 +92,57 @@ items:
       displayName: tutorial
   - name: Acceso a datos
     items:
-    - uid: data/ef-rp/index
-      name: EF Core con Razor Pages
+    - name: EF Core con Razor Pages
       displayName: tutorial
-    - name: EF Core con MVC, base de datos existente
+      items:
+      - uid: data/ef-rp/index
+        name: Información general
+      - uid: data/ef-rp/intro
+        name: Primeros pasos
+      - uid: data/ef-rp/crud
+        name: Creación, lectura, actualización y eliminación
+      - uid: data/ef-rp/sort-filter-page
+        name: Ordenación, filtrado, paginación y agrupación
+      - uid: data/ef-rp/migrations
+        name: Migraciones
+      - uid: data/ef-rp/complex-data-model
+        name: Creación de un modelo de datos complejo
+      - uid: data/ef-rp/read-related-data
+        name: Lectura de datos relacionados
+      - uid: data/ef-rp/update-related-data
+        name: Actualización de datos relacionados
+      - uid: data/ef-rp/concurrency
+        name: Control de conflictos de simultaneidad
+    - name: EF Core con MVC, base de datos existente
       displayName: tutorial
-      href: /ef/core/get-started/aspnetcore/existing-db
-    - name: EF Core con MVC, base de datos nueva
+      href: /ef/core/get-started/aspnetcore/existing-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+    - name: EF Core con MVC, base de datos nueva
       displayName: tutorial
-      href: /ef/core/get-started/aspnetcore/new-db
-    - uid: data/ef-mvc/index
-      name: EF Core con MVC, tutorial largo
+      href: /ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+    - name: EF Core con MVC, 10 tutoriales
+      items:
+      - uid: data/ef-mvc/index
+        name: Información general
+      - uid: data/ef-mvc/intro
+        name: Primeros pasos
+      - uid: data/ef-mvc/crud
+        name: Creación, lectura, actualización y eliminación
+      - uid: data/ef-mvc/sort-filter-page
+        name: Ordenación, filtrado, paginación y agrupación
+      - uid: data/ef-mvc/migrations
+        name: Migraciones
+      - uid: data/ef-mvc/complex-data-model
+        name: Creación de un modelo de datos complejo
+      - uid: data/ef-mvc/read-related-data
+        name: Lectura de datos relacionados
+      - uid: data/ef-mvc/update-related-data
+        name: Actualización de datos relacionados
+      - uid: data/ef-mvc/concurrency
+        name: Control de conflictos de simultaneidad
+      - uid: data/ef-mvc/inheritance
+        name: Herencia
+      - uid: data/ef-mvc/advanced
+        name: Temas avanzados
 - name: Aspectos básicos
   items:
   - uid: fundamentals/index
@@ -337,7 +417,7 @@ items:
       displayName: signalr
     - name: Servicio Azure SignalR
       displayName: signalr
-      href: /azure/azure-signalr/signalr-overview
+      href: /azure/azure-signalr/signalr-overview?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - uid: signalr/redis-backplane
       name: Backplane de Redis
       displayName: signalr
@@ -370,7 +450,7 @@ items:
 - name: Probar, depurar y solucionar problemas
   items:
   - name: Pruebas unitarias
-    href: /dotnet/core/testing/unit-testing-with-dotnet-test
+    href: /dotnet/core/testing/unit-testing-with-dotnet-test?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
   - uid: test/razor-pages-tests
     name: Pruebas unitarias de Razor Pages
   - uid: mvc/controllers/testing
@@ -378,7 +458,7 @@ items:
   - name: Depuración remota
     href: /visualstudio/debugger/remote-debugging-azure
   - name: Depuración de instantáneas
-    href: /azure/application-insights/app-insights-snapshot-debugger
+    href: /azure/azure-monitor/app/snapshot-debugger?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
   - name: Depuración de instantáneas en Visual Studio
     href: /visualstudio/debugger/debug-live-azure-applications
   - uid: test/integration-tests
@@ -413,11 +493,11 @@ items:
         name: Actualización de datos relacionados
       - uid: data/ef-rp/concurrency
         name: Control de conflictos de simultaneidad
-    - name: EF Core con MVC, base de datos nueva
-      href: /ef/core/get-started/aspnetcore/new-db
-    - name: EF Core con MVC, base de datos existente
-      href: /ef/core/get-started/aspnetcore/existing-db
-    - name: EF Core con MVC, tutorial largo
+    - name: EF Core con MVC, base de datos nueva
+      href: /ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+    - name: EF Core con MVC, base de datos existente
+      href: /ef/core/get-started/aspnetcore/existing-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+    - name: EF Core con MVC, 10 tutoriales
       items:
       - uid: data/ef-mvc/index
         name: Información general
@@ -446,13 +526,13 @@ items:
   - name: Azure Storage con Visual Studio
     items:
     - name: Servicios conectados
-      href: /azure/vs-azure-tools-connected-services-storage
+      href: /visualstudio/azure/vs-azure-tools-connected-services-storage
     - name: Blob Storage
-      href: /azure/vs-storage-aspnet5-getting-started-blobs/
+      href: /azure/visual-studio/vs-storage-aspnet5-getting-started-blobs?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - name: Queue Storage
-      href: /azure/vs-storage-aspnet5-getting-started-queues/
+      href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - name: Table Storage
-      href: /azure/vs-storage-aspnet5-getting-started-tables/
+      href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
 - name: Desarrollo del lado del cliente
   items:
   - name: Componentes de Razor
@@ -562,10 +642,10 @@ items:
       displayName: azure, deploy, publish
     - name: Publicar con Visual Studio para Mac
       displayName: azure, deploy, publish
-      href: /visualstudio/mac/publish-app-svc
+      href: /visualstudio/mac/publish-app-svc?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - name: Publicación con herramientas de la CLI
       displayName: azure, deploy, publish
-      href: /azure/app-service/app-service-web-tutorial-dotnetcore-sqldb
+      href: /azure/app-service/app-service-web-tutorial-dotnetcore-sqldb?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - uid: host-and-deploy/azure-apps/azure-continuous-deployment
       name: Publicación con Visual Studio y Git
       displayName: azure, deploy, publish
@@ -654,7 +734,7 @@ items:
       displayName: deploy, publish, docker
     - name: Publicación en una imagen de Docker
       displayName: deploy, publish, docker
-      href: /azure/vs-azure-tools-docker-hosting-web-apps-in-docker
+      href: /visualstudio/containers/vs-azure-tools-docker-hosting-web-apps-in-docker
     - name: Imágenes de Docker de muestra
       displayName: deploy, publish, docker
       href: https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md
@@ -669,7 +749,7 @@ items:
     displayName: deploy, publish
   - name: Publicar en carpeta de Visual Studio para Mac
     displayName: deploy, publish
-    href: /visualstudio/mac/publish-folder
+    href: /visualstudio/mac/publish-folder?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
   - uid: host-and-deploy/directory-structure
     name: Estructura de directorios
     displayName: deploy, publish
@@ -754,7 +834,7 @@ items:
     - name: Protección de aplicaciones de ASP.NET Core con IdentityServer4
       href: https://identityserver4.readthedocs.io/
     - name: Protección de aplicaciones de ASP.NET Core con la autenticación de Azure App Service (autenticación sencilla)
-      href: /azure/app-service/app-service-authentication-overview
+      href: /azure/app-service/overview-authentication-authorization?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - uid: security/authentication/individual
       name: Cuentas de usuario individuales
   - name: Autorización
@@ -980,9 +1060,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Contribuir
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: 755ddaf4262956deb285b48c6c1d0205c25f4ced
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 1430ab85bd40bb3090b5e6a2e313a690bc280f1e
+ms.sourcegitcommit: 32bc00435767189fa3ae5fb8a91a307bf889de9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665475"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57733515"
