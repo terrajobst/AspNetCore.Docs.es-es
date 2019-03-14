@@ -5,12 +5,12 @@ description: Cómo agregar la validación a una aplicación de ASP.NET Core.
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: 431715e7c584d3ee381cbafb42171a7c01dddb3a
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: 49db8d7c1d3e54f416c66685c19b3a2e3b14251c
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53382061"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665449"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Agregar validación a una aplicación ASP.NET Core MVC
 
@@ -59,7 +59,7 @@ Observe cómo el formulario presenta automáticamente un mensaje de error de val
 
 Una ventaja importante es que no fue necesario cambiar ni una sola línea de código en la clase `MoviesController` o en la vista *Create.cshtml* para habilitar esta interfaz de usuario de validación. El controlador y las vistas que creó en pasos anteriores de este tutorial seleccionaron automáticamente las reglas de validación que especificó mediante atributos de validación en las propiedades de la clase del modelo `Movie`. Pruebe la aplicación mediante el método de acción `Edit` y se aplicará la misma validación.
 
-Los datos del formulario no se enviarán al servidor hasta que dejen de producirse errores de validación de cliente. Puede comprobarlo colocando un punto de interrupción en el método `HTTP Post` mediante la [herramienta Fiddler](http://www.telerik.com/fiddler) o las [herramientas de desarrollo F12](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).
+Los datos del formulario no se enviarán al servidor hasta que dejen de producirse errores de validación de cliente. Puede comprobarlo colocando un punto de interrupción en el método `HTTP Post` mediante la [herramienta Fiddler](http://www.telerik.com/fiddler) o las [herramientas de desarrollo F12](/microsoft-edge/devtools-guide).
 
 ## <a name="how-validation-works"></a>Cómo funciona la validación
 
