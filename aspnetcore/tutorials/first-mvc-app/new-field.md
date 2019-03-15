@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: 7993b36bf9115225e082d2929bb253aba5b18310
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: f352a9c3573119028d1bc42fd622919ce0560e7c
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207374"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841506"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Agregar un campo nuevo a una aplicación de ASP.NET Core MVC
 
@@ -98,23 +98,22 @@ Update-Database
 
 El comando `Add-Migration` indica el marco de trabajo de migración para examinar el modelo `Movie` actual con el esquema de base de datos `Movie` actual y para crear el código con el que se migrará la base de datos al nuevo modelo.
 
+El nombre "Rating" es arbitrario y se usa para asignar nombre al archivo de migración. Resulta útil emplear un nombre descriptivo para el archivo de migración.
+
+Si se eliminan todos los registros de la base de datos, el método de inicialización inicializa la base de datos e incluye el campo `Rating`.
+
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-Ejecute el siguiente comando:
+Elimine la base de datos y use las migraciones para volver a crear la base de datos. Para eliminar la base de datos, elimine el archivo de base de datos (*MvcMovie.db*). Luego, ejecute el comando `ef database update`: 
 
-```cli
-dotnet ef migrations add Rating
+```console
 dotnet ef database update
 ```
 
 ---  
 <!-- End of VS tabs -->
-
-El nombre "Rating" es arbitrario y se usa para asignar nombre al archivo de migración. Resulta útil emplear un nombre descriptivo para el archivo de migración.
-
-Si se eliminan todos los registros de la base de datos, el método de inicialización inicializa la base de datos e incluye el campo `Rating`.
 
 Ejecute la aplicación y compruebe que puede crear, editar o mostrar películas con un campo `Rating`. Debe agregar el campo `Rating` a las plantillas de vista `Edit`, `Details` y `Delete`.
 

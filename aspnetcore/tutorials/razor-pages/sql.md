@@ -5,12 +5,12 @@ description: En este artículo se explica cómo se trabaja con una base de datos
 ms.author: riande
 ms.date: 12/07/2017
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 9f01f5c9fcf9c423ccc2af8ae6ca55c2f427c9c1
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: e2e9be0aa25166e216d34419859cd907d0423f70
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346033"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841571"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Trabajar con una base de datos y ASP.NET Core
 
@@ -89,16 +89,18 @@ Observe el icono de llave junto a `ID`. De forma predeterminada, EF crea una pro
 
 * Haga clic con el botón derecho en la tabla `Movie` y seleccione **Ver datos**:
 
-  ![Tabla Movie abierta mostrando datos de la tabla](sql/_static/vd22.png)
+  ![Tabla Movie abierta en la que se muestran los datos de la tabla](sql/_static/vd22.png)
 <!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
+[!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
 <!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
+[!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
 ---  
 <!-- End of VS tabs -->

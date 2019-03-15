@@ -4,14 +4,14 @@ author: guardrex
 description: Aprenda a diagnosticar problemas con las implementaciones de Internet Information Services (IIS) de aplicaciones ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 03/06/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 68fcd578c051ae9ba6234cad0465a7ef42f1ed14
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 2f36ae2bda8537e91a3bc925505986bdd6a22a47
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637695"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841558"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Solución de problemas de ASP.NET Core en IIS
 
@@ -236,13 +236,51 @@ Vea <xref:host-and-deploy/azure-iis-errors-reference>. La mayoría de los proble
 
 Si una aplicación es capaz de responder a solicitudes, obtenga solicitudes, conexiones y datos adicionales de la aplicación mediante el middleware en línea del terminal. Para obtener más información y un código de ejemplo, vea <xref:test/troubleshoot#obtain-data-from-an-app>.
 
-## <a name="slow-or-hanging-app"></a>Aplicación lenta o bloqueada
+## <a name="create-a-dump"></a>Creación de un volcado de memoria
 
-Cuando una aplicación responda con lentitud o queda bloqueado en una solicitud, obtenga y analice un [archivo de volcado de memoria](/visualstudio/debugger/using-dump-files). Los archivos de volcado de memoria se pueden obtener mediante cualquiera de las siguientes herramientas:
+Un *volcado de memoria* es una instantánea de la memoria del sistema que puede ayudar a determinar la causa de un bloqueo de la aplicación, un error de inicio o una aplicación lenta.
 
-* [ProcDump](/sysinternals/downloads/procdump)
-* [DebugDiag](https://www.microsoft.com/download/details.aspx?id=49924)
-* WinDbg: [Download Debugging tools for Windows](https://developer.microsoft.com/windows/hardware/download-windbg) (Descarga de herramientas de depuración para Windows), [Debugging Using WinDbg](/windows-hardware/drivers/debugger/debugging-using-windbg) (Depuración mediante WinDbg)
+### <a name="app-crashes-or-encounters-an-exception"></a>Bloqueo o excepción de la aplicación
+
+Obtenga y analice un volcado de memoria en [Informe de errores de Windows (WER)](/windows/desktop/wer/windows-error-reporting):
+
+1. Cree una carpeta para almacenar los archivos de volcado de memoria en `c:\dumps`. El grupo de aplicaciones debe tener acceso de escritura a la carpeta.
+1. Ejecute el [script EnableDumps de PowerShell](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/troubleshoot/scripts/EnableDumps.ps1):
+   * Si la aplicación usa el [modelo de hospedaje en proceso](xref:fundamentals/servers/index#in-process-hosting-model), ejecute el script *w3wp.exe*:
+
+     ```console
+     .\EnableDumps w3wp.exe c:\dumps
+     ```
+   * Si la aplicación usa el [modelo de hospedaje fuera de proceso](xref:fundamentals/servers/index#out-of-process-hosting-model), ejecute el script *dotnet.exe*:
+
+     ```console
+     .\EnableDumps dotnet.exe c:\dumps
+     ```
+1. Ejecute la aplicación en las condiciones que hacen que se produzca el bloqueo.
+1. Una vez que se haya producido el bloqueo, ejecute el [script DisableDumps de PowerShell](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/troubleshoot/scripts/DisableDumps.ps1):
+   * Si la aplicación usa el [modelo de hospedaje en proceso](xref:fundamentals/servers/index#in-process-hosting-model), ejecute el script *w3wp.exe*:
+
+     ```console
+     .\DisableDumps w3wp.exe
+     ```
+   * Si la aplicación usa el [modelo de hospedaje fuera de proceso](xref:fundamentals/servers/index#out-of-process-hosting-model), ejecute el script *dotnet.exe*:
+
+     ```console
+     .\DisableDumps dotnet.exe
+     ```
+
+Después de que se bloquee la aplicación y se complete la recopilación del volcado de memoria, la aplicación puede finalizar con normalidad. El script de PowerShell configura WER de modo que recopile un máximo de cinco volcados de memoria por aplicación.
+
+> [!WARNING]
+> Los volcados de memoria pueden ocupar una gran cantidad de espacio en disco (hasta varios gigabytes cada uno).
+
+### <a name="app-hangs-fails-during-startup-or-runs-normally"></a>La aplicación deja de responder, produce un error durante el inicio o se ejecuta con normalidad
+
+Si una aplicación *deja de responder* (se detiene, pero no se bloquea), produce un error durante el inicio o se ejecuta con normalidad, vea [User-Mode Dump Files: Choosing the Best Tool](/windows-hardware/drivers/debugger/user-mode-dump-files#choosing-the-best-tool) (Archivos de volcado de memoria en modo de usuario: selección de la mejor herramienta) para seleccionar una herramienta apropiada para generar el volcado de memoria.
+
+### <a name="analyze-the-dump"></a>Análisis del volcado de memoria
+
+El volcado de memoria se puede analizar de varias maneras. Para obtener más información, vea [Analyzing a User-Mode Dump File](/windows-hardware/drivers/debugger/analyzing-a-user-mode-dump-file) (Análisis de un archivo de volcado de memoria en modo de usuario).
 
 ## <a name="remote-debugging"></a>Depuración remota
 

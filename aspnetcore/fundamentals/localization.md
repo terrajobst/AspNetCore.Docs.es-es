@@ -5,16 +5,16 @@ description: Obtenga información sobre la manera en que ASP.NET Core proporcion
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: af11906f86fe4ea91ed520584daedc094ab2dc0b
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 70de86f2e8c4a5577b8a4b50c53d66eb3b205c09
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505835"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665550"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
 
-By [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](https://twitter.com/damien_bod), [Bart Calixto](https://twitter.com/bartmax), [Nadeem Afana](https://twitter.com/NadeemAfana) y [Hisham Bin Ateya](https://twitter.com/hishambinateya)
+By [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](https://twitter.com/damien_bod), [Bart Calixto](https://twitter.com/bartmax), [Nadeem Afana](https://afana.me/) y [Hisham Bin Ateya](https://twitter.com/hishambinateya)
 
 El hecho de crear un sitio web multilingüe con ASP.NET Core permite que este llegue a un público más amplio. ASP.NET Core proporciona servicios y software intermedio para la localización en diferentes idiomas y referencias culturales.
 
@@ -334,9 +334,9 @@ Términos:
 * Localización (L10N): es el proceso de personalizar una aplicación para un idioma y región determinados.
 * Internacionalización (I18N): hace referencia a la globalización y la localización.
 * Referencia cultural: es un idioma y, opcionalmente, una región.
-* Referencia cultural neutra: se trata de una referencia cultural que tiene un idioma especificado, pero no una región (por ejemplo, "en" y "es").
+* Referencia cultural neutra: se trata de una referencia cultural que tiene un idioma especificado, pero no una región. (por ejemplo, "en" y "es").
 * Referencia cultural específica: es una referencia cultural que tiene un idioma y una región especificados (por ejemplo, "en-US", "en-GB" y "es-CL").
-* Referencia cultural principal: se trata de la referencia cultural neutra que contiene una referencia cultural específica (por ejemplo, "en" es la referencia cultural principal de "en-US" y "en-GB").
+* Referencia cultural principal: se trata de la referencia cultural neutra que contiene una referencia cultural específica. (por ejemplo, "en" es la referencia cultural principal de "en-US" y "en-GB").
 * Configuración regional: la configuración regional es lo mismo que la referencia cultural.
 
 [!INCLUDE[](~/includes/currency.md)]

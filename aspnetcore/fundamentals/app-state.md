@@ -2,16 +2,17 @@
 title: Estado de sesión y aplicación en ASP.NET Core
 author: rick-anderson
 description: Detecte enfoques para conservar el estado de sesión y aplicación entre las solicitudes.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 03/12/2019
 uid: fundamentals/app-state
-ms.openlocfilehash: 2e3591ac1d6b1670b27b1ed9e42f59ba2b956b37
-ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
+ms.openlocfilehash: 7de57d4923beaf32c0cb9aec49ea3e570fec6170
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57400715"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841584"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Estado de sesión y aplicación en ASP.NET Core
 
@@ -64,7 +65,7 @@ El estado de sesión muestra los siguientes comportamientos:
 * La aplicación conserva una sesión durante un tiempo limitado después de la última solicitud. La aplicación especifica un tiempo de espera de sesión o usa el valor predeterminado de 20 minutos. El estado de sesión es ideal para almacenar datos de usuario que son específicos de una sesión determinada, pero que no necesitan conservarse de forma permanente entre las sesiones.
 * Los datos de sesión se eliminan cuando se llama a la implementación [ISession.Clear](/dotnet/api/microsoft.aspnetcore.http.isession.clear) o cuando expira la sesión.
 * No hay ningún mecanismo predeterminado para informar al código de aplicación que se ha cerrado un explorador del cliente o cuando la cookie de sesión se elimina o caduca en el cliente.
-Las plantillas de Razor Pages y ASP.NET Core MVC guardan conformidad con el Reglamento general de protección de datos (RGPD). Las cookies de estado de sesión no se marcan como esenciales de forma predeterminada, por lo que el estado de sesión no será funcional a menos que el visitante del sitio permita el seguimiento. Para obtener más información, vea <xref:security/gdpr#tempdata-provider-and-session-state-cookies-are-not-essential>.
+* Las plantillas de Razor Pages y ASP.NET Core MVC guardan conformidad con el Reglamento general de protección de datos (RGPD). Las cookies de estado de sesión no se marcan como esenciales de forma predeterminada, por lo que el estado de sesión no será funcional a menos que el visitante del sitio permita el seguimiento. Para obtener más información, vea <xref:security/gdpr#tempdata-provider-and-session-state-cookies-are-not-essential>.
 
 > [!WARNING]
 > No almacene datos confidenciales en un estado de sesión. El usuario podría no cerrar el explorador y borrar la cookie de sesión. Algunos exploradores mantienen las cookies de sesión válidas en las ventanas del explorador. Es posible que una sesión no esté restringida a un único usuario y que el siguiente usuario continúe examinando la aplicación con la misma cookie de sesión.
@@ -76,17 +77,7 @@ El proveedor de caché en memoria almacena datos de sesión en la memoria del se
 
 ### <a name="configure-session-state"></a>Configurar el estado de sesión
 
-::: moniker range=">= aspnetcore-2.0"
-
 El paquete [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session/), que se incluye en el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), proporciona middleware para administrar el estado de sesión. Para habilitar el middleware de sesión, `Startup` debe contener:
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-El paquete [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session/) proporciona middleware para administrar el estado de sesión. Para habilitar el middleware de sesión, `Startup` debe contener:
-
-::: moniker-end
 
 * Cualquiera de las cachés de memoria [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache). La implementación de `IDistributedCache` se usa como una memoria auxiliar para la sesión. Para obtener más información, vea <xref:performance/caching/distributed>.
 * Una llamada a [AddSession](/dotnet/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions.addsession) en `ConfigureServices`.
@@ -94,17 +85,7 @@ El paquete [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microso
 
 El código siguiente muestra cómo configurar el proveedor de sesión en memoria con una implementación en memoria de `IDistributedCache`:
 
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples/2.x/SessionSample/Startup.cs?name=snippet1&highlight=11,13-18,39)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples/1.x/SessionSample/Startup.cs?name=snippet1&highlight=5,7-12,19)]
-
-::: moniker-end
+[!code-csharp[](app-state/samples/2.x/SessionSample/Startup.cs?name=snippet1&highlight=5-14,34)]
 
 El orden del middleware es importante. En el ejemplo anterior, se produce una excepción `InvalidOperationException` cuando `UseSession` se invoca después de `UseMvc`. Para obtener más información vea [Ordenación de Middleware](xref:fundamentals/middleware/index#order).
 
@@ -124,8 +105,6 @@ Para que las aplicaciones impongan este patrón, ajuste las implementaciones de 
 
 Para reemplazar los valores predeterminados de la sesión, use [SessionOptions](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions).
 
-::: moniker range=">= aspnetcore-2.0"
-
 | Opción | Descripción |
 | ------ | ----------- |
 | [Cookie](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookie) | Determina la configuración usada para crear la cookie. [Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name) tiene como valor predeterminado [SessionDefaults.CookieName](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiename) (`.AspNetCore.Session`). [Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path) tiene como valor predeterminado [SessionDefaults.CookiePath](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiepath) (`/`). [SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite) tiene como valor predeterminado [SameSiteMode.Lax](/dotnet/api/microsoft.aspnetcore.http.samesitemode) (`1`). [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) tiene como valor predeterminado `true`. [IsEssential](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.isessential) tiene como valor predeterminado `false`. |
@@ -134,36 +113,9 @@ Para reemplazar los valores predeterminados de la sesión, use [SessionOptions](
 
 La sesión utiliza una cookie para realizar el seguimiento de las solicitudes emitidas por un solo explorador e identificarlas. De manera predeterminada, esta cookie se denomina `.AspNetCore.Session` y usa una ruta de acceso de `/`. Dado que el valor predeterminado de la cookie no especifica un dominio, no estará disponible para el script de cliente en la página (porque [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) tiene como valor predeterminado `true`).
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-| Opción | Descripción |
-| ------ | ----------- |
-| [CookieDomain](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookiedomain) | Determina el dominio usado para crear la cookie. `CookieDomain` no se encuentra configurado de forma predeterminada. |
-| [CookieHttpOnly](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookiehttponly) | Determina si el explorador debe permitir que la cookie tenga acceso a código JavaScript del lado cliente. El valor predeterminado es `true`, lo que significa que la cookie solo se pasa a las solicitudes HTTP y no está disponible para script en la página. |
-| [CookieName](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookiename) | Determina el nombre de cookie que se usa para conservar el identificador de sesión. El valor predeterminado es [SessionDefaults.CookieName](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiename) (`.AspNetCore.Session`). |
-| [CookiePath](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookiepath) | Determina la ruta de acceso usada para crear la cookie. Tiene como valor predeterminado [SessionDefaults.CookiePath](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiepath) (`/`). |
-| [CookieSecure](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookiesecure) | Determina si la cookie solo se debe transmitir en las solicitudes HTTPS. El valor predeterminado es [CookieSecurePolicy.None](/dotnet/api/microsoft.aspnetcore.http.cookiesecurepolicy) (`2`). |
-| [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) | `IdleTimeout` indica cuánto tiempo puede estar inactiva la sesión antes de que se abandone su contenido. Cada acceso a la sesión restablece el tiempo de espera. Tenga en cuenta que esto solo es aplicable al contenido de la sesión, no a la cookie. El valor predeterminado es de 20 minutos. |
-
-La sesión utiliza una cookie para realizar el seguimiento de las solicitudes emitidas por un solo explorador e identificarlas. De manera predeterminada, esta cookie se denomina `.AspNet.Session` y usa una ruta de acceso de `/`.
-
-::: moniker-end
-
 Para reemplazar los valores predeterminados de la sesión de cookies, use `SessionOptions`:
 
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples_snapshot/2.x/SessionSample/Startup.cs?name=snippet1&highlight=13-18)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples_snapshot/1.x/SessionSample/Startup.cs?name=snippet1&highlight=5-9)]
-
-::: moniker-end
+[!code-csharp[](app-state/samples_snapshot/2.x/SessionSample/Startup.cs?name=snippet1&highlight=14-19)]
 
 La aplicación usa la propiedad [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) para determinar el tiempo que una sesión puede estar inactiva antes de que se abandone el contenido de la caché de servidor. Esta propiedad es independiente de la expiración de la cookie. Cada solicitud que se pasa a través del [middleware de sesión](/dotnet/api/microsoft.aspnetcore.session.sessionmiddleware) restablece el tiempo de espera.
 
@@ -173,17 +125,7 @@ El estado de sesión es *no realiza bloqueo*. Si dos solicitudes intentan modifi
 
 Se accede al estado de sesión desde una clase [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) de Razor Pages o una clase [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controller) de MVC con [HttpContext.Session](/dotnet/api/microsoft.aspnetcore.http.httpcontext.session). Esta propiedad es una implementación de [ISession](/dotnet/api/microsoft.aspnetcore.http.isession).
 
-::: moniker range=">= aspnetcore-2.0"
-
 La implementación `ISession` proporciona varios métodos de extensión para establecer y recuperar valores de cadena y enteros. Los métodos de extensión están en el espacio de nombres [Microsoft.AspNetCore.Http](/dotnet/api/microsoft.aspnetcore.http) (agregue una instrucción `using Microsoft.AspNetCore.Http;` para obtener acceso a los métodos de extensión) cuando el proyecto hace referencia al paquete [Microsoft.AspNetCore.Http.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.Http.Extensions/). Ambos paquetes están incluidos en el metapaquete [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-La implementación `ISession` proporciona varios métodos de extensión para establecer y recuperar valores de cadena y enteros. Los métodos de extensión están en el espacio de nombres [Microsoft.AspNetCore.Http](/dotnet/api/microsoft.aspnetcore.http) (agregue una instrucción `using Microsoft.AspNetCore.Http;` para obtener acceso a los métodos de extensión) cuando el proyecto hace referencia al paquete [Microsoft.AspNetCore.Http.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.Http.Extensions/).
-
-::: moniker-end
 
 Métodos de extensión `ISession`:
 
@@ -207,47 +149,17 @@ Name: @HttpContext.Session.GetString(IndexModel.SessionKeyName)
 
 En el ejemplo siguiente se muestra cómo establecer y obtener un entero y una cadena:
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](app-state/samples/2.x/SessionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=18-19,22-23)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples/1.x/SessionSample/Controllers/HomeController.cs?name=snippet1&highlight=10-11,18-19)]
-
-::: moniker-end
 
 Todos los datos de sesión se deben serializar para habilitar un escenario de caché distribuida, incluso cuando se usa la caché en memoria. Se proporcionan una cadena mínima y serializadores de número (vea los métodos y los métodos de extensión de [ISession](/dotnet/api/microsoft.aspnetcore.http.isession)). El usuario debe serializar los tipos complejos mediante otro mecanismo, como JSON.
 
 Agregue los siguientes métodos de extensión, para establecer y obtener objetos serializables:
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](app-state/samples/2.x/SessionSample/Extensions/SessionExtensions.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples/1.x/SessionSample/Extensions/SessionExtensions.cs?name=snippet1)]
-
-::: moniker-end
 
 En el ejemplo siguiente se muestra cómo establecer y obtener un objeto serializable con los método de extensión:
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](app-state/samples/2.x/SessionSample/Pages/Index.cshtml.cs?name=snippet2)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples/1.x/SessionSample/Controllers/HomeController.cs?name=snippet2&highlight=4,12)]
-
-::: moniker-end
 
 ## <a name="tempdata"></a>TempData
 
@@ -255,19 +167,9 @@ ASP.NET Core expone la [propiedad TempData de un modelo de página de Razor Page
 
 ### <a name="tempdata-providers"></a>Proveedores de TempData
 
-::: moniker range=">= aspnetcore-2.0"
-
-En ASP.NET Core 2.0 y versiones posteriores, el proveedor TempData basado en cookies se usa de forma predeterminada para almacenar TempData en cookies.
+El proveedor TempData basado en cookies se usa de forma predeterminada para almacenar TempData en cookies.
 
 Los datos de cookie se cifran mediante [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector), codificado con [Base64UrlTextEncoder](/dotnet/api/microsoft.aspnetcore.webutilities.base64urltextencoder), y después se fragmentan. Como la cookie está fragmentada, no se aplica el límite de tamaño único de cookie que se encuentra en ASP.NET Core 1.x. Los datos de cookie no se comprimen porque la compresión de datos cifrados puede provocar problemas de seguridad como los ataques [CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) y [BREACH](https://wikipedia.org/wiki/BREACH_(security_exploit)). Para obtener más información sobre el proveedor TempData basado en cookies, consulte [CookieTempDataProvider](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.cookietempdataprovider).
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-En ASP.NET Core 1.0 y 1.1, el proveedor TempData de estado de sesión es el proveedor predeterminado.
-
-::: moniker-end
 
 ### <a name="choose-a-tempdata-provider"></a>Elegir un proveedor TempData
 
@@ -282,23 +184,11 @@ Elegir un proveedor TempData implica una serie de consideraciones:
 
 ### <a name="configure-the-tempdata-provider"></a>Configurar el proveedor TempData
 
-::: moniker range=">= aspnetcore-2.0"
-
 El proveedor TempData basado en cookies está habilitado de forma predeterminada.
 
 Para habilitar el proveedor TempData basado en sesión, use el método de extensión [AddSessionStateTempDataProvider](/dotnet/api/microsoft.extensions.dependencyinjection.mvcviewfeaturesmvcbuilderextensions.addsessionstatetempdataprovider):
 
 [!code-csharp[](app-state/samples_snapshot_2/2.x/SessionSample/Startup.cs?name=snippet1&highlight=11,13,32)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-El siguiente código de clase `Startup` configura el proveedor TempData basado en sesión:
-
-[!code-csharp[](app-state/samples_snapshot_2/1.x/SessionSample/Startup.cs?name=snippet1&highlight=4,9)]
-
-::: moniker-end
 
 El orden del middleware es importante. En el ejemplo anterior, se produce una excepción `InvalidOperationException` cuando `UseSession` se invoca después de `UseMvc`. Para obtener más información vea [Ordenación de Middleware](xref:fundamentals/middleware/index#order).
 
@@ -341,31 +231,11 @@ app.Run(async (context) =>
 
 Si el middleware solo se usa en una única aplicación, se aceptan claves `string`. El middleware compartido entre instancias de aplicación debería usar claves de objeto únicas para evitar conflictos de clave. En el ejemplo siguiente se muestra cómo usar una clave de objeto única definida en una clase de middleware:
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](app-state/samples/2.x/SessionSample/Middleware/HttpContextItemsMiddleware.cs?name=snippet1&highlight=4,13)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples/1.x/SessionSample/Middleware/HttpContextItemsMiddleware.cs?name=snippet1&highlight=5,14)]
-
-::: moniker-end
 
 Otro código puede tener acceso al valor almacenado en `HttpContext.Items` con la clave que expone la clase de middleware:
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](app-state/samples/2.x/SessionSample/Pages/Index.cshtml.cs?name=snippet3)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](app-state/samples/1.x/SessionSample/Controllers/HomeController.cs?name=snippet3)]
-
-::: moniker-end
 
 Este enfoque también tiene la ventaja de eliminar el uso de cadenas de claves en el código.
 
@@ -401,8 +271,6 @@ Use [inserción de dependencias](xref:fundamentals/dependency-injection) para qu
 
 3. Use la clase de servicio de datos:
 
-    ::: moniker range=">= aspnetcore-2.0"
-
     ```csharp
     public class IndexModel : PageModel
     {
@@ -413,23 +281,6 @@ Use [inserción de dependencias](xref:fundamentals/dependency-injection) para qu
         }
     }
     ```
-
-    ::: moniker-end
-
-    ::: moniker range="< aspnetcore-2.0"
-
-    ```csharp
-    public class HomeController : Controller
-    {
-        public HomeController(MyAppData myService)
-        {
-            // Do something with the service
-            //    Examples: Read data, store in a field or property
-        }
-    }
-    ```
-
-    ::: moniker-end
 
 ## <a name="common-errors"></a>Errores comunes
 
