@@ -5,14 +5,14 @@ description: Información sobre el cliente de .NET de ASP.NET Core SignalR
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 09/10/2018
+ms.date: 03/14/2019
 uid: signalr/dotnet-client
-ms.openlocfilehash: 25b618f7a424b217c0fb55417754ea358280b95a
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: a03abef53aa44f0a1016b8f72d8e3a7af2f9bed1
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836311"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978309"
 ---
 # <a name="aspnet-core-signalr-net-client"></a>Cliente de .NET de ASP.NET Core SignalR
 
@@ -64,6 +64,9 @@ En un `Closed` controlador que se reinicia la conexión, considere la posibilida
 
 [!code-csharp[InvokeAsync method](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_InvokeAsync)]
 
+> [!NOTE]
+> Si usa Azure SignalR Service en *modo sin servidor*, no puede llamar a métodos de concentrador desde un cliente. Para obtener más información, consulte el [documentación de SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config).
+
 ## <a name="call-client-methods-from-hub"></a>Llamar a métodos cliente desde el concentrador
 
 Definir métodos que el centro de llamadas utilizando `connection.On` tras su creación, pero antes de iniciar la conexión.
@@ -85,3 +88,4 @@ Controlar los errores con una instrucción try-catch. Inspeccionar el `Exception
 * [Concentradores](xref:signalr/hubs)
 * [Cliente de JavaScript](xref:signalr/javascript-client)
 * [Publicar en Azure](xref:signalr/publish-to-azure-web-app)
+* [Documentación sin servidor de Azure SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config)
