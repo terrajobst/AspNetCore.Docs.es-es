@@ -60,7 +60,7 @@ dotnet dev-certs https --trust
 El comando anterior muestra el siguiente mensaje:
 
 *Se ha solicitado que confíe en el certificado de desarrollo HTTPS. Si el certificado todavía no es de confianza, no se ejecutará el comando siguiente:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`.
- 
+
 Este comando podría solicitarle la contraseña para instalar el certificado en la cadena de claves del sistema. Si acepta confiar en el certificado de desarrollo, escriba la contraseña.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)

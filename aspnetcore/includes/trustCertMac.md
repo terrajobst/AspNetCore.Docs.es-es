@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 33772d3ad8bbb1ffc54792f8c31834849d0f9567
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57964277"
+---
 Visual Studio para Mac muestra un cuadro de diálogo con el mensaje siguiente:
 
 *Este proyecto está configurado para usar SSL. Para evitar advertencias de SSL en el explorador, puede elegir confiar en el certificado autofirmado. ¿Quiere confiar en el certificado SSL de IIS Express?*
