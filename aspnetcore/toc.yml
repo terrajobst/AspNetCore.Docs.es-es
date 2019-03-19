@@ -90,6 +90,10 @@ items:
     - uid: tutorials/signalr-typescript-webpack
       name: SignalR con TypeScript
       displayName: tutorial
+  - name: Aplicaciones de llamada a procedimiento remoto
+    items:
+    - uid: tutorials/grpc/grpc-start
+      name: Introducción al servicio gRPC en ASP.NET Core
   - name: Acceso a datos
     items:
     - name: EF Core con Razor Pages
@@ -447,6 +451,20 @@ items:
   - uid: signalr/diagnostics
     name: Registro y diagnósticos
     displayName: signalr
+- name: Aplicaciones de llamada a procedimiento remoto
+  items:
+  - uid: grpc/index
+    name: Introducción a los servicios gRPC
+  - uid: grpc/basics
+    name: Servicios gRPC con C#
+  - uid: grpc/aspnetcore
+    name: Servicios gRPC con ASP.NET Core
+  - uid: grpc/migration
+    name: Migración de servicios gRPC de CCore a ASP.NET Core
+  - name: Tutoriales
+    items:
+    - uid: tutorials/grpc/grpc-start
+      name: Introducción al servicio gRPC en ASP.NET Core
 - name: Probar, depurar y solucionar problemas
   items:
   - name: Pruebas unitarias
@@ -1060,9 +1078,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Contribuir
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: 1430ab85bd40bb3090b5e6a2e313a690bc280f1e
-ms.sourcegitcommit: 32bc00435767189fa3ae5fb8a91a307bf889de9d
+ms.openlocfilehash: d49acf4884da00a6409259f0d9eeca1d16d7d05f
+ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57733515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58142402"
