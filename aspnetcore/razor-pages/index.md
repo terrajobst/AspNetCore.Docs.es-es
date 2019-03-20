@@ -140,12 +140,12 @@ El flujo básico de `OnPostAsync`:
 
 Compruebe los errores de validación.
 
-*  Si no hay ningún error, guarde los datos y redirija.
-*  Si hay errores, muestre la página de nuevo con mensajes de validación. La validación del lado cliente es idéntica a las aplicaciones de ASP.NET Core MVC tradicionales. En muchos casos, los errores de validación se detectan en el cliente y nunca se envían al servidor.
+* Si no hay ningún error, guarde los datos y redirija.
+* Si hay errores, muestre la página de nuevo con mensajes de validación. La validación del lado cliente es idéntica a las aplicaciones de ASP.NET Core MVC tradicionales. En muchos casos, los errores de validación se detectan en el cliente y nunca se envían al servidor.
 
 Cuando los datos se escriben correctamente, el método del controlador `OnPostAsync` llama al método del asistente `RedirectToPage` para devolver una instancia de `RedirectToPageResult`. `RedirectToPage` es un resultado de acción nueva, similar a `RedirectToAction` o `RedirectToRoute`, pero personalizada para las páginas. En el ejemplo anterior, redirige a la página de índice raíz (`/Index`). `RedirectToPage` se detalla en la sección [Generación de direcciones URL para las páginas](#url_gen).
 
-Cuando el formulario enviado tiene errores de validación (que se pasan al servidor), el método del controlador `OnPostAsync` llama al método del asistente `Page`. `Page` devuelve una instancia de `PageResult`. Devolver `Page` es similar a cómo las acciones en los controladores devuelven `View`. `PageResult` es el tipo de valor devuelto <!-- Review  --> predeterminado para un método de controlador. Un método de controlador que devuelve `void` representa la página.
+Cuando el formulario enviado tiene errores de validación (que se pasan al servidor), el método del controlador `OnPostAsync` llama al método del asistente `Page`. `Page` devuelve una instancia de `PageResult`. Devolver `Page` es similar a cómo las acciones en los controladores devuelven `View`. `PageResult` es el tipo predeterminado <!-- Review  --> que se devuelve para un método de controlador. Un método de controlador que devuelve `void` representa la página.
 
 La propiedad `Customer` usa el atributo `[BindProperty]` para participar en el enlace de modelos.
 
