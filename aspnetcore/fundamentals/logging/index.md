@@ -193,7 +193,6 @@ Los registros anteriores se generaron mediante la realización de una solicitud 
 
 Este es un ejemplo de los mismos registros tal y como aparecen en la ventana de depuración cuando se ejecuta la aplicación de ejemplo en Visual Studio:
 
-
 ```console
 Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request starting HTTP/1.1 GET http://localhost:53104/api/todo/0  
 Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker:Information: Executing action method TodoApi.Controllers.TodoController.GetById (TodoApi) with arguments (0) - ModelState is Valid
@@ -214,7 +213,7 @@ Las interfaces `ILogger` e `ILoggerFactory` se encuentran en [Microsoft.Extensio
 
 ## <a name="log-category"></a>Categoría de registro
 
-Cuando se crea un objeto `ILogger`, se ha especificado una *categoría* para él. Esa categoría se incluye con cada mensaje de registro creado por esa instancia de `Ilogger`. La categoría puede ser cualquier cadena, pero la convención es usar el nombre de clase, como "TodoApi.Controllers.TodoController".
+Cuando se crea un objeto `ILogger`, se ha especificado una *categoría* para él. Esa categoría se incluye con cada mensaje de registro creado por esa instancia de `ILogger`. La categoría puede ser cualquier cadena, pero la convención es usar el nombre de clase, como "TodoApi.Controllers.TodoController".
 
 Use `ILogger<T>` para obtener una instancia `ILogger` que utiliza el nombre de tipo completo de `T` como la categoría:
 

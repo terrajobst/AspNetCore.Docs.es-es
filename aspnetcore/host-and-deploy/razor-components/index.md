@@ -1,18 +1,12 @@
 ---
 title: Hospedaje e implementación de Razor Components
 author: guardrex
-description: Descubra cómo hospedar e implementar aplicaciones de Blazor y Razor Components con ASP.NET Core, redes de entrega de contenido (CDN), servidores de archivos y GitHub Pages.
+description: 'Descubra cómo hospedar e implementar aplicaciones de Blazor y Razor Components con ASP.NET Core, redes de entrega de contenido (CDN), servidores de archivos y GitHub Pages.'
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: host-and-deploy/razor-components/index
-ms.openlocfilehash: 9debd75128ceecb805fc673a8182a785fc9f7942
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667956"
 ---
 # <a name="host-and-deploy-razor-components"></a>Hospedaje e implementación de Razor Components
 
@@ -198,7 +192,7 @@ Para obtener más información sobre la implementación y el hospedaje de aplica
 Para obtener información sobre cómo implementar en Azure App Service, consulte los temas siguientes:
 
 <xref:tutorials/publish-to-azure-webapp-using-vs>  
-Obtenga información sobre cómo publicar una aplicación ASP.NET Core en Azure App Service con Visual Studio.
+Obtenga información sobre cómo publicar una aplicación de ASP.NET Core en Azure App Service con Visual Studio.
 
 ### <a name="client-side-blazor-standalone-deployment"></a>Implementación independiente de Blazor del lado cliente
 
@@ -273,7 +267,7 @@ Para hospedar Blazor en Docker mediante Nginx, configure el Dockerfile para usar
 
 Agregue una línea al Dockerfile, como se muestra en el ejemplo siguiente:
 
-```
+```Dockerfile
 FROM nginx:alpine
 COPY ./bin/Release/netstandard2.0/publish /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -306,4 +300,4 @@ Cuando se publica la aplicación ASP.NET Core, la aplicación Razor Components s
 Para obtener información sobre cómo implementar en Azure App Service, consulte los temas siguientes:
 
 <xref:tutorials/publish-to-azure-webapp-using-vs>  
-Obtenga información sobre cómo publicar una aplicación ASP.NET Core en Azure App Service con Visual Studio.
+Obtenga información sobre cómo publicar una aplicación de ASP.NET Core en Azure App Service con Visual Studio.
