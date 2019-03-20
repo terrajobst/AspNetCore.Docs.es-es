@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/10/2019
 uid: migration/proper-to-2x/membership-to-core-identity
-ms.openlocfilehash: 0b7001a311eeaaa78e3d52e2ec66d33ad057c381
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 3b708da13ff9f2887eee87ea17844312a4fe1b8d
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207413"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264729"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a>Migrar de autenticación de pertenencia de ASP.NET a ASP.NET Core 2.0 Identity
 
@@ -54,6 +54,7 @@ Es la forma más rápida para ver el esquema para la identidad de ASP.NET Core 2
       }
     }
     ```
+
 1. Seleccione **vista** > **Explorador de objetos SQL Server**. Expanda el nodo correspondiente al nombre de la base de datos especificado en el `ConnectionStrings:DefaultConnection` propiedad de *appsettings.json*.
 
     El `Update-Database` comando crea la base de datos especificada con el esquema y los datos necesarios para la inicialización de la aplicación. La siguiente imagen muestra la estructura de tabla que se crea con los pasos anteriores.
@@ -66,7 +67,7 @@ Existen diferencias sutiles en los campos para la suscripción y ASP.NET Core Id
 
 ### <a name="users"></a>Usuarios
 
-|*Identidad<br>(dbo. AspNetUsers)*        ||*Pertenencia<br>(dbo.aspnet_Users / dbo.aspnet_Membership)*||
+|*Identity<br>(dbo.AspNetUsers)*        ||*Pertenencia<br>(dbo.aspnet_Users / dbo.aspnet_Membership)*||
 |----------------------------------------|-----------------------------------------------------------|
 |**Nombre de campo**                 |**Type**|**Nombre de campo**                                    |**Type**|
 |`Id`                           |cadena  |`aspnet_Users.UserId`                             |cadena  |
@@ -82,7 +83,7 @@ Existen diferencias sutiles en los campos para la suscripción y ASP.NET Core Id
 
 ### <a name="roles"></a>Roles
 
-|*Identidad<br>(dbo. AspNetRoles)*        ||*Pertenencia<br>(dbo.aspnet_Roles)*||
+|*Identity<br>(dbo.AspNetRoles)*        ||*Membership<br>(dbo.aspnet_Roles)*||
 |----------------------------------------|-----------------------------------|
 |**Nombre de campo**                 |**Type**|**Nombre de campo**   |**Type**         |
 |`Id`                           |cadena  |`RoleId`         | cadena          |
@@ -91,7 +92,7 @@ Existen diferencias sutiles en los campos para la suscripción y ASP.NET Core Id
 
 ### <a name="user-roles"></a>Roles de usuario
 
-|*Identidad<br>(dbo. AspNetUserRoles)*||*Pertenencia<br>(dbo.aspnet_UsersInRoles)*||
+|*Identity<br>(dbo.AspNetUserRoles)*||*Membership<br>(dbo.aspnet_UsersInRoles)*||
 |------------------------------------|------------------------------------------|
 |**Nombre de campo**           |**Type**  |**Nombre de campo**|**Type**                   |
 |`RoleId`                 |cadena    |`RoleId`      |cadena                     |
@@ -127,7 +128,7 @@ SELECT aspnet_Users.UserId,
        -- Creates an empty password since passwords don't map between the 2 schemas
        '',
        /*
-        The SecurityStamp token is used to verify the state of an account and 
+        The SecurityStamp token is used to verify the state of an account and
         is subject to change at any time. It should be initialized as a new ID.
        */
        NewID(),

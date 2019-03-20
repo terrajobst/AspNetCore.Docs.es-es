@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/streaming
-ms.openlocfilehash: fb7183f7189d62c181f69ffdb170e3da25612919
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 7c176e3f21ffca7b97d9d3c2e8861032f22587b8
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345592"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264303"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>Usar la transmisión por secuencias en ASP.NET Core SignalR
 
@@ -139,12 +139,14 @@ Para finalizar la secuencia desde el cliente, llame a la `dispose` método en el
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-3.0"
+
 ## <a name="java-client"></a>Cliente de Java
+
 El cliente de SignalR Java usa el `stream` método para invocar métodos de transmisión por secuencias. Acepta tres o más argumentos:
 
-* El tipo esperado de los elementos de flujo 
+* El tipo esperado de los elementos de flujo
 * El nombre del método de concentrador.
-* Argumentos definidos en el método de concentrador. 
+* Argumentos definidos en el método de concentrador.
 
 ```java
 hubConnection.stream(String.class, "ExampleStreamingHubMethod", "Arg1")
@@ -153,6 +155,7 @@ hubConnection.stream(String.class, "ExampleStreamingHubMethod", "Arg1")
         (error) -> {/* Define your onError handler here. */},
         () -> {/* Define your onCompleted handler here. */});
 ```
+
 El `stream` método `HubConnection` devuelve un objeto Observable del tipo de elemento de secuencia. El tipo Observable `subscribe` método es donde se definen los `onNext`, `onError` y `onCompleted` controladores.
 
 ::: moniker-end
