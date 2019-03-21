@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: 7b048c8543f51a158530b8c7952b5aec7b753b42
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 7723f7ca6c5f9a21b2628933c6e7dabde20c3af6
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264698"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320204"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Páginas de Razor con Entity Framework Core en ASP.NET Core: Tutorial 1 de 8
 
@@ -37,7 +37,7 @@ La aplicación de ejemplo es un sitio web de una universidad ficticia, Contoso U
 
 [!INCLUDE [](~/includes/2.1-SDK.md)]
 
-------
+---
 
 Familiaridad con las [Páginas de Razor](xref:razor-pages/index). Los programadores nuevos deben completar [Introducción a las páginas de Razor en ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start) antes de empezar esta serie.
 
@@ -76,7 +76,7 @@ cd ContosoUniversity
 dotnet run
 ```
 
-------
+---
 
 ## <a name="set-up-the-site-style"></a>Configurar el estilo del sitio
 
@@ -181,7 +181,7 @@ dotnet tool install --global dotnet-aspnet-codegenerator
 dotnet aspnet-codegenerator razorpage -m Student -dc ContosoUniversity.Models.SchoolContext -udl -outDir Pages/Students --referenceScriptLibraries
 ```
 
-------
+---
 
 El proceso de scaffolding ha creado y cambiado los archivos siguientes:
 
