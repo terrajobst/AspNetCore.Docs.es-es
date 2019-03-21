@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: a9081a9938d56b7612bba13937eba384ff02455b
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 4fe04cde2a234302845b2cbded106f1e809842bc
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833740"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209299"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtros en ASP.NET Core
 
@@ -19,11 +19,11 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://gith
 
 Los *filtros* en ASP.NET Core MVC permiten ejecutar código antes o después de determinadas fases de la canalización de procesamiento de la solicitud.
 
- Los filtros integrados se encargan de tareas como las siguientes:
+Los filtros integrados se encargan de tareas como las siguientes:
 
- * Autorización (impedir el acceso a los recursos a un usuario que no está autorizado).
- * Procurar que se use HTTPS en todas las solicitudes.
- * Almacenamiento en caché de respuestas (cortocircuitar la canalización de solicitud para devolver una respuesta almacenada en caché). 
+* Autorización (impedir el acceso a los recursos a un usuario que no está autorizado).
+* Procurar que se use HTTPS en todas las solicitudes.
+* Almacenamiento en caché de respuestas (cortocircuitar la canalización de solicitud para devolver una respuesta almacenada en caché). 
 
 Se pueden crear filtros personalizados que se encarguen de cuestiones transversales. Los filtros pueden evitar la duplicación de código en las acciones. Así, por ejemplo, un filtro de excepción de control de errores puede consolidar el control de errores.
 
@@ -373,7 +373,7 @@ Cuando el método `OnResultExecuted` se ejecuta, probablemente la respuesta se h
 
 `ResultExecutedContext.Exception` se establecerá en un valor distinto de null si el resultado de la acción o un filtro de resultado posterior ha producido una excepción. Establecer `Exception` en un valor null hace que una excepción se "controle" de forma eficaz y evita que MVC vuelva a producir dicha excepción más adelante en la canalización. Cuando se controla una excepción en un filtro de resultados, no se pueden escribir datos en la respuesta. Si el resultado de la acción produce una excepción a mitad de su ejecución y los encabezados ya se han vaciado en el cliente, no hay ningún mecanismo confiable que permita enviar un código de error.
 
-En un elemento `IAsyncResultFilter`, una llamada a `await next` en `ResultExecutionDelegate` ejecuta cualquier filtro de resultados posterior y el resultado de la acción. Para cortocircuitar esto, establezca `ResultExecutingContext.Cancel` en true y no llame a `ResultExectionDelegate`.
+En un elemento `IAsyncResultFilter`, una llamada a `await next` en `ResultExecutionDelegate` ejecuta cualquier filtro de resultados posterior y el resultado de la acción. Para cortocircuitar esto, establezca `ResultExecutingContext.Cancel` en true y no llame a `ResultExecutionDelegate`.
 
 El marco proporciona una clase abstracta `ResultFilterAttribute` de la que se pueden crear subclases. La clase [AddHeaderAttribute](#add-header-attribute) mostrada anteriormente es un ejemplo de un atributo de filtro de resultados.
 

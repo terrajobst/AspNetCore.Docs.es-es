@@ -5,12 +5,12 @@ description: ''
 ms.author: riande
 ms.date: 07/03/2017
 uid: mvc/controllers/actions
-ms.openlocfilehash: 8289424b3cd3678bea18a25c7850e409795d1577
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 952e4dbb2c4343ca87ace1535e4a5968faf088cf
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410447"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209020"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Control de solicitudes con controladores en ASP.NET Core MVC
 
@@ -98,7 +98,7 @@ Normalmente, las aplicaciones comparten partes de su flujo de trabajo. Un ejempl
 La mayoría de los atributos de filtro, como `[Authorize]`, se puede aplicar en el nivel de controlador o de acción en función del nivel deseado de granularidad.
 
 El control de errores y el almacenamiento en caché de respuestas suelen ser cuestiones transversales:
-   * [Control de errores](xref:mvc/controllers/filters#exception-filters)
-   * [Almacenamiento en caché de respuestas](xref:performance/caching/response)
+* [Control de errores](xref:mvc/controllers/filters#exception-filters)
+* [Almacenamiento en caché de respuestas](xref:performance/caching/response)
 
 Es posible controlar muchas cuestiones transversales mediante el uso de filtros o [software intermedio](xref:fundamentals/middleware/index) personalizado.

@@ -1,9 +1,16 @@
+---
+ms.openlocfilehash: 82c0f3076e846045ca85697e150ff0ab9be75dba
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58214472"
+---
 <a name="dc"></a>
 
 Agregue la clase `MvcMovieContext` siguiente a la carpeta *Models*:  
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Data/MvcMovieContext.cs)]
-
 
 El código anterior crea una propiedad `DbSet` para el conjunto de entidades. En la terminología de Entity Framework, un conjunto de entidades suele corresponderse con una tabla de base de datos, mientras que una entidad lo hace con una fila de la tabla.
 

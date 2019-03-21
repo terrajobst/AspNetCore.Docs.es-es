@@ -5,12 +5,12 @@ description: En este tutorial, actualizará datos relacionados mediante la actua
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: c3dbfe57a832ba63c5da2f89c0d29e443a1277a7
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: e1407048157fccdbfdd854071a6fbf9785356026
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345767"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208614"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Actualización de datos relacionados (7 de 8)
 
@@ -136,9 +136,9 @@ Actualice el modelo de página de Edit de los instructores con el código siguie
 
 El código anterior:
 
-- Obtiene la entidad `Instructor` actual de la base de datos mediante la carga diligente de la propiedad de navegación `OfficeAssignment`.
-- Actualiza la entidad `Instructor` recuperada con valores del enlazador de modelos. `TryUpdateModel` evita la [publicación excesiva](xref:data/ef-rp/crud#overposting).
-- Si la ubicación de la oficina está en blanco, establece `Instructor.OfficeAssignment` en NULL. Cuando `Instructor.OfficeAssignment` es NULL, se elimina la fila relacionada en la tabla `OfficeAssignment`.
+* Obtiene la entidad `Instructor` actual de la base de datos mediante la carga diligente de la propiedad de navegación `OfficeAssignment`.
+* Actualiza la entidad `Instructor` recuperada con valores del enlazador de modelos. `TryUpdateModel` evita la [publicación excesiva](xref:data/ef-rp/crud#overposting).
+* Si la ubicación de la oficina está en blanco, establece `Instructor.OfficeAssignment` en NULL. Cuando `Instructor.OfficeAssignment` es NULL, se elimina la fila relacionada en la tabla `OfficeAssignment`.
 
 ### <a name="update-the-instructor-edit-page"></a>Actualizar la página Edit del instructor
 

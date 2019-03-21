@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/05/2019
 ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: ac94f2e2876c2d8d571a451e4641787ffe37b3d2
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 1606b872df2df839266ef17efee1948065c4efae
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103038"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209419"
 ---
 # <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>Tutorial: Actualización de datos relacionados: ASP.NET MVC con EF Core
 
@@ -131,11 +131,11 @@ Reemplace el método `Edit` de HttpPost con el siguiente código para controlar 
 
 El código realiza lo siguiente:
 
--  Cambia el nombre del método a `EditPost` porque la firma ahora es la misma que el método `Edit` de HttpGet (el atributo `ActionName` especifica que la dirección URL de `/Edit/` aún está en uso).
+* Cambia el nombre del método a `EditPost` porque la firma ahora es la misma que el método `Edit` de HttpGet (el atributo `ActionName` especifica que la dirección URL de `/Edit/` aún está en uso).
 
--  Obtiene la entidad Instructor actual de la base de datos mediante la carga diligente de la propiedad de navegación `OfficeAssignment`. Esto es lo mismo que hizo en el método `Edit` de HttpGet.
+* Obtiene la entidad Instructor actual de la base de datos mediante la carga diligente de la propiedad de navegación `OfficeAssignment`. Esto es lo mismo que hizo en el método `Edit` de HttpGet.
 
--  Actualiza la entidad Instructor recuperada con valores del enlazador de modelos. La sobrecarga de `TryUpdateModel` le permite crear una lista de permitidos con las propiedades que quiera incluir. Esto evita el registro excesivo, como se explica en el [segundo tutorial](crud.md).
+* Actualiza la entidad Instructor recuperada con valores del enlazador de modelos. La sobrecarga de `TryUpdateModel` le permite crear una lista de permitidos con las propiedades que quiera incluir. Esto evita el registro excesivo, como se explica en el [segundo tutorial](crud.md).
 
     <!-- Snippets don't play well with <ul> [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
 
@@ -146,7 +146,7 @@ El código realiza lo siguiente:
         i => i.FirstMidName, i => i.LastName, i => i.HireDate, i => i.OfficeAssignment))
     ```
 
--   Si la ubicación de la oficina está en blanco, establece la propiedad Instructor.OfficeAssignment en NULL para que se elimine la fila relacionada en la tabla OfficeAssignment.
+* Si la ubicación de la oficina está en blanco, establece la propiedad Instructor.OfficeAssignment en NULL para que se elimine la fila relacionada en la tabla OfficeAssignment.
 
     <!-- Snippets don't play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
 
@@ -157,7 +157,7 @@ El código realiza lo siguiente:
     }
     ```
 
-- Guarda los cambios en la base de datos.
+* Guarda los cambios en la base de datos.
 
 ### <a name="update-the-instructor-edit-view"></a>Actualizar la vista de Edit de Instructor
 
@@ -225,7 +225,7 @@ En *Views/Instructors/Edit.cshtml*, agregue un campo **Courses** con una matriz 
 
 <a id="notepad"></a>
 > [!NOTE]
-> Al pegar el código en Visual Studio, se cambiarán los saltos de línea de tal forma que el código se interrumpe.  Presione Ctrl+Z una vez para deshacer el formato automático.  Esto corregirá los saltos de línea para que se muestren como se ven aquí. No es necesario que la sangría sea perfecta, pero las líneas `@</tr><tr>`, `@:<td>`, `@:</td>` y `@:</tr>` deben estar en una única línea tal y como se muestra, de lo contrario, obtendrá un error en tiempo de ejecución. Con el bloque de código nuevo seleccionado, presione tres veces la tecla TAB para alinearlo con el código existente. Puede comprobar el estado de este problema [aquí](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
+> Al pegar el código en Visual Studio, se cambiarán los saltos de línea de tal forma que el código se interrumpe. Presione Ctrl+Z una vez para deshacer el formato automático. Esto corregirá los saltos de línea para que se muestren como se ven aquí. No es necesario que la sangría sea perfecta, pero las líneas `@</tr><tr>`, `@:<td>`, `@:</td>` y `@:</tr>` deben estar en una única línea tal y como se muestra, de lo contrario, obtendrá un error en tiempo de ejecución. Con el bloque de código nuevo seleccionado, presione tres veces la tecla TAB para alinearlo con el código existente. Puede comprobar el estado de este problema [aquí](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
 
 [!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
@@ -250,7 +250,7 @@ En *InstructorsController.cs*, elimine el método `DeleteConfirmed` e inserte el
 
 Este código realiza los cambios siguientes:
 
-* Hace la carga diligente para la propiedad de navegación `CourseAssignments`.  Tiene que incluir esto o EF no conocerá las entidades `CourseAssignment` relacionadas y no las eliminará.  Para evitar la necesidad de leerlos aquí, puede configurar la eliminación en cascada en la base de datos.
+* Hace la carga diligente para la propiedad de navegación `CourseAssignments`. Tiene que incluir esto o EF no conocerá las entidades `CourseAssignment` relacionadas y no las eliminará. Para evitar la necesidad de leerlos aquí, puede configurar la eliminación en cascada en la base de datos.
 
 * Si el instructor que se va a eliminar está asignado como administrador de cualquiera de los departamentos, quita la asignación de instructor de esos departamentos.
 

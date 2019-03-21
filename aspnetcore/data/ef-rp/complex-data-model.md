@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 56c2d783e8c75aad7487aa03309bb962f4354567
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: fbe43e019ddab6f9acc2ea46799f0a39aa7c2e7c
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346533"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208995"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Modelo de datos (5 de 8)
 
@@ -223,8 +223,8 @@ Si una propiedad de navegación contiene varias entidades:
 Los tipos de propiedad de navegación incluyen:
 
 * `ICollection<T>`
-*  `List<T>`
-*  `HashSet<T>`
+* `List<T>`
+* `HashSet<T>`
 
 Si se especifica `ICollection<T>`, EF Core crea una colección `HashSet<T>` de forma predeterminada.
 
@@ -267,7 +267,6 @@ La propiedad de navegación `OfficeAssignment` para la entidad `Instructor` acep
 
 * Los tipos de referencia, como las clases, aceptan valores NULL.
 * Un instructor podría no tener una asignación de oficina.
-
 
 La entidad `OfficeAssignment` tiene una propiedad de navegación `Instructor` que no acepta valores NULL porque:
 

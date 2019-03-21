@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo agregar un controlador a una senci
 ms.author: riande
 ms.date: 02/28/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: bbb7b06e2c9c63f44cb7f7a8ee63bffa1e316b3e
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: dad9262e544fc216ddc694b11b0dfb88b58db9cd
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53381873"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265012"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Agregar un controlador a una aplicación de ASP.NET Core MVC
 
@@ -30,7 +30,6 @@ En esta serie de tutoriales se tratarán estos conceptos y se mostrará cómo us
 
 ## <a name="add-a-controller"></a>Incorporación de un controlador
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * En el **Explorador de soluciones**, haga clic con el botón derecho en **Controladores > Agregar > Controlador**
@@ -42,14 +41,12 @@ En esta serie de tutoriales se tratarán estos conceptos y se mostrará cómo us
 
 * En el cuadro de diálogo **Add Empty MVC Controller** (Agregar controlador MVC en blanco), escriba **HelloWorldController** y seleccione **AGREGAR**.
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Seleccione el icono **EXPLORADOR**, presione Ctrl y haga clic con el botón derecho en **Controladores > Nuevo archivo** y asigne al nuevo archivo el nombre *HelloWorldController.cs*.
 
   ![Menú contextual](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
 En el **Explorador de soluciones**, haga clic con el botón derecho en **Controladores > Agregar > Nuevo archivo**.
@@ -62,7 +59,6 @@ Asigne al controlador el nombre **HelloWorldController**.
 ![Agregar un controlador de MVC y asignarle un nombre](~/tutorials/first-mvc-app-mac/adding-controller/_static/ac.png)
 
 ---
-<!-- End of VS tabs -->
 
 Reemplace el contenido de *Controllers/HelloWorldController.cs* con lo siguiente:
 
@@ -115,7 +111,7 @@ Ejecute la aplicación y navegue a:
 
 (Reemplace xxxx con el número de puerto). Puede probar distintos valores para `name` y `numtimes` en la dirección URL. El sistema de [enlace de modelos](xref:mvc/models/model-binding) de MVC asigna automáticamente los parámetros con nombre de la cadena de consulta en la barra de direcciones a los parámetros del método. Vea [Model Binding](xref:mvc/models/model-binding) (Enlace de modelos) para más información.
 
-![Ventana del explorador que muestra una respuesta de la aplicación de Hello Rick, NumTimes is: 4 (Hola Rick, NumTimes es: 4)](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
+![Ventana del explorador que muestra una respuesta de la aplicación de Hello Rick, NumTimes is: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
 En la ilustración anterior, el segmento de dirección URL (`Parameters`) no se usa, y los parámetros `name` y `numTimes` se pasan como [cadenas de consulta](https://wikipedia.org/wiki/Query_string). El `?` (signo de interrogación) en la dirección URL anterior es un separador y le siguen las cadenas de consulta. El carácter `&` separa las cadenas de consulta.
 
@@ -130,7 +126,6 @@ Esta vez el tercer segmento de dirección URL coincide con el parámetro de ruta
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 En estos ejemplos, el controlador ha realizado la parte "VC" de MVC, es decir, el trabajo de vista y de controlador. El controlador devuelve HTML directamente. Por lo general, no es aconsejable que los controles devuelvan HTML directamente, porque resulta muy complicado de programar y mantener. En su lugar, se suele usar un archivo de plantilla de vista de Razor independiente para ayudar a generar la respuesta HTML. Haremos esto en el siguiente tutorial.
-
 
 > [!div class="step-by-step"]
 > [Anterior](start-mvc.md)

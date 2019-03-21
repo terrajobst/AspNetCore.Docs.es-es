@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/28/2019
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: e5bb1a86453bb945789cc1f4b56616551e316615
-ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
+ms.openlocfilehash: de740775e124298f7c3d3be0c6f5a7311174116d
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57400689"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265477"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Módulos de IIS con ASP.NET Core
 
@@ -123,7 +123,7 @@ Si opta por quitar un módulo con un valor de configuración en *web.config*, de
     </system.webServer>
    </configuration>
    ```
-   
+
 Para agregar o quitar módulos para IIS Express mediante *web.config*, modifique *applicationHost.config* para desbloquear la sección `<modules>`:
 
 1. Abra *{APPLICATION ROOT}\\.vs\config\applicationhost.config*.
@@ -131,17 +131,17 @@ Para agregar o quitar módulos para IIS Express mediante *web.config*, modifique
 1. Localice el elemento `<section>` para los módulos de IIS y cambie `overrideModeDefault` de `Deny` a `Allow`:
 
    ```xml
-   <section name="modules" 
-            allowDefinition="MachineToApplication" 
+   <section name="modules"
+            allowDefinition="MachineToApplication"
             overrideModeDefault="Allow" />
    ```
-   
+
 1. Localice la sección `<location path="" overrideMode="Allow"><system.webServer><modules>`. Para los módulos que desee quitar, establezca `lockItem` entre `true` y `false`. En el ejemplo siguiente, se desbloquea el módulo CGI:
 
    ```xml
    <add name="CgiModule" lockItem="false" />
    ```
-   
+
 1. Una vez la sección `<modules>` y los módulos individuales se desbloquean, tiene la opción de agregar o quitar los módulos de IIS mediante el archivo *web.config* de la aplicación para ejecutar la aplicación en IIS Express.
 
 Un módulo de IIS también se puede quitar con *Appcmd.exe*. Proporcione `MODULE_NAME` y `APPLICATION_NAME` en el comando:

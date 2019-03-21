@@ -5,12 +5,12 @@ description: Obtenga información sobre la sintaxis de marcado de Razor para ins
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 8e9ec3c5040e5a24cd5f773b1232897338741c0c
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 254c85ee9e74dc72170b19d27fbc5f1ae7ccd3dc
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396264"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264754"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Referencia de sintaxis de Razor para ASP.NET Core
 
@@ -69,9 +69,9 @@ Las expresiones implícitas **no pueden** contener tipos genéricos de C#, ya qu
 
 El código anterior genera un error del compilador similar a uno de los siguientes:
 
- * El elemento "int" no estaba cerrado. Todos los elementos deben ser de autocierre o tener una etiqueta de fin coincidente.
- *  No se puede convertir el grupo de métodos "GenericMethod" en el tipo no delegado "object". ¿Intentó invocar el método? 
- 
+* El elemento "int" no estaba cerrado. Todos los elementos deben ser de autocierre o tener una etiqueta de fin coincidente.
+* No se puede convertir el grupo de métodos "GenericMethod" en el tipo no delegado "object". ¿Intentó invocar el método?
+
 Las llamadas a método genéricas deben estar incluidas en una [expresión de Razor explícita](#explicit-razor-expressions) o en un [bloque de código de Razor](#razor-code-blocks).
 
 ## <a name="explicit-razor-expressions"></a>Expresiones de Razor explícitas
@@ -199,7 +199,7 @@ Emplee este método para representar HTML que no esté insertado entre etiquetas
 
 La etiqueta **\<text>** es útil para controlar el espacio en blanco al representar el contenido:
 
-* Solo se representa el contenido entre etiquetas **\<text>**. 
+* Solo se representa el contenido entre etiquetas **\<text>**.
 * En la salida HTML no hay espacios en blanco antes o después de la etiqueta **\<text>**.
 
 ### <a name="explicit-line-transition-with-"></a>Transición de línea explícita con @:
@@ -337,7 +337,6 @@ Se permiten las siguientes instrucciones en bucle:
 
 En C#, las instrucciones `using` se usan para garantizar que un objeto se elimina. En Razor, el mismo mecanismo se emplea para crear asistentes de HTML que incluyen contenido adicional. En el siguiente código, los asistentes de HTML representan una etiqueta Form con la instrucción `@using`:
 
-
 ```cshtml
 @using (Html.BeginForm())
 {
@@ -425,6 +424,7 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 Más adelante en este artículo, en la sección [Inspección de la clase C# de Razor generada por una vista](#inspect-the-razor-c-class-generated-for-a-view), se explica cómo ver esta clase generada.
 
 <a name="using"></a>
+
 ### <a name="using"></a>@using
 
 La directiva `@using` agrega la directiva `using` de C# a la vista generada:
@@ -579,7 +579,7 @@ También se puede proporcionar una plantilla de Razor insertada como un argument
 @using Microsoft.AspNetCore.Html
 
 @functions {
-    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times, 
+    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times,
         Func<dynamic, IHtmlContent> template)
     {
         var html = new HtmlContentBuilder();

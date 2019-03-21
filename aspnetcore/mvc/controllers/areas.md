@@ -5,12 +5,12 @@ description: Obtenga información sobre las áreas, una característica de ASP.N
 ms.author: riande
 ms.date: 02/14/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 8904d217a18fff65113ae3469efe60258d20d5f0
-ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
+ms.openlocfilehash: 79bc023a7bd00a9d4de375e3cddaafd148251469
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57400650"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264770"
 ---
 # <a name="areas-in-aspnet-core"></a>Áreas de ASP.NET Core
 
@@ -38,6 +38,7 @@ Una aplicación web ASP.NET Core típica en la que se usen áreas, controladores
 * La [ruta de área agregada al inicio](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
 
 ### <a name="area-folder-structure"></a>Estructura de carpetas de área
+
 Considere una aplicación que tiene dos grupos lógicos, *Productos* y *Servicios*. Mediante las áreas, la estructura de carpetas sería similar a la siguiente:
 
 * Nombre del proyecto
@@ -172,7 +173,7 @@ Tenga en cuenta el área *Services* del código de ejemplo, que no contiene un a
 En el marcado anterior:
 
 * El nombre de dominio completo debe usarse para especificar el modelo (`@model RPareas.Areas.Services.Pages.Manage.AboutModel`).
-* Los [asistentes de etiquetas]() se habilitan mediante `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
+* Los [asistentes de etiquetas](xref:mvc/views/tag-helpers/intro) se habilitan mediante `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
 
 En la descarga de ejemplo, el área Products contiene el siguiente archivo *_ViewImports*:
 

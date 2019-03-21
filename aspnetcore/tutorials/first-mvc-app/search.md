@@ -5,12 +5,12 @@ description: Se muestra cómo agregar la búsqueda a una aplicación ASP.NET Cor
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: e5dce35b60080ef752f8e6c6004158219015cbf5
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 41d7494b77edaddbf719cab087142f0132dd3ed6
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410643"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208387"
 ---
 # <a name="add-search-to-an-aspnet-core-mvc-app"></a>Agregar búsqueda a una aplicación de ASP.NET Core MVC
 
@@ -113,10 +113,10 @@ Agregue la clase `MovieGenreViewModel` siguiente a la carpeta *Models*:
 
 El modelo de vista de película y género contendrá:
 
-   * Una lista de películas.
-   * `SelectList`, que contiene la lista de géneros. Esto permite al usuario seleccionar un género de la lista.
-   * `MovieGenre`, que contiene el género seleccionado.
-   * `SearchString`, que contiene el texto que los usuarios escriben en el cuadro de texto de búsqueda.
+* Una lista de películas.
+* `SelectList`, que contiene la lista de géneros. Esto permite al usuario seleccionar un género de la lista.
+* `MovieGenre`, que contiene el género seleccionado.
+* `SearchString`, que contiene el texto que los usuarios escriben en el cuadro de texto de búsqueda.
 
 Reemplace el método `Index` en `MoviesController.cs` por el código siguiente:
 
@@ -148,4 +148,4 @@ Pruebe la aplicación buscando por género, por título de la película y por am
 
 > [!div class="step-by-step"]
 > [Anterior](controller-methods-views.md)
-> [Siguiente](new-field.md)  
+> [Siguiente](new-field.md)

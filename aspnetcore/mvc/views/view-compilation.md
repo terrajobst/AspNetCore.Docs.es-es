@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/02/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 0b3aea584de63cb8032e4ca112d2441349bdfbb3
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 11195f00e922f6817a0fa0988fad9d8082dea30a
+ms.sourcegitcommit: 10e14b85490f064395e9b2f423d21e3c2d39ed8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345506"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58142321"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Compilación de archivos de Razor en ASP.NET Core
 
@@ -130,7 +130,7 @@ La compilación en tiempo de ejecución se habilita mediante el paquete `Microso
   ```csharp
   services
       .AddMvc()
-      .AddMvcRazorRuntimeCompilation()
+      .AddRazorRuntimeCompilation()
   ```
 
 Para que la compilación en tiempo de ejecución funcione cuando se implemente, las aplicaciones también deben modificar sus archivos de proyecto para establecer `PreserveCompilationReferences` en `true`.

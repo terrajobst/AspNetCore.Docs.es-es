@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 12/18/2018
 uid: fundamentals/owin
-ms.openlocfilehash: 51982c7ebc4f66c2b0b73bf425d9ecbd0bf37826
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: de8548fe2396102fe44a8e6a000b44d4eea63285
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637799"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209941"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Interfaz web abierta para .NET (OWIN) con ASP.NET Core
 
@@ -260,14 +260,12 @@ OWIN depende de un objeto `IDictionary<string,object>` para comunicar informaci√
 | owin.ResponseHeaders | `IDictionary<string,string[]>`  | |
 | owin.ResponseBody | `Stream`  | |
 
-
 ### <a name="other-data-owin-v100"></a>Otros datos (OWIN v1.0.0)
 
 | Key               | Valor (tipo) | Descripci√≥n |
 | ----------------- | ------------ | ----------- |
 | owin.CallCancelled | `CancellationToken` |  |
 | owin.Version  | `String` | |   
-
 
 ### <a name="common-keys"></a>Claves comunes
 
@@ -282,13 +280,11 @@ OWIN depende de un objeto `IDictionary<string,object>` para comunicar informaci√
 | server.IsLocal  | `bool` | |    
 | server.OnSendingHeaders  | `Action<Action<object>,object>` | |
 
-
 ### <a name="sendfiles-v030"></a>SendFiles v0.3.0
 
 | Key               | Valor (tipo) | Descripci√≥n |
 | ----------------- | ------------ | ----------- |
 | sendfile.SendAsync | Vea [Delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) (Signatura de delegado) | Por solicitud |
-
 
 ### <a name="opaque-v030"></a>Opaque v0.3.0
 
@@ -298,7 +294,6 @@ OWIN depende de un objeto `IDictionary<string,object>` para comunicar informaci√
 | opaque.Upgrade | `OpaqueUpgrade` | Vea [Delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) (Signatura de delegado) |
 | opaque.Stream | `Stream` |  |
 | opaque.CallCancelled | `CancellationToken` |  |
-
 
 ### <a name="websocket-v030"></a>WebSocket v0.3.0
 

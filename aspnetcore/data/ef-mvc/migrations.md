@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: ac924e7d6bee2f02ab11281a5c27f2c94a7183b3
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 6d4ed0e95499c30417e1cfd07f57de824a8a62ed
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102999"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265517"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Tutorial: Uso de la característica de migraciones: ASP.NET MVC con EF Core
 
@@ -28,7 +28,6 @@ En este tutorial ha:
 > * Examina los métodos Up y Down
 > * Obtiene información sobre la instantánea del modelo de datos
 > * Aplicar la migración
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -60,6 +59,7 @@ Este cambio configura el proyecto para que la primera migración cree una base d
 
 > [!NOTE]
 > Como alternativa a cambiar el nombre de la base de datos, puede eliminar la base de datos. Use el **Explorador de objetos de SQL Server** (SSOX) o el comando de la CLI `database drop`:
+>
 > ```console
 > dotnet ef database drop
 > ```

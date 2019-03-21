@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: e71cb8badbbc852685c845e6bbb0bbb12ab5499f
-ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
+ms.openlocfilehash: b2b5a155d0dff28e471af449731da787f19d1faf
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53577817"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208371"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Publicar una aplicación de ASP.NET Core en Azure con Visual Studio
 
@@ -127,7 +127,7 @@ Visual Studio volverá al cuadro de diálogo **Crear un servicio de App Service*
 
 ![Cuadro de diálogo Configurar base de datos SQL](publish-to-azure-webapp-using-vs/_static/conf_final.png)
 
-Visual Studio crea la aplicación web y SQL Server en Azure. Este paso puede llevar varios minutos. Para más información sobre los recursos creados, vea [Recursos adicionales](#additonal-resources).
+Visual Studio crea la aplicación web y SQL Server en Azure. Este paso puede llevar varios minutos. Para más información sobre los recursos creados, vea [Recursos adicionales](#additional-resources).
 
 Cuando termine la implementación, seleccione **Configuración**:
 
@@ -135,8 +135,8 @@ Cuando termine la implementación, seleccione **Configuración**:
 
 En la página **Configuración** del cuadro de diálogo **Publicar**, haga lo siguiente:
 
-  * Expanda **Bases de datos** y active **Usar esta cadena de conexión en tiempo de ejecución**.
-  * Expanda **Migraciones de Entity Framework** y active **Aplicar esta migración al publicar**.
+* Expanda **Bases de datos** y active **Usar esta cadena de conexión en tiempo de ejecución**.
+* Expanda **Migraciones de Entity Framework** y active **Aplicar esta migración al publicar**.
 
 * Seleccione **Guardar**. Visual Studio volverá al cuadro de diálogo **Publicar**. 
 
@@ -184,7 +184,7 @@ Cuando haya terminado de probar la aplicación, vaya a [Azure Portal](https://po
 
 * <xref:host-and-deploy/azure-apps/azure-continuous-deployment>
 
-## <a name="additonal-resources"></a>Recursos adicionales
+## <a name="additional-resources"></a>Recursos adicionales
 
 * [Azure App Service](/azure/app-service/app-service-web-overview)
 * [Grupos de recursos de Azure](/azure/azure-resource-manager/resource-group-overview#resource-groups)
