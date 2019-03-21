@@ -109,7 +109,7 @@ Con el [modelo de hospedaje del lado cliente](xref:razor-components/hosting-mode
 * La aplicación se ejecuta directamente en el subproceso de interfaz de usuario del explorador. Se puede seguir cualquiera de las estrategias siguientes:
   * Una aplicación ASP.NET Core proporciona la aplicación Blazor. Este proceso se trata en la sección [Implementación hospedada en Blazor del lado cliente con ASP.NET Core](#client-side-blazor-hosted-deployment-with-aspnet-core).
   * La aplicación Blazor se coloca en un servicio o servidor web de hospedaje estático, donde no se usa .NET para proporcionar la aplicación Blazor. Este proceso se trata en la sección [Implementación independiente de Blazor del lado cliente](#client-side-blazor-standalone-deployment).
-  
+
 ### <a name="configure-the-linker"></a>Configurar el enlazador
 
 Blazor realiza la vinculación de lenguaje intermedio (IL) en cada compilación para quitar el IL innecesario de los ensamblados de salida. Puede controlar la vinculación del ensamblado durante la compilación. Para obtener más información, vea <xref:host-and-deploy/razor-components/configure-linker>.
@@ -191,7 +191,8 @@ Para obtener más información sobre la implementación y el hospedaje de aplica
 
 Para obtener información sobre cómo implementar en Azure App Service, consulte los temas siguientes:
 
-<xref:tutorials/publish-to-azure-webapp-using-vs>  
+<xref:tutorials/publish-to-azure-webapp-using-vs>
+
 Obtenga información sobre cómo publicar una aplicación de ASP.NET Core en Azure App Service con Visual Studio.
 
 ### <a name="client-side-blazor-standalone-deployment"></a>Implementación independiente de Blazor del lado cliente
@@ -299,5 +300,6 @@ Cuando se publica la aplicación ASP.NET Core, la aplicación Razor Components s
 
 Para obtener información sobre cómo implementar en Azure App Service, consulte los temas siguientes:
 
-<xref:tutorials/publish-to-azure-webapp-using-vs>  
+<xref:tutorials/publish-to-azure-webapp-using-vs>
+
 Obtenga información sobre cómo publicar una aplicación de ASP.NET Core en Azure App Service con Visual Studio.

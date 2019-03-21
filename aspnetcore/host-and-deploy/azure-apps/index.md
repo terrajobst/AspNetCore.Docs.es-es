@@ -141,6 +141,7 @@ Cuando se complete la operación, se instalará la versión preliminar de .NET C
    ```powershell
    Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.{PLATFORM}\
    ```
+
    El comando devuelve `True` cuando está instalado el runtime de la versión preliminar de x64.
 
 > [!NOTE]
@@ -194,11 +195,13 @@ Al implementar una aplicación independiente:
      <RuntimeIdentifier>win-x86</RuntimeIdentifier>
    </PropertyGroup>
    ```
+
 1. Desde un shell de comandos, publique la aplicación en la configuración de la versión para el entorno de ejecución del host con el comando [dotnet publish](/dotnet/core/tools/dotnet-publish). En el ejemplo siguiente, la aplicación está publicada para el RID `win-x86`. El RID proporcionado para la opción `--runtime` debe indicarse en la propiedad `<RuntimeIdentifier>` (o `<RuntimeIdentifiers>`) del archivo de proyecto.
 
    ```console
    dotnet publish --configuration Release --runtime win-x86
    ```
+
 1. Mueva el contenido del directorio *bin/Release/{TARGET FRAMEWORK}/{RUNTIME IDENTIFIER}/publish* al sitio de App Service.
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Usar Docker con Web Apps para contenedores
