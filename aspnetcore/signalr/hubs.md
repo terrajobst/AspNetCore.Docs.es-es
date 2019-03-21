@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/20/2018
 uid: signalr/hubs
-ms.openlocfilehash: 9bc74079235338c75c47e06bde2b78dc1c466bd6
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 244ddc40e647bfcc3ca8cda2797c51bc49174822
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836693"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320152"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Usar concentradores de SignalR para ASP.NET Core
 
@@ -52,6 +52,7 @@ Puede especificar un tipo de valor devuelto y parámetros, incluidos los tipos c
 
 > [!NOTE]
 > Los concentradores son transitorios:
+>
 > * No almacene el estado en una propiedad de la clase de concentrador. Cada llamada al método de concentrador se ejecuta en una nueva instancia de concentrador.  
 > * Use `await` al llamar a métodos asincrónicos que dependen del concentrador permanecer activo. Por ejemplo, un método como `Clients.All.SendAsync(...)` puede producir un error si se llama sin `await` y el método de concentrador se completa antes de `SendAsync` finaliza.
 
@@ -153,7 +154,7 @@ Invalidar el `OnDisconnectedAsync` método virtual para realizar acciones cuando
 
 [!code-csharp[Handle disconnection](hubs/sample/hubs/chathub.cs?name=OnDisconnectedAsync)]
 
-## <a name="handle-errors"></a>Controlar los errores
+## <a name="handle-errors"></a>Control de errores
 
 Las excepciones producidas en los métodos de concentrador se envían al cliente que invocó el método. En el cliente de JavaScript, el `invoke` método devuelve un [promesa de JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). Cuando el cliente recibe un error con un controlador asociado a la promesa mediante `catch`, se invoca y pasado como un JavaScript `Error` objeto.
 

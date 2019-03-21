@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo compilar una aplicación de ASP.NE
 ms.author: riande
 ms.date: 3/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 3bfc2ce46cfbc2ee308940f9e04eb2ffeec09073
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 59041bcf11f7deb351a2f0bb075ed80c8af5e12b
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265499"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320230"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Confirmación de la cuenta y la recuperación de contraseñas en ASP.NET Core
 
@@ -129,7 +129,7 @@ En la consola, escriba el siguiente comando:
 dotnet add package SendGrid
 ```
 
-------
+---
 
 Consulte [comience gratis con SendGrid](https://sendgrid.com/free/) para registrar una cuenta gratuita de SendGrid.
 

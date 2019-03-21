@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/25/2019
 uid: test/integration-tests
-ms.openlocfilehash: 50cb6b26be187c7f36f189e77fd29b4559221f2c
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 11a8f4296e1b0b229c736645f1aa598307b88ec4
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209244"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320191"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
 
@@ -311,7 +311,7 @@ Llame a la [UseSolutionRelativeContentRoot](/dotnet/api/microsoft.aspnetcore.tes
 
 ## <a name="disable-shadow-copying"></a>Deshabilitar las instantáneas
 
-Las instantáneas, hace que las pruebas se ejecutan en una carpeta diferente a la carpeta de salida. Para que las pruebas para que funcione correctamente, deben deshabilitar las instantáneas. El [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) usa xUnit y deshabilita la copia sombra de xUnit mediante la inclusión de un *xunit.runner.json* archivo con la opción de configuración correcto. Para obtener más información, consulte [configuración xUnit.net con JSON](https://xunit.github.io/docs/configuring-with-json.html).
+Las instantáneas, hace que las pruebas se ejecutan en una carpeta diferente a la carpeta de salida. Para que las pruebas para que funcione correctamente, deben deshabilitar las instantáneas. El [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) usa xUnit y deshabilita la copia sombra de xUnit mediante la inclusión de un *xunit.runner.json* archivo con la opción de configuración correcto. Para obtener más información, consulte [configuración xUnit con JSON](https://xunit.github.io/docs/configuring-with-json.html).
 
 Agregar el *xunit.runner.json* archivo a la raíz del proyecto de prueba con el siguiente contenido:
 
