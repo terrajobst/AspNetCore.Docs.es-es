@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/04/2019
 uid: test/loadtests
-ms.openlocfilehash: 587df6e216943d3eeec779df4d0554dd0fc2fda0
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 39632af2c92dac548c03e24d35a5e8a03e00890d
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345433"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209838"
 ---
 # <a name="load-and-stress-testing-aspnet-core"></a>Carga y esfuerzo de pruebas de ASP.NET Core
 
@@ -22,7 +22,7 @@ Pruebas de carga y pruebas de esfuerzo son importantes para asegurarse de que un
 **Las pruebas de esfuerzo**: Estabilidad de aplicación de pruebas cuando se ejecutan en condiciones extremas y a menudo un largo período de tiempo:
 
 * Carga de usuarios elevado: picos o aumentando gradualmente.
-* Recursos informáticos limitados.  
+* Recursos informáticos limitados.
 
 ¿En situaciones de estrés, puede la aplicación de recuperarse de errores y volver correctamente al comportamiento esperado? En situaciones de estrés, la aplicación está *no* ejecutar en condiciones normales.
 
@@ -44,41 +44,42 @@ Las pruebas de carga pueden configurarse para ejecutar en local o ejecutar en la
 
 Se pueden iniciar ejecuciones de pruebas de carga con el [planes de prueba de Azure DevOps](/azure/devops/test/load-test/index?view=vsts) service.
 
-![](./load-tests/_static/azure-devops-load-test.png)
+![Página de aterrizaje de pruebas de carga de Azure DevOps](./load-tests/_static/azure-devops-load-test.png)
 
 El servicio admite los siguientes tipos de formato de prueba:
 
-- Prueba de Visual Studio: pruebas web creados en Visual Studio.
-- Prueba basada en el almacenamiento HTTP: el tráfico HTTP capturado dentro del archivo se reproduce durante las pruebas.
-- [Prueba basada en URL](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=vsts) : permite especificar las direcciones URL para la carga de prueba, tipos de solicitud, los encabezados y las cadenas de consulta. Ejecutar configuración de los parámetros como la duración, se puede configurar el modelo de carga, el número de usuarios, etc.
-- [Apache JMeter](https://jmeter.apache.org/) probar.
+* Prueba de Visual Studio: pruebas web creados en Visual Studio.
+* Prueba basada en el almacenamiento HTTP: el tráfico HTTP capturado dentro del archivo se reproduce durante las pruebas.
+* [Prueba basada en URL](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=vsts) : permite especificar las direcciones URL para la carga de prueba, tipos de solicitud, los encabezados y las cadenas de consulta. Ejecutar configuración de los parámetros como la duración, se puede configurar el modelo de carga, el número de usuarios, etc.
+* [Apache JMeter](https://jmeter.apache.org/) probar.
 
 ## <a name="azure-portal"></a>Azure Portal
 
 [Portal de Azure permite configurar y ejecutar las pruebas de carga de aplicaciones Web,](/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) directamente desde la ficha rendimiento del servicio de aplicación de portal de Azure.
 
-![](./load-tests/_static/azure-appservice-perf-test.png)
+![Azure App Service en Azure Portal](./load-tests/_static/azure-appservice-perf-test.png)
 
 La prueba puede ser una prueba manual con una dirección URL especificada, o un archivo de prueba Web de Visual Studio, que puede probar varias direcciones URL.
 
-![](./load-tests/_static/azure-appservice-perf-test-config.png)
+![Nueva página de prueba de rendimiento en Azure Portal](./load-tests/_static/azure-appservice-perf-test-config.png)
 
 Al final de la prueba, se generan los informes para mostrar las características de rendimiento de la aplicación. Estadísticas de ejemplo incluyen:
 
-- Tiempo medio de respuesta
-- Rendimiento máximo: solicitudes por segundo
-- Porcentaje de errores
+* Tiempo medio de respuesta
+* Rendimiento máximo: solicitudes por segundo
+* Porcentaje de errores
 
 ## <a name="third-party-tools"></a>Herramientas de terceros
 
 En la lista siguiente contiene las herramientas de rendimiento web de terceros con varios conjuntos de características:
 
-- [Apache JMeter](https://jmeter.apache.org/) : Serie destacada completa de herramientas de pruebas de carga. Subproceso enlazados: necesita un subproceso por cada usuario.
-- [AB - servidor Apache HTTP herramienta de comparación de rendimiento](https://httpd.apache.org/docs/2.4/programs/ab.html)
-- [Gatling](https://gatling.io/) : Herramienta de escritorio con un grabadores de GUI y de prueba. Mayor rendimiento que JMeter.
-- [Locust.IO](https://locust.io/) : No está limitado por los subprocesos.
+* [Apache JMeter](https://jmeter.apache.org/) : Serie destacada completa de herramientas de pruebas de carga. Subproceso enlazados: necesita un subproceso por cada usuario.
+* [AB - servidor Apache HTTP herramienta de comparación de rendimiento](https://httpd.apache.org/docs/2.4/programs/ab.html)
+* [Gatling](https://gatling.io/) : Herramienta de escritorio con un grabadores de GUI y de prueba. Mayor rendimiento que JMeter.
+* [Locust.IO](https://locust.io/) : No está limitado por los subprocesos.
 
 <a name="add"></a>
+
 ## <a name="additional-resources"></a>Recursos adicionales
 
 [Serie de blogs de prueba de carga](https://blogs.msdn.microsoft.com/charles_sterling/2015/06/01/load-test-series-part-i-creating-web-performance-tests-for-a-load-test/) Charles Sterling. Con fecha, pero la mayoría de los temas siguen siendo pertinente.
