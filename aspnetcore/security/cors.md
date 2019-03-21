@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: security/cors
-ms.openlocfilehash: 6be8b4da1642a9eff021371c229a17071d6e9bfb
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: 2cad26d0f61519f63888a2bc399bb7e8a0f1ee04
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978476"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58210137"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Habilitar solicitudes entre orígenes (CORS) en ASP.NET Core
 
@@ -84,7 +84,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         app.UseHsts();
     }
 
-    app.UseCors(); 
+    app.UseCors();
 
     app.UseHttpsRedirection();
     app.UseMvc();
@@ -141,25 +141,25 @@ En esta sección se describe las distintas opciones que se pueden establecer en 
 * [Credenciales en solicitudes entre orígenes](#credentials-in-cross-origin-requests)
 * [Establecer el tiempo de expiración de las comprobaciones preparatorias](#set-the-preflight-expiration-time)
 
- <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions.AddPolicy*> se llama en `Startup.ConfigureServices`. Para algunas opciones, puede resultar útil leer la [cómo la CORS funciona](#how-cors) sección en primer lugar.
+<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions.AddPolicy*> se llama en `Startup.ConfigureServices`. Para algunas opciones, puede resultar útil leer la [cómo la CORS funciona](#how-cors) sección en primer lugar.
 
 ## <a name="set-the-allowed-origins"></a>Establecer los orígenes permitidos
 
 <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*> &ndash; Permite que las solicitudes CORS de todos los orígenes con cualquier esquema (`http` o `https`). `AllowAnyOrigin` no es segura porque *cualquier sitio Web* puede realizar solicitudes entre orígenes en la aplicación.
 
-  ::: moniker range=">= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-2.2"
 
-  > [!NOTE]
-  > Especificar `AllowAnyOrigin` y `AllowCredentials` es una configuración no segura y puede dar lugar a la falsificación de solicitud entre sitios. El servicio de la CORS devuelve una respuesta no válida de la CORS cuando una aplicación está configurada con ambos métodos.
+> [!NOTE]
+> Especificar `AllowAnyOrigin` y `AllowCredentials` es una configuración no segura y puede dar lugar a la falsificación de solicitud entre sitios. El servicio de la CORS devuelve una respuesta no válida de la CORS cuando una aplicación está configurada con ambos métodos.
 
-  ::: moniker-end
+::: moniker-end
 
-  ::: moniker range="< aspnetcore-2.2"
+::: moniker range="< aspnetcore-2.2"
 
-  > [!NOTE]
-  > Especificar `AllowAnyOrigin` y `AllowCredentials` es una configuración no segura y puede dar lugar a la falsificación de solicitud entre sitios. Para una aplicación segura, especifique una lista exacta de los orígenes, si el cliente debe autorizar a sí mismo para tener acceso a los recursos del servidor.
+> [!NOTE]
+> Especificar `AllowAnyOrigin` y `AllowCredentials` es una configuración no segura y puede dar lugar a la falsificación de solicitud entre sitios. Para una aplicación segura, especifique una lista exacta de los orígenes, si el cliente debe autorizar a sí mismo para tener acceso a los recursos del servidor.
 
-  ::: moniker-end
+::: moniker-end
 
 <!-- REVIEW required
 I changed from
@@ -167,16 +167,16 @@ Specifying `AllowAnyOrigin` and `AllowCredentials` is an insecure configuration.
 to
 **`AllowAnyOrigin`** affects preflight requests and the
 
-to remove the ambiguous **This**. 
+to remove the ambiguous **This**.
 -->
 
-  `AllowAnyOrigin` afecta a las solicitudes de comprobaciones y `Access-Control-Allow-Origin` encabezado. Para obtener más información, consulte el [las solicitudes de comprobaciones](#preflight-requests) sección.
+`AllowAnyOrigin` afecta a las solicitudes de comprobaciones y `Access-Control-Allow-Origin` encabezado. Para obtener más información, consulte el [las solicitudes de comprobaciones](#preflight-requests) sección.
 
 ::: moniker range=">= aspnetcore-2.0"
 
 <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetIsOriginAllowedToAllowWildcardSubdomains*> &ndash; Establece el <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy.IsOriginAllowed*> propiedad de la directiva a una función que permite orígenes para que coincida con un dominio con comodín configurado al evaluar si se permite el origen.
 
-  [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=100-104&highlight=4)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=100-104&highlight=4)]
 
 ::: moniker-end
 
@@ -381,14 +381,14 @@ Esta sección describe lo que ocurre en un [CORS](https://developer.mozilla.org/
   * Por ejemplo, podría utilizar un individuo malintencionado [evitar Cross-Site Scripting (XSS)](xref:security/cross-site-scripting) en su sitio y ejecutar una solicitud entre sitios a su sitio habilitado para CORS para robar información.
 * La API no es más segura, ya que permite la CORS.
   * Depende del cliente (explorador) exigir la CORS. El servidor ejecuta la solicitud y devuelve la respuesta, es el cliente que devuelve un error y bloques de la respuesta. Por ejemplo, cualquiera de las siguientes herramientas mostrará la respuesta del servidor:
-     * [Fiddler](https://www.telerik.com/fiddler)
-     * [Postman](https://www.getpostman.com/)
-     * [.NET HttpClient](/dotnet/csharp/tutorials/console-webapiclient)
-     * Un explorador web escribiendo la dirección URL en la barra de direcciones.
+    * [Fiddler](https://www.telerik.com/fiddler)
+    * [Postman](https://www.getpostman.com/)
+    * [.NET HttpClient](/dotnet/csharp/tutorials/console-webapiclient)
+    * Un explorador web escribiendo la dirección URL en la barra de direcciones.
 * Es una manera de ejecutar un origen cruzado para un servidor permitir que los exploradores [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) o [API capturar](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) solicitud que en caso contrario, podría estar prohibido.
   * Los exploradores (sin la CORS) no pueden realizar solicitudes entre orígenes. Antes de la CORS, [JSONP](https://www.w3schools.com/js/js_json_jsonp.asp) se usó para eludir esta restricción. JSONP no usa XHR, usa el `<script>` etiqueta para recibir la respuesta. Las secuencias de comandos pueden estar cargado entre orígenes.
 
-El [especificación CORS]() introdujo varios encabezados HTTP nuevo que permiten a las solicitudes entre orígenes. Si un explorador es compatible con CORS, establece estos encabezados automáticamente para las solicitudes entre orígenes. No se necesita código JavaScript personalizado para habilitar CORS.
+El [especificación CORS](https://www.w3.org/TR/cors/) introdujo varios encabezados HTTP nuevo que permiten a las solicitudes entre orígenes. Si un explorador es compatible con CORS, establece estos encabezados automáticamente para las solicitudes entre orígenes. No se necesita código JavaScript personalizado para habilitar CORS.
 
 El siguiente es un ejemplo de una solicitud entre orígenes. El encabezado `Origin` proporciona el dominio del sitio que está realizando la solicitud:
 
@@ -429,7 +429,7 @@ Para probar la CORS:
 1. Habilitar la CORS mediante uno de los enfoques de este documento. Por ejemplo:
 
   [!code-csharp[](cors/sample/Cors/WebAPI/StartupTest.cs?name=snippet2&highlight=13-18)]
-  
+
   > [!WARNING]
   > `WithOrigins("https://localhost:<port>");` solo debe usarse para probar una aplicación de ejemplo similar a la [descargar código de ejemplo](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/cors/sample/Cors).
 
@@ -444,13 +444,13 @@ Para probar la CORS:
 1. Quitar el origen de localhost de `WithOrigins` e implementar la aplicación. Como alternativa, puede ejecutar la aplicación cliente con un puerto diferente. Por ejemplo, ejecutar desde Visual Studio.
 1. Prueba con la aplicación cliente. Errores de la CORS devuelven un error, pero el mensaje de error no está disponible en JavaScript. Utilice la pestaña de la consola en las herramientas de F12 para ver el error. Dependiendo del explorador, obtendrá un error (en la consola de herramientas de F12) similar al siguiente:
 
-  * Con Microsoft Edge:
+   * Con Microsoft Edge:
 
-    **SEC7120: [CORS] origen `https://localhost:44375` no se encontró `https://localhost:44375` en el encabezado de respuesta de Access-Control-Allow-Origin para recursos entre orígenes en `https://webapi.azurewebsites.net/api/values/1`**
+     **SEC7120: [CORS] origen `https://localhost:44375` no se encontró `https://localhost:44375` en el encabezado de respuesta de Access-Control-Allow-Origin para recursos entre orígenes en `https://webapi.azurewebsites.net/api/values/1`**
 
-  * Uso de Chrome:
+   * Uso de Chrome:
 
-    **Acceso a XMLHttpRequest en `https://webapi.azurewebsites.net/api/values/1` desde origen `https://localhost:44375` ha sido bloqueada por la directiva CORS: Ningún encabezado "Access-Control-Allow-Origin" está presente en el recurso solicitado.**
+     **Acceso a XMLHttpRequest en `https://webapi.azurewebsites.net/api/values/1` desde origen `https://localhost:44375` ha sido bloqueada por la directiva CORS: Ningún encabezado "Access-Control-Allow-Origin" está presente en el recurso solicitado.**
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 12/07/2016
 uid: migration/http-modules
-ms.openlocfilehash: 601b93fb12ab5b37b7d8ad8fd9825accc6e314cd
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 516230a66ee3edba986c91d79684256aa8e4c994
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743860"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209851"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migración de módulos y controladores HTTP a middleware de ASP.NET Core
 
@@ -26,29 +26,29 @@ Antes de continuar con el middleware de ASP.NET Core, en primer lugar repasemos 
 
 **Los controladores son:**
 
-   * Las clases que implementan [IHttpHandler](/dotnet/api/system.web.ihttphandler)
+* Las clases que implementan [IHttpHandler](/dotnet/api/system.web.ihttphandler)
 
-   * Utilizado para controlar solicitudes con un nombre de archivo dado o una extensión, como *informes*
+* Utilizado para controlar solicitudes con un nombre de archivo dado o una extensión, como *informes*
 
-   * [Configurar](/iis/configuration/system.webserver/handlers/) en *Web.config*
+* [Configurar](/iis/configuration/system.webserver/handlers/) en *Web.config*
 
 **Los módulos son:**
 
-   * Las clases que implementan [IHttpModule](/dotnet/api/system.web.ihttpmodule)
+* Las clases que implementan [IHttpModule](/dotnet/api/system.web.ihttpmodule)
 
-   * Se invoca para cada solicitud
+* Se invoca para cada solicitud
 
-   * Capaz de cortocircuito (detener el procesamiento de una solicitud)
+* Capaz de cortocircuito (detener el procesamiento de una solicitud)
 
-   * Puede agregar a la respuesta HTTP, o crear sus propios
+* Puede agregar a la respuesta HTTP, o crear sus propios
 
-   * [Configurar](/iis/configuration/system.webserver/modules/) en *Web.config*
+* [Configurar](/iis/configuration/system.webserver/modules/) en *Web.config*
 
 **El orden en que los módulos de procesan las solicitudes entrantes viene determinado por:**
 
-   1. El [ciclo de vida de aplicación](https://msdn.microsoft.com/library/ms227673.aspx), que es una serie desencadenan ASP.NET: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest), etcetera. Cada módulo puede crear un controlador de eventos de uno o más.
+1. El [ciclo de vida de aplicación](https://msdn.microsoft.com/library/ms227673.aspx), que es una serie desencadenan ASP.NET: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest), etcetera. Cada módulo puede crear un controlador de eventos de uno o más.
 
-   2. Para el mismo evento, el orden en el que está configurados en *Web.config*.
+2. Para el mismo evento, el orden en el que está configurados en *Web.config*.
 
 Además de los módulos, puede agregar controladores para los eventos de ciclo de vida a su *Global.asax.cs* archivo. Estos controladores se ejecutan después de los controladores de los módulos configurados.
 
@@ -56,29 +56,29 @@ Además de los módulos, puede agregar controladores para los eventos de ciclo d
 
 **Middleware son más sencillas que los controladores y módulos HTTP:**
 
-   * Los módulos, controladores, *Global.asax.cs*, *Web.config* (excepto para la configuración de IIS) y el ciclo de vida de aplicación han desaparecido
+* Los módulos, controladores, *Global.asax.cs*, *Web.config* (excepto para la configuración de IIS) y el ciclo de vida de aplicación han desaparecido
 
-   * Se han realizado los roles de los módulos y controladores de middleware de la tecla TAB
+* Se han realizado los roles de los módulos y controladores de middleware de la tecla TAB
 
-   * Middleware se configuran mediante código en lugar de en *Web.config*
+* Middleware se configuran mediante código en lugar de en *Web.config*
 
-   * [Canalización bifurcación](xref:fundamentals/middleware/index#use-run-and-map) le permite enviar solicitudes al middleware específica, según no solo la dirección URL, sino también en los encabezados de solicitud, las cadenas de consulta, etcetera.
+* [Canalización bifurcación](xref:fundamentals/middleware/index#use-run-and-map) le permite enviar solicitudes al middleware específica, según no solo la dirección URL, sino también en los encabezados de solicitud, las cadenas de consulta, etcetera.
 
 **Middleware son muy similares a los módulos:**
 
-   * Invoca en principio para cada solicitud
+* Invoca en principio para cada solicitud
 
-   * Puede interrumpir una solicitud, por [no pasar la solicitud al siguiente middleware](#http-modules-shortcircuiting-middleware)
+* Puede interrumpir una solicitud, por [no pasar la solicitud al siguiente middleware](#http-modules-shortcircuiting-middleware)
 
-   * Puede crear su propia respuesta HTTP
+* Puede crear su propia respuesta HTTP
 
 **Middleware y los módulos se procesan en un orden diferente:**
 
-   * Orden de middleware se basa en el orden en el que se ha insertado en la canalización de solicitudes, mientras que el orden de los módulos se basa principalmente en [ciclo de vida de aplicación](https://msdn.microsoft.com/library/ms227673.aspx) eventos
+* Orden de middleware se basa en el orden en el que se ha insertado en la canalización de solicitudes, mientras que el orden de los módulos se basa principalmente en [ciclo de vida de aplicación](https://msdn.microsoft.com/library/ms227673.aspx) eventos
 
-   * Orden de middleware para las respuestas es el inverso de para las solicitudes, mientras que el orden de los módulos es el mismo para las solicitudes y respuestas
+* Orden de middleware para las respuestas es el inverso de para las solicitudes, mientras que el orden de los módulos es el mismo para las solicitudes y respuestas
 
-   * Consulte [crear una canalización de middleware con IApplicationBuilder](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder)
+* Consulte [crear una canalización de middleware con IApplicationBuilder](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder)
 
 ![Software intermedio](http-modules/_static/middleware.png)
 

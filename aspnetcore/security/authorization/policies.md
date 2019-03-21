@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/21/2017
 uid: security/authorization/policies
-ms.openlocfilehash: c2bc626b2dd341dda878a151def6b405884357d7
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: e72f15c28fb7b62c671dd6475cc323cacce42de6
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665407"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208326"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>Autorización basada en directivas en ASP.NET Core
 
@@ -19,13 +19,25 @@ Interiormente, [autorización basada en roles](xref:security/authorization/roles
 
 Una directiva de autorización consta de uno o más requisitos. Está registrado como parte de la configuración del servicio de autorización, en el `Startup.ConfigureServices` método:
 
-[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63,72)]
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,66)]
 
 En el ejemplo anterior, se crea una directiva de "AtLeast21". Tiene un requisito único&mdash;de una antigüedad mínima, que se suministra como parámetro al requisito.
 
-Las directivas se aplican mediante el uso de la `[Authorize]` atributo con el nombre de la directiva. Por ejemplo:
+## <a name="applying-policies-to-mvc-controllers"></a>Aplicar directivas a los controladores MVC
+
+Si está usando las páginas de Razor, consulte [aplicar directivas a las páginas de Razor](#applying-policies-to-razor-pages) en este documento.
+
+Las directivas se aplican a los controladores mediante el uso de la `[Authorize]` atributo con el nombre de la directiva. Por ejemplo:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
+
+## <a name="applying-policies-to-razor-pages"></a>Aplicar directivas a las páginas de Razor
+
+Las directivas se aplican a las páginas de Razor mediante el uso de la `[Authorize]` atributo con el nombre de la directiva. Por ejemplo:
+
+[!code-csharp[](policies/samples/PoliciesAuthApp2/Pages/AlcoholPurchase.cshtml.cs?name=snippet_AlcoholPurchaseModelClass&highlight=4)]
+
+Las directivas pueden aplicarse también a las páginas de Razor mediante el uso de un [convención autorización](xref:security/authorization/razor-pages-authorization).
 
 ## <a name="requirements"></a>Requisitos
 
@@ -70,7 +82,7 @@ El código anterior recorre [PendingRequirements](/dotnet/api/microsoft.aspnetco
 
 Los controladores se registran en la colección de servicios durante la configuración. Por ejemplo:
 
-[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63-65,72)]
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,62-63,66)]
 
 El código anterior registra `MinimumAgeHandler` como un singleton invocando `services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();`. Los controladores pueden registrarse mediante cualquiera de los integrados [duraciones de servicio](xref:fundamentals/dependency-injection#service-lifetimes).
 
@@ -112,7 +124,7 @@ Puede haber situaciones en que cumplir una directiva es sencilla expresar en có
 
 Por ejemplo, el anterior `BadgeEntryHandler` podría volver a escribirse como sigue:
 
-[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=52-53,57-63)]
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=50-51,55-61)]
 
 ## <a name="accessing-mvc-request-context-in-handlers"></a>Acceso al contexto de solicitud MVC en controladores
 

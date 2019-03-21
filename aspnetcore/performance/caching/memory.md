@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/11/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 9a7727ad41a05f39d74877af3c8f2e3f7a620c7d
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: c115e43b9dd4f838ab9600c2e105d86732d857ad
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103077"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208281"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Almacenar en caché en memoria en ASP.NET Core
 
@@ -111,10 +111,10 @@ El código siguiente llama [obtener](/dotnet/api/microsoft.extensions.caching.me
 
 El ejemplo siguiente:
 
-- Establece la hora de expiración absoluta. Este es el tiempo máximo que puede almacenarse en caché la entrada e impide que el elemento se vuelva demasiado obsoleta cuando continuamente se renueva el plazo de caducidad.
-- Establece un tiempo de expiración variable. Las solicitudes que tienen acceso a esta elemento almacenado en caché restablecerán el reloj de expiración deslizante.
-- Establece la prioridad de la memoria caché en `CacheItemPriority.NeverRemove`.
-- Establece un [PostEvictionDelegate](/dotnet/api/microsoft.extensions.caching.memory.postevictiondelegate) al que se llama después de la entrada se expulsa de la memoria caché. La devolución de llamada se ejecuta en un subproceso distinto del código que se quita el elemento de la memoria caché.
+* Establece la hora de expiración absoluta. Este es el tiempo máximo que puede almacenarse en caché la entrada e impide que el elemento se vuelva demasiado obsoleta cuando continuamente se renueva el plazo de caducidad.
+* Establece un tiempo de expiración variable. Las solicitudes que tienen acceso a esta elemento almacenado en caché restablecerán el reloj de expiración deslizante.
+* Establece la prioridad de la memoria caché en `CacheItemPriority.NeverRemove`.
+* Establece un [PostEvictionDelegate](/dotnet/api/microsoft.extensions.caching.memory.postevictiondelegate) al que se llama después de la entrada se expulsa de la memoria caché. La devolución de llamada se ejecuta en un subproceso distinto del código que se quita el elemento de la memoria caché.
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_et&highlight=14-21)]
 
@@ -161,14 +161,14 @@ Mediante un `CancellationTokenSource` permite varias entradas de caché se expul
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-- Cuando se usa una devolución de llamada para rellenar un elemento de caché:
+* Cuando se usa una devolución de llamada para rellenar un elemento de caché:
 
-  - Varias solicitudes pueden encontrar el valor almacenado en caché de clave vacía porque no se ha completado la devolución de llamada.
-  - Esto puede dar lugar a que varios subprocesos volver a rellenar el elemento en caché.
+  * Varias solicitudes pueden encontrar el valor almacenado en caché de clave vacía porque no se ha completado la devolución de llamada.
+  * Esto puede dar lugar a que varios subprocesos volver a rellenar el elemento en caché.
 
-- Cuando una entrada de caché se utiliza para crear otro, el elemento secundario copia los tokens de expiración y la configuración de basado en tiempo de expiración de la entrada principal. El elemento secundario no está expirada mediante la eliminación manual o actualización de la entrada principal.
+* Cuando una entrada de caché se utiliza para crear otro, el elemento secundario copia los tokens de expiración y la configuración de basado en tiempo de expiración de la entrada principal. El elemento secundario no está expirada mediante la eliminación manual o actualización de la entrada principal.
 
-- Use [PostEvictionCallbacks](/dotnet/api/microsoft.extensions.caching.memory.icacheentry.postevictioncallbacks#Microsoft_Extensions_Caching_Memory_ICacheEntry_PostEvictionCallbacks) para establecer las devoluciones de llamada que se desencadena después de la entrada de caché se expulsa de la memoria caché.
+* Use [PostEvictionCallbacks](/dotnet/api/microsoft.extensions.caching.memory.icacheentry.postevictioncallbacks#Microsoft_Extensions_Caching_Memory_ICacheEntry_PostEvictionCallbacks) para establecer las devoluciones de llamada que se desencadena después de la entrada de caché se expulsa de la memoria caché.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

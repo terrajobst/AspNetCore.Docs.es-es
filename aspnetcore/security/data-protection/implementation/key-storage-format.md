@@ -5,12 +5,12 @@ description: Obtenga información sobre los detalles de implementación del form
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/key-storage-format
-ms.openlocfilehash: bca19ad001dd20b5d02ae5470f7d928082496037
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 81df124f3dd0cadf8fd895ab55f66eec6415705f
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219282"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208023"
 ---
 # <a name="key-storage-format-in-aspnet-core"></a>Formato de almacenamiento de claves en ASP.NET Core
 
@@ -65,7 +65,7 @@ El formato determinado de la \<descriptor > elemento depende de la implementaci�
 
 Un **&lt;encryptedSecret&gt;** puede encontrarse el elemento que contiene el formulario cifrado de la clave secreta si [está habilitado el cifrado de secretos en reposo](xref:security/data-protection/implementation/key-encryption-at-rest). El atributo `decryptorType` es el nombre completo de ensamblado de un tipo que implementa [IXmlDecryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmldecryptor). Este tipo es responsable de leer interno **&lt;encryptedKey&gt;** elemento y lo descifra para recuperar el texto sin formato original.
 
-Igual que con \<descriptor >, el formato determinado de la <encryptedSecret> elemento depende del mecanismo de cifrado en reposo en uso. En el ejemplo anterior, la clave maestra se cifra mediante DPAPI de Windows por el comentario.
+Igual que con `<descriptor>`, el formato determinado de la `<encryptedSecret>` elemento depende del mecanismo de cifrado en reposo en uso. En el ejemplo anterior, la clave maestra se cifra mediante DPAPI de Windows por el comentario.
 
 ## <a name="the-revocation-element"></a>El \<revocación > elemento
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/04/2018
 uid: client-side/using-gulp
-ms.openlocfilehash: 43277dc5910971374187f49031e74769c9e29e1f
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 9f6d03a1e8a81bceca15cb1e1aa664c22c31e1d3
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665631"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209877"
 ---
 # <a name="use-gulp-in-aspnet-core"></a>Usar Gulp en ASP.NET Core
 
@@ -56,7 +56,7 @@ paths.concatCssDest = paths.webroot + "css/site.min.css";
 
 El código anterior especifica qué módulos de nodo son necesarios. El `require` cada módulo importaciones de función para que las tareas dependientes pueden utilizar sus características. Cada uno de los módulos importados se asigna a una variable. Los módulos pueden encontrarse por nombre o ruta de acceso. En este ejemplo, los módulos denominan `gulp`, `rimraf`, `gulp-concat`, `gulp-cssmin`, y `gulp-uglify` se recuperan por su nombre. Además, se crean una serie de rutas de acceso para que se pueden volver a usar las ubicaciones de archivos CSS y JavaScript y hacer referencia en las tareas. En la tabla siguiente se proporciona descripciones de los módulos incluidos en *gulpfile.js*.
 
-| Nombre de módulo | Descripción |
+| Nombre del módulo | Descripción |
 | ----------- | ----------- |
 | Gulp        | La transmisión por secuencias del sistema de compilación Gulp. Para obtener más información, consulte [gulp](https://www.npmjs.com/package/gulp). |
 | rimraf      | Un módulo de eliminación de nodo. Para obtener más información, consulte [rimraf](https://www.npmjs.com/package/rimraf). |
@@ -86,7 +86,7 @@ gulp.task("min:css", () => {
 });
 
 gulp.task("min", gulp.series(["min:js", "min:css"]));
-    
+
 // A 'default' task is required by Gulp v4
 gulp.task("default", gulp.series(["min"]));
 ```
@@ -108,7 +108,7 @@ En la tabla siguiente proporciona una explicación de las tareas especificadas e
 
 Si ya no ha creado una nueva aplicación Web, cree un nuevo proyecto de aplicación Web ASP.NET en Visual Studio.
 
-1.  Abra el *package.json* archivo (agregar si no existe) y agregue lo siguiente.
+1. Abra el *package.json* archivo (agregar si no existe) y agregue lo siguiente.
 
     ```json
     {
@@ -122,71 +122,71 @@ Si ya no ha creado una nueva aplicación Web, cree un nuevo proyecto de aplicaci
     }
     ```
 
-2.  Agregar un nuevo archivo JavaScript al proyecto y asígnele el nombre *gulpfile.js*, a continuación, copie el código siguiente.
+2. Agregar un nuevo archivo JavaScript al proyecto y asígnele el nombre *gulpfile.js*, a continuación, copie el código siguiente.
 
     ```javascript
     /// <binding Clean='clean' />
     "use strict";
-    
+
     const gulp = require("gulp"),
           rimraf = require("rimraf"),
           concat = require("gulp-concat"),
           cssmin = require("gulp-cssmin"),
           uglify = require("gulp-uglify");
-    
+
     const paths = {
       webroot: "./wwwroot/"
     };
-    
+
     paths.js = paths.webroot + "js/**/*.js";
     paths.minJs = paths.webroot + "js/**/*.min.js";
     paths.css = paths.webroot + "css/**/*.css";
     paths.minCss = paths.webroot + "css/**/*.min.css";
     paths.concatJsDest = paths.webroot + "js/site.min.js";
     paths.concatCssDest = paths.webroot + "css/site.min.css";
-    
+
     gulp.task("clean:js", done => rimraf(paths.concatJsDest, done));
     gulp.task("clean:css", done => rimraf(paths.concatCssDest, done));
     gulp.task("clean", gulp.series(["clean:js", "clean:css"]));
 
     gulp.task("min:js", () => {
       return gulp.src([paths.js, "!" + paths.minJs], { base: "." })
-        .pipe(concat(paths.concatJsDest))
-        .pipe(uglify())
-        .pipe(gulp.dest("."));
+      .pipe(concat(paths.concatJsDest))
+      .pipe(uglify())
+      .pipe(gulp.dest("."));
     });
 
     gulp.task("min:css", () => {
       return gulp.src([paths.css, "!" + paths.minCss])
-        .pipe(concat(paths.concatCssDest))
-        .pipe(cssmin())
-        .pipe(gulp.dest("."));
+      .pipe(concat(paths.concatCssDest))
+      .pipe(cssmin())
+      .pipe(gulp.dest("."));
     });
 
     gulp.task("min", gulp.series(["min:js", "min:css"]));
-    
+
     // A 'default' task is required by Gulp v4
     gulp.task("default", gulp.series(["min"]));
     ```
 
-3.  En **el Explorador de soluciones**, haga clic en *gulpfile.js*y seleccione **Task Runner Explorer**.
-    
+3. En **el Explorador de soluciones**, haga clic en *gulpfile.js*y seleccione **Task Runner Explorer**.
+
     ![Abra el Explorador de ejecutores de tareas desde el Explorador de soluciones](using-gulp/_static/02-SolutionExplorer-TaskRunnerExplorer.png)
-    
+
     **Task Runner Explorer** muestra la lista de las tareas de Gulp. (Tendrá que hacer clic en el **actualizar** botón que aparece a la izquierda del nombre del proyecto.)
-    
+
     ![Explorador de ejecutores de tareas](using-gulp/_static/03-TaskRunnerExplorer.png)
-    
+
     > [!IMPORTANT]
     > El **Task Runner Explorer** elemento de menú contextual aparece sólo si *gulpfile.js* está en el directorio raíz del proyecto.
 
-4.  Debajo de la directiva **tareas** en **Task Runner Explorer**, haga clic en **limpia**y seleccione **ejecutar** en el menú emergente.
+4. Debajo de la directiva **tareas** en **Task Runner Explorer**, haga clic en **limpia**y seleccione **ejecutar** en el menú emergente.
 
     ![Tarea de limpieza de explorador del ejecutador de tareas](using-gulp/_static/04-TaskRunner-clean.png)
 
     **Task Runner Explorer** creará una nueva ficha denominada **limpia** y ejecutar la tarea clean según se define en *gulpfile.js*.
 
-5.  Haga clic en el **limpia** de tareas y, después, seleccione **enlaces** > **antes de compilar**.
+5. Haga clic en el **limpia** de tareas y, después, seleccione **enlaces** > **antes de compilar**.
 
     ![Task Runner Explorer BeforeBuild de enlace](using-gulp/_static/05-TaskRunner-BeforeBuild.png)
 
@@ -206,7 +206,7 @@ Ahora la tarea clean se ejecute cuando se ejecuta el proyecto en Visual Studio o
 
 Para definir una nueva tarea de Gulp, modificar *gulpfile.js*.
 
-1.  Agregue el siguiente código de JavaScript al final de *gulpfile.js*:
+1. Agregue el siguiente código de JavaScript al final de *gulpfile.js*:
 
     ```javascript
     gulp.task('first', done => {
@@ -217,11 +217,11 @@ Para definir una nueva tarea de Gulp, modificar *gulpfile.js*.
 
     Esta tarea se denomina `first`, y simplemente muestra una cadena.
 
-2.  Guardar *gulpfile.js*.
+2. Guardar *gulpfile.js*.
 
-3.  En **el Explorador de soluciones**, haga clic en *gulpfile.js*y seleccione *Task Runner Explorer*.
+3. En **el Explorador de soluciones**, haga clic en *gulpfile.js*y seleccione *Task Runner Explorer*.
 
-4.  En **Task Runner Explorer**, haga clic en **primera**y seleccione **ejecutar**.
+4. En **Task Runner Explorer**, haga clic en **primera**y seleccione **ejecutar**.
 
     ![Ejecute la primera tarea Task Runner Explorer](using-gulp/_static/06-TaskRunner-First.png)
 
@@ -231,7 +231,7 @@ Para definir una nueva tarea de Gulp, modificar *gulpfile.js*.
 
 Al ejecutar varias tareas, las tareas se ejecutarán simultáneamente de forma predeterminada. Sin embargo, si tiene que ejecutar tareas en un orden específico, debe especificar cuando cada tarea está completa, así como las tareas que dependen de la finalización de otra tarea.
 
-1.  Para definir una serie de tareas que se ejecutarán en orden, reemplace el `first` tarea que agregó anteriormente en *gulpfile.js* con lo siguiente:
+1. Para definir una serie de tareas que se ejecutarán en orden, reemplace el `first` tarea que agregó anteriormente en *gulpfile.js* con lo siguiente:
 
     ```javascript
     gulp.task('series:first', done => {
@@ -240,22 +240,22 @@ Al ejecutar varias tareas, las tareas se ejecutarán simultáneamente de forma p
     });
     gulp.task('series:second', done => {
       console.log('second task! <-----');
-      done(); // signal completion
+        done(); // signal completion
     });
 
     gulp.task('series', gulp.series(['series:first', 'series:second']), () => { });
 
     // A 'default' task is required by Gulp v4
-    gulp.task('default', gulp.series('series'));
+      gulp.task('default', gulp.series('series'));
     ```
- 
+
     Ahora tiene tres tareas: `series:first`, `series:second`, y `series`. El `series:second` tarea incluye un segundo parámetro que especifica una matriz de tareas que se ejecutarán y se complete antes de la `series:second` se ejecutará la tarea. Como se especifica en el código anterior, solo la `series:first` tareas deben completarse antes de la `series:second` se ejecutará la tarea.
 
-2.  Guardar *gulpfile.js*.
+2. Guardar *gulpfile.js*.
 
-3.  En **el Explorador de soluciones**, haga clic en *gulpfile.js* y seleccione **Task Runner Explorer** si no está abierta.
+3. En **el Explorador de soluciones**, haga clic en *gulpfile.js* y seleccione **Task Runner Explorer** si no está abierta.
 
-4.  En **Task Runner Explorer**, haga clic en **serie** y seleccione **ejecutar**.
+4. En **Task Runner Explorer**, haga clic en **serie** y seleccione **ejecutar**.
 
     ![Task Runner Explorer Ejecutar tarea de serie](using-gulp/_static/07-TaskRunner-Series.png)
 
@@ -298,27 +298,27 @@ Cuando se usa Gulp para optimizar los archivos de cliente de almacenamiento prov
 
 Para cambiar entre la compilación en diferentes entornos, modifique la **ASPNETCORE_ENVIRONMENT** valor de la variable de entorno.
 
-1.  En **Task Runner Explorer**, compruebe que la **min** se ha establecido la tarea en ejecución **antes de compilar**.
+1. En **Task Runner Explorer**, compruebe que la **min** se ha establecido la tarea en ejecución **antes de compilar**.
 
-2.  En **el Explorador de soluciones**, haga clic en el nombre del proyecto y seleccione **propiedades**.
+2. En **el Explorador de soluciones**, haga clic en el nombre del proyecto y seleccione **propiedades**.
 
     Se muestra la hoja de propiedades de la aplicación Web.
 
-3.  Haga clic en la pestaña **Depurar**.
+3. Haga clic en la pestaña **Depurar**.
 
-4.  Establezca el valor de la **: entorno de hospedaje** variable de entorno `Production`.
+4. Establezca el valor de la **: entorno de hospedaje** variable de entorno `Production`.
 
-5.  Presione **F5** para ejecutar la aplicación en un explorador.
+5. Presione **F5** para ejecutar la aplicación en un explorador.
 
-6.  En la ventana del explorador, haga clic en la página y seleccione **ver código fuente** para ver el código HTML de la página.
+6. En la ventana del explorador, haga clic en la página y seleccione **ver código fuente** para ver el código HTML de la página.
 
     Tenga en cuenta que los vínculos de hoja de estilos apuntan a los archivos CSS minificados.
 
-7.  Cierre el explorador para detener la aplicación Web.
+7. Cierre el explorador para detener la aplicación Web.
 
-8.  En Visual Studio, vuelva a la hoja de propiedades de la aplicación Web y cambie el **: entorno de hospedaje** hacer una copia de la variable de entorno para `Development`.
+8. En Visual Studio, vuelva a la hoja de propiedades de la aplicación Web y cambie el **: entorno de hospedaje** hacer una copia de la variable de entorno para `Development`.
 
-9.  Presione **F5** volver a ejecutar la aplicación en un explorador.
+9. Presione **F5** volver a ejecutar la aplicación en un explorador.
 
 10. En la ventana del explorador, haga clic en la página y seleccione **ver código fuente** para ver el código HTML de la página.
 

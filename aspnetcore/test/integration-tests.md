@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/25/2019
 uid: test/integration-tests
-ms.openlocfilehash: 053713e148df70b0be6bb567b55b2381a78d6c3e
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 50cb6b26be187c7f36f189e77fd29b4559221f2c
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833584"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209244"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
 
@@ -91,7 +91,7 @@ El `Microsoft.AspNetCore.Mvc.Testing` paquete controla las tareas siguientes:
 El [pruebas unitarias](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) documentación describe cómo configurar un proyecto y prueba el ejecutor de pruebas, junto con instrucciones detalladas sobre cómo ejecutar pruebas y recomendaciones sobre cómo para comprobaciones de nombres y clases de prueba.
 
 > [!NOTE]
-> Al crear un proyecto de prueba para una aplicación, separe las pruebas unitarias de las pruebas de integración en proyectos diferentes. Esto ayuda a asegurarse de que accidentalmente componentes de infraestructura de pruebas no incluidas en las pruebas unitarias. Separación de las pruebas unitarias y de integración también permite controlar qué conjunto de pruebas se ejecutan.
+> Al crear un proyecto de prueba para una aplicación, separe las pruebas unitarias de las pruebas de integración en proyectos diferentes. Esto permite garantizar que los componentes de infraestructura de pruebas accidentalmente no están incluidos en las pruebas unitarias. Separación de las pruebas unitarias y de integración también permite controlar qué conjunto de pruebas se ejecutan.
 
 No hay prácticamente ninguna diferencia entre la configuración de pruebas de aplicaciones de las páginas de Razor y las aplicaciones MVC. La única diferencia está en cómo se denominan las pruebas. En una aplicación de páginas de Razor, suelen denominarse pruebas de puntos de conexión de página después de la clase de modelo de página (por ejemplo, `IndexPageTests` para probar la integración del componente de la página de índice). En una aplicación MVC, las pruebas normalmente se organizada por las clases de controlador y los controladores que se prueban con el nombre (por ejemplo, `HomeControllerTests` para probar la integración del componente para el controlador Home).
 

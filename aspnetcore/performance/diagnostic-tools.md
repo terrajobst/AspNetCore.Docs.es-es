@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.date: 12/07/2018
 uid: performance/diagnostic-tools
-ms.openlocfilehash: 0b1de069e7892fff451617f2c6570fa789808c4f
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 0fb9944d1082090f4f58f641a26ee96286920456
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099057"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58210007"
 ---
 # <a name="performance-diagnostic-tools"></a>Herramientas de diagnóstico de rendimiento
 
@@ -43,9 +43,9 @@ Azure Application Insights proporciona varias maneras de ofrecer información en
 
 Application Insights pueden usarse en entornos de varios:
 
-* Optimizado para trabajar en Azure.
-* Funciona en producción, desarrollo y almacenamiento provisional.
-* Funciona de forma local desde [Visual Studio](/azure/application-insights/app-insights-visual-studio) o en otros entornos de hospedaje.
+- Optimizado para trabajar en Azure.
+- Funciona en producción, desarrollo y almacenamiento provisional.
+- Funciona de forma local desde [Visual Studio](/azure/application-insights/app-insights-visual-studio) o en otros entornos de hospedaje.
 
 Para más información, consulte [Application Insights para ASP.NET Core](/azure/application-insights/app-insights-asp-net-core).
 

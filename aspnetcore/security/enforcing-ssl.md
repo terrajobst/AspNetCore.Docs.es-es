@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 0c3add9c8860a47932cda3a8b07c83dc774bf1f1
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 16cfa672fe4a81d9e8f09fc3dd1e6c036edd4c4e
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098979"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208981"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Exigir HTTPS en ASP.NET Core
 
@@ -30,7 +30,7 @@ Ninguna API puede evitar que a un cliente envía información confidencial en la
 > * No escucha en HTTP.
 > * Cierre la conexión con el código de estado 400 (solicitud incorrecta) y no atender la solicitud.
 
-## <a name="require-https"></a>Requerir HTTPS
+## <a name="require-https"></a>Requisito de HTTPS
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -69,7 +69,7 @@ Especifique el puerto HTTPS mediante cualquiera de los métodos siguientes:
 
   **Clave**: `https_port`  
   **Tipo**: *cadena*  
-  **Default**: No se establece un valor predeterminado.  
+  **Predeterminado**: no se ha establecido ningún valor predeterminado.  
   **Establecer mediante**: `UseSetting`  
   **Variable de entorno**: `<PREFIX_>HTTPS_PORT` (El prefijo es `ASPNETCORE_` cuando se usa el [Web Host](xref:fundamentals/host/web-host).)
 
@@ -212,7 +212,7 @@ Desactive el **configurar HTTPS** casilla de verificación.
 
 ![Nuevo cuadro de diálogo de aplicación Web ASP.NET Core que muestra la configuración de casilla de verificación HTTPS no está seleccionada.](enforcing-ssl/_static/out.png)
 
-#   <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli) 
+# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli) 
 
 Use la opción `--no-https`. Por ejemplo
 

@@ -1,24 +1,24 @@
 ---
 title: Detalles de cifrado autenticado en ASP.NET Core
 author: rick-anderson
-description: Obtenga información acerca de los detalles de implementación del cifrado de protección de datos de ASP.NET Core autenticado.
+description: Obtenga información sobre los detalles de implementación del cifrado de la protección de datos de ASP.NET Core autenticado.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/authenticated-encryption-details
-ms.openlocfilehash: ac650e5c32e7eacc4088225e63f56340f95e1913
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9def03e6b27e19fc34a839e923d6152e086889db
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275689"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208585"
 ---
 # <a name="authenticated-encryption-details-in-aspnet-core"></a>Detalles de cifrado autenticado en ASP.NET Core
 
 <a name="data-protection-implementation-authenticated-encryption-details"></a>
 
-Llamadas a IDataProtector.Protect son operaciones de cifrado autenticado. El método Protect ofrece confidencialidad y la autenticidad y está asociado a la cadena de propósito que se usó para esta instancia concreta de IDataProtector se deriva su raíz IDataProtectionProvider.
+Las llamadas a IDataProtector.Protect son las operaciones de cifrado autenticado. El método Protect ofrece confidencialidad y la autenticidad y está vinculado a la cadena de propósito que se usó para derivar esta instancia concreta de IDataProtector su raíz IDataProtectionProvider.
 
-IDataProtector.Protect toma un parámetro de texto simple de byte [] y genera una byte [] protegido carga, cuyo formato se describe a continuación. (También hay una sobrecarga del método de extensión que toma un parámetro de cadena de texto simple y devuelve una carga protegido de cadena. Si se usa esta API seguirá teniendo el formato de carga protegido el por debajo de la estructura, pero será [codificado en base64url](https://tools.ietf.org/html/rfc4648#section-5).)
+IDataProtector.Protect toma un parámetro de texto simple de byte [] y genera una byte [] protegido carga, cuyo formato se describe a continuación. (También hay una sobrecarga del método de extensión que toma un parámetro de cadena de texto simple y devuelve una carga protegida de la cadena. Si se usa esta API todavía tendrá el formato de carga protegido el por debajo de la estructura, pero será [codificados en base64url](https://tools.ietf.org/html/rfc4648#section-5).)
 
 ## <a name="protected-payload-format"></a>Formato de carga protegido
 
@@ -28,9 +28,13 @@ El formato de carga protegido consta de tres componentes principales:
 
 * Identificador de clave de 128 bits que identifica la clave utilizada para proteger esta carga determinada.
 
-* El resto de la carga protegido es [específico para el sistema de cifrado encapsulada por esta clave](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). En el ejemplo siguiente representa la clave de un cifrado AES-256-CBC + HMACSHA256 cifrado y la carga se subdivide como sigue: * el modificador de tecla A 128 bits. * Un vector de inicialización de 128 bits. * 48 bytes de salida de AES-256-CBC. * Una etiqueta de autenticación HMACSHA256.
+* El resto de la carga protegido es [específico para el sistema de cifrado encapsulada por esta clave](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). En el ejemplo siguiente, la clave que representa un AES-256-CBC + cifrador HMACSHA256 y la carga se subdivide además como sigue:
+  * Un modificador de la clave de 128 bits.
+  * Un vector de inicialización de 128 bits.
+  * 48 bytes de salida de AES-256-CBC.
+  * Una etiqueta de autenticación HMACSHA256.
 
-Una carga protegido de ejemplo se ilustra a continuación.
+Una carga protegida de ejemplo se ilustra a continuación.
 
 ```
 09 F0 C9 F0 80 9C 81 0C 19 66 19 40 95 36 53 F8
@@ -44,11 +48,11 @@ AA FF EE 57 57 2F 40 4C 3F 7F CC 9D CC D9 32 3E
 52 C9 74 A0
 ```
 
-Desde el formato de carga por encima de los primeros 32 bits o 4 bytes son el encabezado mágico identifica la versión (09 F0 C9 F0)
+Desde el formato de carga por encima de los primeros 32 bits o 4 bytes son el encabezado mágico que identifica la versión (09 F0 C9 F0)
 
-Los siguientes 128 bits o 16 bytes es el identificador de clave (80 9 81 C 0c 19 66 19 40 95 36 53 F8 AA FF EE 57)
+Los siguientes 128 bits, o 16 bytes es el identificador de clave (80 9 81 C 0c 19 66 19 40 95 36 53 F8 AA FF EE 57)
 
 El resto contiene la carga y es específico para el formato utilizado.
 
->[!WARNING]
-> Todas las cargas protegidas para una clave determinada se iniciará con el mismo encabezado de 20 bytes (valor mágica, Id. de clave). Los administradores pueden usar este hecho con fines de diagnóstico para la aproximación cuando se genera una carga. Por ejemplo, la carga anterior corresponde a la clave {0c819c80-6619-4019-9536-53f8aaffee57}. Si después de comprobar el repositorio clave encuentra que la fecha de activación de esta clave específica fue 2015-01-01 y su fecha de expiración era 2015-03-01, entonces es razonable suponer la carga (si no ha sido manipulado con) se ha generado dentro de esa ventana, conceda a o tomar una pequeña factor de aglutinante a cada lado.
+> [!WARNING]
+> Todas las cargas protegidas en una clave determinada se iniciará con el mismo encabezado de 20 bytes (valor mágico, Id. de clave). Los administradores pueden usar este hecho para fines de diagnóstico para aproximarse a cuando se generó una carga. Por ejemplo, la carga anterior corresponde a la clave {0c819c80-6619-4019-9536-53f8aaffee57}. Si después de comprobar el repositorio clave encuentra que la fecha de activación de esta clave específica fue 2015-01-01 y su fecha de expiración era 2015-03-01, entonces es razonable suponer la carga (si no modificado) se ha generado dentro de esa ventana, conceda a o tomar una pequeña factor aglutinante a ambos lados.

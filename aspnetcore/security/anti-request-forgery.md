@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/11/2018
 uid: security/anti-request-forgery
-ms.openlocfilehash: 6e140717834b901e12ef7863fd07b983b0c55107
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: 88a2d127407378b9e83df7f48b1938ed081f9bb2
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667666"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208533"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Evitar Cross-Site falsificación de solicitud entre (XSRF/CSRF) attacks en ASP.NET Core
 
@@ -106,8 +106,8 @@ De forma similar, [IHtmlHelper.BeginForm](/dotnet/api/microsoft.aspnetcore.mvc.r
 
 La generación automática de tokens antifalsificación para los elementos de formulario HTML se produce cuando el `<form>` etiqueta contiene el `method="post"` atributo y cualquiera de las siguientes son verdaderas:
 
-  * El atributo action está vacío (`action=""`).
-  * No se proporciona el atributo de acción (`<form method="post">`).
+* El atributo action está vacío (`action=""`).
+* No se proporciona el atributo de acción (`<form method="post">`).
 
 Se puede deshabilitar la generación automática de tokens antifalsificación para los elementos de formulario HTML:
 
