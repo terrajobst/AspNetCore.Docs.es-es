@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/12/2019
 uid: spa/blazor/get-started
-ms.openlocfilehash: 667c57d536450fa2f8ae1cabc7c5a76a16d38a55
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: f46bd9af0f0762e794349d4e98de5c086a690d72
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665592"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327234"
 ---
 # <a name="get-started-with-blazor"></a>Introducción a Blazor
 
@@ -28,7 +28,7 @@ Requisitos previos:
 
 Para crear su primer proyecto Blazor en Visual Studio:
 
-1. Instale la última versión [extensión Blazor Language Services](https://go.microsoft.com/fwlink/?linkid=870389) desde Visual Studio Marketplace. Este paso pone a disposición Blazor plantillas para Visual Studio.
+1. Instale la última versión [Blazor extensión](https://go.microsoft.com/fwlink/?linkid=870389) desde Visual Studio Marketplace. Este paso pone a disposición Blazor plantillas para Visual Studio.
 1. Asegúrese de las plantillas de Blazor disponibles para su uso con la CLI de .NET Core ejecutando el siguiente comando en un shell de comandos:
 
    ```console
@@ -118,7 +118,7 @@ Requisitos previos:
 
 Cuando se ejecuta la aplicación, están disponibles las fichas en la barra lateral de varias páginas:
 
-* Inicio
+* Página principal
 * Contador
 * Recuperar datos
 
@@ -133,7 +133,7 @@ Una solicitud para `/counter` en el explorador, según lo especificado por el `@
 Cada vez que el **Click me** está seleccionado:
 
 * El `onclick` desencadena el evento.
-* Se llama al método `IncrementCount`.
+* Se llama al método `IncrementCount` .
 * El `currentCount` se incrementa.
 * El componente se representa de nuevo.
 
@@ -145,7 +145,7 @@ En *Pages/index.cshtml*, reemplace el componente de encuesta de símbolo del sis
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index1.cshtml?highlight=7)]
 
-Ejecute la aplicación. La página principal tiene su propio contador.
+Ejecutar la aplicación. La página principal tiene su propio contador.
 
 Para agregar un parámetro para el componente de contador, actualice el componente `@functions` bloque:
 
@@ -162,7 +162,7 @@ Especifique un parámetro `IncrementAmount` en el elemento `<Counter>` del compo
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index2.cshtml)]
 
-Ejecute la aplicación. La página principal tiene su propio contador que se incrementa en diez cada vez que el **Click me** botón está seleccionado.
+Ejecutar la aplicación. La página principal tiene su propio contador que se incrementa en diez cada vez que el **Click me** botón está seleccionado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

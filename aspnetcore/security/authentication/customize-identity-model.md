@@ -5,12 +5,12 @@ description: En este artículo se describe cómo personalizar el modelo de datos
 ms.author: avickers
 ms.date: 09/24/2018
 uid: security/authentication/customize_identity_model
-ms.openlocfilehash: 55346c571f180fa17a1108a622d991d15f365bae
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 0aa7448ac37a97a4d09a04caf365f641f22f5997
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209467"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327306"
 ---
 # <a name="identity-model-customization-in-aspnet-core"></a>Personalización del modelo de identidad en ASP.NET Core
 
@@ -253,7 +253,7 @@ public abstract class IdentityDbContext<
          where TUserToken : IdentityUserToken<TKey>
 ```
 
-También es posible usar identidad sin roles (solo notificaciones), en cuyo caso un <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserContext`1> se debe usar la clase:
+También es posible usar identidad sin roles (solo notificaciones), en cuyo caso un <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserContext%601> se debe usar la clase:
 
 ```csharp
 // Uses the built-in non-role Identity types except with a custom User type
@@ -368,7 +368,7 @@ Siga estos pasos para cambiar el tipo de clave principal:
 
 1. Si la base de datos se creó antes del cambio de clave principal, ejecute `Drop-Database` (PMC) o `dotnet ef database drop` (CLI de .NET Core) para eliminarlo.
 2. Después de confirmar la eliminación de la base de datos, quite la migración inicial con `Remove-Migration` (PMC) o `dotnet ef migrations remove` (CLI de .NET Core).
-3. Actualización de la `ApplicationDbContext` clase derive de <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext`3>. Especifique el nuevo tipo de clave para `TKey`. Por ejemplo, para usar un `Guid` tipo de clave:
+3. Actualización de la `ApplicationDbContext` clase derive de <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext%603>. Especifique el nuevo tipo de clave para `TKey`. Por ejemplo, para usar un `Guid` tipo de clave:
 
     ```csharp
     public class ApplicationDbContext
@@ -383,13 +383,13 @@ Siga estos pasos para cambiar el tipo de clave principal:
 
     ::: moniker range=">= aspnetcore-2.0"
 
-    En el código anterior, las clases genéricas <xref:Microsoft.AspNetCore.Identity.IdentityUser`1> y <xref:Microsoft.AspNetCore.Identity.IdentityRole`1> debe especificarse para usar el nuevo tipo de clave.
+    En el código anterior, las clases genéricas <xref:Microsoft.AspNetCore.Identity.IdentityUser%601> y <xref:Microsoft.AspNetCore.Identity.IdentityRole%601> debe especificarse para usar el nuevo tipo de clave.
 
     ::: moniker-end
 
     ::: moniker range="<= aspnetcore-1.1"
 
-    En el código anterior, las clases genéricas <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUser`1> y <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole`1> debe especificarse para usar el nuevo tipo de clave.
+    En el código anterior, las clases genéricas <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUser%601> y <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole%601> debe especificarse para usar el nuevo tipo de clave.
 
     ::: moniker-end
 
