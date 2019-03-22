@@ -56,7 +56,7 @@ Obtenga más información sobre los [proveedores de registro integrados](#built-
 
 ## <a name="create-logs"></a>Creación de registros
 
-Obtenga un objeto <xref:Microsoft.Extensions.Logging.ILogger`1> a partir de la inserción de dependencias.
+Obtenga un objeto <xref:Microsoft.Extensions.Logging.ILogger%601> a partir de la inserción de dependencias.
 
 ::: moniker range=">= aspnetcore-2.0"
 
