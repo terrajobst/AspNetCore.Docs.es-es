@@ -5,12 +5,12 @@ description: Obtenga información sobre la manera en que ASP.NET Core proporcion
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 70de86f2e8c4a5577b8a4b50c53d66eb3b205c09
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 4e87423a02a275eae7e2f6054e7a3b6c22cd7cee
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665550"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320227"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
 
@@ -76,7 +76,7 @@ Un archivo de recursos en francés podría contener lo siguiente:
 
 | Key | Valor |
 | ----- | ------ |
-| `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b> ` |
+| `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b>` |
 
 La vista representada contendría el marcado HTML del archivo de recursos.
 
@@ -98,6 +98,7 @@ Los mensajes de error de DataAnnotations se localizan con `IStringLocalizer<T>`.
 En ASP.NET Core MVC 1.1.0 y versiones posteriores, los atributos que no son de validación están localizados. ASP.NET Core MVC 1.0 **no** busca cadenas localizadas para los atributos que no son de validación.
 
 <a name="one-resource-string-multiple-classes"></a>
+
 ### <a name="using-one-resource-string-for-multiple-classes"></a>Uso de una cadena de recursos para varias clases
 
 En el código siguiente se muestra cómo usar una cadena de recursos para atributos de validación con varias clases:
@@ -172,7 +173,7 @@ Si el espacio de nombres raíz de un ensamblado es diferente del nombre de ensam
 
 Si `RootNamespace` es diferente de `AssemblyName`, incluya lo siguiente en *AssemblyInfo.cs* (con los valores de parámetro reemplazados por los valores reales):
 
-```Csharp
+```csharp
 using System.Reflection;
 using Microsoft.Extensions.Localization;
 
@@ -304,7 +305,6 @@ Use `RequestLocalizationOptions` para agregar o quitar proveedores de localizaci
 ### <a name="set-the-culture-programmatically"></a>Establecer la referencia cultural mediante programación
 
 Este proyecto **Localization.StarterWeb** de ejemplo de [GitHub](https://github.com/aspnet/entropy) contiene una interfaz de usuario para establecer el valor `Culture`. El archivo *Views/Shared/_SelectLanguagePartial.cshtml* le permite seleccionar la referencia cultural de la lista de referencias culturales admitidas:
-
 
 [!code-cshtml[](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 

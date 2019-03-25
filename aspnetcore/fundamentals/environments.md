@@ -5,12 +5,12 @@ description: Aprenda a controlar el comportamiento de las aplicaciones en varios
 ms.author: riande
 ms.date: 01/22/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 4120453c36d1fc2a2303c2175df30ef9777bc54f
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 5982f3e51a68dfa29af482067156c42006f50c0c
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345963"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208463"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Usar varios entornos en ASP.NET Core
 
@@ -31,9 +31,9 @@ El código anterior:
 * Llama a [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) cuando `ASPNETCORE_ENVIRONMENT` está establecido en `Development`.
 * Llama a [UseExceptionHandler](/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler) cuando el valor de `ASPNETCORE_ENVIRONMENT` está establecido en uno de los siguientes:
 
-    * `Staging`
-    * `Production`
-    * `Staging_2`
+  * `Staging`
+  * `Production`
+  * `Staging_2`
 
 El [asistente de etiquetas de entorno](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) usa el valor de `IHostingEnvironment.EnvironmentName` para incluir o excluir el marcado en el elemento:
 
@@ -290,7 +290,7 @@ Para distribuciones de Linux, use el comando `export` en un símbolo del sistema
 
 Para cargar la configuración por entorno, se recomienda lo siguiente:
 
-* Archivos *appSettings* (*appsettings.&lt;<Environment>&gt;.json). Consulte [Configuration: File configuration provider](xref:fundamentals/configuration/index#file-configuration-provider) (Configuración: proveedor de configuración de archivos).
+* Archivos *appsettings* (*appsettings.\<Entorno>.json*). Consulte [Configuration: File configuration provider](xref:fundamentals/configuration/index#file-configuration-provider) (Configuración: proveedor de configuración de archivos).
 * Variables de entorno (establecidas en todos los sistemas donde se hospede la aplicación). Consulte [Configuration: File configuration provider](xref:fundamentals/configuration/index#file-configuration-provider) (Configuración: proveedor de configuración de archivos) y [Safe storage of app secrets in development: Environment variables](xref:security/app-secrets#environment-variables) (Almacenamiento seguro de secretos de aplicación en desarrollo: variables de entorno).
 * Administrador de secretos (solo en el entorno de desarrollo). Vea <xref:security/app-secrets>.
 

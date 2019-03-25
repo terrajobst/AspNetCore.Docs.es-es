@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo leer y manipular el modelo de apli
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/application-model
-ms.openlocfilehash: f3e0aafa3e6a352c632e4abbf3943be61f11ea81
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 6b0591a877c0d82e0ee6ab002eb6a6650753677b
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225504"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208601"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>Trabajar con el modelo de aplicación en ASP.NET Core
 
@@ -25,9 +25,9 @@ El modelo de aplicación de ASP.NET Core MVC incluye interfaces abstractas y cla
 El modelo de aplicación de ASP.NET Core MVC tiene la estructura siguiente:
 
 * ApplicationModel
-    * Controladores (ControllerModel)
-        * Acciones (ActionModel)
-            * Parámetros (ParameterModel)
+  * Controladores (ControllerModel)
+    * Acciones (ActionModel)
+      * Parámetros (ParameterModel)
 
 Cada nivel del modelo tiene acceso a una colección `Properties` común, y los niveles inferiores pueden tener acceso a los valores de propiedad establecidos por los niveles superiores de la jerarquía y sobrescribirlos. Las propiedades se conservan en `ActionDescriptor.Properties` cuando se crean las acciones. Después, cuando se controla una solicitud, se puede obtener acceso a través de `ActionContext.ActionDescriptor.Properties` a todas las propiedades que agregue o modifique una convención. El uso de propiedades es una manera excelente de configurar por acción los filtros, los enlazadores de modelos, etc.
 

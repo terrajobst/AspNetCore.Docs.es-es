@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: a0fbeac51bd1bfbc50c4d369a479ce5f3091358b
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 2d5168ed4b1e14e507262361de9fa959924b82f6
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346260"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209562"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Asistentes de etiquetas en formularios de ASP.NET Core
 
@@ -205,9 +205,7 @@ El asistente de etiquetas `Input` establece el atributo HTML `type` en función 
 |Valor int.|type="number"|
 |Single, Double|type="number"|
 
-
 En la siguiente tabla se muestran algunos atributos de [anotación de datos](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) comunes que el asistente de etiquetas Input asignará a tipos de entrada concretos (no incluimos aquí todos los atributo de validación):
-
 
 |Atributo|Tipo de entrada|
 |---|---|
@@ -215,10 +213,9 @@ En la siguiente tabla se muestran algunos atributos de [anotación de datos](/do
 |[Url]|type="url"|
 |[HiddenInput]|type="hidden"|
 |[Phone]|type="tel"|
-|[DataType(DataType.Password)]| type="password"|
-|[DataType(DataType.Date)]| type="date"|
-|[DataType(DataType.Time)]| type="time"|
-
+|[DataType(DataType.Password)]|type="password"|
+|[DataType(DataType.Date)]|type="date"|
+|[DataType(DataType.Time)]|type="time"|
 
 Ejemplo:
 
@@ -378,7 +375,7 @@ Se genera el siguiente código HTML:
 
 ## <a name="the-label-tag-helper"></a>Asistente de etiquetas Label
 
-* Genera el título de la etiqueta y el atributo `for` en un elemento [<label>](https://www.w3.org/wiki/HTML/Elements/label) de un nombre de expresión.
+* Genera el título de la etiqueta y el atributo `for` en un elemento [\<etiqueta>](https://www.w3.org/wiki/HTML/Elements/label) de un nombre de expresión.
 
 * Alternativa del asistente de HTML: `Html.LabelFor`.
 

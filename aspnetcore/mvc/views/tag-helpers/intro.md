@@ -4,20 +4,20 @@ author: rick-anderson
 description: Obtenga información sobre qué son los asistentes de etiquetas y cómo se usan en ASP.NET Core.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 2/14/2018
+ms.date: 03/18/2019
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 4b9bceb3ce0153af2d9a30c402febe09707145b7
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 7768dd45bdbe40c16176d57a76823cbb9dd0b91b
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477311"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264615"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Asistentes de etiquetas en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-## <a name="what-are-tag-helpers"></a>¿Qué son los asistentes de etiquetas?
+## <a name="what-are-tag-helpers"></a>Qué son los asistentes de etiquetas
 
 Los asistentes de etiquetas permiten que el código de servidor participe en la creación y la representación de elementos HTML en archivos de Razor. Por ejemplo, la aplicación auxiliar `ImageTagHelper` integrada puede anexar un número de versión al nombre de imagen. Cada vez que la imagen cambia, el servidor genera una nueva versión única para la imagen, lo que garantiza que los clientes puedan obtener la imagen actual (en lugar de una imagen obsoleta almacenada en caché). Hay muchos asistentes de etiquetas integradas para tareas comunes (como la creación de formularios, vínculos, carga de activos, etc.) y existen muchos más a disposición en repositorios públicos de GitHub y como paquetes NuGet. Los asistentes de etiquetas se crean en C# y tienen como destino elementos HTML en función del nombre de elemento, el nombre de atributo o la etiqueta principal. Por ejemplo, la aplicación auxiliar `LabelTagHelper` integrada puede tener como destino el elemento HTML `<label>` cuando se aplican atributos `LabelTagHelper`. Si está familiarizado con las [asistentes de HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), los asistentes de etiquetas reducen las transiciones explícitas entre HTML y C# en las vistas de Razor. En muchos casos, los asistentes de HTML proporcionan un método alternativo para un asistente de etiquetas específico, pero es importante tener en cuenta que los asistentes de etiquetas no reemplazan a los asistentes de HTML y que no hay un asistente de etiquetas para cada asistente de HTML. En [Comparación entre los asistentes de etiquetas y los asistentes de HTML](#tag-helpers-compared-to-html-helpers) se explican las diferencias con más detalle.
 
@@ -122,6 +122,7 @@ La directiva `@tagHelperPrefix` permite especificar una cadena de prefijo de eti
 ```cshtml
 @tagHelperPrefix th:
 ```
+
 En la imagen de código siguiente, el prefijo del asistente de etiquetas se establece en `th:`, por lo que solo los elementos con el prefijo `th:` admiten asistentes de etiquetas (los elementos habilitados para asistentes de etiquetas tienen una fuente distinta). Los elementos `<label>` y `<input>` tienen el prefijo de los asistentes de etiquetas y están habilitados para estas, a diferencia del elemento `<span>`.
 
 ![imagen](intro/_static/thp.png)
@@ -186,37 +187,21 @@ El símbolo de arroba (`@`) le indica a Razor que este es el inicio del código.
 new {@class="caption"}
 ```
 
-Es un objeto anónimo que se usa para representar atributos. Dado que <strong>class</strong> es una palabra reservada en C#, use el símbolo `@` para forzar a C# a interpretar "@class=" como un símbolo (nombre de propiedad). Para un diseñador de front-end (es decir, alguien familiarizado con HTML, CSS, JavaScript y otras tecnologías de cliente, pero desconocedor de C# y Razor), la mayor parte de la línea le resulta ajena. Es necesario crear toda la línea sin ayuda de IntelliSense.
+Es un objeto anónimo que se usa para representar atributos. Dado que `class` es una palabra clave reservada en C#, use el símbolo `@` para forzar a C# a interpretar `@class=` como un símbolo (nombre de propiedad). Para un diseñador de front-end (es decir, alguien familiarizado con HTML, CSS, JavaScript y otras tecnologías de cliente, pero desconocedor de C# y Razor), la mayor parte de la línea le resulta ajena. Es necesario crear toda la línea sin ayuda de IntelliSense.
 
 Si usa `LabelTagHelper`, se puede escribir el mismo marcado de la manera siguiente:
 
-![imagen](intro/_static/label2.png)
+```cshtml
+<label class="caption" asp-for="FirstName"></label>
+```
 
 Con la versión del asistente de etiquetas, en cuanto escriba `<l` en el editor de Visual Studio, IntelliSense mostrará elementos coincidentes:
 
 ![imagen](intro/_static/label.png)
 
-IntelliSense le ayuda a escribir toda la línea. `LabelTagHelper` también tiene como valor predeterminado el establecimiento del contenido del valor de atributo `asp-for` ("FirstName") en "First Name"; es decir, convierte las propiedades con grafía Camel en una oración formada por el nombre de la propiedad con un espacio donde aparece cada nueva letra mayúscula. En el marcado siguiente:
+IntelliSense le ayuda a escribir toda la línea.
 
-![imagen](intro/_static/label2.png)
-
-Se genera:
-
-```cshtml
-<label class="caption" for="FirstName">First Name</label>
-```
-
-El contenido con grafía Camel convertido en grafía de oración no se usa si agrega contenido a `<label>`. Por ejemplo:
-
-![imagen](intro/_static/1stName.png)
-
-Se genera:
-
-```cshtml
-<label class="caption" for="FirstName">Name First</label>
-```
-
-En la imagen de código siguiente se muestra la parte Form de la vista de Razor *Views/Account/Register.cshtml* generada a partir de la plantilla heredada de MVC de ASP.NET 4.5.x incluida con Visual Studio 2015.
+En la imagen de código siguiente se muestra la parte Form de la vista de Razor *Views/Account/Register.cshtml* generada a partir de la plantilla de MVC de ASP.NET 4.5.x incluida con Visual Studio.
 
 ![imagen](intro/_static/regCS.png)
 

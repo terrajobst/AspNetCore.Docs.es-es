@@ -5,12 +5,12 @@ description: Agregar una vista a una aplicación sencilla de ASP.NET Core MVC
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 32eddb233a8a6b9b8f480926673d15d568ce6ede
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: 6ff706012dabbf9500a805708c1f058b59ebc610
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236437"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265551"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Agregar una vista a una aplicación de ASP.NET Core MVC
 
@@ -28,7 +28,6 @@ El código anterior llama al método <xref:Microsoft.AspNetCore.Mvc.Controller.V
 
 ## <a name="add-a-view"></a>Agregar una vista
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Haga clic con el botón derecho en la carpeta *Vistas*, haga clic en **Agregar > Nueva carpeta** y asigne a la carpeta el nombre *HelloWorld*.
@@ -47,7 +46,6 @@ El código anterior llama al método <xref:Microsoft.AspNetCore.Mvc.Controller.V
 
 ![Cuadro de diálogo Agregar nuevo elemento](adding-view/_static/add_view.png)
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Agregue una vista `Index` para el `HelloWorldController`.
@@ -55,7 +53,6 @@ Agregue una vista `Index` para el `HelloWorldController`.
 * Agregue una nueva carpeta denominada *Views/HelloWorld*.
 * Agregue un nuevo archivo a la carpeta *Views/HelloWorld* y asígnele el nombre *Index.cshtml*.
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
 * Haga clic con el botón derecho en la carpeta *Vistas*, haga clic en **Agregar > Nueva carpeta** y asigne a la carpeta el nombre *HelloWorld*.
@@ -69,8 +66,7 @@ Agregue una vista `Index` para el `HelloWorldController`.
 
 ![Cuadro de diálogo Agregar nuevo elemento](adding-view/_static/add_view.png)
 
----  
-<!-- End of VS tabs -->
+---
 
 Reemplace el contenido del archivo de vista de Razor *Views/HelloWorld/Index.cshtml* con lo siguiente:
 
@@ -152,7 +148,7 @@ En *HelloWorldController.cs*, cambie el método `Welcome` para agregar un valor 
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
-El objeto de diccionario `ViewData` contiene datos que se pasarán a la vista. 
+El objeto de diccionario `ViewData` contiene datos que se pasarán a la vista.
 
 Cree una plantilla de vista principal denominada *Views/HelloWorld/Welcome.cshtml*.
 
@@ -168,7 +164,7 @@ Los datos se toman de la dirección URL y se pasan al controlador mediante el [e
 
 ![Vista Privacy (Privacidad) que muestra una etiqueta Welcome (Bienvenida) y la frase "Hello Rick" (Hola Rick) cuatro veces](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
-En el ejemplo anterior, se usó el diccionario `ViewData` para pasar datos del controlador a una vista. Más adelante en el tutorial usaremos un modelo de vista para pasar datos de un controlador a una vista. El enfoque del modelo de vista que consiste en pasar datos suele ser más preferible que el enfoque de diccionario `ViewData`. Vea [When to use ViewBag, ViewData, or TempData ](http://www.rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/) (Cuándo usar ViewBag, ViewData o TempData) para más información.
+En el ejemplo anterior, se usó el diccionario `ViewData` para pasar datos del controlador a una vista. Más adelante en el tutorial usaremos un modelo de vista para pasar datos de un controlador a una vista. El enfoque del modelo de vista que consiste en pasar datos suele ser más preferible que el enfoque de diccionario `ViewData`. Consulte [When to use ViewBag, ViewData, or TempData](http://www.rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/) (Cuándo usar ViewBag, ViewData o TempData) para más información.
 
 En el tutorial siguiente crearemos una base de datos de películas.
 

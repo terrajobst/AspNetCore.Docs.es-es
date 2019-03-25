@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 819bf1b49b56e953a9a4398e82866ba0b01ab4db
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: b0fce0632fd2d885cb8e9a056923ec365d2f327d
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207113"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209994"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Aplicación de formato a datos de respuesta en ASP.NET Core Web API
 
@@ -180,10 +180,8 @@ public class ProductsController
 
 Esta ruta permitiría especificar el formato solicitado como una extensión de archivo opcional. El atributo `[FormatFilter]` comprueba la existencia del valor de formato en `RouteData` y asignará el formato de respuesta al formateador adecuado cuando se cree la respuesta.
 
-
 |           Ruta            |             Formateador              |
 |----------------------------|------------------------------------|
 |   `/products/GetById/5`    |    Formateador de salida predeterminado    |
 | `/products/GetById/5.json` | Formateador JSON (si está configurado) |
 | `/products/GetById/5.xml`  | Formateador XML (si está configurado)  |
-

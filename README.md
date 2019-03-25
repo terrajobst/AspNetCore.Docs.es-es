@@ -1,8 +1,18 @@
-# <a name="aspnet-docs"></a>ASP.NET Docs
+---
+ms.openlocfilehash: 26a29630c9a93ab5c50b4258f112e0085fcc2d6b
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264604"
+---
+# <a name="aspnet-core-docs"></a>Documentos sobre ASP.NET Core
 
-Este repositorio contiene la documentación conceptual de ASP.NET Core y ASP.NET 4.x hospedada en [docs.microsoft.com/aspnet](https://docs.microsoft.com/aspnet). Vea la [Guía de colaboración](CONTRIBUTING.md) y la [lista de problemas](https://github.com/aspnet/Docs/issues) si quiere ayudar.
+Este repositorio contiene la documentación conceptual de ASP.NET Core hospedada en [docs.microsoft.com/aspnet](https://docs.microsoft.com/aspnet). Vea la [Guía de colaboración](CONTRIBUTING.md) y la [lista de problemas](https://github.com/aspnet/Docs/issues) si quiere ayudar.
 
 Los cambios en la documentación de la API deben realizarse en el [repositorio ApiDocs](https://github.com/aspnet/ApiDocs) frente a los comentarios `///` con triple barra diagonal.
+
+Los cambios en la documentación de ASP.NET 4.x deben realizarse en el [repositorio aspnet/AspNetDocs](https://github.com/aspnet/AspNetDocs).
 
 ## <a name="microsoft-open-source-code-of-conduct"></a>Código de conducta del código abierto de Microsoft
 

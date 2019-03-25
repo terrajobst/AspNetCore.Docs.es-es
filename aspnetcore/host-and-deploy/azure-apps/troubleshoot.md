@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/06/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 326f66070d51c04298abbf6292d2d350414311de
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 36c2bdfa585a0fd54ca93bf4c0edb4cf6f7d934a
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841412"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265447"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Solución de problemas de ASP.NET Core en Azure App Service
 
@@ -23,8 +23,7 @@ En este artículo se proporcionan instrucciones sobre cómo diagnosticar un prob
 
 ## <a name="app-startup-errors"></a>Errores de inicio de aplicación
 
-**502.5 Error de proceso**  
-El proceso de trabajo no funciona. La aplicación no se inicia.
+**502.5 Error de proceso** El proceso de trabajo no funciona. La aplicación no se inicia.
 
 El [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) intenta iniciar el proceso de trabajo, pero no lo consigue. Con frecuencia, examinar el registro de eventos de la aplicación ayuda a solucionar problemas de este tipo. El acceso al registro se explica en la sección [Registro de eventos de la aplicación](#application-event-log).
 
@@ -32,7 +31,8 @@ La página *502.5 Error de proceso* se devuelve cuando una aplicación mal confi
 
 ![Ventana del explorador que muestra la página 502.5 Error de proceso](troubleshoot/_static/process-failure-page.png)
 
-**500 Error interno del servidor**  
+**500 Error interno del servidor**
+
 La aplicación se inicia, pero un error impide que el servidor complete la solicitud.
 
 Este error se produce dentro del código de la aplicación durante el inicio o mientras se crea una respuesta. La respuesta no puede contener nada o puede aparecer como *500 Error interno del servidor* en el explorador. El registro de eventos de la aplicación normalmente indica que la aplicación se ha iniciado normalmente. Desde la perspectiva del servidor, eso es correcto. La aplicación se inició, pero no puede generar una respuesta válida. [Ejecute la aplicación en la consola de Kudu](#run-the-app-in-the-kudu-console) o [habilite el registro de stdout del módulo ASP.NET Core](#aspnet-core-module-stdout-log) para solucionar el problema.
@@ -83,15 +83,16 @@ Muchos errores de inicio no generan información útil en el registro de eventos
      ```console
      dotnet .\{ASSEMBLY NAME}.dll
      ```
+
    * Si la aplicación es una [implementación independiente](/dotnet/core/deploying/#self-contained-deployments-scd):
 
      ```console
      {ASSEMBLY NAME}.exe
      ```
-   
+
 La salida de consola de la aplicación, que muestra los posibles errores, se canaliza a la consola de Kudu.
-   
-##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>Implementación dependiente de la plataforma en ejecución en una versión preliminar
+
+##### <a name="framework-dependent-deployment-running-on-a-preview-release"></a>Implementación dependiente de marco de trabajo en ejecución en una versión preliminar
 
 *Requiere la instalación de la extensión de sitio ASP.NET Core {VERSION} (x86) Runtime.*
 
@@ -113,7 +114,7 @@ La salida de consola de la aplicación, que muestra los posibles errores, se can
 
 La salida de consola de la aplicación, que muestra los posibles errores, se canaliza a la consola de Kudu.
 
-##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>Implementación dependiente de la plataforma en ejecución en una versión preliminar
+##### <a name="framework-dependent-deployment-running-on-a-preview-release"></a>Implementación dependiente de marco de trabajo en ejecución en una versión preliminar
 
 *Requiere la instalación de la extensión de sitio ASP.NET Core {VERSION} (x64) Runtime.*
 
@@ -230,7 +231,7 @@ Continúe para activar el registro de diagnóstico:
 
 1. En Azure Portal, seleccione la hoja **Registros de diagnóstico**.
 1. Seleccione el conmutador **Activado** en **Registro de la aplicación (sistema de archivos)** y **Mensajes de error detallados**. Seleccione el botón **Guardar** en la parte superior de la hoja.
-1. Para incluir el seguimiento de solicitudes con error, también conocido como almacenamiento en búfer de eventos de solicitudes con error (FREB), seleccione el conmutador **Activado** en **Seguimiento de solicitudes con error**. 
+1. Para incluir el seguimiento de solicitudes con error, también conocido como almacenamiento en búfer de eventos de solicitudes con error (FREB), seleccione el conmutador **Activado** en **Seguimiento de solicitudes con error**.
 1. Seleccione la hoja **Secuencia de registro**, que aparece inmediatamente bajo la hoja **Registros de diagnóstico** en el portal.
 1. Realice una solicitud a la aplicación.
 1. Dentro de los datos de la secuencia de registro, se indica la causa del error.

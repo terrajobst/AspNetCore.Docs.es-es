@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/28/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 1c8cb31b306b38ec17596af0a84f22ca0e3d911c
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 053dcce7f8c59b7afe7e52d2f704c992afce0b67
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346231"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265172"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Referencia de errores comunes de Azure App Service e IIS con ASP.NET Core
 
@@ -61,7 +61,7 @@ Los archivos que no son de SO del directorio **C:\Windows\SysWOW64\inetsrv** no 
 
 *Se aplica a las aplicaciones hospedadas por Azure App Services.*
 
-* **Explorador:** Error HTTP 500.0: error de carga del controlador en proceso ANCM 
+* **Explorador:** Error HTTP 500.0: error de carga del controlador en proceso ANCM
 
 * **Registro de aplicación:** No se ha podido invocar a hostfxr para encontrar el controlador de la solicitud en proceso ni se han encontrado dependencias nativas. No se ha podido encontrar el controlador de la solicitud en proceso. Resultado obtenido al invocar a hostfxr: No se ha podido encontrar ninguna versión de Framework compatible. El marco especificado "Microsoft.AspNetCore.App", versión "{VERSION}-preview-\*" no se ha podido encontrar. No se pudo iniciar la aplicación "/LM/W3SVC/1416782824/ROOT", código de error "0x8000ffff".
 
@@ -80,7 +80,7 @@ Solución del problema:
   * ASP.NET Core {RUNTIME VERSION} (x86) Runtime
   * ASP.NET Core {RUNTIME VERSION} (x64) Runtime
 
-  Reinicie la aplicación. Espere unos segundos a que finalice la operación. 
+  Reinicie la aplicación. Espere unos segundos a que finalice la operación.
 
 * Si ejecuta la aplicación en un entorno de ejecución en versión preliminar y están instaladas las [extensiones de sitio](xref:host-and-deploy/azure-apps/index#install-the-preview-site-extension) de 32 bits (x86) y 64 bits (x64), desinstale la extensión de sitio que no coincida con el valor de bits de la aplicación. A continuación, reinicie la aplicación. Espere unos segundos a que finalice la operación.
 
@@ -201,7 +201,7 @@ Solución del problema:
   ```xml
   <section name="aspNetCore" overrideModeDefault="Allow" />
   ```
-  
+
   Si quiere, también puede instalar la versión más reciente del paquete de hospedaje de ASP.NET Core. La versión más reciente es compatible con las versiones anteriores de las aplicaciones ASP.NET Core admitidas.
 
 ## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>Elemento processPath incorrecto, falta la variable PATH, agrupación de hospedaje no instalada, sistema o IIS no reiniciado, VC++ Redistributable no instalado o infracción de acceso de dotnet.exe

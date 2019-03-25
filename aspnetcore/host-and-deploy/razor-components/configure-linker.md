@@ -5,14 +5,14 @@ description: Aprenda a controlar al enlazador de lenguaje intermedio (IL) al cre
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/20/2019
+ms.date: 03/11/2019
 uid: host-and-deploy/razor-components/configure-linker
-ms.openlocfilehash: 7c53e7912ec3b0ae471ea38777f874f55a32487d
-ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
+ms.openlocfilehash: c73c972e22a51842c5d8dd209b7e1ed987f9090d
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647946"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58207936"
 ---
 # <a name="configure-the-linker-for-blazor"></a>Configuración del enlazador para Blazor
 
@@ -20,14 +20,14 @@ Por [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
-Blazor realiza la vinculación de [lenguaje intermedio (IL)](/dotnet/standard/managed-code#intermediate-language--execution) durante cada compilación del modo de versión para quitar el IL innecesario de los ensamblados de salida.
+Blazor realiza la vinculación de [lenguaje intermedio (IL)](/dotnet/standard/managed-code#intermediate-language--execution) durante cada compilación del modo de versión para quitar el IL innecesario de los ensamblados de salida de la aplicación.
 
-Puede controlar la vinculación del ensamblado con cualquiera de los enfoques siguientes:
+Controle la vinculación del ensamblado con cualquiera de los enfoques siguientes:
 
-* Deshabilitación de la vinculación global con una propiedad de MSBuild.
-* Control de la vinculación por cada ensamblado con un archivo de configuración.
+* Deshabilitación de la vinculación global con una [propiedad de MSBuild](#disable-linking-with-a-msbuild-property).
+* Control de la vinculación por cada ensamblado con un [archivo de configuración](#control-linking-with-a-configuration-file).
 
-## <a name="disable-linking-with-an-msbuild-property"></a>Deshabilitación de la vinculación con una propiedad de MSBuild
+## <a name="disable-linking-with-a-msbuild-property"></a>Deshabilitación de la vinculación con una propiedad de MSBuild
 
 La vinculación se habilita de forma predeterminada en el modo de versión cuando se crea una aplicación, lo que incluye la publicación. Para deshabilitar la vinculación para todos los ensamblados, establezca la propiedad `<BlazorLinkOnBuild>` de MSBuild en `false` en el archivo de proyecto:
 
@@ -39,9 +39,15 @@ La vinculación se habilita de forma predeterminada en el modo de versión cuand
 
 ## <a name="control-linking-with-a-configuration-file"></a>Control de la vinculación con un archivo de configuración
 
-La vinculación se puede controlar por cada ensamblado al proporcionar un archivo de configuración XML y especificar el archivo como un elemento MSBuild en el archivo de proyecto.
+Control de la vinculación por cada ensamblado al proporcionar un archivo de configuración XML y especificar el archivo como un elemento MSBuild en el archivo de proyecto:
 
-A continuación, se muestra un archivo de configuración de ejemplo (*Linker.xml*):
+```xml
+<ItemGroup>
+  <BlazorLinkerDescriptor Include="Linker.xml" />
+</ItemGroup>
+```
+
+*Linker.xml*:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -73,12 +79,4 @@ A continuación, se muestra un archivo de configuración de ejemplo (*Linker.xml
 </linker>
 ```
 
-Para más información sobre el formato de archivo del archivo de configuración, consulte [IL Linker: Syntax of xml descriptor](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor) (Vinculador de IL: sintaxis del descriptor xml).
-
-Especifique el archivo de configuración en el archivo de proyecto con el elemento `BlazorLinkerDescriptor`:
-
-```xml
-<ItemGroup>
-  <BlazorLinkerDescriptor Include="Linker.xml" />
-</ItemGroup>
-```
+Para obtener más información, consulte [IL Linker: Syntax of xml descriptor](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor) (Vinculador de IL: sintaxis del descriptor xml).

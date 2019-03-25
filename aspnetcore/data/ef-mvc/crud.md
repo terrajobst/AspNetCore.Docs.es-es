@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 368b1774ba977ec8020a02d48705200fd54c3bbd
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 83f5d4bdc3d5872109649818b61a6dbb656fd8be
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102986"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264837"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Tutorial: Implementación de la funcionalidad CRUD: ASP.NET MVC con EF Core
 
@@ -123,6 +123,7 @@ Aparte del atributo `Bind`, el bloque try-catch es el único cambio que se ha re
 El atributo `ValidateAntiForgeryToken` ayuda a evitar ataques de falsificación de solicitud entre sitios (CSRF). El token se inserta automáticamente en la vista por medio de [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) y se incluye cuando el usuario envía el formulario. El token se valida mediante el atributo `ValidateAntiForgeryToken`. Para obtener más información sobre CSRF, vea [Prevención de ataques de falsificación de solicitud](../../security/anti-request-forgery.md).
 
 <a id="overpost"></a>
+
 ### <a name="security-note-about-overposting"></a>Nota de seguridad sobre la publicación excesiva
 
 El atributo `Bind` que el código con scaffolding incluye en el método `Create` es una manera de protegerse contra la publicación excesiva en escenarios de creación. Por ejemplo, suponga que la entidad Student incluye una propiedad `Secret` que no quiere que esta página web establezca.
@@ -182,7 +183,7 @@ Como procedimiento recomendado para evitar la publicación excesiva, los campos 
 
 Como resultado de estos cambios, la firma de método del método HttpPost `Edit` es la misma que la del método HttpGet `Edit`; por tanto, se ha cambiado el nombre del método `EditPost`.
 
-### <a name="alternative-httppost-edit-code-create-and-attach"></a>Código alternativo para HttpPost Edit: Crear y adjuntar
+### <a name="alternative-httppost-edit-code-create-and-attach"></a>Código alternativo para HttpPost Edit: crear y adjuntar
 
 El código recomendado para HttpPost Edit garantiza que solo se actualicen las columnas cambiadas y conserva los datos de las propiedades que no quiere que se incluyan para el enlace de modelos. Pero el enfoque de primera lectura requiere una operación de lectura adicional de la base de datos y puede dar lugar a código más complejo para controlar los conflictos de simultaneidad. Una alternativa consiste en adjuntar una entidad creada por el enlazador de modelos en el contexto de EF y marcarla como modificada. (No actualice el proyecto con este código, solo se muestra para ilustrar un enfoque opcional).
 

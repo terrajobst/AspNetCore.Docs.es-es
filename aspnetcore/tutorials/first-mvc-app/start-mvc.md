@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo empezar a usar ASP.NET Core MVC.
 ms.author: riande
 ms.date: 12/12/2018
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: c09c06f55c4179e9e2174f0063ab7387b7e4c31b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: dbc07558d7d7672e60e8834dc3e4e9d8aab437e3
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899234"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265287"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>Introducción a ASP.NET Core MVC
 
@@ -36,7 +36,6 @@ Al final, tendrá una aplicación que le permitirá administrar y mostrar datos 
 
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 En Visual Studio, seleccione **Archivo > Nuevo > Proyecto**.
@@ -62,7 +61,6 @@ Complete el cuadro de diálogo **Nueva aplicación web ASP.NET Core (.NET Core) 
 
 Visual Studio ha usado una plantilla predeterminada para el proyecto de MVC que acaba de crear. Si escribe un nombre de proyecto y selecciona algunas opciones, dispondrá de inmediato de una aplicación operativa. Se trata de un proyecto introductorio básico, pero es un buen punto de partida.
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Para realizar el tutorial debe estar familiarizado con VS Code. Para más información, vea [Getting started with VS Code](https://code.visualstudio.com/docs) (Introducción a VS Code) y [Visual Studio Code help](#visual-studio-code-help) (Ayuda de Visual Studio Code).
@@ -81,7 +79,6 @@ Para realizar el tutorial debe estar familiarizado con VS Code. Para más inform
   * `dotnet new mvc -o MvcMovie`: crea un nuevo proyecto de ASP.NET Core MVC en la carpeta *MvcMovie*.
   * `code -r MvcMovie`: carga el archivo de proyecto *MvcMovie.csproj* en Visual Studio Code.
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
 * Seleccione **Archivo** > **Nueva solución**.
@@ -96,12 +93,11 @@ Para realizar el tutorial debe estar familiarizado con VS Code. Para más inform
 
 * Asigne el nombre **MvcMovie** al proyecto y, después, seleccione **Crear**.
 
----  
-<!-- End of VS tabs -->
+---
 
 ### <a name="run-the-app"></a>Ejecutar la aplicación
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Presione **Ctrl-F5** para ejecutar la aplicación en modo de no depuración.
 
@@ -117,7 +113,7 @@ Presione **Ctrl-F5** para ejecutar la aplicación en modo de no depuración.
 
   ![IIS Express](start-mvc/_static/iis_express.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Presione Ctrl+F5 para ejecutarla sin el depurador.
 
@@ -136,7 +132,7 @@ Seleccione **Ejecutar** > **Iniciar sin depurar** para iniciar la aplicación. V
 * En la barra de direcciones aparece `localhost:port#` (y no algo como `example.com`). Esto es así porque `localhost` es el nombre de host estándar del equipo local. Cuando Visual Studio crea un proyecto web, se usa un puerto aleatorio para el servidor web. Al ejecutar la aplicación verá otro puerto distinto.
 * Puede iniciar la aplicación en modo de depuración o en modo de no depuración desde el menú **Ejecutar**.
 
-------
+---
 
 * Seleccione **Aceptar** para dar su consentimiento al seguimiento. Esta aplicación no lleva un seguimiento de la información personal. El código generado con plantilla incluye activos que sirven para cumplir el [Reglamento general de protección de datos (RGPD)](xref:security/gdpr).
 
@@ -151,4 +147,4 @@ Seleccione **Ejecutar** > **Iniciar sin depurar** para iniciar la aplicación. V
 En la siguiente sección de este tutorial conocerá MVC y empezará a escribir código.
 
 > [!div class="step-by-step"]
-> [Siguiente](adding-controller.md)  
+> [Siguiente](adding-controller.md)
