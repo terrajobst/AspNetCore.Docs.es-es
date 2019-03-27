@@ -5,7 +5,7 @@ description: 'Descubra cómo hospedar e implementar aplicaciones de Blazor y Raz
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2019
+ms.date: 03/22/2019
 uid: host-and-deploy/razor-components/index
 ---
 # <a name="host-and-deploy-razor-components"></a>Hospedaje e implementación de Razor Components
@@ -284,7 +284,7 @@ Al usar un sitio de proyecto en lugar de un sitio de la organización, agregue o
 
 Con el [modelo de hospedaje del lado servidor](xref:razor-components/hosting-models#server-side-hosting-model), Razor Components se ejecuta en el servidor desde una aplicación ASP.NET Core. Las actualizaciones de la interfaz de usuario, el control de eventos y las llamadas de JavaScript se controlan mediante una conexión de SignalR.
 
-La aplicación se incluye con la aplicación ASP.NET Core en la salida publicada para que ambas se implementen juntas. Se requiere un servidor web que pueda hospedar una aplicación ASP.NET Core. En el caso de una implementación del lado servidor, Visual Studio incluye la plantilla de proyecto de **Blazor (del lado servidor en ASP.NET Core)** (la plantilla `blazorserver` al usar el comando [dotnet new](/dotnet/core/tools/dotnet-new)).
+La aplicación se incluye con la aplicación ASP.NET Core en la salida publicada para que ambas se implementen juntas. Se requiere un servidor web que pueda hospedar una aplicación ASP.NET Core. En el caso de una implementación del lado servidor, Visual Studio incluye la plantilla de proyecto **Componentes de Razor** (la plantilla `razorcomponents` al usar el comando [dotnet new](/dotnet/core/tools/dotnet-new)).
 
 <!--
 

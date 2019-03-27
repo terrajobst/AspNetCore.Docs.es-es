@@ -5,7 +5,7 @@ description: Este artículo contiene vínculos a recursos de implementación y h
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/26/2019
+ms.date: 03/23/2019
 uid: host-and-deploy/azure-apps/index
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
@@ -78,7 +78,17 @@ El software intermedio de integración con IIS, que configura el software interm
 
 ## <a name="monitoring-and-logging"></a>Supervisión y registro
 
-Las aplicaciones de ASP.NET Core implementadas automáticamente en App Service reciben una extensión de App Service, **Extensiones de registro de ASP.NET Core**. La extensión habilita el registro de Azure.
+::: moniker range=">= aspnetcore-3.0"
+
+Las aplicaciones ASP.NET Core implementadas de forma automática en App Service reciben una extensión de App Service, **Integración de registro de ASP.NET Core**. La extensión habilita la integración de registro para las aplicaciones ASP.NET Core en Azure App Service.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Las aplicaciones de ASP.NET Core implementadas automáticamente en App Service reciben una extensión de App Service, **Extensiones de registro de ASP.NET Core**. La extensión habilita la integración de registro para las aplicaciones ASP.NET Core en Azure App Service.
+
+::: moniker-end
 
 Para obtener información sobre supervisión, registro y solución de problemas, consulte los artículos siguientes:
 
