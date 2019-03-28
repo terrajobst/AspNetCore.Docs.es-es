@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/26/2019
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 8d219658b7116ad7e1f2a73678ef76ea1ce69595
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 62da2504941be0c29ddb15aaab9c091f387ccdb2
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209192"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327292"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Patrón de opciones en ASP.NET Core
 
@@ -38,22 +38,22 @@ Haga referencia al [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/meta
 
 ## <a name="options-interfaces"></a>Interfaces de opciones
 
-<xref:Microsoft.Extensions.Options.IOptionsMonitor`1> se usa para recuperar las opciones y administrar las notificaciones de las opciones para instancias de `TOptions`. <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> admite las siguientes situaciones:
+<xref:Microsoft.Extensions.Options.IOptionsMonitor%601> se usa para recuperar las opciones y administrar las notificaciones de las opciones para instancias de `TOptions`. <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> admite las siguientes situaciones:
 
 * Notificaciones de cambios
 * [Opciones con nombre](#named-options-support-with-iconfigurenamedoptions)
 * [Configuración que se puede recargar](#reload-configuration-data-with-ioptionssnapshot)
-* Invalidación de opciones de selección (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1>)
+* Invalidación de opciones de selección (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601>)
 
-Los escenarios [posteriores a la configuración](#options-post-configuration) le permiten establecer o cambiar las opciones después de que finalice toda la configuración de <xref:Microsoft.Extensions.Options.IConfigureOptions`1>.
+Los escenarios [posteriores a la configuración](#options-post-configuration) le permiten establecer o cambiar las opciones después de que finalice toda la configuración de <xref:Microsoft.Extensions.Options.IConfigureOptions%601>.
 
-<xref:Microsoft.Extensions.Options.IOptionsFactory`1> es responsable de crear nuevas instancias de opciones. Tiene un solo método <xref:Microsoft.Extensions.Options.IOptionsFactory`1.Create*>. La implementación predeterminada toma todas las instancias registradas de <xref:Microsoft.Extensions.Options.IConfigureOptions`1> y <xref:Microsoft.Extensions.Options.IPostConfigureOptions`1>, y establece todas las configuraciones primero, seguidas de las configuraciones posteriores. Distingue entre <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> y <xref:Microsoft.Extensions.Options.IConfigureOptions`1>, y solo llama a la interfaz adecuada.
+<xref:Microsoft.Extensions.Options.IOptionsFactory%601> es responsable de crear nuevas instancias de opciones. Tiene un solo método <xref:Microsoft.Extensions.Options.IOptionsFactory`1.Create*>. La implementación predeterminada toma todas las instancias registradas de <xref:Microsoft.Extensions.Options.IConfigureOptions%601> y <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601>, y establece todas las configuraciones primero, seguidas de las configuraciones posteriores. Distingue entre <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> y <xref:Microsoft.Extensions.Options.IConfigureOptions%601>, y solo llama a la interfaz adecuada.
 
-<xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1> se usa por <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> para almacenar en caché las instancias de `TOptions`. <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1> invalida instancias de opciones en la supervisión para que se pueda volver a calcular el valor (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryRemove*>). Los valores se pueden introducir manualmente y mediante <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryAdd*>. Se usa el método <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.Clear*> cuando todas las instancias con nombre se deben volver a crear a petición.
+<xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601> se usa por <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> para almacenar en caché las instancias de `TOptions`. <xref:Microsoft.Extensions.Options.IOptionsMonitorCache%601> invalida instancias de opciones en la supervisión para que se pueda volver a calcular el valor (<xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryRemove*>). Los valores se pueden introducir manualmente y mediante <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.TryAdd*>. Se usa el método <xref:Microsoft.Extensions.Options.IOptionsMonitorCache`1.Clear*> cuando todas las instancias con nombre se deben volver a crear a petición.
 
-<xref:Microsoft.Extensions.Options.IOptionsSnapshot`1> es útil en escenarios donde se deben volver a calcular las opciones en cada solicitud. Para obtener más información, consulte la sección [Volver a cargar los datos de configuración con IOptionsSnapshot](#reload-configuration-data-with-ioptionssnapshot).
+<xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> es útil en escenarios donde se deben volver a calcular las opciones en cada solicitud. Para obtener más información, consulte la sección [Volver a cargar los datos de configuración con IOptionsSnapshot](#reload-configuration-data-with-ioptionssnapshot).
 
-<xref:Microsoft.Extensions.Options.IOptions`1> puede utilizarse para admitir las opciones. Sin embargo, <xref:Microsoft.Extensions.Options.IOptions`1> no es compatible con los escenarios anteriores de <xref:Microsoft.Extensions.Options.IOptionsMonitor`1>. Aún puede usar <xref:Microsoft.Extensions.Options.IOptions`1> en marcos y bibliotecas existentes que ya usan la interfaz <xref:Microsoft.Extensions.Options.IOptions`1> y no requieren los escenarios proporcionados por <xref:Microsoft.Extensions.Options.IOptionsMonitor`1>.
+<xref:Microsoft.Extensions.Options.IOptions%601> puede utilizarse para admitir las opciones. Sin embargo, <xref:Microsoft.Extensions.Options.IOptions%601> no es compatible con los escenarios anteriores de <xref:Microsoft.Extensions.Options.IOptionsMonitor%601>. Aún puede usar <xref:Microsoft.Extensions.Options.IOptions%601> en marcos y bibliotecas existentes que ya usan la interfaz <xref:Microsoft.Extensions.Options.IOptions%601> y no requieren los escenarios proporcionados por <xref:Microsoft.Extensions.Options.IOptionsMonitor%601>.
 
 ## <a name="general-options-configuration"></a>Configuración de opciones generales
 
@@ -67,7 +67,7 @@ La clase `MyOptions` se agrega al contenedor de servicios con <xref:Microsoft.Ex
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example1)]
 
-El siguiente modelo de página usa la [inserción de dependencias de constructor](xref:mvc/controllers/dependency-injection) con <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> para acceder a la configuración (*Pages/Index.cshtml.cs*):
+El siguiente modelo de página usa la [inserción de dependencias de constructor](xref:mvc/controllers/dependency-injection) con <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> para acceder a la configuración (*Pages/Index.cshtml.cs*):
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?range=9)]
 
@@ -107,7 +107,7 @@ Use un delegado para establecer los valores de opciones. La aplicación de ejemp
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Models/MyOptionsWithDelegateConfig.cs?name=snippet1)]
 
-En el código siguiente, un segundo servicio <xref:Microsoft.Extensions.Options.IConfigureOptions`1> se agrega al contenedor de servicios. Usa un delegado para configurar el enlace con `MyOptionsWithDelegateConfig`:
+En el código siguiente, un segundo servicio <xref:Microsoft.Extensions.Options.IConfigureOptions%601> se agrega al contenedor de servicios. Usa un delegado para configurar el enlace con `MyOptionsWithDelegateConfig`:
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example2)]
 
@@ -121,7 +121,7 @@ En el código siguiente, un segundo servicio <xref:Microsoft.Extensions.Options.
 
 Puede agregar varios proveedores de configuración. Los proveedores de configuración están disponibles en paquetes de NuGet y se aplican en el orden en que están registrados. Para obtener más información, vea <xref:fundamentals/configuration/index>.
 
-Cada llamada a <xref:Microsoft.Extensions.Options.IConfigureOptions`1.Configure*> agrega un servicio <xref:Microsoft.Extensions.Options.IConfigureOptions`1> al contenedor de servicios. En el ejemplo anterior, los valores de `Option1` y `Option2` se especifican en *appSettings.json*, pero los valores de `Option1` y `Option2` se reemplazan por el delegado configurado.
+Cada llamada a <xref:Microsoft.Extensions.Options.IConfigureOptions%601.Configure*> agrega un servicio <xref:Microsoft.Extensions.Options.IConfigureOptions%601> al contenedor de servicios. En el ejemplo anterior, los valores de `Option1` y `Option2` se especifican en *appSettings.json*, pero los valores de `Option1` y `Option2` se reemplazan por el delegado configurado.
 
 Cuando se habilita más de un servicio de configuración, la última fuente de configuración especificada *gana* y establece el valor de configuración. Cuando se ejecuta la aplicación, el método `OnGet` del modelo de página devuelve una cadena que muestra los valores de la clase de opción:
 
@@ -137,7 +137,7 @@ Las aplicaciones deben crear clases de opciones que pertenezcan a grupos especí
 
 Al enlazar opciones para la configuración, cada propiedad en el tipo de opciones se enlaza a una clave de configuración del formulario `property[:sub-property:]`. Por ejemplo, la propiedad `MyOptions.Option1` se enlaza a la clave `Option1`, que se lee desde la propiedad `option1` en *appSettings.json*.
 
-En el código siguiente, se agrega un tercer servicio <xref:Microsoft.Extensions.Options.IConfigureOptions`1> al contenedor de servicios. Enlaza `MySubOptions` a la sección `subsection` del archivo *appsettings.json*:
+En el código siguiente, se agrega un tercer servicio <xref:Microsoft.Extensions.Options.IConfigureOptions%601> al contenedor de servicios. Enlaza `MySubOptions` a la sección `subsection` del archivo *appsettings.json*:
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example3)]
 
@@ -169,7 +169,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 Las opciones proporcionadas por un modelo de vista o de inserción de vista directa se muestran en el ejemplo &num;4 en la aplicación de ejemplo.
 
-Las opciones se pueden suministrar en un modelo de vista o insertando <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> directamente en una vista (*Pages/Index.cshtml.cs*):
+Las opciones se pueden suministrar en un modelo de vista o insertando <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> directamente en una vista (*Pages/Index.cshtml.cs*):
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?range=9)]
 
@@ -187,13 +187,13 @@ Cuando se ejecuta la aplicación, se muestran los valores de opciones en la pág
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Volver a cargar los datos de configuración con IOptionsSnapshot
 
-El procedimiento de volver a cargar los datos de configuración con <xref:Microsoft.Extensions.Options.IOptionsSnapshot`1> se muestra en el ejemplo &num;5 en la aplicación de ejemplo.
+El procedimiento de volver a cargar los datos de configuración con <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> se muestra en el ejemplo &num;5 en la aplicación de ejemplo.
 
-<xref:Microsoft.Extensions.Options.IOptionsSnapshot`1> admite volver a cargar opciones con la mínima sobrecarga de procesamiento.
+<xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> admite volver a cargar opciones con la mínima sobrecarga de procesamiento.
 
 Cuando se accede a las opciones y se las almacena en caché durante la vigencia de la solicitud, se calculan una vez por solicitud.
 
-En el ejemplo siguiente se muestra cómo se crea un nuevo <xref:Microsoft.Extensions.Options.IOptionsSnapshot`1> después de cambiar el archivo *appSettings.json* (*Pages/Index.cshtml.cs*). Varias solicitudes al servidor devuelven valores constantes proporcionados por el archivo *appSettings.json* hasta que se modifique el archivo y vuelva a cargarse la configuración.
+En el ejemplo siguiente se muestra cómo se crea un nuevo <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> después de cambiar el archivo *appSettings.json* (*Pages/Index.cshtml.cs*). Varias solicitudes al servidor devuelven valores constantes proporcionados por el archivo *appSettings.json* hasta que se modifique el archivo y vuelva a cargarse la configuración.
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?range=12)]
 
@@ -215,7 +215,7 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>Compatibilidad de opciones con nombre con IConfigureNamedOptions
 
-La compatibilidad de opciones con nombre con <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> se muestra en el ejemplo &num;6 de la aplicación de ejemplo.
+La compatibilidad de opciones con nombre con <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> se muestra en el ejemplo &num;6 de la aplicación de ejemplo.
 
 La compatibilidad con las *opciones con nombre* permite a la aplicación distinguir entre las configuraciones de opciones con nombre. En la aplicación de ejemplo, las opciones con nombre se declaran con [OptionsServiceCollectionExtensions.Configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), que llama al método de extensión [ConfigureNamedOptions\<TOptions>.Configure](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*):
 
@@ -260,11 +260,11 @@ named_options_2: option1 = ConfigureAll replacement value, option2 = 5
 ```
 
 > [!NOTE]
-> Todas las opciones son instancias con nombre. Las instancias de <xref:Microsoft.Extensions.Options.IConfigureOptions`1> existentes se usan para seleccionar como destino la instancia de `Options.DefaultName`, que es `string.Empty`. <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> también implementa <xref:Microsoft.Extensions.Options.IConfigureOptions`1>. La implementación predeterminada de <xref:Microsoft.Extensions.Options.IOptionsFactory`1> tiene lógica para usar cada una de forma adecuada. La opción con nombre `null` se usa para seleccionar como destino todas las instancias con nombre, en lugar de una instancia con nombre determinada (<xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.ConfigureAll*> y <xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.PostConfigureAll*> usan esta convención).
+> Todas las opciones son instancias con nombre. Las instancias de <xref:Microsoft.Extensions.Options.IConfigureOptions%601> existentes se usan para seleccionar como destino la instancia de `Options.DefaultName`, que es `string.Empty`. <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> también implementa <xref:Microsoft.Extensions.Options.IConfigureOptions%601>. La implementación predeterminada de <xref:Microsoft.Extensions.Options.IOptionsFactory%601> tiene lógica para usar cada una de forma adecuada. La opción con nombre `null` se usa para seleccionar como destino todas las instancias con nombre, en lugar de una instancia con nombre determinada (<xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.ConfigureAll*> y <xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.PostConfigureAll*> usan esta convención).
 
 ## <a name="optionsbuilder-api"></a>API OptionsBuilder
 
-<xref:Microsoft.Extensions.Options.OptionsBuilder`1> se usa para configurar instancias `TOptions`. `OptionsBuilder` simplifica la creación de opciones con nombre, ya que es un único parámetro para la llamada `AddOptions<TOptions>(string optionsName)` inicial en lugar de aparecer en todas las llamadas posteriores. La validación de opciones y las sobrecargas `ConfigureOptions` que aceptan las dependencias de servicio solo están disponibles mediante `OptionsBuilder`.
+<xref:Microsoft.Extensions.Options.OptionsBuilder%601> se usa para configurar instancias `TOptions`. `OptionsBuilder` simplifica la creación de opciones con nombre, ya que es un único parámetro para la llamada `AddOptions<TOptions>(string optionsName)` inicial en lugar de aparecer en todas las llamadas posteriores. La validación de opciones y las sobrecargas `ConfigureOptions` que aceptan las dependencias de servicio solo están disponibles mediante `OptionsBuilder`.
 
 ```csharp
 // Options.DefaultName = "" is used.
@@ -287,9 +287,9 @@ Hay dos formas de acceder a otros servicios desde la inserción de dependencias 
               o.Property = DoSomethingWith(s, s2, s3, s4, s5));
   ```
 
-* Si se crea un tipo propio que implementa <xref:Microsoft.Extensions.Options.IConfigureOptions`1> o <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1>, y se registrar como un servicio.
+* Si se crea un tipo propio que implementa <xref:Microsoft.Extensions.Options.IConfigureOptions%601> o <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601>, y se registrar como un servicio.
 
-Se recomienda pasar un delegado de configuración a [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*), ya que la creación de un servicio es más complicada. La creación de un tipo propio es equivalente a lo que el marco hace de forma automática cuando se usa [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*). La llamada a [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) registra una interfaz <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> genérica y transitoria, con un constructor que acepta los tipos de servicio genéricos especificados. 
+Se recomienda pasar un delegado de configuración a [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*), ya que la creación de un servicio es más complicada. La creación de un tipo propio es equivalente a lo que el marco hace de forma automática cuando se usa [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*). La llamada a [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) registra una interfaz <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> genérica y transitoria, con un constructor que acepta los tipos de servicio genéricos especificados. 
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -395,7 +395,7 @@ La validación diligente (con respuesta rápida a errores en el inicio) se está
 
 ## <a name="options-post-configuration"></a>Configuración posterior de las opciones
 
-Establezca la configuración posterior con <xref:Microsoft.Extensions.Options.IPostConfigureOptions`1>. La configuración posterior se ejecuta una vez completada toda la configuración de <xref:Microsoft.Extensions.Options.IConfigureOptions`1>:
+Establezca la configuración posterior con <xref:Microsoft.Extensions.Options.IPostConfigureOptions%601>. La configuración posterior se ejecuta una vez completada toda la configuración de <xref:Microsoft.Extensions.Options.IConfigureOptions%601>:
 
 ```csharp
 services.PostConfigure<MyOptions>(myOptions =>
@@ -424,7 +424,7 @@ services.PostConfigureAll<MyOptions>(myOptions =>
 
 ## <a name="accessing-options-during-startup"></a>Acceso a opciones durante el inicio
 
-<xref:Microsoft.Extensions.Options.IOptions`1> y <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> puede usarse en `Startup.Configure`, ya que los servicios se compilan antes de que se ejecute el método `Configure`.
+<xref:Microsoft.Extensions.Options.IOptions%601> y <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> puede usarse en `Startup.Configure`, ya que los servicios se compilan antes de que se ejecute el método `Configure`.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IOptionsMonitor<MyOptions> optionsAccessor)
@@ -433,7 +433,7 @@ public void Configure(IApplicationBuilder app, IOptionsMonitor<MyOptions> option
 }
 ```
 
-No use <xref:Microsoft.Extensions.Options.IOptions`1> o <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> en `Startup.ConfigureServices`. Puede que exista un estado incoherente de opciones debido al orden de los registros de servicio.
+No use <xref:Microsoft.Extensions.Options.IOptions%601> o <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> en `Startup.ConfigureServices`. Puede que exista un estado incoherente de opciones debido al orden de los registros de servicio.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -5,12 +5,12 @@ description: Obtenga información sobre la sintaxis de marcado de Razor para ins
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 254c85ee9e74dc72170b19d27fbc5f1ae7ccd3dc
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 53d4dc608fbfd45bcc015a3af83f5d87f86c7f15
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264754"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327370"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Referencia de sintaxis de Razor para ASP.NET Core
 
@@ -534,7 +534,7 @@ Las plantillas de Razor permiten definir un fragmento de la interfaz de usuario 
 @<tag>...</tag>
 ```
 
-En el ejemplo siguiente se muestra cómo especificar un delegado de Razor con plantilla como elemento <xref:System.Func`2>. El [tipo dinámico](/dotnet/csharp/programming-guide/types/using-type-dynamic) se especifica para el parámetro del método encapsulado por el delegado. Se especifica un [tipo de objeto](/dotnet/csharp/language-reference/keywords/object) como el valor devuelto del delegado. La plantilla se usa con un elemento <xref:System.Collections.Generic.List`1> de `Pet` que tiene una propiedad `Name`.
+En el ejemplo siguiente se muestra cómo especificar un delegado de Razor con plantilla como elemento <xref:System.Func%602>. El [tipo dinámico](/dotnet/csharp/programming-guide/types/using-type-dynamic) se especifica para el parámetro del método encapsulado por el delegado. Se especifica un [tipo de objeto](/dotnet/csharp/language-reference/keywords/object) como el valor devuelto del delegado. La plantilla se usa con un elemento <xref:System.Collections.Generic.List%601> de `Pet` que tiene una propiedad `Name`.
 
 ```csharp
 public class Pet
@@ -599,7 +599,7 @@ También se puede proporcionar una plantilla de Razor insertada como un argument
 
 Con la lista de mascotas del ejemplo anterior, se llama al método `Repeat` con:
 
-* <xref:System.Collections.Generic.List`1> de `Pet`.
+* <xref:System.Collections.Generic.List%601> de `Pet`.
 * Número de veces que se repite cada mascota.
 * Plantilla insertada que se va a usar para los elementos de una lista sin ordenar.
 
