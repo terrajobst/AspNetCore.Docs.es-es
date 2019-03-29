@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/11/2018
 uid: mvc/views/partial
-ms.openlocfilehash: ff4b99580990edbd768128d77214e664a1e29e56
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: b7c1545007086053e879bce6781802959da77901
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207230"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327383"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Vistas parciales en ASP.NET Core
 
@@ -136,7 +136,7 @@ Para obtener más información, vea <xref:mvc/views/tag-helpers/builtin-th/parti
 
 ### <a name="asynchronous-html-helper"></a>Asistente de HTML asincrónica
 
-Cuando se usa un asistente de HTML, el procedimiento recomendado es usar <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.PartialAsync*>. `PartialAsync` devuelve un tipo <xref:Microsoft.AspNetCore.Html.IHtmlContent> encapsulado en una clase <xref:System.Threading.Tasks.Task`1>. Para hacer referencia al método, se agrega a la llamada awaited un carácter `@` como prefijo:
+Cuando se usa un asistente de HTML, el procedimiento recomendado es usar <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.PartialAsync*>. `PartialAsync` devuelve un tipo <xref:Microsoft.AspNetCore.Html.IHtmlContent> encapsulado en una clase <xref:System.Threading.Tasks.Task%601>. Para hacer referencia al método, se agrega a la llamada awaited un carácter `@` como prefijo:
 
 ```cshtml
 @await Html.PartialAsync("_PartialName")
