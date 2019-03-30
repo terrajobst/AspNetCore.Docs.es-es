@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 12/18/2018
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 66f895c7c8dcc00d991c0ea57535f2ed56431a77
-ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
+ms.openlocfilehash: 5fd40e7b42b17d4a3b858de15c8ed03fb64ce690
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735783"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58751093"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>Configuración de inicio de sesión externo de Facebook en ASP.NET Core
 
@@ -59,6 +59,8 @@ Este tutorial muestra cómo permitir que los usuarios iniciar sesión con su cue
 ## <a name="store-facebook-app-id-and-app-secret"></a>Store Id. de aplicación de Facebook y secreto de la aplicación
 
 Vincular configuración confidencial, como Facebook `App ID` y `App Secret` para la configuración de aplicación mediante el [Secret Manager](xref:security/app-secrets). Para los fines de este tutorial, asigne el nombre de los tokens `Authentication:Facebook:AppId` y `Authentication:Facebook:AppSecret`.
+
+[!INCLUDE[](~/includes/environmentVarableColon.md)]
 
 Ejecute los comandos siguientes para almacenar de forma segura `App ID` y `App Secret` con Secret Manager:
 

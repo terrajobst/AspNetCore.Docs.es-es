@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar una caché distribuida de ASP
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/02/2019
+ms.date: 03/30/2019
 uid: performance/caching/distributed
-ms.openlocfilehash: a7850e317dfa3b54f1980902b3dcd6b096effa15
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: c3774c26116a4cb70386d0060f2244d224fec8e1
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346124"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750987"
 ---
 # <a name="distributed-caching-in-aspnet-core"></a>Almacenamiento en caché en ASP.NET Core distribuido
 
@@ -116,7 +116,7 @@ La aplicación de ejemplo implementa <xref:Microsoft.Extensions.Caching.SqlServe
 
 ::: moniker range=">= aspnetcore-2.2"
 
-Una aplicación configura la implementación de caché mediante un `RedisCache` instancia (`AddStackExchangeRedisCache`) en un entorno de desarrollo que no sean en `Startup.ConfigureServices`:
+Una aplicación configura la implementación de caché mediante un <xref:Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache> instancia (<xref:Microsoft.Extensions.DependencyInjection.StackExchangeRedisCacheServiceCollectionExtensions.AddStackExchangeRedisCache*>) en un entorno de desarrollo que no sean en `Startup.ConfigureServices`:
 
 [!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_AddStackExchangeRedisCache)]
 

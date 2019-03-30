@@ -5,7 +5,7 @@ description: 'Explore Razor Components de ASP.NET Core, una forma de compilar la
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2019
+ms.date: 03/27/2019
 uid: razor-components/index
 ---
 # <a name="introduction-to-razor-components"></a>Introducción a Razor Components
@@ -42,7 +42,7 @@ La conexión utilizada por Razor Components para comunicarse con el explorador t
 
 Para obtener más información, vea <xref:razor-components/hosting-models#server-side-hosting-model>.
 
-*Blazor* es el modelo experimental de hospedaje del lado cliente de Razor Components. Blazor se ejecuta en .NET en el explorador mediante estándares web abiertos sin complementos ni transpilación de código. Para obtener más información, vea <xref:razor-components/hosting-models#client-side-hosting-model>.
+*Blazor* es el modelo experimental de hospedaje del lado cliente de Razor Components. Blazor se ejecuta en .NET en el explorador mediante estándares web abiertos sin complementos ni transpilación de código. Para obtener más información, vea <xref:spa/blazor/index> y <xref:razor-components/hosting-models#client-side-hosting-model>.
 
 ## <a name="components"></a>Componentes
 
