@@ -5,7 +5,7 @@ description: Este artículo contiene vínculos a recursos de implementación y h
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/23/2019
+ms.date: 03/30/2019
 uid: host-and-deploy/azure-apps/index
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
@@ -14,7 +14,7 @@ uid: host-and-deploy/azure-apps/index
 
 ## <a name="useful-resources"></a>Recursos útiles
 
-La [documentación de Web Apps](/azure/app-service/) de Azure es un recurso que incluye documentación, tutoriales, ejemplos, guías de procedimientos y otros recursos de aplicaciones de Azure. Dos tutoriales importantes que pertenecen al hospedaje de aplicaciones de ASP.NET Core son:
+La [documentación de App Service](/azure/app-service/) es un recurso que incluye documentación, tutoriales, ejemplos, guías de procedimientos y otros recursos de aplicaciones de Azure. Dos tutoriales importantes que pertenecen al hospedaje de aplicaciones de ASP.NET Core son:
 
 [Creación de una aplicación web ASP.NET Core en Azure](/azure/app-service/app-service-web-get-started-dotnet)  
 Usar Visual Studio para crear e implementar una aplicación web de ASP.NET Core para Azure App Service en Windows.
@@ -30,7 +30,7 @@ Obtenga información sobre cómo publicar una aplicación de ASP.NET Core en Azu
 <xref:host-and-deploy/azure-apps/azure-continuous-deployment>  
 Obtenga información sobre cómo crear una aplicación web de ASP.NET Core con Visual Studio e implementarla en Azure App Service con Git para una implementación continua.
 
-[Creación de la primera canalización con Azure Pipelines](/azure/devops/pipelines/get-started-yaml)  
+[Creación de la primera canalización](/azure/devops/pipelines/get-started-yaml)  
 Configure una compilación de integración continua para una aplicación de ASP.NET Core y, después, cree una versión de implementación continua para Azure App Service.
 
 [Espacio aislado de Azure Web App](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
@@ -92,10 +92,10 @@ Las aplicaciones de ASP.NET Core implementadas automáticamente en App Service r
 
 Para obtener información sobre supervisión, registro y solución de problemas, consulte los artículos siguientes:
 
-[Cómo: Supervisar aplicaciones en Azure App Service](/azure/app-service/web-sites-monitor)  
+[Supervisar aplicaciones en Azure App Service](/azure/app-service/web-sites-monitor)  
 Obtenga información sobre cómo revisar las cuotas y las métricas para las aplicaciones y los planes de App Service.
 
-[Habilitar el registro de diagnósticos para las aplicaciones web en Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log)  
+[Habilitar el registro de diagnósticos para las aplicaciones en Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log)  
 Descubra cómo habilitar y acceder a registro de diagnóstico para los códigos de estado HTTP, solicitudes con error y actividad del servidor web.
 
 <xref:fundamentals/error-handling>  
@@ -220,7 +220,7 @@ Al implementar una aplicación independiente:
 
 ## <a name="protocol-settings-https"></a>Configuración del protocolo (HTTPS)
 
-Los enlaces de protocolo seguro permiten especificar un certificado para usarlo al responder a solicitudes a través de HTTPS. Los enlaces requieren un certificado privado válido (*.pfx*) que se haya emitido para el nombre de host en cuestión. Para obtener más información, consulte [Tutorial: Enlazar un certificado SSL personalizado existente a Azure Web Apps](/azure/app-service/app-service-web-tutorial-custom-ssl).
+Los enlaces de protocolo seguro permiten especificar un certificado para usarlo al responder a solicitudes a través de HTTPS. Los enlaces requieren un certificado privado válido (*.pfx*) que se haya emitido para el nombre de host en cuestión. Para obtener más información, consulte [Tutorial: Enlazar un certificado SSL personalizado existente a Azure App Service](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ## <a name="transform-webconfig"></a>Transformación de web.config
 
@@ -228,7 +228,7 @@ Si necesita transformar *web.config* al realizar la publicación (por ejemplo, e
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Introducción a Web Apps (vídeo de introducción de 5 minutos)](/azure/app-service/app-service-web-overview)
+* [Información general de App Service](/azure/app-service/app-service-web-overview)
 * [Azure App Service: el mejor lugar para hospedar las aplicaciones .NET (vídeo de introducción de 55 minutos)](https://channel9.msdn.com/events/dotnetConf/2017/T222)
 * [Azure Friday: experiencia de diagnóstico y solución de problemas de Azure App Service (vídeo de 12 minutos)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
 * [Introducción a diagnósticos de Azure App Service](/azure/app-service/app-service-diagnostics)
@@ -239,4 +239,4 @@ Azure App Service en Windows Server utiliza [Internet Information Services (IIS)
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/iis/modules>
-* [Biblioteca de TechNet de Microsoft: Windows Server](/windows-server/windows-server-versions)
+* [Windows Server: contenido de administradores de TI para versiones anteriores y actuales](/windows-server/windows-server-versions)
