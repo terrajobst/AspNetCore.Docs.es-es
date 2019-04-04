@@ -1,11 +1,17 @@
 ---
 title: Introducción a ASP.NET Core
 author: rick-anderson
-description: 'Consulte una introducción a ASP.NET Core, un marco multiplataforma de código abierto y de alto rendimiento que tiene como finalidad compilar modernas aplicaciones conectadas a Internet y basadas en la nube.'
+description: Consulte una introducción a ASP.NET Core, un marco multiplataforma de código abierto y de alto rendimiento que tiene como finalidad compilar modernas aplicaciones conectadas a Internet y basadas en la nube.
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/14/2019
 uid: index
+ms.openlocfilehash: baf8557b29c30f6dbeb6a4ff5d50c83d07160a51
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320241"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
