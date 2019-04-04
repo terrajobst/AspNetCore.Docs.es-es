@@ -7,6 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/11/2019
 uid: fundamentals/configuration/index
+ms.openlocfilehash: 52450460af59a8da4fc6b24e3aa83d55385e8c77
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750957"
 ---
 # <a name="configuration-in-aspnet-core"></a><span data-ttu-id="ab169-103">Configuración en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="ab169-103">Configuration in ASP.NET Core</span></span>
 

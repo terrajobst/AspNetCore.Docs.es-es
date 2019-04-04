@@ -6,6 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/02/2019
 uid: fundamentals/logging/index
+ms.openlocfilehash: c6543ec1f2295c21c6a693ac8bd16ee07ec11381
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327412"
 ---
 # <a name="logging-in-aspnet-core"></a><span data-ttu-id="ac830-104">Registro en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="ac830-104">Logging in ASP.NET Core</span></span>
 
