@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/30/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: f9a74fdd94da4c913ac8822ee7bd58c85a9ce72c
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 009ee97d954a21f5fca1713b2b45218cac235e33
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750923"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012843"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -22,10 +22,10 @@ ms.locfileid: "58750923"
 
 La [documentación de App Service](/azure/app-service/) es un recurso que incluye documentación, tutoriales, ejemplos, guías de procedimientos y otros recursos de aplicaciones de Azure. Dos tutoriales importantes que pertenecen al hospedaje de aplicaciones de ASP.NET Core son:
 
-[Creación de una aplicación web ASP.NET Core en Azure](/azure/app-service/app-service-web-get-started-dotnet)  
+[Creación de una aplicación web de ASP.NET Core en Azure](/azure/app-service/app-service-web-get-started-dotnet)  
 Usar Visual Studio para crear e implementar una aplicación web de ASP.NET Core para Azure App Service en Windows.
 
-[Creación de una aplicación ASP.NET Core en App Service en Linux](/azure/app-service/containers/quickstart-dotnetcore)  
+[Creación de una aplicación de ASP.NET Core en App Service en Linux](/azure/app-service/containers/quickstart-dotnetcore)  
 Usar la línea de comandos para crear e implementar una aplicación web de ASP.NET Core para Azure App Service en Linux.
 
 Los artículos siguientes están disponibles en la documentación de ASP.NET Core:
@@ -39,7 +39,7 @@ Obtenga información sobre cómo crear una aplicación web de ASP.NET Core con V
 [Creación de la primera canalización](/azure/devops/pipelines/get-started-yaml)  
 Configure una compilación de integración continua para una aplicación de ASP.NET Core y, después, cree una versión de implementación continua para Azure App Service.
 
-[Espacio aislado de Azure Web App](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
+[Espacio aislado de Azure Web App](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
 Detecte limitaciones de ejecución en tiempo de ejecución de Azure App Service aplicadas por la plataforma de aplicaciones de Azure.
 
 ## <a name="application-configuration"></a>Configuración de aplicación
@@ -98,10 +98,10 @@ Las aplicaciones de ASP.NET Core implementadas automáticamente en App Service r
 
 Para obtener información sobre supervisión, registro y solución de problemas, consulte los artículos siguientes:
 
-[Supervisar aplicaciones en Azure App Service](/azure/app-service/web-sites-monitor)  
+[Supervisión de aplicaciones en Azure App Service](/azure/app-service/web-sites-monitor)  
 Obtenga información sobre cómo revisar las cuotas y las métricas para las aplicaciones y los planes de App Service.
 
-[Habilitar el registro de diagnósticos para las aplicaciones en Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log)  
+[Habilitación del registro de diagnósticos para las aplicaciones en Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log)  
 Descubra cómo habilitar y acceder a registro de diagnóstico para los códigos de estado HTTP, solicitudes con error y actividad del servidor web.
 
 <xref:fundamentals/error-handling>  
@@ -168,12 +168,13 @@ Cuando se complete la operación, se instalará la versión preliminar de .NET C
 > ```powershell
 > Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64\
 > ```
+>
 > El comando devuelve `True` cuando está instalado el runtime de la versión preliminar de x64.
 
 > [!NOTE]
 > Con **Extensiones de ASP.NET Core** se obtienen funciones adicionales para ASP.NET Core en Azure App Services, como habilitar el registro de Azure. La extensión se instala automáticamente cuando se implementa desde Visual Studio. Si no se instala la extensión, instálela para la aplicación.
 
-**Uso de la extensión de sitio de versión preliminar con una plantilla de ARM**
+**Uso de la extensión de sitio en versión preliminar con una plantilla de ARM**
 
 Si usa una plantilla de ARM para crear e implementar aplicaciones, puede usar el tipo de recurso `siteextensions` para agregar la extensión de sitio a una aplicación web. Por ejemplo:
 
@@ -234,10 +235,10 @@ Si necesita transformar *web.config* al realizar la publicación (por ejemplo, e
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Información general de App Service](/azure/app-service/app-service-web-overview)
-* [Azure App Service: el mejor lugar para hospedar las aplicaciones .NET (vídeo de introducción de 55 minutos)](https://channel9.msdn.com/events/dotnetConf/2017/T222)
-* [Azure Friday: experiencia de diagnóstico y solución de problemas de Azure App Service (vídeo de 12 minutos)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
-* [Introducción a diagnósticos de Azure App Service](/azure/app-service/app-service-diagnostics)
+* [Información general sobre App Service](/azure/app-service/app-service-web-overview)
+* [Azure App Service: el mejor lugar para hospedar aplicaciones .NET (vídeo introductorio de 55 minutos)](https://channel9.msdn.com/events/dotnetConf/2017/T222)
+* [Azure Friday: experiencia de diagnóstico y solución de problemas de Azure App Service (vídeo de 12 minutos)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
+* [Información general sobre los diagnósticos de Azure App Service](/azure/app-service/app-service-diagnostics)
 * <xref:host-and-deploy/web-farm>
 
 Azure App Service en Windows Server utiliza [Internet Information Services (IIS)](https://www.iis.net/). Los temas siguientes se aplican a la tecnología subyacente de IIS:
@@ -245,4 +246,4 @@ Azure App Service en Windows Server utiliza [Internet Information Services (IIS)
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/iis/modules>
-* [Windows Server: contenido de administradores de TI para versiones anteriores y actuales](/windows-server/windows-server-versions)
+* [Windows Server: contenido de administradores de TI para versiones anteriores y actuales](/windows-server/windows-server-versions)
