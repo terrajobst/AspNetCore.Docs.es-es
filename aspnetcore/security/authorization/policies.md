@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo crear y usar controladores de la directiva de autorización para exigir los requisitos de autorización en una aplicación ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2017
+ms.date: 04/05/2019
 uid: security/authorization/policies
-ms.openlocfilehash: e72f15c28fb7b62c671dd6475cc323cacce42de6
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: ea9d687d3810c104d5b3fa39033849c21569709b
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208326"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068175"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>Autorización basada en directivas en ASP.NET Core
 
@@ -96,7 +96,10 @@ Tenga en cuenta que el `Handle` método en el [ejemplo controlador](#security-au
 
 * Para garantizar el error, incluso si otros controladores de requisitos se realice correctamente, llame a `context.Fail`.
 
-Cuando se establece en `false`, [InvokeHandlersAfterFailure](/dotnet/api/microsoft.aspnetcore.authorization.authorizationoptions.invokehandlersafterfailure#Microsoft_AspNetCore_Authorization_AuthorizationOptions_InvokeHandlersAfterFailure) propiedad (disponible en ASP.NET Core 1.1 y versiones posterior) provoca un cortocircuito en la ejecución de controladores cuando `context.Fail` se llama. `InvokeHandlersAfterFailure` el valor predeterminado es `true`, en cuyo caso se llama a todos los controladores. Esto permite que los requisitos producir efectos secundarios, como el registro, que siempre se produce incluso si `context.Fail` se ha llamado en otro controlador.
+Si llama un controlador `context.Succeed` o `context.Fail`, todavía se llama a todos los otros controladores. Esto permite que los requisitos producir efectos secundarios, como el registro, que tiene lugar incluso si otro controlador ha validado correctamente o bien no un requisito. Cuando se establece en `false`, [InvokeHandlersAfterFailure](/dotnet/api/microsoft.aspnetcore.authorization.authorizationoptions.invokehandlersafterfailure#Microsoft_AspNetCore_Authorization_AuthorizationOptions_InvokeHandlersAfterFailure) propiedad (disponible en ASP.NET Core 1.1 y versiones posterior) provoca un cortocircuito en la ejecución de controladores cuando `context.Fail` se llama. `InvokeHandlersAfterFailure` el valor predeterminado es `true`, en cuyo caso se llama a todos los controladores.
+
+> [!NOTE]
+> Incluso si se produce un error de autenticación, se denominan controladores de autorización.
 
 <a name="security-authorization-policies-based-multiple-handlers"></a>
 

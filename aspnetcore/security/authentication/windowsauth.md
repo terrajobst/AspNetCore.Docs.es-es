@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar la autenticación de Wi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 02/25/2019
+ms.date: 04/03/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 15fc41efba77f88fc8129f875b85836ac1b5f886
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 9b53f523cf579aeb0e7dd37ccf5f161269a54913
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833701"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068266"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurar la autenticación de Windows en ASP.NET Core
 
@@ -26,15 +26,19 @@ Autenticación de Windows se basa en el sistema operativo para autenticar usuari
 
 El **aplicación Web** plantilla disponible a través de Visual Studio o la CLI de .NET Core puede configurarse para admitir la autenticación de Windows.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Programa para la mejora](#tab/visual-studio)
 
 ### <a name="use-the-windows-authentication-app-template-for-a-new-project"></a>Usa la plantilla de aplicación de autenticación de Windows para un nuevo proyecto
 
 En Visual Studio:
 
-1. Cree un nuevo **aplicación Web ASP.NET Core**.
-1. Seleccione **aplicación Web** en la lista de plantillas.
-1. Seleccione el **Cambiar autenticación** y seleccione **Windows autenticación**.
+1. Cree un nuevo proyecto.
+1. Seleccione **Aplicación web de ASP.NET Core**. Seleccione **Siguiente**.
+1. Proporcione un nombre en el **nombre del proyecto** campo. Confirme la **ubicación** entrada es correcta o proporcionar una ubicación para el proyecto. Seleccione **Crear**.
+1. Seleccione **cambio** en **autenticación**.
+1. En el **Cambiar autenticación** ventana, seleccione **Windows autenticación**. Seleccione **Aceptar**.
+1. Seleccione **Aplicación web**.
+1. Seleccione **Crear**.
 
 Ejecutar la aplicación. El nombre de usuario aparece en la interfaz de usuario de la aplicación representada.
 
@@ -51,7 +55,7 @@ Como alternativa, se pueden configurar las propiedades en el `iisSettings` nodo 
 
 [!code-json[](windowsauth/sample_snapshot/launchSettings.json?highlight=2-3)]
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+# [<a name="net-core-cli"></a>CLI de .NET Core](#tab/netcore-cli)
 
 Use la **Windows autenticación** plantilla de aplicación.
 
@@ -195,4 +199,4 @@ ASP.NET Core no implementa la suplantación. Las aplicaciones se ejecutan con la
 
 ### <a name="claims-transformations"></a>Transformaciones de notificaciones
 
-Al hospedar con el modo en proceso IIS, <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> no se llama internamente para inicializar un usuario. Por lo tanto, un <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> implementación se usa para transformar las notificaciones después de cada autenticación no está activada de forma predeterminada. Para obtener más información y un ejemplo de código que activa las transformaciones de notificaciones cuando se hospedan en proceso, consulte <xref:host-and-deploy/aspnet-core-module#in-process-hosting-model>.
+Al hospedar con el modo en proceso IIS, <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> no se llama internamente para inicializar un usuario. Por tanto, se usa una implementación de <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> para transformar las notificaciones después de que cada autenticación no se active de forma predeterminada. Para obtener más información y un ejemplo de código que activa las transformaciones de notificaciones cuando se hospedan en proceso, consulte <xref:host-and-deploy/aspnet-core-module#in-process-hosting-model>.
