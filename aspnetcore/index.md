@@ -4,14 +4,14 @@ author: rick-anderson
 description: Consulte una introducción a ASP.NET Core, un marco multiplataforma de código abierto y de alto rendimiento que tiene como finalidad compilar modernas aplicaciones conectadas a Internet y basadas en la nube.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 04/07/2019
 uid: index
-ms.openlocfilehash: baf8557b29c30f6dbeb6a4ff5d50c83d07160a51
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: 944c8a93aff53b8d72fda03f5df9c5ba45990cbc
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320241"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068277"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -50,9 +50,9 @@ ASP.NET Core se integra perfectamente con las bibliotecas y los marcos de trabaj
 
 ## <a name="aspnet-core-targeting-net-framework"></a>ASP.NET Core con .NET Framework como destino
 
-ASP.NET Core 2.x puede tener como destino .NET Core o .NET Framework. Las aplicaciones de ASP.NET Core que tienen como destino .NET Framework no son multiplataforma, sino que solo se ejecutan en Windows. Por lo general, ASP.NET Core 2.x está formado por bibliotecas de [.NET Standard](/dotnet/standard/net-standard). Las aplicaciones escritas con .NET Standard 2.0 se ejecutan en cualquier lugar en el que se admita .NET Standard 2.0.
+ASP.NET Core 2.x puede tener como destino .NET Core o .NET Framework. Las aplicaciones de ASP.NET Core que tienen como destino .NET Framework no son multiplataforma, sino que solo se ejecutan en Windows. Por lo general, ASP.NET Core 2.x está formado por bibliotecas de [.NET Standard](/dotnet/standard/net-standard). Las bibliotecas escritas con .NET Standard 2.0 se ejecutan en [cualquier plataforma .NET que implementa .NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support).
 
-ASP.NET Core 2.x se admite en las versiones de .NET Framework compatibles con .NET Standard 2.0:
+ASP.NET Core 2.x se admite en las versiones de .NET Framework que implementan .NET Standard 2.0:
 
 * Se recomienda encarecidamente .NET Framework 4.7.1 y posterior.
 * .NET Framework 4.6.1 y posterior.
@@ -77,7 +77,7 @@ Se recomienda la siguiente secuencia de tutoriales y artículos para obtener una
 
    |Tipo de aplicación  |Escenario  |Tutorial  |
    |----------|----------|----------|
-   |Aplicación web       | Para un nuevo desarrollo        |[Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start) |
+   |Aplicación web       | Para un nuevo desarrollo        |[Introducción a Razor Pages](xref:tutorials/razor-pages/razor-pages-start) |
    |Aplicación web       | Para mantener una aplicación MVC |[Introducción a MVC](xref:tutorials/first-mvc-app/start-mvc)|
    |Web API       |                            |[Creación de una API web](xref:tutorials/first-web-api)\*  |
    |Aplicación en tiempo real |                            |[Introducción a SignalR](xref:tutorials/signalr) |
@@ -86,7 +86,7 @@ Se recomienda la siguiente secuencia de tutoriales y artículos para obtener una
 
    |Escenario  |Tutorial  |
    |----------|----------|
-   | Para un nuevo desarrollo        |[ Razor Pages con Entity Framework Core](xref:data/ef-rp/intro) |
+   | Para un nuevo desarrollo        |[Razor Pages con Entity Framework Core](xref:data/ef-rp/intro) |
    | Para mantener una aplicación MVC |[MVC con Entity Framework Core](xref:data/ef-mvc/intro)
 
 1. Lea una introducción a las características de ASP.NET Core que se aplican a todos los tipos de aplicaciones:

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: afdaa11c55b66366badf8facde62e3f215b6deb2
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 50db8cd9b0523239acb1d439b472ea5d3cb6cb7c
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264805"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068383"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -31,11 +31,11 @@ En este documento se proporciona una introducción a las páginas de Razor. No e
 
 ## <a name="create-a-razor-pages-project"></a>Creación de un proyecto de Razor Pages
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Programa para la mejora](#tab/visual-studio)
 
 Vea [Introducción a Razor Pages](xref:tutorials/razor-pages/razor-pages-start) para obtener instrucciones detalladas sobre cómo crear un proyecto Razor Pages.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+# [<a name="visual-studio-for-mac"></a>Visual Studio para Mac](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -51,7 +51,7 @@ Ejecute `dotnet new razor` desde la línea de comandos.
 
 Abra el archivo *.csproj* generado desde Visual Studio para Mac.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -77,7 +77,7 @@ Considere la posibilidad de una página básica: <a name="OnGet"></a>
 
 [!code-cshtml[](index/sample/RazorPagesIntro/Pages/Index.cshtml)]
 
-El código anterior es muy parecido a un archivo de vista de Razor. La directiva `@page` lo hace diferente. `@page` transforma el archivo en una acción de MVC, lo que significa que administra las solicitudes directamente, sin tener que pasar a través de un controlador. `@page` debe ser la primera directiva de Razor de una página. `@page` afecta al comportamiento de otras construcciones de Razor.
+El código anterior se parece mucho a un [archivo de vista de Razor](xref:tutorials/first-mvc-app/adding-view) que se utiliza en una aplicación ASP.NET Core con controladores y vistas. La directiva `@page` lo hace diferente. `@page` transforma el archivo en una acción de MVC, lo que significa que administra las solicitudes directamente, sin tener que pasar a través de un controlador. `@page` debe ser la primera directiva de Razor de una página. `@page` afecta al comportamiento de otras construcciones de Razor.
 
 Una página similar, con una clase `PageModel`, se muestra en los dos archivos siguientes. El archivo *Pages/Index2.cshtml*:
 
@@ -151,7 +151,7 @@ Compruebe los errores de validación.
 
 Cuando los datos se escriben correctamente, el método del controlador `OnPostAsync` llama al método del asistente `RedirectToPage` para devolver una instancia de `RedirectToPageResult`. `RedirectToPage` es un resultado de acción nueva, similar a `RedirectToAction` o `RedirectToRoute`, pero personalizada para las páginas. En el ejemplo anterior, redirige a la página de índice raíz (`/Index`). `RedirectToPage` se detalla en la sección [Generación de direcciones URL para las páginas](#url_gen).
 
-Cuando el formulario enviado tiene errores de validación (que se pasan al servidor), el método del controlador `OnPostAsync` llama al método del asistente `Page`. `Page` devuelve una instancia de `PageResult`. Devolver `Page` es similar a cómo las acciones en los controladores devuelven `View`. `PageResult` es el tipo predeterminado <!-- Review  --> que se devuelve para un método de controlador. Un método de controlador que devuelve `void` representa la página.
+Cuando el formulario enviado tiene errores de validación (que se pasan al servidor), el método del controlador `OnPostAsync` llama al método del asistente `Page`. `Page` devuelve una instancia de `PageResult`. Devolver `Page` es similar a cómo las acciones en los controladores devuelven `View`. `PageResult` es el predeterminado <!-- Review  --> que se devuelve para un método de controlador. Un método de controlador que devuelve `void` representa la página.
 
 La propiedad `Customer` usa el atributo `[BindProperty]` para participar en el enlace de modelos.
 
@@ -346,7 +346,7 @@ El archivo *Pages/_ViewImports.cshtml* establece el espacio de nombres siguiente
 
 El espacio de nombres generado para la página de Razor *Pages/Customers/Edit.cshtml* es el mismo que la clase `PageModel`.
 
-`@namespace` *también funciona con las vistas de Razor convencionales*.
+`@namespace` *también funciona con las vistas de Razor convencionales.*
 
 El archivo de vista *Pages/Create.cshtml* original:
 

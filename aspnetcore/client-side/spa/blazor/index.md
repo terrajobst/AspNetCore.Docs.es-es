@@ -5,14 +5,14 @@ description: Explore Blazor de ASP.NET Core, una nueva forma de compilar aplicac
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/27/2019
+ms.date: 03/28/2019
 uid: spa/blazor/index
-ms.openlocfilehash: c42363b0ce70a1a8edc19b1c428ee802a6eff3dd
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 87e294a975e4168add046166a95e02e485db131d
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750489"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068253"
 ---
 # <a name="introduction-to-blazor"></a>Introducción a Blazor
 
@@ -54,7 +54,7 @@ Blazor admite medios básicos requeridos por la mayoría de las aplicaciones, in
 * Plantillas
 * Valores en cascada
 
-Para reducir el tamaño de la aplicación descargada, se ha quitado el código sin usar de la aplicación cuando se publica mediante el [enlazador del lenguaje intermedio (IL)](xref:host-and-deploy/razor-components/configure-linker).
+Para reducir el tamaño de la aplicación descargada, se ha quitado el código sin usar de la aplicación cuando se publica mediante el [enlazador del lenguaje intermedio (IL)](xref:host-and-deploy/razor-components-blazor/configure-linker).
 
 Blazor es el modelo de hospedaje del lado cliente para Razor Components. Como Razor Components separa la lógica de representación de un componente de la forma en que se aplican las actualizaciones de la interfaz de usuario, existe flexibilidad para hospedar Razor Components. Use Razor Components de ASP.NET Core para hospedar Razor Components en el servidor en una aplicación de ASP.NET Core, donde todas las actualizaciones de la interfaz de usuario se controlan mediante una conexión de SignalR. Para obtener más información, vea <xref:razor-components/index> y <xref:razor-components/hosting-models#server-side-hosting-model>. 
 
@@ -92,7 +92,7 @@ En el caso de aplicaciones que necesitan bibliotecas de JavaScript de terceros y
 
 ## <a name="code-sharing-and-net-standard"></a>Uso compartido de código y .NET Standard
 
-Las aplicaciones pueden hacer referencia a bibliotecas de [.NET Standard](/dotnet/standard/net-standard) existentes y usarlas. .NET Standard es una especificación formal de las API de .NET comunes entre las implementaciones de .NET. Se admite .NET Standard 2.0 o versiones posteriores. Las API que no pueden aplicarse dentro de un explorador web (por ejemplo, para acceder al sistema de archivos, abrir un socket, ejecutar subprocesos y otras características) generan una excepción <xref:System.PlatformNotSupportedException>. Las bibliotecas de clases de .NET Standard se pueden compartir entre código de servidor y aplicaciones basadas en explorador.
+Las aplicaciones pueden hacer referencia a bibliotecas de [.NET Standard](/dotnet/standard/net-standard) existentes y usarlas. .NET Standard es una especificación formal de las API de .NET comunes entre las implementaciones de .NET. Blazor implementa .NET Standard 2.0. Las API que no pueden aplicarse dentro de un explorador web (por ejemplo, para acceder al sistema de archivos, abrir un socket, ejecutar subprocesos y otras características) generan una excepción <xref:System.PlatformNotSupportedException>. Las bibliotecas de clase .NET Standard pueden compartirse a través de diferentes plataformas .NET, como Blazor, .NET Framework, .NET Core, Xamarin, Mono y Unity.
 
 ## <a name="optimization"></a>Optimización
 

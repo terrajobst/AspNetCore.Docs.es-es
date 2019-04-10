@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/02/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: c6543ec1f2295c21c6a693ac8bd16ee07ec11381
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: 065b2016d3a2dcc2243ec6869e027c5fabe4dad8
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327412"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068409"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -110,7 +110,7 @@ Para escribir registros la clase `Program`, obtenga una instancia `ILogger` de i
 
 ### <a name="no-asynchronous-logger-methods"></a>No hay métodos de registrador asincrónicos
 
-El registro debe ser tan rápido que no merezca la pena el costo de rendimiento del código asincrónico. Si el almacén de datos de registro es lento, no escriba directamente en él. Considere la posibilidad de escribir los mensajes de registro en un almacén rápido inicialmente y luego moverlos a la tienda lenta. Por ejemplo, realice el registro en una cola de mensajes que otro proceso lea y conserve en almacenamiento lento.
+El registro debe ser tan rápido que no merezca la pena el costo de rendimiento del código asincrónico. Si el almacén de datos de registro es lento, no escriba directamente en él. Considere la posibilidad de escribir los mensajes de registro en un almacén rápido inicialmente y luego moverlos a la tienda lenta. Por ejemplo, si inicia sesión en SQL Server, no desea hacerlo directamente en un método `Log`, ya que los métodos `Log` son sincrónicos. En su lugar, agregue sincrónicamente mensajes de registro a una cola en memoria y haga que un trabajo en segundo plano extraiga los mensajes de la cola para realizar el trabajo asincrónico de insertar datos en SQL Server.
 
 ## <a name="configuration"></a>Configuración
 
@@ -168,7 +168,7 @@ Si los niveles se especifican en `Logging.{providername}.LogLevel`, invalidan to
 }
 ```
 
-Las claves `LogLevel` representan los nombres de registro. La clave `Default` se aplica a los registros que no se enumeran de forma explícita. El valor representa el [nivel de registro](#log-level) aplicado al registro determinado.
+`LogLevel` claves que representan los nombres de registro. La clave `Default` se aplica a los registros que no se enumeran de forma explícita. El valor representa el [nivel de registro](#log-level) aplicado al registro determinado.
 
 ::: moniker-end
 
@@ -611,7 +611,7 @@ warn: TodoApi.Controllers.TodoController[4000]
 ASP.NET Core incluye los proveedores siguientes:
 
 * [Consola](#console-provider)
-* [Depurar](#debug-provider)
+* [Depuración](#debug-provider)
 * [EventSource](#eventsource-provider)
 * [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
@@ -868,10 +868,10 @@ Navegue hasta la página **Secuencias de registro** para ver los mensajes de la 
 
 El SDK de Application Insights puede recopilar y notificar los registros que la infraestructura de registro de ASP.NET Core genera. Para obtener más información, vea los siguientes recursos:
 
-* [Información general de Application Insights](/azure/application-insights/app-insights-overview)
+* [Introducción a Application Insights](/azure/application-insights/app-insights-overview)
 * [Application Insights para ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
 * [Adaptadores de registro de Application Insights](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md)
-* [Muestras de implementación de Application Insights ILogger](/azure/azure-monitor/app/ilogger)
+* [Ejemplos de implementación de Application Insights ILogger](/azure/azure-monitor/app/ilogger)
 
 ::: moniker-end
 

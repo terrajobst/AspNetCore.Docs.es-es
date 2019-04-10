@@ -1,17 +1,18 @@
 ---
 title: Hospedar ASP.NET Core en Linux con Apache
+author: guardrex
 description: Aprenda a configurar Apache como servidor proxy inverso en CentOS para redirigir el tráfico HTTP a una aplicación web ASP.NET Core que se ejecuta en Kestrel.
-author: spboyer
+monikerRange: '>= aspnetcore-2.1'
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 02/27/2019
+ms.date: 03/31/2019
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 69026997b2c269a4fb56ed2a79fa42ae218368e1
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 34da0653ff29acf3044e69e032307d1a3da7044a
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345942"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809281"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hospedar ASP.NET Core en Linux con Apache
 
@@ -31,6 +32,11 @@ Mediante esta guía, aprenda a configurar [Apache](https://httpd.apache.org/) co
 ## <a name="publish-and-copy-over-the-app"></a>Publicar y copiar en la aplicación
 
 Configure la aplicación para una [implementación dependiente de Framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd).
+
+Si la aplicación se ejecuta localmente y no está configurada para realizar conexiones seguras (HTTPS), adopte cualquiera de los métodos siguientes:
+
+* Configure la aplicación para controlar las conexiones locales seguras. Para obtener más información, vea la sección [Configuración de HTTPS](#https-configuration).
+* Quite `https://localhost:5001` (si existe) de la propiedad `applicationUrl` en el archivo *Properties/launchSettings.json*.
 
 Ejecute [dotnet publish](/dotnet/core/tools/dotnet-publish) desde el entorno de desarrollo para empaquetar una aplicación en un directorio (por ejemplo, *bin/Release/&lt;target_framework_moniker&gt;/publish*) que se pueda ejecutar en el servidor:
 
@@ -55,8 +61,6 @@ Como el proxy inverso reenvía las solicitudes, use el [Middleware de encabezado
 
 Cualquier componente que dependa del esquema (como la autenticación, la generación de vínculos, los redireccionamientos o la geolocalización) debe colocarse después de invocar al Middleware de encabezados reenviados. Como norma general, el Middleware de encabezados reenviados se debe ejecutar antes de cualquier otro middleware, salvo el middleware de diagnóstico y control de errores. Hacerlo en ese orden garantiza que el middleware que se basa en la información de encabezados reenviados pueda usar los valores de encabezado para procesarlos.
 
-::: moniker range=">= aspnetcore-2.0"
-
 Invoque el método <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> en `Startup.Configure` antes de llamar a <xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*> o un middleware de esquema de autenticación similar. Configure el middleware para reenviar los encabezados `X-Forwarded-For` y `X-Forwarded-Proto`:
 
 ```csharp
@@ -67,28 +71,6 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 
 app.UseAuthentication();
 ```
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-Invoque el método <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> en `Startup.Configure` antes de llamar a <xref:Microsoft.AspNetCore.Builder.BuilderExtensions.UseIdentity*> y <xref:Microsoft.AspNetCore.Builder.FacebookAppBuilderExtensions.UseFacebookAuthentication*> o un middleware de esquema de autenticación similar. Configure el middleware para reenviar los encabezados `X-Forwarded-For` y `X-Forwarded-Proto`:
-
-```csharp
-app.UseForwardedHeaders(new ForwardedHeadersOptions
-{
-    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-});
-
-app.UseIdentity();
-app.UseFacebookAuthentication(new FacebookOptions()
-{
-    AppId = Configuration["Authentication:Facebook:AppId"],
-    AppSecret = Configuration["Authentication:Facebook:AppSecret"]
-});
-```
-
-::: moniker-end
 
 Si no se especifica ningún valor <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> para el middleware, los encabezados predeterminados para reenviar son `None`.
 
@@ -228,6 +210,12 @@ Algunos valores (por ejemplo, cadenas de conexión de SQL) deben ser de escape p
 systemd-escape "<value-to-escape>"
 ```
 
+No se admiten los separadores de dos puntos (`:`) en los nombres de variable de entorno. Use un subrayado doble (`__`) en lugar de dos puntos. El [proveedor de configuración de variables de entorno](xref:fundamentals/configuration/index#environment-variables-configuration-provider) convierte doble subrayado en dos puntos cuando las variables de entorno se leen en la configuración. En el ejemplo siguiente, la clave de la cadena de conexión `ConnectionStrings:DefaultConnection` se establece en el archivo de definición de servicio como `ConnectionStrings__DefaultConnection`:
+
+```
+Environment=ConnectionStrings__DefaultConnection={Connection String}
+```
+
 Guarde el archivo y habilite el servicio.
 
 ```bash
@@ -325,6 +313,17 @@ rich rules:
 ```
 
 ### <a name="https-configuration"></a>Configuración de HTTPS
+
+**Configuración de la aplicación para conexiones locales seguras (HTTPS)**
+
+El comando [dotnet run](/dotnet/core/tools/dotnet-run) usa el archivo *Properties/launchSettings.json* de la aplicación, que configura la aplicación para que escuche en las direcciones URL proporcionadas por la propiedad `applicationUrl` (por ejemplo, `https://localhost:5001;http://localhost:5000`).
+
+Configure la aplicación para que use un certificado en el desarrollo para el comando `dotnet run` o el entorno de desarrollo (F5 o CTRL+F5 en Visual Studio Code) mediante uno de los siguientes enfoques:
+
+* [Reemplace el certificado predeterminado de configuración](xref:fundamentals/servers/kestrel#configuration) (*recomendado*)
+* [KestrelServerOptions.ConfigureHttpsDefaults](xref:fundamentals/servers/kestrel#configurehttpsdefaultsactionhttpsconnectionadapteroptions)
+
+**Configure el proxy inverso para conexiones de cliente seguras (HTTPS)**
 
 Para configurar Apache para HTTPS, se usa el módulo *mod_ssl*. Cuando se instaló el módulo *httpd*, también lo hizo el módulo *mod_ssl*. Si aún no se ha instalado, use `yum` para agregarlo a la configuración.
 
