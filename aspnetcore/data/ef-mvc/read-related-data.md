@@ -3,15 +3,15 @@ title: 'Tutorial: Lectura de datos relacionados: ASP.NET MVC con EF Core'
 description: En este tutorial podrá leer y mostrar datos relacionados, es decir, los datos que Entity Framework carga en propiedades de navegación.
 author: rick-anderson
 ms.author: tdykstra
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 73e225c2cd6d9f88079c54115cccad48f43d7d0c
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: a2ae878fd861b68a17de19af1b33b6ffbf5a268c
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103051"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58751077"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Tutorial: Lectura de datos relacionados: ASP.NET MVC con EF Core
 
@@ -33,7 +33,7 @@ En este tutorial ha:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Creación de un modelo de datos más complejo con EF Core para una aplicación web de ASP.NET Core MVC](complex-data-model.md)
+* [Creación de un modelo de datos complejo](complex-data-model.md)
 
 ## <a name="learn-how-to-load-related-data"></a>Obtiene información sobre cómo cargar datos relacionados
 
@@ -257,6 +257,7 @@ En este tutorial ha:
 > * Creado una página de instructores
 > * Obtenido información sobre la carga explícita
 
-Pase al artículo siguiente para obtener información sobre cómo actualizar datos relacionados.
+Pase al tutorial siguiente para obtener información sobre cómo actualizar datos relacionados.
+
 > [!div class="nextstepaction"]
 > [Actualización de datos relacionados](update-related-data.md)

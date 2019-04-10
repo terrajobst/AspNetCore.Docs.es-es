@@ -4,15 +4,15 @@ description: En este tutorial, empezará usando la característica de migracione
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/04/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 6d4ed0e95499c30417e1cfd07f57de824a8a62ed
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 8a14ada241330ca33811b7cce70daf26ff8fc13a
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265517"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750641"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Tutorial: Uso de la característica de migraciones: ASP.NET MVC con EF Core
 
@@ -22,7 +22,6 @@ En este tutorial ha:
 
 > [!div class="checklist"]
 > * Obtiene información sobre las migraciones
-> * Obtiene información sobre los paquetes de migración de NuGet
 > * Cambiar la cadena de conexión
 > * Crear una migración inicial
 > * Examina los métodos Up y Down
@@ -31,7 +30,7 @@ En este tutorial ha:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Adición de ordenación, filtrado y paginación con EF Core en una aplicación web ASP.NET Core](sort-filter-page.md)
+* [Ordenar, filtrar y paginar](sort-filter-page.md)
 
 ## <a name="about-migrations"></a>Acerca de las migraciones
 
@@ -39,15 +38,7 @@ Al desarrollar una aplicación nueva, el modelo de datos cambia con frecuencia y
 
 Este método para mantener la base de datos sincronizada con el modelo de datos funciona bien hasta que la aplicación se implemente en producción. Cuando la aplicación se ejecuta en producción, normalmente almacena los datos que le interesa mantener y no querrá perderlo todo cada vez que realice un cambio, como al agregar una columna nueva. La característica Migraciones de EF Core soluciona este problema habilitando EF para actualizar el esquema de la base de datos en lugar de crear una.
 
-## <a name="about-nuget-migration-packages"></a>Acerca de los paquetes de migración de NuGet
-
 Para trabajar con las migraciones, puede usar la **Consola del Administrador de paquetes** (PMC) o la interfaz de la línea de comandos (CLI).  En estos tutoriales se muestra cómo usar los comandos de la CLI. [Al final de este tutorial](#pmc) encontrará información sobre la PMC.
-
-Las herramientas de EF para la interfaz de nivel de la línea de comandos se proporcionan en [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet). Para instalar este paquete, agréguelo a la colección `DotNetCliToolReference` del archivo *.csproj*, como se muestra a continuación. **Nota:** Tendrá que instalar este paquete mediante la edición del archivo *.csproj*; no se puede usar el comando `install-package` ni la interfaz gráfica de usuario del administrador de paquetes. Puede editar el archivo *.csproj* si hace clic con el botón derecho en el nombre del proyecto en el **Explorador de soluciones** y selecciona **Editar ContosoUniversity.csproj**.
-
-[!code-xml[](intro/samples/cu/ContosoUniversity.csproj?range=12-15&highlight=2)]
-
-(Los números de versión en este ejemplo eran los actuales cuando se escribió el tutorial).
 
 ## <a name="change-the-connection-string"></a>Cambiar la cadena de conexión
 
@@ -86,10 +77,8 @@ dotnet ef migrations add InitialCreate
 En la ventana de comandos verá un resultado similar al siguiente:
 
 ```console
-info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]
-      User profile is available. Using 'C:\Users\username\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
-info: Microsoft.EntityFrameworkCore.Infrastructure[100403]
-      Entity Framework Core 2.0.0-rtm-26452 initialized 'SchoolContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 2.2.0-rtm-35687 initialized 'SchoolContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
 Done. To undo this action, use 'ef migrations remove'
 ```
 
@@ -129,15 +118,19 @@ dotnet ef database update
 El resultado del comando es similar al comando `migrations add`, con la excepción de que verá registros para los comandos SQL que configuran la base de datos. La mayoría de los registros se omite en la siguiente salida de ejemplo. Si prefiere no ver este nivel de detalle en los mensajes de registro, puede cambiarlo en el archivo *appsettings.Development.json*. Para obtener más información, vea <xref:fundamentals/logging/index>.
 
 ```text
-info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]
-      User profile is available. Using 'C:\Users\username\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
-info: Microsoft.EntityFrameworkCore.Infrastructure[100403]
-      Entity Framework Core 2.0.0-rtm-26452 initialized 'SchoolContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
-info: Microsoft.EntityFrameworkCore.Database.Command[200101]
-      Executed DbCommand (467ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 2.2.0-rtm-35687 initialized 'SchoolContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (274ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
       CREATE DATABASE [ContosoUniversity2];
-info: Microsoft.EntityFrameworkCore.Database.Command[200101]
-      Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (60ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      IF SERVERPROPERTY('EngineEdition') <> 5
+      BEGIN
+          ALTER DATABASE [ContosoUniversity2] SET READ_COMMITTED_SNAPSHOT ON;
+      END;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       CREATE TABLE [__EFMigrationsHistory] (
           [MigrationId] nvarchar(150) NOT NULL,
           [ProductVersion] nvarchar(32) NOT NULL,
@@ -146,10 +139,10 @@ info: Microsoft.EntityFrameworkCore.Database.Command[200101]
 
 <logs omitted for brevity>
 
-info: Microsoft.EntityFrameworkCore.Database.Command[200101]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-      VALUES (N'20170816151242_InitialCreate', N'2.0.0-rtm-26452');
+      VALUES (N'20190327172701_InitialCreate', N'2.2.0-rtm-35687');
 Done.
 ```
 
@@ -190,6 +183,7 @@ En este tutorial ha:
 > * Obtenido información sobre la instantánea del modelo de datos
 > * Aplicado la migración
 
-Pase al artículo siguiente para comenzar a examinar temas más avanzados sobre la expansión del modelo de datos. Por el camino, podrá crear y aplicar migraciones adicionales.
+Pase al tutorial siguiente para comenzar a examinar temas más avanzados sobre la expansión del modelo de datos. Por el camino, podrá crear y aplicar migraciones adicionales.
+
 > [!div class="nextstepaction"]
 > [Creación y aplicación de migraciones adicionales](complex-data-model.md)

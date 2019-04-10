@@ -2,16 +2,17 @@
 title: Inserción de dependencias en ASP.NET Core
 author: guardrex
 description: Obtenga información sobre la manera en que ASP.NET Core implementa la inserción de dependencias y cómo se usa.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 03/28/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: cc020d7397b03f8ecd6cebf98a14b4aaebb47940
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: 8312f3375296a8530ac2db3db46d062b7b9e76b9
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488694"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750598"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -44,8 +45,6 @@ public class MyDependency
 }
 ```
 
-::: moniker range=">= aspnetcore-2.1"
-
 Se puede crear una instancia de la clase `MyDependency` para hacer que el método `WriteMessage` esté disponible para una clase. La clase `MyDependency` es una dependencia de la clase `IndexModel`:
 
 ```csharp
@@ -61,29 +60,6 @@ public class IndexModel : PageModel
 }
 ```
 
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-Se puede crear una instancia de la clase `MyDependency` para hacer que el método `WriteMessage` esté disponible para una clase. La clase `MyDependency` es una dependencia de la clase `HomeController`:
-
-```csharp
-public class HomeController : Controller
-{
-    MyDependency _dependency = new MyDependency();
-
-    public async Task<IActionResult> Index()
-    {
-        await _dependency.WriteMessage(
-            "HomeController.Index created this message.");
-
-        return View();
-    }
-}
-```
-
-::: moniker-end
-
 La clase crea y depende directamente de la instancia `MyDependency`. Las dependencias de código (como en el ejemplo anterior) son problemáticas y deben evitarse por las siguientes razones:
 
 * Para reemplazar `MyDependency` con una implementación diferente, se debe modificar la clase.
@@ -98,31 +74,11 @@ La inserción de dependencias aborda estos problemas mediante:
 
 En la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples), la interfaz `IMyDependency` define un método que el servicio proporciona a la aplicación:
 
-::: moniker range=">= aspnetcore-2.1"
-
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Interfaces/IMyDependency.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Interfaces/IMyDependency.cs?name=snippet1)]
-
-::: moniker-end
 
 Esta interfaz se implementa mediante un tipo concreto, `MyDependency`:
 
-::: moniker range=">= aspnetcore-2.1"
-
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Services/MyDependency.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Services/MyDependency.cs?name=snippet1)]
-
-::: moniker-end
 
 `MyDependency` solicita una instancia de [ILogger&lt;TCategoryName&gt;](/dotnet/api/microsoft.extensions.logging.ilogger-1) en su constructor. No es raro usar la inserción de dependencias de forma encadenada. Cada dependencia solicitada a su vez solicita sus propias dependencias. El contenedor resuelve las dependencias del gráfico y devuelve el servicio totalmente resuelto. El conjunto colectivo de dependencias que deben resolverse suele denominarse *árbol de dependencias*, *gráfico de dependencias* o *gráfico de objetos*.
 
@@ -136,17 +92,7 @@ services.AddSingleton(typeof(ILogger<T>), typeof(Logger<T>));
 
 En la aplicación de ejemplo, el servicio `IMyDependency` está registrado con el tipo concreto `MyDependency`. El registro abarca la duración del servicio como la duración de una única solicitud. Las [duraciones del servicio](#service-lifetimes) se describen más adelante en este tema.
 
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=11)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=5)]
-
-::: moniker-end
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=5)]
 
 > [!NOTE]
 > Cada método de extensión `services.Add{SERVICE_NAME}` agrega servicios (y potencialmente los configura). Por ejemplo, `services.AddMvc()` agrega los servicios que Razor Pages y MVC requieren. Se recomienda que las aplicaciones sigan esta convención. Coloque los métodos de extensión en el espacio de nombres [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection) para encapsular grupos de registros del servicio.
@@ -171,17 +117,7 @@ Se solicita una instancia del servicio mediante el constructor de una clase, en 
 
 En la aplicación de ejemplo, la instancia `IMyDependency` se solicita y usa para llamar al método `WriteMessage` del servicio:
 
-::: moniker range=">= aspnetcore-2.1"
-
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3,6,13,29-30)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Controllers/MyDependencyController.cs?name=snippet1&highlight=3,5-8,13-14)]
-
-::: moniker-end
 
 ## <a name="framework-provided-services"></a>Servicios proporcionados por el marco de trabajo
 
@@ -228,11 +164,11 @@ Elija una duración adecuada para cada servicio registrado. Los servicios de ASP
 
 **Transitoria**
 
-Los servicios de duración transitoria se crean cada vez que solicitan. Esta duración funciona mejor para servicios sin estado ligeros.
+Los servicios de duración transitoria se crean cada vez que el contenedor del servicio los solicita. Esta duración funciona mejor para servicios sin estado ligeros.
 
 **Con ámbito**
 
-Los servicios de duración con ámbito se crean una vez por solicitud.
+Los servicios de duración con ámbito se crean una vez por solicitud del cliente (conexión).
 
 > [!WARNING]
 > Si usa un servicio con ámbito en un middleware, inserte el servicio en el método `Invoke` o `InvokeAsync`. No lo inserte a través de la inserción de constructores, porque ello hace que el servicio se comporte como un singleton. Para obtener más información, vea <xref:fundamentals/middleware/index>.
@@ -259,87 +195,35 @@ Cuando se resuelven los servicios mediante `ActivatorUtilities`, la inserción d
 
 ## <a name="entity-framework-contexts"></a>Contextos de Entity Framework
 
-Los contextos de Entity Framework normalmente se agregan al contenedor de servicios mediante la [duración con ámbito](#service-lifetimes) porque las operaciones de base de datos de aplicación web se suelen limitar a la solicitud. La duración predeterminada se limita si no se especifica una duración mediante una sobrecarga de <xref:Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext*> al registrar el contexto de base de datos. En los servicios de una duración determinada no se debe usar un contexto de base de datos con una duración más corta que el servicio.
+Los contextos de Entity Framework normalmente se agregan al contenedor de servicios mediante la [duración con ámbito](#service-lifetimes) porque las operaciones de base de datos de aplicación web se suelen limitar a la solicitud de cliente. La duración predeterminada se limita si no se especifica una duración mediante una sobrecarga de <xref:Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext*> al registrar el contexto de base de datos. En los servicios de una duración determinada no se debe usar un contexto de base de datos con una duración más corta que el servicio.
 
 ## <a name="lifetime-and-registration-options"></a>Opciones de registro y duración
 
 Para mostrar la diferencia entre la duración y las opciones de registro, considere las siguientes interfaces que representan tareas como una operación con un identificador único, `OperationId`. Según cómo esté configurada la duración de un servicio de operaciones para las interfaces siguientes, el contenedor proporciona la misma instancia del servicio u otra distinta cuando así lo solicita la clase:
 
-::: moniker range=">= aspnetcore-2.1"
-
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Interfaces/IOperation.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Interfaces/IOperation.cs?name=snippet1)]
-
-::: moniker-end
 
 Las interfaces se implementan en la clase `Operation`. El constructor `Operation` genera un GUID en caso de que no se proporcione uno:
 
-::: moniker range=">= aspnetcore-2.1"
-
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Models/Operation.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Models/Operation.cs?name=snippet1)]
-
-::: moniker-end
 
 Se registra una instancia de `OperationService` que depende de cada uno de los demás tipos `Operation`. Cuando `OperationService` se solicita con la inserción de dependencias, recibe una instancia nueva de cada servicio o una instancia existente en función de la duración de los servicios dependientes.
 
-* Si se crean servicios transitorios cuando se solicitan, el elemento `OperationId` del servicio `IOperationTransient` varía del objeto `OperationId` de `OperationService`. `OperationService` recibe una instancia nueva de la clase `IOperationTransient`. La nueva instancia produce un objeto `OperationId` diferente.
-* Si se crean servicios con ámbito por cada solicitud, el objeto `OperationId` del servicio `IOperationScoped` es el mismo que para `OperationService` dentro de la solicitud. Entre las solicitudes, ambos servicios comparten un valor `OperationId` diferente.
-* Si se crean servicios singleton y servicios de instancia singleton una vez y se usan en todas las solicitudes y servicios, el objeto `OperationId` es constante en todas las solicitudes de servicio.
-
-::: moniker range=">= aspnetcore-2.1"
+* Si se crean servicios transitorios cuando se solicitan al contenedor, el elemento `OperationId` del servicio `IOperationTransient` es diferente del objeto `OperationId` de `OperationService`. `OperationService` recibe una instancia nueva de la clase `IOperationTransient`. La nueva instancia produce un objeto `OperationId` diferente.
+* Si se crean servicios con ámbito por solicitud de cliente, el objeto `OperationId` del servicio `IOperationScoped` es el mismo que para `OperationService` dentro de la solicitud de cliente. Entre las solicitudes de cliente, ambos servicios comparten un valor `OperationId` diferente.
+* Si se crean servicios singleton y servicios de instancia singleton una vez y se usan en todas las solicitudes de cliente y servicios, el objeto `OperationId` es constante en todas las solicitudes de servicio.
 
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Services/OperationService.cs?name=snippet1)]
 
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Services/OperationService.cs?name=snippet1)]
-
-::: moniker-end
-
 En `Startup.ConfigureServices`, cada tipo se agrega al contenedor según su duración con nombre:
 
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=12-15,18)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=6-9,12)]
-
-::: moniker-end
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=6-9,12)]
 
 El servicio `IOperationSingletonInstance` usa una instancia específica con un identificador conocido de `Guid.Empty`. Resulta evidente identificar cuándo este tipo está en uso (su GUID es todo ceros).
-
-::: moniker range=">= aspnetcore-2.1"
 
 La aplicación de ejemplo muestra las duraciones de los objetos dentro y entre las solicitudes individuales. El objeto `IndexModel` de la aplicación de ejemplo solicita cada tipo de `IOperation` y `OperationService`. Después, la página muestra todos los valores `OperationId` del servicio y la clase del modelo de página mediante las asignaciones de propiedades:
 
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=7-11,14-18,21-25)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-La aplicación de ejemplo muestra las duraciones de los objetos dentro y entre las solicitudes individuales. La aplicación de ejemplo incluye un valor `OperationsController` que solicita cada tipo de `IOperation` y `OperationService`. La acción `Index` establece el servicio en `ViewBag` para mostrar los valores `OperationId` del servicio:
-
-[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Controllers/OperationsController.cs?name=snippet1)]
-
-::: moniker-end
 
 Las dos salidas siguientes muestran el resultado de dos solicitudes:
 
@@ -377,8 +261,8 @@ Instance: 00000000-0000-0000-0000-000000000000
 
 Observe cuál de los valores `OperationId` varía dentro de una solicitud y entre solicitudes:
 
-* Los objetos *Transient* siempre son diferentes. Tenga en cuenta que el valor `OperationId` transitorio de la primera y segunda solicitud varía tanto para las operaciones `OperationService` como entre solicitudes. Se proporciona una nueva instancia para cada servicio y solicitud.
-* Los objetos *con ámbito* son iguales dentro de una solicitud, pero varían entre solicitudes.
+* Los objetos *Transient* siempre son diferentes. El valor `OperationId` transitorio de la primera y la segunda solicitud de cliente varía tanto para las operaciones `OperationService` como entre solicitudes de cliente. Se proporciona una nueva instancia para cada solicitud de servicio y solicitud de cliente.
+* Los objetos *con ámbito* son iguales dentro de una solicitud de cliente, pero varían entre solicitudes de cliente.
 * Los objetos *singleton* son iguales para todos los objetos y solicitudes, independientemente de si se proporciona una instancia `Operation` en `ConfigureServices`.
 
 ## <a name="call-services-from-main"></a>Llamada a servicios desde main
@@ -412,14 +296,10 @@ public static void Main(string[] args)
 
 ## <a name="scope-validation"></a>Validación del ámbito
 
-::: moniker range=">= aspnetcore-2.0"
-
 Cuando la aplicación se ejecuta en el entorno de desarrollo, el proveedor de servicios predeterminado realiza comprobaciones para confirmar lo siguiente:
 
 * Los servicios con ámbito no se resuelven directa o indirectamente desde el proveedor de servicios raíz.
 * Los servicios con ámbito no se insertan directa o indirectamente en singletons.
-
-::: moniker-end
 
 El proveedor de servicios raíz se crea cuando se llama a [BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider). La vigencia del proveedor de servicios raíz es la misma que la de la aplicación o el servidor cuando el proveedor se inicia con la aplicación, y se elimina cuando la aplicación se cierra.
 
@@ -476,13 +356,6 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-::: moniker range="= aspnetcore-1.0"
-
-> [!NOTE]
-> En ASP.NET Core 1.0, el contenedor llama a Dispose en *todos* los objetos `IDisposable`, incluidos aquellos que no había creado.
-
-::: moniker-end
-
 ## <a name="default-service-container-replacement"></a>Reemplazo del contenedor de servicios predeterminado
 
 El contenedor de servicios integrado está pensado para atender las necesidades del marco de trabajo y de la mayoría de las aplicaciones de consumidor. Se recomienda usar el contenedor integrado a menos que se necesite una característica específica no admitida por el contenedor. Algunas de las características admitidas en contenedores de terceros no se incluyen en el contenedor integrado:
@@ -537,7 +410,7 @@ En tiempo de ejecución, se usa Autofac para resolver tipos e insertar dependenc
 
 ### <a name="thread-safety"></a>Seguridad para subprocesos
 
-Los servicios de singleton deben ser seguros para subprocesos. Si un servicio de singleton tiene una dependencia en un servicio transitorio, es posible que este también deba ser seguro para subprocesos, según cómo lo use el singleton.
+Cree servicios de singleton seguros para subprocesos. Si un servicio de singleton tiene una dependencia en un servicio transitorio, es posible que este también deba ser seguro para subprocesos, según cómo lo use el singleton.
 
 El patrón de diseño Factory Method de un servicio único, como el segundo argumento para [AddSingleton&lt;TService&gt;(IServiceCollection, Func&lt;IServiceProvider,TService&gt;)](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addsingleton#Microsoft_Extensions_DependencyInjection_ServiceCollectionServiceExtensions_AddSingleton__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_System_IServiceProvider___0__), no necesita ser seguro para subprocesos. Al igual que un constructor de tipos (`static`), se garantiza que se le llame una vez mediante un único subproceso.
 

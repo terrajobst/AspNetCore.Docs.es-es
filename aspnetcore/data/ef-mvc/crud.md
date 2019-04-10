@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 83f5d4bdc3d5872109649818b61a6dbb656fd8be
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: cee521eec3172c04b4d9d93c12076c42c9adff18
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264837"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750618"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Tutorial: Implementación de la funcionalidad CRUD: ASP.NET MVC con EF Core
 
@@ -32,7 +32,7 @@ En este tutorial ha:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Introducción a EF Core en una aplicación web de ASP.NET Core MVC](intro.md)
+* [Introducción a EF Core y ASP.NET Core MVC](intro.md)
 
 ## <a name="customize-the-details-page"></a>Personalizar la página de detalles
 
@@ -243,7 +243,7 @@ Este código acepta un parámetro opcional que indica si se llamó al método de
 
 Reemplace el método de acción HttpPost `Delete` (denominado `DeleteConfirmed`) con el código siguiente, que realiza la operación de eliminación y captura los errores de actualización de base de datos.
 
-[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6,8-11,13-14,18-23)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6-9,11-12,16-21)]
 
 Este código recupera la entidad seleccionada y después llama al método `Remove` para establecer el estado de la entidad en `Deleted`. Cuando se llama a `SaveChanges`, se genera un comando DELETE de SQL.
 
@@ -306,6 +306,7 @@ En este tutorial ha:
 > * Actualizado la página Delete
 > * Cerrado conexiones de bases de datos
 
-Pase al artículo siguiente para obtener información sobre cómo expandir la funcionalidad de la página **Index** mediante la adición de ordenación, filtrado y paginación.
+Pase al tutorial siguiente para obtener información sobre cómo expandir la funcionalidad de la página **Index** mediante la adición de ordenación, filtrado y paginación.
+
 > [!div class="nextstepaction"]
-> [Ordenar, filtrar y paginar](sort-filter-page.md)
+> [Siguiente: Ordenación, filtrado y paginación](sort-filter-page.md)

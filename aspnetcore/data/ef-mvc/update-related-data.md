@@ -4,15 +4,15 @@ description: En este tutorial, actualizará datos relacionados mediante la actua
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 1606b872df2df839266ef17efee1948065c4efae
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 6add725430380f0855fe660a70b90a4546ef0637
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209419"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750911"
 ---
 # <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>Tutorial: Actualización de datos relacionados: ASP.NET MVC con EF Core
 
@@ -35,7 +35,7 @@ En este tutorial ha:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Lectura de datos relacionados con EF Core para una aplicación web de ASP.NET Core MVC](read-related-data.md)
+* [Lectura de datos relacionados](read-related-data.md)
 
 ## <a name="customize-courses-pages"></a>Personaliza las páginas de cursos
 
@@ -123,7 +123,7 @@ Al editar un registro de instructor, necesita poder actualizar la asignación de
 
 En *InstructorsController.cs*, cambie el código en el método `Edit` de HttpGet para que cargue la propiedad de navegación `OfficeAssignment` de la entidad Instructor y llame a `AsNoTracking`:
 
-[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=9,10&name=snippet_EditGetOA)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=8-11&name=snippet_EditGetOA)]
 
 Reemplace el método `Edit` de HttpPost con el siguiente código para controlar las actualizaciones de asignaciones de oficina:
 
@@ -225,7 +225,7 @@ En *Views/Instructors/Edit.cshtml*, agregue un campo **Courses** con una matriz 
 
 <a id="notepad"></a>
 > [!NOTE]
-> Al pegar el código en Visual Studio, se cambiarán los saltos de línea de tal forma que el código se interrumpe. Presione Ctrl+Z una vez para deshacer el formato automático. Esto corregirá los saltos de línea para que se muestren como se ven aquí. No es necesario que la sangría sea perfecta, pero las líneas `@</tr><tr>`, `@:<td>`, `@:</td>` y `@:</tr>` deben estar en una única línea tal y como se muestra, de lo contrario, obtendrá un error en tiempo de ejecución. Con el bloque de código nuevo seleccionado, presione tres veces la tecla TAB para alinearlo con el código existente. Puede comprobar el estado de este problema [aquí](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
+> Al pegar el código en Visual Studio, los saltos de línea podrían cambiarse de tal forma que el código se interrumpiese. Si el código tiene un aspecto diferente después de pegarlo, presione CTRL+Z una vez para deshacer el formato automático. Esto corregirá los saltos de línea para que se muestren como se ven aquí. No es necesario que la sangría sea perfecta, pero las líneas `@</tr><tr>`, `@:<td>`, `@:</td>` y `@:</tr>` deben estar en una única línea tal y como se muestra, de lo contrario, obtendrá un error en tiempo de ejecución. Con el bloque de código nuevo seleccionado, presione tres veces la tecla TAB para alinearlo con el código existente. Este problema se ha corregido en Visual Studio 2019.
 
 [!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
@@ -314,6 +314,7 @@ En este tutorial ha:
 > * Actualizado la página Delete
 > * Agregado la ubicación de la oficina y cursos a la página Create
 
-Pase al artículo siguiente para obtener información sobre cómo controlar conflictos de simultaneidad.
+Pase al tutorial siguiente para obtener información sobre cómo controlar conflictos de simultaneidad.
+
 > [!div class="nextstepaction"]
 > [Control de conflictos de simultaneidad](concurrency.md)

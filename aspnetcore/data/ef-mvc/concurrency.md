@@ -4,15 +4,15 @@ description: Este tutorial muestra cómo tratar los conflictos cuando varios usu
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 7b18927d5d528ec2951087502e26b2b30214f389
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 668cdafc078091b65035ecad854d2ecc62555721
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103025"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750862"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Tutorial: Control de simultaneidad: ASP.NET MVC con EF Core
 
@@ -39,7 +39,7 @@ En este tutorial ha:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Actualización de datos relacionados con EF Core en una aplicación web de ASP.NET Core MVC](update-related-data.md)
+* [Actualización de datos relacionados](update-related-data.md)
 
 ## <a name="concurrency-conflicts"></a>Conflictos de simultaneidad
 
@@ -148,7 +148,7 @@ Esto cambia el encabezado por "Departments", elimina la columna RowVersion y mue
 
 En el método `Edit` de HttpGet y el método `Details`, agregue `AsNoTracking`. En el método `Edit` de HttpGet, agregue carga diligente para el administrador.
 
-[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading)]
 
 Sustituya el código existente para el método `Edit` de HttpPost por el siguiente código:
 
@@ -309,6 +309,7 @@ En este tutorial ha:
 > * Actualizado la página Delete
 > * Actualizado las vistas Details y Create
 
-Pase al artículo siguiente para obtener información sobre cómo implementar la herencia de tabla por jerarquía para las entidades Instructor y Student.
+Pase al tutorial siguiente para obtener información sobre cómo implementar la herencia de tabla por jerarquía para las entidades Instructor y Student.
+
 > [!div class="nextstepaction"]
-> [Implementación de la herencia de tabla por jerarquía](inheritance.md)
+> [Siguiente: Implementación de la herencia de tabla por jerarquía](inheritance.md)

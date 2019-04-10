@@ -2,16 +2,17 @@
 title: Proveedores de archivo en ASP.NET Core
 author: guardrex
 description: Obtenga información sobre cómo ASP.NET Core abstrae el acceso al sistema de archivos mediante el uso de proveedores de archivos.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/01/2018
+ms.date: 03/30/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: 5d0d46ba82cd84e48e5a9b23d6d330d8888beb41
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 2ce40ea0d576d08a6b42c3eb6693754f2a0bddce
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570105"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809226"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Proveedores de archivo en ASP.NET Core
 
@@ -50,25 +51,11 @@ La aplicación de ejemplo muestra cómo configurar un proveedor de archivos en `
 
 Hay tres implementaciones de `IFileProvider` disponibles.
 
-::: moniker range=">= aspnetcore-2.0"
-
 | Implementación | Descripción |
 | -------------- | ----------- |
 | [PhysicalFileProvider](#physicalfileprovider) | El proveedor físico se utiliza para acceder a los archivos físicos del sistema. |
 | [ManifestEmbeddedFileProvider](#manifestembeddedfileprovider) | El proveedor insertado de manifiestos se utiliza para tener acceder a archivos insertados en ensamblados. |
 | [CompositeFileProvider](#compositefileprovider) | El proveedor compuesto se utiliza para proporcionar acceso combinado a archivos y directorios de uno o más proveedores. |
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-| Implementación | Descripción |
-| -------------- | ----------- |
-| [PhysicalFileProvider](#physicalfileprovider) | El proveedor físico se utiliza para acceder a los archivos físicos del sistema. |
-| [EmbeddedFileProvider](#embeddedfileprovider) | El proveedor insertado se utiliza para tener acceso a archivos insertados en ensamblados. |
-| [CompositeFileProvider](#compositefileprovider) | El proveedor compuesto se utiliza para proporcionar acceso combinado a archivos y directorios de uno o más proveedores. |
-
-::: moniker-end
 
 ### <a name="physicalfileprovider"></a>PhysicalFileProvider
 
@@ -102,8 +89,6 @@ var physicalProvider = _env.ContentRootFileProvider;
 
 Inserte el proveedor en cualquier constructor de clase y asígnelo a un campo local. Utilice el campo en todos los métodos de la clase para acceder a archivos.
 
-::: moniker range=">= aspnetcore-2.0"
-
 En la aplicación de ejemplo, la clase `IndexModel` recibe una instancia `IFileProvider` para obtener el contenido del directorio para la ruta de acceso base de la aplicación.
 
 *Páginas/Index.cshtml.cs*:
@@ -116,32 +101,9 @@ En la aplicación de ejemplo, la clase `IndexModel` recibe una instancia `IFileP
 
 [!code-cshtml[](file-providers/samples/2.x/FileProviderSample/Pages/Index.cshtml?name=snippet1)]
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-En la aplicación de ejemplo, la clase `HomeController` recibe una instancia `IFileProvider` para obtener el contenido del directorio para la ruta de acceso base de la aplicación.
-
-*Controladores/HomeController.cs*:
-
-[!code-csharp[](file-providers/samples/1.x/FileProviderSample/Controllers/HomeController.cs?name=snippet1)]
-
-`IDirectoryContents` se iteran en la vista.
-
-*Vistas/Inicio/Index.cshtml*:
-
-[!code-cshtml[](file-providers/samples/1.x/FileProviderSample/Views/Home/Index.cshtml?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.0"
-
 ### <a name="manifestembeddedfileprovider"></a>ManifestEmbeddedFileProvider
 
 [ManifestEmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider) se utiliza para acceder a archivos incrustados dentro de ensamblados. `ManifestEmbeddedFileProvider` utiliza un manifiesto compilado en el ensamblado para reconstruir las rutas de acceso originales de los archivos incrustados.
-
-> [!NOTE]
-> `ManifestEmbeddedFileProvider` está disponible en ASP.NET Core 2.1 o versiones posteriores. Para acceder a archivos incrustados en ensamblados en ASP.NET Core 2.0 o versiones anteriores, consulte el [versión 1.x de ASP.NET Core de este tema](/aspnet/core/fundamentals/file-providers?view=aspnetcore-1.1).
 
 Para generar un manifiesto de los archivos incrustados, establezca la propiedad `<GenerateEmbeddedFilesManifest>` en `true`. Especifique los archivos que desea incrustar con [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects):
 
@@ -170,55 +132,13 @@ Las sobrecargas adicionales le permiten:
 | [ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_System_DateTimeOffset_) | Acepta un parámetro de ruta de acceso relativa `root` opcional y un parámetro de fecha `lastModified` ([DateTimeOffset](/dotnet/api/system.datetimeoffset)). La fecha `lastModified` define el ámbito de la última fecha de modificación para las instancias de [IFileInfo](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo) que [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider) devuelve. |
 | [ManifestEmbeddedFileProvider(Assembly, String, String, DateTimeOffset)](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_System_String_System_DateTimeOffset_) | Acepta una ruta de acceso relativa `root` opcional, una fecha `lastModified` y parámetros `manifestName`. `manifestName` representa el nombre del recurso incrustado que contiene el manifiesto. |
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-### <a name="embeddedfileprovider"></a>EmbeddedFileProvider
-
-[EmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.embeddedfileprovider) se utiliza para acceder a archivos incrustados dentro de ensamblados. Especifique los archivos que desea incrustar con la propiedad [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects) propiedad en el archivo de proyecto:
-
-```xml
-<ItemGroup>
-  <EmbeddedResource Include="Resource.txt" />
-</ItemGroup>
-```
-
-Use [patrones globales](#glob-patterns) para especificar uno o varios archivos para incrustar en el ensamblado.
-
-La aplicación de ejemplo crea `EmbeddedFileProvider` y pasa el ensamblado que se está ejecutando actualmente a su constructor.
-
-*Startup.cs*:
-
-```csharp
-var embeddedProvider = new EmbeddedFileProvider(Assembly.GetEntryAssembly());
-```
-
-Los recursos insertados no exponen directorios. En su lugar, la ruta de acceso al recurso (a través de su espacio de nombres) se inserta en su nombre de archivo con separadores `.`. En la aplicación de ejemplo, `baseNamespace` es `FileProviderSample.`.
-
-El constructor [EmbeddedFileProvider(Assembly, String)](/dotnet/api/microsoft.extensions.fileproviders.embeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_EmbeddedFileProvider__ctor_System_Reflection_Assembly_) acepta un parámetro `baseNamespace` opcional. Especifique el espacio de nombres base para definir el ámbito de las llamadas en [GetDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.getdirectorycontents) en aquellos recursos que se encuentran bajo el espacio de nombres proporcionado.
-
-::: moniker-end
-
 ### <a name="compositefileprovider"></a>CompositeFileProvider
 
 [CompositeFileProvider](/dotnet/api/microsoft.extensions.fileproviders.compositefileprovider) combina instancias de `IFileProvider` y expone una única interfaz para trabajar con archivos de varios proveedores. Al crear `CompositeFileProvider`, se pasan una o varias instancias de `IFileProvider` a su constructor.
 
-::: moniker range=">= aspnetcore-2.0"
-
 En la aplicación de ejemplo, `PhysicalFileProvider` y `ManifestEmbeddedFileProvider` proporcionan archivos a un `CompositeFileProvider` registrado en el contenedor de servicios de la aplicación:
 
 [!code-csharp[](file-providers/samples/2.x/FileProviderSample/Startup.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-En la aplicación de ejemplo, `PhysicalFileProvider` y `EmbeddedFileProvider` proporcionan archivos a un `CompositeFileProvider` registrado en el contenedor de servicios de la aplicación:
-
-[!code-csharp[](file-providers/samples/1.x/FileProviderSample/Startup.cs?name=snippet1)]
-
-::: moniker-end
 
 ## <a name="watch-for-changes"></a>Observación de cambios
 
@@ -229,17 +149,7 @@ El método [IFileProvider.Watch](/dotnet/api/microsoft.extensions.fileproviders.
 
 En la aplicación de ejemplo, la aplicación de consola *WatchConsole* se configura para mostrar un mensaje cada vez que se modifica un archivo de texto:
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](file-providers/samples/2.x/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](file-providers/samples/1.x/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
-
-::: moniker-end
 
 Algunos sistemas de archivos, como contenedores de Docker y recursos compartidos de red, no pueden enviar notificaciones de cambio de forma confiable. Establezca la variable de entorno `DOTNET_USE_POLLING_FILE_WATCHER` en `1` o `true` para sondear el sistema de archivos en busca de cambios cada cuatro segundos (no configurable).
 

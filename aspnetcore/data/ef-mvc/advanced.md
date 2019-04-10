@@ -4,15 +4,15 @@ description: En este tutorial se presentan varios temas que le serán de utilida
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: c4804bd6614c7d5a2a30c8f59a645f603929ad52
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: c6255e2b4fc67c6174bab4458ec82035b1886002
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264595"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750608"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Tutorial: Información sobre escenarios avanzados: ASP.NET MVC con EF Core
 
@@ -33,7 +33,7 @@ En este tutorial ha:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Implementación de la herencia con EF Core en una aplicación web de ASP.NET Core MVC](inheritance.md)
+* [Implementación de la herencia](inheritance.md)
 
 ## <a name="perform-raw-sql-queries"></a>Realiza consultas SQL sin formato
 
@@ -53,7 +53,7 @@ La clase `DbSet<TEntity>` proporciona un método que puede usar para ejecutar un
 
 En *DepartmentsController.cs*, en el método `Details`, reemplace el código que recupera un departamento con una llamada al método `FromSql`, como se muestra en el código resaltado siguiente:
 
-[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10)]
 
 Para comprobar que el nuevo código funciona correctamente, seleccione la pestaña **Departments** y, después, **Details** para uno de los departamentos.
 
@@ -276,6 +276,7 @@ En este tutorial ha:
 > * Obtenido información sobre el código fuente y planes de desarrollo de Entity Framework Core
 > * Obtenido información sobre cómo usar LINQ dinámico para simplificar el código
 
-Con esto finaliza esta serie de tutoriales sobre cómo usar Entity Framework Core en una aplicación ASP.NET Core MVC. Si desea obtener información sobre cómo usar EF 6 con ASP.NET Core, consulte el artículo siguiente.
+Con esto finaliza esta serie de tutoriales sobre cómo usar Entity Framework Core en una aplicación ASP.NET Core MVC. En esta serie se ha trabajado con una base de datos nueva, pero también se pueden utilizar técnicas de ingeniería inversa en un modelo de una base de datos existente.
+
 > [!div class="nextstepaction"]
-> [EF 6 con ASP.NET Core](../entity-framework-6.md)
+> [Tutorial: EF Core con MVC, base de datos existente](/ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json)

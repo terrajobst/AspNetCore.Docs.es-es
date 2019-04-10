@@ -6,30 +6,30 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: aspnetcore-2.2
-ms.openlocfilehash: 6dcdf71ec5271690718dd1fe750a9a74d498a0f8
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: cdc761b645b91777bdf6084c3ad4659fcea55039
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410341"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750942"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>Novedades de ASP.NET Core 2.2
 
 En este artículo se resaltan los cambios más importantes de ASP.NET Core 2.2, con vínculos a la documentación pertinente.
 
-## <a name="open-api-analyzers--conventions"></a>Convenciones y analizadores de Open API
+## <a name="openapi-analyzers--conventions"></a>Convenciones y analizadores de OpenAPI
 
-Open API (conocido también como Swagger) es una especificación independiente del lenguaje que sirve para describir API REST. El ecosistema de Open API dispone de herramientas que permiten descubrir, probar y generar código de cliente mediante la especificación. El soporte técnico para generar y visualizar los documentos de Open API en ASP.NET Core MVC se proporciona a través de proyectos controlados por la comunidad como [NSwag](https://github.com/RSuter/NSwag) y [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore). ASP.NET Core 2.2 proporciona experiencias de uso de herramientas y entornos de ejecución mejoradas para crear documentos de Open API.
+OpenAPI (antes conocido como Swagger) es una especificación independiente del lenguaje que sirve para describir API REST. El ecosistema de OpenAPI dispone de herramientas que permiten descubrir, probar y generar código de cliente mediante la especificación. El soporte técnico para generar y visualizar los documentos de OpenAPI en ASP.NET Core MVC se proporciona a través de proyectos controlados por la comunidad como [NSwag](https://github.com/RSuter/NSwag) y [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore). ASP.NET Core 2.2 proporciona experiencias de uso de herramientas y entornos de ejecución mejoradas para crear documentos de OpenAPI.
 
 Para obtener más información, vea los siguientes recursos:
 
 * <xref:web-api/advanced/analyzers>
 * <xref:web-api/advanced/conventions>
-* [ASP.NET Core 2.2.0-preview1: Convenciones y analizadores de Open API](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
+* [ASP.NET Core 2.2.0-preview1: Convenciones y analizadores de OpenAPI](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
 
 ## <a name="problem-details-support"></a>Soporte técnico para los detalles del problema
 
-ASP.NET Core 2.1 introdujo `ProblemDetails`, según la especificación [RFC 7807](https://tools.ietf.org/html/rfc7807), para comunicar los detalles de un error con una respuesta HTTP. En 2.2, `ProblemDetails` es la respuesta estándar para los códigos de error de cliente en los controladores con el atributo `ApiControllerAttribute`. Un elemento `IActionResult` que anteriormente devolvía un código de estado de error de cliente (4xx) ahora devuelve un cuerpo `ProblemDetails`. El resultado también incluye un identificador de correlación que se puede usar para correlacionar el error mediante los registros de solicitudes. En el caso de los errores de cliente, el procedimiento predeterminado de `ProducesResponseType` es utilizar `ProblemDetails` como tipo de respuesta. Esto se documenta en los resultados de Open API/Swagger que se generan mediante NSwag o Swashbuckle.AspNetCore.
+ASP.NET Core 2.1 introdujo `ProblemDetails`, según la especificación [RFC 7807](https://tools.ietf.org/html/rfc7807), para comunicar los detalles de un error con una respuesta HTTP. En 2.2, `ProblemDetails` es la respuesta estándar para los códigos de error de cliente en los controladores con el atributo `ApiControllerAttribute`. Un elemento `IActionResult` que anteriormente devolvía un código de estado de error de cliente (4xx) ahora devuelve un cuerpo `ProblemDetails`. El resultado también incluye un identificador de correlación que se puede usar para correlacionar el error mediante los registros de solicitudes. En el caso de los errores de cliente, el procedimiento predeterminado de `ProducesResponseType` es utilizar `ProblemDetails` como tipo de respuesta. Esto se documenta en los resultados de OpenAPI/Swagger que se generan mediante NSwag o Swashbuckle.AspNetCore.
 
 ## <a name="endpoint-routing"></a>Enrutamiento de punto de conexión
 

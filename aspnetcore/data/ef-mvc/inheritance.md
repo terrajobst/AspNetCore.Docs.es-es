@@ -4,15 +4,15 @@ description: En este tutorial se explica cómo implementar la herencia en el mod
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 0a5eb1aba43bc2adf746202772c7f98eff49b4ff
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: ba688b259206f21045376b6a38a266ad7528aec1
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103012"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750763"
 ---
 # <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>Tutorial: Implementación de la herencia: ASP.NET MVC con EF Core
 
@@ -32,7 +32,7 @@ En este tutorial ha:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Control de simultaneidad con EF Core en una aplicación web de ASP.NET Core MVC](concurrency.md)
+* [Control de la simultaneidad](concurrency.md)
 
 ## <a name="map-inheritance-to-database"></a>Asigna la herencia a la base de datos
 
@@ -168,6 +168,7 @@ En este tutorial ha:
 > * Creado y actualizado migraciones
 > * Probado la implementación
 
-Pase al artículo siguiente para obtener información sobre cómo controlar una serie de escenarios de Entity Framework relativamente avanzados.
+Pase al tutorial siguiente para obtener información sobre cómo controlar una serie de escenarios de Entity Framework relativamente avanzados.
+
 > [!div class="nextstepaction"]
-> [Temas avanzados](advanced.md)
+> [Siguiente: Temas avanzados](advanced.md)
