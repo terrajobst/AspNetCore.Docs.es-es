@@ -3,14 +3,14 @@ title: Migración de ASP.NET MVC a ASP.NET Core MVC
 author: ardalis
 description: Obtenga información sobre cómo empezar a migrar un proyecto de MVC de ASP.NET a ASP.NET Core MVC.
 ms.author: riande
-ms.date: 02/13/2019
+ms.date: 04/06/2019
 uid: migration/mvc
-ms.openlocfilehash: 2ca51a145243444722ad8081fd8cdbb65d72b53a
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: a85b9f15be8ad9ca66b20ef1f4422fe67806a797
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248048"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468545"
 ---
 # <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migración de ASP.NET MVC a ASP.NET Core MVC
 
@@ -97,7 +97,7 @@ Reemplace el contenido de la *Views/Home/Index.cshtml* archivo por lo siguiente:
 <h1>Hello world!</h1>
 ```
 
-Ejecute la aplicación.
+Ejecutar la aplicación.
 
 ![Aplicación Web abierta en Microsoft Edge](mvc/_static/hello-world.png)
 
