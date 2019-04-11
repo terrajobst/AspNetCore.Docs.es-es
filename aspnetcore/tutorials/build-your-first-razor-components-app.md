@@ -5,14 +5,14 @@ description: Compile una aplicación Razor Components paso a paso y aprenda conc
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/24/2019
+ms.date: 04/06/2019
 uid: tutorials/first-razor-components-app
-ms.openlocfilehash: 2a987b3f2e687cd9d4dffa2c573c938e68ea3cc8
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.openlocfilehash: 697c4659bcc9952ffe9868fe9b3c0d28019bc369
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419370"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468781"
 ---
 # <a name="build-your-first-razor-components-app"></a>Compilación de su primera aplicación Razor Components
 
@@ -194,7 +194,7 @@ Agregue un nuevo componente a la aplicación que implemente una simple lista de 
    [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
 
    ```cshtml
-   <input placeholder="Something todo" bind="@newTodo" />
+   <input placeholder="Something todo" bind="@newTodo">
    ```
 
 1. Actualice el método `AddTodo` para agregar el `TodoItem` con el título especificado a la lista. Borre el valor de la entrada de texto mediante el establecimiento de `newTodo` en una cadena vacía:
@@ -221,4 +221,4 @@ Agregue un nuevo componente a la aplicación que implemente una simple lista de 
 
 ## <a name="publish-and-deploy-the-app"></a>Publicar e implementar la aplicación
 
-Para publicar la aplicación, consulte <xref:host-and-deploy/razor-components/index#publish-the-app>.
+Para publicar la aplicación, consulte <xref:host-and-deploy/razor-components-blazor/index>.

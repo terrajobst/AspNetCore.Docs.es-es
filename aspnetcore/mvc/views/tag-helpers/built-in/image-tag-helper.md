@@ -4,14 +4,14 @@ author: pkellner
 description: Muestra cómo trabajar con el asistente de etiquetas de imagen.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/10/2018
+ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: 5eb74a6698911a1c594d11573192cb1b9ed53b49
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 916a68c187cbf516a59d3c5d7578cdb6ada01b86
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325840"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468823"
 ---
 # <a name="image-tag-helper-in-aspnet-core"></a>Asistente de etiquetas de imagen en ASP.NET Core
 
@@ -43,13 +43,13 @@ Cuando se especifica `asp-append-version` con un valor `true` junto con un atrib
 En este ejemplo se usa un asistente de etiquetas de imagen:
 
 ```cshtml
-<img src="~/images/asplogo.png" asp-append-version="true" />
+<img src="~/images/asplogo.png" asp-append-version="true">
 ```
 
 Si el archivo estático existe en el directorio */wwwroot/images/*, el código HTML generado es similar al siguiente (el valor hash será diferente):
 
 ```html
-<img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM" />
+<img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM">
 ```
 
 El valor asignado al parámetro `v` es el valor hash del archivo */wwwroot/images/* almacenado en disco. Si el servidor web no es capaz de tener acceso de lectura al archivo estático, no se agregará ningún parámetro `v` al atributo `src` en el marcado representado.
