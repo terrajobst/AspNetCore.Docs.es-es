@@ -4,14 +4,14 @@ author: rick-anderson
 description: En este tutorial se muestra cómo crear una aplicación de ASP.NET Core 2.x mediante OAuth 2.0 con proveedores de autenticación externos.
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/19/2019
+ms.date: 4/19/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 48dd8b772234ff18158423a36ed1716102bc2f31
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 61482481358256dc9ddd1a0a894541040a8a452f
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396147"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516331"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticación con Facebook, Google y proveedores externos en ASP.NET Core
 
@@ -23,14 +23,60 @@ En las siguientes secciones se tratan los proveedores [Facebook](xref:security/a
 
 ![Iconos de redes sociales para Facebook, Twitter, Google Plus y Windows](index/_static/social.png)
 
-Permitir que los usuarios inicien sesión con sus credenciales es práctico para los usuarios y transfiere muchas de las complejidades existentes en la administración del proceso de inicio de sesión a un tercero. Para ver ejemplos de cómo los inicios de sesión de las redes sociales pueden controlar las conversiones del tráfico y de clientes, vea los casos prácticos de [Facebook](https://www.facebook.com/unsupportedbrowser) y [Twitter](https://dev.twitter.com/resources/case-studies).
+El hecho de permitir a los usuarios iniciar sesión con sus credenciales:
+* resulta muy práctico para ellos;
+* transfiere muchas de las complejidades de administrar el proceso de inicio de sesión a un tercero. 
+
+Para ver ejemplos de cómo los inicios de sesión de las redes sociales pueden controlar las conversiones del tráfico y de clientes, vea los casos prácticos de [Facebook](https://www.facebook.com/unsupportedbrowser) y [Twitter](https://dev.twitter.com/resources/case-studies).
 
 ## <a name="create-a-new-aspnet-core-project"></a>Crear un proyecto de ASP.NET Core
 
-* En Visual Studio 2017, cree un proyecto en la página de inicio o a través de **Archivo** > **Nuevo** > **Proyecto**.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Seleccione la plantilla **Aplicación web de ASP.NET Core** disponible en la categoría **Visual C#** > **.NET Core**:
+* En el menú **Archivo** de Visual Studio, seleccione **Nuevo** > **Proyecto**.
+* Cree una aplicación web de ASP.NET Core.
+* Seleccione **ASP.NET Core 2.2** en la lista desplegable y, luego, **Aplicación web**.
 * Seleccione **Cambiar autenticación** y establezca la autenticación en **Cuentas de usuario individuales**.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* Abra el [terminal integrado](https://code.visualstudio.com/docs/editor/integrated-terminal).
+
+* Cambie los directorios (`cd`) a una carpeta que contenga el proyecto.
+
+* Ejecute los comandos siguientes:
+
+  ```console
+  dotnet new webapp -o WebApp1
+  code -r WebApp1
+  ```
+
+  * El comando `dotnet new` crea un nuevo proyecto de Razor Pages en la carpeta *WebApp1*.
+  * El comando `code` abre la carpeta *WebApp1* en una nueva instancia de Visual Studio Code.
+
+  Se muestra un cuadro de diálogo con el texto **Required assets to build and debug are missing from 'WebApp1'. Add them?** (Faltan los activos necesarios para compilar y depurar en "RazorPagesMovie". ¿Desea agregarlos?).
+
+* Seleccione **Sí**.
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+
+Desde un terminal, ejecute este comando:
+
+<!-- TODO: update these instruction once mac support 2.2 projects -->
+
+```console
+dotnet new webapp -o WebApp1
+```
+
+Los comandos anteriores utilizan la [CLI de .NET Core](/dotnet/core/tools/dotnet) para crear un proyecto de Razor Pages.
+
+## <a name="open-the-project"></a>Abrir el proyecto
+
+En Visual Studio, seleccione **Archivo > Abrir** y elija el archivo *WebApp1.csproj*.
+
+<!-- End of VS tabs -->
+
+---
 
 ## <a name="apply-migrations"></a>Aplicación de migraciones
 
