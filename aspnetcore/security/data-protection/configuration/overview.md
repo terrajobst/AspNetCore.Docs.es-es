@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo configurar la protección de datos en ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 04/11/2019
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 36a06246513215ec29891df02688d113db11f914
-ms.sourcegitcommit: 32bc00435767189fa3ae5fb8a91a307bf889de9d
+ms.openlocfilehash: ee43427fa1e82a365d49df50567b4ca7afb5a5d3
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57733495"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516253"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Configurar la protección de datos de ASP.NET Core
 
@@ -44,7 +44,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Establecer la ubicación de almacenamiento del conjunto de claves (por ejemplo, [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Dado que una llamada a la ubicación que se debe establecer `ProtectKeysWithAzureKeyVault` implementa un [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) que deshabilita la configuración de protección automática de los datos, incluida la ubicación de almacenamiento del conjunto de claves. El ejemplo anterior usa Azure Blob Storage para conservar el conjunto de claves. Para obtener más información, consulte [proveedores de almacenamiento de claves: Azure y Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis). También puede conservar el conjunto de claves localmente con [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
 
-El `keyIdentifier` es el identificador de clave de almacén de claves utilizado para el cifrado de clave (por ejemplo, `https://contosokeyvault.vault.azure.net/keys/dataprotection/`).
+El `keyIdentifier` es el identificador de clave de almacén de claves utilizado para el cifrado de clave. Por ejemplo, una clave creada en el almacén de claves denominado `dataprotection` en el `contosokeyvault` tiene el identificador de clave `https://contosokeyvault.vault.azure.net/keys/dataprotection/`. Proporcione la aplicación con **Unwrap Key** y **Wrap Key** permisos para el almacén de claves.
 
 `ProtectKeysWithAzureKeyVault` sobrecargas:
 
@@ -154,7 +154,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="disableautomatickeygeneration"></a>DisableAutomaticKeyGeneration
 
-Puede tener un escenario donde no desea que una aplicación para implementar automáticamente las claves (y crear nuevas claves) como enfocar la expiración. Un ejemplo de esto podría ser configuradas en una relación principal/secundario, donde solo la aplicación principal es responsable de interés de administración de claves y las aplicaciones secundarias solo tienen una vista de solo lectura del anillo de clave de aplicaciones. Las aplicaciones secundarias pueden configurarse para tratar el conjunto de claves como de solo lectura mediante la configuración del sistema con [DisableAutomaticKeyGeneration](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.disableautomatickeygeneration):
+Puede tener un escenario donde no desea que una aplicación para implementar automáticamente las claves (y crear nuevas claves) como enfocar la expiración. Un ejemplo de esto podría ser configuradas en una relación principal/secundario, donde solo la aplicación principal es responsable de interés de administración de claves y las aplicaciones secundarias solo tienen una vista de solo lectura del anillo de clave de aplicaciones. Las aplicaciones secundarias pueden configurarse para tratar el conjunto de claves como de solo lectura mediante la configuración del sistema con <xref:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.DisableAutomaticKeyGeneration*>:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -166,15 +166,14 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="per-application-isolation"></a>Aislamiento por aplicación
 
-Cuando el sistema de protección de datos se proporciona un host de ASP.NET Core, aísla automáticamente las aplicaciones entre sí, incluso si esas aplicaciones se ejecutan en la misma cuenta de proceso de trabajo y están usando el mismo material de clave maestra. Esto es algo similar para el modificador IsolateApps desde de System.Web  **\<machineKey >** elemento.
+Cuando el sistema de protección de datos se proporciona un host de ASP.NET Core, aísla automáticamente las aplicaciones entre sí, incluso si esas aplicaciones se ejecutan en la misma cuenta de proceso de trabajo y están usando el mismo material de clave maestra. Esto es algo similar para el modificador IsolateApps desde de System.Web `<machineKey>` elemento.
 
-El mecanismo de aislamiento se funciona teniendo en cuenta cada aplicación en el equipo local como un único inquilino, por lo tanto el [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) ha modificado para cualquier aplicación incluye automáticamente el identificador de aplicación como discriminador. Identificador único de la aplicación procede de uno de estos dos lugares:
+El mecanismo de aislamiento se funciona teniendo en cuenta cada aplicación en el equipo local como un único inquilino, por lo tanto el <xref:Microsoft.AspNetCore.DataProtection.IDataProtector> ha modificado para cualquier aplicación incluye automáticamente el identificador de aplicación como discriminador. Identificador único de la aplicación es la ruta de acceso física de la aplicación:
 
-1. Si la aplicación se hospeda en IIS, el identificador único es la ruta de acceso de configuración de la aplicación. Si una aplicación se implementa en un entorno de granja de servidores web, este valor debe ser estable suponiendo que los entornos de IIS se configuran de forma similar en todos los equipos en la granja de servidores web.
+* Para las aplicaciones hospedadas en [IIS](xref:fundamentals/servers/index#iis-http-server), el identificador único es la ruta de acceso física de IIS de la aplicación. Si una aplicación se implementa en un entorno de granja de servidores web, este valor es estable, suponiendo que los entornos de IIS se configuran de forma similar en todos los equipos en la granja de servidores web.
+* Para aplicaciones autohospedadas que se ejecutan el [servidor Kestrel](xref:fundamentals/servers/index#kestrel), el identificador único es la ruta de acceso física a la aplicación en el disco.
 
-2. Si la aplicación no está hospedada en IIS, el identificador único es la ruta de acceso física de la aplicación.
-
-El identificador único está diseñado para sobrevivir restablecimientos &mdash; tanto de la aplicación individual de la propia máquina.
+El identificador único está diseñado para sobrevivir restablecimientos&mdash;tanto de la aplicación individual de la propia máquina.
 
 Este mecanismo de aislamiento se da por supuesto que las aplicaciones no son malintencionadas. Una aplicación malintencionada siempre puede afectar a cualquier otra aplicación que se ejecutan en la misma cuenta de proceso de trabajo. En un entorno de hospedaje compartido donde las aplicaciones no son de confianza mutua, el proveedor de hospedaje debe tomar medidas para garantizar el aislamiento de nivel de sistema operativo entre aplicaciones, incluida la separación de las aplicaciones subyacentes de repositorios de claves.
 
