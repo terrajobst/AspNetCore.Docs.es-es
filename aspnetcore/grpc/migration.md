@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/31/2019
 uid: grpc/migration
-ms.openlocfilehash: ffe5ccbd99c6920e093eddc00fc60a9f66aab527
-ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
+ms.openlocfilehash: 4d489b5aecf2e15fbbe3ac472b991a4365cd47c1
+ms.sourcegitcommit: 57a974556acd09363a58f38c26f74dc21e0d4339
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "59515628"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59672624"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Migrar los servicios gRPC de núcleo de C a ASP.NET Core
 
@@ -27,7 +27,7 @@ Una duración con ámbito permite la implementación del servicio resolver otros
 
 * Se construye una nueva instancia de la implementación del servicio para cada solicitud.
 * No se puede compartir el estado entre las solicitudes a través de los miembros de instancia en el tipo de implementación.
-* La expectativa es almacenar los estados compartidos en un servicio de singleton en el contenedor de DI. Se resuelven los estados compartidos almacenados en el constructor de la implementación del servicio gRPC. 
+* La expectativa es almacenar los estados compartidos en un servicio de singleton en el contenedor de DI. Se resuelven los estados compartidos almacenados en el constructor de la implementación del servicio gRPC.
 
 Para obtener más información sobre la duración de los servicios, consulte <xref:fundamentals/dependency-injection#service-lifetimes>.
 
