@@ -1,19 +1,29 @@
 ---
-ms.openlocfilehash: 33772d3ad8bbb1ffc54792f8c31834849d0f9567
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 2ec079606cb48670dbc3852482fd8d401e7db44b
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57964277"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59472303"
 ---
-<span data-ttu-id="9c2e5-101">Visual Studio para Mac muestra un cuadro de diálogo con el mensaje siguiente:</span><span class="sxs-lookup"><span data-stu-id="9c2e5-101">Visual Studio for Mac displays a dialog with the following message:</span></span>
+* <span data-ttu-id="54fff-101">Para confiar en el certificado de desarrollo de HTTPS, ejecute el comando siguiente:</span><span class="sxs-lookup"><span data-stu-id="54fff-101">Trust the HTTPS development certificate by running the following command:</span></span>
 
-<span data-ttu-id="9c2e5-102">*Este proyecto está configurado para usar SSL. Para evitar advertencias de SSL en el explorador, puede elegir confiar en el certificado autofirmado. ¿Quiere confiar en el certificado SSL de IIS Express?*</span><span class="sxs-lookup"><span data-stu-id="9c2e5-102">*This project is configured to use SSL. To avoid SSL warnings in the browser you can choose to trust the self-signed certificate. Would you like to trust the IIS Express SSL certificate?*</span></span>
+    ```console
+    dotnet dev-certs https --trust
+    ```
 
-<span data-ttu-id="9c2e5-103">Haga clic en **Sí**; se mostrará el cuadro de diálogo siguiente:</span><span class="sxs-lookup"><span data-stu-id="9c2e5-103">Select **Yes** and the following dialog is displayed:</span></span>
+* <span data-ttu-id="54fff-102">El comando anterior muestra la siguiente salida:</span><span class="sxs-lookup"><span data-stu-id="54fff-102">The preceding command displays the following output:</span></span>
 
-![Cuadro de diálogo de advertencia de seguridad](~/getting-started/_static/cert.png)
+    ```console
+    Trusting the HTTPS development certificate was requested. If the certificate 
+    is not already trusted we will run the following command:
+    'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain 
+    <<certificate>>'
+    This command might prompt you for your password to install the certificate on the 
+    system keychain.
+    The HTTPS developer certificate was generated successfully.
+    ```
 
-<span data-ttu-id="9c2e5-105">Si acepta confiar en el certificado de desarrollo, seleccione **Sí**.</span><span class="sxs-lookup"><span data-stu-id="9c2e5-105">Select **Yes** if you agree to trust the development certificate.</span></span>
+* <span data-ttu-id="54fff-103">Si se le solicita, escriba el nombre de usuario administrador y la contraseña.</span><span class="sxs-lookup"><span data-stu-id="54fff-103">Enter the admin username and password if prompted.</span></span>  <span data-ttu-id="54fff-104">El certificado se instalará ahora y será de confianza.</span><span class="sxs-lookup"><span data-stu-id="54fff-104">The certificate will now be installed and trusted.</span></span>
 
-<span data-ttu-id="9c2e5-106">Para obtener más información, vea [Confiar en el certificado de desarrollo de ASP.NET Core HTTPS ](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).</span><span class="sxs-lookup"><span data-stu-id="9c2e5-106">See [Trust the ASP.NET Core HTTPS development certificate](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) for more information.</span></span>
+    <span data-ttu-id="54fff-105">Para obtener más información, vea [Confiar en el certificado de desarrollo de ASP.NET Core HTTPS ](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).</span><span class="sxs-lookup"><span data-stu-id="54fff-105">See [Trust the ASP.NET Core HTTPS development certificate](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) for more information.</span></span>
