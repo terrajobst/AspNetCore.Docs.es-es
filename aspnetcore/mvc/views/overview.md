@@ -3,14 +3,14 @@ title: Vistas de ASP.NET Core MVC
 author: ardalis
 description: Obtenga información sobre la forma en que las vistas controlan la presentación de datos de la aplicación y la interacción del usuario en ASP.NET Core MVC.
 ms.author: riande
-ms.date: 12/12/2017
+ms.date: 04/03/2019
 uid: mvc/views/overview
-ms.openlocfilehash: 0ee1fef9e9da15d91427a2eb5b5f530a0b77ce33
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 766996645bc6ef2b6be42d729baf5d57f55b6ddd
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265392"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012804"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Vistas de ASP.NET Core MVC
 
@@ -91,8 +91,8 @@ El comportamiento predeterminado del método `View` (`return View();`) es devolv
 
 Da igual si se devuelve implícitamente `ViewResult` con `return View();` o si se pasa explícitamente el nombre de la vista al método `View` con `return View("<ViewName>");`. En ambos casos, la detección de vista busca un archivo de vista coincidente en este orden:
 
-   1. *Views/\[nombreDeControlador]/\[nombreDeVista].cshtml*
-   1. *Views/Shared/\[nombreDeVista].cshtml*
+   1. *Views/\[ControllerName]/\[ViewName].cshtml*
+   1. *Views/Shared/\[ViewName].cshtml*
 
 En lugar del nombre de una vista, se puede proporcionar la ruta de acceso del archivo de vista. Si se utiliza una ruta de acceso absoluta que comience en la raíz de la aplicación (también puede empezar con "/" o "~/"), debe especificarse la extensión *.cshtml*:
 
@@ -192,7 +192,7 @@ Nada le impide usar las mismas clases tanto para los tipos de modelo de vista co
 
 ### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>Datos débilmente tipados (ViewData, atributo ViewData y ViewBag)
 
-`ViewBag` *no está disponible en las páginas de Razor.*
+`ViewBag` *no está disponible en Razor Pages.*
 
 Además de las vistas fuertemente tipadas, las vistas tienen acceso a una colección de datos *débilmente tipados*, también denominados *imprecisos*. A diferencia de los tipos fuertes, en los *tipos débiles* (o *débilmente tipados*) no se declara explícitamente el tipo de datos que se está utilizando. Puede usar la colección de datos débilmente tipados para pasar pequeñas cantidades de datos de los controladores y las vistas, tanto en dirección de entrada como de salida.
 
@@ -202,7 +202,7 @@ Además de las vistas fuertemente tipadas, las vistas tienen acceso a una colecc
 | Una vista y una [vista de diseño](xref:mvc/views/layout)   | Establecer el contenido del elemento **\<title>** en la vista de diseño de un archivo de vista.  |
 | Una [vista parcial](xref:mvc/views/partial) y una vista | Un widget que muestra datos basados en la página web que el usuario solicitó.      |
 
-Puede hacer referencia a esta colección a través de las propiedades `ViewData` o `ViewBag` en controladores y vistas. La propiedad `ViewData` es un diccionario de objetos débilmente tipados. La propiedad `ViewBag` es un contenedor alrededor de `ViewData` que proporciona propiedades dinámicas para la colección `ViewData` subyacente.
+Puede hacer referencia a esta colección a través de las propiedades `ViewData` o `ViewBag` en controladores y vistas. La propiedad `ViewData` es un diccionario de objetos débilmente tipados. La propiedad `ViewBag` es un contenedor alrededor de `ViewData` que proporciona propiedades dinámicas para la colección `ViewData` subyacente. Nota: Las búsquedas de claves no distinguen mayúsculas de minúsculas para `ViewData` y `ViewBag`.
 
 `ViewData` y `ViewBag` se resuelven de forma dinámica en tiempo de ejecución. Debido a que no ofrecen la comprobación de tipos en tiempo de compilación, ambas son generalmente más propensas a errores que el uso de un modelo de vista. Por esta razón, algunos desarrolladores prefieren prescindir de `ViewData` y `ViewBag` o usarlos lo menos posible.
 
@@ -292,9 +292,9 @@ En el diseño, el título se lee desde el diccionario ViewData:
 
 **ViewBag**
 
-`ViewBag` *no está disponible en las páginas de Razor.*
+`ViewBag` *no está disponible en Razor Pages.*
 
-`ViewBag` es un objeto [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) que proporciona acceso dinámico a los objetos almacenados en `ViewData`. `ViewBag` puede ser más cómodo de trabajar con él, ya que no requiere conversión. En el ejemplo siguiente se muestra cómo usar `ViewBag` con el mismo resultado que al usar `ViewData` anteriormente:
+`ViewBag` es un objeto [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) que proporciona acceso dinámico a los objetos almacenados en `ViewData`. `ViewBag` puede ser más cómodo trabajar con él, ya que no requiere conversión. En el ejemplo siguiente se muestra cómo usar `ViewBag` con el mismo resultado que al usar `ViewData` anteriormente:
 
 ```csharp
 public IActionResult SomeAction()
@@ -325,7 +325,7 @@ public IActionResult SomeAction()
 
 **Uso simultáneo de ViewData y ViewBag**
 
-`ViewBag` *no está disponible en las páginas de Razor.*
+`ViewBag` *no está disponible en Razor Pages.*
 
 Puesto que `ViewData` y `ViewBag` hacen referencia a la misma colección `ViewData` subyacente, se pueden utilizar `ViewData` y `ViewBag`, y combinarlos entre ellos al leer y escribir valores.
 
@@ -365,7 +365,7 @@ Es posible utilizar `ViewData` y `ViewBag` al mismo tiempo, al igual que combina
 
 **Resumen de las diferencias entre ViewData y ViewBag**
 
- `ViewBag` no está disponible en las páginas de Razor.
+ `ViewBag` no está disponible en Razor Pages.
 
 * `ViewData`
   * Se deriva de [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary), por lo que tiene propiedades de diccionario que pueden ser útiles, como `ContainsKey`, `Add`, `Remove` y `Clear`.

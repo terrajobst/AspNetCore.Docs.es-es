@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 9556ec076fce3500115cf0e934202f11b175ccd3
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 362186be6feeeefeca3c56688ee6420de5fb9659
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750796"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468629"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Inicio de la aplicación en ASP.NET Core
 
@@ -27,7 +27,7 @@ Las aplicaciones de ASP.NET Core utilizan una clase `Startup`, que se denomina `
 * Incluye opcionalmente un método <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> para configurar los *servicios* de la aplicación. Un servicio es un componente reutilizable que proporciona funcionalidades de la aplicación. Los servicios se configuran o, como también se denomina, se *registran* en `ConfigureServices` y se usan en la aplicación a través de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection) o <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>.
 * Incluye un método <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> para crear la canalización de procesamiento de solicitudes de la aplicación.
 
-El runtime llama a `ConfigureServices` y `Configure` al iniciarse la aplicación:
+`ConfigureServices` El tiempo de ejecución llama a `Configure` y  cuando la aplicación se inicia:
 
 [!code-csharp[](startup/sample_snapshot/Startup1.cs?highlight=4,10)]
 
@@ -63,9 +63,11 @@ El host puede configurar algunos servicios antes de que se llame a los métodos 
 
 Para las características que requieren una configuración sustancial, hay métodos de extensión `Add{Service}` en <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>. Una aplicación ASP.NET Core típica registra los servicios de Entity Framework, Identity y MVC:
 
-[!code-csharp[](startup/sample_snapshot/Startup3.cs?highlight=4,7,11)]
+[!code-csharp[](startup/sample_snapshot/Startup3.cs)]
 
 La adición de servicios al contenedor de servicios hace que estén disponibles en la aplicación y en el método `Configure`. Los servicios se resuelven a través de la [inserción de dependencias](xref:fundamentals/dependency-injection) o desde <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>.
+
+Vea [SetCompatibilityVersion](xref:mvc/compatibility-version) para obtener más información sobre `SetCompatibilityVersion`.
 
 ## <a name="the-configure-method"></a>El método Configure
 
@@ -74,11 +76,11 @@ El método <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> se usa par
 Las [plantillas de ASP.NET Core](/dotnet/core/tools/dotnet-new) configuran la canalización con compatibilidad para lo siguiente:
 
 * [Página de excepciones para el desarrollador](xref:fundamentals/error-handling#developer-exception-page)
-* [Controlador de excepciones](xref:fundamentals/error-handling#configure-a-custom-exception-handling-page)
+* [Controlador de excepciones](xref:fundamentals/error-handling#exception-handler-page)
 * [Seguridad de transporte estricta de HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts)
 * [Redireccionamiento de HTTPS](xref:security/enforcing-ssl)
 * [Archivos estáticos](xref:fundamentals/static-files)
-* [Reglamento General de Protección de Datos (GDPR)](xref:security/gdpr)
+* [Reglamento general de protección de datos (RGPD)](xref:security/gdpr)
 * ASP.NET Core [MVC](xref:mvc/overview) y [Razor Pages](xref:razor-pages/index)
 
 [!code-csharp[](startup/sample_snapshot/Startup4.cs)]

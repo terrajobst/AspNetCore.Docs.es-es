@@ -4,14 +4,14 @@ author: mjrousos
 description: Obtenga información sobre cómo usar un IAuthorizationPolicyProvider personalizado en una aplicación ASP.NET Core para generar dinámicamente las directivas de autorización.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/21/2019
+ms.date: 04/15/2019
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: ca57a9fd8e3c11f15fe14bbe4538bc748c4c84b6
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: e17372bb0ec9091c385a70b1e907eaa3cff24003
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444160"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614414"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Proveedores personalizados de directiva de autorización mediante IAuthorizationPolicyProvider en ASP.NET Core 
 
@@ -44,7 +44,7 @@ Mediante la implementación de estas dos API, puede personalizar cómo se propor
 
 Un escenario donde `IAuthorizationPolicyProvider` es útil es personalizado para permitir `[Authorize]` atributos cuyos requisitos dependen de un parámetro. Por ejemplo, en [autorización basada en directivas](xref:security/authorization/policies) documentación, un edades ("AtLeast21") se utiliza la directiva como un ejemplo. Si las acciones de controlador diferente en una aplicación deben estar disponibles para los usuarios de *diferentes* edades, podría ser útil tener muchas directivas diferentes edades. En vez de registrar todas las diferentes edades directivas que la aplicación necesitará en `AuthorizationOptions`, puede generar las directivas de forma dinámica con un personalizado `IAuthorizationPolicyProvider`. Para hacer con las directivas más fácil, puede anotar las acciones con el atributo de autorización personalizado como `[MinimumAgeAuthorize(20)]`.
 
-## <a name="custom-authorization-attributes"></a>Atributos de autorización personalizada
+## <a name="custom-authorization-attributes"></a>Atributos personalizados de autorización
 
 Las directivas de autorización se identifican por sus nombres. Personalizado `MinimumAgeAuthorizeAttribute` descrito anteriormente, debe asignar argumentos en una cadena que puede usarse para recuperar la directiva de autorización correspondiente. Puede hacerlo mediante la derivación de `AuthorizeAttribute` y realizar el `Age` encapsulado propiedad el `AuthorizeAttribute.Policy` propiedad.
 
@@ -119,12 +119,32 @@ internal class MinimumAgePolicyProvider : IAuthorizationPolicyProvider
 
 ## <a name="multiple-authorization-policy-providers"></a>Varios proveedores de directiva de autorización
 
-Al usar custom `IAuthorizationPolicyProvider` implementaciones, tenga en cuenta que ASP.NET Core solo usa una instancia de `IAuthorizationPolicyProvider`. Si un proveedor personalizado no es capaz de proporcionar directivas de autorización para todos los nombres de directiva, debe recurrir a un proveedor de copia de seguridad. Los nombres de directiva podrían incluirlas que proceden de una directiva predeterminada para `[Authorize]` atributos sin un nombre.
+Al usar custom `IAuthorizationPolicyProvider` implementaciones, tenga en cuenta que ASP.NET Core solo usa una instancia de `IAuthorizationPolicyProvider`. Si un proveedor personalizado no es capaz de proporcionar directivas de autorización para todos los nombres de directiva que se utilizará, debe recurrir a un proveedor de copia de seguridad. 
 
-Por ejemplo, considere que una aplicación necesita directivas personalizadas de edad y la recuperación de directivas basado en roles más tradicional. Este tipo de aplicación podría usar un proveedor de directivas de autorización personalizado que:
+Por ejemplo, considere una aplicación que necesita directivas personalizadas de edad y la recuperación de directivas basado en roles más tradicional. Este tipo de aplicación podría usar un proveedor de directivas de autorización personalizado que:
 
 * Intenta analizar los nombres de directiva. 
 * Las llamadas a un proveedor de directivas diferentes (como `DefaultAuthorizationPolicyProvider`) si el nombre de la directiva no contiene una edad.
+
+El ejemplo `IAuthorizationPolicyProvider` implementación mostrado anteriormente se puede actualizar para usar el `DefaultAuthorizationPolicyProvider` mediante la creación de un proveedor de directivas de reserva en su constructor (que se usará en caso de que el nombre de la directiva no coincide con su patrón esperado de 'MinimumAge' + edad).
+
+```csharp
+private DefaultAuthorizationPolicyProvider FallbackPolicyProvider { get; }
+
+public MinimumAgePolicyProvider(IOptions<AuthorizationOptions> options)
+{
+    // ASP.NET Core only uses one authorization policy provider, so if the custom implementation
+    // doesn't handle all policies it should fall back to an alternate provider.
+    FallbackPolicyProvider = new DefaultAuthorizationPolicyProvider(options);
+}
+```
+
+A continuación, la `GetPolicyAsync` método puede actualizarse para utilizar el `FallbackPolicyProvider` en lugar de devolver null:
+
+```csharp
+...
+return FallbackPolicyProvider.GetPolicyAsync(policyName);
+```
 
 ## <a name="default-policy"></a>Directiva predeterminada
 
@@ -137,10 +157,18 @@ public Task<AuthorizationPolicy> GetDefaultPolicyAsync() =>
     Task.FromResult(new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build());
 ```
 
-Como ocurre con todos los aspectos de un personalizado `IAuthorizationPolicyProvider`, puede personalizar esto, según sea necesario. En algunos casos:
+Como ocurre con todos los aspectos de un personalizado `IAuthorizationPolicyProvider`, puede personalizar esto, según sea necesario. En algunos casos, sería conveniente para recuperar la directiva predeterminada de una acción de reserva `IAuthorizationPolicyProvider`.
 
-* No se pueden usar las directivas de autorización de forma predeterminada.
-* Recuperación de la directiva predeterminada se puede delegar en una acción de reserva `IAuthorizationPolicyProvider`.
+## <a name="required-policy"></a>Directiva requerida
+
+Personalizada `IAuthorizationPolicyProvider` debe implementar `GetRequiredPolicyAsync` para, opcionalmente, proporcione una directiva que siempre es necesaria. Si `GetRequiredPolicyAsync` devuelve una directiva no nula, esa directiva se combina con cualquier otro (designado o predeterminado) directiva que se solicita.
+
+Si no se necesita ninguna directiva necesaria, el proveedor puede devolver un valor nulo o aplazar el proveedor de reserva:
+
+```csharp
+public Task<AuthorizationPolicy> GetRequiredPolicyAsync() => 
+    Task.FromResult<AuthorizationPolicy>(null);
+```
 
 ## <a name="use-a-custom-iauthorizationpolicyprovider"></a>Usar un IAuthorizationPolicyProvider personalizado
 

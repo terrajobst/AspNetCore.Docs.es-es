@@ -5,12 +5,12 @@ description: Este tutorial muestra cómo instalar y usar la herramienta de monit
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: f1e0d91b27df4af7cbfb6f2547c94c0370c65d0d
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 40ecca1c6f9d519b24649d0c28946d95b820c07c
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207507"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068201"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Desarrollar aplicaciones ASP.NET Core con un monitor de archivos
 
@@ -27,6 +27,9 @@ En un shell de comandos, desplácese hasta la carpeta *WebApp*. Ejecute el sigui
 ```console
 dotnet run
 ```
+
+> [!NOTE]
+> Puede usar `dotnet run --project <PROJECT>` para especificar un proyecto para que se ejecute. Por ejemplo, al ejecutar `dotnet run --project WebApp` desde la raíz de la aplicación de ejemplo, también se ejecutará el proyecto *WebApp*.
 
 La salida de la consola muestra mensajes similares al siguiente (indicando que la aplicación se ejecuta y espera solicitudes):
 
@@ -77,6 +80,9 @@ Cualquier [comando de la CLI de .NET Core](/dotnet/core/tools#cli-commands) se p
 
 Ejecute `dotnet watch run` en la carpeta *WebApp*. La salida de la consola indica que se ha iniciado `watch`.
 
+> [!NOTE]
+> Puede usar `dotnet watch --project <PROJECT>` para especificar un proyecto para verlo. Por ejemplo, al ejecutar `dotnet watch --project WebApp run` desde la raíz de la aplicación de ejemplo, también se ejecutará y se verá el proyecto *WebApp*.
+
 ## <a name="make-changes-with-dotnet-watch"></a>Realizar cambios con `dotnet watch`
 
 Asegúrese de que `dotnet watch` se está ejecutando.
@@ -86,7 +92,7 @@ Corrija el error en el método `Product` de *MathController.cs* para que devuelv
 ```csharp
 public static int Product(int a, int b)
 {
-  return a * b;
+    return a * b;
 }
 ```
 
@@ -129,7 +135,7 @@ Se pueden agregar más elementos a la lista de control inspección editando el a
 
 ## <a name="opt-out-of-files-to-be-watched"></a>Descartar archivos de la inspección
 
-`dotnet-watch` se puede configurar para pasar por alto su configuración predeterminada. Para omitir archivos concretos, agregue el atributo `Watch="false"` a la definición de un elemento en el archivo *.csproj*:
+`dotnet-watch` se puede configurar para ignorar su configuración predeterminada. Para omitir archivos concretos, agregue el atributo `Watch="false"` a la definición de un elemento en el archivo *.csproj*:
 
 ```xml
 <ItemGroup>
@@ -146,7 +152,7 @@ Se pueden agregar más elementos a la lista de control inspección editando el a
 
 ## <a name="custom-watch-projects"></a>Proyectos de inspección personalizados
 
-`dotnet-watch` no queda restringido exclusivamente a proyectos de C#, sino que se pueden crear proyectos de inspección personalizados para controlar distintos escenarios. Veamos el siguiente diseño de proyecto:
+`dotnet-watch` no queda restringido a proyectos de C#. sino que se pueden crear proyectos de inspección personalizados para controlar distintos escenarios. Veamos el siguiente diseño de proyecto:
 
 * **test/**
   * *UnitTests/UnitTests.csproj*

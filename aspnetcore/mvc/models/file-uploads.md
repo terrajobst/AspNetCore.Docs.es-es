@@ -4,14 +4,14 @@ author: ardalis
 description: Cómo usar el enlace de modelos y el streaming para cargar archivos en ASP.NET Core MVC.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 04/06/2019
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 5e6e2cd5fac25e2abe27915c2f4caa64b13e90bd
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 831f0c84f0ff062e9e24ccbf4ca81b7143c66e66
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409988"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468558"
 ---
 # <a name="file-uploads-in-aspnet-core"></a>Cargas de archivos en ASP.NET Core
 
@@ -19,7 +19,7 @@ Por [Steve Smith](https://ardalis.com/)
 
 Entre las acciones que se pueden realizar en ASP.NET MVC está la de cargar uno o más archivos por medio de un sencillo procedimiento de enlace de modelos (archivos más pequeños) o del streaming (archivos de mayor tamaño).
 
-[Ver o descargar el ejemplo desde GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample)
+[Vea o descargue el ejemplo de GitHub.](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample)
 
 ## <a name="uploading-small-files-with-model-binding"></a>Cargar archivos pequeños por medio del enlace de modelos
 
@@ -30,12 +30,12 @@ Para cargar archivos pequeños, se puede usar un formulario HTML de varias parte
     <div class="form-group">
         <div class="col-md-10">
             <p>Upload one or more files using this form:</p>
-            <input type="file" name="files" multiple />
+            <input type="file" name="files" multiple>
         </div>
     </div>
     <div class="form-group">
         <div class="col-md-10">
-            <input type="submit" value="Upload" />
+            <input type="submit" value="Upload">
         </div>
     </div>
 </form>
@@ -94,7 +94,7 @@ public class RegisterViewModel
 ```
 
 > [!NOTE]
-> `IFormFile` se puede usar directamente como un parámetro de método de acción o como una propiedad ViewModel, tal y como se aprecia arriba.
+> `IFormFile` se puede usar directamente como un parámetro de método de acción o como una propiedad ViewModel, como se ha mostrado anteriormente.
 
 Copie `IFormFile` en una secuencia y guárdela en la matriz de bytes:
 

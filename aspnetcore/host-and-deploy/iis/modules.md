@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/28/2019
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: de740775e124298f7c3d3be0c6f5a7311174116d
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 9770801b527829b131257da7c6e670bd33c23634
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265477"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468878"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Módulos de IIS con ASP.NET Core
 
@@ -30,11 +30,11 @@ En la tabla se indican los módulos nativos de IIS que son funcionales con aplic
 | **Autenticación de asignaciones de certificados de cliente**<br>`CertificateMappingAuthenticationModule`      | Sí | |
 | **CGI**<br>`CgiModule`                                                                           | No  | |
 | **Validación de configuración**<br>`ConfigurationValidationModule`                                  | Sí | |
-| **Errores HTTP**<br>`CustomErrorModule`                                                           | No  | [Middleware de páginas de códigos de estado](xref:fundamentals/error-handling#configure-status-code-pages) |
+| **Errores HTTP**<br>`CustomErrorModule`                                                           | No  | [Middleware de páginas de códigos de estado](xref:fundamentals/error-handling#usestatuscodepages) |
 | **Registro personalizado**<br>`CustomLoggingModule`                                                      | Sí | |
 | **Documento predeterminado**<br>`DefaultDocumentModule`                                                  | No  | [Middleware de archivos predeterminados](xref:fundamentals/static-files#serve-a-default-document) |
-| **Autenticación implícita**<br>`DigestAuthenticationModule`                                        | Sí | |
-| **Examen de directorios**<br>`DirectoryListingModule`                                               | No  | [Middleware de exploración de directorios](xref:fundamentals/static-files#enable-directory-browsing) |
+| **Autenticación de texto implícita**<br>`DigestAuthenticationModule`                                        | Sí | |
+| **Examen de directorios**<br>`DirectoryListingModule`                                               | No  | [Middleware de examen de directorios](xref:fundamentals/static-files#enable-directory-browsing) |
 | **Compresión dinámica**<br>`DynamicCompressionModule`                                            | Sí | [Middleware de compresión de respuestas](xref:performance/response-compression) |
 | **Seguimiento de solicitudes con error**<br>`FailedRequestsTracingModule`                                     | Sí | [Registro de ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
 | **Almacenamiento en caché de archivos**<br>`FileCacheModule`                                                            | No  | [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware) |
@@ -44,16 +44,16 @@ En la tabla se indican los módulos nativos de IIS que son funcionales con aplic
 | **Seguimiento de HTTP**<br>`TracingModule`                                                              | Sí | |
 | **Autenticación de asignaciones de certificados de cliente IIS**<br>`IISCertificateMappingAuthenticationModule` | Sí | |
 | **Restricciones de IP y dominio**<br>`IpRestrictionModule`                                          | Sí | |
-| **Filtros ISAPI**<br>`IsapiFilterModule`                                                         | Sí | [Middleware](xref:fundamentals/middleware/index) |
-| **ISAPI**<br>`IsapiModule`                                                                       | Sí | [Middleware](xref:fundamentals/middleware/index) |
+| **Filtros ISAPI**<br>`IsapiFilterModule`                                                         | Sí | [Software intermedio](xref:fundamentals/middleware/index) |
+| **ISAPI**<br>`IsapiModule`                                                                       | Sí | [Software intermedio](xref:fundamentals/middleware/index) |
 | **Compatibilidad con el protocolo**<br>`ProtocolSupportModule`                                                  | Sí | |
-| **Filtrado de solicitudes**<br>`RequestFilteringModule`                                                | Sí | [Middleware de reescritura de dirección URL`IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
+| **Filtrado de solicitudes**<br>`RequestFilteringModule`                                                | Sí | [Middleware de reescritura de dirección URL `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
 | **Supervisor de solicitudes**<br>`RequestMonitorModule`                                                    | Sí | |
 | **Reescritura de dirección URL**&#8224;<br>`RewriteModule`                                                      | Sí | [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting) |
 | **Inclusiones del lado servidor**<br>`ServerSideIncludeModule`                                            | No  | |
 | **Compresión estática**<br>`StaticCompressionModule`                                              | No  | [Middleware de compresión de respuestas](xref:performance/response-compression) |
 | **Contenido estático**<br>`StaticFileModule`                                                         | No  | [Middleware de archivos estáticos](xref:fundamentals/static-files) |
-| **Almacenamiento en caché de tokens**.<br>`TokenCacheModule`                                                          | Sí | |
+| **Almacenamiento en caché de tokens**<br>`TokenCacheModule`                                                          | Sí | |
 | **Almacenamiento en caché de URI**<br>`UriCacheModule`                                                              | Sí | |
 | **Autorización de URL**<br>`UrlAuthorizationModule`                                                | Sí | [Identidad de ASP.NET Core](xref:security/authentication/identity) |
 | **Autenticación de Windows**<br>`WindowsAuthenticationModule`                                      | Sí | |
@@ -167,7 +167,7 @@ El Módulo de almacenamiento en caché de HTTP (`HttpCacheModule`) implementa la
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * <xref:host-and-deploy/iis/index>
-* [Introduction to IIS Architectures: Modules in IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#modules-in-iis) (Introducción a las arquitecturas de IIS: módulos de IIS)
-* [IIS Modules Overview](/iis/get-started/introduction-to-iis/iis-modules-overview) (Introducción a los módulos de IIS)
-* [Customizing IIS 7.0 Roles and Modules](https://technet.microsoft.com/library/cc627313.aspx) (Personalización de los roles y módulos de IIS 7.0)
+* [Introduction to IIS Architectures: Modules in IIS (Introducción a las arquitecturas de IIS: módulos de IIS)](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#modules-in-iis)
+* [IIS Modules Overview (Introducción a los módulos de IIS)](/iis/get-started/introduction-to-iis/iis-modules-overview)
+* [Customizing IIS 7.0 Roles and Modules (Personalización de los roles y módulos de IIS 7.0)](https://technet.microsoft.com/library/cc627313.aspx)
 * [IIS `<system.webServer>`](/iis/configuration/system.webServer/)

@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc, seodec18
 ms.date: 01/31/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 5b8a0c963940d65545579b7120edac3571e4ad2a
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 95a5f8bdb4b302d6bdae7b5809b54f1b263e6ee4
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750687"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012869"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Creación de una API Web con ASP.NET Core y MongoDB
 
@@ -31,20 +31,20 @@ En este tutorial aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Programa para la mejora](#tab/visual-studio)
 
 * [.NET Core SDK 2.2 o posterior](https://www.microsoft.com/net/download/all)
 * [Visual Studio 2017 versión 15.9 o posterior](https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) con la carga de trabajo **ASP.NET y desarrollo web**
 * [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
 
 * [.NET Core SDK 2.2 o posterior](https://www.microsoft.com/net/download/all)
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [C# para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+# [<a name="visual-studio-for-mac"></a>Visual Studio para Mac](#tab/visual-studio-mac)
 
 * [.NET Core SDK 2.2 o posterior](https://www.microsoft.com/net/download/all)
 * [Visual Studio para Mac, versión 7.7 o posterior](https://www.visualstudio.com/downloads/)
@@ -140,7 +140,7 @@ La base de datos está lista. Puede empezar a crear la API web de ASP.NET Core.
 
 ## <a name="create-the-aspnet-core-web-api-project"></a>Creación de un proyecto de API web de ASP.NET Core
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Programa para la mejora](#tab/visual-studio)
 
 1. Vaya a **Archivo** > **Nuevo** > **Proyecto**.
 1. Seleccione **Aplicación web de ASP.NET Core**, ponga al proyecto el nombre *BooksApi*y haga clic en **Aceptar**.
@@ -151,7 +151,7 @@ La base de datos está lista. Puede empezar a crear la API web de ASP.NET Core.
     Install-Package MongoDB.Driver -Version {VERSION}
     ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
 
 1. Ejecute los siguientes comandos en un shell de comandos:
 
@@ -169,7 +169,7 @@ La base de datos está lista. Puede empezar a crear la API web de ASP.NET Core.
     dotnet add BooksApi.csproj package MongoDB.Driver -v {VERSION}
     ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+# [<a name="visual-studio-for-mac"></a>Visual Studio para Mac](#tab/visual-studio-mac)
 
 1. Vaya a **Archivo** > **Nueva solución** > **.NET Core** > **Aplicación**.
 1. Seleccione la plantilla de proyecto de C# **API web ASP.NET Core** y haga clic en **Siguiente**.
@@ -217,22 +217,22 @@ Otras propiedades de la clase se anotan con el atributo `[BsonElement]`. El valo
 
 La clase`BookService` usa los miembros `MongoDB.Driver` siguientes para realizar operaciones CRUD en la base de datos:
 
-* `MongoClient` &ndash; Lee la instancia del servidor para realizar operaciones de base de datos. Se proporciona la cadena de conexión de MongoDB al constructor de esta clase:
+* `MongoClient` &ndash;: lee la instancia del servidor para realizar operaciones de base de datos. Se proporciona la cadena de conexión de MongoDB al constructor de esta clase:
 
     [!code-csharp[](first-mongo-app/sample/BooksApi/Services/BookService.cs?name=snippet_BookServiceConstructor&highlight=3)]
 
-* `IMongoDatabase` &ndash; Representa la base de datos de Mongo para realizar operaciones. Este tutorial usa el método genérico `GetCollection<T>(collection)` de la interfaz para tener acceso a los datos de una colección específica. Las operaciones CRUD pueden realizarse en la colección después de llamar a este método. En la llamada al método `GetCollection<T>(collection)`:
+* `IMongoDatabase` &ndash;: representa la base de datos de Mongo para realizar operaciones. Este tutorial usa el método genérico `GetCollection<T>(collection)` de la interfaz para tener acceso a los datos de una colección específica. Las operaciones CRUD pueden realizarse en la colección después de llamar a este método. En la llamada al método `GetCollection<T>(collection)`:
   * `collection` representa el nombre de la colección.
   * `T` representa el tipo de objeto CLR almacenado en la colección.
 
 `GetCollection<T>(collection)` devuelve un objeto `MongoCollection` que representa la colección. En este tutorial, se invocan los métodos siguientes en la colección:
 
-* `Find<T>` &ndash; Devuelve todos los documentos de la colección que cumplen los criterios de búsqueda indicados.
-* `InsertOne` &ndash; Inserta el objeto proporcionado como un nuevo documento en la colección.
-* `ReplaceOne` &ndash; Reemplaza un único documento que cumpla los criterios de búsqueda indicados por el objeto proporcionado.
-* `DeleteOne` &ndash; Elimina un único documento que cumpla los criterios de búsqueda proporcionados.
+* `Find<T>` &ndash;: devuelve todos los documentos de la colección que cumplen los criterios de búsqueda indicados.
+* `InsertOne` &ndash;: inserta el objeto proporcionado como un nuevo documento en la colección.
+* `ReplaceOne` &ndash;: reemplaza un único documento que cumpla los criterios de búsqueda indicados por el objeto proporcionado.
+* `DeleteOne` &ndash;: elimina un único documento que cumpla los criterios de búsqueda proporcionados.
 
-## <a name="add-a-controller"></a>Adición de un controlador
+## <a name="add-a-controller"></a>Incorporación de un controlador
 
 1. Agregue una clase `BooksController` al directorio *Controladores* con el código siguiente:
 
@@ -269,5 +269,6 @@ La clase`BookService` usa los miembros `MongoDB.Driver` siguientes para realizar
 
 Para obtener más información sobre la creación de las API web de ASP.NET Core, consulte los siguientes recursos:
 
+* [Versión en YouTube de este tutorial](https://www.youtube.com/watch?v=7uJt_sOenyo&feature=youtu.be)
 * <xref:web-api/index>
 * <xref:web-api/action-return-types>

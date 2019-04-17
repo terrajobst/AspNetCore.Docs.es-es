@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/07/2019
 uid: index
-ms.openlocfilehash: 944c8a93aff53b8d72fda03f5df9c5ba45990cbc
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: 9cb598c4068586e4e960ec40743c4f54f09995ad
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068277"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614376"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -44,7 +44,7 @@ ASP.NET Core MVC proporciona características para crear [API web](xref:tutorial
 
 ## <a name="client-side-development"></a>Desarrollo del lado del cliente
 
-ASP.NET Core se integra perfectamente con las bibliotecas y los marcos de trabajo más populares del lado cliente, que incluyen [Razor Components](xref:razor-components/index), [Angular](xref:spa/angular), [React](xref:spa/react) y [Bootstrap](https://getbootstrap.com/). Para obtener más información, consulte [Introducción a Razor Components](xref:razor-components/index) y los temas al respecto en *Desarrollo del lado cliente*.
+ASP.NET Core se integra perfectamente con bibliotecas y marcos populares del lado cliente, que incluyen [Blazor](xref:blazor/index), [Angular](xref:spa/angular), [React](xref:spa/react) y [Bootstrap](https://getbootstrap.com/). Para más información, consulte <xref:blazor/index> y los temas relacionados en *Client-side development* (Desarrollo del lado cliente).
 
 <a name="target-framework"></a>
 
@@ -77,7 +77,7 @@ Se recomienda la siguiente secuencia de tutoriales y artículos para obtener una
 
    |Tipo de aplicación  |Escenario  |Tutorial  |
    |----------|----------|----------|
-   |Aplicación web       | Para un nuevo desarrollo        |[Introducción a Razor Pages](xref:tutorials/razor-pages/razor-pages-start) |
+   |Aplicación web       | Para un nuevo desarrollo        |[Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start) |
    |Aplicación web       | Para mantener una aplicación MVC |[Introducción a MVC](xref:tutorials/first-mvc-app/start-mvc)|
    |Web API       |                            |[Creación de una API web](xref:tutorials/first-web-api)\*  |
    |Aplicación en tiempo real |                            |[Introducción a SignalR](xref:tutorials/signalr) |
@@ -86,7 +86,7 @@ Se recomienda la siguiente secuencia de tutoriales y artículos para obtener una
 
    |Escenario  |Tutorial  |
    |----------|----------|
-   | Para un nuevo desarrollo        |[Razor Pages con Entity Framework Core](xref:data/ef-rp/intro) |
+   | Para un nuevo desarrollo        |[ Razor Pages con Entity Framework Core](xref:data/ef-rp/intro) |
    | Para mantener una aplicación MVC |[MVC con Entity Framework Core](xref:data/ef-mvc/intro)
 
 1. Lea una introducción a las características de ASP.NET Core que se aplican a todos los tipos de aplicaciones:

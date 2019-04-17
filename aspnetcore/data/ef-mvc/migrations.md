@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 8a14ada241330ca33811b7cce70daf26ff8fc13a
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 3d2ae12bf8eda4f7997008758d4d29434a8371a7
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750641"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012609"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Tutorial: Uso de la característica de migraciones: ASP.NET MVC con EF Core
 
@@ -30,7 +30,7 @@ En este tutorial ha:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Ordenar, filtrar y paginar](sort-filter-page.md)
+* [Ordenación, filtrado y paginación](sort-filter-page.md)
 
 ## <a name="about-migrations"></a>Acerca de las migraciones
 
@@ -54,6 +54,7 @@ Este cambio configura el proyecto para que la primera migración cree una base d
 > ```console
 > dotnet ef database drop
 > ```
+>
 > En la siguiente sección se explica cómo ejecutar comandos de la CLI.
 
 ## <a name="create-an-initial-migration"></a>Crear una migración inicial

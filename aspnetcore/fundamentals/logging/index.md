@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/02/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 065b2016d3a2dcc2243ec6869e027c5fabe4dad8
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: f0e4dbb6fda4f676ad8e769c71cc9548a4d61d66
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068409"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614440"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -168,7 +168,7 @@ Si los niveles se especifican en `Logging.{providername}.LogLevel`, invalidan to
 }
 ```
 
-`LogLevel` claves que representan los nombres de registro. La clave `Default` se aplica a los registros que no se enumeran de forma explícita. El valor representa el [nivel de registro](#log-level) aplicado al registro determinado.
+Las claves `LogLevel` representan los nombres de registro. La clave `Default` se aplica a los registros que no se enumeran de forma explícita. El valor representa el [nivel de registro](#log-level) aplicado al registro determinado.
 
 ::: moniker-end
 
@@ -497,7 +497,8 @@ Cada proveedor define un *alias* que se puede utilizar en la configuración en l
 * Consola
 * Depuración
 * EventLog
-* AzureAppServices
+* AzureAppServicesFile
+* AzureAppServicesBlob
 * TraceSource
 * EventSource
 
@@ -611,7 +612,7 @@ warn: TodoApi.Controllers.TodoController[4000]
 ASP.NET Core incluye los proveedores siguientes:
 
 * [Consola](#console-provider)
-* [Depuración](#debug-provider)
+* [Depurar](#debug-provider)
 * [EventSource](#eventsource-provider)
 * [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
@@ -868,10 +869,10 @@ Navegue hasta la página **Secuencias de registro** para ver los mensajes de la 
 
 El SDK de Application Insights puede recopilar y notificar los registros que la infraestructura de registro de ASP.NET Core genera. Para obtener más información, vea los siguientes recursos:
 
-* [Introducción a Application Insights](/azure/application-insights/app-insights-overview)
+* [Información general de Application Insights](/azure/application-insights/app-insights-overview)
 * [Application Insights para ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
 * [Adaptadores de registro de Application Insights](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md)
-* [Ejemplos de implementación de Application Insights ILogger](/azure/azure-monitor/app/ilogger)
+* [Muestras de implementación de Application Insights ILogger](/azure/azure-monitor/app/ilogger)
 
 ::: moniker-end
 
