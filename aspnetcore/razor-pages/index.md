@@ -7,10 +7,10 @@ ms.author: riande
 ms.date: 04/06/2019
 uid: razor-pages/index
 ms.openlocfilehash: e79ce1e2ddfc0e1a4d72e3f67f702d6eb938b8d3
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468700"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
@@ -31,11 +31,11 @@ En este documento se proporciona una introducción a las páginas de Razor. No e
 
 ## <a name="create-a-razor-pages-project"></a>Creación de un proyecto de Razor Pages
 
-# [<a name="visual-studio"></a>Programa para la mejora](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Vea [Introducción a Razor Pages](xref:tutorials/razor-pages/razor-pages-start) para obtener instrucciones detalladas sobre cómo crear un proyecto Razor Pages.
 
-# [<a name="visual-studio-for-mac"></a>Visual Studio para Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -51,7 +51,7 @@ Ejecute `dotnet new razor` desde la línea de comandos.
 
 Abra el archivo *.csproj* generado desde Visual Studio para Mac.
 
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -151,7 +151,7 @@ Compruebe los errores de validación.
 
 Cuando los datos se escriben correctamente, el método del controlador `OnPostAsync` llama al método del asistente `RedirectToPage` para devolver una instancia de `RedirectToPageResult`. `RedirectToPage` es un resultado de acción nueva, similar a `RedirectToAction` o `RedirectToRoute`, pero personalizada para las páginas. En el ejemplo anterior, redirige a la página de índice raíz (`/Index`). `RedirectToPage` se detalla en la sección [Generación de direcciones URL para las páginas](#url_gen).
 
-Cuando el formulario enviado tiene errores de validación (que se pasan al servidor), el método del controlador `OnPostAsync` llama al método del asistente `Page`. `Page` devuelve una instancia de `PageResult`. Devolver `Page` es similar a cómo las acciones en los controladores devuelven `View`. `PageResult` es el predeterminado <!-- Review  --> que se devuelve para un método de controlador. Un método de controlador que devuelve `void` representa la página.
+Cuando el formulario enviado tiene errores de validación (que se pasan al servidor), el método del controlador `OnPostAsync` llama al método del asistente `Page`. `Page` devuelve una instancia de `PageResult`. Devolver `Page` es similar a cómo las acciones en los controladores devuelven `View`. `PageResult` es el tipo predeterminado <!-- Review  --> que se devuelve para un método de controlador. Un método de controlador que devuelve `void` representa la página.
 
 La propiedad `Customer` usa el atributo `[BindProperty]` para participar en el enlace de modelos.
 
@@ -346,7 +346,7 @@ El archivo *Pages/_ViewImports.cshtml* establece el espacio de nombres siguiente
 
 El espacio de nombres generado para la página de Razor *Pages/Customers/Edit.cshtml* es el mismo que la clase `PageModel`.
 
-`@namespace` *también funciona con las vistas de Razor convencionales.*
+`@namespace` *también funciona con las vistas de Razor convencionales*.
 
 El archivo de vista *Pages/Create.cshtml* original:
 
