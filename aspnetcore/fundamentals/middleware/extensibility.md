@@ -8,46 +8,46 @@ ms.custom: mvc
 ms.date: 03/31/2019
 uid: fundamentals/middleware/extensibility
 ms.openlocfilehash: 9305616ce3f2ef49cf9dfcab719f673c0fb4b51e
-ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "58809171"
 ---
-# <a name="factory-based-middleware-activation-in-aspnet-core"></a><span data-ttu-id="f5c33-103">Activación de middleware basada en Factory en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="f5c33-103">Factory-based middleware activation in ASP.NET Core</span></span>
+# <a name="factory-based-middleware-activation-in-aspnet-core"></a><span data-ttu-id="152b9-103">Activación de middleware basada en Factory en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="152b9-103">Factory-based middleware activation in ASP.NET Core</span></span>
 
-<span data-ttu-id="f5c33-104">Por [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="f5c33-104">By [Luke Latham](https://github.com/guardrex)</span></span>
+<span data-ttu-id="152b9-104">Por [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="152b9-104">By [Luke Latham](https://github.com/guardrex)</span></span>
 
-<span data-ttu-id="f5c33-105"><xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>/<xref:Microsoft.AspNetCore.Http.IMiddleware> es un punto de extensibilidad para la activación de [middleware](xref:fundamentals/middleware/index).</span><span class="sxs-lookup"><span data-stu-id="f5c33-105"><xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>/<xref:Microsoft.AspNetCore.Http.IMiddleware> is an extensibility point for [middleware](xref:fundamentals/middleware/index) activation.</span></span>
+<span data-ttu-id="152b9-105"><xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>/<xref:Microsoft.AspNetCore.Http.IMiddleware> es un punto de extensibilidad para la activación de [middleware](xref:fundamentals/middleware/index).</span><span class="sxs-lookup"><span data-stu-id="152b9-105"><xref:Microsoft.AspNetCore.Http.IMiddlewareFactory>/<xref:Microsoft.AspNetCore.Http.IMiddleware> is an extensibility point for [middleware](xref:fundamentals/middleware/index) activation.</span></span>
 
-<span data-ttu-id="f5c33-106">Los métodos de extensión <xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*> comprueban si un tipo registrado de middleware implementa <xref:Microsoft.AspNetCore.Http.IMiddleware>.</span><span class="sxs-lookup"><span data-stu-id="f5c33-106"><xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*> extension methods check if a middleware's registered type implements <xref:Microsoft.AspNetCore.Http.IMiddleware>.</span></span> <span data-ttu-id="f5c33-107">Si es así, la instancia <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> registrada en el contenedor se usa para resolver la implementación <xref:Microsoft.AspNetCore.Http.IMiddleware> en lugar de usar la lógica de activación de middleware basado en convenciones.</span><span class="sxs-lookup"><span data-stu-id="f5c33-107">If it does, the <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> instance registered in the container is used to resolve the <xref:Microsoft.AspNetCore.Http.IMiddleware> implementation instead of using the convention-based middleware activation logic.</span></span> <span data-ttu-id="f5c33-108">El middleware se registra como un [servicio con ámbito o transitorio](xref:fundamentals/dependency-injection#service-lifetimes) en el contenedor de servicios de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="f5c33-108">The middleware is registered as a [scoped or transient service](xref:fundamentals/dependency-injection#service-lifetimes) in the app's service container.</span></span>
+<span data-ttu-id="152b9-106">Los métodos de extensión <xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*> comprueban si un tipo registrado de middleware implementa <xref:Microsoft.AspNetCore.Http.IMiddleware>.</span><span class="sxs-lookup"><span data-stu-id="152b9-106"><xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*> extension methods check if a middleware's registered type implements <xref:Microsoft.AspNetCore.Http.IMiddleware>.</span></span> <span data-ttu-id="152b9-107">Si es así, la instancia <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> registrada en el contenedor se usa para resolver la implementación <xref:Microsoft.AspNetCore.Http.IMiddleware> en lugar de usar la lógica de activación de middleware basado en convenciones.</span><span class="sxs-lookup"><span data-stu-id="152b9-107">If it does, the <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> instance registered in the container is used to resolve the <xref:Microsoft.AspNetCore.Http.IMiddleware> implementation instead of using the convention-based middleware activation logic.</span></span> <span data-ttu-id="152b9-108">El middleware se registra como un [servicio con ámbito o transitorio](xref:fundamentals/dependency-injection#service-lifetimes) en el contenedor de servicios de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="152b9-108">The middleware is registered as a [scoped or transient service](xref:fundamentals/dependency-injection#service-lifetimes) in the app's service container.</span></span>
 
-<span data-ttu-id="f5c33-109">Ventajas:</span><span class="sxs-lookup"><span data-stu-id="f5c33-109">Benefits:</span></span>
+<span data-ttu-id="152b9-109">Ventajas:</span><span class="sxs-lookup"><span data-stu-id="152b9-109">Benefits:</span></span>
 
-* <span data-ttu-id="f5c33-110">Activación por solicitud de cliente (inyección de servicios con ámbito)</span><span class="sxs-lookup"><span data-stu-id="f5c33-110">Activation per client request (injection of scoped services)</span></span>
-* <span data-ttu-id="f5c33-111">Tipado fuerte de middleware</span><span class="sxs-lookup"><span data-stu-id="f5c33-111">Strong typing of middleware</span></span>
+* <span data-ttu-id="152b9-110">Activación por solicitud de cliente (inyección de servicios con ámbito)</span><span class="sxs-lookup"><span data-stu-id="152b9-110">Activation per client request (injection of scoped services)</span></span>
+* <span data-ttu-id="152b9-111">Tipado fuerte de middleware</span><span class="sxs-lookup"><span data-stu-id="152b9-111">Strong typing of middleware</span></span>
 
-<span data-ttu-id="f5c33-112"><xref:Microsoft.AspNetCore.Http.IMiddleware> se activa por solicitud de cliente (conexión), por lo que los servicios con ámbito se pueden insertar en el constructor del middleware.</span><span class="sxs-lookup"><span data-stu-id="f5c33-112"><xref:Microsoft.AspNetCore.Http.IMiddleware> is activated per client request (connection), so scoped services can be injected into the middleware's constructor.</span></span>
+<span data-ttu-id="152b9-112"><xref:Microsoft.AspNetCore.Http.IMiddleware> se activa por solicitud de cliente (conexión), por lo que los servicios con ámbito se pueden insertar en el constructor del middleware.</span><span class="sxs-lookup"><span data-stu-id="152b9-112"><xref:Microsoft.AspNetCore.Http.IMiddleware> is activated per client request (connection), so scoped services can be injected into the middleware's constructor.</span></span>
 
-<span data-ttu-id="f5c33-113">[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="f5c33-113">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/samples) ([how to download](xref:index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="152b9-113">[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="152b9-113">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility/samples) ([how to download](xref:index#how-to-download-a-sample))</span></span>
 
-## <a name="imiddleware"></a><span data-ttu-id="f5c33-114">IMiddleware</span><span class="sxs-lookup"><span data-stu-id="f5c33-114">IMiddleware</span></span>
+## <a name="imiddleware"></a><span data-ttu-id="152b9-114">IMiddleware</span><span class="sxs-lookup"><span data-stu-id="152b9-114">IMiddleware</span></span>
 
-<span data-ttu-id="f5c33-115"><xref:Microsoft.AspNetCore.Http.IMiddleware> define el middleware para la canalización de solicitudes de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="f5c33-115"><xref:Microsoft.AspNetCore.Http.IMiddleware> defines middleware for the app's request pipeline.</span></span> <span data-ttu-id="f5c33-116">El método [InvokeAsync(HttpContext, RequestDelegate)](xref:Microsoft.AspNetCore.Http.IMiddleware.InvokeAsync*) controla las solicitudes y devuelve una <xref:System.Threading.Tasks.Task> que representa la ejecución del middleware.</span><span class="sxs-lookup"><span data-stu-id="f5c33-116">The [InvokeAsync(HttpContext, RequestDelegate)](xref:Microsoft.AspNetCore.Http.IMiddleware.InvokeAsync*) method handles requests and returns a <xref:System.Threading.Tasks.Task> that represents the execution of the middleware.</span></span>
+<span data-ttu-id="152b9-115"><xref:Microsoft.AspNetCore.Http.IMiddleware> define el middleware para la canalización de solicitudes de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="152b9-115"><xref:Microsoft.AspNetCore.Http.IMiddleware> defines middleware for the app's request pipeline.</span></span> <span data-ttu-id="152b9-116">El método [InvokeAsync(HttpContext, RequestDelegate)](xref:Microsoft.AspNetCore.Http.IMiddleware.InvokeAsync*) controla las solicitudes y devuelve una <xref:System.Threading.Tasks.Task> que representa la ejecución del middleware.</span><span class="sxs-lookup"><span data-stu-id="152b9-116">The [InvokeAsync(HttpContext, RequestDelegate)](xref:Microsoft.AspNetCore.Http.IMiddleware.InvokeAsync*) method handles requests and returns a <xref:System.Threading.Tasks.Task> that represents the execution of the middleware.</span></span>
 
-<span data-ttu-id="f5c33-117">Middleware activado por convención:</span><span class="sxs-lookup"><span data-stu-id="f5c33-117">Middleware activated by convention:</span></span>
+<span data-ttu-id="152b9-117">Middleware activado por convención:</span><span class="sxs-lookup"><span data-stu-id="152b9-117">Middleware activated by convention:</span></span>
 
 [!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Middleware/ConventionalMiddleware.cs?name=snippet1)]
 
-<span data-ttu-id="f5c33-118">Middleware activado por <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>:</span><span class="sxs-lookup"><span data-stu-id="f5c33-118">Middleware activated by <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>:</span></span>
+<span data-ttu-id="152b9-118">Middleware activado por <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>:</span><span class="sxs-lookup"><span data-stu-id="152b9-118">Middleware activated by <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>:</span></span>
 
 [!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Middleware/FactoryActivatedMiddleware.cs?name=snippet1)]
 
-<span data-ttu-id="f5c33-119">Las extensiones se crean para los middlewares:</span><span class="sxs-lookup"><span data-stu-id="f5c33-119">Extensions are created for the middlewares:</span></span>
+<span data-ttu-id="152b9-119">Las extensiones se crean para los middlewares:</span><span class="sxs-lookup"><span data-stu-id="152b9-119">Extensions are created for the middlewares:</span></span>
 
 [!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Middleware/MiddlewareExtensions.cs?name=snippet1)]
 
-<span data-ttu-id="f5c33-120">No se pueden pasar objetos al middleware activado por Factory con <xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*>:</span><span class="sxs-lookup"><span data-stu-id="f5c33-120">It isn't possible to pass objects to the factory-activated middleware with <xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*>:</span></span>
+<span data-ttu-id="152b9-120">No se pueden pasar objetos al middleware activado por Factory con <xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*>:</span><span class="sxs-lookup"><span data-stu-id="152b9-120">It isn't possible to pass objects to the factory-activated middleware with <xref:Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.UseMiddleware*>:</span></span>
 
 ```csharp
 public static IApplicationBuilder UseFactoryActivatedMiddleware(
@@ -58,21 +58,21 @@ public static IApplicationBuilder UseFactoryActivatedMiddleware(
 }
 ```
 
-<span data-ttu-id="f5c33-121">El middleware activado por Factory se agrega al contenedor integrado en `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="f5c33-121">The factory-activated middleware is added to the built-in container in `Startup.ConfigureServices`:</span></span>
+<span data-ttu-id="152b9-121">El middleware activado por Factory se agrega al contenedor integrado en `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="152b9-121">The factory-activated middleware is added to the built-in container in `Startup.ConfigureServices`:</span></span>
 
 [!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Startup.cs?name=snippet1&highlight=6)]
 
-<span data-ttu-id="f5c33-122">Ambos middlewares se registran en la canalización de procesamiento de solicitudes en `Startup.Configure`:</span><span class="sxs-lookup"><span data-stu-id="f5c33-122">Both middlewares are registered in the request processing pipeline in `Startup.Configure`:</span></span>
+<span data-ttu-id="152b9-122">Ambos middlewares se registran en la canalización de procesamiento de solicitudes en `Startup.Configure`:</span><span class="sxs-lookup"><span data-stu-id="152b9-122">Both middlewares are registered in the request processing pipeline in `Startup.Configure`:</span></span>
 
 [!code-csharp[](extensibility/samples/2.x/MiddlewareExtensibilitySample/Startup.cs?name=snippet2&highlight=13-14)]
 
-## <a name="imiddlewarefactory"></a><span data-ttu-id="f5c33-123">IMiddlewareFactory</span><span class="sxs-lookup"><span data-stu-id="f5c33-123">IMiddlewareFactory</span></span>
+## <a name="imiddlewarefactory"></a><span data-ttu-id="152b9-123">IMiddlewareFactory</span><span class="sxs-lookup"><span data-stu-id="152b9-123">IMiddlewareFactory</span></span>
 
-<span data-ttu-id="f5c33-124"><xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> proporciona métodos para crear middleware.</span><span class="sxs-lookup"><span data-stu-id="f5c33-124"><xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> provides methods to create middleware.</span></span> <span data-ttu-id="f5c33-125">La implementación de Middleware Factory se registra en el contenedor como un servicio con ámbito.</span><span class="sxs-lookup"><span data-stu-id="f5c33-125">The middleware factory implementation is registered in the container as a scoped service.</span></span>
+<span data-ttu-id="152b9-124"><xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> proporciona métodos para crear middleware.</span><span class="sxs-lookup"><span data-stu-id="152b9-124"><xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> provides methods to create middleware.</span></span> <span data-ttu-id="152b9-125">La implementación de Middleware Factory se registra en el contenedor como un servicio con ámbito.</span><span class="sxs-lookup"><span data-stu-id="152b9-125">The middleware factory implementation is registered in the container as a scoped service.</span></span>
 
-<span data-ttu-id="f5c33-126">La implementación <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> predeterminada, <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>, se encuentra en el paquete [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/).</span><span class="sxs-lookup"><span data-stu-id="f5c33-126">The default <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> implementation, <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>, is found in the [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) package.</span></span>
+<span data-ttu-id="152b9-126">La implementación <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> predeterminada, <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>, se encuentra en el paquete [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/).</span><span class="sxs-lookup"><span data-stu-id="152b9-126">The default <xref:Microsoft.AspNetCore.Http.IMiddlewareFactory> implementation, <xref:Microsoft.AspNetCore.Http.MiddlewareFactory>, is found in the [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) package.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="f5c33-127">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="f5c33-127">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="152b9-127">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="152b9-127">Additional resources</span></span>
 
 * <xref:fundamentals/middleware/index>
 * <xref:fundamentals/middleware/extensibility-third-party-container>

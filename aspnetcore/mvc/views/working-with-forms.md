@@ -7,39 +7,39 @@ ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/working-with-forms
 ms.openlocfilehash: 6eff3bf03e650e154b5c767c9bcdd915e7db8b47
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468807"
 ---
-# <a name="tag-helpers-in-forms-in-aspnet-core"></a><span data-ttu-id="6416a-103">Asistentes de etiquetas en formularios de ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="6416a-103">Tag Helpers in forms in ASP.NET Core</span></span>
+# <a name="tag-helpers-in-forms-in-aspnet-core"></a><span data-ttu-id="c7572-103">Asistentes de etiquetas en formularios de ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="c7572-103">Tag Helpers in forms in ASP.NET Core</span></span>
 
-<span data-ttu-id="6416a-104">Por [Rick Anderson](https://twitter.com/RickAndMSFT), [N. Taylor Mullen](https://github.com/NTaylorMullen), [Dave Paquette](https://twitter.com/Dave_Paquette) y [Jerrie Pelser](https://github.com/jerriep)</span><span class="sxs-lookup"><span data-stu-id="6416a-104">By [Rick Anderson](https://twitter.com/RickAndMSFT), [N. Taylor Mullen](https://github.com/NTaylorMullen), [Dave Paquette](https://twitter.com/Dave_Paquette), and [Jerrie Pelser](https://github.com/jerriep)</span></span>
+<span data-ttu-id="c7572-104">Por [Rick Anderson](https://twitter.com/RickAndMSFT), [N. Taylor Mullen](https://github.com/NTaylorMullen), [Dave Paquette](https://twitter.com/Dave_Paquette) y [Jerrie Pelser](https://github.com/jerriep)</span><span class="sxs-lookup"><span data-stu-id="c7572-104">By [Rick Anderson](https://twitter.com/RickAndMSFT), [N. Taylor Mullen](https://github.com/NTaylorMullen), [Dave Paquette](https://twitter.com/Dave_Paquette), and [Jerrie Pelser](https://github.com/jerriep)</span></span>
 
-<span data-ttu-id="6416a-105">En este documento se explica cómo trabajar con formularios y se detallan los elementos HTML que se usan habitualmente en un formulario.</span><span class="sxs-lookup"><span data-stu-id="6416a-105">This document demonstrates working with Forms and the HTML elements commonly used on a Form.</span></span> <span data-ttu-id="6416a-106">El elemento HTML [Form](https://www.w3.org/TR/html401/interact/forms.html) proporciona el mecanismo principal que las aplicaciones web usan a la hora de devolver datos al servidor.</span><span class="sxs-lookup"><span data-stu-id="6416a-106">The HTML [Form](https://www.w3.org/TR/html401/interact/forms.html) element provides the primary mechanism web apps use to post back data to the server.</span></span> <span data-ttu-id="6416a-107">La mayor parte de este documento se centra en describir los [asistentes de etiquetas](tag-helpers/intro.md) y cómo pueden servir para crear formularios HTML eficaces de manera productiva.</span><span class="sxs-lookup"><span data-stu-id="6416a-107">Most of this document describes [Tag Helpers](tag-helpers/intro.md) and how they can help you productively create robust HTML forms.</span></span> <span data-ttu-id="6416a-108">Se recomienda leer [Introduction to Tag Helpers](tag-helpers/intro.md) (Introducción a los asistentes de etiquetas) antes de este documento.</span><span class="sxs-lookup"><span data-stu-id="6416a-108">We recommend you read [Introduction to Tag Helpers](tag-helpers/intro.md) before you read this document.</span></span>
+<span data-ttu-id="c7572-105">En este documento se explica cómo trabajar con formularios y se detallan los elementos HTML que se usan habitualmente en un formulario.</span><span class="sxs-lookup"><span data-stu-id="c7572-105">This document demonstrates working with Forms and the HTML elements commonly used on a Form.</span></span> <span data-ttu-id="c7572-106">El elemento HTML [Form](https://www.w3.org/TR/html401/interact/forms.html) proporciona el mecanismo principal que las aplicaciones web usan a la hora de devolver datos al servidor.</span><span class="sxs-lookup"><span data-stu-id="c7572-106">The HTML [Form](https://www.w3.org/TR/html401/interact/forms.html) element provides the primary mechanism web apps use to post back data to the server.</span></span> <span data-ttu-id="c7572-107">La mayor parte de este documento se centra en describir los [asistentes de etiquetas](tag-helpers/intro.md) y cómo pueden servir para crear formularios HTML eficaces de manera productiva.</span><span class="sxs-lookup"><span data-stu-id="c7572-107">Most of this document describes [Tag Helpers](tag-helpers/intro.md) and how they can help you productively create robust HTML forms.</span></span> <span data-ttu-id="c7572-108">Se recomienda leer [Introduction to Tag Helpers](tag-helpers/intro.md) (Introducción a los asistentes de etiquetas) antes de este documento.</span><span class="sxs-lookup"><span data-stu-id="c7572-108">We recommend you read [Introduction to Tag Helpers](tag-helpers/intro.md) before you read this document.</span></span>
 
-<span data-ttu-id="6416a-109">En muchos casos, los asistentes de HTML proporcionan un método alternativo para un asistente de etiquetas específico, pero es importante tener en cuenta que los asistentes de etiquetas no reemplazan a los asistentes de HTML y que no hay un asistente de etiquetas para cada asistente de HTML.</span><span class="sxs-lookup"><span data-stu-id="6416a-109">In many cases, HTML Helpers provide an alternative approach to a specific Tag Helper, but it's important to recognize that Tag Helpers don't replace HTML Helpers and there's not a Tag Helper for each HTML Helper.</span></span> <span data-ttu-id="6416a-110">Si existe una alternativa del asistente de HTML, se mencionará aquí.</span><span class="sxs-lookup"><span data-stu-id="6416a-110">When an HTML Helper alternative exists, it's mentioned.</span></span>
+<span data-ttu-id="c7572-109">En muchos casos, los asistentes de HTML proporcionan un método alternativo para un asistente de etiquetas específico, pero es importante tener en cuenta que los asistentes de etiquetas no reemplazan a los asistentes de HTML y que no hay un asistente de etiquetas para cada asistente de HTML.</span><span class="sxs-lookup"><span data-stu-id="c7572-109">In many cases, HTML Helpers provide an alternative approach to a specific Tag Helper, but it's important to recognize that Tag Helpers don't replace HTML Helpers and there's not a Tag Helper for each HTML Helper.</span></span> <span data-ttu-id="c7572-110">Si existe una alternativa del asistente de HTML, se mencionará aquí.</span><span class="sxs-lookup"><span data-stu-id="c7572-110">When an HTML Helper alternative exists, it's mentioned.</span></span>
 
 <a name="my-asp-route-param-ref-label"></a>
 
-## <a name="the-form-tag-helper"></a><span data-ttu-id="6416a-111">Asistente de etiquetas de formulario (Form)</span><span class="sxs-lookup"><span data-stu-id="6416a-111">The Form Tag Helper</span></span>
+## <a name="the-form-tag-helper"></a><span data-ttu-id="c7572-111">Asistente de etiquetas de formulario (Form)</span><span class="sxs-lookup"><span data-stu-id="c7572-111">The Form Tag Helper</span></span>
 
-<span data-ttu-id="6416a-112">El asistente de etiquetas [Form](https://www.w3.org/TR/html401/interact/forms.html) hace lo siguiente:</span><span class="sxs-lookup"><span data-stu-id="6416a-112">The [Form](https://www.w3.org/TR/html401/interact/forms.html) Tag Helper:</span></span>
+<span data-ttu-id="c7572-112">El asistente de etiquetas [Form](https://www.w3.org/TR/html401/interact/forms.html) hace lo siguiente:</span><span class="sxs-lookup"><span data-stu-id="c7572-112">The [Form](https://www.w3.org/TR/html401/interact/forms.html) Tag Helper:</span></span>
 
-* <span data-ttu-id="6416a-113">Genera el valor de atributo `action` del elemento HTML [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) de una acción de controlador MVC o ruta con nombre.</span><span class="sxs-lookup"><span data-stu-id="6416a-113">Generates the HTML [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) `action` attribute value for a MVC controller action or named route</span></span>
+* <span data-ttu-id="c7572-113">Genera el valor de atributo `action` del elemento HTML [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) de una acción de controlador MVC o ruta con nombre.</span><span class="sxs-lookup"><span data-stu-id="c7572-113">Generates the HTML [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) `action` attribute value for a MVC controller action or named route</span></span>
 
-* <span data-ttu-id="6416a-114">Genera un [token comprobación de solicitudes](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) oculto que impide que se falsifiquen solicitudes entre sitios (cuando se usa con el atributo `[ValidateAntiForgeryToken]` en el método de acción HTTP Post).</span><span class="sxs-lookup"><span data-stu-id="6416a-114">Generates a hidden [Request Verification Token](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) to prevent cross-site request forgery (when used with the `[ValidateAntiForgeryToken]` attribute in the HTTP Post action method)</span></span>
+* <span data-ttu-id="c7572-114">Genera un [token comprobación de solicitudes](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) oculto que impide que se falsifiquen solicitudes entre sitios (cuando se usa con el atributo `[ValidateAntiForgeryToken]` en el método de acción HTTP Post).</span><span class="sxs-lookup"><span data-stu-id="c7572-114">Generates a hidden [Request Verification Token](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) to prevent cross-site request forgery (when used with the `[ValidateAntiForgeryToken]` attribute in the HTTP Post action method)</span></span>
 
-* <span data-ttu-id="6416a-115">Proporciona el atributo `asp-route-<Parameter Name>`, donde `<Parameter Name>` se agrega a los valores de ruta.</span><span class="sxs-lookup"><span data-stu-id="6416a-115">Provides the `asp-route-<Parameter Name>` attribute, where `<Parameter Name>` is added to the route values.</span></span> <span data-ttu-id="6416a-116">Los parámetros `routeValues` de `Html.BeginForm` y `Html.BeginRouteForm` proporcionan una funcionalidad similar.</span><span class="sxs-lookup"><span data-stu-id="6416a-116">The  `routeValues` parameters to `Html.BeginForm` and `Html.BeginRouteForm` provide similar functionality.</span></span>
+* <span data-ttu-id="c7572-115">Proporciona el atributo `asp-route-<Parameter Name>`, donde `<Parameter Name>` se agrega a los valores de ruta.</span><span class="sxs-lookup"><span data-stu-id="c7572-115">Provides the `asp-route-<Parameter Name>` attribute, where `<Parameter Name>` is added to the route values.</span></span> <span data-ttu-id="c7572-116">Los parámetros `routeValues` de `Html.BeginForm` y `Html.BeginRouteForm` proporcionan una funcionalidad similar.</span><span class="sxs-lookup"><span data-stu-id="c7572-116">The  `routeValues` parameters to `Html.BeginForm` and `Html.BeginRouteForm` provide similar functionality.</span></span>
 
-* <span data-ttu-id="6416a-117">Como alternativa del asistente de HTML tiene `Html.BeginForm` y</span><span class="sxs-lookup"><span data-stu-id="6416a-117">Has an HTML Helper alternative `Html.BeginForm` and</span></span> `Html.BeginRouteForm`
+* <span data-ttu-id="c7572-117">Tiene `Html.BeginForm` y `Html.BeginRouteForm` como alternativa del asistente de HTML.</span><span class="sxs-lookup"><span data-stu-id="c7572-117">Has an HTML Helper alternative `Html.BeginForm` and `Html.BeginRouteForm`</span></span>
 
-<span data-ttu-id="6416a-118">Ejemplo:</span><span class="sxs-lookup"><span data-stu-id="6416a-118">Sample:</span></span>
+<span data-ttu-id="c7572-118">Ejemplo:</span><span class="sxs-lookup"><span data-stu-id="c7572-118">Sample:</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Demo/RegisterFormOnly.cshtml)]
 
-<span data-ttu-id="6416a-119">El asistente de etiquetas Form anterior genera el siguiente HTML:</span><span class="sxs-lookup"><span data-stu-id="6416a-119">The Form Tag Helper above generates the following HTML:</span></span>
+<span data-ttu-id="c7572-119">El asistente de etiquetas Form anterior genera el siguiente HTML:</span><span class="sxs-lookup"><span data-stu-id="c7572-119">The Form Tag Helper above generates the following HTML:</span></span>
 
 ```HTML
 <form method="post" action="/Demo/Register">
@@ -48,15 +48,15 @@ ms.locfileid: "59468807"
 </form>
 ```
 
-<span data-ttu-id="6416a-120">El tiempo de ejecución MVC genera el valor de atributo `action` de los atributos del asistente de etiquetas Form `asp-controller` y `asp-action`.</span><span class="sxs-lookup"><span data-stu-id="6416a-120">The MVC runtime generates the `action` attribute value from the Form Tag Helper attributes `asp-controller` and `asp-action`.</span></span> <span data-ttu-id="6416a-121">El asistente de etiquetas Form genera también un [token de comprobación de solicitudes](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) oculto que impide que se falsifiquen solicitudes entre sitios (cuando se usa con el atributo `[ValidateAntiForgeryToken]` en el método de acción HTTP Post).</span><span class="sxs-lookup"><span data-stu-id="6416a-121">The Form Tag Helper also generates a hidden [Request Verification Token](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) to prevent cross-site request forgery (when used with the `[ValidateAntiForgeryToken]` attribute in the HTTP Post action method).</span></span> <span data-ttu-id="6416a-122">Proteger un elemento HTML Form puro de la falsificación de solicitudes entre sitios no es tarea fácil, y el asistente de etiquetas Form presta este servicio.</span><span class="sxs-lookup"><span data-stu-id="6416a-122">Protecting a pure HTML Form from cross-site request forgery is difficult, the Form Tag Helper provides this service for you.</span></span>
+<span data-ttu-id="c7572-120">El tiempo de ejecución MVC genera el valor de atributo `action` de los atributos del asistente de etiquetas Form `asp-controller` y `asp-action`.</span><span class="sxs-lookup"><span data-stu-id="c7572-120">The MVC runtime generates the `action` attribute value from the Form Tag Helper attributes `asp-controller` and `asp-action`.</span></span> <span data-ttu-id="c7572-121">El asistente de etiquetas Form genera también un [token de comprobación de solicitudes](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) oculto que impide que se falsifiquen solicitudes entre sitios (cuando se usa con el atributo `[ValidateAntiForgeryToken]` en el método de acción HTTP Post).</span><span class="sxs-lookup"><span data-stu-id="c7572-121">The Form Tag Helper also generates a hidden [Request Verification Token](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) to prevent cross-site request forgery (when used with the `[ValidateAntiForgeryToken]` attribute in the HTTP Post action method).</span></span> <span data-ttu-id="c7572-122">Proteger un elemento HTML Form puro de la falsificación de solicitudes entre sitios no es tarea fácil, y el asistente de etiquetas Form presta este servicio.</span><span class="sxs-lookup"><span data-stu-id="c7572-122">Protecting a pure HTML Form from cross-site request forgery is difficult, the Form Tag Helper provides this service for you.</span></span>
 
-### <a name="using-a-named-route"></a><span data-ttu-id="6416a-123">Uso de una ruta con nombre</span><span class="sxs-lookup"><span data-stu-id="6416a-123">Using a named route</span></span>
+### <a name="using-a-named-route"></a><span data-ttu-id="c7572-123">Uso de una ruta con nombre</span><span class="sxs-lookup"><span data-stu-id="c7572-123">Using a named route</span></span>
 
-<span data-ttu-id="6416a-124">El atributo del asistente de etiquetas `asp-route` puede generar también el marcado del atributo HTML `action`.</span><span class="sxs-lookup"><span data-stu-id="6416a-124">The `asp-route` Tag Helper attribute can also generate markup for the HTML `action` attribute.</span></span> <span data-ttu-id="6416a-125">Una aplicación con una [ruta](../../fundamentals/routing.md) denominada `register` podría usar el siguiente marcado para la página de registro:</span><span class="sxs-lookup"><span data-stu-id="6416a-125">An app with a [route](../../fundamentals/routing.md)  named `register` could use the following markup for the registration page:</span></span>
+<span data-ttu-id="c7572-124">El atributo del asistente de etiquetas `asp-route` puede generar también el marcado del atributo HTML `action`.</span><span class="sxs-lookup"><span data-stu-id="c7572-124">The `asp-route` Tag Helper attribute can also generate markup for the HTML `action` attribute.</span></span> <span data-ttu-id="c7572-125">Una aplicación con una [ruta](../../fundamentals/routing.md) denominada `register` podría usar el siguiente marcado para la página de registro:</span><span class="sxs-lookup"><span data-stu-id="c7572-125">An app with a [route](../../fundamentals/routing.md)  named `register` could use the following markup for the registration page:</span></span>
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
-<span data-ttu-id="6416a-126">Muchas de las vistas de la carpeta *Views/Account* (que se genera cuando se crea una aplicación web con *Cuentas de usuario individuales*) contienen el atributo [asp-route-returnurl](xref:mvc/views/working-with-forms):</span><span class="sxs-lookup"><span data-stu-id="6416a-126">Many of the views in the *Views/Account* folder (generated when you create a new web app with *Individual User Accounts*) contain the [asp-route-returnurl](xref:mvc/views/working-with-forms) attribute:</span></span>
+<span data-ttu-id="c7572-126">Muchas de las vistas de la carpeta *Views/Account* (que se genera cuando se crea una aplicación web con *Cuentas de usuario individuales*) contienen el atributo [asp-route-returnurl](xref:mvc/views/working-with-forms):</span><span class="sxs-lookup"><span data-stu-id="c7572-126">Many of the views in the *Views/Account* folder (generated when you create a new web app with *Individual User Accounts*) contain the [asp-route-returnurl](xref:mvc/views/working-with-forms) attribute:</span></span>
 
 ```cshtml
 <form asp-controller="Account" asp-action="Login"
@@ -65,29 +65,29 @@ ms.locfileid: "59468807"
 ```
 
 >[!NOTE]
-><span data-ttu-id="6416a-127">Con las plantillas integradas, `returnUrl` se rellena automáticamente solo cuando alguien intenta obtener acceso a un recurso autorizado, pero no se ha autenticado o no tiene autorización.</span><span class="sxs-lookup"><span data-stu-id="6416a-127">With the built in templates, `returnUrl` is only populated automatically when you try to access an authorized resource but are not authenticated or authorized.</span></span> <span data-ttu-id="6416a-128">Si se intenta realizar un acceso no autorizado, el middleware de seguridad redirige a la página de inicio de sesión con `returnUrl` configurado.</span><span class="sxs-lookup"><span data-stu-id="6416a-128">When you attempt an unauthorized access, the security middleware redirects you to the login page with the `returnUrl` set.</span></span>
+><span data-ttu-id="c7572-127">Con las plantillas integradas, `returnUrl` se rellena automáticamente solo cuando alguien intenta obtener acceso a un recurso autorizado, pero no se ha autenticado o no tiene autorización.</span><span class="sxs-lookup"><span data-stu-id="c7572-127">With the built in templates, `returnUrl` is only populated automatically when you try to access an authorized resource but are not authenticated or authorized.</span></span> <span data-ttu-id="c7572-128">Si se intenta realizar un acceso no autorizado, el middleware de seguridad redirige a la página de inicio de sesión con `returnUrl` configurado.</span><span class="sxs-lookup"><span data-stu-id="c7572-128">When you attempt an unauthorized access, the security middleware redirects you to the login page with the `returnUrl` set.</span></span>
 
-## <a name="the-form-action-tag-helper"></a><span data-ttu-id="6416a-129">Asistente de etiquetas de acción de formulario</span><span class="sxs-lookup"><span data-stu-id="6416a-129">The Form Action Tag Helper</span></span>
+## <a name="the-form-action-tag-helper"></a><span data-ttu-id="c7572-129">Asistente de etiquetas de acción de formulario</span><span class="sxs-lookup"><span data-stu-id="c7572-129">The Form Action Tag Helper</span></span>
 
-<span data-ttu-id="6416a-130">El asistente de etiquetas de acción de formulario genera el atributo `formaction` en la etiqueta `<button ...>` o `<input type="image" ...>` generadas.</span><span class="sxs-lookup"><span data-stu-id="6416a-130">The Form Action Tag Helper generates the `formaction` attribute on the generated `<button ...>` or `<input type="image" ...>` tag.</span></span> <span data-ttu-id="6416a-131">El atributo `formaction` controla el lugar donde un formulario envía sus datos.</span><span class="sxs-lookup"><span data-stu-id="6416a-131">The `formaction` attribute controls where a form submits its data.</span></span> <span data-ttu-id="6416a-132">Enlaza con los elementos [\<input>](https://www.w3.org/wiki/HTML/Elements/input) de tipo `image` y los elementos [\<button>](https://www.w3.org/wiki/HTML/Elements/button).</span><span class="sxs-lookup"><span data-stu-id="6416a-132">It binds to [\<input>](https://www.w3.org/wiki/HTML/Elements/input) elements of type `image` and [\<button>](https://www.w3.org/wiki/HTML/Elements/button) elements.</span></span> <span data-ttu-id="6416a-133">El asistente de etiquetas de acción de formulario permite el uso de varios atributos [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-` para controlar qué vínculo `formaction` se genera para el elemento correspondiente.</span><span class="sxs-lookup"><span data-stu-id="6416a-133">The Form Action Tag Helper enables the usage of several [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-` attributes to control what `formaction` link is generated for the corresponding element.</span></span>
+<span data-ttu-id="c7572-130">El asistente de etiquetas de acción de formulario genera el atributo `formaction` en la etiqueta `<button ...>` o `<input type="image" ...>` generadas.</span><span class="sxs-lookup"><span data-stu-id="c7572-130">The Form Action Tag Helper generates the `formaction` attribute on the generated `<button ...>` or `<input type="image" ...>` tag.</span></span> <span data-ttu-id="c7572-131">El atributo `formaction` controla el lugar donde un formulario envía sus datos.</span><span class="sxs-lookup"><span data-stu-id="c7572-131">The `formaction` attribute controls where a form submits its data.</span></span> <span data-ttu-id="c7572-132">Enlaza con los elementos [\<input>](https://www.w3.org/wiki/HTML/Elements/input) de tipo `image` y los elementos [\<button>](https://www.w3.org/wiki/HTML/Elements/button).</span><span class="sxs-lookup"><span data-stu-id="c7572-132">It binds to [\<input>](https://www.w3.org/wiki/HTML/Elements/input) elements of type `image` and [\<button>](https://www.w3.org/wiki/HTML/Elements/button) elements.</span></span> <span data-ttu-id="c7572-133">El asistente de etiquetas de acción de formulario permite el uso de varios atributos [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-` para controlar qué vínculo `formaction` se genera para el elemento correspondiente.</span><span class="sxs-lookup"><span data-stu-id="c7572-133">The Form Action Tag Helper enables the usage of several [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-` attributes to control what `formaction` link is generated for the corresponding element.</span></span>
 
-<span data-ttu-id="6416a-134">Atributos [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) admitidos para controlar el valor de `formaction`:</span><span class="sxs-lookup"><span data-stu-id="6416a-134">Supported [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) attributes to control the value of `formaction`:</span></span>
+<span data-ttu-id="c7572-134">Atributos [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) admitidos para controlar el valor de `formaction`:</span><span class="sxs-lookup"><span data-stu-id="c7572-134">Supported [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) attributes to control the value of `formaction`:</span></span>
 
-|<span data-ttu-id="6416a-135">Atributo</span><span class="sxs-lookup"><span data-stu-id="6416a-135">Attribute</span></span>|<span data-ttu-id="6416a-136">Descripción</span><span class="sxs-lookup"><span data-stu-id="6416a-136">Description</span></span>|
+|<span data-ttu-id="c7572-135">Atributo</span><span class="sxs-lookup"><span data-stu-id="c7572-135">Attribute</span></span>|<span data-ttu-id="c7572-136">Descripción</span><span class="sxs-lookup"><span data-stu-id="c7572-136">Description</span></span>|
 |---|---|
-|[<span data-ttu-id="6416a-137">asp-controller</span><span class="sxs-lookup"><span data-stu-id="6416a-137">asp-controller</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-controller)|<span data-ttu-id="6416a-138">El nombre del controlador.</span><span class="sxs-lookup"><span data-stu-id="6416a-138">The name of the controller.</span></span>|
-|[<span data-ttu-id="6416a-139">asp-action</span><span class="sxs-lookup"><span data-stu-id="6416a-139">asp-action</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-action)|<span data-ttu-id="6416a-140">El nombre del método de acción.</span><span class="sxs-lookup"><span data-stu-id="6416a-140">The name of the action method.</span></span>|
-|[<span data-ttu-id="6416a-141">asp-area</span><span class="sxs-lookup"><span data-stu-id="6416a-141">asp-area</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-area)|<span data-ttu-id="6416a-142">El nombre del área.</span><span class="sxs-lookup"><span data-stu-id="6416a-142">The name of the area.</span></span>|
-|[<span data-ttu-id="6416a-143">asp-page</span><span class="sxs-lookup"><span data-stu-id="6416a-143">asp-page</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|<span data-ttu-id="6416a-144">El nombre de la página de Razor.</span><span class="sxs-lookup"><span data-stu-id="6416a-144">The name of the Razor page.</span></span>|
-|[<span data-ttu-id="6416a-145">asp-page-handler</span><span class="sxs-lookup"><span data-stu-id="6416a-145">asp-page-handler</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|<span data-ttu-id="6416a-146">El nombre del controlador de páginas de Razor.</span><span class="sxs-lookup"><span data-stu-id="6416a-146">The name of the Razor page handler.</span></span>|
-|[<span data-ttu-id="6416a-147">asp-route</span><span class="sxs-lookup"><span data-stu-id="6416a-147">asp-route</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|<span data-ttu-id="6416a-148">El nombre de la ruta.</span><span class="sxs-lookup"><span data-stu-id="6416a-148">The name of the route.</span></span>|
-|[<span data-ttu-id="6416a-149">asp-route-{valor}</span><span class="sxs-lookup"><span data-stu-id="6416a-149">asp-route-{value}</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|<span data-ttu-id="6416a-150">Un valor único de ruta de dirección URL.</span><span class="sxs-lookup"><span data-stu-id="6416a-150">A single URL route value.</span></span> <span data-ttu-id="6416a-151">Por ejemplo: `asp-route-id="1234"`.</span><span class="sxs-lookup"><span data-stu-id="6416a-151">For example, `asp-route-id="1234"`.</span></span>|
-|[<span data-ttu-id="6416a-152">asp-all-route-data</span><span class="sxs-lookup"><span data-stu-id="6416a-152">asp-all-route-data</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|<span data-ttu-id="6416a-153">Todos los valores de ruta.</span><span class="sxs-lookup"><span data-stu-id="6416a-153">All route values.</span></span>|
-|[<span data-ttu-id="6416a-154">asp-fragment</span><span class="sxs-lookup"><span data-stu-id="6416a-154">asp-fragment</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|<span data-ttu-id="6416a-155">El fragmento de dirección URL.</span><span class="sxs-lookup"><span data-stu-id="6416a-155">The URL fragment.</span></span>|
+|[<span data-ttu-id="c7572-137">asp-controller</span><span class="sxs-lookup"><span data-stu-id="c7572-137">asp-controller</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-controller)|<span data-ttu-id="c7572-138">El nombre del controlador.</span><span class="sxs-lookup"><span data-stu-id="c7572-138">The name of the controller.</span></span>|
+|[<span data-ttu-id="c7572-139">asp-action</span><span class="sxs-lookup"><span data-stu-id="c7572-139">asp-action</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-action)|<span data-ttu-id="c7572-140">El nombre del método de acción.</span><span class="sxs-lookup"><span data-stu-id="c7572-140">The name of the action method.</span></span>|
+|[<span data-ttu-id="c7572-141">asp-area</span><span class="sxs-lookup"><span data-stu-id="c7572-141">asp-area</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-area)|<span data-ttu-id="c7572-142">El nombre del área.</span><span class="sxs-lookup"><span data-stu-id="c7572-142">The name of the area.</span></span>|
+|[<span data-ttu-id="c7572-143">asp-page</span><span class="sxs-lookup"><span data-stu-id="c7572-143">asp-page</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|<span data-ttu-id="c7572-144">El nombre de la página de Razor.</span><span class="sxs-lookup"><span data-stu-id="c7572-144">The name of the Razor page.</span></span>|
+|[<span data-ttu-id="c7572-145">asp-page-handler</span><span class="sxs-lookup"><span data-stu-id="c7572-145">asp-page-handler</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|<span data-ttu-id="c7572-146">El nombre del controlador de páginas de Razor.</span><span class="sxs-lookup"><span data-stu-id="c7572-146">The name of the Razor page handler.</span></span>|
+|[<span data-ttu-id="c7572-147">asp-route</span><span class="sxs-lookup"><span data-stu-id="c7572-147">asp-route</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|<span data-ttu-id="c7572-148">El nombre de la ruta.</span><span class="sxs-lookup"><span data-stu-id="c7572-148">The name of the route.</span></span>|
+|[<span data-ttu-id="c7572-149">asp-route-{value}</span><span class="sxs-lookup"><span data-stu-id="c7572-149">asp-route-{value}</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|<span data-ttu-id="c7572-150">Un valor único de ruta de dirección URL.</span><span class="sxs-lookup"><span data-stu-id="c7572-150">A single URL route value.</span></span> <span data-ttu-id="c7572-151">Por ejemplo: `asp-route-id="1234"`.</span><span class="sxs-lookup"><span data-stu-id="c7572-151">For example, `asp-route-id="1234"`.</span></span>|
+|[<span data-ttu-id="c7572-152">asp-all-route-data</span><span class="sxs-lookup"><span data-stu-id="c7572-152">asp-all-route-data</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|<span data-ttu-id="c7572-153">Todos los valores de ruta.</span><span class="sxs-lookup"><span data-stu-id="c7572-153">All route values.</span></span>|
+|[<span data-ttu-id="c7572-154">asp-fragment</span><span class="sxs-lookup"><span data-stu-id="c7572-154">asp-fragment</span></span>](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|<span data-ttu-id="c7572-155">El fragmento de dirección URL.</span><span class="sxs-lookup"><span data-stu-id="c7572-155">The URL fragment.</span></span>|
 
-### <a name="submit-to-controller-example"></a><span data-ttu-id="6416a-156">Ejemplo de envío al controlador</span><span class="sxs-lookup"><span data-stu-id="6416a-156">Submit to controller example</span></span>
+### <a name="submit-to-controller-example"></a><span data-ttu-id="c7572-156">Ejemplo de envío al controlador</span><span class="sxs-lookup"><span data-stu-id="c7572-156">Submit to controller example</span></span>
 
-<span data-ttu-id="6416a-157">El marcado siguiente envía el formulario a la acción `Index` de `HomeController` cuando se selecciona el elemento input o button:</span><span class="sxs-lookup"><span data-stu-id="6416a-157">The following markup submits the form to the `Index` action of `HomeController` when the input or button are selected:</span></span>
+<span data-ttu-id="c7572-157">El marcado siguiente envía el formulario a la acción `Index` de `HomeController` cuando se selecciona el elemento input o button:</span><span class="sxs-lookup"><span data-stu-id="c7572-157">The following markup submits the form to the `Index` action of `HomeController` when the input or button are selected:</span></span>
 
 ```cshtml
 <form method="post">
@@ -97,7 +97,7 @@ ms.locfileid: "59468807"
 </form>
 ```
 
-<span data-ttu-id="6416a-158">El marcado anterior genera el siguiente código HTML:</span><span class="sxs-lookup"><span data-stu-id="6416a-158">The previous markup generates following HTML:</span></span>
+<span data-ttu-id="c7572-158">El marcado anterior genera el siguiente código HTML:</span><span class="sxs-lookup"><span data-stu-id="c7572-158">The previous markup generates following HTML:</span></span>
 
 ```html
 <form method="post">
@@ -106,9 +106,9 @@ ms.locfileid: "59468807"
 </form>
 ```
 
-### <a name="submit-to-page-example"></a><span data-ttu-id="6416a-159">Ejemplo de envío a la página</span><span class="sxs-lookup"><span data-stu-id="6416a-159">Submit to page example</span></span>
+### <a name="submit-to-page-example"></a><span data-ttu-id="c7572-159">Ejemplo de envío a la página</span><span class="sxs-lookup"><span data-stu-id="c7572-159">Submit to page example</span></span>
 
-<span data-ttu-id="6416a-160">El marcado siguiente envía el formulario a la página de Razor `About`:</span><span class="sxs-lookup"><span data-stu-id="6416a-160">The following markup submits the form to the `About` Razor Page:</span></span>
+<span data-ttu-id="c7572-160">El marcado siguiente envía el formulario a la página de Razor `About`:</span><span class="sxs-lookup"><span data-stu-id="c7572-160">The following markup submits the form to the `About` Razor Page:</span></span>
 
 ```cshtml
 <form method="post">
@@ -117,7 +117,7 @@ ms.locfileid: "59468807"
 </form>
 ```
 
-<span data-ttu-id="6416a-161">El marcado anterior genera el siguiente código HTML:</span><span class="sxs-lookup"><span data-stu-id="6416a-161">The previous markup generates following HTML:</span></span>
+<span data-ttu-id="c7572-161">El marcado anterior genera el siguiente código HTML:</span><span class="sxs-lookup"><span data-stu-id="c7572-161">The previous markup generates following HTML:</span></span>
 
 ```html
 <form method="post">
@@ -126,9 +126,9 @@ ms.locfileid: "59468807"
 </form>
 ```
 
-### <a name="submit-to-route-example"></a><span data-ttu-id="6416a-162">Ejemplo de envío a la ruta</span><span class="sxs-lookup"><span data-stu-id="6416a-162">Submit to route example</span></span>
+### <a name="submit-to-route-example"></a><span data-ttu-id="c7572-162">Ejemplo de envío a la ruta</span><span class="sxs-lookup"><span data-stu-id="c7572-162">Submit to route example</span></span>
 
-<span data-ttu-id="6416a-163">Tenga en cuenta el punto de conexión `/Home/Test`:</span><span class="sxs-lookup"><span data-stu-id="6416a-163">Consider the `/Home/Test` endpoint:</span></span>
+<span data-ttu-id="c7572-163">Tenga en cuenta el punto de conexión `/Home/Test`:</span><span class="sxs-lookup"><span data-stu-id="c7572-163">Consider the `/Home/Test` endpoint:</span></span>
 
 ```csharp
 public class HomeController : Controller
@@ -141,7 +141,7 @@ public class HomeController : Controller
 }
 ```
 
-<span data-ttu-id="6416a-164">El marcado siguiente envía el formulario al punto de conexión `/Home/Test`.</span><span class="sxs-lookup"><span data-stu-id="6416a-164">The following markup submits the form to the `/Home/Test` endpoint.</span></span>
+<span data-ttu-id="c7572-164">El marcado siguiente envía el formulario al punto de conexión `/Home/Test`.</span><span class="sxs-lookup"><span data-stu-id="c7572-164">The following markup submits the form to the `/Home/Test` endpoint.</span></span>
 
 ```cshtml
 <form method="post">
@@ -150,7 +150,7 @@ public class HomeController : Controller
 </form>
 ```
 
-<span data-ttu-id="6416a-165">El marcado anterior genera el siguiente código HTML:</span><span class="sxs-lookup"><span data-stu-id="6416a-165">The previous markup generates following HTML:</span></span>
+<span data-ttu-id="c7572-165">El marcado anterior genera el siguiente código HTML:</span><span class="sxs-lookup"><span data-stu-id="c7572-165">The previous markup generates following HTML:</span></span>
 
 ```html
 <form method="post">
@@ -159,29 +159,29 @@ public class HomeController : Controller
 </form>
 ```
 
-## <a name="the-input-tag-helper"></a><span data-ttu-id="6416a-166">Asistente de etiquetas de entrada (Input)</span><span class="sxs-lookup"><span data-stu-id="6416a-166">The Input Tag Helper</span></span>
+## <a name="the-input-tag-helper"></a><span data-ttu-id="c7572-166">Asistente de etiquetas de entrada (Input)</span><span class="sxs-lookup"><span data-stu-id="c7572-166">The Input Tag Helper</span></span>
 
-<span data-ttu-id="6416a-167">El asistente de etiquetas Input enlaza un elemento HTML [\<input&gt;](https://www.w3.org/wiki/HTML/Elements/input) a una expresión de modelo en la vista de Razor.</span><span class="sxs-lookup"><span data-stu-id="6416a-167">The Input Tag Helper binds an HTML [\<input>](https://www.w3.org/wiki/HTML/Elements/input) element to a model expression in your razor view.</span></span>
+<span data-ttu-id="c7572-167">El asistente de etiquetas Input enlaza un elemento HTML [\<input&gt;](https://www.w3.org/wiki/HTML/Elements/input) a una expresión de modelo en la vista de Razor.</span><span class="sxs-lookup"><span data-stu-id="c7572-167">The Input Tag Helper binds an HTML [\<input>](https://www.w3.org/wiki/HTML/Elements/input) element to a model expression in your razor view.</span></span>
 
-<span data-ttu-id="6416a-168">Sintaxis:</span><span class="sxs-lookup"><span data-stu-id="6416a-168">Syntax:</span></span>
+<span data-ttu-id="c7572-168">Sintaxis:</span><span class="sxs-lookup"><span data-stu-id="c7572-168">Syntax:</span></span>
 
 ```HTML
 <input asp-for="<Expression Name>">
 ```
 
-<span data-ttu-id="6416a-169">El asistente de etiquetas Input hace lo siguiente:</span><span class="sxs-lookup"><span data-stu-id="6416a-169">The Input Tag Helper:</span></span>
+<span data-ttu-id="c7572-169">El asistente de etiquetas Input hace lo siguiente:</span><span class="sxs-lookup"><span data-stu-id="c7572-169">The Input Tag Helper:</span></span>
 
-* <span data-ttu-id="6416a-170">Genera los atributos HTML `id` y `name` del nombre de expresión especificado en el atributo `asp-for`.</span><span class="sxs-lookup"><span data-stu-id="6416a-170">Generates the `id` and `name` HTML attributes for the expression name specified in the `asp-for` attribute.</span></span> `asp-for="Property1.Property2"` <span data-ttu-id="6416a-171">es equivalente a `m => m.Property1.Property2`.</span><span class="sxs-lookup"><span data-stu-id="6416a-171">is equivalent to `m => m.Property1.Property2`.</span></span> <span data-ttu-id="6416a-172">El nombre de una expresión es lo que se usa para el valor de atributo `asp-for`.</span><span class="sxs-lookup"><span data-stu-id="6416a-172">The name of the expression is what is used for the `asp-for` attribute value.</span></span> <span data-ttu-id="6416a-173">Vea la sección [Nombres de expresión](#expression-names) para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="6416a-173">See the [Expression names](#expression-names) section for additional information.</span></span>
+* <span data-ttu-id="c7572-170">Genera los atributos HTML `id` y `name` del nombre de expresión especificado en el atributo `asp-for`.</span><span class="sxs-lookup"><span data-stu-id="c7572-170">Generates the `id` and `name` HTML attributes for the expression name specified in the `asp-for` attribute.</span></span> <span data-ttu-id="c7572-171">`asp-for="Property1.Property2"` es equivalente a `m => m.Property1.Property2`.</span><span class="sxs-lookup"><span data-stu-id="c7572-171">`asp-for="Property1.Property2"` is equivalent to `m => m.Property1.Property2`.</span></span> <span data-ttu-id="c7572-172">El nombre de una expresión es lo que se usa para el valor de atributo `asp-for`.</span><span class="sxs-lookup"><span data-stu-id="c7572-172">The name of the expression is what is used for the `asp-for` attribute value.</span></span> <span data-ttu-id="c7572-173">Vea la sección [Nombres de expresión](#expression-names) para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="c7572-173">See the [Expression names](#expression-names) section for additional information.</span></span>
 
-* <span data-ttu-id="6416a-174">Establece el valor de atributo HTML `type` según los atributos de tipo de modelo y de [anotación de datos](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) aplicados a la propiedad de modelo.</span><span class="sxs-lookup"><span data-stu-id="6416a-174">Sets the HTML `type` attribute value based on the model type and  [data annotation](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes applied to the model property</span></span>
+* <span data-ttu-id="c7572-174">Establece el valor de atributo HTML `type` según los atributos de tipo de modelo y de [anotación de datos](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) aplicados a la propiedad de modelo.</span><span class="sxs-lookup"><span data-stu-id="c7572-174">Sets the HTML `type` attribute value based on the model type and  [data annotation](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes applied to the model property</span></span>
 
-* <span data-ttu-id="6416a-175">No sobrescribirá el valor de atributo HTML `type` cuando se especifique uno.</span><span class="sxs-lookup"><span data-stu-id="6416a-175">Won't overwrite the HTML `type` attribute value when one is specified</span></span>
+* <span data-ttu-id="c7572-175">No sobrescribirá el valor de atributo HTML `type` cuando se especifique uno.</span><span class="sxs-lookup"><span data-stu-id="c7572-175">Won't overwrite the HTML `type` attribute value when one is specified</span></span>
 
-* <span data-ttu-id="6416a-176">Genera atributos de validación [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) a partir de los atributos de [anotación de datos](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) aplicados a las propiedades de modelo.</span><span class="sxs-lookup"><span data-stu-id="6416a-176">Generates [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)  validation attributes from [data annotation](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes applied to model properties</span></span>
+* <span data-ttu-id="c7572-176">Genera atributos de validación [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) a partir de los atributos de [anotación de datos](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) aplicados a las propiedades de modelo.</span><span class="sxs-lookup"><span data-stu-id="c7572-176">Generates [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)  validation attributes from [data annotation](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes applied to model properties</span></span>
 
-* <span data-ttu-id="6416a-177">Tiene características del asistente de HTML que se superponen a `Html.TextBoxFor` y `Html.EditorFor`.</span><span class="sxs-lookup"><span data-stu-id="6416a-177">Has an HTML Helper feature overlap with `Html.TextBoxFor` and `Html.EditorFor`.</span></span> <span data-ttu-id="6416a-178">Vea la sección **Alternativas del asistente de HTML al asistente de etiquetas Input** para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="6416a-178">See the **HTML Helper alternatives to Input Tag Helper** section for details.</span></span>
+* <span data-ttu-id="c7572-177">Tiene características del asistente de HTML que se superponen a `Html.TextBoxFor` y `Html.EditorFor`.</span><span class="sxs-lookup"><span data-stu-id="c7572-177">Has an HTML Helper feature overlap with `Html.TextBoxFor` and `Html.EditorFor`.</span></span> <span data-ttu-id="c7572-178">Vea la sección **Alternativas del asistente de HTML al asistente de etiquetas Input** para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="c7572-178">See the **HTML Helper alternatives to Input Tag Helper** section for details.</span></span>
 
-* <span data-ttu-id="6416a-179">Permite establecer tipado fuerte.</span><span class="sxs-lookup"><span data-stu-id="6416a-179">Provides strong typing.</span></span> <span data-ttu-id="6416a-180">Si el nombre de la propiedad cambia y no se actualiza el asistente de etiquetas, aparecerá un error similar al siguiente:</span><span class="sxs-lookup"><span data-stu-id="6416a-180">If the name of the property changes and you don't update the Tag Helper you'll get an error similar to the following:</span></span>
+* <span data-ttu-id="c7572-179">Permite establecer tipado fuerte.</span><span class="sxs-lookup"><span data-stu-id="c7572-179">Provides strong typing.</span></span> <span data-ttu-id="c7572-180">Si el nombre de la propiedad cambia y no se actualiza el asistente de etiquetas, aparecerá un error similar al siguiente:</span><span class="sxs-lookup"><span data-stu-id="c7572-180">If the name of the property changes and you don't update the Tag Helper you'll get an error similar to the following:</span></span>
 
 ```HTML
 An error occurred during the compilation of a resource required to process
@@ -194,36 +194,36 @@ Type expected
  could be found (are you missing a using directive or an assembly reference?)
 ```
 
-<span data-ttu-id="6416a-181">El asistente de etiquetas `Input` establece el atributo HTML `type` en función del tipo .NET.</span><span class="sxs-lookup"><span data-stu-id="6416a-181">The `Input` Tag Helper sets the HTML `type` attribute based on the .NET type.</span></span> <span data-ttu-id="6416a-182">En la siguiente tabla se enumeran algunos tipos .NET habituales y el tipo HTML generado correspondiente (no incluimos aquí todos los tipos .NET).</span><span class="sxs-lookup"><span data-stu-id="6416a-182">The following table lists some common .NET types and generated HTML type (not every .NET type is listed).</span></span>
+<span data-ttu-id="c7572-181">El asistente de etiquetas `Input` establece el atributo HTML `type` en función del tipo .NET.</span><span class="sxs-lookup"><span data-stu-id="c7572-181">The `Input` Tag Helper sets the HTML `type` attribute based on the .NET type.</span></span> <span data-ttu-id="c7572-182">En la siguiente tabla se enumeran algunos tipos .NET habituales y el tipo HTML generado correspondiente (no incluimos aquí todos los tipos .NET).</span><span class="sxs-lookup"><span data-stu-id="c7572-182">The following table lists some common .NET types and generated HTML type (not every .NET type is listed).</span></span>
 
-|<span data-ttu-id="6416a-183">Tipo de .NET</span><span class="sxs-lookup"><span data-stu-id="6416a-183">.NET type</span></span>|<span data-ttu-id="6416a-184">Tipo de entrada</span><span class="sxs-lookup"><span data-stu-id="6416a-184">Input Type</span></span>|
+|<span data-ttu-id="c7572-183">Tipo de .NET</span><span class="sxs-lookup"><span data-stu-id="c7572-183">.NET type</span></span>|<span data-ttu-id="c7572-184">Tipo de entrada</span><span class="sxs-lookup"><span data-stu-id="c7572-184">Input Type</span></span>|
 |---|---|
-|<span data-ttu-id="6416a-185">Bool</span><span class="sxs-lookup"><span data-stu-id="6416a-185">Bool</span></span>|<span data-ttu-id="6416a-186">type="checkbox"</span><span class="sxs-lookup"><span data-stu-id="6416a-186">type="checkbox"</span></span>|
-|<span data-ttu-id="6416a-187">String</span><span class="sxs-lookup"><span data-stu-id="6416a-187">String</span></span>|<span data-ttu-id="6416a-188">type="text"</span><span class="sxs-lookup"><span data-stu-id="6416a-188">type="text"</span></span>|
-|<span data-ttu-id="6416a-189">DateTime</span><span class="sxs-lookup"><span data-stu-id="6416a-189">DateTime</span></span>|<span data-ttu-id="6416a-190">type=["datetime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)</span><span class="sxs-lookup"><span data-stu-id="6416a-190">type=["datetime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)</span></span>|
-|<span data-ttu-id="6416a-191">Byte</span><span class="sxs-lookup"><span data-stu-id="6416a-191">Byte</span></span>|<span data-ttu-id="6416a-192">type="number"</span><span class="sxs-lookup"><span data-stu-id="6416a-192">type="number"</span></span>|
-|<span data-ttu-id="6416a-193">Valor int.</span><span class="sxs-lookup"><span data-stu-id="6416a-193">Int</span></span>|<span data-ttu-id="6416a-194">type="number"</span><span class="sxs-lookup"><span data-stu-id="6416a-194">type="number"</span></span>|
-|<span data-ttu-id="6416a-195">Single, Double</span><span class="sxs-lookup"><span data-stu-id="6416a-195">Single, Double</span></span>|<span data-ttu-id="6416a-196">type="number"</span><span class="sxs-lookup"><span data-stu-id="6416a-196">type="number"</span></span>|
+|<span data-ttu-id="c7572-185">Bool</span><span class="sxs-lookup"><span data-stu-id="c7572-185">Bool</span></span>|<span data-ttu-id="c7572-186">type="checkbox"</span><span class="sxs-lookup"><span data-stu-id="c7572-186">type="checkbox"</span></span>|
+|<span data-ttu-id="c7572-187">String</span><span class="sxs-lookup"><span data-stu-id="c7572-187">String</span></span>|<span data-ttu-id="c7572-188">type="text"</span><span class="sxs-lookup"><span data-stu-id="c7572-188">type="text"</span></span>|
+|<span data-ttu-id="c7572-189">DateTime</span><span class="sxs-lookup"><span data-stu-id="c7572-189">DateTime</span></span>|<span data-ttu-id="c7572-190">type=["datetime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)</span><span class="sxs-lookup"><span data-stu-id="c7572-190">type=["datetime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)</span></span>|
+|<span data-ttu-id="c7572-191">Byte</span><span class="sxs-lookup"><span data-stu-id="c7572-191">Byte</span></span>|<span data-ttu-id="c7572-192">type="number"</span><span class="sxs-lookup"><span data-stu-id="c7572-192">type="number"</span></span>|
+|<span data-ttu-id="c7572-193">Valor int.</span><span class="sxs-lookup"><span data-stu-id="c7572-193">Int</span></span>|<span data-ttu-id="c7572-194">type="number"</span><span class="sxs-lookup"><span data-stu-id="c7572-194">type="number"</span></span>|
+|<span data-ttu-id="c7572-195">Single, Double</span><span class="sxs-lookup"><span data-stu-id="c7572-195">Single, Double</span></span>|<span data-ttu-id="c7572-196">type="number"</span><span class="sxs-lookup"><span data-stu-id="c7572-196">type="number"</span></span>|
 
-<span data-ttu-id="6416a-197">En la siguiente tabla se muestran algunos atributos de [anotación de datos](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) comunes que el asistente de etiquetas Input asignará a tipos de entrada concretos (no incluimos aquí todos los atributo de validación):</span><span class="sxs-lookup"><span data-stu-id="6416a-197">The following table shows some common [data annotations](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes that the input tag helper will map to specific input types (not every validation attribute is listed):</span></span>
+<span data-ttu-id="c7572-197">En la siguiente tabla se muestran algunos atributos de [anotación de datos](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) comunes que el asistente de etiquetas Input asignará a tipos de entrada concretos (no incluimos aquí todos los atributo de validación):</span><span class="sxs-lookup"><span data-stu-id="c7572-197">The following table shows some common [data annotations](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) attributes that the input tag helper will map to specific input types (not every validation attribute is listed):</span></span>
 
-|<span data-ttu-id="6416a-198">Atributo</span><span class="sxs-lookup"><span data-stu-id="6416a-198">Attribute</span></span>|<span data-ttu-id="6416a-199">Tipo de entrada</span><span class="sxs-lookup"><span data-stu-id="6416a-199">Input Type</span></span>|
+|<span data-ttu-id="c7572-198">Atributo</span><span class="sxs-lookup"><span data-stu-id="c7572-198">Attribute</span></span>|<span data-ttu-id="c7572-199">Tipo de entrada</span><span class="sxs-lookup"><span data-stu-id="c7572-199">Input Type</span></span>|
 |---|---|
-|<span data-ttu-id="6416a-200">[EmailAddress]</span><span class="sxs-lookup"><span data-stu-id="6416a-200">[EmailAddress]</span></span>|<span data-ttu-id="6416a-201">type="email"</span><span class="sxs-lookup"><span data-stu-id="6416a-201">type="email"</span></span>|
-|<span data-ttu-id="6416a-202">[Url]</span><span class="sxs-lookup"><span data-stu-id="6416a-202">[Url]</span></span>|<span data-ttu-id="6416a-203">type="url"</span><span class="sxs-lookup"><span data-stu-id="6416a-203">type="url"</span></span>|
-|<span data-ttu-id="6416a-204">[HiddenInput]</span><span class="sxs-lookup"><span data-stu-id="6416a-204">[HiddenInput]</span></span>|<span data-ttu-id="6416a-205">type="hidden"</span><span class="sxs-lookup"><span data-stu-id="6416a-205">type="hidden"</span></span>|
-|<span data-ttu-id="6416a-206">[Phone]</span><span class="sxs-lookup"><span data-stu-id="6416a-206">[Phone]</span></span>|<span data-ttu-id="6416a-207">type="tel"</span><span class="sxs-lookup"><span data-stu-id="6416a-207">type="tel"</span></span>|
-|<span data-ttu-id="6416a-208">[DataType(DataType.Password)]</span><span class="sxs-lookup"><span data-stu-id="6416a-208">[DataType(DataType.Password)]</span></span>|<span data-ttu-id="6416a-209">type="password"</span><span class="sxs-lookup"><span data-stu-id="6416a-209">type="password"</span></span>|
-|<span data-ttu-id="6416a-210">[DataType(DataType.Date)]</span><span class="sxs-lookup"><span data-stu-id="6416a-210">[DataType(DataType.Date)]</span></span>|<span data-ttu-id="6416a-211">type="date"</span><span class="sxs-lookup"><span data-stu-id="6416a-211">type="date"</span></span>|
-|<span data-ttu-id="6416a-212">[DataType(DataType.Time)]</span><span class="sxs-lookup"><span data-stu-id="6416a-212">[DataType(DataType.Time)]</span></span>|<span data-ttu-id="6416a-213">type="time"</span><span class="sxs-lookup"><span data-stu-id="6416a-213">type="time"</span></span>|
+|<span data-ttu-id="c7572-200">[EmailAddress]</span><span class="sxs-lookup"><span data-stu-id="c7572-200">[EmailAddress]</span></span>|<span data-ttu-id="c7572-201">type="email"</span><span class="sxs-lookup"><span data-stu-id="c7572-201">type="email"</span></span>|
+|<span data-ttu-id="c7572-202">[Url]</span><span class="sxs-lookup"><span data-stu-id="c7572-202">[Url]</span></span>|<span data-ttu-id="c7572-203">type="url"</span><span class="sxs-lookup"><span data-stu-id="c7572-203">type="url"</span></span>|
+|<span data-ttu-id="c7572-204">[HiddenInput]</span><span class="sxs-lookup"><span data-stu-id="c7572-204">[HiddenInput]</span></span>|<span data-ttu-id="c7572-205">type="hidden"</span><span class="sxs-lookup"><span data-stu-id="c7572-205">type="hidden"</span></span>|
+|<span data-ttu-id="c7572-206">[Phone]</span><span class="sxs-lookup"><span data-stu-id="c7572-206">[Phone]</span></span>|<span data-ttu-id="c7572-207">type="tel"</span><span class="sxs-lookup"><span data-stu-id="c7572-207">type="tel"</span></span>|
+|<span data-ttu-id="c7572-208">[DataType(DataType.Password)]</span><span class="sxs-lookup"><span data-stu-id="c7572-208">[DataType(DataType.Password)]</span></span>|<span data-ttu-id="c7572-209">type="password"</span><span class="sxs-lookup"><span data-stu-id="c7572-209">type="password"</span></span>|
+|<span data-ttu-id="c7572-210">[DataType(DataType.Date)]</span><span class="sxs-lookup"><span data-stu-id="c7572-210">[DataType(DataType.Date)]</span></span>|<span data-ttu-id="c7572-211">type="date"</span><span class="sxs-lookup"><span data-stu-id="c7572-211">type="date"</span></span>|
+|<span data-ttu-id="c7572-212">[DataType(DataType.Time)]</span><span class="sxs-lookup"><span data-stu-id="c7572-212">[DataType(DataType.Time)]</span></span>|<span data-ttu-id="c7572-213">type="time"</span><span class="sxs-lookup"><span data-stu-id="c7572-213">type="time"</span></span>|
 
-<span data-ttu-id="6416a-214">Ejemplo:</span><span class="sxs-lookup"><span data-stu-id="6416a-214">Sample:</span></span>
+<span data-ttu-id="c7572-214">Ejemplo:</span><span class="sxs-lookup"><span data-stu-id="c7572-214">Sample:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
 [!code-HTML[](working-with-forms/sample/final/Views/Demo/RegisterInput.cshtml)]
 
-<span data-ttu-id="6416a-215">El código anterior genera el siguiente HTML:</span><span class="sxs-lookup"><span data-stu-id="6416a-215">The code above generates the following HTML:</span></span>
+<span data-ttu-id="c7572-215">El código anterior genera el siguiente HTML:</span><span class="sxs-lookup"><span data-stu-id="c7572-215">The code above generates the following HTML:</span></span>
 
 ```HTML
   <form method="post" action="/Demo/RegisterInput">
@@ -241,24 +241,24 @@ Type expected
    </form>
 ```
 
-<span data-ttu-id="6416a-216">Las anotaciones de datos que se aplican a las propiedades `Email` y `Password` generan metadatos en el modelo.</span><span class="sxs-lookup"><span data-stu-id="6416a-216">The data annotations applied to the `Email` and `Password` properties generate metadata on the model.</span></span> <span data-ttu-id="6416a-217">El asistente de etiquetas Input usa esos metadatos del modelo y genera atributos [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)`data-val-*`. Vea [Model Validation](../models/validation.md) (Validación del modelo).</span><span class="sxs-lookup"><span data-stu-id="6416a-217">The Input Tag Helper consumes the model metadata and produces [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` attributes (see [Model Validation](../models/validation.md)).</span></span> <span data-ttu-id="6416a-218">Estos atributos describen los validadores que se van a adjuntar a los campos de entrada,</span><span class="sxs-lookup"><span data-stu-id="6416a-218">These attributes describe the validators to attach to the input fields.</span></span> <span data-ttu-id="6416a-219">lo que proporciona HTML5 discreto y validación de [jQuery](https://jquery.com/).</span><span class="sxs-lookup"><span data-stu-id="6416a-219">This provides unobtrusive HTML5 and [jQuery](https://jquery.com/) validation.</span></span> <span data-ttu-id="6416a-220">Los atributos discretos tienen el formato `data-val-rule="Error Message"`, donde "rule" es el nombre de la regla de validación (como `data-val-required`, `data-val-email`, `data-val-maxlength`, etc.). Si aparece un mensaje de error en el atributo, se mostrará como el valor del atributo `data-val-rule`.</span><span class="sxs-lookup"><span data-stu-id="6416a-220">The unobtrusive attributes have the format `data-val-rule="Error Message"`, where rule is the name of the validation rule (such as `data-val-required`, `data-val-email`, `data-val-maxlength`, etc.) If an error message is provided in the attribute, it's displayed as the value for the `data-val-rule` attribute.</span></span> <span data-ttu-id="6416a-221">También hay atributos con el formato `data-val-ruleName-argumentName="argumentValue"` que aportan más información sobre la regla, por ejemplo, `data-val-maxlength-max="1024"`.</span><span class="sxs-lookup"><span data-stu-id="6416a-221">There are also attributes of the form `data-val-ruleName-argumentName="argumentValue"` that provide additional details about the rule, for example, `data-val-maxlength-max="1024"` .</span></span>
+<span data-ttu-id="c7572-216">Las anotaciones de datos que se aplican a las propiedades `Email` y `Password` generan metadatos en el modelo.</span><span class="sxs-lookup"><span data-stu-id="c7572-216">The data annotations applied to the `Email` and `Password` properties generate metadata on the model.</span></span> <span data-ttu-id="c7572-217">El asistente de etiquetas Input usa esos metadatos del modelo y genera atributos [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)`data-val-*`. Vea [Model Validation](../models/validation.md) (Validación del modelo).</span><span class="sxs-lookup"><span data-stu-id="c7572-217">The Input Tag Helper consumes the model metadata and produces [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` attributes (see [Model Validation](../models/validation.md)).</span></span> <span data-ttu-id="c7572-218">Estos atributos describen los validadores que se van a adjuntar a los campos de entrada,</span><span class="sxs-lookup"><span data-stu-id="c7572-218">These attributes describe the validators to attach to the input fields.</span></span> <span data-ttu-id="c7572-219">lo que proporciona HTML5 discreto y validación de [jQuery](https://jquery.com/).</span><span class="sxs-lookup"><span data-stu-id="c7572-219">This provides unobtrusive HTML5 and [jQuery](https://jquery.com/) validation.</span></span> <span data-ttu-id="c7572-220">Los atributos discretos tienen el formato `data-val-rule="Error Message"`, donde "rule" es el nombre de la regla de validación (como `data-val-required`, `data-val-email`, `data-val-maxlength`, etc.). Si aparece un mensaje de error en el atributo, se mostrará como el valor del atributo `data-val-rule`.</span><span class="sxs-lookup"><span data-stu-id="c7572-220">The unobtrusive attributes have the format `data-val-rule="Error Message"`, where rule is the name of the validation rule (such as `data-val-required`, `data-val-email`, `data-val-maxlength`, etc.) If an error message is provided in the attribute, it's displayed as the value for the `data-val-rule` attribute.</span></span> <span data-ttu-id="c7572-221">También hay atributos con el formato `data-val-ruleName-argumentName="argumentValue"` que aportan más información sobre la regla, por ejemplo, `data-val-maxlength-max="1024"`.</span><span class="sxs-lookup"><span data-stu-id="c7572-221">There are also attributes of the form `data-val-ruleName-argumentName="argumentValue"` that provide additional details about the rule, for example, `data-val-maxlength-max="1024"` .</span></span>
 
-### <a name="html-helper-alternatives-to-input-tag-helper"></a><span data-ttu-id="6416a-222">Alternativas del asistente de HTML al asistente de etiquetas Input</span><span class="sxs-lookup"><span data-stu-id="6416a-222">HTML Helper alternatives to Input Tag Helper</span></span>
+### <a name="html-helper-alternatives-to-input-tag-helper"></a><span data-ttu-id="c7572-222">Alternativas del asistente de HTML al asistente de etiquetas Input</span><span class="sxs-lookup"><span data-stu-id="c7572-222">HTML Helper alternatives to Input Tag Helper</span></span>
 
-`Html.TextBox`<span data-ttu-id="6416a-223">, `Html.TextBoxFor`, `Html.Editor` y `Html.EditorFor` tienen características que se superponen al asistente de etiquetas Input.</span><span class="sxs-lookup"><span data-stu-id="6416a-223">, `Html.TextBoxFor`, `Html.Editor` and `Html.EditorFor` have overlapping features with the Input Tag Helper.</span></span> <span data-ttu-id="6416a-224">El asistente de etiquetas Input establecerá automáticamente el atributo `type`, cosa que no ocurrirá con `Html.TextBox` ni `Html.TextBoxFor`.</span><span class="sxs-lookup"><span data-stu-id="6416a-224">The Input Tag Helper will automatically set the `type` attribute; `Html.TextBox` and `Html.TextBoxFor` won't.</span></span> `Html.Editor` <span data-ttu-id="6416a-225">y `Html.EditorFor` controlan colecciones, objetos complejos y plantillas, pero el asistente de etiquetas Input no.</span><span class="sxs-lookup"><span data-stu-id="6416a-225">and `Html.EditorFor` handle collections, complex objects and templates; the Input Tag Helper doesn't.</span></span> <span data-ttu-id="6416a-226">El asistente de etiquetas Input, `Html.EditorFor` y `Html.TextBoxFor` están fuertemente tipados (usan expresiones lambda), pero `Html.TextBox` y `Html.Editor` no (usan nombres de expresión).</span><span class="sxs-lookup"><span data-stu-id="6416a-226">The Input Tag Helper, `Html.EditorFor`  and  `Html.TextBoxFor` are strongly typed (they use lambda expressions); `Html.TextBox` and `Html.Editor` are not (they use expression names).</span></span>
+<span data-ttu-id="c7572-223">`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` y `Html.EditorFor` tienen características que se superponen al asistente de etiquetas Input.</span><span class="sxs-lookup"><span data-stu-id="c7572-223">`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` and `Html.EditorFor` have overlapping features with the Input Tag Helper.</span></span> <span data-ttu-id="c7572-224">El asistente de etiquetas Input establecerá automáticamente el atributo `type`, cosa que no ocurrirá con `Html.TextBox` ni `Html.TextBoxFor`.</span><span class="sxs-lookup"><span data-stu-id="c7572-224">The Input Tag Helper will automatically set the `type` attribute; `Html.TextBox` and `Html.TextBoxFor` won't.</span></span> <span data-ttu-id="c7572-225">`Html.Editor` y `Html.EditorFor` controlan colecciones, objetos complejos y plantillas, pero el asistente de etiquetas Input no.</span><span class="sxs-lookup"><span data-stu-id="c7572-225">`Html.Editor` and `Html.EditorFor` handle collections, complex objects and templates; the Input Tag Helper doesn't.</span></span> <span data-ttu-id="c7572-226">El asistente de etiquetas Input, `Html.EditorFor` y `Html.TextBoxFor` están fuertemente tipados (usan expresiones lambda), pero `Html.TextBox` y `Html.Editor` no (usan nombres de expresión).</span><span class="sxs-lookup"><span data-stu-id="c7572-226">The Input Tag Helper, `Html.EditorFor`  and  `Html.TextBoxFor` are strongly typed (they use lambda expressions); `Html.TextBox` and `Html.Editor` are not (they use expression names).</span></span>
 
-### <a name="htmlattributes"></a><span data-ttu-id="6416a-227">HtmlAttributes</span><span class="sxs-lookup"><span data-stu-id="6416a-227">HtmlAttributes</span></span>
+### <a name="htmlattributes"></a><span data-ttu-id="c7572-227">HtmlAttributes</span><span class="sxs-lookup"><span data-stu-id="c7572-227">HtmlAttributes</span></span>
 
-`@Html.Editor()` <span data-ttu-id="6416a-228">y `@Html.EditorFor()` usan una entrada `ViewDataDictionary` especial denominada `htmlAttributes` al ejecutar sus plantillas predeterminadas.</span><span class="sxs-lookup"><span data-stu-id="6416a-228">and `@Html.EditorFor()` use a special `ViewDataDictionary` entry named `htmlAttributes` when executing their default templates.</span></span> <span data-ttu-id="6416a-229">Si lo desea, este comportamiento se puede enriquecer con parámetros `additionalViewData`.</span><span class="sxs-lookup"><span data-stu-id="6416a-229">This behavior is optionally augmented using `additionalViewData` parameters.</span></span> <span data-ttu-id="6416a-230">En la clave "htmlAttributes" se distingue entre mayúsculas y minúsculas.</span><span class="sxs-lookup"><span data-stu-id="6416a-230">The key "htmlAttributes" is case-insensitive.</span></span> <span data-ttu-id="6416a-231">La clave "htmlAttributes" se controla de forma similar al objeto `htmlAttributes` pasado a asistentes de etiquetas Input como `@Html.TextBox()`.</span><span class="sxs-lookup"><span data-stu-id="6416a-231">The key "htmlAttributes" is handled similarly to the `htmlAttributes` object passed to input helpers like `@Html.TextBox()`.</span></span>
+<span data-ttu-id="c7572-228">`@Html.Editor()` y `@Html.EditorFor()` usan una entrada `ViewDataDictionary` especial denominada `htmlAttributes` al ejecutar sus plantillas predeterminadas.</span><span class="sxs-lookup"><span data-stu-id="c7572-228">`@Html.Editor()` and `@Html.EditorFor()` use a special `ViewDataDictionary` entry named `htmlAttributes` when executing their default templates.</span></span> <span data-ttu-id="c7572-229">Si lo desea, este comportamiento se puede enriquecer con parámetros `additionalViewData`.</span><span class="sxs-lookup"><span data-stu-id="c7572-229">This behavior is optionally augmented using `additionalViewData` parameters.</span></span> <span data-ttu-id="c7572-230">En la clave "htmlAttributes" se distingue entre mayúsculas y minúsculas.</span><span class="sxs-lookup"><span data-stu-id="c7572-230">The key "htmlAttributes" is case-insensitive.</span></span> <span data-ttu-id="c7572-231">La clave "htmlAttributes" se controla de forma similar al objeto `htmlAttributes` pasado a asistentes de etiquetas Input como `@Html.TextBox()`.</span><span class="sxs-lookup"><span data-stu-id="c7572-231">The key "htmlAttributes" is handled similarly to the `htmlAttributes` object passed to input helpers like `@Html.TextBox()`.</span></span>
 
 ```HTML
 @Html.EditorFor(model => model.YourProperty, 
   new { htmlAttributes = new { @class="myCssClass", style="Width:100px" } })
 ```
 
-### <a name="expression-names"></a><span data-ttu-id="6416a-232">Nombres de expresión</span><span class="sxs-lookup"><span data-stu-id="6416a-232">Expression names</span></span>
+### <a name="expression-names"></a><span data-ttu-id="c7572-232">Nombres de expresión</span><span class="sxs-lookup"><span data-stu-id="c7572-232">Expression names</span></span>
 
-<span data-ttu-id="6416a-233">El valor del atributo `asp-for` es una `ModelExpression` y la parte de la derecha de una expresión lambda.</span><span class="sxs-lookup"><span data-stu-id="6416a-233">The `asp-for` attribute value is a `ModelExpression` and the right hand side of a lambda expression.</span></span> <span data-ttu-id="6416a-234">Por tanto, `asp-for="Property1"` se convierte en `m => m.Property1` en el código generado, motivo por el que no es necesario incluir el prefijo `Model`.</span><span class="sxs-lookup"><span data-stu-id="6416a-234">Therefore, `asp-for="Property1"` becomes `m => m.Property1` in the generated code which is why you don't need to prefix with `Model`.</span></span> <span data-ttu-id="6416a-235">Puede usar el carácter "\@" para iniciar una expresión insertada y moverla antes de `m.`:</span><span class="sxs-lookup"><span data-stu-id="6416a-235">You can use the "\@" character to start an inline expression and move before the `m.`:</span></span>
+<span data-ttu-id="c7572-233">El valor del atributo `asp-for` es una `ModelExpression` y la parte de la derecha de una expresión lambda.</span><span class="sxs-lookup"><span data-stu-id="c7572-233">The `asp-for` attribute value is a `ModelExpression` and the right hand side of a lambda expression.</span></span> <span data-ttu-id="c7572-234">Por tanto, `asp-for="Property1"` se convierte en `m => m.Property1` en el código generado, motivo por el que no es necesario incluir el prefijo `Model`.</span><span class="sxs-lookup"><span data-stu-id="c7572-234">Therefore, `asp-for="Property1"` becomes `m => m.Property1` in the generated code which is why you don't need to prefix with `Model`.</span></span> <span data-ttu-id="c7572-235">Puede usar el carácter "\@" para iniciar una expresión insertada y moverla antes de `m.`:</span><span class="sxs-lookup"><span data-stu-id="c7572-235">You can use the "\@" character to start an inline expression and move before the `m.`:</span></span>
 
 ```HTML
 @{
@@ -267,44 +267,44 @@ Type expected
    <input asp-for="@joe">
 ```
 
-<span data-ttu-id="6416a-236">Se genera el siguiente HTML:</span><span class="sxs-lookup"><span data-stu-id="6416a-236">Generates the following:</span></span>
+<span data-ttu-id="c7572-236">Se genera el siguiente HTML:</span><span class="sxs-lookup"><span data-stu-id="c7572-236">Generates the following:</span></span>
 
 ```HTML
 <input type="text" id="joe" name="joe" value="Joe">
 ```
 
-<span data-ttu-id="6416a-237">Con las propiedades de colección, `asp-for="CollectionProperty[23].Member"` genera el mismo nombre que `asp-for="CollectionProperty[i].Member"` si `i` tiene el valor `23`.</span><span class="sxs-lookup"><span data-stu-id="6416a-237">With collection properties, `asp-for="CollectionProperty[23].Member"` generates the same name as `asp-for="CollectionProperty[i].Member"` when `i` has the value `23`.</span></span>
+<span data-ttu-id="c7572-237">Con las propiedades de colección, `asp-for="CollectionProperty[23].Member"` genera el mismo nombre que `asp-for="CollectionProperty[i].Member"` si `i` tiene el valor `23`.</span><span class="sxs-lookup"><span data-stu-id="c7572-237">With collection properties, `asp-for="CollectionProperty[23].Member"` generates the same name as `asp-for="CollectionProperty[i].Member"` when `i` has the value `23`.</span></span>
 
-<span data-ttu-id="6416a-238">Cuando ASP.NET Core MVC calcula el valor de `ModelExpression`, inspecciona varios orígenes, `ModelState` incluido.</span><span class="sxs-lookup"><span data-stu-id="6416a-238">When ASP.NET Core MVC calculates the value of `ModelExpression`, it inspects several sources, including `ModelState`.</span></span> <span data-ttu-id="6416a-239">Fíjese en `<input type="text" asp-for="@Name">`.</span><span class="sxs-lookup"><span data-stu-id="6416a-239">Consider `<input type="text" asp-for="@Name">`.</span></span> <span data-ttu-id="6416a-240">El atributo `value` calculado es el primer valor distinto de null de:</span><span class="sxs-lookup"><span data-stu-id="6416a-240">The calculated `value` attribute is the first non-null value from:</span></span>
+<span data-ttu-id="c7572-238">Cuando ASP.NET Core MVC calcula el valor de `ModelExpression`, inspecciona varios orígenes, `ModelState` incluido.</span><span class="sxs-lookup"><span data-stu-id="c7572-238">When ASP.NET Core MVC calculates the value of `ModelExpression`, it inspects several sources, including `ModelState`.</span></span> <span data-ttu-id="c7572-239">Fíjese en `<input type="text" asp-for="@Name">`.</span><span class="sxs-lookup"><span data-stu-id="c7572-239">Consider `<input type="text" asp-for="@Name">`.</span></span> <span data-ttu-id="c7572-240">El atributo `value` calculado es el primer valor distinto de null de:</span><span class="sxs-lookup"><span data-stu-id="c7572-240">The calculated `value` attribute is the first non-null value from:</span></span>
 
-* `ModelState` <span data-ttu-id="6416a-241">como entrada con la clave "Name".</span><span class="sxs-lookup"><span data-stu-id="6416a-241">entry with key "Name".</span></span>
-* <span data-ttu-id="6416a-242">El resultado de la expresión `Model.Name`.</span><span class="sxs-lookup"><span data-stu-id="6416a-242">Result of the expression `Model.Name`.</span></span>
+* <span data-ttu-id="c7572-241">La entrada `ModelState` con la clave "Name".</span><span class="sxs-lookup"><span data-stu-id="c7572-241">`ModelState` entry with key "Name".</span></span>
+* <span data-ttu-id="c7572-242">El resultado de la expresión `Model.Name`.</span><span class="sxs-lookup"><span data-stu-id="c7572-242">Result of the expression `Model.Name`.</span></span>
 
-### <a name="navigating-child-properties"></a><span data-ttu-id="6416a-243">Navegar a las propiedades secundarias</span><span class="sxs-lookup"><span data-stu-id="6416a-243">Navigating child properties</span></span>
+### <a name="navigating-child-properties"></a><span data-ttu-id="c7572-243">Navegar a las propiedades secundarias</span><span class="sxs-lookup"><span data-stu-id="c7572-243">Navigating child properties</span></span>
 
-<span data-ttu-id="6416a-244">También se puede navegar a las propiedades secundarias a través de la ruta de acceso de propiedades del modelo de vista.</span><span class="sxs-lookup"><span data-stu-id="6416a-244">You can also navigate to child properties using the property path of the view model.</span></span> <span data-ttu-id="6416a-245">Pensemos en una clase de modelo más compleja que contiene una propiedad secundaria `Address`.</span><span class="sxs-lookup"><span data-stu-id="6416a-245">Consider a more complex model class that contains a child `Address` property.</span></span>
+<span data-ttu-id="c7572-244">También se puede navegar a las propiedades secundarias a través de la ruta de acceso de propiedades del modelo de vista.</span><span class="sxs-lookup"><span data-stu-id="c7572-244">You can also navigate to child properties using the property path of the view model.</span></span> <span data-ttu-id="c7572-245">Pensemos en una clase de modelo más compleja que contiene una propiedad secundaria `Address`.</span><span class="sxs-lookup"><span data-stu-id="c7572-245">Consider a more complex model class that contains a child `Address` property.</span></span>
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/AddressViewModel.cs?highlight=1,2,3,4&range=5-8)]
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/RegisterAddressViewModel.cs?highlight=8&range=5-13)]
 
-<span data-ttu-id="6416a-246">En la vista, enlazamos a `Address.AddressLine1`:</span><span class="sxs-lookup"><span data-stu-id="6416a-246">In the view, we bind to `Address.AddressLine1`:</span></span>
+<span data-ttu-id="c7572-246">En la vista, enlazamos a `Address.AddressLine1`:</span><span class="sxs-lookup"><span data-stu-id="c7572-246">In the view, we bind to `Address.AddressLine1`:</span></span>
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterAddress.cshtml?highlight=6)]
 
-<span data-ttu-id="6416a-247">Se genera el siguiente código HTML para `Address.AddressLine1`:</span><span class="sxs-lookup"><span data-stu-id="6416a-247">The following HTML is generated for `Address.AddressLine1`:</span></span>
+<span data-ttu-id="c7572-247">Se genera el siguiente código HTML para `Address.AddressLine1`:</span><span class="sxs-lookup"><span data-stu-id="c7572-247">The following HTML is generated for `Address.AddressLine1`:</span></span>
 
 ```HTML
 <input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="">
 ```
 
-### <a name="expression-names-and-collections"></a><span data-ttu-id="6416a-248">Colecciones y nombres de expresión</span><span class="sxs-lookup"><span data-stu-id="6416a-248">Expression names and Collections</span></span>
+### <a name="expression-names-and-collections"></a><span data-ttu-id="c7572-248">Colecciones y nombres de expresión</span><span class="sxs-lookup"><span data-stu-id="c7572-248">Expression names and Collections</span></span>
 
-<span data-ttu-id="6416a-249">Como ejemplo, un modelo que contiene una matriz de `Colors`:</span><span class="sxs-lookup"><span data-stu-id="6416a-249">Sample, a model containing an array of `Colors`:</span></span>
+<span data-ttu-id="c7572-249">Como ejemplo, un modelo que contiene una matriz de `Colors`:</span><span class="sxs-lookup"><span data-stu-id="c7572-249">Sample, a model containing an array of `Colors`:</span></span>
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/Person.cs?highlight=3&range=5-10)]
 
-<span data-ttu-id="6416a-250">El método de acción:</span><span class="sxs-lookup"><span data-stu-id="6416a-250">The action method:</span></span>
+<span data-ttu-id="c7572-250">El método de acción:</span><span class="sxs-lookup"><span data-stu-id="c7572-250">The action method:</span></span>
 
 ```csharp
 public IActionResult Edit(int id, int colorIndex)
@@ -314,50 +314,50 @@ public IActionResult Edit(int id, int colorIndex)
    }
 ```
 
-<span data-ttu-id="6416a-251">El siguiente código de Razor muestra cómo se tiene acceso a un elemento `Color` concreto:</span><span class="sxs-lookup"><span data-stu-id="6416a-251">The following Razor shows how you access a specific `Color` element:</span></span>
+<span data-ttu-id="c7572-251">El siguiente código de Razor muestra cómo se tiene acceso a un elemento `Color` concreto:</span><span class="sxs-lookup"><span data-stu-id="c7572-251">The following Razor shows how you access a specific `Color` element:</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Demo/EditColor.cshtml)]
 
-<span data-ttu-id="6416a-252">La plantilla *Views/Shared/EditorTemplates/String.cshtml*:</span><span class="sxs-lookup"><span data-stu-id="6416a-252">The *Views/Shared/EditorTemplates/String.cshtml* template:</span></span>
+<span data-ttu-id="c7572-252">La plantilla *Views/Shared/EditorTemplates/String.cshtml*:</span><span class="sxs-lookup"><span data-stu-id="c7572-252">The *Views/Shared/EditorTemplates/String.cshtml* template:</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/String.cshtml)]
 
-<span data-ttu-id="6416a-253">Ejemplo en el que se usa `List<T>`:</span><span class="sxs-lookup"><span data-stu-id="6416a-253">Sample using `List<T>`:</span></span>
+<span data-ttu-id="c7572-253">Ejemplo en el que se usa `List<T>`:</span><span class="sxs-lookup"><span data-stu-id="c7572-253">Sample using `List<T>`:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/ToDoItem.cs?range=3-8)]
 
-<span data-ttu-id="6416a-254">El siguiente código de Razor muestra cómo iterar por una colección:</span><span class="sxs-lookup"><span data-stu-id="6416a-254">The following Razor shows how to iterate over a collection:</span></span>
+<span data-ttu-id="c7572-254">El siguiente código de Razor muestra cómo iterar por una colección:</span><span class="sxs-lookup"><span data-stu-id="c7572-254">The following Razor shows how to iterate over a collection:</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Demo/Edit.cshtml)]
 
-<span data-ttu-id="6416a-255">La plantilla *Views/Shared/EditorTemplates/ToDoItem.cshtml*:</span><span class="sxs-lookup"><span data-stu-id="6416a-255">The *Views/Shared/EditorTemplates/ToDoItem.cshtml* template:</span></span>
+<span data-ttu-id="c7572-255">La plantilla *Views/Shared/EditorTemplates/ToDoItem.cshtml*:</span><span class="sxs-lookup"><span data-stu-id="c7572-255">The *Views/Shared/EditorTemplates/ToDoItem.cshtml* template:</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
-`foreach` <span data-ttu-id="6416a-256">debe usarse, si es posible, si el valor se va a utilizar en un contexto equivalente a `asp-for` o `Html.DisplayFor`.</span><span class="sxs-lookup"><span data-stu-id="6416a-256">should be used if possible when the value is going to be used in an `asp-for` or `Html.DisplayFor` equivalent context.</span></span> <span data-ttu-id="6416a-257">En general, `for` es mejor que `foreach` (si el escenario lo permite), ya que no necesita asignar ningún enumerador; sin embargo, la evaluación de un indizador en una expresión LINQ puede resultar caro y, por tanto, se debe minimizar.</span><span class="sxs-lookup"><span data-stu-id="6416a-257">In general, `for` is better than `foreach` (if the scenario allows it) because it doesn't need to allocate an enumerator; however, evaluating an indexer in a LINQ expression can be expensive and should be minimized.</span></span>
+<span data-ttu-id="c7572-256">Si es posible, debe usarse `foreach` si el valor se va a utilizar en un contexto equivalente a `asp-for` o `Html.DisplayFor`.</span><span class="sxs-lookup"><span data-stu-id="c7572-256">`foreach` should be used if possible when the value is going to be used in an `asp-for` or `Html.DisplayFor` equivalent context.</span></span> <span data-ttu-id="c7572-257">En general, `for` es mejor que `foreach` (si el escenario lo permite), ya que no necesita asignar ningún enumerador; sin embargo, la evaluación de un indizador en una expresión LINQ puede resultar caro y, por tanto, se debe minimizar.</span><span class="sxs-lookup"><span data-stu-id="c7572-257">In general, `for` is better than `foreach` (if the scenario allows it) because it doesn't need to allocate an enumerator; however, evaluating an indexer in a LINQ expression can be expensive and should be minimized.</span></span>
 
 &nbsp;
 
 >[!NOTE]
-><span data-ttu-id="6416a-258">El código de ejemplo comentado anterior muestra cómo reemplazaríamos la expresión lambda por el operador `@` para tener acceso a cada elemento `ToDoItem` de la lista.</span><span class="sxs-lookup"><span data-stu-id="6416a-258">The commented sample code above shows how you would replace the lambda expression with the `@` operator to access each `ToDoItem` in the list.</span></span>
+><span data-ttu-id="c7572-258">El código de ejemplo comentado anterior muestra cómo reemplazaríamos la expresión lambda por el operador `@` para tener acceso a cada elemento `ToDoItem` de la lista.</span><span class="sxs-lookup"><span data-stu-id="c7572-258">The commented sample code above shows how you would replace the lambda expression with the `@` operator to access each `ToDoItem` in the list.</span></span>
 
-## <a name="the-textarea-tag-helper"></a><span data-ttu-id="6416a-259">Asistente de etiquetas de área de texto (Textarea)</span><span class="sxs-lookup"><span data-stu-id="6416a-259">The Textarea Tag Helper</span></span>
+## <a name="the-textarea-tag-helper"></a><span data-ttu-id="c7572-259">Asistente de etiquetas de área de texto (Textarea)</span><span class="sxs-lookup"><span data-stu-id="c7572-259">The Textarea Tag Helper</span></span>
 
-<span data-ttu-id="6416a-260">El asistente de etiquetas `Textarea Tag Helper` es similar al asistente de etiquetas Input.</span><span class="sxs-lookup"><span data-stu-id="6416a-260">The `Textarea Tag Helper` tag helper is  similar to the Input Tag Helper.</span></span>
+<span data-ttu-id="c7572-260">El asistente de etiquetas `Textarea Tag Helper` es similar al asistente de etiquetas Input.</span><span class="sxs-lookup"><span data-stu-id="c7572-260">The `Textarea Tag Helper` tag helper is  similar to the Input Tag Helper.</span></span>
 
-* <span data-ttu-id="6416a-261">Genera los atributos `id` y `name`, y los atributos de validación de datos del modelo de un elemento [\<textarea>](https://www.w3.org/wiki/HTML/Elements/textarea).</span><span class="sxs-lookup"><span data-stu-id="6416a-261">Generates the `id` and `name` attributes, and the data validation attributes from the model for a [\<textarea>](https://www.w3.org/wiki/HTML/Elements/textarea) element.</span></span>
+* <span data-ttu-id="c7572-261">Genera los atributos `id` y `name`, y los atributos de validación de datos del modelo de un elemento [\<textarea>](https://www.w3.org/wiki/HTML/Elements/textarea).</span><span class="sxs-lookup"><span data-stu-id="c7572-261">Generates the `id` and `name` attributes, and the data validation attributes from the model for a [\<textarea>](https://www.w3.org/wiki/HTML/Elements/textarea) element.</span></span>
 
-* <span data-ttu-id="6416a-262">Permite establecer tipado fuerte.</span><span class="sxs-lookup"><span data-stu-id="6416a-262">Provides strong typing.</span></span>
+* <span data-ttu-id="c7572-262">Permite establecer tipado fuerte.</span><span class="sxs-lookup"><span data-stu-id="c7572-262">Provides strong typing.</span></span>
 
-* <span data-ttu-id="6416a-263">Alternativa del asistente de HTML:</span><span class="sxs-lookup"><span data-stu-id="6416a-263">HTML Helper alternative:</span></span> `Html.TextAreaFor`
+* <span data-ttu-id="c7572-263">Alternativa del asistente de HTML: `Html.TextAreaFor`</span><span class="sxs-lookup"><span data-stu-id="c7572-263">HTML Helper alternative: `Html.TextAreaFor`</span></span>
 
-<span data-ttu-id="6416a-264">Ejemplo:</span><span class="sxs-lookup"><span data-stu-id="6416a-264">Sample:</span></span>
+<span data-ttu-id="c7572-264">Ejemplo:</span><span class="sxs-lookup"><span data-stu-id="c7572-264">Sample:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/DescriptionViewModel.cs)]
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterTextArea.cshtml?highlight=4)]
 
-<span data-ttu-id="6416a-265">Se genera el siguiente código HTML:</span><span class="sxs-lookup"><span data-stu-id="6416a-265">The following HTML is generated:</span></span>
+<span data-ttu-id="c7572-265">Se genera el siguiente código HTML:</span><span class="sxs-lookup"><span data-stu-id="c7572-265">The following HTML is generated:</span></span>
 
 ```HTML
 <form method="post" action="/Demo/RegisterTextArea">
@@ -373,53 +373,53 @@ public IActionResult Edit(int id, int colorIndex)
 </form>
 ```
 
-## <a name="the-label-tag-helper"></a><span data-ttu-id="6416a-266">Asistente de etiquetas Label</span><span class="sxs-lookup"><span data-stu-id="6416a-266">The Label Tag Helper</span></span>
+## <a name="the-label-tag-helper"></a><span data-ttu-id="c7572-266">Asistente de etiquetas Label</span><span class="sxs-lookup"><span data-stu-id="c7572-266">The Label Tag Helper</span></span>
 
-* <span data-ttu-id="6416a-267">Genera el título de la etiqueta y el atributo `for` en un elemento [\<etiqueta>](https://www.w3.org/wiki/HTML/Elements/label) de un nombre de expresión.</span><span class="sxs-lookup"><span data-stu-id="6416a-267">Generates the label caption and `for` attribute on a [\<label>](https://www.w3.org/wiki/HTML/Elements/label) element for an expression name</span></span>
+* <span data-ttu-id="c7572-267">Genera el título de la etiqueta y el atributo `for` en un elemento [\<etiqueta>](https://www.w3.org/wiki/HTML/Elements/label) de un nombre de expresión.</span><span class="sxs-lookup"><span data-stu-id="c7572-267">Generates the label caption and `for` attribute on a [\<label>](https://www.w3.org/wiki/HTML/Elements/label) element for an expression name</span></span>
 
-* <span data-ttu-id="6416a-268">Alternativa del asistente de HTML: `Html.LabelFor`.</span><span class="sxs-lookup"><span data-stu-id="6416a-268">HTML Helper alternative: `Html.LabelFor`.</span></span>
+* <span data-ttu-id="c7572-268">Alternativa del asistente de HTML: `Html.LabelFor`.</span><span class="sxs-lookup"><span data-stu-id="c7572-268">HTML Helper alternative: `Html.LabelFor`.</span></span>
 
-<span data-ttu-id="6416a-269">`Label Tag Helper` proporciona las siguientes ventajas con respecto a un elemento HTML Label puro:</span><span class="sxs-lookup"><span data-stu-id="6416a-269">The `Label Tag Helper`  provides the following benefits over a pure HTML label element:</span></span>
+<span data-ttu-id="c7572-269">`Label Tag Helper` proporciona las siguientes ventajas con respecto a un elemento HTML Label puro:</span><span class="sxs-lookup"><span data-stu-id="c7572-269">The `Label Tag Helper`  provides the following benefits over a pure HTML label element:</span></span>
 
-* <span data-ttu-id="6416a-270">Obtendrá automáticamente el valor de la etiqueta descriptiva del atributo `Display`.</span><span class="sxs-lookup"><span data-stu-id="6416a-270">You automatically get the descriptive label value from the `Display` attribute.</span></span> <span data-ttu-id="6416a-271">El nombre para mostrar que se busca puede cambiar con el tiempo y la combinación del atributo `Display`, y el asistente de etiquetas Label aplicará el elemento `Display` en cualquier lugar donde se use.</span><span class="sxs-lookup"><span data-stu-id="6416a-271">The intended display name might change over time, and the combination of `Display` attribute and Label Tag Helper will apply the `Display` everywhere it's used.</span></span>
+* <span data-ttu-id="c7572-270">Obtendrá automáticamente el valor de la etiqueta descriptiva del atributo `Display`.</span><span class="sxs-lookup"><span data-stu-id="c7572-270">You automatically get the descriptive label value from the `Display` attribute.</span></span> <span data-ttu-id="c7572-271">El nombre para mostrar que se busca puede cambiar con el tiempo y la combinación del atributo `Display`, y el asistente de etiquetas Label aplicará el elemento `Display` en cualquier lugar donde se use.</span><span class="sxs-lookup"><span data-stu-id="c7572-271">The intended display name might change over time, and the combination of `Display` attribute and Label Tag Helper will apply the `Display` everywhere it's used.</span></span>
 
-* <span data-ttu-id="6416a-272">El código fuente contiene menos marcado.</span><span class="sxs-lookup"><span data-stu-id="6416a-272">Less markup in source code</span></span>
+* <span data-ttu-id="c7572-272">El código fuente contiene menos marcado.</span><span class="sxs-lookup"><span data-stu-id="c7572-272">Less markup in source code</span></span>
 
-* <span data-ttu-id="6416a-273">Permite establecer tipado fuerte con la propiedad de modelo.</span><span class="sxs-lookup"><span data-stu-id="6416a-273">Strong typing with the model property.</span></span>
+* <span data-ttu-id="c7572-273">Permite establecer tipado fuerte con la propiedad de modelo.</span><span class="sxs-lookup"><span data-stu-id="c7572-273">Strong typing with the model property.</span></span>
 
-<span data-ttu-id="6416a-274">Ejemplo:</span><span class="sxs-lookup"><span data-stu-id="6416a-274">Sample:</span></span>
+<span data-ttu-id="c7572-274">Ejemplo:</span><span class="sxs-lookup"><span data-stu-id="c7572-274">Sample:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/SimpleViewModel.cs)]
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterLabel.cshtml?highlight=4)]
 
-<span data-ttu-id="6416a-275">Se genera el siguiente código HTML para el elemento `<label>`:</span><span class="sxs-lookup"><span data-stu-id="6416a-275">The following HTML is generated for the `<label>` element:</span></span>
+<span data-ttu-id="c7572-275">Se genera el siguiente código HTML para el elemento `<label>`:</span><span class="sxs-lookup"><span data-stu-id="c7572-275">The following HTML is generated for the `<label>` element:</span></span>
 
 ```HTML
 <label for="Email">Email Address</label>
 ```
 
-<span data-ttu-id="6416a-276">El asistente de etiquetas Label genera el valor de atributo `for` de "Email", que es el identificador asociado al elemento `<input>`.</span><span class="sxs-lookup"><span data-stu-id="6416a-276">The Label Tag Helper generated the `for` attribute value of "Email", which is the ID associated with the `<input>` element.</span></span> <span data-ttu-id="6416a-277">Los asistentes de etiquetas generan elementos `id` y `for` coherentes para que se puedan asociar correctamente.</span><span class="sxs-lookup"><span data-stu-id="6416a-277">The Tag Helpers generate consistent `id` and `for` elements so they can be correctly associated.</span></span> <span data-ttu-id="6416a-278">El título de este ejemplo proviene del atributo `Display`.</span><span class="sxs-lookup"><span data-stu-id="6416a-278">The caption in this sample comes from the `Display` attribute.</span></span> <span data-ttu-id="6416a-279">Si el modelo no contuviera un atributo `Display`, el título sería el nombre de propiedad de la expresión.</span><span class="sxs-lookup"><span data-stu-id="6416a-279">If the model didn't contain a `Display` attribute, the caption would be the property name of the expression.</span></span>
+<span data-ttu-id="c7572-276">El asistente de etiquetas Label genera el valor de atributo `for` de "Email", que es el identificador asociado al elemento `<input>`.</span><span class="sxs-lookup"><span data-stu-id="c7572-276">The Label Tag Helper generated the `for` attribute value of "Email", which is the ID associated with the `<input>` element.</span></span> <span data-ttu-id="c7572-277">Los asistentes de etiquetas generan elementos `id` y `for` coherentes para que se puedan asociar correctamente.</span><span class="sxs-lookup"><span data-stu-id="c7572-277">The Tag Helpers generate consistent `id` and `for` elements so they can be correctly associated.</span></span> <span data-ttu-id="c7572-278">El título de este ejemplo proviene del atributo `Display`.</span><span class="sxs-lookup"><span data-stu-id="c7572-278">The caption in this sample comes from the `Display` attribute.</span></span> <span data-ttu-id="c7572-279">Si el modelo no contuviera un atributo `Display`, el título sería el nombre de propiedad de la expresión.</span><span class="sxs-lookup"><span data-stu-id="c7572-279">If the model didn't contain a `Display` attribute, the caption would be the property name of the expression.</span></span>
 
-## <a name="the-validation-tag-helpers"></a><span data-ttu-id="6416a-280">Asistentes de etiquetas de validación</span><span class="sxs-lookup"><span data-stu-id="6416a-280">The Validation Tag Helpers</span></span>
+## <a name="the-validation-tag-helpers"></a><span data-ttu-id="c7572-280">Asistentes de etiquetas de validación</span><span class="sxs-lookup"><span data-stu-id="c7572-280">The Validation Tag Helpers</span></span>
 
-<span data-ttu-id="6416a-281">Hay dos asistentes de etiquetas de validación.</span><span class="sxs-lookup"><span data-stu-id="6416a-281">There are two Validation Tag Helpers.</span></span> <span data-ttu-id="6416a-282">`Validation Message Tag Helper` (que muestra un mensaje de validación relativo a una única propiedad del modelo) y `Validation Summary Tag Helper` (que muestra un resumen de los errores de validación).</span><span class="sxs-lookup"><span data-stu-id="6416a-282">The `Validation Message Tag Helper` (which displays a validation message for a single property on your model), and the `Validation Summary Tag Helper` (which displays a summary of validation errors).</span></span> <span data-ttu-id="6416a-283">`Input Tag Helper` agrega atributos de validación del lado cliente HTML5 a los elementos de entrada en función de los atributos de anotación de datos de las clases del modelo.</span><span class="sxs-lookup"><span data-stu-id="6416a-283">The `Input Tag Helper` adds HTML5 client side validation attributes to input elements based on data annotation attributes on your model classes.</span></span> <span data-ttu-id="6416a-284">La validación también se realiza en el lado servidor.</span><span class="sxs-lookup"><span data-stu-id="6416a-284">Validation is also performed on the server.</span></span> <span data-ttu-id="6416a-285">El asistente de etiquetas de validación muestra estos mensajes de error cuando se produce un error de validación.</span><span class="sxs-lookup"><span data-stu-id="6416a-285">The Validation Tag Helper displays these error messages when a validation error occurs.</span></span>
+<span data-ttu-id="c7572-281">Hay dos asistentes de etiquetas de validación.</span><span class="sxs-lookup"><span data-stu-id="c7572-281">There are two Validation Tag Helpers.</span></span> <span data-ttu-id="c7572-282">`Validation Message Tag Helper` (que muestra un mensaje de validación relativo a una única propiedad del modelo) y `Validation Summary Tag Helper` (que muestra un resumen de los errores de validación).</span><span class="sxs-lookup"><span data-stu-id="c7572-282">The `Validation Message Tag Helper` (which displays a validation message for a single property on your model), and the `Validation Summary Tag Helper` (which displays a summary of validation errors).</span></span> <span data-ttu-id="c7572-283">`Input Tag Helper` agrega atributos de validación del lado cliente HTML5 a los elementos de entrada en función de los atributos de anotación de datos de las clases del modelo.</span><span class="sxs-lookup"><span data-stu-id="c7572-283">The `Input Tag Helper` adds HTML5 client side validation attributes to input elements based on data annotation attributes on your model classes.</span></span> <span data-ttu-id="c7572-284">La validación también se realiza en el lado servidor.</span><span class="sxs-lookup"><span data-stu-id="c7572-284">Validation is also performed on the server.</span></span> <span data-ttu-id="c7572-285">El asistente de etiquetas de validación muestra estos mensajes de error cuando se produce un error de validación.</span><span class="sxs-lookup"><span data-stu-id="c7572-285">The Validation Tag Helper displays these error messages when a validation error occurs.</span></span>
 
-### <a name="the-validation-message-tag-helper"></a><span data-ttu-id="6416a-286">Asistente de etiquetas de mensaje de validación</span><span class="sxs-lookup"><span data-stu-id="6416a-286">The Validation Message Tag Helper</span></span>
+### <a name="the-validation-message-tag-helper"></a><span data-ttu-id="c7572-286">Asistente de etiquetas de mensaje de validación</span><span class="sxs-lookup"><span data-stu-id="c7572-286">The Validation Message Tag Helper</span></span>
 
-* <span data-ttu-id="6416a-287">Agrega el atributo [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` al elemento [span](https://developer.mozilla.org/docs/Web/HTML/Element/span), que adjunta los mensajes de error de validación en el campo de entrada de la propiedad de modelo especificada.</span><span class="sxs-lookup"><span data-stu-id="6416a-287">Adds the [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)  `data-valmsg-for="property"` attribute to the [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element, which attaches the validation error messages on the input field of the specified model property.</span></span> <span data-ttu-id="6416a-288">Cuando se produce un error de validación en el lado cliente, [jQuery](https://jquery.com/) muestra el mensaje de error en el elemento `<span>`.</span><span class="sxs-lookup"><span data-stu-id="6416a-288">When a client side validation error occurs, [jQuery](https://jquery.com/) displays the error message in the `<span>` element.</span></span>
+* <span data-ttu-id="c7572-287">Agrega el atributo [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` al elemento [span](https://developer.mozilla.org/docs/Web/HTML/Element/span), que adjunta los mensajes de error de validación en el campo de entrada de la propiedad de modelo especificada.</span><span class="sxs-lookup"><span data-stu-id="c7572-287">Adds the [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)  `data-valmsg-for="property"` attribute to the [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element, which attaches the validation error messages on the input field of the specified model property.</span></span> <span data-ttu-id="c7572-288">Cuando se produce un error de validación en el lado cliente, [jQuery](https://jquery.com/) muestra el mensaje de error en el elemento `<span>`.</span><span class="sxs-lookup"><span data-stu-id="c7572-288">When a client side validation error occurs, [jQuery](https://jquery.com/) displays the error message in the `<span>` element.</span></span>
 
-* <span data-ttu-id="6416a-289">La validación también tiene lugar en el lado servidor.</span><span class="sxs-lookup"><span data-stu-id="6416a-289">Validation also takes place on the server.</span></span> <span data-ttu-id="6416a-290">Puede que JavaScript esté deshabilitado en los clientes, mientras que hay algunas validaciones que solo se pueden realizar en el lado servidor.</span><span class="sxs-lookup"><span data-stu-id="6416a-290">Clients may have JavaScript disabled and some validation can only be done on the server side.</span></span>
+* <span data-ttu-id="c7572-289">La validación también tiene lugar en el lado servidor.</span><span class="sxs-lookup"><span data-stu-id="c7572-289">Validation also takes place on the server.</span></span> <span data-ttu-id="c7572-290">Puede que JavaScript esté deshabilitado en los clientes, mientras que hay algunas validaciones que solo se pueden realizar en el lado servidor.</span><span class="sxs-lookup"><span data-stu-id="c7572-290">Clients may have JavaScript disabled and some validation can only be done on the server side.</span></span>
 
-* <span data-ttu-id="6416a-291">Alternativa del asistente de HTML:</span><span class="sxs-lookup"><span data-stu-id="6416a-291">HTML Helper alternative:</span></span> `Html.ValidationMessageFor`
+* <span data-ttu-id="c7572-291">Alternativa del asistente de HTML: `Html.ValidationMessageFor`</span><span class="sxs-lookup"><span data-stu-id="c7572-291">HTML Helper alternative: `Html.ValidationMessageFor`</span></span>
 
-<span data-ttu-id="6416a-292">`Validation Message Tag Helper` se usa con el atributo `asp-validation-for` en un elemento HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span).</span><span class="sxs-lookup"><span data-stu-id="6416a-292">The `Validation Message Tag Helper`  is used with the `asp-validation-for` attribute on a HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element.</span></span>
+<span data-ttu-id="c7572-292">`Validation Message Tag Helper` se usa con el atributo `asp-validation-for` en un elemento HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span).</span><span class="sxs-lookup"><span data-stu-id="c7572-292">The `Validation Message Tag Helper`  is used with the `asp-validation-for` attribute on a HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) element.</span></span>
 
 ```HTML
 <span asp-validation-for="Email"></span>
 ```
 
-<span data-ttu-id="6416a-293">El asistente de etiquetas de mensaje de validación generará el siguiente código HTML:</span><span class="sxs-lookup"><span data-stu-id="6416a-293">The Validation Message Tag Helper will generate the following HTML:</span></span>
+<span data-ttu-id="c7572-293">El asistente de etiquetas de mensaje de validación generará el siguiente código HTML:</span><span class="sxs-lookup"><span data-stu-id="c7572-293">The Validation Message Tag Helper will generate the following HTML:</span></span>
 
 ```HTML
 <span class="field-validation-valid"
@@ -427,12 +427,12 @@ public IActionResult Edit(int id, int colorIndex)
   data-valmsg-replace="true"></span>
 ```
 
-<span data-ttu-id="6416a-294">`Validation Message Tag Helper` suele usarse por lo general después de un asistente de etiquetas `Input` en la misma propiedad.</span><span class="sxs-lookup"><span data-stu-id="6416a-294">You generally use the `Validation Message Tag Helper`  after an `Input` Tag Helper for the same property.</span></span> <span data-ttu-id="6416a-295">Gracias a esto, se mostrarán todos los mensajes de error de validación cerca de la entrada que produjo el error.</span><span class="sxs-lookup"><span data-stu-id="6416a-295">Doing so displays any validation error messages near the input that caused the error.</span></span>
+<span data-ttu-id="c7572-294">`Validation Message Tag Helper` suele usarse por lo general después de un asistente de etiquetas `Input` en la misma propiedad.</span><span class="sxs-lookup"><span data-stu-id="c7572-294">You generally use the `Validation Message Tag Helper`  after an `Input` Tag Helper for the same property.</span></span> <span data-ttu-id="c7572-295">Gracias a esto, se mostrarán todos los mensajes de error de validación cerca de la entrada que produjo el error.</span><span class="sxs-lookup"><span data-stu-id="c7572-295">Doing so displays any validation error messages near the input that caused the error.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="6416a-296">Debe tener una vista con las referencias de script de JavaScript y de [jQuery](https://jquery.com/) adecuadas para la validación del lado cliente.</span><span class="sxs-lookup"><span data-stu-id="6416a-296">You must have a view with the correct JavaScript and [jQuery](https://jquery.com/) script references in place for client side validation.</span></span> <span data-ttu-id="6416a-297">Para más información, vea [Introduction to model validation in ASP.NET Core MVC](../models/validation.md) (Introducción a la validación de modelos en ASP.NET Core MVC).</span><span class="sxs-lookup"><span data-stu-id="6416a-297">See [Model Validation](../models/validation.md) for more information.</span></span>
+> <span data-ttu-id="c7572-296">Debe tener una vista con las referencias de script de JavaScript y de [jQuery](https://jquery.com/) adecuadas para la validación del lado cliente.</span><span class="sxs-lookup"><span data-stu-id="c7572-296">You must have a view with the correct JavaScript and [jQuery](https://jquery.com/) script references in place for client side validation.</span></span> <span data-ttu-id="c7572-297">Para más información, vea [Introduction to model validation in ASP.NET Core MVC](../models/validation.md) (Introducción a la validación de modelos en ASP.NET Core MVC).</span><span class="sxs-lookup"><span data-stu-id="c7572-297">See [Model Validation](../models/validation.md) for more information.</span></span>
 
-<span data-ttu-id="6416a-298">Cuando se produce un error de validación del lado servidor (por ejemplo, porque haya una validación del lado servidor personalizada o porque la validación del lado cliente esté deshabilitada), MVC pone ese mensaje de error como cuerpo del elemento `<span>`.</span><span class="sxs-lookup"><span data-stu-id="6416a-298">When a server side validation error occurs (for example when you have custom server side validation or client-side validation is disabled), MVC places that error message as the body of the `<span>` element.</span></span>
+<span data-ttu-id="c7572-298">Cuando se produce un error de validación del lado servidor (por ejemplo, porque haya una validación del lado servidor personalizada o porque la validación del lado cliente esté deshabilitada), MVC pone ese mensaje de error como cuerpo del elemento `<span>`.</span><span class="sxs-lookup"><span data-stu-id="c7572-298">When a server side validation error occurs (for example when you have custom server side validation or client-side validation is disabled), MVC places that error message as the body of the `<span>` element.</span></span>
 
 ```HTML
 <span class="field-validation-error" data-valmsg-for="Email"
@@ -441,29 +441,29 @@ public IActionResult Edit(int id, int colorIndex)
 </span>
 ```
 
-### <a name="the-validation-summary-tag-helper"></a><span data-ttu-id="6416a-299">Asistente de etiquetas de resumen de validación</span><span class="sxs-lookup"><span data-stu-id="6416a-299">The Validation Summary Tag Helper</span></span>
+### <a name="the-validation-summary-tag-helper"></a><span data-ttu-id="c7572-299">Asistente de etiquetas de resumen de validación</span><span class="sxs-lookup"><span data-stu-id="c7572-299">The Validation Summary Tag Helper</span></span>
 
-* <span data-ttu-id="6416a-300">Tiene como destino todos los elementos `<div>` con el atributo `asp-validation-summary`.</span><span class="sxs-lookup"><span data-stu-id="6416a-300">Targets `<div>` elements with the `asp-validation-summary` attribute</span></span>
+* <span data-ttu-id="c7572-300">Tiene como destino todos los elementos `<div>` con el atributo `asp-validation-summary`.</span><span class="sxs-lookup"><span data-stu-id="c7572-300">Targets `<div>` elements with the `asp-validation-summary` attribute</span></span>
 
-* <span data-ttu-id="6416a-301">Alternativa del asistente de HTML:</span><span class="sxs-lookup"><span data-stu-id="6416a-301">HTML Helper alternative:</span></span> `@Html.ValidationSummary`
+* <span data-ttu-id="c7572-301">Alternativa del asistente de HTML: `@Html.ValidationSummary`</span><span class="sxs-lookup"><span data-stu-id="c7572-301">HTML Helper alternative: `@Html.ValidationSummary`</span></span>
 
-<span data-ttu-id="6416a-302">`Validation Summary Tag Helper` se usa para mostrar un resumen de los mensajes de validación.</span><span class="sxs-lookup"><span data-stu-id="6416a-302">The `Validation Summary Tag Helper`  is used to display a summary of validation messages.</span></span> <span data-ttu-id="6416a-303">El valor de atributo `asp-validation-summary` puede ser cualquiera de los siguientes:</span><span class="sxs-lookup"><span data-stu-id="6416a-303">The `asp-validation-summary` attribute value can be any of the following:</span></span>
+<span data-ttu-id="c7572-302">`Validation Summary Tag Helper` se usa para mostrar un resumen de los mensajes de validación.</span><span class="sxs-lookup"><span data-stu-id="c7572-302">The `Validation Summary Tag Helper`  is used to display a summary of validation messages.</span></span> <span data-ttu-id="c7572-303">El valor de atributo `asp-validation-summary` puede ser cualquiera de los siguientes:</span><span class="sxs-lookup"><span data-stu-id="c7572-303">The `asp-validation-summary` attribute value can be any of the following:</span></span>
 
-|<span data-ttu-id="6416a-304">asp-validation-summary</span><span class="sxs-lookup"><span data-stu-id="6416a-304">asp-validation-summary</span></span>|<span data-ttu-id="6416a-305">Mensajes de validación que se muestran</span><span class="sxs-lookup"><span data-stu-id="6416a-305">Validation messages displayed</span></span>|
+|<span data-ttu-id="c7572-304">asp-validation-summary</span><span class="sxs-lookup"><span data-stu-id="c7572-304">asp-validation-summary</span></span>|<span data-ttu-id="c7572-305">Mensajes de validación que se muestran</span><span class="sxs-lookup"><span data-stu-id="c7572-305">Validation messages displayed</span></span>|
 |--- |--- |
-|<span data-ttu-id="6416a-306">ValidationSummary.All</span><span class="sxs-lookup"><span data-stu-id="6416a-306">ValidationSummary.All</span></span>|<span data-ttu-id="6416a-307">Nivel de modelo y de propiedad</span><span class="sxs-lookup"><span data-stu-id="6416a-307">Property and model level</span></span>|
-|<span data-ttu-id="6416a-308">ValidationSummary.ModelOnly</span><span class="sxs-lookup"><span data-stu-id="6416a-308">ValidationSummary.ModelOnly</span></span>|<span data-ttu-id="6416a-309">Modelo</span><span class="sxs-lookup"><span data-stu-id="6416a-309">Model</span></span>|
-|<span data-ttu-id="6416a-310">ValidationSummary.None</span><span class="sxs-lookup"><span data-stu-id="6416a-310">ValidationSummary.None</span></span>|<span data-ttu-id="6416a-311">Ninguna</span><span class="sxs-lookup"><span data-stu-id="6416a-311">None</span></span>|
+|<span data-ttu-id="c7572-306">ValidationSummary.All</span><span class="sxs-lookup"><span data-stu-id="c7572-306">ValidationSummary.All</span></span>|<span data-ttu-id="c7572-307">Nivel de modelo y de propiedad</span><span class="sxs-lookup"><span data-stu-id="c7572-307">Property and model level</span></span>|
+|<span data-ttu-id="c7572-308">ValidationSummary.ModelOnly</span><span class="sxs-lookup"><span data-stu-id="c7572-308">ValidationSummary.ModelOnly</span></span>|<span data-ttu-id="c7572-309">Modelo</span><span class="sxs-lookup"><span data-stu-id="c7572-309">Model</span></span>|
+|<span data-ttu-id="c7572-310">ValidationSummary.None</span><span class="sxs-lookup"><span data-stu-id="c7572-310">ValidationSummary.None</span></span>|<span data-ttu-id="c7572-311">Ninguna</span><span class="sxs-lookup"><span data-stu-id="c7572-311">None</span></span>|
 
-### <a name="sample"></a><span data-ttu-id="6416a-312">Ejemplo</span><span class="sxs-lookup"><span data-stu-id="6416a-312">Sample</span></span>
+### <a name="sample"></a><span data-ttu-id="c7572-312">Ejemplo</span><span class="sxs-lookup"><span data-stu-id="c7572-312">Sample</span></span>
 
-<span data-ttu-id="6416a-313">En el siguiente ejemplo, el modelo de datos se complementa con atributos `DataAnnotation`, lo que genera mensajes de error de validación sobre el elemento `<input>`.</span><span class="sxs-lookup"><span data-stu-id="6416a-313">In the following example, the data model is decorated with `DataAnnotation` attributes, which generates validation error messages on the `<input>` element.</span></span>  <span data-ttu-id="6416a-314">Cuando se produce un error de validación, el asistente de etiquetas de validación muestra el mensaje de error:</span><span class="sxs-lookup"><span data-stu-id="6416a-314">When a validation error occurs, the Validation Tag Helper displays the error message:</span></span>
+<span data-ttu-id="c7572-313">En el siguiente ejemplo, el modelo de datos se complementa con atributos `DataAnnotation`, lo que genera mensajes de error de validación sobre el elemento `<input>`.</span><span class="sxs-lookup"><span data-stu-id="c7572-313">In the following example, the data model is decorated with `DataAnnotation` attributes, which generates validation error messages on the `<input>` element.</span></span>  <span data-ttu-id="c7572-314">Cuando se produce un error de validación, el asistente de etiquetas de validación muestra el mensaje de error:</span><span class="sxs-lookup"><span data-stu-id="c7572-314">When a validation error occurs, the Validation Tag Helper displays the error message:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterValidation.cshtml?highlight=4,6,8&range=1-10)]
 
-<span data-ttu-id="6416a-315">El código HTML generado (cuando el modelo es válido) es este:</span><span class="sxs-lookup"><span data-stu-id="6416a-315">The generated HTML (when the model is valid):</span></span>
+<span data-ttu-id="c7572-315">El código HTML generado (cuando el modelo es válido) es este:</span><span class="sxs-lookup"><span data-stu-id="c7572-315">The generated HTML (when the model is valid):</span></span>
 
 ```HTML
 <form action="/DemoReg/Register" method="post">
@@ -484,33 +484,33 @@ public IActionResult Edit(int id, int colorIndex)
 </form>
 ```
 
-## <a name="the-select-tag-helper"></a><span data-ttu-id="6416a-316">Asistente de etiquetas de selección (Select)</span><span class="sxs-lookup"><span data-stu-id="6416a-316">The Select Tag Helper</span></span>
+## <a name="the-select-tag-helper"></a><span data-ttu-id="c7572-316">Asistente de etiquetas de selección (Select)</span><span class="sxs-lookup"><span data-stu-id="c7572-316">The Select Tag Helper</span></span>
 
-* <span data-ttu-id="6416a-317">Genera el elemento [select](https://www.w3.org/wiki/HTML/Elements/select) y el elemento asociado [option](https://www.w3.org/wiki/HTML/Elements/option) de las propiedades del modelo.</span><span class="sxs-lookup"><span data-stu-id="6416a-317">Generates [select](https://www.w3.org/wiki/HTML/Elements/select) and associated [option](https://www.w3.org/wiki/HTML/Elements/option) elements for properties of your model.</span></span>
+* <span data-ttu-id="c7572-317">Genera el elemento [select](https://www.w3.org/wiki/HTML/Elements/select) y el elemento asociado [option](https://www.w3.org/wiki/HTML/Elements/option) de las propiedades del modelo.</span><span class="sxs-lookup"><span data-stu-id="c7572-317">Generates [select](https://www.w3.org/wiki/HTML/Elements/select) and associated [option](https://www.w3.org/wiki/HTML/Elements/option) elements for properties of your model.</span></span>
 
-* <span data-ttu-id="6416a-318">Como alternativa del asistente de HTML tiene `Html.DropDownListFor` y</span><span class="sxs-lookup"><span data-stu-id="6416a-318">Has an HTML Helper alternative `Html.DropDownListFor` and</span></span> `Html.ListBoxFor`
+* <span data-ttu-id="c7572-318">Tiene `Html.DropDownListFor` y `Html.ListBoxFor` como alternativa del asistente de HTML.</span><span class="sxs-lookup"><span data-stu-id="c7572-318">Has an HTML Helper alternative `Html.DropDownListFor` and `Html.ListBoxFor`</span></span>
 
-<span data-ttu-id="6416a-319">El elemento `asp-for` de `Select Tag Helper` especifica el nombre de la propiedad de modelo del elemento [select](https://www.w3.org/wiki/HTML/Elements/select), mientras que `asp-items` especifica los elementos [option](https://www.w3.org/wiki/HTML/Elements/option).</span><span class="sxs-lookup"><span data-stu-id="6416a-319">The `Select Tag Helper` `asp-for` specifies the model property  name for the [select](https://www.w3.org/wiki/HTML/Elements/select) element  and `asp-items` specifies the [option](https://www.w3.org/wiki/HTML/Elements/option) elements.</span></span>  <span data-ttu-id="6416a-320">Por ejemplo:</span><span class="sxs-lookup"><span data-stu-id="6416a-320">For example:</span></span>
+<span data-ttu-id="c7572-319">El elemento `asp-for` de `Select Tag Helper` especifica el nombre de la propiedad de modelo del elemento [select](https://www.w3.org/wiki/HTML/Elements/select), mientras que `asp-items` especifica los elementos [option](https://www.w3.org/wiki/HTML/Elements/option).</span><span class="sxs-lookup"><span data-stu-id="c7572-319">The `Select Tag Helper` `asp-for` specifies the model property  name for the [select](https://www.w3.org/wiki/HTML/Elements/select) element  and `asp-items` specifies the [option](https://www.w3.org/wiki/HTML/Elements/option) elements.</span></span>  <span data-ttu-id="c7572-320">Por ejemplo:</span><span class="sxs-lookup"><span data-stu-id="c7572-320">For example:</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
-<span data-ttu-id="6416a-321">Ejemplo:</span><span class="sxs-lookup"><span data-stu-id="6416a-321">Sample:</span></span>
+<span data-ttu-id="c7572-321">Ejemplo:</span><span class="sxs-lookup"><span data-stu-id="c7572-321">Sample:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryViewModel.cs)]
 
-<span data-ttu-id="6416a-322">El método `Index` inicializa `CountryViewModel`, establece el país seleccionado y lo pasa a la vista `Index`.</span><span class="sxs-lookup"><span data-stu-id="6416a-322">The `Index` method initializes the `CountryViewModel`, sets the selected country and passes it to the `Index` view.</span></span>
+<span data-ttu-id="c7572-322">El método `Index` inicializa `CountryViewModel`, establece el país seleccionado y lo pasa a la vista `Index`.</span><span class="sxs-lookup"><span data-stu-id="c7572-322">The `Index` method initializes the `CountryViewModel`, sets the selected country and passes it to the `Index` view.</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=8-13)]
 
-<span data-ttu-id="6416a-323">El método HTTP POST `Index` muestra la selección:</span><span class="sxs-lookup"><span data-stu-id="6416a-323">The HTTP POST `Index` method displays the selection:</span></span>
+<span data-ttu-id="c7572-323">El método HTTP POST `Index` muestra la selección:</span><span class="sxs-lookup"><span data-stu-id="c7572-323">The HTTP POST `Index` method displays the selection:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=15-27)]
 
-<span data-ttu-id="6416a-324">La vista `Index`:</span><span class="sxs-lookup"><span data-stu-id="6416a-324">The `Index` view:</span></span>
+<span data-ttu-id="c7572-324">La vista `Index`:</span><span class="sxs-lookup"><span data-stu-id="c7572-324">The `Index` view:</span></span>
 
 [!code-cshtml[](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
 
-<span data-ttu-id="6416a-325">Genera el siguiente código HTML (con la selección "CA"):</span><span class="sxs-lookup"><span data-stu-id="6416a-325">Which generates the following HTML (with "CA" selected):</span></span>
+<span data-ttu-id="c7572-325">Genera el siguiente código HTML (con la selección "CA"):</span><span class="sxs-lookup"><span data-stu-id="c7572-325">Which generates the following HTML (with "CA" selected):</span></span>
 
 ```html
 <form method="post" action="/">
@@ -525,31 +525,31 @@ public IActionResult Edit(int id, int colorIndex)
 ```
 
 > [!NOTE]
-> <span data-ttu-id="6416a-326">No se recomienda usar `ViewBag` o `ViewData` con el asistente de etiquetas Select.</span><span class="sxs-lookup"><span data-stu-id="6416a-326">We don't recommend using `ViewBag` or `ViewData` with the Select Tag Helper.</span></span> <span data-ttu-id="6416a-327">Un modelo de vista es más eficaz a la hora de proporcionar metadatos MVC y suele ser menos problemático.</span><span class="sxs-lookup"><span data-stu-id="6416a-327">A view model is more robust at providing MVC metadata and generally less problematic.</span></span>
+> <span data-ttu-id="c7572-326">No se recomienda usar `ViewBag` o `ViewData` con el asistente de etiquetas Select.</span><span class="sxs-lookup"><span data-stu-id="c7572-326">We don't recommend using `ViewBag` or `ViewData` with the Select Tag Helper.</span></span> <span data-ttu-id="c7572-327">Un modelo de vista es más eficaz a la hora de proporcionar metadatos MVC y suele ser menos problemático.</span><span class="sxs-lookup"><span data-stu-id="c7572-327">A view model is more robust at providing MVC metadata and generally less problematic.</span></span>
 
-<span data-ttu-id="6416a-328">El valor de atributo `asp-for` es un caso especial y no necesita un prefijo `Model`, mientras que los otros atributos del asistente de etiquetas sí (como `asp-items`).</span><span class="sxs-lookup"><span data-stu-id="6416a-328">The `asp-for` attribute value is a special case and doesn't require a `Model` prefix, the other Tag Helper attributes do (such as `asp-items`)</span></span>
+<span data-ttu-id="c7572-328">El valor de atributo `asp-for` es un caso especial y no necesita un prefijo `Model`, mientras que los otros atributos del asistente de etiquetas sí (como `asp-items`).</span><span class="sxs-lookup"><span data-stu-id="c7572-328">The `asp-for` attribute value is a special case and doesn't require a `Model` prefix, the other Tag Helper attributes do (such as `asp-items`)</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
-### <a name="enum-binding"></a><span data-ttu-id="6416a-329">Enlace con enum</span><span class="sxs-lookup"><span data-stu-id="6416a-329">Enum binding</span></span>
+### <a name="enum-binding"></a><span data-ttu-id="c7572-329">Enlace con enum</span><span class="sxs-lookup"><span data-stu-id="c7572-329">Enum binding</span></span>
 
-<span data-ttu-id="6416a-330">A menudo, conviene usar `<select>` con una propiedad `enum` y generar los elementos `SelectListItem` a partir de valores `enum`.</span><span class="sxs-lookup"><span data-stu-id="6416a-330">It's often convenient to use `<select>` with an `enum` property and generate the `SelectListItem` elements from the `enum` values.</span></span>
+<span data-ttu-id="c7572-330">A menudo, conviene usar `<select>` con una propiedad `enum` y generar los elementos `SelectListItem` a partir de valores `enum`.</span><span class="sxs-lookup"><span data-stu-id="c7572-330">It's often convenient to use `<select>` with an `enum` property and generate the `SelectListItem` elements from the `enum` values.</span></span>
 
-<span data-ttu-id="6416a-331">Ejemplo:</span><span class="sxs-lookup"><span data-stu-id="6416a-331">Sample:</span></span>
+<span data-ttu-id="c7572-331">Ejemplo:</span><span class="sxs-lookup"><span data-stu-id="c7572-331">Sample:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnumViewModel.cs?range=3-7)]
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnum.cs)]
 
-<span data-ttu-id="6416a-332">El método `GetEnumSelectList` genera un objeto `SelectList` para una enumeración.</span><span class="sxs-lookup"><span data-stu-id="6416a-332">The `GetEnumSelectList` method generates a `SelectList` object for an enum.</span></span>
+<span data-ttu-id="c7572-332">El método `GetEnumSelectList` genera un objeto `SelectList` para una enumeración.</span><span class="sxs-lookup"><span data-stu-id="c7572-332">The `GetEnumSelectList` method generates a `SelectList` object for an enum.</span></span>
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEnum.cshtml?highlight=5)]
 
-<span data-ttu-id="6416a-333">Puede complementar la lista de enumeradores con el atributo `Display` para obtener una interfaz de usuario más completa:</span><span class="sxs-lookup"><span data-stu-id="6416a-333">You can decorate your enumerator list with the `Display` attribute to get a richer UI:</span></span>
+<span data-ttu-id="c7572-333">Puede complementar la lista de enumeradores con el atributo `Display` para obtener una interfaz de usuario más completa:</span><span class="sxs-lookup"><span data-stu-id="c7572-333">You can decorate your enumerator list with the `Display` attribute to get a richer UI:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnum.cs?highlight=5,7)]
 
-<span data-ttu-id="6416a-334">Se genera el siguiente código HTML:</span><span class="sxs-lookup"><span data-stu-id="6416a-334">The following HTML is generated:</span></span>
+<span data-ttu-id="c7572-334">Se genera el siguiente código HTML:</span><span class="sxs-lookup"><span data-stu-id="c7572-334">The following HTML is generated:</span></span>
 
 ```HTML
   <form method="post" action="/Home/IndexEnum">
@@ -567,19 +567,19 @@ public IActionResult Edit(int id, int colorIndex)
     </form>
 ```
 
-### <a name="option-group"></a><span data-ttu-id="6416a-335">Agrupamiento de opciones</span><span class="sxs-lookup"><span data-stu-id="6416a-335">Option Group</span></span>
+### <a name="option-group"></a><span data-ttu-id="c7572-335">Agrupamiento de opciones</span><span class="sxs-lookup"><span data-stu-id="c7572-335">Option Group</span></span>
 
-<span data-ttu-id="6416a-336">El elemento HTML [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) se genera cuando el modelo de vista contiene uno o varios objetos `SelectListGroup`.</span><span class="sxs-lookup"><span data-stu-id="6416a-336">The HTML  [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) element is generated when the view model contains one or more `SelectListGroup` objects.</span></span>
+<span data-ttu-id="c7572-336">El elemento HTML [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) se genera cuando el modelo de vista contiene uno o varios objetos `SelectListGroup`.</span><span class="sxs-lookup"><span data-stu-id="c7572-336">The HTML  [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) element is generated when the view model contains one or more `SelectListGroup` objects.</span></span>
 
-<span data-ttu-id="6416a-337">`CountryViewModelGroup` agrupa los elementos `SelectListItem` en los grupos "North America" y "Europe":</span><span class="sxs-lookup"><span data-stu-id="6416a-337">The `CountryViewModelGroup` groups the `SelectListItem` elements into the "North America" and "Europe" groups:</span></span>
+<span data-ttu-id="c7572-337">`CountryViewModelGroup` agrupa los elementos `SelectListItem` en los grupos "North America" y "Europe":</span><span class="sxs-lookup"><span data-stu-id="c7572-337">The `CountryViewModelGroup` groups the `SelectListItem` elements into the "North America" and "Europe" groups:</span></span>
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelGroup.cs?highlight=5,6,14,20,26,32,38,44&range=6-56)]
 
-<span data-ttu-id="6416a-338">Aquí mostramos los dos grupos:</span><span class="sxs-lookup"><span data-stu-id="6416a-338">The two groups are shown below:</span></span>
+<span data-ttu-id="c7572-338">Aquí mostramos los dos grupos:</span><span class="sxs-lookup"><span data-stu-id="c7572-338">The two groups are shown below:</span></span>
 
 ![Ejemplo de agrupamiento de opciones](working-with-forms/_static/grp.png)
 
-<span data-ttu-id="6416a-340">El código HTML generado:</span><span class="sxs-lookup"><span data-stu-id="6416a-340">The generated HTML:</span></span>
+<span data-ttu-id="c7572-340">El código HTML generado:</span><span class="sxs-lookup"><span data-stu-id="c7572-340">The generated HTML:</span></span>
 
 ```HTML
  <form method="post" action="/Home/IndexGroup">
@@ -600,17 +600,17 @@ public IActionResult Edit(int id, int colorIndex)
  </form>
 ```
 
-### <a name="multiple-select"></a><span data-ttu-id="6416a-341">Selección múltiple</span><span class="sxs-lookup"><span data-stu-id="6416a-341">Multiple select</span></span>
+### <a name="multiple-select"></a><span data-ttu-id="c7572-341">Selección múltiple</span><span class="sxs-lookup"><span data-stu-id="c7572-341">Multiple select</span></span>
 
-<span data-ttu-id="6416a-342">El asistente de etiquetas Select generará automáticamente el atributo [multiple = "multiple"](http://w3c.github.io/html-reference/select.html) si la propiedad especificada en el atributo `asp-for` es `IEnumerable`.</span><span class="sxs-lookup"><span data-stu-id="6416a-342">The Select Tag Helper  will automatically generate the [multiple = "multiple"](http://w3c.github.io/html-reference/select.html)  attribute if the property specified in the `asp-for` attribute is an `IEnumerable`.</span></span> <span data-ttu-id="6416a-343">Por ejemplo, si tenemos el siguiente modelo:</span><span class="sxs-lookup"><span data-stu-id="6416a-343">For example, given the following model:</span></span>
+<span data-ttu-id="c7572-342">El asistente de etiquetas Select generará automáticamente el atributo [multiple = "multiple"](http://w3c.github.io/html-reference/select.html) si la propiedad especificada en el atributo `asp-for` es `IEnumerable`.</span><span class="sxs-lookup"><span data-stu-id="c7572-342">The Select Tag Helper  will automatically generate the [multiple = "multiple"](http://w3c.github.io/html-reference/select.html)  attribute if the property specified in the `asp-for` attribute is an `IEnumerable`.</span></span> <span data-ttu-id="c7572-343">Por ejemplo, si tenemos el siguiente modelo:</span><span class="sxs-lookup"><span data-stu-id="c7572-343">For example, given the following model:</span></span>
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelIEnumerable.cs?highlight=6)]
 
-<span data-ttu-id="6416a-344">Con la siguiente vista:</span><span class="sxs-lookup"><span data-stu-id="6416a-344">With the following view:</span></span>
+<span data-ttu-id="c7572-344">Con la siguiente vista:</span><span class="sxs-lookup"><span data-stu-id="c7572-344">With the following view:</span></span>
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexMultiSelect.cshtml?highlight=4)]
 
-<span data-ttu-id="6416a-345">Se genera el siguiente código HTML:</span><span class="sxs-lookup"><span data-stu-id="6416a-345">Generates the following HTML:</span></span>
+<span data-ttu-id="c7572-345">Se genera el siguiente código HTML:</span><span class="sxs-lookup"><span data-stu-id="c7572-345">Generates the following HTML:</span></span>
 
 ```HTML
 <form method="post" action="/Home/IndexMultiSelect">
@@ -628,23 +628,23 @@ public IActionResult Edit(int id, int colorIndex)
 </form>
 ```
 
-### <a name="no-selection"></a><span data-ttu-id="6416a-346">Sin selección</span><span class="sxs-lookup"><span data-stu-id="6416a-346">No selection</span></span>
+### <a name="no-selection"></a><span data-ttu-id="c7572-346">Sin selección</span><span class="sxs-lookup"><span data-stu-id="c7572-346">No selection</span></span>
 
-<span data-ttu-id="6416a-347">Si ve que usa la opción "sin especificar" en varias páginas, puede crear una plantilla para no tener que repetir el código HTML:</span><span class="sxs-lookup"><span data-stu-id="6416a-347">If you find yourself using the "not specified" option in multiple pages, you can create a template to eliminate repeating the HTML:</span></span>
+<span data-ttu-id="c7572-347">Si ve que usa la opción "sin especificar" en varias páginas, puede crear una plantilla para no tener que repetir el código HTML:</span><span class="sxs-lookup"><span data-stu-id="c7572-347">If you find yourself using the "not specified" option in multiple pages, you can create a template to eliminate repeating the HTML:</span></span>
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEmptyTemplate.cshtml?highlight=5)]
 
-<span data-ttu-id="6416a-348">La plantilla *Views/Shared/EditorTemplates/CountryViewModel.cshtml*:</span><span class="sxs-lookup"><span data-stu-id="6416a-348">The *Views/Shared/EditorTemplates/CountryViewModel.cshtml* template:</span></span>
+<span data-ttu-id="c7572-348">La plantilla *Views/Shared/EditorTemplates/CountryViewModel.cshtml*:</span><span class="sxs-lookup"><span data-stu-id="c7572-348">The *Views/Shared/EditorTemplates/CountryViewModel.cshtml* template:</span></span>
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
 
-<span data-ttu-id="6416a-349">La posibilidad de agregar elementos HTML [\<option>](https://www.w3.org/wiki/HTML/Elements/option) no se limita exclusivamente a los casos en los que no se *seleccionada nada*.</span><span class="sxs-lookup"><span data-stu-id="6416a-349">Adding HTML [\<option>](https://www.w3.org/wiki/HTML/Elements/option) elements isn't limited to the *No selection* case.</span></span> <span data-ttu-id="6416a-350">Por ejemplo, el método de acción y vista siguientes generarán un código HTML similar al código anterior:</span><span class="sxs-lookup"><span data-stu-id="6416a-350">For example, the following view and action method will generate HTML similar to the code above:</span></span>
+<span data-ttu-id="c7572-349">La posibilidad de agregar elementos HTML [\<option>](https://www.w3.org/wiki/HTML/Elements/option) no se limita exclusivamente a los casos en los que no se *seleccionada nada*.</span><span class="sxs-lookup"><span data-stu-id="c7572-349">Adding HTML [\<option>](https://www.w3.org/wiki/HTML/Elements/option) elements isn't limited to the *No selection* case.</span></span> <span data-ttu-id="c7572-350">Por ejemplo, el método de acción y vista siguientes generarán un código HTML similar al código anterior:</span><span class="sxs-lookup"><span data-stu-id="c7572-350">For example, the following view and action method will generate HTML similar to the code above:</span></span>
 
 [!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/IndexOption.cshtml)]
 
-<span data-ttu-id="6416a-351">Se seleccionará el elemento `<option>` correcto (que contenga el atributo `selected="selected"`) en función del valor real de `Country`.</span><span class="sxs-lookup"><span data-stu-id="6416a-351">The correct `<option>` element will be selected ( contain the `selected="selected"` attribute) depending on the current `Country` value.</span></span>
+<span data-ttu-id="c7572-351">Se seleccionará el elemento `<option>` correcto (que contenga el atributo `selected="selected"`) en función del valor real de `Country`.</span><span class="sxs-lookup"><span data-stu-id="c7572-351">The correct `<option>` element will be selected ( contain the `selected="selected"` attribute) depending on the current `Country` value.</span></span>
 
 ```HTML
  <form method="post" action="/Home/IndexEmpty">
@@ -659,12 +659,12 @@ public IActionResult Edit(int id, int colorIndex)
  </form>
  ```
 
-## <a name="additional-resources"></a><span data-ttu-id="6416a-352">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="6416a-352">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="c7572-352">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="c7572-352">Additional resources</span></span>
 
 * <xref:mvc/views/tag-helpers/intro>
-* [<span data-ttu-id="6416a-353">HTML Form element (Elemento HTML Form)</span><span class="sxs-lookup"><span data-stu-id="6416a-353">HTML Form element</span></span>](https://www.w3.org/TR/html401/interact/forms.html)
-* [<span data-ttu-id="6416a-354">Request Verification Token (Token de comprobación de solicitudes)</span><span class="sxs-lookup"><span data-stu-id="6416a-354">Request Verification Token</span></span>](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
+* <span data-ttu-id="c7572-353">[HTML Form element](https://www.w3.org/TR/html401/interact/forms.html) (Elemento HTML Form)</span><span class="sxs-lookup"><span data-stu-id="c7572-353">[HTML Form element](https://www.w3.org/TR/html401/interact/forms.html)</span></span>
+* <span data-ttu-id="c7572-354">[Request Verification Token](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) (Token de comprobación de solicitudes)</span><span class="sxs-lookup"><span data-stu-id="c7572-354">[Request Verification Token](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)</span></span>
 * <xref:mvc/models/model-binding>
 * <xref:mvc/models/validation>
-* [<span data-ttu-id="6416a-355">IAttributeAdapter Interface (Interfaz IAttributeAdapter)</span><span class="sxs-lookup"><span data-stu-id="6416a-355">IAttributeAdapter Interface</span></span>](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
-* [<span data-ttu-id="6416a-356">Fragmentos de código de este documento</span><span class="sxs-lookup"><span data-stu-id="6416a-356">Code snippets for this document</span></span>](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)
+* <span data-ttu-id="c7572-355">[IAttributeAdapter Interface](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter) (Interfaz IAttributeAdapter)</span><span class="sxs-lookup"><span data-stu-id="c7572-355">[IAttributeAdapter Interface](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)</span></span>
+* [<span data-ttu-id="c7572-356">Fragmentos de código de este documento</span><span class="sxs-lookup"><span data-stu-id="c7572-356">Code snippets for this document</span></span>](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)
