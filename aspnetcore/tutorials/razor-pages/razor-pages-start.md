@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
 ms.openlocfilehash: 1d264ca4a605d8291e273a8f054c92e7eefa5548
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468852"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Tutorial: Introducción a Razor Pages en ASP.NET Core
@@ -39,7 +39,7 @@ Al final de este tutorial, tendrá una aplicación web de Razor Pages que compil
 
 ## <a name="create-a-razor-pages-web-app"></a>Creación de una aplicación web de páginas de Razor
 
-# [<a name="visual-studio"></a>Programa para la mejora](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * En el menú **Archivo** de Visual Studio, seleccione **Nuevo** > **Proyecto**.
 
@@ -55,7 +55,7 @@ Al final de este tutorial, tendrá una aplicación web de Razor Pages que compil
 
   ![Explorador de soluciones](razor-pages-start/_static/se2.2.png)
 
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Abra el [terminal integrado](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
@@ -75,7 +75,7 @@ Al final de este tutorial, tendrá una aplicación web de Razor Pages que compil
 
 * Seleccione **Sí**.
 
-# [<a name="visual-studio-for-mac"></a>Visual Studio para Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
 Desde un terminal, ejecute este comando:
 
@@ -97,7 +97,7 @@ En Visual Studio, seleccione **Archivo > Abrir** y elija el archivo *RazorPagesM
 
 ## <a name="run-the-app"></a>Ejecutar la aplicación
 
-# [<a name="visual-studio"></a>Programa para la mejora](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Presione Ctrl+F5 para ejecutarla sin el depurador.
 
@@ -115,7 +115,7 @@ En Visual Studio, seleccione **Archivo > Abrir** y elija el archivo *RazorPagesM
 
   ![Página Inicio o Índice](razor-pages-start/_static/home2.2.png)
   
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
   [!INCLUDE[](~/includes/trustCertVSC.md)]
 
@@ -133,7 +133,7 @@ En Visual Studio, seleccione **Archivo > Abrir** y elija el archivo *RazorPagesM
 
   ![Página Inicio o Índice](razor-pages-start/_static/home2.2.png)
   
-# [<a name="visual-studio-for-mac"></a>Visual Studio para Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
   [!INCLUDE[](~/includes/trustCertMac.md)]
 
@@ -200,4 +200,4 @@ En este tutorial ha:
 Pase al siguiente tutorial de la serie:
 
 > [!div class="step-by-step"]
-> [Adición de un modelo](xref:tutorials/razor-pages/model)
+> [Agregar un modelo](xref:tutorials/razor-pages/model)

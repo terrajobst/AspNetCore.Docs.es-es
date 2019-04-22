@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 02/25/2019
 uid: security/key-vault-configuration
 ms.openlocfilehash: 8fd1cca1803d3f1d44d80ec63c5cfc259cbdaf55
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59012700"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Proveedor de configuración de almacén de claves de Azure en ASP.NET Core
@@ -370,7 +370,7 @@ Cuando no se puede cargar la configuración mediante el proveedor de la aplicaci
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * <xref:fundamentals/configuration/index>
-* [Microsoft Azure: Almacén de claves](https://azure.microsoft.com/services/key-vault/)
+* [Microsoft Azure: Key Vault](https://azure.microsoft.com/services/key-vault/)
 * [Microsoft Azure: Documentación de Key Vault](/azure/key-vault/)
 * [Para generar y transferir protegidas con HSM de claves para Azure Key Vault](/azure/key-vault/key-vault-hsm-protected-keys)
 * [Clase KeyVaultClient](/dotnet/api/microsoft.azure.keyvault.keyvaultclient)

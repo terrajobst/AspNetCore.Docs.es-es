@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 1/11/2019
 uid: security/authentication/google-logins
-ms.openlocfilehash: 1328bcbce3e6e4786f9d410d1f28f309dc9d2722
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 44c79b3279db7946b6d89a726bd3f5acfb5f51af
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750543"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705596"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Configuración de inicio de sesión externo de Google en ASP.NET Core
 
 Por [Valeriy Novytskyy](https://github.com/01binary) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-En enero de 2019 Google empezó a [apagar](https://developers.google.com/+/api-shutdown) Google + iniciar sesión y los desarrolladores deben mover a un nuevo inicio de sesión de Google en el sistema de marzo. En febrero para dar cabida a los cambios, se actualizará la ASP.NET Core 2.1 y 2.2 paquetes para la autenticación de Google. Para obtener más información y mitigaciones temporales para ASP.NET Core, consulte [este problema de GitHub](https://github.com/aspnet/AspNetCore/issues/6486). En este tutorial se ha actualizado con el nuevo proceso de instalación.
+[Google + API heredadas que se haya cerrado a partir del 7 de marzo de 2019](https://developers.google.com/+/api-shutdown). Google + iniciar sesión y los desarrolladores deben mover a un nuevo inicio de sesión de Google en el sistema. Los paquetes ASP.NET Core 2.1 y 2.2 para la autenticación de Google se ha actualizado para adaptarse a los cambios. Para obtener más información y mitigaciones temporales para ASP.NET Core, consulte [este problema de GitHub](https://github.com/aspnet/AspNetCore/issues/6486). En este tutorial se ha actualizado con el nuevo proceso de instalación.
 
 Este tutorial muestra cómo habilitar usuarios iniciar sesión con su cuenta de Google con el proyecto de ASP.NET Core 2.2 creado en el [página anterior](xref:security/authentication/social/index).
 

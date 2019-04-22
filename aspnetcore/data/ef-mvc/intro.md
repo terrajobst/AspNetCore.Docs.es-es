@@ -8,10 +8,10 @@ ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
 ms.openlocfilehash: 5a2ec9a8d85925e55840962cc90b3092953e7920
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59012856"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Tutorial: Introducción a EF Core en una aplicación web de ASP.NET Core MVC
@@ -37,7 +37,7 @@ En este tutorial ha:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [.NET Core SDK 2.2](https://www.microsoft.com/net/download)
+* [SDK de .NET Core 2.2](https://www.microsoft.com/net/download)
 * [Visual Studio 2017 o 2019](https://visualstudio.microsoft.com/downloads/) con las cargas de trabajo siguientes:
   * Carga de trabajo de **ASP.NET y desarrollo web**
   * Carga de trabajo **Desarrollo multiplataforma de .NET Core**

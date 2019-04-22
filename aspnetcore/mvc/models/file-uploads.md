@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/models/file-uploads
 ms.openlocfilehash: 831f0c84f0ff062e9e24ccbf4ca81b7143c66e66
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468558"
 ---
 # <a name="file-uploads-in-aspnet-core"></a>Cargas de archivos en ASP.NET Core
@@ -19,7 +19,7 @@ Por [Steve Smith](https://ardalis.com/)
 
 Entre las acciones que se pueden realizar en ASP.NET MVC está la de cargar uno o más archivos por medio de un sencillo procedimiento de enlace de modelos (archivos más pequeños) o del streaming (archivos de mayor tamaño).
 
-[Vea o descargue el ejemplo de GitHub.](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample)
+[Ver o descargar el ejemplo desde GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample)
 
 ## <a name="uploading-small-files-with-model-binding"></a>Cargar archivos pequeños por medio del enlace de modelos
 
@@ -94,7 +94,7 @@ public class RegisterViewModel
 ```
 
 > [!NOTE]
-> `IFormFile` se puede usar directamente como un parámetro de método de acción o como una propiedad ViewModel, como se ha mostrado anteriormente.
+> `IFormFile` se puede usar directamente como un parámetro de método de acción o como una propiedad ViewModel, tal y como se aprecia arriba.
 
 Copie `IFormFile` en una secuencia y guárdela en la matriz de bytes:
 

@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/working-with-forms
 ms.openlocfilehash: 6eff3bf03e650e154b5c767c9bcdd915e7db8b47
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468807"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Asistentes de etiquetas en formularios de ASP.NET Core
@@ -33,7 +33,7 @@ El asistente de etiquetas [Form](https://www.w3.org/TR/html401/interact/forms.ht
 
 * Proporciona el atributo `asp-route-<Parameter Name>`, donde `<Parameter Name>` se agrega a los valores de ruta. Los parámetros `routeValues` de `Html.BeginForm` y `Html.BeginRouteForm` proporcionan una funcionalidad similar.
 
-* Como alternativa del asistente de HTML tiene `Html.BeginForm` y `Html.BeginRouteForm`
+* Tiene `Html.BeginForm` y `Html.BeginRouteForm` como alternativa del asistente de HTML.
 
 Ejemplo:
 
@@ -81,7 +81,7 @@ Atributos [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-hel
 |[asp-page](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|El nombre de la página de Razor.|
 |[asp-page-handler](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|El nombre del controlador de páginas de Razor.|
 |[asp-route](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|El nombre de la ruta.|
-|[asp-route-{valor}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Un valor único de ruta de dirección URL. Por ejemplo: `asp-route-id="1234"`.|
+|[asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Un valor único de ruta de dirección URL. Por ejemplo: `asp-route-id="1234"`.|
 |[asp-all-route-data](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|Todos los valores de ruta.|
 |[asp-fragment](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|El fragmento de dirección URL.|
 
@@ -277,7 +277,7 @@ Con las propiedades de colección, `asp-for="CollectionProperty[23].Member"` gen
 
 Cuando ASP.NET Core MVC calcula el valor de `ModelExpression`, inspecciona varios orígenes, `ModelState` incluido. Fíjese en `<input type="text" asp-for="@Name">`. El atributo `value` calculado es el primer valor distinto de null de:
 
-* `ModelState` como entrada con la clave "Name".
+* La entrada `ModelState` con la clave "Name".
 * El resultado de la expresión `Model.Name`.
 
 ### <a name="navigating-child-properties"></a>Navegar a las propiedades secundarias
@@ -334,7 +334,7 @@ La plantilla *Views/Shared/EditorTemplates/ToDoItem.cshtml*:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
-`foreach` debe usarse, si es posible, si el valor se va a utilizar en un contexto equivalente a `asp-for` o `Html.DisplayFor`. En general, `for` es mejor que `foreach` (si el escenario lo permite), ya que no necesita asignar ningún enumerador; sin embargo, la evaluación de un indizador en una expresión LINQ puede resultar caro y, por tanto, se debe minimizar.
+Si es posible, debe usarse `foreach` si el valor se va a utilizar en un contexto equivalente a `asp-for` o `Html.DisplayFor`. En general, `for` es mejor que `foreach` (si el escenario lo permite), ya que no necesita asignar ningún enumerador; sin embargo, la evaluación de un indizador en una expresión LINQ puede resultar caro y, por tanto, se debe minimizar.
 
 &nbsp;
 
@@ -488,7 +488,7 @@ El código HTML generado (cuando el modelo es válido) es este:
 
 * Genera el elemento [select](https://www.w3.org/wiki/HTML/Elements/select) y el elemento asociado [option](https://www.w3.org/wiki/HTML/Elements/option) de las propiedades del modelo.
 
-* Como alternativa del asistente de HTML tiene `Html.DropDownListFor` y `Html.ListBoxFor`
+* Tiene `Html.DropDownListFor` y `Html.ListBoxFor` como alternativa del asistente de HTML.
 
 El elemento `asp-for` de `Select Tag Helper` especifica el nombre de la propiedad de modelo del elemento [select](https://www.w3.org/wiki/HTML/Elements/select), mientras que `asp-items` especifica los elementos [option](https://www.w3.org/wiki/HTML/Elements/option).  Por ejemplo:
 
@@ -662,9 +662,9 @@ Se seleccionará el elemento `<option>` correcto (que contenga el atributo `sele
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * <xref:mvc/views/tag-helpers/intro>
-* [HTML Form element (Elemento HTML Form)](https://www.w3.org/TR/html401/interact/forms.html)
-* [Request Verification Token (Token de comprobación de solicitudes)](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
+* [HTML Form element](https://www.w3.org/TR/html401/interact/forms.html) (Elemento HTML Form)
+* [Request Verification Token](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) (Token de comprobación de solicitudes)
 * <xref:mvc/models/model-binding>
 * <xref:mvc/models/validation>
-* [IAttributeAdapter Interface (Interfaz IAttributeAdapter)](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
+* [IAttributeAdapter Interface](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter) (Interfaz IAttributeAdapter)
 * [Fragmentos de código de este documento](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)

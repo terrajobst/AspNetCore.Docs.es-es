@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
 ms.openlocfilehash: 362186be6feeeefeca3c56688ee6420de5fb9659
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468629"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Inicio de la aplicación en ASP.NET Core
@@ -27,7 +27,7 @@ Las aplicaciones de ASP.NET Core utilizan una clase `Startup`, que se denomina `
 * Incluye opcionalmente un método <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> para configurar los *servicios* de la aplicación. Un servicio es un componente reutilizable que proporciona funcionalidades de la aplicación. Los servicios se configuran o, como también se denomina, se *registran* en `ConfigureServices` y se usan en la aplicación a través de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection) o <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>.
 * Incluye un método <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> para crear la canalización de procesamiento de solicitudes de la aplicación.
 
-`ConfigureServices` El tiempo de ejecución llama a `Configure` y  cuando la aplicación se inicia:
+El runtime llama a `ConfigureServices` y `Configure` al iniciarse la aplicación:
 
 [!code-csharp[](startup/sample_snapshot/Startup1.cs?highlight=4,10)]
 
@@ -80,7 +80,7 @@ Las [plantillas de ASP.NET Core](/dotnet/core/tools/dotnet-new) configuran la ca
 * [Seguridad de transporte estricta de HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts)
 * [Redireccionamiento de HTTPS](xref:security/enforcing-ssl)
 * [Archivos estáticos](xref:fundamentals/static-files)
-* [Reglamento general de protección de datos (RGPD)](xref:security/gdpr)
+* [Reglamento General de Protección de Datos (GDPR)](xref:security/gdpr)
 * ASP.NET Core [MVC](xref:mvc/overview) y [Razor Pages](xref:razor-pages/index)
 
 [!code-csharp[](startup/sample_snapshot/Startup4.cs)]

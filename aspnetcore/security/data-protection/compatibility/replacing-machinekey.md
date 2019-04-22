@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 04/06/2019
 uid: security/data-protection/compatibility/replacing-machinekey
 ms.openlocfilehash: 2317cb50cfe63226baf336ebfc5d681d1cebe5c6
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59468571"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705554"
 ---
 # <a name="replace-the-aspnet-machinekey-in-aspnet-core"></a>Reemplace el elemento machineKey ASP.NET en ASP.NET Core
 

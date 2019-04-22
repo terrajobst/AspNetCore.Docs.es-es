@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
 ms.openlocfilehash: 40ecca1c6f9d519b24649d0c28946d95b820c07c
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59068201"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Desarrollar aplicaciones ASP.NET Core con un monitor de archivos
@@ -135,7 +135,7 @@ Se pueden agregar más elementos a la lista de control inspección editando el a
 
 ## <a name="opt-out-of-files-to-be-watched"></a>Descartar archivos de la inspección
 
-`dotnet-watch` se puede configurar para ignorar su configuración predeterminada. Para omitir archivos concretos, agregue el atributo `Watch="false"` a la definición de un elemento en el archivo *.csproj*:
+`dotnet-watch` se puede configurar para pasar por alto su configuración predeterminada. Para omitir archivos concretos, agregue el atributo `Watch="false"` a la definición de un elemento en el archivo *.csproj*:
 
 ```xml
 <ItemGroup>
@@ -152,7 +152,7 @@ Se pueden agregar más elementos a la lista de control inspección editando el a
 
 ## <a name="custom-watch-projects"></a>Proyectos de inspección personalizados
 
-`dotnet-watch` no queda restringido a proyectos de C#. sino que se pueden crear proyectos de inspección personalizados para controlar distintos escenarios. Veamos el siguiente diseño de proyecto:
+`dotnet-watch` no queda restringido exclusivamente a proyectos de C#, sino que se pueden crear proyectos de inspección personalizados para controlar distintos escenarios. Veamos el siguiente diseño de proyecto:
 
 * **test/**
   * *UnitTests/UnitTests.csproj*

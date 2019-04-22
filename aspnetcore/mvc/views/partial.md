@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/partial
 ms.openlocfilehash: 65da78d6df3f179df9bdfa3a32af8736b71bbac5
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468713"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Vistas parciales en ASP.NET Core
@@ -75,7 +75,7 @@ Los nombres de archivo de las vistas parciales suelen comenzar con un guión baj
 Dentro de un archivo de marcado, hay varias maneras de hacer referencia a una vista parcial. Se recomienda que las aplicaciones usen uno de los siguientes métodos de representación asincrónica:
 
 * [Asistente de etiquetas parciales](#partial-tag-helper)
-* [Asistente de HTML asincrónica](#asynchronous-html-helper)
+* [Asistente de HTML asincrónico](#asynchronous-html-helper)
 
 ::: moniker-end
 
@@ -83,7 +83,7 @@ Dentro de un archivo de marcado, hay varias maneras de hacer referencia a una vi
 
 Dentro de un archivo de marcado, hay dos formas de hacer referencia a una vista parcial:
 
-* [Asistente de HTML asincrónica](#asynchronous-html-helper)
+* [Asistente de HTML asincrónico](#asynchronous-html-helper)
 * [Asistente de HTML sincrónico](#synchronous-html-helper)
 
 Se recomienda que las aplicaciones usen el [Asistente de HTML asincrónico](#asynchronous-html-helper).
@@ -243,7 +243,7 @@ Las convenciones siguientes se aplican a la detección de la vista parcial:
 
 ## <a name="access-data-from-partial-views"></a>Acceso a datos desde vistas parciales
 
-Cuando se crea una instancia de una vista parcial, recibe una *copia* del diccionario `ViewData` del elemento primario. Las actualizaciones realizadas en los datos dentro de la vista parcial no se conservan en la vista principal. `ViewData` Los cambios de  en una vista parcial se pierden cuando se devuelve dicha vista.
+Cuando se crea una instancia de una vista parcial, recibe una *copia* del diccionario `ViewData` del elemento primario. Las actualizaciones realizadas en los datos dentro de la vista parcial no se conservan en la vista principal. Los cambios de `ViewData` en una vista parcial se pierden cuando se devuelve la vista parcial.
 
 En el ejemplo siguiente se muestra cómo pasar una instancia de [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) a una vista parcial:
 

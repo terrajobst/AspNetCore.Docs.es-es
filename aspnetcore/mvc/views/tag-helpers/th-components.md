@@ -7,10 +7,10 @@ ms.author: scaddie
 ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/th-components
 ms.openlocfilehash: fdad4ae367245cd3beabaf90587c1fe5e9162afe
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468600"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Componentes del asistente de etiquetas en ASP.NET Core
@@ -43,7 +43,7 @@ En el código anterior:
 * `AddressStyleTagHelperComponent` implementa <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent>. La abstracción:
   * Permite la inicialización de la clase con <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext>.
   * Permite usar componentes de asistente de etiquetas para agregar o modificar elementos HTML.
-* La propiedad <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent.Order*> define el orden en el que se representan los componentes. `Order` es necesario cuando hay varios usos de los componentes del asistente de etiquetas en una aplicación.
+* La propiedad <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent.Order*> define el orden en el que se representan los componentes. `Order` es necesario cuando hay varios usos de los componentes de asistente de etiquetas en una aplicación.
 * <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent.ProcessAsync*> compara el valor de propiedad <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext.TagName*> del contexto de ejecución con `head`. Si la comparación se evalúa como true, el contenido del campo `_style` se inserta en el elemento `<head>` HTML.
 
 ### <a name="inject-into-html-body-element"></a>Insertar en el elemento del cuerpo HTML
@@ -76,7 +76,7 @@ Si la clase de componente de asistente de etiquetas no se administran con <xref:
 
 Si el componente de asistente de etiquetas no está registrado con la inserción de dependencias, se puede registrar desde una página de Razor Pages o desde una vista de MVC. Esta técnica se usa para controlar el orden de ejecución del componente y el marcado insertado desde un archivo de Razor.
 
-`ITagHelperComponentManager` se usa para agregar componentes del asistente de etiquetas o para quitarlos de la aplicación. El código siguiente demuestra esta técnica con `AddressTagHelperComponent`:
+`ITagHelperComponentManager` se usa para agregar componentes de asistente de etiquetas o para quitarlos de la aplicación. El código siguiente demuestra esta técnica con `AddressTagHelperComponent`:
 
 [!code-cshtml[](th-components/samples/RazorPagesSample/Pages/Contact.cshtml?name=snippet_ITagHelperComponentManager)]
 
