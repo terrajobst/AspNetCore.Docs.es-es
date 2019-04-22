@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/17/2019
 uid: signalr/javascript-client
-ms.openlocfilehash: e58015221497a9f962edf9f9fdba7ea3025d7694
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: f1f072e63928502fa1bad62e808ff035e57f2fd3
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59705610"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59983018"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>Cliente ASP.NET Core SignalR JavaScript
 
@@ -66,6 +66,13 @@ Los clientes JavaScript llamar a métodos públicos en concentradores a través 
 
 > [!NOTE]
 > Si usa Azure SignalR Service en *modo sin servidor*, no puede llamar a métodos de concentrador desde un cliente. Para obtener más información, consulte el [documentación de SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config).
+
+El `invoke` método devuelve un JavaScript [promesa](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise). El `Promise` se resuelve con el valor devuelto (si existe) cuando se devuelve el método en el servidor. Si el método en el servidor produce un error, el `Promise` se rechaza el mensaje de error. Use la `then` y `catch` métodos en el `Promise` para controlar estos casos (o `await` sintaxis).
+
+El `send` método devuelve un JavaScript `Promise`. El `Promise` se resuelve cuando se envió el mensaje al servidor. Si se produce un error al enviar el mensaje, el `Promise` se rechaza el mensaje de error. Use la `then` y `catch` métodos en el `Promise` para controlar estos casos (o `await` sintaxis).
+
+> [!NOTE]
+> Uso de `send` no espera a que el servidor ha recibido el mensaje. Por lo tanto, no es posible devolver datos o errores del servidor.
 
 ## <a name="call-client-methods-from-hub"></a>Llamar a métodos cliente desde el concentrador
 

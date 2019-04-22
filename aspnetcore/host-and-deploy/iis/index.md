@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET Core en Windows Server Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/23/2019
+ms.date: 04/16/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 477568dd64fb1442011abb4229299e7dece40da9
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: 65721a734cb35a2b20fd283ad54237eb896083a9
+ms.sourcegitcommit: 57a974556acd09363a58f38c26f74dc21e0d4339
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488759"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59672650"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -588,7 +588,7 @@ Para más información, consulte el tema [icacls](/windows-server/administration
 
 Para una implementación en proceso cuando se establece una conexión HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) notifica `HTTP/2`. Para una implementación fuera de proceso cuando se establece una conexión HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) notifica `HTTP/1.1`.
 
-Para obtener más información sobre los modelos de hospedaje en proceso y fuera de proceso, consulte el tema <xref:host-and-deploy/aspnet-core-module> y <xref:host-and-deploy/aspnet-core-module>.
+Para obtener más información sobre los modelos de hospedaje en proceso y fuera de proceso, consulte <xref:host-and-deploy/aspnet-core-module>.
 
 ::: moniker-end
 
