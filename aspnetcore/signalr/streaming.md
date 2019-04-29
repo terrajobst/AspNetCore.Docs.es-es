@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/12/2019
 uid: signalr/streaming
-ms.openlocfilehash: 83bbb231482d9c1606be3c5bbbeb1cc3b8efcf7d
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
-ms.translationtype: MT
+ms.openlocfilehash: d185056d3bdda089eaa46ae9b8e13ab7a4354f93
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982661"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165081"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>Usar la transmisión por secuencias en ASP.NET Core SignalR
 
@@ -36,13 +36,13 @@ ASP.NET Core SignalR es compatible con la transmisión por secuencias los valore
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Un método de concentrador se convierte automáticamente en un método de concentrador de transmisión por secuencias cuando vuelve una <xref:System.Threading.Channels.ChannelReader`1>, `IAsyncEnumerable<T>`, `Task<ChannelReader<T>>`, o `Task<IAsyncEnumerable<T>>`.
+Un método de concentrador se convierte automáticamente en un método de concentrador de transmisión por secuencias cuando vuelve una <xref:System.Threading.Channels.ChannelReader%601>, `IAsyncEnumerable<T>`, `Task<ChannelReader<T>>`, o `Task<IAsyncEnumerable<T>>`.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Un método de concentrador se convierte automáticamente en un método de concentrador de transmisión por secuencias cuando vuelve una <xref:System.Threading.Channels.ChannelReader`1> o `Task<ChannelReader<T>>`.
+Un método de concentrador se convierte automáticamente en un método de concentrador de transmisión por secuencias cuando vuelve una <xref:System.Threading.Channels.ChannelReader%601> o `Task<ChannelReader<T>>`.
 
 ::: moniker-end
 
@@ -58,7 +58,7 @@ Métodos de concentrador de streaming puede devolver `IAsyncEnumerable<T>` adem�
 
 ::: moniker-end
 
-El ejemplo siguiente muestra los conceptos básicos de transmisión de datos al cliente utilizando los canales. Cada vez que se escribe un objeto en el <xref:System.Threading.Channels.ChannelWriter`1>, el objeto inmediatamente se envía al cliente. Al final, el `ChannelWriter` completada para indicar al cliente la secuencia está cerrada.
+El ejemplo siguiente muestra los conceptos básicos de transmisión de datos al cliente utilizando los canales. Cada vez que se escribe un objeto en el <xref:System.Threading.Channels.ChannelWriter%601>, el objeto inmediatamente se envía al cliente. Al final, el `ChannelWriter` completada para indicar al cliente la secuencia está cerrada.
 
 > [!NOTE]
 > Escribir en el `ChannelWriter<T>` en un subproceso en segundo plano y vuelva el `ChannelReader` tan pronto como sea posible. Las demás invocaciones de concentrador se bloquean hasta que un `ChannelReader` se devuelve.

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Encontrará temas relacionados con la autenticación con Azure Active Directory en ASP.NET Core.
 ms.author: riande
 ms.date: 10/4/2017
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 uid: security/authentication/azure-active-directory/index
-ms.openlocfilehash: 9a5b77201f228567bea0850ae236eb6c977e915a
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 5361f0202ddfde0dedd9d26decec0d20e74f7b52
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165275"
 ---
 # <a name="azure-active-directory-with-aspnet-core"></a>Azure Active Directory con ASP.NET Core
 

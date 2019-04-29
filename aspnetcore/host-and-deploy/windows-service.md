@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 04/04/2019
 uid: host-and-deploy/windows-service
 ms.openlocfilehash: 544eefa87898e82ec2bf8f9f61ce4e26dd554bb7
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59068341"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hospedaje de ASP.NET Core en un servicio de Windows
@@ -187,17 +187,17 @@ Conceda acceso de escritura, lectura y ejecución a la carpeta de la aplicación
 icacls "{PATH}" /grant "{USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS}" /t
 ```
 
-* `{PATH}` &ndash;: ruta de acceso a la carpeta de la aplicación.
-* `{USER ACCOUNT}` &ndash;: cuenta del usuario (SID).
-* `(OI)` &ndash;: la marca Object Inherit (Heredar objetos) propaga los permisos a los archivos subordinados.
-* `(CI)` &ndash;: la marca Container Inherit (Heredar contenedores) propaga los permisos a las carpetas subordinadas.
-* `{PERMISSION FLAGS}` &ndash;: define los permisos de acceso a la aplicación.
+* `{PATH}`: ruta de acceso a la carpeta de la aplicación.
+* `{USER ACCOUNT}`: cuenta del usuario (SID).
+* `(OI)`: la marca Object Inherit (Heredar objetos) propaga los permisos a los archivos subordinados.
+* `(CI)`: la marca Container Inherit (Heredar contenedores) propaga los permisos a las carpetas subordinadas.
+* `{PERMISSION FLAGS}`: define los permisos de acceso a la aplicación.
   * Escritura (`W`)
   * Lectura (`R`)
   * Ejecución (`X`)
   * Total (`F`)
   * Modificación (`M`)
-* `/t` &ndash;: se aplica de forma recursiva a las carpetas y los archivos subordinados existentes.
+* `/t`: se aplica de forma recursiva a las carpetas y los archivos subordinados existentes.
 
 Para la aplicación de ejemplo publicada en la carpeta *c:\\svc* y en la cuenta `ServiceUser` con permisos de escritura, lectura y ejecución, use el siguiente comando de un shell de comandos administrativos de PowerShell 6.
 

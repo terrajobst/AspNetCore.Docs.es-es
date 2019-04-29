@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/08/2019
 uid: fundamentals/static-files
 ms.openlocfilehash: 12c7b39bee462ff83188a5a0f10b133ca273863b
-ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59425067"
 ---
 # <a name="static-files-in-aspnet-core"></a>Archivos estáticos en ASP.NET Core
@@ -154,7 +154,7 @@ Establecer una página principal predeterminada proporciona a los visitantes un 
 [!code-csharp[](static-files/samples/1x/StartupEmpty.cs?name=snippet_ConfigureMethod&highlight=3)]
 
 > [!IMPORTANT]
-> `UseDefaultFiles` Debe llamarse a `UseStaticFiles` antes de a  para proporcionar el archivo predeterminado. `UseDefaultFiles` es un sistema de reescritura de direcciones URL que no proporciona realmente el archivo. Habilite el middleware de archivos estáticos a través de `UseStaticFiles` para proporcionar el archivo.
+> Debe llamarse a `UseDefaultFiles` antes de a `UseStaticFiles` para proporcionar el archivo predeterminado. `UseDefaultFiles` es un sistema de reescritura de direcciones URL que no proporciona realmente el archivo. Habilite el middleware de archivos estáticos a través de `UseStaticFiles` para proporcionar el archivo.
 
 Con `UseDefaultFiles`, las solicitudes a una carpeta buscan:
 
@@ -200,7 +200,7 @@ El código siguiente permite los archivos estáticos, los archivos predeterminad
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureMethod&highlight=5-11)]
 
-`AddDirectoryBrowser` Se debe llamar a `EnableDirectoryBrowsing` cuando el valor de la propiedad `true` es :
+Se debe llamar a `AddDirectoryBrowser` cuando el valor de la propiedad `EnableDirectoryBrowsing` es `true`:
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureServicesMethod)]
 
@@ -208,8 +208,8 @@ Al usar la jerarquía de archivos y el código anterior, las direcciones URL se 
 
 | Identificador URI            |                             Respuesta  |
 | ------- | ------|
-| *http://\<server_address>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
-| *http://\<server_address>/StaticFiles*             |     MyStaticFiles/default.html |
+| *http://\<dirección_servidor>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
+| *http://\<dirección_servidor>/StaticFiles*             |     MyStaticFiles/default.html |
 
 Si no existe ningún archivo con el nombre predeterminado en el directorio *MyStaticFiles*, *http://\<dirección_servidor>/StaticFiles* devuelve la lista de directorios con vínculos activos:
 
@@ -260,5 +260,5 @@ Con el código anterior, una solicitud para un archivo con un tipo de contenido 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Software intermedio](xref:fundamentals/middleware/index)
+* [Middleware](xref:fundamentals/middleware/index)
 * [Introducción a ASP.NET Core](xref:index)

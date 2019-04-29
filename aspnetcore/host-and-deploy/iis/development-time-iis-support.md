@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 04/08/2019
 uid: host-and-deploy/iis/development-time-iis-support
 ms.openlocfilehash: 6f555858239b4432d252f8b3ac7add5c3e8bfe62
-ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59425106"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Compatibilidad de IIS de tiempo de desarrollo en Visual Studio para ASP.NET Core
@@ -22,7 +22,7 @@ En este artículo se describe la compatibilidad de [Visual Studio](https://www.v
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Visual Studio para Windows](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio para Windows](https://visualstudio.microsoft.com/downloads/).
 * Carga de trabajo de **ASP.NET y desarrollo web**
 * Carga de trabajo **Desarrollo multiplataforma de .NET Core**
 * Certificado de seguridad X.509 (para compatibilidad con HTTPS)

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/08/2018
 uid: host-and-deploy/docker/index
-ms.openlocfilehash: e56f90ec7272ce0411651ee6f8e7c754ae44b78d
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 9189e1fbb21abcc8c8bdea947e672ee53b59bc4f
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59516266"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982632"
 ---
 # <a name="host-aspnet-core-in-docker-containers"></a>Hospedar ASP.NET Core en contenedores de Docker
 
@@ -28,6 +28,8 @@ Conozca los términos y las definiciones de la tecnología de Docker.
 
 [Contenedores, imágenes y registros de Docker](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-containers-images-registries)  
 Descubra cómo se almacenan las imágenes de contenedor de Docker en un registro de imágenes para la implementación coherente en los entornos.
+
+<xref:host-and-deploy/docker/building-net-docker-images> Obtenga información sobre cómo compilar una aplicación de ASP.NET Core y aplicarle Docker. Explore las imágenes de Docker que mantiene Microsoft y examine los casos de uso.
 
 [Visual Studio Tools para Docker](xref:host-and-deploy/docker/visual-studio-tools-for-docker)  
 Descubra la manera en que Visual Studio 2017 admite la compilación, la depuración y la ejecución de aplicaciones de ASP.NET Core destinadas a .NET Framework o .NET Core en Docker para Windows. Se admiten contenedores de Windows y Linux.

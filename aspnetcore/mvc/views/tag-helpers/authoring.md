@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo crear asistentes de etiquetas en ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 04/12/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: ddfd7cb8c67e28709b8ce75d5a4d0a8c0c0cc43c
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 19b7df1abc8765cb9a77487e39c4365fdacf2b65
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210085"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614427"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Crear asistentes de etiquetas en ASP.NET Core
 
@@ -65,7 +65,9 @@ Es decir, una etiqueta delimitadora lo convierte en un vínculo de correo electr
    public class Email : TagHelper
    ```
 
-1. Para hacer que la clase `EmailTagHelper` esté disponible para todas nuestras vistas de Razor, agregue la directiva `addTagHelper` al archivo *Views/_ViewImports.cshtml*: [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
+1. Para hacer que la clase `EmailTagHelper` esté disponible para todas nuestras vistas de Razor, agregue la directiva `addTagHelper` al archivo *Views/_ViewImports.cshtml*:
+
+   [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
 
    El código anterior usa la sintaxis de comodines para especificar que todos los asistentes de etiquetas del ensamblado estarán disponibles. La primera cadena después de `@addTagHelper` especifica el asistente de etiquetas que se va a cargar (use "*" para todos los asistentes de etiquetas), mientras que la segunda cadena "AuthoringTagHelpers" especifica el ensamblado en el que se encuentra el asistente de etiquetas. Además, tenga en cuenta que la segunda línea incorpora los asistentes de etiquetas de ASP.NET Core MVC mediante la sintaxis de comodines (esos asistentes se tratan en el tema [Introducción a los asistentes de etiquetas](intro.md)). Es la directiva `@addTagHelper` la que hace que el asistente de etiquetas esté disponible para la vista de Razor. Como alternativa, puede proporcionar el nombre completo (FQN) de un asistente de etiquetas como se muestra a continuación:
 
