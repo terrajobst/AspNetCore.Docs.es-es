@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: 727bd80b7f37f6ebd9d37b7aab1aa6c33b85678c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 41a5a41c8921b04290784d26441ecb46aea753e7
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206732"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64894972"
 ---
 # <a name="use-libman-with-aspnet-core-in-visual-studio"></a>Usar LibMan con ASP.NET Core en Visual Studio
 
@@ -24,7 +24,7 @@ Visual Studio tiene compatibilidad integrada para [LibMan](xref:client-side/libm
 * Cuadro de diálogo de búsqueda para buscar bibliotecas y agregar los archivos a un proyecto.
 * Compatibilidad con para la edición *libman.json*&mdash;el archivo de manifiesto LibMan.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/libman/samples/) [(cómo descargar)](xref:index#how-to-download-a-sample)
+[Ver o descargar el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/client-side/libman/samples/) [(cómo descargar)](xref:index#how-to-download-a-sample)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -64,9 +64,9 @@ Siga estos pasos para instalar una biblioteca de cliente:
   
   |Ubicación de inicio                           |Carpeta sugerido      |
   |------------------------------------------|----------------------|
-  |raíz del proyecto (si *wwwroot* existe)        |*Wwwroot/lib/jquery /* |
-  |raíz del proyecto (si *wwwroot* no existe) |*jquery/lib /*         |
-  |*Páginas* carpeta del proyecto                 |*Páginas/jquery /*       |
+  |raíz del proyecto (si *wwwroot* existe)        |*wwwroot/lib/jquery/* |
+  |raíz del proyecto (si *wwwroot* no existe) |*lib/jquery/*         |
+  |*Páginas* carpeta del proyecto                 |*Pages/jquery/*       |
 
 * Haga clic en el **instalar** botón para descargar los archivos, por la configuración en *libman.json*.
 * Revise el **Administrador de bibliotecas** fuente de la **salida** ventana de detalles de la instalación. Por ejemplo:
