@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/tools-and-downloads
-ms.openlocfilehash: 0c64e723f1b912323103f201a66c1edaeccdcc2d
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: ae4827f735274405021e5ee539d1029b7ddb9553
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284357"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64891992"
 ---
 # <a name="tools-and-downloads"></a>Herramientas y descargas
 
@@ -38,7 +38,7 @@ Se requieren las siguientes herramientas:
 
 ## <a name="recommended-tools-windows-only"></a>Herramientas recomendadas (solo Windows)
 
-* [Visual Studio](https://www.visualstudio.com/)del sólidas herramientas de Azure proporcionan una interfaz gráfica de usuario para la mayoría de la funcionalidad descrita en esta guía. Funcionará cualquier edición de Visual Studio, incluida la edición gratuita de Visual Studio Community. Los tutoriales se escriben en demuestran el desarrollo, implementación y DevOps con y sin Visual Studio.
+* [Visual Studio](https://visualstudio.microsoft.com)del sólidas herramientas de Azure proporcionan una interfaz gráfica de usuario para la mayoría de la funcionalidad descrita en esta guía. Funcionará cualquier edición de Visual Studio, incluida la edición gratuita de Visual Studio Community. Los tutoriales se escriben en demuestran el desarrollo, implementación y DevOps con y sin Visual Studio.
 
   Confirme que Visual Studio tiene las siguientes [cargas de trabajo](/visualstudio/install/modify-visual-studio) instalado:
 

@@ -5,18 +5,14 @@ description: En este tutorial, empezará a usar la característica de EF Core de
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 5b8228130378059aebe21c9c3ea1eb72e4c6aad9
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 406b94d74a99dcec3b2ce01a5eb3313c48819148
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086168"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517012"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Migraciones (4 de 8)
-
-[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 Por [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -179,7 +175,7 @@ Solución: Ejecute `dotnet ef database update`.
 * [CLI de .NET Core](/ef/core/miscellaneous/cli/dotnet).
 * [Consola del administrador de paquetes (Visual Studio)](/ef/core/miscellaneous/cli/powershell)
 
-::: moniker-end
+
 
 > [!div class="step-by-step"]
 > [Anterior](xref:data/ef-rp/sort-filter-page)

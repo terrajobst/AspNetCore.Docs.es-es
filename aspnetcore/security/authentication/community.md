@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 02/15/2019
 uid: security/authentication/community
 ms.openlocfilehash: e25df794bdff8f904382e7a299755ae4c23b892e
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410289"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64891752"
 ---
 # <a name="community-oss-authentication-options-for-aspnet-core"></a>Opciones de autenticación de OSS de la Comunidad de ASP.NET Core
 
@@ -20,7 +20,7 @@ Esta página contiene las opciones de autenticación proporcionado por la Comuni
 
 La siguiente lista se ordena alfabéticamente.
 
-| nombre | Descripción |
+| Name | Descripción |
 | ---- | ----------- |
 | [AspNet.Security.OpenIdConnect.Server (ASOS)](https://github.com/aspnet-contrib/AspNet.Security.OpenIdConnect.Server) | ASOS es un bajo nivel, first protocolo OpenID Connect marco de servidor para ASP.NET Core y OWIN o Katana. |
 | [Cierge](https://github.com/pwdless/Cierge) | Cierge es un servidor de OpenID Connect que controla el registro del usuario, inicio de sesión, perfiles, administración y los inicios de sesión sociales. |

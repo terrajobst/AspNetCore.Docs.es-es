@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 01/31/2019
 uid: security/authentication/samples
 ms.openlocfilehash: 7b3c911d60ad4737ebd12ce6f7628ad624b11658
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236683"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897162"
 ---
 # <a name="authentication-samples-for-aspnet-core"></a>Ejemplos de autenticación para ASP.NET Core
 
@@ -28,7 +28,7 @@ El [repositorio de ASP.NET Core](https://github.com/aspnet/AspNetCore) contiene 
 
 ## <a name="run-the-samples"></a>Ejecutar los ejemplos
 
-* Seleccione un [rama](https://github.com/aspnet/AspNetCore). Por ejemplo, `release/2.2`.
+* Seleccione un [rama](https://github.com/aspnet/AspNetCore). Por ejemplo, `release/2.2`
 * Clone o descargue el [repositorio de ASP.NET Core](https://github.com/aspnet/AspNetCore).
 * Compruebe que tiene instalada la [SDK de .NET Core](https://www.microsoft.com/net/download/all) versión que coincida con la clonación del repositorio de ASP.NET Core.
 * Navegue a un ejemplo en *AspNetCore/src/seguridad/samples* y ejecutar el ejemplo con `dotnet run`.

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: d2dd5e9b7f196bcbd1940f7ef58331dabd2367a1
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 72d5b2e902a95442ccffb7a149b917c50373775b
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637812"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64889930"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware de reescritura de URL en ASP.NET Core
 
@@ -38,7 +38,7 @@ La reescritura de URL consiste en modificar varias URL de solicitud basadas en u
 > [!NOTE]
 > La reescritura de URL puede reducir el rendimiento de una aplicación. Cuando sea factible, limite el número y la complejidad de las reglas.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="url-redirect-and-url-rewrite"></a>Redireccionamiento y reescritura de URL
 
@@ -68,7 +68,7 @@ Aunque es posible que el cliente pueda recuperar el recurso en la dirección URL
 
 ## <a name="url-rewriting-sample-app"></a>Aplicación de ejemplo de reescritura de URL
 
-Puede explorar las características del middleware de reescritura de URL con la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). La aplicación emplea las reglas de redireccionamiento y reescritura, y muestra la URL redirigida o reescrita para varios escenarios.
+Puede explorar las características del middleware de reescritura de URL con la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). La aplicación emplea las reglas de redireccionamiento y reescritura, y muestra la URL redirigida o reescrita para varios escenarios.
 
 ## <a name="when-to-use-url-rewriting-middleware"></a>Cuándo usar el middleware de reescritura de URL
 

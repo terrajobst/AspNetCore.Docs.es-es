@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: c160d93e22fc5b3511ba4e5539cce8576346898b
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 4e07b5803adbce94982584212fa65afbfd427b64
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665555"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64893512"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Convenciones de aplicación y de ruta de páginas de Razor en ASP.NET Core
 
@@ -26,7 +26,7 @@ Para especificar una ruta de página, agregue segmentos de ruta o agregar parám
 
 Hay palabras reservadas que no se puede usar como segmentos de ruta o nombres de parámetro. Para obtener más información, consulte [enrutamiento: Enrutamientos nombres reservados](xref:fundamentals/routing#reserved-routing-names).
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 | Escenario | El ejemplo explica cómo... |
 | -------- | --------------------------- |
@@ -58,7 +58,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Rutas especifican una <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> para procesar (coincidencia de ruta).
 
-| Orden            | Comportamiento |
+| Ordenar            | Comportamiento |
 | :--------------: | -------- |
 | -1               | La ruta se procesa antes de otras rutas se procesan. |
 | 0                | No se especifica el orden (valor predeterminado). No asignar `Order` (`Order = null`) el valor predeterminado es la ruta `Order` en 0 (cero) para su procesamiento. |
@@ -94,7 +94,7 @@ La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteMode
 
 Siempre que sea posible, no establezca la `Order`, que da como resultado `Order = 0`. Se basan en enrutamiento para seleccionar la ruta correcta.
 
-Opciones de páginas de Razor, como agregar <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, se agregan cuando MVC se agrega a la colección de servicios en `Startup.ConfigureServices`. Para obtener un ejemplo, vea la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+Opciones de páginas de Razor, como agregar <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, se agregan cuando MVC se agrega a la colección de servicios en `Startup.ConfigureServices`. Para obtener un ejemplo, vea la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet1)]
 

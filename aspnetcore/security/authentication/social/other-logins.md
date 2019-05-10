@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/otherlogins
 ms.openlocfilehash: b69c366ec1bf12ccf434991fc8a79eaf8c09da3d
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708470"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897512"
 ---
 # <a name="external-oauth-authentication-providers"></a>Proveedores de autenticación de OAuth externos
 
@@ -19,7 +19,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Pranav Rastogi](https://g
 
 En la lista siguiente incluye comunes proveedores externos de autenticación de OAuth que funcionan con aplicaciones ASP.NET Core. Paquetes de NuGet de terceros, como los que se mantiene [aspnet-contrib](https://www.nuget.org/packages?q=owners%3Aaspnet-contrib+title%3AOAuth), puede usarse para complementar los proveedores de autenticación implementados por el equipo de ASP.NET Core.
 
-* [LinkedIn](https://www.linkedin.com/developer/apps) ([instrucciones](https://developer.linkedin.com/docs/oauth2))
+* [LinkedIn](https://www.linkedin.com/developer/apps) ([Instructions](https://developer.linkedin.com/docs/oauth2))
 
 * [Instagram](https://www.instagram.com/developer/register/) ([instrucciones](https://www.instagram.com/developer/authentication/))
 

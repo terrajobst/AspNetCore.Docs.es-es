@@ -7,18 +7,18 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/20/2018
 uid: signalr/hubs
-ms.openlocfilehash: f037c1f6fd7ef773b8e7b2fd4fdf6e28222c441a
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: eb87aab2b7f3a58c6cec80f48f7616749f0809e2
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327266"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897082"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Usar concentradores de SignalR para ASP.NET Core
 
 Por [Rachel Appel](https://twitter.com/rachelappel) y [Kevin Griffin](https://twitter.com/1kevgriff)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(cómo descargar)](xref:index#how-to-download-a-sample)
+[Ver o descargar el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(cómo descargar)](xref:index#how-to-download-a-sample)
 
 ## <a name="what-is-a-signalr-hub"></a>¿Qué es un concentrador SignalR
 
@@ -60,7 +60,7 @@ Puede especificar un tipo de valor devuelto y parámetros, incluidos los tipos c
 
 El `Hub` clase tiene un `Context` propiedad que contiene las siguientes propiedades con información sobre la conexión:
 
-| Property | Descripción |
+| Propiedad | Descripción |
 | ------ | ----------- |
 | `ConnectionId` | Obtiene el identificador único para la conexión, asignada por SignalR. Hay un identificador de conexión para cada conexión.|
 | `UserIdentifier` | Obtiene el [useridentifier](xref:signalr/groups). De forma predeterminada, usa SignalR el `ClaimTypes.NameIdentifier` desde el `ClaimsPrincipal` asociado a la conexión como el identificador de usuario. |
@@ -80,7 +80,7 @@ El `Hub` clase tiene un `Context` propiedad que contiene las siguientes propieda
 
 El `Hub` clase tiene un `Clients` propiedad que contiene las siguientes propiedades para la comunicación entre cliente y servidor:
 
-| Property | Descripción |
+| Propiedad | Descripción |
 | ------ | ----------- |
 | `All` | Llama a un método en todos los clientes conectados |
 | `Caller` | Llama a un método en el cliente que invoca el método de concentrador |

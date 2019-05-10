@@ -5,12 +5,12 @@ description: Obtener una explicación del uso de autenticación de cookies sin A
 ms.author: riande
 ms.date: 02/25/2019
 uid: security/authentication/cookie
-ms.openlocfilehash: c6cba588abb003ee677d8f1753b73a1ced1414b0
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 2bc3e16b1b32816b14ad5bb4ca905ae5ed51ab87
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209380"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897752"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Usar autenticación de cookies sin ASP.NET Core Identity
 
@@ -18,7 +18,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Luke Latham](https://git
 
 Como ha visto en los temas de autenticación anteriores, [ASP.NET Core Identity](xref:security/authentication/identity) es un proveedor de autenticación completo y completa para crear y mantener los inicios de sesión. Sin embargo, desea utilizar su propia lógica de autenticación personalizada con la autenticación basada en cookies a veces. Puede usar la autenticación basada en cookies como un proveedor de autenticación independiente sin ASP.NET Core Identity.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 Para fines de demostración en la aplicación de ejemplo, la cuenta de usuario para el usuario hipotética, María Rodriguez, está codificado en la aplicación. Utilice el nombre de usuario de correo electrónico "maria.rodriguez@contoso.com" y cualquier contraseña para iniciar sesión el usuario. El usuario se autentica en el `AuthenticateUser` método en el *Pages/Account/Login.cshtml.cs* archivo. En un ejemplo del mundo real, el usuario podría autenticarse en una base de datos.
 
@@ -142,7 +142,7 @@ app.UseCookiePolicy(cookiePolicyOptions);
 
  El [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) proporcionado para el Middleware de la directiva de cookies le permiten controlar características globales del procesamiento de la cookie y el enlace en los controladores de procesamiento de la cookie cuando se agrega o se eliminan las cookies.
 
-| Property | Descripción |
+| Propiedad | Descripción |
 | -------- | ----------- |
 | [HttpOnly](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.httponly) | Afecta a si las cookies deben estar HttpOnly, que es una marca que indica si la cookie debe estar accesible sólo a los servidores. El valor predeterminado es `HttpOnlyPolicy.None`. |
 | [MinimumSameSitePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.minimumsamesitepolicy) | Afecta al atributo del mismo sitio de la cookie (ver abajo). El valor predeterminado es `SameSiteMode.Lax`. Esta opción está disponible para ASP.NET Core 2.0 +. |

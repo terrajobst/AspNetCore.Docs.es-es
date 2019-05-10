@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 04/16/2019
 uid: tutorials/publish-to-azure-webapp-using-vscode
 ms.openlocfilehash: 64d82835f6a47a458802692c99658b964c07f807
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59711318"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64889610"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio-code"></a>Publicación de una aplicación de ASP.NET Core en Azure con Visual Studio Code
 
@@ -29,7 +29,7 @@ En este tutorial aprenderá a crear una aplicación MVC ASP.Net Core y a impleme
 
 - Abra una [cuenta gratuita de Azure](https://azure.microsoft.com/free/dotnet/) si no tiene una.
 - Instale el [SDK de .NET Core](https://dotnet.microsoft.com/download).
-- Instale [Visual Studio Code](https://code.visualstudio.com/Download).
+- Instalación de [Visual Studio Code](https://code.visualstudio.com/Download)
   - Instale la [extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) en Visual Studio Code.
   - Instale la [extensión de Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) en Visual Studio Code y configúrela antes de continuar.
 
@@ -90,7 +90,7 @@ tasks.json
 
 Estos son archivos de utilidad que le ayudarán a compilar y depurar su aplicación web .NET Core.
 
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecutar la aplicación
 
 Antes de implementar la aplicación en Azure, asegúrese de que se ejecuta correctamente en la máquina local.
 

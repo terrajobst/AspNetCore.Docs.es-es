@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 3113220696eb3e3cb8c126cd1287e60203d96378
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208339"
----
 # <a name="aspnet-core-built-in-tag-helpers-sample"></a>Ejemplo de asistentes de etiquetas integradas de ASP.NET Core
 
 En este ejemplo se muestran las variaciones de los asistentes de etiquetas integradas tanto en MVC como en páginas de Razor:

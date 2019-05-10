@@ -6,11 +6,11 @@ ms.author: avickers
 ms.date: 04/24/2019
 uid: security/authentication/customize_identity_model
 ms.openlocfilehash: ae5f4567a8921ce277cd6153f37a5558bcf4e261
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982790"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897862"
 ---
 # <a name="identity-model-customization-in-aspnet-core"></a>Personalización del modelo de identidad en ASP.NET Core
 
@@ -355,7 +355,7 @@ services.AddDefaultIdentity<ApplicationUser>()
         .AddDefaultUI();
 ```
 
-En ASP.NET Core 2.1 o posterior, la identidad se proporciona como una biblioteca de clases de Razor. Para obtener más información, consulta <xref:security/authentication/scaffold-identity>. Por lo tanto, el código anterior requiere una llamada a <xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>. Si el proveedor de scaffolding de identidad se usó para agregar archivos de identidad para el proyecto, quite la llamada a `AddDefaultUI`. Para obtener más información, consulte:
+En ASP.NET Core 2.1 o posterior, la identidad se proporciona como una biblioteca de clases de Razor. Para obtener más información, consulta <xref:security/authentication/scaffold-identity>. Por lo tanto, el código anterior requiere una llamada a <xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>. Si el proveedor de scaffolding de identidad se usó para agregar archivos de identidad para el proyecto, quite la llamada a `AddDefaultUI`. Para obtener más información, vea:
 
 * [Identidad de scaffolding](xref:security/authentication/scaffold-identity)
 * [Agregar, descargar y eliminar datos de usuario personalizada para la identidad](xref:security/authentication/add-user-data)

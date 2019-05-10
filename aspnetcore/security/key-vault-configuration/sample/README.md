@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 209b5c41e17897693962954b1e795bdbb41f9384
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
-ms.translationtype: MT
-ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59012739"
----
 # <a name="key-vault-configuration-provider-sample-app"></a>Aplicación de ejemplo de proveedor de configuración de almacén de claves
 
 En este ejemplo se muestra el uso del proveedor de configuración de Azure Key Vault.

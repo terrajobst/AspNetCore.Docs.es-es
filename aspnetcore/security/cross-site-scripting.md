@@ -6,17 +6,17 @@ ms.author: riande
 ms.date: 10/02/2018
 uid: security/cross-site-scripting
 ms.openlocfilehash: 50f0211a2c64708d9b788dd10ce9064e66014d55
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910530"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64895352"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Evitar Cross-Site Scripting (XSS) en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Cross-Site Scripting (XSS) es una vulnerabilidad de seguridad que permite que un atacante colocar los scripts de cliente (normalmente JavaScript) en las páginas web. Cuando otros usuarios cargar páginas afectadas se ejecutarán las secuencias de comandos del atacante, lo que podría robar cookies y tokens de sesión, cambiar el contenido de la página web a través de la manipulación del DOM o redirigir el explorador a otra página. Las vulnerabilidades XSS suelen producen cuando una aplicación toma la entrada del usuario y lo envía a una página sin validación, codificación o secuencias de escape.
+Cross-Site Scripting (XSS) es una vulnerabilidad que permite a un atacante ejecutar scripts desde el lado del cliente (normalmente JavaScript) en las páginas web. Cuando otros usuarios cargar páginas afectadas se ejecutarán las secuencias de comandos del atacante, lo que podría robar cookies y tokens de sesión, cambiar el contenido de la página web a través de la manipulación del DOM o redirigir el explorador a otra página. Las vulnerabilidades XSS suelen producen cuando una aplicación toma la entrada del usuario y lo envía a una página sin validación, codificación o secuencias de escape.
 
 ## <a name="protecting-your-application-against-xss"></a>Proteger la aplicación frente a XSS
 
@@ -26,15 +26,15 @@ Un XSS de nivel básico consiste en engañar a la aplicación con la inserción 
 
 2. Asegúrese de que el contenido HTML de confianza esté codificado antes de ponerlo dentro de un elemento HTML. La codificación HTML toma caracteres como &lt; y lo modifican a algo seguro como &amp;lt;
 
-3. Asegúrese de que está codificado en HTML antes de poner los datos que no se confía en un atributo HTML. Codificación del atributo HTML es un superconjunto de codificación HTML y codifica los caracteres adicionales, como "y".
+3. Asegúrese de que está codificado en HTML antes de poner los datos que no se confía en un atributo HTML. La codificación en atributos es una versión de la codificación html que toma caracteres como "y".
 
-4. Antes de poner los datos que no se confía en JavaScript, coloque los datos en un elemento HTML cuyo contenido se recupera en tiempo de ejecución. Si esto no es posible, asegúrese de que los datos están codificado de JavaScript. Codificación de JavaScript toma caracteres peligrosos para JavaScript y se reemplaza con su hexadecimal, por ejemplo &lt; podría codificarse como `\u003C`.
+4. Antes de poner los datos que no sean de confianza en JavaScript, coloque los datos en un elemento HTML cuyo contenido se recupera en tiempo de ejecución. Si esto no es posible, asegúrese de que los datos están codificado de JavaScript. La codificación de JavaScript toma caracteres peligrosos para JavaScript y los reemplaza con su valor hexadecimal, por ejemplo &lt; podría codificarse como `\u003C`.
 
 5. Antes de poner los datos que no sean de confianza en el texto de una consulta en una dirección URL asegúrese de que esté codificado como URL.
 
 ## <a name="html-encoding-using-razor"></a>Codificación HTML con Razor
 
-El motor de Razor uso automáticamente en MVC codifica todos salida proceden de las variables, a menos que se trabaja muy duro para evitar que hacerlo. Usa reglas de codificación de atributo HTML siempre que se use la *@* directiva. Como HTML la codificación del atributo es un superconjunto de codificación HTML, que esto significa que no tiene que preocuparse de si debe utilizar la codificación HTML o la codificación del atributo HTML. Debe asegurarse de que utiliza solo en un contexto HTML, no cuando se intenta insertar una entrada que no se confía directamente en JavaScript. Aplicaciones auxiliares de etiquetas también codificarán la entrada que se usa en los parámetros tag.
+El motor de Razor usado en MVC codifica automáticamente todas las salidas que proceden de las variables, a menos que te esfuerces para evitarlo. Usa reglas de codificación de atributo HTML siempre que se use la *@* directiva. Como la codificación HTML de atributos es una mejora de la codificación HTML significa que no tiene que preocuparse de si debe utilizar la codificación HTML o la codificación de atributos. Debe asegurarse de que utiliza *@* solo en un contexto HTML, no cuando intente insertar una entrada que no es de confianza en JavaScript. Algunas etiquetas auxiliares también codificarán la entrada que se usa en los parámetros de otras etiquetas.
 
 Teniendo la siguiente vista de Razor:
 
@@ -138,7 +138,7 @@ Esto se representará en el explorador como sigue:
    ```
 
 >[!WARNING]
-> No concatene la entrada que no se confía en JavaScript para crear los elementos DOM. Debe usar `createElement()` y asignar valores de propiedad de forma adecuada, como `node.TextContent=`, o use `element.SetAttribute()` / `element[attribute]=` en caso contrario, se expone a basado en DOM XSS.
+> No concatene la entrada de desconfianza en el código JavaScript para crear los elementos DOM. Debe usar `createElement()` y asignar los valores de la propiedad de forma adecuada, como `node.TextContent=`, o use `element.SetAttribute()` / `element[attribute]=` en caso contrario, se expone a una vulnerabilidad DOM XSS.
 
 ## <a name="accessing-encoders-in-code"></a>Obtener acceso a los codificadores en código
 

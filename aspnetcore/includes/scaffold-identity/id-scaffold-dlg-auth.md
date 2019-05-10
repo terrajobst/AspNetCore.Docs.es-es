@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 53774177030adf8a61606a696af85cd1f57d6ab9
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
-ms.translationtype: MT
-ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320305"
----
 Ejecute el proveedor de scaffolding de identidad:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)

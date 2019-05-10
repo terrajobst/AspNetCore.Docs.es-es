@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 02/11/2019
 uid: security/authentication/identity-configuration
 ms.openlocfilehash: 823182bed2cb953e07f9374d135868aeb2be9c60
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210124"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64892352"
 ---
 # <a name="configure-aspnet-core-identity"></a>Configurar la identidad de ASP.NET Core
 
@@ -24,7 +24,7 @@ El [IdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.identityoptions) 
 
 [IdentityOptions.ClaimsIdentity](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.claimsidentity) especifica la [ClaimsIdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions) con las propiedades mostradas en la tabla siguiente.
 
-| Property | Descripción | Default |
+| Propiedad | Descripción | Default |
 | -------- | ----------- | :-----: |
 | [RoleClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.roleclaimtype) | Obtiene o establece el tipo de notificación utilizado para una notificación de rol. | [ClaimTypes.Role](/dotnet/api/system.security.claims.claimtypes.role) |
 | [SecurityStampClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.securitystampclaimtype) | Obtiene o establece el tipo de notificación utilizado para la notificación de marca de seguridad. | `AspNet.Identity.SecurityStamp` |
@@ -49,7 +49,7 @@ Una autenticación correcta restablece el número de intentos de acceso erróneo
 
 [IdentityOptions.Lockout](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.lockout) especifica la [LockoutOptions](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions) con las propiedades mostradas en la tabla.
 
-| Property | Descripción | Default |
+| Propiedad | Descripción | Default |
 | -------- | ----------- | :-----: |
 | [AllowedForNewUsers](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.allowedfornewusers) | Determina si un usuario nuevo puede estar bloqueado. | `true` |
 | [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan) | La cantidad de tiempo un usuario está bloqueado cuando se produce un bloqueo. | 5 minutos |
@@ -81,7 +81,7 @@ De forma predeterminada, identidad requiere que las contraseñas contengan un ca
 
 ::: moniker range=">= aspnetcore-2.0"
 
-| Property | Descripción | Default |
+| Propiedad | Descripción | Default |
 | -------- | ----------- | :-----: |
 | [RequireDigit](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredigit) | Requiere un número entre 0-9 en la contraseña. | `true` |
 | [RequiredLength](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredlength) | La longitud mínima de la contraseña. | 6 |
@@ -94,7 +94,7 @@ De forma predeterminada, identidad requiere que las contraseñas contengan un ca
 
 ::: moniker range="< aspnetcore-2.0"
 
-| Property | Descripción | Default |
+| Propiedad | Descripción | Default |
 | -------- | ----------- | :-----: |
 | [RequireDigit](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredigit) | Requiere un número entre 0-9 en la contraseña. | `true` |
 | [RequiredLength](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredlength) | La longitud mínima de la contraseña. | 6 |
@@ -122,7 +122,7 @@ El código siguiente establece `SignIn` configuración (para los valores predete
 
 [IdentityOptions.SignIn](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.signin) especifica la [SignInOptions](/dotnet/api/microsoft.aspnetcore.identity.signinoptions) con las propiedades mostradas en la tabla.
 
-| Property | Descripción | Default |
+| Propiedad | Descripción | Default |
 | -------- | ----------- | :-----: |
 | [RequireConfirmedEmail](/dotnet/api/microsoft.aspnetcore.identity.signinoptions.requireconfirmedemail) | Requiere un correo electrónico confirmado al iniciar sesión. | `false` |
 | [RequireConfirmedPhoneNumber](/dotnet/api/microsoft.aspnetcore.identity.signinoptions.requireconfirmedphonenumber) | Requiere un número de teléfono confirmada iniciar sesión. | `false` |
@@ -131,7 +131,7 @@ El código siguiente establece `SignIn` configuración (para los valores predete
 
 [IdentityOptions.Tokens](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.tokens) especifica la [TokenOptions](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions) con las propiedades mostradas en la tabla.
 
-|                                                        Property                                                         |                                                                                      Descripción                                                                                      |
+|                                                        Propiedad                                                         |                                                                                      Descripción                                                                                      |
 |-------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     [AuthenticatorTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.authenticatortokenprovider)     |                                       Obtiene o establece el `AuthenticatorTokenProvider` utilizado para validar los inicios de sesión de dos fases con un autenticador.                                       |
 |       [ChangeEmailTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.changeemailtokenprovider)       |                                     Obtiene o establece el `ChangeEmailTokenProvider` usado para generar tokens que se usan en el correo electrónico de confirmación del cambio de correo electrónico.                                     |
@@ -146,7 +146,7 @@ El código siguiente establece `SignIn` configuración (para los valores predete
 
 [IdentityOptions.User](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.user) especifica la [UserOptions](/dotnet/api/microsoft.aspnetcore.identity.useroptions) con las propiedades mostradas en la tabla.
 
-| Property | Descripción | Default |
+| Propiedad | Descripción | Default |
 | -------- | ----------- | :-----: |
 | [AllowedUserNameCharacters](/dotnet/api/microsoft.aspnetcore.identity.useroptions.allowedusernamecharacters) | Caracteres permitidos en el nombre de usuario. | abcdefghijklmnopqrstuvwxyz<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>0123456789<br>-.\_@+ |
 | [RequireUniqueEmail](/dotnet/api/microsoft.aspnetcore.identity.useroptions.requireuniqueemail) | Requiere que cada usuario tiene un correo electrónico única. | `false` |

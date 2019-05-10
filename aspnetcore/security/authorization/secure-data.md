@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 9b01aca0cb2b33f5561193ffdce4aa4950485fce
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 7013a88aac26426d1f84d1f52e35e319b3764cdb
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165243"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64894452"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crear una aplicación ASP.NET Core con datos de usuario protegidos por autorización
 
@@ -19,7 +19,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Joe Audette](https://twi
 
 ::: moniker range="<= aspnetcore-1.1"
 
-Consulte [este PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) para la versión de ASP.NET Core MVC. La versión 1.1 de ASP.NET Core de este tutorial se encuentra en [esto](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data) carpeta. La 1.1 de ejemplo de ASP.NET Core se encuentra en la [ejemplos](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
+Consulte [este PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) para la versión de ASP.NET Core MVC. La versión 1.1 de ASP.NET Core de este tutorial se encuentra en [esto](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data) carpeta. La 1.1 de ejemplo de ASP.NET Core se encuentra en la [ejemplos](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
 
 ::: moniker-end
 
@@ -89,11 +89,11 @@ En ASP.NET Core 2.1, `User.IsInRole` se produce un error cuando se usa `AddDefau
 
 ## <a name="the-starter-and-completed-app"></a>El inicio y la aplicación completada
 
-[Descargar](xref:index#how-to-download-a-sample) el [completado](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) app. [Prueba](#test-the-completed-app) la aplicación completa, por lo que se familiarice con sus características de seguridad.
+[Descargar](xref:index#how-to-download-a-sample) el [completado](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) app. [Prueba](#test-the-completed-app) la aplicación completa, por lo que se familiarice con sus características de seguridad.
 
 ### <a name="the-starter-app"></a>La aplicación de inicio
 
-[Descargar](xref:index#how-to-download-a-sample) el [starter](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) app.
+[Descargar](xref:index#how-to-download-a-sample) el [starter](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) app.
 
 Ejecute la aplicación, pulse el **ContactManager** vincular y compruebe que puede crear, editar y eliminar un contacto.
 
@@ -275,7 +275,7 @@ Actualice el modelo de página de detalles:
 
 ## <a name="add-or-remove-a-user-to-a-role"></a>Agregar o quitar un usuario a un rol
 
-Consulte [este problema](https://github.com/aspnet/Docs/issues/8502) para obtener información sobre:
+Consulte [este problema](https://github.com/aspnet/AspNetCore.Docs/issues/8502) para obtener información sobre:
 
 * Quita los privilegios de un usuario. Por ejemplo un usuario en una aplicación de chat de silencio.
 * Agregar privilegios a un usuario.
@@ -346,7 +346,7 @@ Crear un contacto en el explorador del administrador. Copie la dirección URL pa
 
 ### <a name="seed-the-database"></a>Inicializar la base de datos
 
-Agregar el [SeedData](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) clase a la *datos* carpeta.
+Agregar el [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) clase a la *datos* carpeta.
 
 Llame a `SeedData.Initialize` desde `Main`:
 

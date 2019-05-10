@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
 uid: test/razor-pages-tests
-ms.openlocfilehash: 5116ec3c3d6c27f9b0e098f82c82dd7b7337b8f6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: f1526b8803f43ec8cbe77c1d2c100d9daf6cd316
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207503"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64893722"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Pruebas unitarias páginas de Razor en ASP.NET Core
 
@@ -30,16 +30,16 @@ En este tema se supone que tiene un conocimiento básico de aplicaciones de las 
 * [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Prueba unitaria de C# en .NET Core mediante pruebas de dotnet y xUnit](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 El proyecto de ejemplo se compone de dos aplicaciones:
 
 | Aplicación         | Carpeta del proyecto                        | Descripción |
 | ----------- | ------------------------------------- | ----------- |
 | Aplicación de mensaje | *src/RazorPagesTestSample*            | Permite al usuario agregar, eliminar uno, elimine todo y analizar los mensajes. |
-| Aplicación de prueba    | *tests/RazorPagesTestSample.Tests*    | Utilizado para la aplicación de mensajes de pruebas unitarias: acceso a datos (DAL) de la capa y el modelo de página de índice. |
+| Aplicación de prueba    | *tests/RazorPagesTestSample.Tests*    | Utilizado para la aplicación de mensajes de pruebas unitarias: Capa de acceso a datos (DAL) y el modelo de página de índice. |
 
-Se pueden ejecutar las pruebas con las características integradas de prueba de un IDE, como [Visual Studio](https://www.visualstudio.com/vs/). Si usa [Visual Studio Code](https://code.visualstudio.com/) o la línea de comandos, ejecute el siguiente comando en un símbolo del sistema en el *tests/RazorPagesTestSample.Tests* carpeta:
+Se pueden ejecutar las pruebas con las características integradas de prueba de un IDE, como [Visual Studio](https://visualstudio.microsoft.com). Si usa [Visual Studio Code](https://code.visualstudio.com/) o la línea de comandos, ejecute el siguiente comando en un símbolo del sistema en el *tests/RazorPagesTestSample.Tests* carpeta:
 
 ```console
 dotnet test
@@ -108,9 +108,9 @@ using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
 
 Cada método de prueba en el `DataAccessLayerTest` clase (*UnitTests/DataAccessLayerTest.cs*) sigue un patrón similar Assert para organizar Act:
 
-1. Organizar: La base de datos está configurado para la prueba o se define el resultado esperado.
-1. ACT: Se ejecuta la prueba.
-1. Aserción: Aserciones se realizan para determinar si el resultado de la prueba es correcta.
+1. Organizar: La base de datos está configurada para la prueba o se define el resultado esperado.
+1. actuar: Se ejecuta la prueba.
+1. Aserción: Las aserciones se realizan para determinar si el resultado de la prueba es correcta.
 
 Por ejemplo, el `DeleteMessageAsync` método es responsable de quitar un único mensaje identificado por su `Id` (*src/RazorPagesTestSample/Data/AppDbContext.cs*):
 
@@ -124,7 +124,7 @@ En primer lugar, el método realiza el paso acomodar, donde realiza la preparaci
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
-El método actúa: el `DeleteMessageAsync` método se ejecuta pasando el `recId` de `1`:
+El método actúa: El `DeleteMessageAsync` método se ejecuta pasando el `recId` de `1`:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet2)]
 

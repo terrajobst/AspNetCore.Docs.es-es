@@ -1,26 +1,26 @@
 ---
-title: Proveedores de protección de datos efímero en ASP.NET Core
+title: Proveedores de protección de datos efímeros en ASP.NET Core
 author: rick-anderson
-description: Obtenga información acerca de los detalles de implementación de los proveedores de protección de datos efímero de ASP.NET Core.
+description: Obtenga información sobre los detalles de implementación de los proveedores de protección de datos efímeros ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/key-storage-ephemeral
 ms.openlocfilehash: e4b0014ab3bdbf90b91383e8a33102f94faa8153
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279472"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64895182"
 ---
-# <a name="ephemeral-data-protection-providers-in-aspnet-core"></a>Proveedores de protección de datos efímero en ASP.NET Core
+# <a name="ephemeral-data-protection-providers-in-aspnet-core"></a>Proveedores de protección de datos efímeros en ASP.NET Core
 
 <a name="data-protection-implementation-key-storage-ephemeral"></a>
 
-Existen escenarios donde una aplicación necesita un throwaway `IDataProtectionProvider`. Por ejemplo, solo se puede experimentar el desarrollador en una aplicación de consola de uso único o la propia aplicación es transitoria (se incluye en el script o una prueba unitaria de proyecto). Para admitir estos escenarios el [Microsoft.AspNetCore.DataProtection](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection/) paquete incluye un tipo `EphemeralDataProtectionProvider`. Este tipo proporciona una implementación básica de `IDataProtectionProvider` cuya clave repositorio se mantiene solamente en memoria y no escribe en ningún almacén de respaldo.
+Hay escenarios donde una aplicación necesita un throwaway `IDataProtectionProvider`. Por ejemplo, el desarrollador simplemente se podría experimentar una aplicación de consola única o la propia aplicación es transitoria (se incluye en el script o una prueba unitaria de proyecto). Para admitir estos escenarios el [Microsoft.AspNetCore.DataProtection](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection/) paquete incluye un tipo `EphemeralDataProtectionProvider`. Este tipo proporciona una implementación básica de `IDataProtectionProvider` cuya clave repositorio se mantiene únicamente en memoria y no se escriben en ningún almacén de respaldo.
 
-Cada instancia de `EphemeralDataProtectionProvider` usa su propia clave principal único. Por lo tanto, si un `IDataProtector` con raíz en un `EphemeralDataProtectionProvider` genera una carga protegida, ese carga solo puede desproteger un equivalente `IDataProtector` (les proporciona el mismo [propósito](xref:security/data-protection/consumer-apis/purpose-strings#data-protection-consumer-apis-purposes) cadena) con raíz en el mismo `EphemeralDataProtectionProvider` instancia.
+Cada instancia de `EphemeralDataProtectionProvider` usa su propia clave principal único. Por lo tanto, si un `IDataProtector` cuya raíz comienza en un `EphemeralDataProtectionProvider` genera una carga protegida, esa carga sólo puede desproteger un equivalente `IDataProtector` (recibe la misma [propósito](xref:security/data-protection/consumer-apis/purpose-strings#data-protection-consumer-apis-purposes) cadena) cuya raíz comienza en el mismo `EphemeralDataProtectionProvider` instancia de.
 
-El siguiente ejemplo muestra cómo crear instancias de un `EphemeralDataProtectionProvider` y usarla para proteger y desproteger los datos.
+El siguiente ejemplo muestra cómo crear una instancia de un `EphemeralDataProtectionProvider` y usarlo para proteger y desproteger los datos.
 
 ```csharp
 using System;

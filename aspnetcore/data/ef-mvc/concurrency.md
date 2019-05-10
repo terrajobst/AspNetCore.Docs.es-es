@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 668cdafc078091b65035ecad854d2ecc62555721
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: d3954800f4f1358565a627768e34465215dc4f6e
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750862"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64886660"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Tutorial: Control de simultaneidad: ASP.NET MVC con EF Core
 
@@ -288,7 +288,7 @@ Reemplace el c처digo de *Views/Departments/Create.cshtml* para agregar una opci�
 
 ## <a name="get-the-code"></a>Obtenci처n del c처digo
 
-[Descargue o vea la aplicaci처n completa.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Descargue o vea la aplicaci처n completa.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

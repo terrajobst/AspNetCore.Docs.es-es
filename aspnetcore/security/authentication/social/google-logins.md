@@ -7,11 +7,11 @@ ms.custom: mvc, seodec18
 ms.date: 1/11/2019
 uid: security/authentication/google-logins
 ms.openlocfilehash: 44c79b3279db7946b6d89a726bd3f5acfb5f51af
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59705596"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64895542"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Configuración de inicio de sesión externo de Google en ASP.NET Core
 
@@ -25,7 +25,7 @@ Este tutorial muestra cómo habilitar usuarios iniciar sesión con su cuenta de 
 
 * Vaya a [la integración de Google signo In de la aplicación web](https://developers.google.com/identity/sign-in/web/devconsole-project) y seleccione **configurar un proyecto**.
 * En el **configuración del cliente de OAuth** cuadro de diálogo, seleccione **servidor Web**.
-* En el **URI de redireccionamiento autorizado** cuadro de entrada de texto, establecer el URI de redireccionamiento. Por ejemplo, `https://localhost:5001/signin-google`.
+* En el **URI de redireccionamiento autorizado** cuadro de entrada de texto, establecer el URI de redireccionamiento. Por ejemplo, `https://localhost:5001/signin-google`
 * Guardar el **Id. de cliente** y **secreto de cliente**.
 * Al implementar el sitio, registrar la nueva url pública desde el **Google Console**.
 

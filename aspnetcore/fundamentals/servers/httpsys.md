@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 02/21/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 6ec9b7bf3da0015b8ac3918a4d47644fffc14cdb
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 7ba27b404cd10752ff9e304cd0a272eff7fa627a
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209179"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087059"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web HTTP.sys en ASP.NET Core
 
@@ -38,7 +38,7 @@ Versiones de Windows compatibles:
 * Windows 7 o posterior
 * Windows Server 2008 R2 o posterior
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>Cuándo usar HTTP.sys
 
@@ -141,7 +141,7 @@ HTTP.sys delega en la autenticación de modo kernel con el protocolo de autentic
 
 1. Si es necesario, obtenga e instale los certificados X.509.
 
-   En Windows, puede crear certificados autofirmados con el [cmdlet New-SelfSignedCertificate de PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate). Para obtener un ejemplo no compatible, vea [UpdateIISExpressSSLForChrome.ps1](https://github.com/aspnet/Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   En Windows, puede crear certificados autofirmados con el [cmdlet New-SelfSignedCertificate de PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate). Para obtener un ejemplo no compatible, vea [UpdateIISExpressSSLForChrome.ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    Instale certificados autofirmados o firmados por CA en el almacén **personal del equipo** > **local** del servidor.
 

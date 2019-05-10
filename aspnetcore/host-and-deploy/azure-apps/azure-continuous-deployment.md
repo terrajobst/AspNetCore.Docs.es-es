@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2018
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: e12c2ee0b78db105b431770e8644e7d19d915765
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 3b344505739bb4292ed1683c73ff314b6e4e01e9
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284448"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64890100"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Implementación continua en Azure con Visual Studio y Git con ASP.NET Core
 
@@ -30,7 +30,7 @@ Vea también [Creación de la primera canalización con Azure Pipelines](/azure/
 
 En este tutorial se da por hecho que está instalado el siguiente software:
 
-* [Visual Studio](https://www.visualstudio.com)
+* [Visual Studio](https://visualstudio.microsoft.com)
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 * [Git](https://git-scm.com/downloads) para Windows
 
@@ -80,7 +80,7 @@ Los pasos siguientes le permiten crear una aplicación web en Azure Portal:
    > [!NOTE]
    > El **nombre de App Service** debe ser único. El portal aplica esta regla cuando se proporciona el nombre. Si proporciona un valor diferente, sustituya ese valor por cada aparición de **SampleWebAppDemo** en este tutorial.
 
-   También en la hoja **Aplicación web**, seleccione un plan o ubicación existente de App Service o bien cree uno. Si va a crear un plan, seleccione el plan de tarifa, la ubicación y otras opciones. Para más información sobre los planes de App Service, consulte [Introducción detallada a los planes de Azure App Service](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+   También en la hoja **Aplicación web**, seleccione un **plan o ubicación existente de App Service** o bien cree uno. Si va a crear un plan, seleccione el plan de tarifa, la ubicación y otras opciones. Para más información sobre los planes de App Service, consulte [Introducción detallada a los planes de Azure App Service](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
 1. Seleccione **Crear**. Azure aprovisionará e iniciará la aplicación web.
 

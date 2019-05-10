@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/25/2019
 uid: test/integration-tests
-ms.openlocfilehash: 11a8f4296e1b0b229c736645f1aa598307b88ec4
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: 46c3b227ca0b3def5ab7d527a2f6ef2497d55f83
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320191"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64892072"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
 
@@ -22,7 +22,7 @@ Las pruebas de integración aseguran de que los componentes de una aplicación f
 
 En este tema se da por supuesto un conocimiento básico de las pruebas unitarias. Si no conoce los conceptos de pruebas, consulte el [Unit Testing en .NET Core y .NET Standard](/dotnet/core/testing/) tema y su contenido vinculado.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 La aplicación de ejemplo es una aplicación de páginas de Razor y se da por supuesto un conocimiento básico de las páginas de Razor. Si no conoce las páginas de Razor, vea los temas siguientes:
 
@@ -104,7 +104,7 @@ El proyecto de prueba debe:
   * [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/)
 * Especifique el SDK de Web en el archivo de proyecto (`<Project Sdk="Microsoft.NET.Sdk.Web">`). El SDK de Web es necesario cuando se hace referencia el [Microsoft.AspNetCore.App metapaquete](xref:fundamentals/metapackage-app).
 
-Estos requisitos previos se pueden ver en el [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples/). Inspeccionar el *tests/RazorPagesProject.Tests/RazorPagesProject.Tests.csproj* archivo. La aplicación de ejemplo usa el [xUnit](https://xunit.github.io/) marco de pruebas y la [AngleSharp](https://anglesharp.github.io/) biblioteca analizador, por lo que también hace referencia a la aplicación de ejemplo:
+Estos requisitos previos se pueden ver en el [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/). Inspeccionar el *tests/RazorPagesProject.Tests/RazorPagesProject.Tests.csproj* archivo. La aplicación de ejemplo usa el [xUnit](https://xunit.github.io/) marco de pruebas y la [AngleSharp](https://anglesharp.github.io/) biblioteca analizador, por lo que también hace referencia a la aplicación de ejemplo:
 
 * [xunit](https://www.nuget.org/packages/xunit/)
 * [xunit.runner.visualstudio](https://www.nuget.org/packages/xunit.runner.visualstudio/)
@@ -155,7 +155,7 @@ Configuración del host Web puede crearse independientemente de las clases de pr
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/CustomWebApplicationFactory.cs?name=snippet1)]
 
-   En la propagación de la base de datos la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) se realiza mediante el `InitializeDbForTests` método. El método se describe en el [ejemplo de pruebas de integración: Organización de la aplicación de prueba](#test-app-organization) sección.
+   En la propagación de la base de datos la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) se realiza mediante el `InitializeDbForTests` método. El método se describe en el [ejemplo de pruebas de integración: Organización de la aplicación de prueba](#test-app-organization) sección.
 
 2. Usar personalizado `CustomWebApplicationFactory` en las clases de prueba. En el ejemplo siguiente se usa el generador en el `IndexPageTests` clase:
 
@@ -173,7 +173,7 @@ Cualquier solicitud POST al SUT debe cumplir la comprobación de antifalsificaci
 1. Analizar la cookie antifalsificación y el token de solicitud de validación de la respuesta.
 1. Realizar la solicitud POST con la validación de solicitud y la cookie antifalsificación token en su lugar.
 
-El `SendAsync` métodos de extensión de aplicación auxiliar (*Helpers/HttpClientExtensions.cs*) y el `GetDocumentAsync` método auxiliar (*Helpers/HtmlHelpers.cs*) en el [deaplicacióndeejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples/) utilizar el [AngleSharp](https://anglesharp.github.io/) analizador para controlar la comprobación de antifalsificación con los métodos siguientes:
+El `SendAsync` métodos de extensión de aplicación auxiliar (*Helpers/HttpClientExtensions.cs*) y el `GetDocumentAsync` método auxiliar (*Helpers/HtmlHelpers.cs*) en el [deaplicacióndeejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/) utilizar el [AngleSharp](https://anglesharp.github.io/) analizador para controlar la comprobación de antifalsificación con los métodos siguientes:
 
 * `GetDocumentAsync` &ndash; Recibe el [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage) y devuelve un `IHtmlDocument`. `GetDocumentAsync` utiliza un generador que prepara un *respuesta virtual* basado en el original `HttpResponseMessage`. Para obtener más información, consulte el [AngleSharp documentación](https://github.com/AngleSharp/AngleSharp#documentation).
 * `SendAsync` métodos de extensión para el `HttpClient` redactar una [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) y llamar a [SendAsync(HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) para enviar solicitudes al SUT. Sobrecargas para `SendAsync` acepte el formulario HTML (`IHtmlFormElement`) y lo siguiente:
@@ -188,7 +188,7 @@ El `SendAsync` métodos de extensión de aplicación auxiliar (*Helpers/HttpClie
 
 Cuando se necesita dentro de un método de prueba, configuración adicional [WithWebHostBuilder](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.withwebhostbuilder) crea un nuevo `WebApplicationFactory` con un [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) que se personaliza más aún mediante configuración.
 
-El `Post_DeleteMessageHandler_ReturnsRedirectToRoot` probar el método de la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) muestra el uso de `WithWebHostBuilder`. Esta prueba realiza una eliminación de registro en la base de datos mediante la activación de un envío de formulario en el SUT.
+El `Post_DeleteMessageHandler_ReturnsRedirectToRoot` probar el método de la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) muestra el uso de `WithWebHostBuilder`. Esta prueba realiza una eliminación de registro en la base de datos mediante la activación de un envío de formulario en el SUT.
 
 Porque otra prueba en el `IndexPageTests` clase realiza una operación que elimina todos los registros en la base de datos y puede ejecutar antes la `Post_DeleteMessageHandler_ReturnsRedirectToRoot` método, la base de datos es visible en este método de prueba para asegurarse de que está presente para el SUT eliminar un registro. Seleccionar el `deleteBtn1` botón de la `messages` se simula el formulario en el SUT en la solicitud al SUT:
 
@@ -311,7 +311,7 @@ Llame a la [UseSolutionRelativeContentRoot](/dotnet/api/microsoft.aspnetcore.tes
 
 ## <a name="disable-shadow-copying"></a>Deshabilitar las instantáneas
 
-Las instantáneas, hace que las pruebas se ejecutan en una carpeta diferente a la carpeta de salida. Para que las pruebas para que funcione correctamente, deben deshabilitar las instantáneas. El [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) usa xUnit y deshabilita la copia sombra de xUnit mediante la inclusión de un *xunit.runner.json* archivo con la opción de configuración correcto. Para obtener más información, consulte [configuración xUnit con JSON](https://xunit.github.io/docs/configuring-with-json.html).
+Las instantáneas, hace que las pruebas se ejecutan en una carpeta diferente a la carpeta de salida. Para que las pruebas para que funcione correctamente, deben deshabilitar las instantáneas. El [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) usa xUnit y deshabilita la copia sombra de xUnit mediante la inclusión de un *xunit.runner.json* archivo con la opción de configuración correcto. Para obtener más información, consulte [configuración xUnit con JSON](https://xunit.github.io/docs/configuring-with-json.html).
 
 Agregar el *xunit.runner.json* archivo a la raíz del proyecto de prueba con el siguiente contenido:
 
@@ -327,14 +327,14 @@ Después de las pruebas de la `IClassFixture` implementación se ejecutan, [Test
 
 ## <a name="integration-tests-sample"></a>Ejemplo de pruebas de integración
 
-El [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) se compone de dos aplicaciones:
+El [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) se compone de dos aplicaciones:
 
 | Aplicación | Carpeta del proyecto | Descripción |
 | --- | -------------- | ----------- |
 | Mensaje de aplicación (SUT) | *src/RazorPagesProject* | Permite al usuario agregar, eliminar uno, elimine todo y analizar los mensajes. |
 | Aplicación de prueba | *tests/RazorPagesProject.Tests* | Utilizado para la prueba de integración del SUT. |
 
-Se pueden ejecutar las pruebas con las características integradas de prueba de un IDE, como [Visual Studio](https://www.visualstudio.com/vs/). Si usa [Visual Studio Code](https://code.visualstudio.com/) o la línea de comandos, ejecute el siguiente comando en un símbolo del sistema en el *tests/RazorPagesProject.Tests* carpeta:
+Se pueden ejecutar las pruebas con las características integradas de prueba de un IDE, como [Visual Studio](https://visualstudio.microsoft.com). Si usa [Visual Studio Code](https://code.visualstudio.com/) o la línea de comandos, ejecute el siguiente comando en un símbolo del sistema en el *tests/RazorPagesProject.Tests* carpeta:
 
 ```console
 dotnet test

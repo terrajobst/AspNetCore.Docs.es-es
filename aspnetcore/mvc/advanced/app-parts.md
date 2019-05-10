@@ -5,16 +5,16 @@ description: Obtenga información sobre cómo usar elementos de aplicación (que
 ms.author: riande
 ms.date: 01/04/2017
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 67bd40adef4cdb0bd781f70114d3954cd9a8ed09
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: 5d5e79d3afe0eee6d0b126d4642ccd5f61bff409
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320100"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64888140"
 ---
 # <a name="application-parts-in-aspnet-core"></a>Elementos de aplicación en ASP.NET Core
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 Un *elemento de aplicación* es una abstracción sobre los recursos de una aplicación desde el que se pueden detectar características de MVC como controladores, componentes de vista o asistentes de etiquetas. Un ejemplo de un elemento de aplicación es AssemblyPart, que encapsula una referencia de ensamblado y expone los tipos y las referencias de la compilación. Los *proveedores de características* trabajan con los elementos de aplicación para rellenar las características de una aplicación de ASP.NET Core MVC. El uso principal de los elementos de aplicación es permitir la configuración de la aplicación para detectar características MVC (o evitar su carga) de un ensamblado.
 

@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 07/07/2017
 uid: security/preventing-open-redirects
 ms.openlocfilehash: 0896189d2caaccb19647eb7c6d57f29dfc0290dd
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828875"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64891622"
 ---
 # <a name="prevent-open-redirect-attacks-in-aspnet-core"></a>Evitar ataques de redireccionamiento abierto en ASP.NET Core
 

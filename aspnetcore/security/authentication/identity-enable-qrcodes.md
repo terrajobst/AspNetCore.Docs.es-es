@@ -5,12 +5,12 @@ description: Descubra cómo habilitar la generación de código QR para las apli
 ms.author: riande
 ms.date: 08/14/2018
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 5581f2001036746974a858d8a664db16df50edb2
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: a7fdc86b3fe94e714e5147c89a32fce13757d1c1
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209231"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64896732"
 ---
 # <a name="enable-qr-code-generation-for-totp-authenticator-apps-in-aspnet-core"></a>Habilitar la generación de código QR para aplicaciones de authenticator TOTP en ASP.NET Core
 
@@ -85,7 +85,7 @@ Ejecute la aplicación y asegúrese de que puede examinar el código QR y valida
 
 ::: moniker range=">= aspnetcore-2.1"
 
-El nombre del sitio en el código QR se toma del nombre del proyecto que elige al crear inicialmente el proyecto. Puede cambiar mediante la búsqueda de la `GenerateQrCodeUri(string email, string unformattedKey)` método en el */Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml*.
+El nombre del sitio en el código QR se toma del nombre del proyecto que elige al crear inicialmente el proyecto. Puede cambiar mediante la búsqueda de la `GenerateQrCodeUri(string email, string unformattedKey)` método en el */Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml.cs*.
 
 ::: moniker-end
 

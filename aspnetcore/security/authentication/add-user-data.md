@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 6/16/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/add-user-data
-ms.openlocfilehash: 1b7cac9206776e9290326511247b6db33f13cb32
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: d704041f73a7d4773c3da9a23f120b07a03d64ac
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165098"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086488"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Agregar, descargar y eliminar datos de usuario personalizado a la identidad en un proyecto de ASP.NET Core
 
@@ -24,7 +24,7 @@ Este artículo se muestra cómo:
 
 Se crea el proyecto de ejemplo desde una aplicación web de páginas de Razor, pero las instrucciones son similares para una aplicación web de ASP.NET Core MVC.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/authentication/add-user-data) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/authentication/add-user-data) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -34,7 +34,7 @@ Se crea el proyecto de ejemplo desde una aplicación web de páginas de Razor, p
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* En el menú **Archivo** de Visual Studio, seleccione **Nuevo** > **Proyecto**. Denomine el proyecto **WebApp1** si desea coincida con el espacio de nombres de los [Descargar ejemplo](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/authentication/add-user-data/sample) código.
+* En el menú **Archivo** de Visual Studio, seleccione **Nuevo** > **Proyecto**. Denomine el proyecto **WebApp1** si desea coincida con el espacio de nombres de los [Descargar ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/authentication/add-user-data/sample) código.
 * Seleccione **aplicación Web ASP.NET Core** > **Aceptar**
 * Seleccione **2.2 de ASP.NET Core** en la lista desplegable
 * Seleccione **aplicación Web**  > **Aceptar**

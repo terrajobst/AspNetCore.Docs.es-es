@@ -5,12 +5,12 @@ description: Obtenga información sobre la forma en que las vistas controlan la 
 ms.author: riande
 ms.date: 04/03/2019
 uid: mvc/views/overview
-ms.openlocfilehash: 766996645bc6ef2b6be42d729baf5d57f55b6ddd
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 5e56c6bb18cb5d2389c11eb3e4aa9869228da47d
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59012804"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64891350"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Vistas de ASP.NET Core MVC
 
@@ -135,7 +135,7 @@ El enfoque más eficaz consiste en especificar un tipo de [modelo](xref:mvc/mode
 
 La utilización de un modelo de vista para pasar datos a una vista permite que la vista se beneficie de las ventajas de la comprobación de tipos *seguros*. El término *establecimiento fuerte de tipos* (o *fuertemente tipado*) significa que cada variable y constante tienen un tipo definido explícitamente, por ejemplo, `string`, `int` o `DateTime`. La validez de los tipos usados en una vista se comprueba en tiempo de compilación.
 
-[Visual Studio](https://www.visualstudio.com/vs/) y [Visual Studio Code](https://code.visualstudio.com/) enumeran los miembros de clase fuertemente tipados mediante una característica denominada [IntelliSense](/visualstudio/ide/using-intellisense). Si quiere ver las propiedades de un modelo de vista, escriba el nombre de variable del modelo de vista seguido por un punto (`.`). Esto ayuda a escribir código más rápidamente y con menos errores.
+[Visual Studio](https://visualstudio.microsoft.com) y [Visual Studio Code](https://code.visualstudio.com/) enumeran los miembros de clase fuertemente tipados mediante una característica denominada [IntelliSense](/visualstudio/ide/using-intellisense). Si quiere ver las propiedades de un modelo de vista, escriba el nombre de variable del modelo de vista seguido por un punto (`.`). Esto ayuda a escribir código más rápidamente y con menos errores.
 
 Especifique un modelo con la directiva `@model`. Utilice el modelo con `@Model`:
 

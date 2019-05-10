@@ -5,12 +5,12 @@ description: En este tutorial, actualizará datos relacionados mediante la actua
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: e1407048157fccdbfdd854071a6fbf9785356026
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: b996e7f9c8e422060f6378a6004a53906e2af7c7
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208614"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087095"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Actualización de datos relacionados (7 de 8)
 
@@ -18,7 +18,7 @@ Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
-En este tutorial se muestra cómo actualizar datos relacionados. Si experimenta problemas que no puede resolver, [descargue o vea la aplicación completada](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Instrucciones de descarga](xref:index#how-to-download-a-sample).
+En este tutorial se muestra cómo actualizar datos relacionados. Si experimenta problemas que no puede resolver, [descargue o vea la aplicación completada](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Instrucciones de descarga](xref:index#how-to-download-a-sample).
 
 En las ilustraciones siguientes se muestran algunas de las páginas completadas.
 

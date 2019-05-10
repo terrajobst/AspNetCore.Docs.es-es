@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo los controladores de ASP.NET Core 
 ms.author: riande
 ms.date: 02/24/2019
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 898e98f4c5d472ca96c6a8ad07dddd1a4ef54fe9
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 6b08c321f4cae1f4efd8ea40300eaf4dfc2f63a1
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743834"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64890940"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>Inserción de dependencias en controladores en ASP.NET Core
 
@@ -20,7 +20,7 @@ Por [Shadi Namrouti](https://github.com/shadinamrouti), [Rick Anderson](https://
 
 Los controladores de ASP.NET Core MVC solicitan las dependencias de forma explícita a través de constructores. ASP.NET Core tiene compatibilidad integrada con la [inserción de dependencias](xref:fundamentals/dependency-injection). La inserción de dependencias facilita las pruebas y el mantenimiento de las aplicaciones.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="constructor-injection"></a>Inserción de constructores
 

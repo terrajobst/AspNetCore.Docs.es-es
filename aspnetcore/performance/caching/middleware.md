@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/20/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: c7c3dbd0c9cf029fa6921d77450e780768c8aa6e
-ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
+ms.openlocfilehash: ddbd547ec0fdd09da1f3e3ce30f8fa35a34870c2
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647920"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897372"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 
 Por [Halter](https://github.com/guardrex) y [John Luo](https://github.com/JunTaoLuo)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
 
 En este artículo se explica cómo configurar el Middleware de almacenamiento en caché de respuestas en una aplicación ASP.NET Core. El middleware determina cuando las respuestas son almacenables en caché, las respuestas de los almacenes y respuestas de sirve de memoria caché. Para obtener una introducción al almacenamiento en caché de HTTP y el `ResponseCache` atributo, vea [almacenamiento en caché de respuesta](xref:performance/caching/response).
 

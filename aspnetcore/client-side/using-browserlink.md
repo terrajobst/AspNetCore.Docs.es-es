@@ -7,11 +7,11 @@ ms.custom: H1Hack27Feb2017
 ms.date: 09/22/2017
 uid: client-side/using-browserlink
 ms.openlocfilehash: 452ba5149563c186750466f471c7b950f0017614
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837078"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64894712"
 ---
 # <a name="browser-link-in-aspnet-core"></a>Vínculo de explorador en ASP.NET Core
 
@@ -83,7 +83,7 @@ Desde el control de barra de herramientas vínculo de explorador, hacer lo sigui
 
 * Actualizar la aplicación web a la vez en varios exploradores.
 * Abra el **panel vínculo de explorador**.
-* Habilitar o deshabilitar **Browser Link**. Nota: El vínculo de explorador está deshabilitada de forma predeterminada en Visual Studio 2017 (15.3).
+* Habilitar o deshabilitar **Browser Link**. Nota: Vínculo de explorador está deshabilitado de forma predeterminada en Visual Studio 2017 (15.3).
 * Habilitar o deshabilitar [sincronización automática de CSS](#enable-or-disable-css-auto-sync).
 
 > [!NOTE]
@@ -109,7 +109,7 @@ Mantenga el mouse sobre el control de barra de herramientas de vínculo de explo
 
 Cambiar la vista de índice y se actualizan todos los exploradores conectados al hacer clic en el botón de actualización de Browser Link:
 
-![sincronización de los exploradores de cambios](using-browserlink/_static/browsers-sync-to-changes.png)
+![browsers-sync-to-changes](using-browserlink/_static/browsers-sync-to-changes.png)
 
 Vínculo de explorador también funciona con los exploradores que inicie desde fuera de Visual Studio y navegue a la dirección URL de la aplicación.
 
@@ -117,15 +117,15 @@ Vínculo de explorador también funciona con los exploradores que inicie desde f
 
 Abra el panel de vínculos de explorador en el menú para administrar la conexión con los exploradores Abrir desplegable Browser Link:
 
-![Abrir Panel de browserslink](using-browserlink/_static/open-browserlink-dashboard.png)
+![open-browserslink-dashboard](using-browserlink/_static/open-browserlink-dashboard.png)
 
 Si no hay ningún explorador está conectado, puede iniciar una sesión de no depuración seleccionando el *ver en el explorador* vínculo:
 
-![conexiones browserlink-dashboard-n](using-browserlink/_static/browserlink-dashboard-no-connections.png)
+![browserlink-dashboard-no-connections](using-browserlink/_static/browserlink-dashboard-no-connections.png)
 
 En caso contrario, se muestran los exploradores conectados con la ruta de acceso a la página que muestra cada explorador:
 
-![browserlink panel dos conexiones](using-browserlink/_static/browserlink-dashboard-two-connections.png)
+![browserlink-dashboard-two-connections](using-browserlink/_static/browserlink-dashboard-two-connections.png)
 
 Si lo desea, puede hacer clic en un nombre de lista del explorador para actualizar ese explorador único.
 

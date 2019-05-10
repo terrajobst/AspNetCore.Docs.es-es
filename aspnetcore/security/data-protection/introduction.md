@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/data-protection/introduction
 ms.openlocfilehash: 37f170a3e8a46ef2215b0999358d46dd402636df
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089553"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897992"
 ---
 # <a name="aspnet-core-data-protection"></a>Protección de datos de ASP.NET Core
 
@@ -21,7 +21,7 @@ La pila de protección de datos de ASP.NET Core está diseñada para que actúe 
 
 ## <a name="problem-statement"></a>Declaración del problema
 
-En pocas palabras la declaración del problema general en una sola frase: necesito conservar información de confianza para su recuperación posterior, pero no confía en el mecanismo de persistencia. En términos de web, esto podría escribirse como "Necesito para el estado de confianza de ida y vuelta a través de un cliente que no se confía".
+La declaración del problema general puede establecerse de forma concisa en una sola frase: Necesito conservar información de confianza para su recuperación posterior, pero no confía en el mecanismo de persistencia. En términos de web, esto podría escribirse como "Necesito para el estado de confianza de ida y vuelta a través de un cliente que no se confía".
 
 El ejemplo canónico de esta es una cookie de autenticación o bearer token. El servidor genera un "Soy Groot y tener permisos de xyz" del token y lo entrega al cliente. En el futuro, el cliente presentará ese token al servidor, pero el servidor necesita algún tipo de garantía de que el cliente no ha falsificado el token. Por lo tanto, el primer requisito: autenticidad (conocido como) integridad, altera y).
 
