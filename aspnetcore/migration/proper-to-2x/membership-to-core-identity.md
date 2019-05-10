@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 01/10/2019
 uid: migration/proper-to-2x/membership-to-core-identity
 ms.openlocfilehash: 3b708da13ff9f2887eee87ea17844312a4fe1b8d
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264729"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65084876"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a>Migrar de autenticación de pertenencia de ASP.NET a ASP.NET Core 2.0 Identity
 
@@ -69,13 +69,13 @@ Existen diferencias sutiles en los campos para la suscripción y ASP.NET Core Id
 
 |*Identity<br>(dbo.AspNetUsers)*        ||*Pertenencia<br>(dbo.aspnet_Users / dbo.aspnet_Membership)*||
 |----------------------------------------|-----------------------------------------------------------|
-|**Nombre de campo**                 |**Type**|**Nombre de campo**                                    |**Type**|
-|`Id`                           |cadena  |`aspnet_Users.UserId`                             |cadena  |
-|`UserName`                     |cadena  |`aspnet_Users.UserName`                           |cadena  |
-|`Email`                        |cadena  |`aspnet_Membership.Email`                         |cadena  |
-|`NormalizedUserName`           |cadena  |`aspnet_Users.LoweredUserName`                    |cadena  |
-|`NormalizedEmail`              |cadena  |`aspnet_Membership.LoweredEmail`                  |cadena  |
-|`PhoneNumber`                  |cadena  |`aspnet_Users.MobileAlias`                        |cadena  |
+|**Nombre de campo**                 |**Tipo**|**Nombre de campo**                                    |**Tipo**|
+|`Id`                           |string  |`aspnet_Users.UserId`                             |string  |
+|`UserName`                     |string  |`aspnet_Users.UserName`                           |string  |
+|`Email`                        |string  |`aspnet_Membership.Email`                         |string  |
+|`NormalizedUserName`           |string  |`aspnet_Users.LoweredUserName`                    |string  |
+|`NormalizedEmail`              |string  |`aspnet_Membership.LoweredEmail`                  |string  |
+|`PhoneNumber`                  |string  |`aspnet_Users.MobileAlias`                        |string  |
 |`LockoutEnabled`               |bits     |`aspnet_Membership.IsLockedOut`                   |bits     |
 
 > [!NOTE]
@@ -85,18 +85,18 @@ Existen diferencias sutiles en los campos para la suscripción y ASP.NET Core Id
 
 |*Identity<br>(dbo.AspNetRoles)*        ||*Membership<br>(dbo.aspnet_Roles)*||
 |----------------------------------------|-----------------------------------|
-|**Nombre de campo**                 |**Type**|**Nombre de campo**   |**Type**         |
-|`Id`                           |cadena  |`RoleId`         | cadena          |
-|`Name`                         |cadena  |`RoleName`       | cadena          |
-|`NormalizedName`               |cadena  |`LoweredRoleName`| cadena          |
+|**Nombre de campo**                 |**Tipo**|**Nombre de campo**   |**Tipo**         |
+|`Id`                           |string  |`RoleId`         | string          |
+|`Name`                         |string  |`RoleName`       | string          |
+|`NormalizedName`               |string  |`LoweredRoleName`| string          |
 
 ### <a name="user-roles"></a>Roles de usuario
 
 |*Identity<br>(dbo.AspNetUserRoles)*||*Membership<br>(dbo.aspnet_UsersInRoles)*||
 |------------------------------------|------------------------------------------|
-|**Nombre de campo**           |**Type**  |**Nombre de campo**|**Type**                   |
-|`RoleId`                 |cadena    |`RoleId`      |cadena                     |
-|`UserId`                 |cadena    |`UserId`      |cadena                     |
+|**Nombre de campo**           |**Tipo**  |**Nombre de campo**|**Tipo**                   |
+|`RoleId`                 |string    |`RoleId`      |string                     |
+|`UserId`                 |string    |`UserId`      |string                     |
 
 Hacer referencia a las tablas de asignación anterior al crear un script de migración para *usuarios* y *Roles*. En el siguiente ejemplo se da por supuesto que tiene dos bases de datos en un servidor de base de datos. Una base de datos contiene el esquema de pertenencia de ASP.NET existente y los datos. El otro *CoreIdentitySample* base de datos se creó mediante los pasos descritos anteriormente. Los comentarios están incluidas alineadas para obtener más detalles.
 

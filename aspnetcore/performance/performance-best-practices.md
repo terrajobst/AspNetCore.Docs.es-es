@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 04/13/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: 095db38cf3102f6e18930efdbbaeeb90dffad8af
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 28dc7fb40c1b60f643108dcb44593a08942a1650
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614453"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087500"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>Prácticas recomendadas de rendimiento de ASP.NET Core
 
@@ -44,7 +44,7 @@ Un problema de rendimiento comunes en aplicaciones ASP.NET Core está bloqueando
 * Llamar de forma asincrónica el acceso a datos y las API de operaciones de larga ejecución.
 * Asegúrese de controlador/Razor acciones de la página asincrónica. Es asincrónica con el fin de beneficiarse de la pila de llamadas completa [async y await](/dotnet/csharp/programming-guide/concepts/async/) patrones.
 
-Un generador de perfiles, como [PerfView](https://github.com/Microsoft/perfview), se puede usar para buscar subprocesos con frecuencia se agregan a la [grupos de subprocesos de](/windows/desktop/procthread/thread-pool). El `Microsoft-Windows-DotNETRuntime/ThreadPoolWorkerThread/Start` evento indica un subproceso que se agregan al grupo de subprocesos. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc  -->
+Un generador de perfiles, como [PerfView](https://github.com/Microsoft/perfview), se puede usar para buscar subprocesos con frecuencia se agregan a la [grupos de subprocesos de](/windows/desktop/procthread/thread-pools). El `Microsoft-Windows-DotNETRuntime/ThreadPoolWorkerThread/Start` evento indica un subproceso que se agregan al grupo de subprocesos. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc  -->
 
 ## <a name="minimize-large-object-allocations"></a>Minimizar las asignaciones de objetos grandes
 

@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/11/2019
 uid: web-api/index
-ms.openlocfilehash: 334e5732269921a62356e7854824deccc051c291
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.openlocfilehash: d804a7f1b4f0e89f433a3674116c97804705f7cc
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165181"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64882960"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Creación de API web con ASP.NET Core
 
@@ -20,7 +20,7 @@ Por [Scott Addie](https://github.com/scottaddie) y [Tom Dykstra](https://github.
 
 ASP.NET Core admite la creación de servicios RESTful, lo que también se conoce como API web, mediante C#. Para gestionar las solicitudes, una API web usa controladores. Los *controladores* de una API web son clases que se derivan de `ControllerBase`. En este artículo se muestra cómo usar controladores para gestionar las solicitudes de API.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/index/samples). ([Método de descarga](xref:index#how-to-download-a-sample)).
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([Método de descarga](xref:index#how-to-download-a-sample)).
 
 ## <a name="controllerbase-class"></a>Clase ControllerBase
 

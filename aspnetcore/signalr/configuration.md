@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar aplicaciones de ASP.NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 04/15/2019
 uid: signalr/configuration
-ms.openlocfilehash: 2c1bb8d5e317813d1fdb8d474b7d7d892e6f67ec
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 703357fd52805e01515e5bac3b1a364ce7fe00f0
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264573"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087652"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Configuración de ASP.NET Core SignalR
 
@@ -167,6 +167,31 @@ let connection = new signalR.HubConnectionBuilder()
     .configureLogging(signalR.LogLevel.Information)
     .build();
 ```
+
+::: moniker range=">= aspnetcore-3.0"
+
+En lugar de un `LogLevel` valor, también puede proporcionar un `string` valor que representa un nombre de nivel de registro. Esto es útil al configurar SignalR registro en entornos donde no tiene acceso a la `LogLevel` constantes.
+
+```javascript
+let connection = new signalR.HubConnectionBuilder()
+    .withUrl("/myhub")
+    .configureLogging("warn")
+    .build();
+```
+
+En la tabla siguiente se enumera los niveles de registro disponibles. El valor que proporcione a `configureLogging` establece la **mínimo** nivel que se registrarán de registro. Los mensajes registrados en este nivel, **o los niveles se muestran después de él en la tabla**, se registrarán.
+
+| cadena | LogLevel |
+| - | - |
+| `"trace"` | `LogLevel.Trace` |
+| `"debug"` | `LogLevel.Debug` |
+| `"info"` **O** `"information"` | `LogLevel.Information` |
+| `"warn"` **O** `"warning"` | `LogLevel.Warning` |
+| `"error"` | `LogLevel.Error` |
+| `"critical"` | `LogLevel.Critical` |
+| `"none"` | `LogLevel.None` |
+
+::: moniker-end
 
 > [!NOTE]
 > Para deshabilitar el registro por completo, especifique `signalR.LogLevel.None` en el `configureLogging` método.

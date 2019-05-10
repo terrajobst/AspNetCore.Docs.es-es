@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 1f8d3913c83aaf5fe6ec2cec482a30f0f066c16b
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841698"
----
 
 > [!NOTE]
 > Para este tutorial usará la característica de las *migraciones* de Entity Framework Core siempre que sea posible. Las migraciones actualizan el esquema de la base de datos para que coincida con los cambios en el modelo de datos. Aun así, las migraciones solo pueden realizar los tipos de cambios que admite el proveedor de EF Core; las capacidades del de SQLite son limitadas. Por ejemplo, se permite agregar una columna, pero no eliminarla ni cambiarla. Si se crea una migración para quitar o cambiar una columna, el comando `ef migrations add` se ejecuta correctamente, pero el comando `ef database update` produce un error. Debido a estas limitaciones, este tutorial no usa las migraciones para realizar cambios en el esquema de SQLite. En su lugar, cuando cambie el esquema, desconectará la base de datos y volverá a crearla.

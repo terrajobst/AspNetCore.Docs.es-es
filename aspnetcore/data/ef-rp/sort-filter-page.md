@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 162586059e3115bc15efaa63a9a0652e09872f1b
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 228722ecdc0fb19e024b7154393390fe6d34c5ff
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209970"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64887310"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Ordenación, filtrado y paginación (3 de 8)
 
@@ -29,7 +29,7 @@ En la siguiente ilustración se muestra una página completa. Los encabezados de
 
 ![Página de índice de Students](sort-filter-page/_static/paging.png)
 
-Si experimenta problemas que no puede resolver, descargue la [aplicación completada](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+Si experimenta problemas que no puede resolver, descargue la [aplicación completada](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 ## <a name="add-sorting-to-the-index-page"></a>Agregar ordenación a la página de índice
 
@@ -275,13 +275,13 @@ Reemplace el código del archivo *Pages/About.cshtml* por el código siguiente:
 
 Ejecute la aplicación y vaya a la página About. En una tabla se muestra el número de alumnos para cada fecha de inscripción.
 
-Si experimenta problemas que no puede resolver, descargue la [aplicación completada para esta fase](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting).
+Si experimenta problemas que no puede resolver, descargue la [aplicación completada para esta fase](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting).
 
 ![Página About](sort-filter-page/_static/about.png)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Depuración del código fuente de ASP.NET Core 2.x](https://github.com/aspnet/Docs/issues/4155)
+* [Depuración del código fuente de ASP.NET Core 2.x](https://github.com/aspnet/AspNetCore.Docs/issues/4155)
 * [Versión en YouTube de este tutorial](https://www.youtube.com/watch?v=MDs7PFpoMqI)
 
 En el tutorial siguiente, la aplicación usa las migraciones para actualizar el modelo de datos.

@@ -4,14 +4,14 @@ author: isaac2004
 description: Obtenga información sobre las nuevas características de ASP.NET Core 2.1.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 04/30/2019
 uid: aspnetcore-2.1
-ms.openlocfilehash: 8299af819f86d3d2371650ce3d87deb817f0feb8
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 359f961db768b9048427c8ab296ee3e035879408
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248178"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086406"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>Novedades de ASP.NET Core 2.1
 
@@ -28,7 +28,7 @@ SignalR se ha reescrito para ASP.NET Core 2.1. SignalR de ASP.NET Core incluye u
 * Un nuevo modelo de respuesta de streaming.
 * Compatibilidad con clientes basados en WebSockets vacíos.
 
-Para más información, vea [SignalR de ASP.NET Core](xref:signalr/index).
+Para más información, vea [SignalR de ASP.NET Core](xref:signalr/introduction).
 
 ## <a name="razor-class-libraries"></a>Bibliotecas de clases de Razor
 
@@ -75,7 +75,7 @@ En un entorno de producción, HTTPS se debe configurar explícitamente. En 2.1, 
 
 ## <a name="gdpr"></a>RGPD
 
-ASP.NET Core proporciona API y plantillas para cumplir algunos de los requisitos del [Reglamento general de protección de datos (RGPD) de la UE](https://www.eugdpr.org/). Para más información, vea [GDPR support in ASP.NET Core](xref:security/gdpr) (Compatibilidad con el Reglamento general de protección de datos en ASP.NET Core). Con las [aplicaciones de muestra](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) se muestra cómo usar y probar la mayor parte de las API y los puntos de extensión del RGPD que se han agregado a las plantillas de ASP.NET Core 2.1.
+ASP.NET Core proporciona API y plantillas para cumplir algunos de los requisitos del [Reglamento general de protección de datos (RGPD) de la UE](https://www.eugdpr.org/). Para más información, vea [GDPR support in ASP.NET Core](xref:security/gdpr) (Compatibilidad con el Reglamento general de protección de datos en ASP.NET Core). Con las [aplicaciones de muestra](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) se muestra cómo usar y probar la mayor parte de las API y los puntos de extensión del RGPD que se han agregado a las plantillas de ASP.NET Core 2.1.
 
 ## <a name="integration-tests"></a>Pruebas de integración
 

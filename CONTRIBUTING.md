@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 98a03118954baa85b093a0514e1ac6f0fb6353e8
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320113"
----
 # <a name="contribute-to-the-aspnet-core-documentation"></a>Colaboración en la documentación de ASP.NET Core
 
 En este documento se describe el proceso para colaborar en los artículos y ejemplos de código que se hospedan en el [sitio de documentación de ASP.NET](https://docs.microsoft.com/aspnet/). La corrección ortográfica y el envío de artículos nuevos son algunas de las colaboraciones que se aceptan.
