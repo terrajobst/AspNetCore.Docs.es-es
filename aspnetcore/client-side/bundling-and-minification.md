@@ -4,14 +4,14 @@ author: scottaddie
 description: Aprenda a optimizar los recursos estáticos en una aplicación web ASP.NET Core aplicando técnicas de unión y minificación.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/20/2018
+ms.date: 05/10/2019
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 5d5f0aadb7740c9b2b959d12a585cd8c91758ce8
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: ba01d365a25dfbd13fed89263d7489b2ce2a8771
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894302"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535927"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Agrupar y minificar recursos estáticos en ASP.NET Core
 
@@ -63,7 +63,7 @@ Los exploradores son bastante detallados con respecto a los encabezados de solic
 
 ## <a name="choose-a-bundling-and-minification-strategy"></a>Elegir una estrategia de unión y minificación
 
-Las plantillas de proyecto MVC y páginas de Razor proporcionan una solución para la unión y minificación que consta de un archivo de configuración de JSON. Herramientas de terceros, como el [Gulp](xref:client-side/using-gulp) y [Grunt](xref:client-side/using-grunt) ejecutores de tareas, realizar las mismas tareas con un poco más compleja. Una herramienta de terceros es una opción ideal cuando el flujo de trabajo de desarrollo requiere un procesamiento más allá de unión y minificación&mdash;como la optimización de la detección de errores y la imagen. Mediante el uso de unión y minificación de tiempo de diseño, se crean los archivos minimizados antes de la implementación de la aplicación. Agrupar y minificar antes de la implementación ofrece la ventaja de carga reducida del servidor. Sin embargo, es importante reconocer ese tiempo de diseño la unión y minificación aumenta la complejidad de la compilación y solo funciona con archivos estáticos.
+Las plantillas de proyecto MVC y páginas de Razor proporcionan una solución para la unión y minificación que consta de un archivo de configuración de JSON. Herramientas de terceros, como el [Grunt](xref:client-side/using-grunt) ejecutor de tareas, realizar las mismas tareas con un poco más compleja. Una herramienta de terceros es una opción ideal cuando el flujo de trabajo de desarrollo requiere un procesamiento más allá de unión y minificación&mdash;como la optimización de la detección de errores y la imagen. Mediante el uso de unión y minificación de tiempo de diseño, se crean los archivos minimizados antes de la implementación de la aplicación. Agrupar y minificar antes de la implementación ofrece la ventaja de carga reducida del servidor. Sin embargo, es importante reconocer ese tiempo de diseño la unión y minificación aumenta la complejidad de la compilación y solo funciona con archivos estáticos.
 
 ## <a name="configure-bundling-and-minification"></a>Configurar la unión y minificación
 
@@ -325,11 +325,9 @@ En este ejemplo, las tareas se definen en el `MyPreCompileTarget` destino ejecut
 ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
 ```
 
-Como alternativa, Visual Studio Task Runner Explorer puede utilizarse para enlazar las tareas de Gulp a eventos específicos de Visual Studio. Consulte [ejecutando tareas predeterminadas](xref:client-side/using-gulp#running-default-tasks) para obtener instrucciones sobre cómo hacerlo.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Uso de Gulp](xref:client-side/using-gulp)
 * [Uso de Grunt](xref:client-side/using-grunt)
 * [Uso de varios entornos](xref:fundamentals/environments)
 * [Asistentes de etiquetas](xref:mvc/views/tag-helpers/intro)

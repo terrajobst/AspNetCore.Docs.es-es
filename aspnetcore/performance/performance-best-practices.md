@@ -4,14 +4,14 @@ author: mjrousos
 description: Sugerencias para aumentar el rendimiento en aplicaciones ASP.NET Core y evitar problemas de rendimiento comunes.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 04/13/2019
+ms.date: 05/10/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: 28dc7fb40c1b60f643108dcb44593a08942a1650
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 7651dff18f98c60057660c8946c3daa66d272f6a
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087500"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65536083"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>Prácticas recomendadas de rendimiento de ASP.NET Core
 
@@ -130,7 +130,7 @@ Aplicaciones ASP.NET Core con servidores front-end complejo con frecuencia servi
 Recomendaciones:
 
 * **Hacer** usar ASP.NET Core [compatibilidad integrada con](xref:client-side/bundling-and-minification) para agrupar y minificar recursos del cliente.
-* **Hacer** considere la posibilidad de otras herramientas de terceros, como [Gulp](xref:client-side/using-gulp) o [Webpack](https://webpack.js.org/) compleja administración de clientes activos.
+* **Hacer** considere la posibilidad de otras herramientas de terceros, como [Webpack](https://webpack.js.org/), compleja administración de clientes activos.
 
 ## <a name="compress-responses"></a>Comprimir las respuestas
 

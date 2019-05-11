@@ -5,12 +5,12 @@ description: En este artículo se describe cómo personalizar el modelo de datos
 ms.author: avickers
 ms.date: 04/24/2019
 uid: security/authentication/customize_identity_model
-ms.openlocfilehash: ae5f4567a8921ce277cd6153f37a5558bcf4e261
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 53ce77e20722f3ba3282ff4455a0b70d30e635b0
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64897862"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65536018"
 ---
 # <a name="identity-model-customization-in-aspnet-core"></a>Personalización del modelo de identidad en ASP.NET Core
 
@@ -340,7 +340,7 @@ No es necesario invalidar `OnModelCreating` en el `ApplicationDbContext` clase. 
 
 Actualización *Pages/Shared/_LoginPartial.cshtml* y reemplace `IdentityUser` con `ApplicationUser`:
 
-```
+```cshtml
 @using Microsoft.AspNetCore.Identity
 @using WebApp1.Areas.Identity.Data
 @inject SignInManager<ApplicationUser> SignInManager
@@ -355,7 +355,7 @@ services.AddDefaultIdentity<ApplicationUser>()
         .AddDefaultUI();
 ```
 
-En ASP.NET Core 2.1 o posterior, la identidad se proporciona como una biblioteca de clases de Razor. Para obtener más información, consulta <xref:security/authentication/scaffold-identity>. Por lo tanto, el código anterior requiere una llamada a <xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>. Si el proveedor de scaffolding de identidad se usó para agregar archivos de identidad para el proyecto, quite la llamada a `AddDefaultUI`. Para obtener más información, vea:
+En ASP.NET Core 2.1 o posterior, la identidad se proporciona como una biblioteca de clases de Razor. Para obtener más información, consulta <xref:security/authentication/scaffold-identity>. Por lo tanto, el código anterior requiere una llamada a <xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>. Si el proveedor de scaffolding de identidad se usó para agregar archivos de identidad para el proyecto, quite la llamada a `AddDefaultUI`. Para obtener más información, consulte:
 
 * [Identidad de scaffolding](xref:security/authentication/scaffold-identity)
 * [Agregar, descargar y eliminar datos de usuario personalizada para la identidad](xref:security/authentication/add-user-data)

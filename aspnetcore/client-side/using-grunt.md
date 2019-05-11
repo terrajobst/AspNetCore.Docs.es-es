@@ -3,20 +3,20 @@ title: Uso de Grunt en ASP.NET Core
 author: rick-anderson
 description: ''
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 05/10/2019
 uid: client-side/using-grunt
-ms.openlocfilehash: fc912974fb6ed3c65bb46a7d616d9e531587d946
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 73b7704726db9d93588dddd3f3b05a23fb3425b3
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894642"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535939"
 ---
 # <a name="use-grunt-in-aspnet-core"></a>Uso de Grunt en ASP.NET Core
 
 Por [arroz Noel](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)
 
-Grunt es un ejecutor de tareas de JavaScript que automatiza la minificación de secuencia de comandos, compilación de TypeScript, las herramientas "lint" de calidad de código, preprocesadores CSS y casi cualquier tarea repetitiva que necesita hacer para admitir el desarrollo cliente. Grunt es totalmente compatible en Visual Studio, a pesar de las plantillas de proyecto ASP.NET usan Gulp predeterminada (consulte [usar Gulp](using-gulp.md)).
+Grunt es un ejecutor de tareas de JavaScript que automatiza la minificación de secuencia de comandos, compilación de TypeScript, las herramientas "lint" de calidad de código, preprocesadores CSS y casi cualquier tarea repetitiva que necesita hacer para admitir el desarrollo cliente. Grunt es totalmente compatible en Visual Studio.
 
 Este ejemplo usa un proyecto vacío de ASP.NET Core como punto de partida, para mostrar cómo automatizar el proceso de compilación de cliente desde el principio.
 
@@ -286,7 +286,3 @@ Descargar y recargar el proyecto. Cuando se carga el proyecto de nuevo, iniciar�
 ## <a name="summary"></a>Resumen
 
 Grunt es un ejecutor de tareas eficaz que puede utilizarse para automatizar la mayoría de las tareas de compilación del cliente. Grunt aprovecha NPM para entregar sus paquetes, características y herramientas de integración con Visual Studio. Visual Studio Task Runner Explorer detecta los cambios en los archivos de configuración y proporciona una interfaz adecuada para ejecutar tareas, ver las tareas en ejecución y enlazar tareas a eventos de Visual Studio.
-
-## <a name="additional-resources"></a>Recursos adicionales
-
-* [Uso de Gulp](using-gulp.md)
