@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 00e7c9a438260ef8e12e567e521fc44b2ffa9cca
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 0eb8b533f44a1f72cfc3c4ec5ec060adb37eed6c
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086338"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610358"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticación en web API con Azure Active Directory B2C en ASP.NET Core
 
@@ -37,7 +37,7 @@ En este tutorial, aprenderá cómo:
 Se requiere para este tutorial lo siguiente:
 
 * [Suscripción de Microsoft Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) (cualquier edición)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
 * [Postman](https://www.getpostman.com/postman)
 
 ## <a name="create-the-azure-active-directory-b2c-tenant"></a>Crear al inquilino de Azure Active Directory B2C
@@ -65,7 +65,7 @@ Use los siguientes valores:
 
 Una vez registrada la API, se muestra la lista de aplicaciones y API en el inquilino. Seleccione la API que se registró anteriormente. Seleccione el **copia** icono a la derecha de la **Id. de aplicación** campo para copiarlo en el Portapapeles. Seleccione **ámbitos publicados** y compruebe el valor predeterminado *user_impersonation* ámbito está presente.
 
-## <a name="create-an-aspnet-core-app-in-visual-studio-2017"></a>Crear una aplicación ASP.NET Core en Visual Studio 2017
+## <a name="create-an-aspnet-core-app-in-visual-studio"></a>Crear una aplicación ASP.NET Core en Visual Studio
 
 La plantilla de aplicación Web de Visual Studio puede configurarse para usar al inquilino de Azure AD B2C para la autenticación.
 

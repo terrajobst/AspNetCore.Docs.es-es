@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: 41a5a41c8921b04290784d26441ecb46aea753e7
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: d0494b96447ad2b256acbde7748209ff430ae7c1
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894972"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610188"
 ---
 # <a name="use-libman-with-aspnet-core-in-visual-studio"></a>Usar LibMan con ASP.NET Core en Visual Studio
 
@@ -28,7 +28,7 @@ Visual Studio tiene compatibilidad integrada para [LibMan](xref:client-side/libm
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Visual Studio 2017 versión 15,8 o posterior con el **ASP.NET y desarrollo web** carga de trabajo
+* [Visual Studio de 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) con el **ASP.NET y desarrollo web** carga de trabajo
 
 ## <a name="add-library-files"></a>Agregar archivos de biblioteca
 

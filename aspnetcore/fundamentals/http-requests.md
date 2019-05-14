@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la interfaz IHttpClientFactor
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 03/30/2019
+ms.date: 05/10/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 84cdbca20e7c7aaa1941c78483cc36a9f0b24505
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 540f14ad2b290d276436033a94d4c815888e5a95
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64888950"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65536001"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Realización de solicitudes HTTP mediante IHttpClientFactory en ASP.NET Core
 
@@ -27,9 +27,13 @@ Se puede registrar y usar una interfaz <xref:System.Net.Http.IHttpClientFactory>
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
+::: moniker range="<= aspnetcore-2.2"
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Los proyectos para .NET Framework requieren instalar el paquete NuGet [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/). Los proyectos para .NET Core y que hagan referencia al [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) ya incluyen el paquete `Microsoft.Extensions.Http`.
+
+::: moniker-end
 
 ## <a name="consumption-patterns"></a>Patrones de consumo
 
@@ -197,11 +201,10 @@ Use uno de los siguientes enfoques para compartir el estado por solicitud con co
 
 `IHttpClientFactory` se integra con una biblioteca de terceros muy conocida denominada [Polly](https://github.com/App-vNext/Polly). Polly es una biblioteca con capacidades de resistencia y control de errores transitorios para .NET. Permite a los desarrolladores expresar directivas como, por ejemplo, de reintento, interruptor, tiempo de espera, aislamiento compartimentado y reserva de forma fluida y segura para los subprocesos.
 
-Se proporcionan métodos de extensión para hacer posible el uso de directivas de Polly con instancias de `HttpClient` configuradas. Encontrará extensiones de Polly disponibles en el paquete NuGet [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/). Este paquete no está incluido en el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Para usar las extensiones, se debe incluir un `<PackageReference />` explícito en el proyecto.
+Se proporcionan métodos de extensión para hacer posible el uso de directivas de Polly con instancias de `HttpClient` configuradas. Las extensiones de Polly:
 
-[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/HttpClientFactorySample.csproj?highlight=10)]
-
-Tras restaurar este paquete, hay métodos de extensión disponibles para admitir la adición de controladores basados en Polly en clientes.
+* permiten agregar controladores basados en Polly a los clientes;
+* se pueden usar tras instalar el paquete NuGet [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/), aunque este no está incluido en la plataforma compartida ASP.NET Core.
 
 ### <a name="handle-transient-faults"></a>Control de errores transitorios
 
@@ -219,11 +222,11 @@ Existen más métodos de extensión que pueden servir para agregar controladores
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet8)]
 
-En el código anterior, si la solicitud de salida es GET, se aplica un tiempo de espera de 10 segundos. En cualquier otro método HTTP, se usa un tiempo de espera de 30 segundos.
+En el código anterior, si la solicitud GET saliente es del tipo HTTP, se aplica un tiempo de espera de 10 segundos. En cualquier otro método HTTP, se usa un tiempo de espera de 30 segundos.
 
 ### <a name="add-multiple-polly-handlers"></a>Agregar varios controladores de Polly
 
-Es habitual anidar directivas de Polly para proporcionar una mejor funcionalidad:
+Es habitual anidar directivas de Polly para proporcionar una funcionalidad mejorada:
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet9)]
 
