@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar el proveedor de configuració
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 45eca05b5eb41815924ca48f60c3b00046c6bdaf
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 78c63cf135ca92f0b5f6c6828b2ae34a44a7b36c
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894992"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621024"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Proveedor de configuración de almacén de claves de Azure en ASP.NET Core
 
@@ -111,7 +111,7 @@ Las instrucciones proporcionadas por el [inicio rápido: Establecer y recuperar 
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "Section--SecretName" --value "secret_value_2_prod"
    ```
 
-## <a name="use-application-id-and-client-secret-for-non-azure-hosted-apps"></a>Use el Id. de aplicación y secreto de cliente para aplicaciones no hospedadas en Azure
+## <a name="use-application-id-and-x509-certificate-for-non-azure-hosted-apps"></a>Usar certificado de Id. de aplicación y X.509 para las aplicaciones no hospedadas en Azure
 
 Configurar Azure AD, Azure Key Vault y la aplicación para usar un identificador de aplicación de Azure Active Directory y X.509 para autenticarse en un almacén de claves de certificado **cuando la aplicación se hospeda fuera de Azure**. Para obtener más información, consulte [sobre claves, secretos y certificados](/azure/key-vault/about-keys-secrets-and-certificates).
 
@@ -120,12 +120,15 @@ Configurar Azure AD, Azure Key Vault y la aplicación para usar un identificador
 
 La aplicación de ejemplo usa un identificador de la aplicación y del certificado X.509 cuando la `#define` instrucción en la parte superior de la *Program.cs* archivo se establece en `Certificate`.
 
+1. Crear un archivo PKCS #12 (*.pfx*) certificado. Las opciones de creación de certificados incluyen [MakeCert en Windows](/windows/desktop/seccrypto/makecert) y [OpenSSL](https://www.openssl.org/).
+1. Instale el certificado en el almacén de certificados personales del usuario actual. Marcar la clave como exportable es opcional. Tenga en cuenta la huella digital del certificado, que se usa más adelante en este proceso.
+1. Exportar el archivo PKCS #12 (*.pfx*) certificado como un certificado con codificación DER (*.cer*).
 1. Registrar la aplicación con Azure AD (**registros de aplicaciones**).
-1. Cargar la clave pública:
+1. Cargue el certificado con codificación DER (*.cer*) a Azure AD:
    1. Seleccione la aplicación en Azure AD.
-   1. Vaya a **configuración** > **claves**.
-   1. Seleccione **cargar clave pública** para cargar el certificado, que contiene la clave pública. Además de utilizar un *.cer*, *.pem*, o *.crt* certificado, una *.pfx* se puede cargar el certificado.
-1. Store el nombre de almacén de claves y el identificador de la aplicación en la aplicación *appsettings.json* archivo. Coloque el certificado en la raíz de la aplicación o en el almacén de certificados de la aplicación&dagger;.
+   1. Vaya a **certificados y secretos**.
+   1. Seleccione **cargar certificado** para cargar el certificado, que contiene la clave pública. Un *.cer*, *.pem*, o *.crt* certificado es aceptable.
+1. Store el nombre del almacén de claves, el identificador de aplicación y la huella digital del certificado en la aplicación *appsettings.json* archivo.
 1. Vaya a **los almacenes de claves** en Azure portal.
 1. Seleccione el almacén de claves que creó en el [almacenamiento secreto en el entorno de producción con Azure Key Vault](#secret-storage-in-the-production-environment-with-azure-key-vault) sección.
 1. Seleccione **las directivas de acceso**.
@@ -136,8 +139,6 @@ La aplicación de ejemplo usa un identificador de la aplicación y del certifica
 1. Seleccione **Guardar**.
 1. Implementar la aplicación.
 
-&dagger;En la aplicación de ejemplo, el certificado se consume directamente desde el archivo de certificados físicos en la raíz de la aplicación mediante la creación de un nuevo `X509Certificate2` al llamar a `AddAzureKeyVault`. Un enfoque alternativo es permitir que el sistema operativo administrar el certificado. Para obtener más información, consulte el [permitir que el sistema operativo administrar el certificado X.509](#allow-the-os-to-manage-the-x509-certificate) sección.
-
 El `Certificate` aplicación de ejemplo obtiene sus valores de configuración de `IConfigurationRoot` con el mismo nombre que el nombre del secreto:
 
 * Valores que no son jerárquicos: El valor de `SecretName` se obtiene con `config["SecretName"]`.
@@ -145,14 +146,15 @@ El `Certificate` aplicación de ejemplo obtiene sus valores de configuración de
   * `config["Section:SecretName"]`
   * `config.GetSection("Section")["SecretName"]`
 
-Las llamadas de aplicación `AddAzureKeyVault` con los valores proporcionados por el *appsettings.json* archivo:
+El certificado X.509 es administrado por el sistema operativo. Las llamadas de aplicación `AddAzureKeyVault` con los valores proporcionados por el *appsettings.json* archivo:
 
-[!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet1&highlight=12-15)]
+[!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet1&highlight=20-23)]
 
 Valores de ejemplo:
 
 * Nombre de almacén de claves: `contosovault`
 * Id. de aplicación: `627e911e-43cc-61d4-992e-12db9c81b413`
+* Huella digital del certificado: `fe14593dd66b2406c5269d742d04b6e1ab03adb1`
 
 *appsettings.json*:
 
@@ -203,17 +205,7 @@ En el ejemplo siguiente, se establece un secreto en la clave de almacén (y util
 
 `AddAzureKeyVault` se llama con una personalizada `IKeyVaultSecretManager`:
 
-[!code-csharp[](key-vault-configuration/sample_snapshot/Program.cs?name=snippet1&highlight=22)]
-
-Proporcionan los valores de nombre de almacén de claves, el identificador de aplicación y contraseña (secreto de cliente) la *appsettings.json* archivo:
-
-[!code-json[](key-vault-configuration/sample/appsettings.json)]
-
-Valores de ejemplo:
-
-* Nombre de almacén de claves: `contosovault`
-* Id. de aplicación: `627e911e-43cc-61d4-992e-12db9c81b413`
-* Contraseña: `g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di=`
+[!code-csharp[](key-vault-configuration/sample_snapshot/Program.cs?highlight=30-34)]
 
 El `IKeyVaultSecretManager` reacciona ante los prefijos de la versión de secretos para cargar el secreto adecuado en la configuración de implementación:
 
@@ -261,44 +253,6 @@ Cuando se implementa este enfoque:
 
 > [!NOTE]
 > También puede proporcionar su propia `KeyVaultClient` implementación `AddAzureKeyVault`. Un cliente personalizado permite compartir una única instancia del cliente a través de la aplicación.
-
-## <a name="allow-the-os-to-manage-the-x509-certificate"></a>Permitir que el sistema operativo administrar el certificado X.509
-
-El certificado X.509 puede administrarse mediante el sistema operativo. En el ejemplo siguiente se usa el `AddAzureKeyVault` sobrecarga que acepta un `X509Certificate2` desde el almacén de certificados de usuario actual de la máquina y una huella digital del certificado proporcionado por la configuración:
-
-```csharp
-// using System.Linq;
-// using System.Security.Cryptography.X509Certificates;
-// using Microsoft.Extensions.Configuration;
-
-WebHost.CreateDefaultBuilder(args)
-    .ConfigureAppConfiguration((context, config) =>
-    {
-        if (context.HostingEnvironment.IsProduction())
-        {
-            var builtConfig = config.Build();
-
-            using (var store = new X509Store(StoreName.My, 
-                StoreLocation.CurrentUser))
-            {
-                store.Open(OpenFlags.ReadOnly);
-                var certs = store.Certificates
-                    .Find(X509FindType.FindByThumbprint, 
-                        builtConfig["CertificateThumbprint"], false);
-
-                config.AddAzureKeyVault(
-                    builtConfig["KeyVaultName"], 
-                    builtConfig["AzureADApplicationId"], 
-                    certs.OfType<X509Certificate2>().Single());
-
-                store.Close();
-            }
-        }
-    })
-    .UseStartup<Startup>();
-```
-
-Para obtener más información, consulte [autenticar con un certificado en lugar de un secreto de cliente](/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret).
 
 ## <a name="bind-an-array-to-a-class"></a>Enlace de una matriz a una clase
 
@@ -358,13 +312,12 @@ Generar secretos expirados y deshabilitados una `KeyVaultClientException`. Para 
 
 Cuando no se puede cargar la configuración mediante el proveedor de la aplicación, se escribe un mensaje de error en la [infraestructura de registro de ASP.NET Core](xref:fundamentals/logging/index). Configuración de carga evitará que las condiciones siguientes:
 
-* La aplicación no está configurada correctamente en Azure Active Directory.
+* La aplicación o el certificado no está configurado correctamente en Azure Active Directory.
 * El almacén de claves no existe en Azure Key Vault.
 * La aplicación no está autorizada para acceder al almacén de claves.
 * La directiva de acceso no incluye `Get` y `List` permisos.
 * En el almacén de claves, los datos de configuración (par nombre-valor) denominados incorrectamente, falta, deshabilitado o expirado.
-* La aplicación tiene el nombre de almacén de claves incorrecto (`KeyVaultName`), Id. de aplicación de Azure AD (`AzureADApplicationId`), o la contraseña (secreto de cliente) de Azure AD (`AzureADPassword`).
-* La contraseña (secreto de cliente) de Azure AD (`AzureADPassword`) ha expirado.
+* La aplicación tiene el nombre de almacén de claves incorrecto (`KeyVaultName`), Id. de aplicación de Azure AD (`AzureADApplicationId`), o la huella digital del certificado de Azure AD (`AzureADCertThumbprint`).
 * La clave de configuración (nombre) es incorrecta en la aplicación para el valor que está intentando cargar.
 
 ## <a name="additional-resources"></a>Recursos adicionales

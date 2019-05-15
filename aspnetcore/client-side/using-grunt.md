@@ -3,14 +3,14 @@ title: Uso de Grunt en ASP.NET Core
 author: rick-anderson
 description: Uso de Grunt en ASP.NET Core
 ms.author: riande
-ms.date: 05/10/2019
+ms.date: 05/14/2019
 uid: client-side/using-grunt
-ms.openlocfilehash: 718a1358c0474711b05bb2c90dc86ec9edacbf1e
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: 4d9b6cf6f9a0007e9722bc054f0d9a7608f1473b
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610221"
+ms.locfileid: "65621001"
 ---
 # <a name="use-grunt-in-aspnet-core"></a>Uso de Grunt en ASP.NET Core
 
@@ -113,12 +113,12 @@ A continuación, configure Network Performance Monitor para descargar grunt y ta
 
 4. Guardar el *package.json* archivo.
 
-Se descargarán los paquetes para cada elemento devDependencies, junto con los archivos que requiere cada paquete. Puede encontrar los archivos del paquete en el `node_modules` directorio habilitando la **mostrar todos los archivos** botón en el Explorador de soluciones.
+Los paquetes para cada `devDependencies` elemento descargará, junto con los archivos que requiere cada paquete. Puede encontrar los archivos del paquete en el *node_modules* directorio habilitando la **mostrar todos los archivos** botón **el Explorador de soluciones**.
 
 ![grunt node_modules](using-grunt/_static/node-modules.png)
 
 > [!NOTE]
-> Si necesita, puede restaurar manualmente las dependencias en el Explorador de soluciones con el botón secundario en `Dependencies\NPM` y seleccionando el **restaurar paquetes** opción de menú.
+> Si necesita, puede restaurar manualmente las dependencias en **el Explorador de soluciones** con el botón secundario en `Dependencies\NPM` y seleccionando el **restaurar paquetes** opción de menú.
 
 ![restaurar paquetes](using-grunt/_static/restore-packages.png)
 
@@ -126,9 +126,9 @@ Se descargarán los paquetes para cada elemento devDependencies, junto con los a
 
 Grunt se configura mediante un manifiesto llamado *Gruntfile.js* que define, carga y registra las tareas que se pueden ejecutar manualmente o configuradas para ejecutarse automáticamente basándose en eventos en Visual Studio.
 
-1. Haga clic en el proyecto y seleccione **Agregar > nuevo elemento**. Seleccione el **archivo de configuración de Grunt** opción, deje el nombre predeterminado, *Gruntfile.js*y haga clic en el **agregar** botón.
+1. Haga clic en el proyecto y seleccione **agregar** > **nuevo elemento**. Seleccione el **archivo JavaScript** plantilla de elemento, cambie el nombre a *Gruntfile.js*y haga clic en el **agregar** botón.
 
-   El código inicial incluye una definición de módulo y el `grunt.initConfig()` método. El `initConfig()` se usa para establecer las opciones para cada paquete, y el resto del módulo se carga y registrar las tareas.
+1. Agregue el código siguiente al *Gruntfile.js*. El `initConfig` función establece opciones para cada paquete, y el resto del módulo de carga y registrar las tareas.
 
    ```javascript
    module.exports = function (grunt) {
@@ -137,7 +137,7 @@ Grunt se configura mediante un manifiesto llamado *Gruntfile.js* que define, car
    };
    ```
 
-2. Dentro de la `initConfig()` método, agregar opciones para la `clean` tareas tal como se muestra en el ejemplo *Gruntfile.js* a continuación. La tarea clean acepta una matriz de cadenas de directorio. Esta tarea quita archivos wwwroot/lib y quita el directorio temp/todo.
+1. Dentro de la `initConfig` funcione, agregue las opciones para la `clean` tareas tal como se muestra en el ejemplo *Gruntfile.js* a continuación. El `clean` tarea acepta una matriz de cadenas de directorio. Esta tarea elimina los archivos de *wwwroot/lib* y quita toda la */temp* directory.
 
     ```javascript
     module.exports = function (grunt) {
@@ -147,32 +147,32 @@ Grunt se configura mediante un manifiesto llamado *Gruntfile.js* que define, car
     };
     ```
 
-3. Debajo del método initConfig(), agregue una llamada a `grunt.loadNpmTasks()`. Esto hará que la tarea se puede ejecutar desde Visual Studio.
+1. A continuación el `initConfig` de función, agregue una llamada a `grunt.loadNpmTasks`. Esto hará que la tarea se puede ejecutar desde Visual Studio.
 
     ```javascript
     grunt.loadNpmTasks("grunt-contrib-clean");
     ```
 
-4. Guardar *Gruntfile.js*. El archivo debe ser similar a la captura de pantalla siguiente.
+1. Guardar *Gruntfile.js*. El archivo debe ser similar a la captura de pantalla siguiente.
 
     ![gruntfile inicial](using-grunt/_static/gruntfile-js-initial.png)
 
-5. Haga clic en *Gruntfile.js* y seleccione **Task Runner Explorer** en el menú contextual. Se abrirá la ventana de explorador del ejecutador de tareas.
+1. Haga clic en *Gruntfile.js* y seleccione **Task Runner Explorer** en el menú contextual. El **Task Runner Explorer** se abrirá la ventana.
 
     ![menú del explorador de ejecutor de tareas](using-grunt/_static/task-runner-explorer-menu.png)
 
-6. Compruebe que `clean` se muestra bajo **tareas** en el Explorador de ejecutores de tareas.
+1. Compruebe que `clean` se muestra bajo **tareas** en el **Task Runner Explorer**.
 
     ![lista de tareas del explorador de ejecutor de tarea](using-grunt/_static/task-runner-explorer-tasks.png)
 
-7. Haga clic en la tarea clean y seleccione **ejecutar** en el menú contextual. Una ventana de comandos muestra el progreso de la tarea.
+1. Haga clic en la tarea clean y seleccione **ejecutar** en el menú contextual. Una ventana de comandos muestra el progreso de la tarea.
 
     ![tarea de limpieza de ejecutar el Explorador de ejecutor tarea](using-grunt/_static/task-runner-explorer-run-clean.png)
 
     > [!NOTE]
     > No hay ningún archivos o directorios para limpiar todavía. Si lo desea, puede crearlas manualmente en el Explorador de soluciones y, a continuación, ejecutar la tarea clean como prueba.
 
-8. En el método initConfig(), agregue una entrada para `concat` con el código siguiente.
+1. En el `initConfig` de función, agregue una entrada para `concat` con el código siguiente.
 
     El `src` matriz de propiedades incluyen archivos para combinar en el orden en que deben combinarse. El `dest` propiedad asigna la ruta de acceso al archivo combinado que se genera.
 
@@ -186,11 +186,11 @@ Grunt se configura mediante un manifiesto llamado *Gruntfile.js* que define, car
     ```
 
     > [!NOTE]
-    > El `all` propiedad en el código anterior es el nombre de un destino. Los destinos se usan en algunas tareas de Grunt para permitir que varios entornos de compilación. Puede ver los destinos integrados mediante Intellisense o asignar su propio.
+    > El `all` propiedad en el código anterior es el nombre de un destino. Los destinos se usan en algunas tareas de Grunt para permitir que varios entornos de compilación. Puede ver los destinos integrados mediante IntelliSense o asignar su propio.
 
-9. Agregue el `jshint` de tareas con el código siguiente.
+1. Agregue el `jshint` de tareas con el código siguiente.
 
-    Se ejecuta la utilidad de la calidad del código jshint en cada archivo de JavaScript que se encuentra en el directorio temporal.
+    El jshint `code-quality` utilidad se ejecuta en cada archivo de JavaScript que se encuentra en la *temp* directory.
 
     ```javascript
     jshint: {
@@ -204,7 +204,7 @@ Grunt se configura mediante un manifiesto llamado *Gruntfile.js* que define, car
     > [!NOTE]
     > La opción "-W069" es un error generado por jshint cuando JavaScript usa la sintaxis para asignar una propiedad en lugar de la notación de puntos, es decir, los corchetes `Tastes["Sweet"]` en lugar de `Tastes.Sweet`. La opción desactiva la advertencia para permitir que el resto del proceso para continuar.
 
-10. Agregue el `uglify` de tareas con el código siguiente.
+1. Agregue el `uglify` de tareas con el código siguiente.
 
     La tarea minifica objeto el *combined.js* archivo se encuentra en el directorio temporal y crea el archivo de resultados en wwwroot/lib siguiendo la convención de nomenclatura estándar  *\<nombre de archivo\>. min.js*.
 
@@ -217,7 +217,7 @@ Grunt se configura mediante un manifiesto llamado *Gruntfile.js* que define, car
     },
     ```
 
-11. En el grunt.loadNpmTasks() de llamada que se carga grunt-contrib-clean, incluir la misma llamada para jshint, concat y a que uglify con el código siguiente.
+1. En la llamada a `grunt.loadNpmTasks` que carga `grunt-contrib-clean`, incluir la misma llamada para jshint, concat y a que uglify con el código siguiente.
 
     ```javascript
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -225,15 +225,15 @@ Grunt se configura mediante un manifiesto llamado *Gruntfile.js* que define, car
     grunt.loadNpmTasks('grunt-contrib-uglify');
     ```
 
-12. Guardar *Gruntfile.js*. El archivo debe tener un aspecto similar al ejemplo siguiente.
+1. Guardar *Gruntfile.js*. El archivo debe tener un aspecto similar al ejemplo siguiente.
 
     ![ejemplo de archivo completa de grunt](using-grunt/_static/gruntfile-js-complete.png)
 
-13. Tenga en cuenta que la lista de tareas del explorador de ejecutor de tareas incluye `clean`, `concat`, `jshint` y `uglify` tareas. Cada tarea se ejecutan en orden y observar los resultados en el Explorador de soluciones. Cada tarea debe ejecutarse sin errores.
+1. Tenga en cuenta que el **Task Runner Explorer** lista de tareas incluye `clean`, `concat`, `jshint` y `uglify` tareas. Cada tarea se ejecutan en orden y observe los resultados en **el Explorador de soluciones**. Cada tarea debe ejecutarse sin errores.
 
     ![Explorador de ejecutores de tareas ejecutar cada tarea.](using-grunt/_static/task-runner-explorer-run-each-task.png)
 
-    La tarea de concat crea un nuevo *combined.js* de archivo y lo coloca en el directorio temporal. La tarea jshint simplemente se ejecuta y no genera resultados. La tarea uglify crea un nuevo *combined.min.js* de archivo y lo coloca en wwwroot/lib. Una vez completada, la solución debe ser similar a la captura de pantalla siguiente:
+    La tarea de concat crea un nuevo *combined.js* de archivo y lo coloca en el directorio temporal. El `jshint` tarea simplemente se ejecuta y no genera resultados. El `uglify` crea una nueva tarea *combined.min.js* de archivo y lo coloca en *wwwroot/lib*. Una vez completada, la solución debe ser similar a la captura de pantalla siguiente:
 
     ![el Explorador de soluciones de tareas después de todo](using-grunt/_static/solution-explorer-after-all-tasks.png)
 
