@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/25/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: d95bafd412969bb8db38499bd2ff01af510d872c
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 5d49213e6d694f121d8301c94ba71782b2dc45cf
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148855"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086932"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Metapaquete Microsoft.AspNetCore.All para ASP.NET Core 2.0
 
@@ -21,7 +21,9 @@ ms.locfileid: "50148855"
 
 Esta característica requiere ASP.NET Core 2.x con .NET Core 2.x como destino.
 
-El metapaquete [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) para ASP.NET Core incluye lo siguiente:
+[Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) es un metapaquete que hace referencia a un marco compartido. Un *marco compartido* es un conjunto de ensamblados (archivos *.dll*) que no están en las carpetas de la aplicación. El marco de trabajo compartido debe instalarse en la máquina para ejecutar la aplicación. Para más información, consulte este artículo sobre el [marco de trabajo compartido](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/).
+
+El marco de trabajo compartido al que hace referencia `Microsoft.AspNetCore.All` incluye:
 
 * Todos los paquetes admitidos por el equipo de ASP.NET Core.
 * Todos los paquetes admitidos por Entity Framework Core.
@@ -29,11 +31,7 @@ El metapaquete [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microso
 
 Todas las características de ASP.NET Core 2.x y Entity Framework Core 2.x están incluidas en el paquete `Microsoft.AspNetCore.All`. Las plantillas de proyecto predeterminada destinadas a ASP.NET 2.0 usan este paquete.
 
-El número de versión del metapaquete `Microsoft.AspNetCore.All` representa la versión de ASP.NET Core y la versión de Entity Framework Core.
-
-Las aplicaciones que usan el metapaquete `Microsoft.AspNetCore.All` pueden aprovechar automáticamente el [almacén en tiempo de ejecución de .NET Core](/dotnet/core/deploying/runtime-store). El almacén en tiempo de ejecución contiene todos los recursos en tiempo de ejecución necesarios para ejecutar aplicaciones de ASP.NET Core 2.x. Al usar el metapaquete `Microsoft.AspNetCore.All`, **no** se implementa ningún recurso de los paquetes NuGet de ASP.NET Core a los que se hace referencia con la aplicación, porque el almacén en tiempo de ejecución de .NET Core ya contiene esos recursos. Los recursos del almacén en tiempo de ejecución se precompilan para mejorar el tiempo de inicio de la aplicación.
-
-Puede usar el proceso de recorte de paquetes para quitar los paquetes que no se usan. Los paquetes recortados se excluyen de la salida de la aplicación publicada.
+El número de versión del metapaquete `Microsoft.AspNetCore.All` representa las versiones mínimas de ASP.NET Core y Entity Framework Core.
 
 El siguiente archivo *.csproj* hace referencia al metapaquete `Microsoft.AspNetCore.All` de ASP.NET Core:
 
@@ -43,7 +41,7 @@ El siguiente archivo *.csproj* hace referencia al metapaquete `Microsoft.AspNetC
 
 ## <a name="implicit-versioning"></a>Control de versiones implícitas
 
-En ASP.NET Core 2.1 o una versión posterior, puede especificar la referencia de paquete `Microsoft.AspNetCore.All` sin una versión. Si no se especifica la versión, el SDK define una versión implícita (`Microsoft.NET.Sdk.Web`). Es recomendable confiar en la versión implícita especificada por el SDK y no establecer de forma explícita el número de versión en la referencia del paquete. Si tiene alguna pregunta sobre este enfoque, deje un comentario de GitHub en [Discussion for the Microsoft.AspNetCore.App implicit version](https://github.com/aspnet/Docs/issues/6430) (Debate sobre la versión implícita de Microsoft.AspNetCore.App).
+En ASP.NET Core 2.1 o una versión posterior, puede especificar la referencia de paquete `Microsoft.AspNetCore.All` sin una versión. Si no se especifica la versión, el SDK define una versión implícita (`Microsoft.NET.Sdk.Web`). Es recomendable confiar en la versión implícita especificada por el SDK y no establecer de forma explícita el número de versión en la referencia del paquete. Si tiene alguna pregunta sobre este enfoque, deje un comentario de GitHub en [Discussion for the Microsoft.AspNetCore.App implicit version](https://github.com/aspnet/AspNetCore.Docs/issues/6430) (Debate sobre la versión implícita de Microsoft.AspNetCore.App).
 
 La versión implícita se establece en `major.minor.0` para las aplicaciones portátiles. El mecanismo de puesta al día del marco de uso compartido ejecuta la aplicación en la versión más reciente compatible entre los marcos de uso compartidos instalados. Para garantizar que se use la misma versión en el desarrollo, las pruebas y la producción, asegúrese de que en todos los entornos esté instalada la misma versión del marco de uso compartido. Para las aplicaciones autocontenidas, el número de versión implícita se establece en el valor `major.minor.patch` del marco de uso compartido incluido en el SDK instalado.
 
@@ -90,6 +88,6 @@ No se incluye implícitamente ninguna dependencia de los paquetes anteriores que
 
 Se recomienda migrar al metapaquete `Microsoft.AspNetCore.App` con la versión 2.1 y versiones posteriores. Para seguir usando el metapaquete `Microsoft.AspNetCore.All` y asegurarse de que se ha implementado la última versión de la revisión:
 
-* En los equipos de desarrollo y los servidores de compilación: instale el último [SDK de .NET Core](https://www.microsoft.com/net/download).
-* En los servidores de implementación: instale el último [.NET Core Runtime](https://www.microsoft.com/net/download).
+* En las máquinas de desarrollo y los servidores de compilación: Instale la versión más reciente del [SDK de .NET Core](https://www.microsoft.com/net/download).
+* En los servidores de implementación: Instale el [entorno de ejecución de .NET Core](https://www.microsoft.com/net/download) más reciente.
  Su aplicación se pondrá al día con la última versión instalada al reiniciar la aplicación.

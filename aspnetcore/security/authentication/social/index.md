@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 4/19/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 61482481358256dc9ddd1a0a894541040a8a452f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: e2d68ac93bdcfa2fc015e8447ea38626787cdb02
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64882010"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65451046"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticación con Facebook, Google y proveedores externos en ASP.NET Core
 
@@ -47,11 +47,13 @@ Para ver ejemplos de cómo los inicios de sesión de las redes sociales pueden c
 * Ejecute los comandos siguientes:
 
   ```console
-  dotnet new webapp -o WebApp1
+  dotnet new webapp -o WebApp1 -au Individual -uld
   code -r WebApp1
   ```
 
   * El comando `dotnet new` crea un nuevo proyecto de Razor Pages en la carpeta *WebApp1*.
+  * `-uld` usa LocalDB en lugar de SQLite. Omita `-uld` para usar SQLite.
+  * `-au Individual` crea el código para la autenticación individual.
   * El comando `code` abre la carpeta *WebApp1* en una nueva instancia de Visual Studio Code.
 
   Se muestra un cuadro de diálogo con el texto **Required assets to build and debug are missing from 'WebApp1'. Add them?** (Faltan los activos necesarios para compilar y depurar en "RazorPagesMovie". ¿Desea agregarlos?).
@@ -65,7 +67,7 @@ Desde un terminal, ejecute este comando:
 <!-- TODO: update these instruction once mac support 2.2 projects -->
 
 ```console
-dotnet new webapp -o WebApp1
+dotnet new webapp -o WebApp1 -au Individual
 ```
 
 Los comandos anteriores utilizan la [CLI de .NET Core](/dotnet/core/tools/dotnet) para crear un proyecto de Razor Pages.

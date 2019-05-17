@@ -6,18 +6,14 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 311f72699b6291996a43d56247bd3d2bfab596e6
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: a65543f805b197031bd46ef1974d4d4a5018b2d1
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320253"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65516902"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Modelo de datos (5 de 8)
-
-[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -33,7 +29,7 @@ Las clases de entidad para el modelo de datos completo se muestran en la siguien
 ![Diagrama de entidades](complex-data-model/_static/diagram.png)
 
 Si experimenta problemas que no puede resolver, descargue la [aplicación completada](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 ## <a name="customize-the-data-model-with-attributes"></a>Personalizar el modelo de datos con atributos
 
@@ -385,19 +381,18 @@ public ICollection<Course> Courses { get; set; }
 
 Nota: Por convención, EF Core permite la eliminación en cascada de las claves externas que no acepten valores NULL ni relaciones de varios a varios. La eliminación en cascada puede dar lugar a reglas de eliminación en cascada circular. Las reglas de eliminación en cascada circular provocan una excepción cuando se agrega una migración.
 
-Por ejemplo, si no se ha definido que la propiedad `Department.InstructorID` acepta valores NULL:
+Por ejemplo, si la propiedad `Department.InstructorID` no se ha definido como que acepta valores NULL:
 
-* EF Core configura una regla de eliminación en cascada para eliminar el instructor cuando se elimine el departamento.
-* Eliminar el instructor cuando se elimine el departamento no es el comportamiento previsto.
+* EF Core configura una regla de eliminación en cascada para eliminar el departamento cuando se elimina el instructor.
+* Eliminar el departamento cuando se elimine el instructor no es el comportamiento previsto.
+* La API fluida siguiente establecería una regla de restricción en lugar de en cascada.
 
-Si las reglas de negocios requieren que la propiedad `InstructorID` no acepte valores NULL, use la siguiente instrucción de API fluida:
-
- ```csharp
- modelBuilder.Entity<Department>()
-    .HasOne(d => d.Administrator)
-    .WithMany()
-    .OnDelete(DeleteBehavior.Restrict)
- ```
+   ```csharp
+   modelBuilder.Entity<Department>()
+      .HasOne(d => d.Administrator)
+      .WithMany()
+      .OnDelete(DeleteBehavior.Restrict)
+  ```
 
 El código anterior deshabilita la eliminación en cascada en la relación de instructor y departamento.
 
@@ -671,7 +666,7 @@ El siguiente tutorial trata los datos relacionados.
 * [Versión en YouTube de este tutorial (parte 1)](https://www.youtube.com/watch?v=0n2f0ObgCoA)
 * [Versión en YouTube de este tutorial (parte 2)](https://www.youtube.com/watch?v=Je0Z5K1TNmY)
 
-::: moniker-end
+
 
 > [!div class="step-by-step"]
 > [Anterior](xref:data/ef-rp/migrations)

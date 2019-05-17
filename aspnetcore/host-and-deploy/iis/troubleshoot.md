@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/14/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 1fa90737aadebe3f714c702fbce649629d79dcd4
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: f89eac3ae6fc704bc8bf38a9707fc3c6c3568e91
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264552"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64884350"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Solución de problemas de ASP.NET Core en IIS
 
@@ -49,7 +49,7 @@ El proceso de trabajo no funciona. La aplicación no se inicia.
 
 El módulo ASP.NET Core intenta iniciar el proceso dotnet de back-end, pero no lo consigue. La causa del error de inicio del proceso se suele determinar a partir de las entradas del [registro de eventos de la aplicación](#application-event-log) y del [registro de stdout del módulo ASP.NET Core](#aspnet-core-module-stdout-log).
 
-Una condición de error habitual es que la aplicación esté mal configurada porque tiene como destino una versión del marco compartido de ASP.NET Core que no está presente. Compruebe qué versiones del marco compartido de ASP.NET Core están instaladas en el equipo de destino.
+Una condición de error habitual es que la aplicación esté mal configurada porque tiene como destino una versión del marco compartido de ASP.NET Core que no está presente. Compruebe qué versiones del marco compartido de ASP.NET Core están instaladas en el equipo de destino. El *marco de trabajo compartido* es el conjunto de ensamblados (archivos *.dll*) que se instalan en la máquina, y se hace referencia a ellos mediante un metapaquete como `Microsoft.AspNetCore.App`. La referencia del metapaquete puede especificar una versión mínima necesaria. Para más información, consulte este artículo sobre el [marco de trabajo compartido](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/).
 
 La página de error *502.5 Error de proceso* se devuelve cuando el proceso de trabajo no se puede iniciar debido a un error de configuración de la aplicación o del hospedaje:
 
@@ -241,7 +241,7 @@ Un *volcado de memoria* es una instantánea de la memoria del sistema que puede 
 Obtenga y analice un volcado de memoria en [Informe de errores de Windows (WER)](/windows/desktop/wer/windows-error-reporting):
 
 1. Cree una carpeta para almacenar los archivos de volcado de memoria en `c:\dumps`. El grupo de aplicaciones debe tener acceso de escritura a la carpeta.
-1. Ejecute el [script EnableDumps de PowerShell](https://github.com/aspnet/Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/EnableDumps.ps1):
+1. Ejecute el [script EnableDumps de PowerShell](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/EnableDumps.ps1):
    * Si la aplicación usa el [modelo de hospedaje en proceso](xref:fundamentals/servers/index#in-process-hosting-model), ejecute el script *w3wp.exe*:
 
      ```console
@@ -255,7 +255,7 @@ Obtenga y analice un volcado de memoria en [Informe de errores de Windows (WER)]
      ```
 
 1. Ejecute la aplicación en las condiciones que hacen que se produzca el bloqueo.
-1. Una vez que se haya producido el bloqueo, ejecute el [script DisableDumps de PowerShell](https://github.com/aspnet/Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/DisableDumps.ps1):
+1. Una vez que se haya producido el bloqueo, ejecute el [script DisableDumps de PowerShell](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/DisableDumps.ps1):
    * Si la aplicación usa el [modelo de hospedaje en proceso](xref:fundamentals/servers/index#in-process-hosting-model), ejecute el script *w3wp.exe*:
 
      ```console

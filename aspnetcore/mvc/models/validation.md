@@ -7,18 +7,18 @@ ms.custom: mvc
 ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: 1ae3c20478b02d6f654e65fdf34c88e1ffb837f8
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: acb0ae989f6e82a5bc80935a8acfc96e51073d2f
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59468742"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64883180"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Validación de modelos en ASP.NET Core MVC y Razor Pages
 
 En este artículo se explica cómo validar la entrada del usuario en una aplicación ASP.NET Core MVC o Razor Pages.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/validation/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
 
 ## <a name="model-state"></a>Estado del modelo
 
@@ -38,7 +38,7 @@ La validación es automática, pero tal vez le interese repetirla manualmente. P
 
 ## <a name="validation-attributes"></a>Atributos de validación
 
-Los atributos de validación permiten especificar reglas de validación para las propiedades del modelo. En el ejemplo siguiente de la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/validation/sample) se muestra una clase de modelo anotada con atributos de validación. El atributo `[ClassicMovie]` es un atributo de validación personalizado y los demás están integrados. (No se muestra `[ClassicMovie2]`, que indica una manera alternativa de implementar un atributo personalizado).
+Los atributos de validación permiten especificar reglas de validación para las propiedades del modelo. En el ejemplo siguiente de la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) se muestra una clase de modelo anotada con atributos de validación. El atributo `[ClassicMovie]` es un atributo de validación personalizado y los demás están integrados. (No se muestra `[ClassicMovie2]`, que indica una manera alternativa de implementar un atributo personalizado).
 
 [!code-csharp[](validation/sample/Models/Movie.cs?name=snippet_ModelClass)]
 
@@ -367,7 +367,11 @@ El código siguiente deshabilita la validación de cliente en las vistas de MVC:
 
 [!code-csharp[](validation/sample_snapshot/Startup2.cs?name=snippet_DisableClientValidation)]
 
-Esto solo funciona en las vistas de MVC, no en Razor Pages. Otra opción para deshabilitar la validación de cliente consiste en marcar como comentario la referencia a `_ValidationScriptsPartial` en el archivo *.cshtml*.
+Y en Razor Pages:
+
+[!code-csharp[](validation/sample_snapshot/Startup3.cs?name=snippet_DisableClientValidation)]
+
+Otra opción para deshabilitar la validación de cliente consiste en marcar como comentario la referencia a `_ValidationScriptsPartial` en el archivo *.cshtml*.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

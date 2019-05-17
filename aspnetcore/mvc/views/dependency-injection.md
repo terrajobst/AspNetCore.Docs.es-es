@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo ASP.NET Core admite la inserción 
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 940e237fd73a864d9fd59f5447fe486f93648f62
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: b411b164bfea81f82c5c9fc1052e0ecfe65f0bc2
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087465"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517047"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>Inserción de dependencias en vistas de ASP.NET Core
 
@@ -20,13 +20,38 @@ ASP.NET Core admite la [inserción de dependencias](xref:fundamentals/dependency
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-## <a name="a-simple-example"></a>Ejemplo sencillo
+## <a name="configuration-injection"></a>Inserción de configuración
 
-Puede insertar un servicio en una vista mediante la directiva `@inject`. Puede pensar que `@inject` es como si agregara una propiedad a la vista y rellenara la propiedad mediante DI.
+Los valores *appSettings.JSON* se pueden insertar directamente en una vista.
+
+Ejemplo de un archivo *appsettings.json*:
+
+```json
+{
+   "root": {
+      "parent": {
+         "child": "myvalue"
+      }
+   }
+}
+```
 
 La sintaxis de `@inject`: `@inject <type> <name>`
 
-Un ejemplo de `@inject` en acción:
+Un ejemplo que usa `@inject`:
+
+```csharp
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+   string myValue = Configuration["root:parent:child"];
+   ...
+}
+```
+
+## <a name="service-injection"></a>Inserción de un servicio
+
+Un servicio puede insertarse en una vista mediante la directiva `@inject`. Puede pensar que `@inject` es como si agregara una propiedad a la vista y rellenara la propiedad mediante DI.
 
 [!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/ToDo/Index.cshtml?highlight=4,5,15,16,17)]
 

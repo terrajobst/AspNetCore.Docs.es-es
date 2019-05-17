@@ -3,14 +3,14 @@ title: 'Tutorial: Introducción a Razor Pages en ASP.NET Core'
 author: rick-anderson
 description: Esta serie de tutoriales muestra cómo usar Razor Pages en ASP.NET Core. Obtenga información sobre cómo crear un modelo, generar código para Razor Pages, usar Entity Framework Core y SQL Server para el acceso a datos, agregar la funcionalidad de búsqueda, agregar validación de entrada y usar migraciones para actualizar el modelo.
 ms.author: riande
-ms.date: 12/5/2018
+ms.date: 05/09/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 1d264ca4a605d8291e273a8f054c92e7eefa5548
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9307291756baf1bef714d6dae2f8d25d3aa6f922
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64891160"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517104"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Tutorial: Introducción a Razor Pages en ASP.NET Core
 
@@ -59,7 +59,7 @@ Al final de este tutorial, tendrá una aplicación web de Razor Pages que compil
 
 * Abra el [terminal integrado](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
-* Cambie los directorios (`cd`) a una carpeta que contenga el proyecto.
+* Cambie al directorio (`cd`) que contiene el proyecto.
 
 * Ejecute los comandos siguientes:
 
@@ -69,7 +69,7 @@ Al final de este tutorial, tendrá una aplicación web de Razor Pages que compil
   ```
 
   * El comando `dotnet new` crea un proyecto de Razor Pages en la carpeta *RazorPagesMovie*.
-  * El comando `code` abre la carpeta *RazorPagesMovie* en una nueva instancia de Visual Studio Code.
+  * El comando `code` abre la carpeta *RazorPagesMovie* en la instancia actual de Visual Studio Code.
 
   Se muestra un cuadro de diálogo con el texto **Required assets to build and debug are missing from "RazorPagesMovie". Add them?** (Faltan los activos necesarios para compilar y depurar en "RazorPagesMovie". ¿Desea agregarlos?).
 

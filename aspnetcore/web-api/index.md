@@ -5,14 +5,14 @@ description: Conozca los aspectos básicos de la creación de una API web en ASP
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 04/11/2019
+ms.date: 05/07/2019
 uid: web-api/index
-ms.openlocfilehash: d804a7f1b4f0e89f433a3674116c97804705f7cc
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 593fd33babc81cddfc4db2150a37e5ec3bc1a0be
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64882960"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65450839"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Creación de API web con ASP.NET Core
 
@@ -137,6 +137,10 @@ Para cambiar la respuesta predeterminada por <xref:Microsoft.AspNetCore.Mvc.Seri
 Para personalizar la respuesta que es consecuencia de un error de validación, use <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory>. Agregue el código resaltado siguiente después de `services.AddMvc().SetCompatibilityVersion`:
 
 [!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureBadRequestResponse&highlight=3-20)]
+
+### <a name="log-automatic-400-responses"></a>Registro de respuestas 400 automáticas
+
+Consulte [cómo registrar respuestas 400 automáticas sobre errores de validación de modelos (aspnet/AspNetCore.Docs #12157)](https://github.com/aspnet/AspNetCore.Docs/issues/12157).
 
 ### <a name="disable-automatic-400"></a>Deshabilitación de respuestas 400 automáticas
 

@@ -5,14 +5,14 @@ description: Aprenda a hospedar una aplicación ASP.NET Core en un servicio de W
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 04/04/2019
+ms.date: 05/04/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 544eefa87898e82ec2bf8f9f61ce4e26dd554bb7
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: ec3a37fd859df7592fa0d6d9cc0109942a570e7a
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59068341"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086985"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hospedaje de ASP.NET Core en un servicio de Windows
 
@@ -20,7 +20,7 @@ Por [Luke Latham](https://github.com/guardrex) y [Tom Dykstra](https://github.co
 
 Una aplicación de ASP.NET Core se puede hospedar en Windows sin usar IIS como [servicio de Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications). Cuando se aloja como un servicio de Windows, la aplicación se inicia automáticamente después de reiniciar el equipo.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -209,7 +209,7 @@ Para más información, vea [icacls](/windows-server/administration/windows-comm
 
 ## <a name="create-the-service"></a>Crear el servicio
 
-Use el script de PowerShell [RegisterService.ps1](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/scripts) para registrar el servicio. Desde un shell de comandos administrativos de PowerShell 6, ejecute el script con el comando siguiente:
+Use el script de PowerShell [RegisterService.ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/scripts) para registrar el servicio. Desde un shell de comandos administrativos de PowerShell 6, ejecute el script con el comando siguiente:
 
 ```powershell
 .\RegisterService.ps1 
@@ -284,7 +284,7 @@ Stop-Service -Name MyService
 
 Tras un breve intervalo para detener un servicio, elimine el servicio con el comando `Remove-Service -Name {NAME}` de PowerShell 6.
 
-Compruebe el estado del servicio de la aplicación de ejemplo:
+Con el siguiente comando se quita el servicio de la aplicación de ejemplo:
 
 ```powershell
 Remove-Service -Name MyService

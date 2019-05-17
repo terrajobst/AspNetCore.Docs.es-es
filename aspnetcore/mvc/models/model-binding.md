@@ -7,11 +7,11 @@ ms.author: tdykstra
 ms.date: 11/13/2018
 uid: mvc/models/model-binding
 ms.openlocfilehash: 1dc9b41328ed78440622acc1865b6f088d394403
-ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597789"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64883150"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Enlace de modelos en ASP.NET Core
 
@@ -49,7 +49,7 @@ The link works but generates an error when building with DocFX
 [Routing](xref:fundamentals/routing)
 -->
 
-Nota: Los valores de formulario, los datos de enrutamiento y las cadenas de consulta se almacenan como pares de nombre-valor.
+Nota: Los valores de formulario, los datos de enrutamiento y las cadenas de consulta se almacenan como pares nombre-valor.
 
 Como el enlace de modelos pidió una clave con el nombre `id` y no hay nada denominado `id` en los valores de formulario, continuó con los valores de ruta buscando esa clave. En nuestro ejemplo, es una coincidencia. Se produce el enlace y el valor se convierte en el entero 2. La misma solicitud mediante Edit(string id) se convertiría en la cadena "2".
 
@@ -59,11 +59,11 @@ Para que el enlace de modelos sea posible, la clase debe tener un constructor p�
 
 Cuando se enlaza un parámetro, el enlace de modelos deja de buscar valores con ese nombre y pasa a enlazar el siguiente parámetro. En caso contrario, el comportamiento predeterminado del enlace de modelos establece los parámetros en sus valores predeterminados según el tipo:
 
-* `T[]`: con la excepción de matrices de tipo `byte[]`, el enlace establece parámetros de tipo `T[]` a `Array.Empty<T>()`. Las matrices de tipo `byte[]` se establecen en `null`.
+* `T[]`: con la excepción de matrices de tipo `byte[]`, el enlace establece parámetros de tipo `T[]` en `Array.Empty<T>()`. Las matrices de tipo `byte[]` se establecen en `null`.
 
 * Tipos de referencia: el enlace crea una instancia de una clase con el constructor predeterminado sin tener que configurar propiedades. Pero el enlace de modelos establece parámetros `string` en `null`.
 
-* Tipos que aceptan valores NULL: estos tipos se establecen en `null`. En el ejemplo anterior, el enlace de modelos establece `id` en `null` ya que es de tipo `int?`.
+* Tipos que aceptan valores NULL: los tipos que aceptan valores NULL se establecen en `null`. En el ejemplo anterior, el enlace de modelos establece `id` en `null` ya que es de tipo `int?`.
 
 * Tipos de valor: los tipos de valor que no aceptan valores NULL de tipo `T` se establecen en `default(T)`. Por ejemplo, el enlace de modelos establecerá un parámetro `int id` en 0. Considere la posibilidad de usar la validación de modelos o los tipos que aceptan valores NULL en lugar de depender de valores predeterminados.
 
@@ -85,11 +85,11 @@ Cuando se completa el enlace de modelos, se produce la [validación](validation.
 
 MVC contiene varios atributos que puede usar para dirigir su comportamiento de enlace de modelos predeterminado a un origen diferente. Por ejemplo, puede especificar si se requiere el enlace para una propiedad o si nunca debe ocurrir en absoluto mediante el uso de los atributos `[BindRequired]` o `[BindNever]`. Como alternativa, puede reemplazar el origen de datos predeterminado y especificar el origen de datos del enlazador de modelos. En esta lista se muestran los atributos del enlace de modelos:
 
-* `[BindRequired]`: este atributo agrega un error al estado de modelo si no se puede producir el enlace.
+* `[BindRequired]`: este atributo agrega un error de estado del modelo si no se puede producir el enlace.
 
-* `[BindNever]`: indica al enlazador de modelos que nunca enlace a este parámetro.
+* `[BindNever]`: indica al enlazador de modelos que nunca enlace con este parámetro.
 
-* `[FromHeader]`, `[FromQuery]`, `[FromRoute]`, `[FromForm]`: use estos para especificar el origen de enlace exacto que quiere aplicar.
+* `[FromHeader]`, `[FromQuery]`, `[FromRoute]`, `[FromForm]`: use estos valores para especificar el origen de enlace exacto que quiere aplicar.
 
 * `[FromServices]`: este atributo usa la [inserción de dependencias](../../fundamentals/dependency-injection.md) para enlazar parámetros de los servicios.
 

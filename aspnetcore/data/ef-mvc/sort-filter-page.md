@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: dff5a5b1ba3c8ed07ccc8d134f8cfeb25b9f6689
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 921e27bf56587813f835357c9090c91a155c087b
+ms.sourcegitcommit: b508b115107e0f8d7f62b25cfcc8ad45e1373459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58751034"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212552"
 ---
 # <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>Tutorial: Adición de ordenación, filtrado y paginación: ASP.NET MVC con EF Core
 
@@ -211,10 +211,8 @@ Haga clic en los vínculos de paginación en distintos criterios de ordenación 
 En la página **About** del sitio web de Contoso University, se muestran cuántos alumnos se han inscrito en cada fecha de inscripción. Esto requiere realizar agrupaciones y cálculos sencillos en los grupos. Para conseguirlo, haga lo siguiente:
 
 * Cree una clase de modelo de vista para los datos que necesita pasar a la vista.
-
-* Modifique el método About en el controlador Home.
-
-* Modifique la vista About.
+* Cree el método About en el controlador Home.
+* Cree la vista About.
 
 ### <a name="create-the-view-model"></a>Creación del modelo de vista
 
@@ -239,10 +237,8 @@ Agregue un método `About` en el código siguiente:
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 La instrucción LINQ agrupa las entidades de alumnos por fecha de inscripción, calcula la cantidad de entidades que se incluyen en cada grupo y almacena los resultados en una colección de objetos de modelo de la vista `EnrollmentDateGroup`.
-> [!NOTE]
-> En la versión 1.0 de Entity Framework Core, el conjunto de resultados completo se devuelve al cliente y la agrupación se realiza en el cliente. En algunos casos, esto puede crear problemas de rendimiento. Asegúrese de probar el rendimiento con volúmenes de producción de datos y, si es necesario, use SQL sin formato para realizar la agrupación en el servidor. Para obtener información sobre cómo usar SQL sin formato, consulte [el último tutorial de esta serie](advanced.md).
 
-### <a name="modify-the-about-view"></a>Modificación de la vista About
+### <a name="create-the-about-view"></a>Creación de la vista About
 
 Agregue un archivo *Views/Home/About.cshtml* con el código siguiente:
 
@@ -252,7 +248,7 @@ Ejecute la aplicación y vaya a la página About. En una tabla se muestra el nú
 
 ## <a name="get-the-code"></a>Obtención del código
 
-[Descargue o vea la aplicación completa.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Descargue o vea la aplicación completa.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

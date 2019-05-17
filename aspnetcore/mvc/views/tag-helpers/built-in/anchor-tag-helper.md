@@ -4,14 +4,14 @@ author: pkellner
 description: Descubra los atributos del asistente de etiquetas delimitadoras de ASP.NET Core y el papel que desempeña cada atributo al ampliar el comportamiento de la etiqueta delimitadora de código HTML.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 4/18/2019
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 60fa0c00e40878a8227ca2bc8bdb0bc2bf9f8336
-ms.sourcegitcommit: ea215df889e89db44037a6ac2f01baede0450da9
+ms.openlocfilehash: de45c99194d4825c1e404aa193b0f076ba659748
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53595346"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64883430"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>Asistente de etiquetas delimitadoras en ASP.NET Core
 
@@ -21,15 +21,15 @@ El [asistente de etiquetas delimitadoras](xref:Microsoft.AspNetCore.Mvc.TagHelpe
 
 Para obtener información general sobre asistentes de etiquetas, vea <xref:mvc/views/tag-helpers/intro>.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 En los ejemplos de todo este documento se usa *SpeakerController*:
 
 [!code-csharp[](samples/TagHelpersBuiltIn/Controllers/SpeakerController.cs?name=snippet_SpeakerController)]
 
-A continuación se proporciona un inventario de los atributos `asp-`.
+## <a name="anchor-tag-helper-attributes"></a>Atributos del asistente de etiquetas delimitadoras
 
-## <a name="asp-controller"></a>asp-controller
+### <a name="asp-controller"></a>asp-controller
 
 El atributo [asp-controller](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Controller*) asigna el controlador usado para generar la dirección URL. En el marcado siguiente se especifican todos los altavoces:
 
@@ -63,7 +63,7 @@ Si no hay ningún atributo `asp-controller` especificado, se usará el controlad
 
 Si el valor del atributo `asp-action` es `Index`, no se anexa ninguna acción a la dirección URL, lo que da lugar a la invocación de la acción `Index` predeterminada. La acción especificada (o su valor predeterminado), debe existir en el controlador al que se hace referencia en `asp-controller`.
 
-## <a name="asp-route-value"></a>asp-route-{valor}
+### <a name="asp-route-value"></a>asp-route-{valor}
 
 El atributo [asp-route-{value}](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.RouteValues*) permite indicar un prefijo de ruta comodín. Cualquier valor que ocupe el marcador de posición `{value}` se interpretará como un parámetro de ruta potencial. Si no se encuentra ninguna ruta predeterminada, este prefijo de ruta se anexará al atributo `href` generado como valor y parámetro de solicitud. En caso contrario, se sustituirá en la plantilla de ruta.
 
@@ -117,7 +117,7 @@ Se genera el siguiente código HTML porque no se encontró `speakerid` en la rut
 
 Si no se especifica `asp-controller` o `asp-action`, se sigue el mismo proceso predeterminado que en el atributo `asp-route`.
 
-## <a name="asp-route"></a>asp-route
+### <a name="asp-route"></a>asp-route
 
 El atributo [asp-route](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Route*) se usa para crear una dirección URL que se vincula directamente con una ruta con nombre. Mediante [atributos de enrutamiento](xref:mvc/controllers/routing#attribute-routing) puede asignarse un nombre a una ruta tal y como se muestra en `SpeakerController` y usarse en su acción `Evaluations`:
 
@@ -155,7 +155,7 @@ Se acopla el diccionario `asp-all-route-data` para generar una cadena de consult
 
 Si alguna de las claves del diccionario coincide con los parámetros de ruta, esos valores se sustituirán en la ruta según corresponda. Los demás valores no coincidentes se generarán como parámetros de solicitud.
 
-## <a name="asp-fragment"></a>asp-fragment
+### <a name="asp-fragment"></a>asp-fragment
 
 El atributo [asp-fragment](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Fragment*) define un fragmento de dirección URL que se anexará a la dirección URL. El asistente de etiquetas delimitadoras agrega el carácter de almohadilla (#). Observe el siguiente marcado:
 
@@ -169,7 +169,7 @@ El código HTML generado:
 
 Las etiquetas hash son útiles al crear aplicaciones del lado cliente. Por ejemplo, se pueden usar para el marcado y la búsqueda en JavaScript.
 
-## <a name="asp-area"></a>asp-area
+### <a name="asp-area"></a>asp-area
 
 El atributo [asp-area](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Area*) establece el nombre de área que se usa para establecer la ruta adecuada. En el siguiente ejemplo se muestra cómo el atributo `asp-area` provoca una reasignación de rutas.
 
@@ -239,7 +239,7 @@ El código HTML generado:
 >
 > [!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_UseMvc&highlight=5)]
 
-## <a name="asp-protocol"></a>asp-protocol
+### <a name="asp-protocol"></a>asp-protocol
 
 El atributo [asp-protocol](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Protocol*) sirve para especificar un protocolo (por ejemplo, `https`) en la dirección URL. Por ejemplo:
 
@@ -253,7 +253,7 @@ El código HTML generado:
 
 El nombre de host en el ejemplo es localhost. El asistente de etiquetas delimitadoras utiliza el dominio público del sitio web al generar la dirección URL.
 
-## <a name="asp-host"></a>asp-host
+### <a name="asp-host"></a>asp-host
 
 El atributo [asp-host](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Host*) sirve para especificar un nombre de host en la dirección URL. Por ejemplo:
 
@@ -265,7 +265,7 @@ El código HTML generado:
 <a href="https://microsoft.com/Home/About">About</a>
 ```
 
-## <a name="asp-page"></a>asp-page
+### <a name="asp-page"></a>asp-page
 
 El atributo [asp-page](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Page*) se usa con las páginas de Razor. Úselo para establecer el valor del atributo `href` de una etiqueta delimitadora en una página específica. La dirección URL se crea al prefijar el nombre de la página con una barra diagonal ("/").
 
@@ -289,7 +289,7 @@ El código HTML generado:
 <a href="/Attendee?attendeeid=10">View Attendee</a>
 ```
 
-## <a name="asp-page-handler"></a>asp-page-handler
+### <a name="asp-page-handler"></a>asp-page-handler
 
 El atributo [asp-page-handler](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.PageHandler*) se usa con las páginas de Razor. Está diseñado para crear un vínculo con controladores de página específicos.
 

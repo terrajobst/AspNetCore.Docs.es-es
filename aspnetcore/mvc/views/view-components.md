@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo se usan los componentes de vista e
 ms.author: riande
 ms.date: 1/30/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: b18473c6a76c4dc9030f0a032db1aff733f5acb7
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 2bcf6411933b884c2f96d926827079dfbc25ca74
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264777"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64891280"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componentes de vista en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="view-components"></a>Componentes de vista
 
@@ -144,7 +144,7 @@ En este ejemplo, se llama al componente de vista directamente desde el controlad
 
 ## <a name="walkthrough-creating-a-simple-view-component"></a>Tutorial: Creación de un componente de vista simple
 
-[Descargue](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compile y pruebe el código de inicio. Se trata de un proyecto simple con un controlador `ToDo` que muestra una lista de *tareas pendientes*.
+[Descargue](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compile y pruebe el código de inicio. Se trata de un proyecto simple con un controlador `ToDo` que muestra una lista de *tareas pendientes*.
 
 ![Lista de tareas pendientes](view-components/_static/2dos.png)
 
@@ -176,7 +176,10 @@ Notas sobre el código:
 
 * Cree la carpeta *Views/Shared/Components/PriorityList*. El nombre de esta carpeta debe coincidir con el nombre de la clase de componente de vista o con el nombre de la clase sin el sufijo (si se ha seguido la convención y se ha usado el sufijo *ViewComponent* en el nombre de clase). Si ha usado el atributo `ViewComponent`, el nombre de clase debe coincidir con la designación del atributo.
 
-* Cree una vista de Razor *Views/Shared/Components/PriorityList/Default.cshtml*: [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
+* Cree una vista de Razor *Views/Shared/Components/PriorityList/Default.cshtml*:
+
+
+  [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
 
    La vista de Razor toma una lista de `TodoItem` y muestra estos elementos. Si el método `InvokeAsync` del componente de vista no pasa el nombre de la vista (como en nuestro ejemplo), se usa *Default* para el nombre de vista, según la convención. Más adelante en el tutorial veremos cómo pasar el nombre de la vista. Para reemplazar el estilo predeterminado de un controlador concreto, agregue una vista a la carpeta de vistas específicas del controlador (por ejemplo, *Views/ToDo/Components/PriorityList/Default.cshtml)*.
 

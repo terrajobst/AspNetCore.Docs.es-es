@@ -7,12 +7,12 @@ ms.author: pranavkm
 ms.custom: mvc
 ms.date: 12/14/2018
 uid: web-api/advanced/analyzers
-ms.openlocfilehash: 7558552586d3056c43d8bfd9ef74cbcb3396726f
-ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
+ms.openlocfilehash: bcc89f856e0aeef80c46a44f76f86b4c09ac6746
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53425099"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64890830"
 ---
 # <a name="use-web-api-analyzers"></a>Uso de analizadores de API web
 
@@ -74,8 +74,10 @@ Uno de los analizadores del paquete inspecciona los controladores anotados con <
 
 La acción anterior documenta el tipo de valor devuelto correcto HTTP 200, pero no documenta el código de estado de error HTTP 404. El analizador informa de la documentación que falta para el código de estado 404 de HTTP como una advertencia. Se proporciona una opción para corregir el problema.
 
+![advertencia notificada por el analizador](conventions/_static/Analyzer.gif)
+
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * <xref:web-api/advanced/conventions>
 * <xref:tutorials/web-api-help-pages-using-swagger>
-* [Anotación con el atributo ApiController](xref:web-api/index#annotation-with-apicontroller-attribute)
+* <xref:web-api/index>

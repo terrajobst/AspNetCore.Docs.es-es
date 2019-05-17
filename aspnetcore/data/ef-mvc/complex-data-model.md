@@ -4,15 +4,15 @@ description: En este tutorial agregará más entidades y relaciones, y personali
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 5ab893dd77ff2cc9a735702eb3a547ed8bcb2197
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 2776e3357941d0e7932882c39af121f85d037d62
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264860"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64887250"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Tutorial: Creación de un modelo de datos complejo: ASP.NET MVC con EF Core
 
@@ -40,7 +40,7 @@ En este tutorial ha:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Uso de la característica de migraciones de EF Core para ASP.NET Core en una aplicación web MVC](migrations.md)
+* [Uso de migraciones de EF Core](migrations.md)
 
 ## <a name="customize-the-data-model"></a>Personaliza el modelo de datos
 
@@ -320,7 +320,7 @@ public ICollection<Course> Courses { get; set; }
 ```
 
 > [!NOTE]
-> Por convención, Entity Framework permite la eliminación en cascada para las claves externas que no aceptan valores NULL y para las relaciones de varios a varios. Esto puede dar lugar a reglas de eliminación en cascada circulares, lo que producirá una excepción al intentar agregar una migración. Por ejemplo, si no definió la propiedad Department.InstructorID como que acepta valores NULL, EF podría configurar una regla de eliminación en cascada para eliminar el instructor cuando se elimine el departamento, que no es lo que quiere que ocurra. Si las reglas de negocio requerían que la propiedad `InstructorID` no acepte valores NULL, tendría que usar la siguiente instrucción de la API fluida para deshabilitar la eliminación en cascada en la relación:
+> Por convención, Entity Framework permite la eliminación en cascada para las claves externas que no aceptan valores NULL y para las relaciones de varios a varios. Esto puede dar lugar a reglas de eliminación en cascada circulares, lo que producirá una excepción al intentar agregar una migración. Por ejemplo, si no definió la propiedad Department.InstructorID como que acepta valores NULL, EF podría configurar una regla de eliminación en cascada para eliminar el departamento cuando se elimine el instructor, que no es lo que quiere que ocurra. Si las reglas de negocio requerían que la propiedad `InstructorID` no acepte valores NULL, tendría que usar la siguiente instrucción de la API fluida para deshabilitar la eliminación en cascada en la relación:
 >
 > ```csharp
 > modelBuilder.Entity<Department>()
@@ -509,7 +509,7 @@ Haga clic con el botón derecho en la tabla **CourseAssignment** y seleccione **
 
 ## <a name="get-the-code"></a>Obtención del código
 
-[Descargue o vea la aplicación completa.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Descargue o vea la aplicación completa.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -529,6 +529,7 @@ En este tutorial ha:
 > * Cambiado la cadena de conexión
 > * Actualizado la base de datos
 
-Pase al artículo siguiente para obtener más información sobre cómo tener acceso a datos relacionados.
+Pase al artículo siguiente para más información sobre cómo acceder a datos relacionados.
+
 > [!div class="nextstepaction"]
-> [Acceso a datos relacionados](read-related-data.md)
+> [Siguiente: Acceso a datos relacionados](read-related-data.md)

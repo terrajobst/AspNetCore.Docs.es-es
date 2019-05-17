@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 11/26/2018
 uid: host-and-deploy/web-farm
 ms.openlocfilehash: 4873665e6174a6acf885e1ebb41fb005d646bd1f
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450676"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64884160"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Hospedaje de ASP.NET Core en una granja de servidores web
 
@@ -61,8 +61,8 @@ Los escenarios siguientes no requieren configuración adicional, pero dependen d
 | -------- | ------------------- |
 | Autenticación | Protección de datos (consulte <xref:security/data-protection/configuration/overview>).<br><br>Para obtener más información, vea <xref:security/authentication/cookie> y <xref:security/cookie-sharing>. |
 | identidad | Autenticación y configuración de base de datos.<br><br>Para obtener más información, vea <xref:security/authentication/identity>. |
-| Sesión | Protección de datos (cookies cifradas) (consulte <xref:security/data-protection/configuration/overview>) y almacenamiento en caché (consulte <xref:performance/caching/distributed>).<br><br>Para más información, consulte [Estado de sesión y aplicación: estado de sesión](xref:fundamentals/app-state#session-state). |
-| TempData | Protección de datos (cookies cifradas) (consulte <xref:security/data-protection/configuration/overview>) o sesión (consulte [Estado de sesión y aplicación: TempData](xref:fundamentals/app-state#session-state)).<br><br>Para más información, consulte [Estado de sesión y aplicación: TempData](xref:fundamentals/app-state#tempdata). |
+| Sesión | Protección de datos (cookies cifradas) (consulte <xref:security/data-protection/configuration/overview>) y almacenamiento en caché (consulte <xref:performance/caching/distributed>).<br><br>Para más información, consulte [Estado de sesión y aplicación: Estado de la sesión](xref:fundamentals/app-state#session-state). |
+| TempData | Protección de datos (cookies cifradas) (consulte <xref:security/data-protection/configuration/overview>) o sesión (consulte [Estado de sesión y aplicación: Estado de la sesión](xref:fundamentals/app-state#session-state)).<br><br>Para más información, consulte [Estado de sesión y aplicación: TempData](xref:fundamentals/app-state#tempdata). |
 | Antifalsificación | Protección de datos (consulte <xref:security/data-protection/configuration/overview>).<br><br>Para obtener más información, vea <xref:security/anti-request-forgery>. |
 
 ## <a name="troubleshoot"></a>Solucionar problemas

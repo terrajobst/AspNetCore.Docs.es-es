@@ -5,14 +5,14 @@ description: Descubra cómo hospedar e implementar una aplicación Blazor del la
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/26/2019
 uid: host-and-deploy/blazor/server-side
-ms.openlocfilehash: 940020ee44d72d50395aad64bc924413c1bbecfb
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 8e44be09a4cceba2509f3e86abf3ce5fd2d077bd
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614755"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64887770"
 ---
 # <a name="host-and-deploy-blazor-server-side"></a>Hospedaje e implementación de Blazor del lado servidor
 
@@ -20,13 +20,13 @@ Por [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.tim
 
 ## <a name="host-configuration-values"></a>Valores de configuración de host
 
-Las aplicaciones del lado servidor que usan el [modelo de hospedaje del lado servidor](xref:blazor/hosting-models#server-side-hosting-model) pueden aceptar [valores de configuración del host genérico](xref:fundamentals/host/generic-host#host-configuration).
+Las aplicaciones del lado servidor que usan el [modelo de hospedaje del lado servidor](xref:blazor/hosting-models#server-side) pueden aceptar [valores de configuración del host genérico](xref:fundamentals/host/generic-host#host-configuration).
 
 ## <a name="deployment"></a>Implementación
 
-Con el [modelo de hospedaje del lado servidor](xref:blazor/hosting-models#server-side-hosting-model), Blazor se ejecuta en el servidor desde una aplicación ASP.NET Core. Las actualizaciones de la interfaz de usuario, el control de eventos y las llamadas de JavaScript se controlan mediante una conexión de [SignalR](xref:signalr/introduction).
+Con el [modelo de hospedaje del lado servidor](xref:blazor/hosting-models#server-side), Blazor se ejecuta en el servidor desde una aplicación ASP.NET Core. Las actualizaciones de la interfaz de usuario, el control de eventos y las llamadas de JavaScript se controlan mediante una conexión de [SignalR](xref:signalr/introduction).
 
-La aplicación se incluye con la aplicación ASP.NET Core en la salida publicada, y las dos aplicaciones se implementan juntas. Se requiere un servidor web que pueda hospedar una aplicación ASP.NET Core. En el caso de una implementación del lado servidor, Visual Studio incluye la plantilla de proyecto **Componentes de Razor** (la plantilla `razorcomponents` al usar el comando [dotnet new](/dotnet/core/tools/dotnet-new)).
+Se requiere un servidor web que pueda hospedar una aplicación ASP.NET Core. Visual Studio incluye la plantilla de proyecto **Blazor (servidor)** (`blazorserverside` cuando se usa el comando [dotnet new](/dotnet/core/tools/dotnet-new)).
 
 <!--
 
@@ -38,6 +38,9 @@ La aplicación se incluye con la aplicación ASP.NET Core en la salida publicada
 
 -->
 
-Para obtener más información sobre la implementación y el hospedaje de aplicaciones de ASP.NET Core, consulte <xref:host-and-deploy/index>.
+## <a name="additional-resources"></a>Recursos adicionales
 
-Para obtener información sobre cómo implementar en Azure App Service, vea <xref:tutorials/publish-to-azure-webapp-using-vs>.
+* <xref:signalr/introduction>
+* <xref:host-and-deploy/index>
+* <xref:tutorials/publish-to-azure-webapp-using-vs>
+* [Implementar una versión preliminar de ASP.NET Core en Azure App Service](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service)

@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar las comprobaciones de e
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/11/2019
+ms.date: 04/23/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 0bb80a5fccc8240c6f1fb8e59b379766bfd90d9e
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: 5119267a8da5c950989b14b7c2e818aa22806506
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488720"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64887930"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Comprobaciones de estado en ASP.NET Core
 
@@ -26,7 +26,7 @@ Una aplicación se encarga de exponer las comprobaciones de estado como puntos d
 * El uso de la memoria, el disco y otros recursos del servidor físico puede supervisarse para determinar si el estado es correcto.
 * Las comprobaciones de estado pueden probar las dependencias de una aplicación, como las bases de datos y los puntos de conexión de servicio externo, para confirmar la disponibilidad y el funcionamiento normal.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 La aplicación de muestra incluye ejemplos de los escenarios descritos en este tema. Para ejecutar la aplicación de ejemplo para un escenario determinado, use el comando [dotnet run](/dotnet/core/tools/dotnet-run) desde la carpeta del proyecto en un shell de comandos. Para obtener información sobre cómo utilizar la aplicación de ejemplo, consulte el archivo *README.md* de la aplicación de ejemplo y las descripciones de escenarios de este tema.
 
@@ -36,7 +36,7 @@ Normalmente, las comprobaciones de estado se usan con un servicio de supervisió
 
 Haga referencia al [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) o agregue una referencia de paquete al paquete [Microsoft.AspNetCore.Diagnostics.HealthChecks](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics.HealthChecks).
 
-La aplicación de ejemplo proporciona código de inicio para mostrar las comprobaciones de estado para varios escenarios. El escenario [sondeo de bases de datos](#database-probe) comprueba el estado de una conexión de base de datos mediante [BeatPulse](https://github.com/Xabaril/BeatPulse). El escenario [sondeo de DbContext](#entity-framework-core-dbcontext-probe) comprueba una base de datos mediante un elemento `DbContext` de EF Core. Para explorar los escenarios de la base de datos, la aplicación de ejemplo:
+La aplicación de ejemplo proporciona código de inicio para mostrar las comprobaciones de estado para varios escenarios. En el escenario de [sondeo de base de datos](#database-probe) se comprueba el estado de una conexión de base de datos mediante [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks). El escenario [sondeo de DbContext](#entity-framework-core-dbcontext-probe) comprueba una base de datos mediante un elemento `DbContext` de EF Core. Para explorar los escenarios de la base de datos, la aplicación de ejemplo:
 
 * Crea una base de datos y proporciona su cadena de conexión en el archivo *appsettings.json*.
 * Tiene las siguientes referencias de paquete en su archivo de proyecto:
@@ -44,7 +44,7 @@ La aplicación de ejemplo proporciona código de inicio para mostrar las comprob
   * [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/)
 
 > [!NOTE]
-> Microsoft no se encarga del mantenimiento de [BeatPulse](https://github.com/Xabaril/BeatPulse) ni ofrece soporte técnico.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) es un puerto de [BeatPulse](https://github.com/xabaril/beatpulse) y Microsoft no lo mantiene ni lo admite.
 
 Otro escenario de comprobación de estado muestra cómo filtrar las comprobaciones de estado por un puerto de administración. La aplicación de ejemplo requiere la creación de un archivo *Properties/launchSettings.json* que incluya la dirección URL de administración y el puerto de administración. Para obtener más información, consulte la sección [Filtrado por puerto](#filter-by-port).
 
@@ -286,18 +286,18 @@ private static Task WriteResponse(HttpContext httpContext,
 
 Una comprobación de estado puede especificar que una consulta de base de datos se ejecute como una prueba booleana para indicar si esta responde con normalidad.
 
-La aplicación de ejemplo usa [BeatPulse](https://github.com/Xabaril/BeatPulse), una biblioteca de comprobaciones de estado para las aplicaciones de ASP.NET Core, para realizar una comprobación de estado en una base de datos de SQL Server. BeatPulse ejecuta una consulta `SELECT 1` en la base de datos para confirmar que la conexión a la base de datos es correcta.
+En la aplicación de ejemplo se usa [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks), una biblioteca de comprobaciones de estado para las aplicaciones ASP.NET Core, que permite realizar una comprobación de estado en una base de datos de SQL Server. `AspNetCore.Diagnostics.HealthChecks` ejecuta una consulta `SELECT 1` en la base de datos para confirmar que la conexión a la base de datos es correcta.
 
 > [!WARNING]
 > Al comprobar la conexión de una base de datos a una consulta, elija una consulta que se devuelva rápidamente. El enfoque de la consulta plantea el riesgo de sobrecargar la base de datos y degradar el rendimiento. En la mayoría de los casos, no es necesario ejecutar una consulta de prueba. Simplemente, realizar una conexión correcta a la base de datos es suficiente. Si resulta necesario ejecutar una consulta, elija una consulta SELECT sencilla, como `SELECT 1`.
 
-Para usar la biblioteca BeatPulse, incluya una referencia de paquete a [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/).
+Incluya una referencia de paquete a [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/).
 
 Proporcione una cadena de conexión a base de datos válida en el archivo *appsettings.json* de la aplicación de ejemplo. La aplicación usa una base de datos de SQL Server denominada `HealthCheckSample`:
 
 [!code-json[](health-checks/samples/2.x/HealthChecksSample/appsettings.json?highlight=3)]
 
-Registre los servicios de comprobación de estado con <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> de `Startup.ConfigureServices`. La aplicación de ejemplo llama al método `AddSqlServer` de BeatPulse con la cadena de conexión de la base de datos (*DbHealthStartup.cs*):
+Registre los servicios de comprobación de estado con <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> de `Startup.ConfigureServices`. La aplicación de ejemplo llama al método `AddSqlServer` con la cadena de conexión de la base de datos (*DbHealthStartup.cs*):
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/DbHealthStartup.cs?name=snippet_ConfigureServices)]
 
@@ -312,7 +312,7 @@ dotnet run --scenario db
 ```
 
 > [!NOTE]
-> Microsoft no se encarga del mantenimiento de [BeatPulse](https://github.com/Xabaril/BeatPulse) ni ofrece soporte técnico.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) es un puerto de [BeatPulse](https://github.com/xabaril/beatpulse) y Microsoft no lo mantiene ni lo admite.
 
 ## <a name="entity-framework-core-dbcontext-probe"></a>Sondeo de DbContext de Entity Framework Core
 
@@ -469,9 +469,9 @@ dotnet run --scenario writer
 ```
 
 > [!NOTE]
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) incluye escenarios de comprobación de estado basados en métrica, como las comprobaciones del almacenamiento del disco y de ejecución de máximo valor.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) incluye escenarios de comprobación de estado basados en métrica, como comprobaciones de almacenamiento del disco y de ejecución del máximo valor.
 >
-> Microsoft no se encarga del mantenimiento de [BeatPulse](https://github.com/Xabaril/BeatPulse) ni ofrece soporte técnico.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) es un puerto de [BeatPulse](https://github.com/xabaril/beatpulse) y Microsoft no lo mantiene ni lo admite.
 
 ## <a name="filter-by-port"></a>Filtrado por puerto
 
@@ -681,6 +681,6 @@ En el ejemplo `LivenessProbeStartup` de la aplicación de ejemplo, la comprobaci
 ::: moniker-end
 
 > [!NOTE]
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) incluye editores para varios sistemas, incluido [Application Insights](/azure/application-insights/app-insights-overview).
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) incluye editores para varios sistemas, como [Application Insights](/azure/application-insights/app-insights-overview).
 >
-> Microsoft no se encarga del mantenimiento de [BeatPulse](https://github.com/Xabaril/BeatPulse) ni ofrece soporte técnico.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) es un puerto de [BeatPulse](https://github.com/xabaril/beatpulse) y Microsoft no lo mantiene ni lo admite.
