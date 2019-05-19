@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: e9214139c0e6e958445feb13b6350bad376a0152
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 38e1fff9c7a212af992951dbf57e124cae69d36f
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64884170"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874986"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Agregar la validación a una página de Razor de ASP.NET Core
 
@@ -28,22 +28,7 @@ Un principio clave de desarrollo de software se denomina [DRY](https://wikipedia
 
 La compatibilidad de validación proporcionada por las páginas de Razor y Entity Framework es un buen ejemplo del principio DRY. Las reglas de validación se especifican mediante declaración en un solo lugar (en la clase del modelo) y se aplican en toda la aplicación.
 
-### <a name="adding-validation-rules-to-the-movie-model"></a>Adición de reglas de validación al modelo de película
-
-Abra el archivo *Models/Movie.cs*. [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) proporciona un conjunto integrado de atributos de validación que se aplican mediante declaración a una clase o propiedad. DataAnnotations también contiene atributos de formato como `DataType` que ayudan a aplicar formato y no proporcionan validación.
-
-Actualice la clase `Movie` para aprovechar los atributos de validación `Required`, `StringLength`, `RegularExpression` y `Range`.
-
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-Los atributos de validación especifican el comportamiento que se aplica a las propiedades del modelo:
-
-* Los atributos `Required` y `MinimumLength` indican que una propiedad debe tener un valor. Aun así, nada impide que el usuario escriba un espacio en blanco para cumplir la restricción de validación de un tipo que acepta valores NULL. Los [tipos de valor](/dotnet/csharp/language-reference/keywords/value-types) que no aceptan valores NULL (como `decimal`, `int`, `float` y `DateTime`) son intrínsecamente necesarios y no necesitan el atributo `Required`.
-* El atributo `RegularExpression` limita los caracteres que el usuario puede escribir. En el código anterior, `Genre` debe comenzar por una o varias letras en mayúscula y continuar con cero o más letras, comillas simples o dobles, caracteres de espacio en blanco o guiones. `Rating` debe comenzar por una o varias letras en mayúscula y continuar con cero o más letras, números, comillas simples o dobles, caracteres de espacio en blanco o guiones.
-* El atributo `Range` restringe un valor a un intervalo determinado.
-* El atributo `StringLength` establece la longitud máxima de una cadena y, de forma opcional, la longitud mínima. 
-
-El que ASP.NET Core aplique automáticamente las reglas de validación ayuda a que una aplicación sea más sólida. La validación automática en modelos ayuda a proteger la aplicación, ya que no hay que acordarse de su aplicación cuando se agrega nuevo código.
+[!INCLUDE[](~/includes/RP-MVC/validation.md)]
 
 ### <a name="validation-error-ui-in-razor-pages"></a>Interfaz de usuario de error de validación en páginas de Razor
 
