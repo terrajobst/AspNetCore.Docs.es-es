@@ -5,24 +5,22 @@ description: Obtenga información sobre cómo hospedar e implementar una aplicac
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 05/13/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: 01a612029f415f583908c3bf2adc2e6d35167acb
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: ea8ece266809913e32ac212bc55cb3c2499c234f
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614758"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874973"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>Hospedaje e implementación de Blazor del lado cliente
 
 Por [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com) y [Daniel Roth](https://github.com/danroth27)
 
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
-
 ## <a name="host-configuration-values"></a>Valores de configuración de host
 
-Las aplicaciones de Blazor que usan el [modelo de hospedaje del lado cliente](xref:blazor/hosting-models#client-side-hosting-model) pueden aceptar los siguientes valores de configuración de host como argumentos de línea de comandos en tiempo de ejecución en el entorno de desarrollo.
+Las aplicaciones de Blazor que usan el [modelo de hospedaje del lado cliente](xref:blazor/hosting-models#client-side) pueden aceptar los siguientes valores de configuración de host como argumentos de línea de comandos en tiempo de ejecución en el entorno de desarrollo.
 
 ### <a name="content-root"></a>Raíz del contenido
 
@@ -95,7 +93,7 @@ El argumento `--urls` establece las direcciones IP o las direcciones de host con
 
 ## <a name="deployment"></a>Implementación
 
-Con el [modelo de hospedaje del lado cliente](xref:blazor/hosting-models#client-side-hosting-model):
+Con el [modelo de hospedaje del lado cliente](xref:blazor/hosting-models#client-side):
 
 * La aplicación Blazor, sus dependencias y el entorno de ejecución de .NET se descargan en el explorador.
 * La aplicación se ejecuta directamente en el subproceso de interfaz de usuario del explorador. Se puede seguir cualquiera de las estrategias siguientes:
@@ -110,15 +108,15 @@ Blazor realiza la vinculación de lenguaje intermedio (IL) en cada compilación 
 
 Enrutar las solicitudes para los componentes de la página en una aplicación del lado cliente no es tan sencillo como enrutar las solicitudes a una aplicación hospedada del lado servidor. Imagine que tiene una aplicación del lado cliente con dos páginas:
 
-* **_Main.cshtml_**: se carga en la raíz de la aplicación y contiene un vínculo a la página de información (`href="About"`).
-* **_About.cshtml_**: página de información.
+* **_Main.razor**: se carga en la raíz de la aplicación y contiene un vínculo a la página de información (`href="About"`).
+* **_About.Razor**: página Acerca de.
 
 Cuando se solicita el documento predeterminado de la aplicación mediante la barra de direcciones del explorador (por ejemplo, `https://www.contoso.com/`):
 
 1. El explorador realiza una solicitud.
 1. Se devuelve la página predeterminada, que suele ser *index.html*.
 1. *index.html* arranca la aplicación.
-1. Se carga el enrutador de Blazor y se muestra la página principal de Razor (*Main.cshtml*).
+1. Se carga el enrutador de Blazor y se muestra la página principal de Razor (*Main.razor*).
 
 En la página principal, al seleccionar el vínculo a la página de información, se carga la página de información. Seleccionar el vínculo a la página de información funciona en el cliente porque el enrutador de Blazor impide que el explorador realice una solicitud en Internet a `www.contoso.com` sobre `About` y presenta la propia página de información. Todas las solicitudes de páginas internas *dentro de la aplicación del lado cliente* funcionan del mismo modo: Las solicitudes no desencadenan solicitudes basadas en el explorador a recursos hospedados en el servidor en Internet. El enrutador controla las solicitudes de forma interna.
 
@@ -128,13 +126,19 @@ Dado que los exploradores realizan solicitudes a hosts basados en Internet para 
 
 ## <a name="app-base-path"></a>Ruta de acceso base de la aplicación
 
-La *ruta de acceso base de la aplicación* es la ruta de acceso raíz de la aplicación virtual en el servidor. Por ejemplo, a una aplicación que reside en el servidor de Contoso, en una carpeta virtual de `/CoolApp/`, se accede desde `https://www.contoso.com/CoolApp`; su ruta de acceso base virtual es `/CoolApp/`. Al establecer la ruta de acceso base de la aplicación en `CoolApp/`, la aplicación sabe dónde reside virtualmente en el servidor. La aplicación puede usar la ruta de acceso base de la aplicación para construir direcciones URL relativas a la raíz de la aplicación desde un componente que no se encuentre en el directorio raíz. Esto permite a los componentes que existen en diferentes niveles de la estructura de directorios compilar vínculos a otros recursos en ubicaciones de toda la aplicación. La ruta de acceso base de la aplicación también se usa para interceptar clics en hipervínculos en los que el destino `href` del vínculo está dentro del espacio de URI de la ruta de acceso base de la aplicación y es el enrutador de Blazor quien controla la navegación interna.
+La *ruta de acceso base de la aplicación* es la ruta de acceso raíz de la aplicación virtual en el servidor. Por ejemplo, a una aplicación que reside en el servidor de Contoso, en una carpeta virtual de `/CoolApp/`, se accede desde `https://www.contoso.com/CoolApp`; su ruta de acceso base virtual es `/CoolApp/`. Al establecer la ruta de acceso base de la aplicación en la ruta de acceso virtual (`<base href="/CoolApp/">`), la aplicación sabe dónde reside virtualmente en el servidor. La aplicación puede usar la ruta de acceso base de la aplicación para construir direcciones URL relativas a la raíz de la aplicación desde un componente que no se encuentre en el directorio raíz. Esto permite a los componentes que existen en diferentes niveles de la estructura de directorios compilar vínculos a otros recursos en ubicaciones de toda la aplicación. La ruta de acceso base de la aplicación también se usa para interceptar clics en hipervínculos en los que el destino `href` del vínculo está dentro del espacio de URI de la ruta de acceso base de la aplicación y es el enrutador de Blazor quien controla la navegación interna.
 
-En muchos escenarios de hospedaje, la ruta de acceso virtual del servidor a la aplicación es la raíz de la aplicación. En estos casos, la ruta de acceso base de la aplicación es una barra diagonal (`<base href="/" />`), que es la configuración predeterminada para una aplicación. En otros escenarios de hospedaje, como las subaplicaciones o los directorios virtuales de IIS y GitHub Pages, la ruta de acceso base de la aplicación debe establecerse en la ruta de acceso virtual del servidor a la aplicación. Para establecer la ruta de acceso base de la aplicación, agregue o actualice la etiqueta `<base>` en *index.html*, que se encuentra dentro de los elementos de etiqueta `<head>`. Establezca el valor del atributo `href` en `virtual-path/` (la barra diagonal final es necesaria), donde `virtual-path/` es la ruta de acceso raíz de la aplicación virtual completa en el servidor para la aplicación. En el ejemplo anterior, se establece la ruta de acceso virtual en `CoolApp/`: `<base href="CoolApp/">`.
+En muchos escenarios de hospedaje, la ruta de acceso virtual del servidor a la aplicación es la raíz de la aplicación. En estos casos, la ruta de acceso base de la aplicación es una barra diagonal (`<base href="/" />`), que es la configuración predeterminada para una aplicación. En otros escenarios de hospedaje, como las subaplicaciones o los directorios virtuales de IIS y GitHub Pages, la ruta de acceso base de la aplicación debe establecerse en la ruta de acceso virtual del servidor a la aplicación. Para establecer la ruta de acceso base de la aplicación, actualice la etiqueta `<base>` dentro de los elementos de etiqueta `<head>` del archivo *wwwroot/index.HTML*. Establezca el valor del atributo `href` en `/virtual-path/` (la barra diagonal final es necesaria), donde `/virtual-path/` es la ruta de acceso raíz de la aplicación virtual completa en el servidor para la aplicación. En el ejemplo anterior, se establece la ruta de acceso virtual en `/CoolApp/`: `<base href="/CoolApp/">`.
 
-En el caso de una aplicación con una ruta de acceso virtual que no es raíz configurada (por ejemplo, `<base href="CoolApp/">`), la aplicación no puede encontrar sus recursos *cuando se ejecuta de forma local*. Para solucionar este problema durante la fase de desarrollo y pruebas local, puede proporcionar un argumento de *ruta de acceso base* que coincida con el valor `href` de la etiqueta `<base>` en tiempo de ejecución.
+En el caso de una aplicación con una ruta de acceso virtual que no es raíz configurada (por ejemplo, `<base href="/CoolApp/">`), la aplicación no puede encontrar sus recursos *cuando se ejecuta de forma local*. Para solucionar este problema durante la fase de desarrollo y pruebas local, puede proporcionar un argumento de *ruta de acceso base* que coincida con el valor `href` de la etiqueta `<base>` en tiempo de ejecución.
 
-Para pasar el argumento de ruta de acceso base con la ruta de acceso raíz (`/`) al ejecutar la aplicación de forma local, ejecute el siguiente comando desde el directorio de la aplicación:
+Para pasar el argumento de ruta de acceso base con la ruta de acceso raíz (`/`) al ejecutar la aplicación de forma local, ejecute el comando `dotnet run` desde el directorio de la aplicación con la opción `--pathbase`:
+
+```console
+dotnet run --pathbase=/{Virtual Path (no trailing slash)}
+```
+
+Para una aplicación con una ruta de acceso virtual base de `/CoolApp/` (`<base href="/CoolApp/">`), el comando es el siguiente:
 
 ```console
 dotnet run --pathbase=/CoolApp
@@ -144,7 +148,7 @@ La aplicación responde de forma local en `http://localhost:port/CoolApp`.
 
 Para más información, vea la sección sobre el [valor de configuración de host de la ruta de acceso base](#path-base).
 
-Si una aplicación usa el [modelo de hospedaje del lado cliente](xref:blazor/hosting-models#client-side-hosting-model) (basado en la plantilla de proyecto de **Blazor**) y se hospeda como una subaplicación de IIS en una aplicación ASP.NET Core, es importante deshabilitar el controlador del módulo de ASP.NET Core heredado o asegurarse de que la subaplicación no hereda la sección `<handlers>` de la aplicación raíz (principal) en el archivo *web.config*.
+Si una aplicación usa el [modelo de hospedaje del lado cliente](xref:blazor/hosting-models#client-side) (basado en la plantilla de proyecto de **Blazor**; la plantilla `blazor` al usar el comando [dotnet new](/dotnet/core/tools/dotnet-new)) y se hospeda como una subaplicación de IIS en una aplicación ASP.NET Core, es importante deshabilitar el controlador del módulo de ASP.NET Core heredado o asegurarse de que la subaplicación no hereda la sección `<handlers>` de la aplicación raíz (principal) en el archivo *web.config*.
 
 Para quitar el controlador del archivo *web.config* publicado de la aplicación, agregue una sección `<handlers>` al archivo:
 

@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 362186be6feeeefeca3c56688ee6420de5fb9659
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 7e1741d2bed15f36a967713a2f9bd0d93801c8d0
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64884510"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874952"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Inicio de la aplicación en ASP.NET Core
 
@@ -27,7 +27,7 @@ Las aplicaciones de ASP.NET Core utilizan una clase `Startup`, que se denomina `
 * Incluye opcionalmente un método <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> para configurar los *servicios* de la aplicación. Un servicio es un componente reutilizable que proporciona funcionalidades de la aplicación. Los servicios se configuran o, como también se denomina, se *registran* en `ConfigureServices` y se usan en la aplicación a través de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection) o <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>.
 * Incluye un método <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> para crear la canalización de procesamiento de solicitudes de la aplicación.
 
-El runtime llama a `ConfigureServices` y `Configure` al iniciarse la aplicación:
+El tiempo de ejecución ASP.NET Core llama a `ConfigureServices` y `Configure` cuando la aplicación se inicia:
 
 [!code-csharp[](startup/sample_snapshot/Startup1.cs?highlight=4,10)]
 

@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 05/10/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 540f14ad2b290d276436033a94d4c815888e5a95
-ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
+ms.openlocfilehash: 8b95f63c0e06a2b7d1d66064def192f91b8ffbb4
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65536001"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874959"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Realización de solicitudes HTTP mediante IHttpClientFactory en ASP.NET Core
 
@@ -20,7 +20,7 @@ Por [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/
 
 Se puede registrar y usar una interfaz <xref:System.Net.Http.IHttpClientFactory> para crear y configurar instancias de <xref:System.Net.Http.HttpClient> en una aplicación. Esto reporta las siguientes ventajas:
 
-* Proporciona una ubicación central para denominar y configurar instancias de `HttpClient` lógicas. Así, por ejemplo, se puede registrar y configurar un cliente *github* para tener acceso a GitHub. y, de igual modo, registrar otro cliente predeterminado para otros fines.
+* Proporciona una ubicación central para denominar y configurar instancias de `HttpClient` lógicas. Así, por ejemplo, se puede registrar y configurar un cliente *github* para tener acceso a [GitHub](https://github.com/). y, de igual modo, registrar otro cliente predeterminado para otros fines.
 * Codifica el concepto de middleware saliente a través de controladores de delegación en `HttpClient` y proporciona extensiones para middleware basado en Polly para poder sacar partido de este.
 * Administra la agrupación y duración de las instancias de `HttpClientMessageHandler` subyacentes para evitar los problemas de DNS que suelen producirse al administrar las duraciones de `HttpClient` manualmente.
 * Agrega una experiencia de registro configurable (a través de `ILogger`) en todas las solicitudes enviadas a través de los clientes creados por Factory.
