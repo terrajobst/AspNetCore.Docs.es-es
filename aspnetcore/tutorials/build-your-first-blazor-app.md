@@ -5,14 +5,14 @@ description: Cree una aplicación Blazor paso a paso.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/18/2019
+ms.date: 05/14/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: d235fec4e128ad8622a06d301eeac15c4862c159
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: c1b142ebdbd85eb10ddf8c8b70edd9782732a4f1
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087735"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621104"
 ---
 # <a name="build-your-first-blazor-app"></a>Creación de la primera aplicación Blazor
 
@@ -151,6 +151,14 @@ Agregue un nuevo componente a la aplicación que implemente una simple lista de 
    ```
 
 1. Recompile y ejecute la aplicación. Visite la nueva página Todo para confirmar que el vínculo al componente Todo funcione.
+
+1. Si está compilando una aplicación Blazor del lado servidor, agregue el espacio de nombres de la aplicación al archivo *\_Imports.razor*. En la siguiente instrucción `@using`, se presupone que el espacio de nombres de la aplicación es `WebApplication`:
+
+   ```cshtml
+   @using WebApplication
+   ```
+   
+   Las aplicaciones Blazor del lado cliente incluyen de forma predeterminada el espacio de nombres de la aplicación en el archivo  *\_Imports.razor*.
 
 1. Agregue un archivo *TodoItem.cs* a la raíz del proyecto para contener una clase que represente un elemento de la lista de tareas. Use el siguiente código de C# para la clase `TodoItem`:
 

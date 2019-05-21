@@ -3,14 +3,15 @@ title: Componentes de vista en ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre cómo se usan los componentes de vista en ASP.NET Core y cómo agregarlos a las aplicaciones.
 ms.author: riande
-ms.date: 1/30/2019
+ms.custom: mvc
+ms.date: 5/14/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: 2bcf6411933b884c2f96d926827079dfbc25ca74
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 17fd7aa977868d522df9f27e0c23d07b016bfb7c
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64891280"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621077"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componentes de vista en ASP.NET Core
 
@@ -40,6 +41,8 @@ Los componentes de vista están diseñados para cualquier lugar que tenga lógic
 * Un panel de inicio de sesión que se representa en cada página y muestra los vínculos para iniciar o cerrar sesión, según el estado del usuario
 
 Un componente de vista consta de dos partes: la clase (normalmente derivada de [ViewComponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)) y el resultado que devuelve (por lo general, una vista). Al igual que los controladores, un componente de vista puede ser un POCO, pero la mayoría de los desarrolladores prefieren aprovechar las ventajas que ofrecen los métodos y las propiedades disponibles al derivar de `ViewComponent`.
+
+Al estudiar si los componentes de visualización cumplen las especificaciones de una aplicación, considere la posibilidad de usar los componentes de Razor en su lugar. Los componentes de Razor también combinan el marcado con código de C# para producir unidades de interfaz de usuario reutilizables. Los componentes de Razor están diseñados para ofrecer productividad a los desarrolladores mediante elementos de composición y lógica de interfaz de usuario del lado cliente. Para obtener más información, vea <xref:blazor/components>.
 
 ## <a name="creating-a-view-component"></a>Crear un componente de vista
 

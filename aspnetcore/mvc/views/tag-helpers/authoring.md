@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/29/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 37e39ac93e7b67184dfc238d58e12c2be8d84f91
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: d7a5656131189ffafb60a7b1db0b8d93a3787ae2
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087353"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621048"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Crear asistentes de etiquetas en ASP.NET Core
 
@@ -313,3 +313,12 @@ Los asistentes de etiquetas proporcionan varias propiedades para recuperar conte
 [!code-csharp[](../../views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10&range=8-21)]
 
 * Varias llamadas a `GetChildContentAsync` devuelven el mismo valor y no vuelven a ejecutar el cuerpo de `TagHelper` a menos que se pase un parámetro false que indique que no se use el resultado almacenado en caché.
+
+## <a name="load-minified-partial-view-taghelper"></a>Carga de la vista parcial minimizada TagHelper
+
+En entornos de producción, se puede mejorar el rendimiento cargando vistas parciales minimizadas. Para aprovechar las ventajas de la vista parcial minimizada en producción, siga estos pasos:
+
+* Cree o configure un proceso de compilación anterior que minimice las vistas parciales.
+* Utilice el siguiente código para cargar las vistas parciales minimizadas en entornos que no son de desarrollo.
+
+[!code-csharp[](authoring/sample/AuthoringTagHelpers/src/MinifiedVersionTagHelper.cs?name=snippet)]
