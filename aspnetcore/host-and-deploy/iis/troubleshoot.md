@@ -2,16 +2,17 @@
 title: Solución de problemas de ASP.NET Core en IIS
 author: guardrex
 description: Aprenda a diagnosticar problemas con las implementaciones de Internet Information Services (IIS) de aplicaciones ASP.NET Core.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/14/2019
+ms.date: 05/12/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: f89eac3ae6fc704bc8bf38a9707fc3c6c3568e91
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 80994cb84e9e0658ee90198b6bf992e5b374bf3c
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64884350"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65970029"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Solución de problemas de ASP.NET Core en IIS
 
