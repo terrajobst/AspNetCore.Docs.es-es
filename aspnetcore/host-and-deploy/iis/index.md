@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/19/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: aff4b857394c554e94dd8929dca809eb1a4387f2
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: 6ba4da913ef712ef897a4c8418263e3060ea85ac
+ms.sourcegitcommit: e67356f5e643a5d43f6d567c5c998ce6002bdeb4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970044"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004979"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -33,11 +33,13 @@ Para obtener información sobre el hospedaje en Azure, vea <xref:host-and-deploy
 
 ## <a name="supported-platforms"></a>Plataformas compatibles
 
-Se admiten las aplicaciones publicadas para la implementación de 32 bits (x86) y 64 bits (x64). Implemente una aplicación de 32 bits a menos que la aplicación:
+Se admiten las aplicaciones publicadas para implementaciones de 32 bits (x86) y 64 bits (x64). Implemente una aplicación de 32 bits con un SDK de .NET Core de 32 bits (x86) a menos que la aplicación:
 
 * Requiera el espacio de direcciones de memoria virtual más grande disponible para una aplicación de 64 bits.
 * Requiera el tamaño de la pila IIS más grande.
 * Tenga dependencias nativas de 64 bits.
+
+Use un SDK de .NET Core de 64 bits (x64) para publicar una aplicación de 64 bits. Debe haber un tiempo de ejecución de 64 bits en el sistema host.
 
 ## <a name="application-configuration"></a>Configuración de aplicación
 
@@ -197,7 +199,7 @@ Si necesita transformar *web.config* al realizar la publicación (por ejemplo, e
 
 Habilite el rol de servidor **Servidor web (IIS)** y establezca los servicios de rol.
 
-1. Use el asistente **Agregar roles y características** del menú **Administrar** o el vínculo de **Administrador del servidor**. En el paso **Roles de servidor**, active la casilla de **Servidor web (IIS)**.
+1. Use el asistente **Agregar roles y características** del menú **Administrar** o el vínculo de **Administrador del servidor**. En el paso **Roles de servidor**, active la casilla de **Servidor web (IIS)** .
 
    ![El rol Servidor web (IIS) se activa en el paso Seleccionar roles de servidor.](index/_static/server-roles-ws2016.png)
 
@@ -211,7 +213,7 @@ Habilite el rol de servidor **Servidor web (IIS)** y establezca los servicios de
    **WebSockets (opcional)**  
    WebSockets es compatible con ASP.NET Core 1.1 o posterior. Para habilitar WebSockets, expanda los nodos siguientes: **Servidor web** > **Desarrollo de aplicaciones**. Seleccione la característica **Protocolo WebSocket**. Para más información, vea [WebSockets](xref:fundamentals/websockets).
 
-1. Continúe con el paso **Confirmación** para instalar el rol y los servicios de servidor web. No es necesario reiniciar el servidor ni IIS después de instalar el rol **Servidor web (IIS)**.
+1. Continúe con el paso **Confirmación** para instalar el rol y los servicios de servidor web. No es necesario reiniciar el servidor ni IIS después de instalar el rol **Servidor web (IIS)** .
 
 **Sistemas operativos de escritorio Windows**
 
