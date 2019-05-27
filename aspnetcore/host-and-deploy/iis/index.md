@@ -2,16 +2,17 @@
 title: Hospedaje de ASP.NET Core en Windows con IIS
 author: guardrex
 description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET Core en Windows Server Internet Information Services (IIS).
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/07/2019
+ms.date: 05/19/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: c8e742047230339434b910de9a8a2492bc4da1ff
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: aff4b857394c554e94dd8929dca809eb1a4387f2
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65450986"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65970044"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -42,8 +43,6 @@ Se admiten las aplicaciones publicadas para la implementación de 32 bits (x86) 
 
 ### <a name="enable-the-iisintegration-components"></a>Habilitación de los componentes de integración con IIS
 
-::: moniker range=">= aspnetcore-2.1"
-
 Los archivos *Program.cs* estándar llaman a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> para empezar a configurar un host:
 
 ```csharp
@@ -51,20 +50,6 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     WebHost.CreateDefaultBuilder(args)
         ...
 ```
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-Los archivos *Program.cs* estándar llaman a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> para empezar a configurar un host:
-
-```csharp
-public static IWebHost BuildWebHost(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-        ...
-```
-
-::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -90,7 +75,7 @@ Para obtener más información sobre los modelos de hospedaje dentro y fuera de 
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.1"
+::: moniker range="< aspnetcore-2.2"
 
 `CreateDefaultBuilder` configura el servidor [Kestrel](xref:fundamentals/servers/kestrel) como servidor web y habilita IIS Integration mediante la configuración de la ruta de acceso y el puerto base para el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
 
@@ -101,44 +86,6 @@ El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back
 * [Configuración](xref:fundamentals/configuration/index) (u [opción --urls de la línea de comandos](xref:fundamentals/host/web-host#override-configuration))
 
 No es necesario realizar llamadas a `UseUrls` o a la API `Listen` de Kestrel cuando se usa el módulo. Si se llama a `UseUrls` o `Listen`, Kestrel escucha en el puerto especificado cuando se ejecuta la aplicación sin IIS.
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-`CreateDefaultBuilder` configura el servidor [Kestrel](xref:fundamentals/servers/kestrel) como servidor web y habilita IIS Integration mediante la configuración de la ruta de acceso y el puerto base para el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
-
-El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back-end. `CreateDefaultBuilder` llama al método <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*>. `UseIISIntegration` configura Kestrel para escuchar en el puerto dinámico en la dirección IP de localhost (`localhost`). Si el puerto dinámico es 1234, Kestrel escucha en `localhost:1234`. Esta configuración reemplaza a otras configuraciones de dirección URL proporcionadas por:
-
-* `UseUrls`
-* [API de escucha de Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration)
-* [Configuración](xref:fundamentals/configuration/index) (u [opción --urls de la línea de comandos](xref:fundamentals/host/web-host#override-configuration))
-
-No es necesario realizar llamadas a `UseUrls` o a la API `Listen` de Kestrel cuando se usa el módulo. Si se llama a `UseUrls` o `Listen`, Kestrel escucha en el puerto especificado cuando se ejecuta la aplicación sin IIS.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-Incluya una dependencia en el paquete [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) de dependencias de la aplicación. Use el middleware de integración con IIS agregando el método de extensión <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>:
-
-```csharp
-var host = new WebHostBuilder()
-    .UseKestrel()
-    .UseIISIntegration()
-    ...
-```
-
-Tanto <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*> como <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> son necesarios. La llamada al código `UseIISIntegration` no afecta a la portabilidad del código. Si la aplicación no se ejecuta detrás de IIS (por ejemplo, si se ejecuta directamente en Kestrel), `UseIISIntegration` no funciona.
-
-El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back-end. `UseIISIntegration` configura Kestrel para escuchar en el puerto dinámico en la dirección IP de localhost (`localhost`). Si el puerto dinámico es 1234, Kestrel escucha en `localhost:1234`. Esta configuración reemplaza a otras configuraciones de dirección URL proporcionadas por:
-
-* `UseUrls`
-* [Configuración](xref:fundamentals/configuration/index) (u [opción --urls de la línea de comandos](xref:fundamentals/host/web-host#override-configuration))
-
-No es necesario realizar una llamada a `UseUrls` cuando se usa el módulo. Si se llama a `UseUrls`, Kestrel escucha en el puerto especificado cuando se ejecuta la aplicación sin IIS.
-
-Si se llama a `UseUrls` en una aplicación de ASP.NET Core 1.0, hágalo **antes** de llamar a `UseIISIntegration` para que no se sobrescriba el puerto configurado por el módulo. Este orden de llamada no es necesario en ASP.NET Core 1.1, ya que la configuración del módulo reemplaza a `UseUrls`.
 
 ::: moniker-end
 
@@ -174,12 +121,16 @@ services.Configure<IISServerOptions>(options =>
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.2"
+::: moniker range="< aspnetcore-3.0"
 
 | Opción                         | Default | Parámetro |
 | ------------------------------ | :-----: | ------- |
 | `AutomaticAuthentication`      | `true`  | Si es `true`, el servidor IIS establece el `HttpContext.User` autenticado mediante la [autenticación de Windows](xref:security/authentication/windowsauth). Si es `false`, el servidor solo proporciona una identidad para `HttpContext.User` y responde a los desafíos cuando se le solicita explícitamente mediante el `AuthenticationScheme`. Autenticación de Windows debe estar habilitado en IIS para que `AutomaticAuthentication` funcione. Para obtener más información, vea [Autenticación de Windows](xref:security/authentication/windowsauth). |
 | `AuthenticationDisplayName`    | `null`  | Establece el nombre para mostrar que se muestra a los usuarios en las páginas de inicio de sesión. |
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
 
 **Modelo de hospedaje fuera de proceso**
 
@@ -352,7 +303,7 @@ Al implementar aplicaciones en servidores con [Web Deploy](/iis/publish/using-we
 
    ![Establezca Sin código administrado para Versión de .NET CLR.](index/_static/edit-apppool-ws2016.png)
 
-    ASP.NET Core se ejecuta en un proceso independiente y administra el runtime. ASP.NET Core no se basa en la carga de CLR de escritorio. El establecimiento de **Versión de .NET CLR** en **Sin código administrado** es opcional.
+    ASP.NET Core se ejecuta en un proceso independiente y administra el runtime. ASP.NET Core no se basa en la carga de CLR de escritorio (.NET CLR); Core Common Language Runtime (CoreCLR) para .NET Core se arranca para hospedar la aplicación en el proceso de trabajo. El establecimiento de **Versión de .NET CLR** en **Sin código administrado** es opcional, pero no es lo recomendable.
 
 1. *ASP.NET Core 2.2 o posterior*: en el caso de las [implementaciones independientes](/dotnet/core/deploying/#self-contained-deployments-scd) de 64 bits (x64) en las que se use un [modelo de hospedaje en proceso](xref:fundamentals/servers/index#in-process-hosting-model), deshabilite el grupo de aplicaciones de los procesos de 32 bits (x86).
 
@@ -505,7 +456,7 @@ Si el atributo `src` de un recurso estático se establece en una ruta de acceso 
 
 Para hospedar una aplicación ASP.NET Core como aplicación secundaria en otra aplicación ASP.NET Core:
 
-1. Establezca un grupo de aplicaciones para la aplicación secundaria. Establezca la **Versión de .NET CLR** en **Sin código administrado**.
+1. Establezca un grupo de aplicaciones para la aplicación secundaria. Establezca **Versión de .NET CLR**  en **Sin código administrado**  porque Core Common Language Runtime (CoreCLR) para .NET Core se arranca para hospedar la aplicación en el proceso de trabajo, no el CLR de escritorio (.NET CLR).
 
 1. Agregue el sitio raíz en el Administrador de IIS con la aplicación secundaria en una carpeta en el sitio raíz.
 
@@ -629,6 +580,83 @@ HTTP/2 está habilitado de forma predeterminada. Las conexiones vuelven a HTTP/1
 *Esta sección solo se aplica a las aplicaciones de ASP.NET Core que tienen como destino .NET Framework.*
 
 Para una aplicación de ASP.NET Core que tiene como destino .NET Framework, las solicitudes OPTIONS no se pasan a la aplicación de forma predeterminada en IIS. Para obtener información sobre cómo configurar los controladores de IIS de la aplicación en *web.config* para pasar las solicitudes OPTIONS, consulte [Habilitar solicitudes entre orígenes en ASP.NET Web API 2: Cómo funciona la CORS](/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api#how-cors-works).
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="application-initialization-module-and-idle-timeout"></a>Módulo de inicialización de aplicaciones y tiempo de espera de inactividad
+
+Cuando se hospeda en IIS mediante la versión 2 del módulo de ASP.NET Core:
+
+* [Módulo de inicialización de aplicaciones](#application-initialization-module): las aplicaciones hospedadas [dentro de proceso](xref:fundamentals/servers/index#in-process-hosting-model) o [fuera de proceso](xref:fundamentals/servers/index#out-of-process-hosting-model), se pueden configurar para iniciarse automáticamente en un reinicio de proceso de trabajo o un reinicio de servidor.
+* [Tiempo de espera de inactividad](#idle-timeout): las aplicaciones hospedadas [dentro de proceso](xref:fundamentals/servers/index#in-process-hosting-model) se pueden configurar para que no tengan tiempo de espera durante períodos de inactividad.
+
+### <a name="application-initialization-module"></a>Módulo de inicialización de aplicaciones
+
+*Se aplica a las aplicaciones hospedadas dentro de proceso y fuera de proceso.*
+
+[Inicialización de aplicaciones de IIS](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) es una característica de IIS que envía una solicitud HTTP a la aplicación al iniciarse o reciclarse el grupo de aplicaciones. La solicitud desencadena el inicio de la aplicación. De forma predeterminada, IIS emite una solicitud a la dirección URL raíz de la aplicación (`/`) para inicializar esta (consulte los [recursos adicionales](#application-initialization-module-and-idle-timeout-additional-resources) para más detalles sobre la configuración).
+
+Confirme que la característica de rol Inicialización de aplicaciones de IIS está habilitada:
+
+En Windows 7 o sistemas de escritorio posteriores cuando se usa IIS localmente:
+
+1. Vaya a **Panel de control** > **Programas** > **Programas y características** > **Activar o desactivar las características de Windows** (lado izquierdo de la pantalla).
+1. Abra **Internet Information Services** > **Servicios World Wide Web** > **Características de desarrollo de aplicaciones**.
+1. Active la casilla de **Inicialización de aplicaciones**.
+
+En Windows Server 2008 R2 o posterior:
+
+1. Abra el **Asistente para agregar roles y características**.
+1. En el panel **Seleccionar servicios de rol**, abra el nodo **Desarrollo de aplicaciones**.
+1. Active la casilla de **Inicialización de aplicaciones**.
+
+Use cualquiera de los enfoques siguientes para habilitar el módulo de inicialización de aplicaciones para el sitio:
+
+* Mediante el Administrador de IIS:
+
+  1. Seleccione **Grupos de aplicaciones** en el panel **Conexiones**.
+  1. Haga clic con el botón derecho en el grupo de aplicaciones de la aplicación en la lista y seleccione **Configuración avanzada**.
+  1. El valor predeterminado de **Modo de inicio** es **OnDemand**. Establezca **Modo de inicio** en **AlwaysRunning**. Seleccione **Aceptar**.
+  1. Abra el nodo **Sitios** en el panel **Conexiones**.
+  1. Haga clic con el botón derecho en la aplicación y seleccione **Administrar sitio web** > **Configuración avanzada**.
+  1. El valor predeterminado de **Carga previa activada** es **False**. Establezca **Carga previa activada** en **True**. Seleccione **Aceptar**.
+
+* Mediante *web.config*, agregue el elemento `<applicationInitialization>` con `doAppInitAfterRestart` establecido en `true` a los elementos `<system.webServer>` del archivo *web.config* de la aplicación:
+
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <configuration>
+    <location path="." inheritInChildApplications="false">
+      <system.webServer>
+        <applicationInitialization doAppInitAfterRestart="true" />
+      </system.webServer>
+    </location>
+  </configuration>
+  ```
+
+### <a name="idle-timeout"></a>Tiempo de espera de inactividad
+
+*Solo se aplica a las aplicaciones hospedadas dentro de proceso.*
+
+Para evitar la inactividad en la aplicación, establezca el tiempo de espera de inactividad del grupo de aplicaciones mediante el Administrador de IIS:
+
+1. Seleccione **Grupos de aplicaciones** en el panel **Conexiones**.
+1. Haga clic con el botón derecho en el grupo de aplicaciones de la aplicación en la lista y seleccione **Configuración avanzada**.
+1. El valor predeterminado de **Tiempo de inactividad (minutos)**  es **20** minutos. Establezca **Tiempo de inactividad (minutos)** en **0** (cero). Seleccione **Aceptar**.
+1. Desactive y vuelva a activar el proceso de trabajo.
+
+Para evitar que las aplicaciones hospedadas [fuera de proceso](xref:fundamentals/servers/index#out-of-process-hosting-model) agoten el tiempo de espera, use cualquiera de los enfoques siguientes:
+
+* Haga ping a la aplicación desde un servicio externo con el fin de mantenerla funcionando.
+* Si la aplicación solo hospeda servicios en segundo plano, evite el hospedaje de IIS y use un [servicio de Windows para hospedar la aplicación de ASP.NET Core](xref:host-and-deploy/windows-service).
+
+### <a name="application-initialization-module-and-idle-timeout-additional-resources"></a>Recursos adicionales del módulo de inicialización de aplicaciones y del tiempo de espera de inactividad
+
+* [Inicialización de aplicaciones IIS 8.0](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization)
+* [Inicialización de la aplicación \<applicationInitialization >](/iis/configuration/system.webserver/applicationinitialization/).
+* [Configuración del modelo de proceso para un grupo de aplicaciones \<processModel >](/iis/configuration/system.applicationhost/applicationpools/add/processmodel).
+
+::: moniker-end
 
 ## <a name="deployment-resources-for-iis-administrators"></a>Recursos de implementación para administradores de IIS
 
