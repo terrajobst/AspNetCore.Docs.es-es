@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 04/03/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: bd4ffa79c4d1e0070c820fa9c06b0a84c3aaae74
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 46c9e054b6e9228a709f93c6b73772708f6c6eb0
+ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64896992"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66251223"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurar la autenticación de Windows en ASP.NET Core
 
@@ -40,7 +40,7 @@ En Visual Studio:
 1. Seleccione **Aplicación web**.
 1. Seleccione **Crear**.
 
-Ejecute la aplicación. El nombre de usuario aparece en la interfaz de usuario de la aplicación representada.
+Ejecutar la aplicación. El nombre de usuario aparece en la interfaz de usuario de la aplicación representada.
 
 ### <a name="manual-configuration-for-an-existing-project"></a>Configuración manual de un proyecto existente
 
@@ -82,7 +82,7 @@ Si aún no lo ha hecho, habilite IIS para hospedar aplicaciones ASP.NET Core. Pa
 
 Habilite el servicio de rol IIS para la autenticación de Windows. Para obtener más información, consulte [Habilitar autenticación de Windows en servicios de rol de IIS (consulte el paso 2)](xref:host-and-deploy/iis/index#iis-configuration).
 
-Middleware de integración de IIS está configurado para autenticar automáticamente las solicitudes de forma predeterminada. Para obtener más información, consulte [Host ASP.NET Core en Windows con IIS: Las opciones de IIS (AutomaticAuthentication)](xref:host-and-deploy/iis/index#iis-options).
+[Middleware de IIS Integration](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) está configurado para autenticar automáticamente las solicitudes de forma predeterminada. Para obtener más información, consulte [Host ASP.NET Core en Windows con IIS: Las opciones de IIS (AutomaticAuthentication)](xref:host-and-deploy/iis/index#iis-options).
 
 El módulo ASP.NET Core está configurado para reenviar el token de autenticación de Windows para la aplicación de forma predeterminada. Para obtener más información, consulte [referencia de configuración del módulo ASP.NET Core: Atributos del elemento aspNetCore](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
 
