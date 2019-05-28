@@ -5,14 +5,14 @@ description: Descubra cómo hospedar e implementar aplicaciones de Blazor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/24/2019
+ms.date: 05/23/2019
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: c8a65b08582102af9129cf71ac4a108a905e49fc
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 5def0356d13975211dd234f6a6a9f5a993d003b7
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085533"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223179"
 ---
 # <a name="host-and-deploy-blazor"></a>Hospedaje e implementación de Blazor
 
@@ -51,3 +51,9 @@ Para una guía sobre la implementación, consulte los temas siguientes:
 
 * <xref:host-and-deploy/blazor/client-side>
 * <xref:host-and-deploy/blazor/server-side>
+
+## <a name="blazor-serverless-hosting-with-azure-storage"></a>Hospedaje sin servidor de Blazor con Azure Storage
+
+Las aplicaciones de cliente de Blazor pueden obtenerse de [Azure Storage](https://azure.microsoft.com/services/storage/) como contenido estático directamente desde un contenedor de almacenamiento.
+
+Para más información, consulte [Hospedaje e implementación de Blazor en el cliente (implementación independiente): Azure Storage](xref:host-and-deploy/blazor/client-side#azure-storage).
