@@ -3,14 +3,15 @@ title: Novedades de ASP.NET Core 2.0
 author: rick-anderson
 description: Obtenga información sobre las nuevas características de ASP.NET Core 2.0.
 ms.author: riande
-ms.date: 07/10/2017
+ms.custom: mvc
+ms.date: 05/28/2019
 uid: aspnetcore-2.0
-ms.openlocfilehash: 07e490fd844f0f9044afce37651ef680ed0c894d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 5cf7b9aa7ccf86f1a89e6145cfc185c5ef803e66
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64883100"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376406"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novedades de ASP.NET Core 2.0
 
@@ -75,7 +76,7 @@ Para más información sobre los cambios de autenticación en la versión 2.0, v
 
 ## <a name="spa-templates"></a>Plantillas de SPA
 
-Hay disponibles plantillas de proyectos de Single-Page Application (SPA) para Angular, Aurelia, Knockout.js, React.js y React.js con Redux. La plantilla de Angular se ha actualizado a Angular 4. Las plantillas de Angular y de React están disponibles de forma predeterminada. Para obtener información sobre cómo obtener las otras plantillas, vea [Creating a new SPA project](xref:client-side/spa-services#creating-a-new-project) (Crear un proyecto de SPA). Para más información sobre cómo crear una SPA en ASP.NET Core, vea [Using JavaScriptServices for Creating Single Page Applications](xref:client-side/spa-services) (Uso de JavaScriptServices para crear aplicaciones SPA).
+Hay disponibles plantillas de proyectos de Single-Page Application (SPA) para Angular, Aurelia, Knockout.js, React.js y React.js con Redux. La plantilla de Angular se ha actualizado a Angular 4. Las plantillas de Angular y de React están disponibles de forma predeterminada. Para obtener información sobre cómo obtener las otras plantillas, vea [Creating a new SPA project](xref:client-side/spa-services#create-a-new-project) (Crear un proyecto de SPA). Para obtener información acerca de cómo crear una SPA en ASP.NET Core, vea <xref:client-side/spa-services>.
 
 ## <a name="kestrel-improvements"></a>Mejoras en Kestrel
 

@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo hospedar e implementar una aplicac
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/13/2019
+ms.date: 05/21/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: ea8ece266809913e32ac212bc55cb3c2499c234f
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: b572067e688d7e7f7c654a7a25703009c1a7e855
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874973"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223185"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>Hospedaje e implementación de Blazor del lado cliente
 
@@ -210,8 +210,8 @@ Cuando se publica un proyecto de Blazor, se crea un archivo *web.config* con la 
   * `application/octet-stream`
   * `application/wasm`
 * Se establecen reglas del módulo URL Rewrite:
-  * Proporcionar el subdirectorio donde residen los recursos estáticos de la aplicación (*{ASSEMBLY NAME}/dist/{PATH REQUESTED}*).
-  * Crear el enrutamiento de reserva de SPA para que las solicitudes de recursos que no sean archivos se redirijan al documento predeterminado de la aplicación en su carpeta de recursos estáticos (*{ASSEMBLY NAME}/dist/index.html*).
+  * Proporcionar el subdirectorio donde residen los recursos estáticos de la aplicación ( *{ASSEMBLY NAME}/dist/{PATH REQUESTED}* ).
+  * Crear el enrutamiento de reserva de SPA para que las solicitudes de recursos que no sean archivos se redirijan al documento predeterminado de la aplicación en su carpeta de recursos estáticos ( *{ASSEMBLY NAME}/dist/index.html*).
 
 #### <a name="install-the-url-rewrite-module"></a>Instalación del módulo URL Rewrite
 
@@ -232,6 +232,17 @@ Configure la **ruta de acceso física** del sitio web a la carpeta de la aplicac
 Si se recibe un error *500 Error interno del servidor* y el administrador de IIS produce errores al intentar acceder a la configuración del sitio web, confirme que el módulo URL Rewrite está instalado. Si no lo está, IIS no puede analizar el archivo *web.config*. Esto impide que el Administrador de IIS cargue la configuración del sitio web y que el sitio web proporcione los archivos estáticos de Blazor.
 
 Para obtener más información sobre cómo solucionar problemas de las implementaciones en IIS, vea <xref:host-and-deploy/iis/troubleshoot>.
+
+### <a name="azure-storage"></a>Almacenamiento de Azure
+
+El hospedaje de archivos estáticos de Azure Storage permite el hospedaje de aplicaciones Blazor sin servidor. Se admiten nombres de dominio personalizados, Azure Content Delivery Network (CDN) y HTTPS.
+
+Cuando el servicio de blob está habilitado para el hospedaje de sitios web estáticos en una cuenta de almacenamiento:
+
+* Establece el **nombre de documento de índice** en `index.html`.
+* Establece la **ruta de acceso del documento de error** en `index.html`. Los componentes Razor y otros puntos de conexión que no son de archivo no residen en las rutas de acceso físicas del contenido estático almacenado por el servicio de blob. Cuando se recibe una solicitud de uno de estos recursos que debe controlar el enrutador de Blazor, el error *404: no encontrado* generado por el servicio de blob enruta la solicitud a la **ruta de acceso del documento de error**. Se devuelve el blob *index.html* y el enrutador de Blazor carga y procesa la ruta de acceso.
+
+Para más información, consulte [Hospedaje de sitios web estáticos en Azure Storage](/azure/storage/blobs/storage-blob-static-website).
 
 ### <a name="nginx"></a>Nginx
 

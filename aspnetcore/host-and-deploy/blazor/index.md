@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/23/2019
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 5def0356d13975211dd234f6a6a9f5a993d003b7
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: 0fc7643c65b93a63d7a594d35e4013eab76e9db8
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223179"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376384"
 ---
 # <a name="host-and-deploy-blazor"></a>Hospedaje e implementación de Blazor
 
@@ -28,7 +28,6 @@ Las aplicaciones se publican para implementación en la configuración de versi�
 1. Seleccione el *destino de publicación*. Para publicar localmente, seleccione **Carpeta**.
 1. Acepte la ubicación predeterminada del campo **Elegir una carpeta** o especifique una ubicación diferente. Seleccione el botón **Publicar**.
 
-
 # <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code y CLI de .NET Core](#tab/visual-studio-code+netcore-cli)
 
 Use el comando [dotnet publish](/dotnet/core/tools/dotnet-publish) para publicar la aplicación con una configuración de versión:
@@ -41,7 +40,7 @@ dotnet publish -c Release
 
 Al publicar la aplicación se desencadena una [restauración](/dotnet/core/tools/dotnet-restore) de las dependencias del proyecto y se [compila](/dotnet/core/tools/dotnet-build) el proyecto antes de crear los recursos para la implementación. Como parte del proceso de compilación, se quitan los ensamblados y métodos que no se usan para reducir los tiempos de carga y el tamaño de descarga de la aplicación.
 
-Una aplicación cliente de Blazor se publica en la carpeta */bin/Release/{TARGET FRAMEWORK}/dist*. Una aplicación de servidor de Blazor se publica en la carpeta */bin/Release/{TARGET FRAMEWORK}/publish*.
+Una aplicación cliente de Blazor se publica en la carpeta */bin/Release/{RED DE DESTINO}/publish/{NOMBRE DE ENSAMBLADO}/dist*. Una aplicación de servidor de Blazor se publica en la carpeta */bin/Release/{TARGET FRAMEWORK}/publish*.
 
 Los recursos de la carpeta se implementan en el servidor web. La implementación puede ser un proceso manual o automatizado, en función de las herramientas de desarrollo que se usen.
 

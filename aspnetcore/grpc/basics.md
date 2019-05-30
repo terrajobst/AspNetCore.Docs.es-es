@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/31/2019
 uid: grpc/basics
-ms.openlocfilehash: 7c5ecf21124414b21f5c36b76e90bde67ac1f958
-ms.sourcegitcommit: 57a974556acd09363a58f38c26f74dc21e0d4339
+ms.openlocfilehash: 5a88bd0e9f789058b3606691c5ebd9a74325ac9b
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59672676"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376343"
 ---
 # <a name="grpc-services-with-c"></a>gRPC servicios con c#\#
 
@@ -32,13 +32,13 @@ Por ejemplo, considere la *greet.proto* archivo usado en [Introducción gRPC ser
 * El `Greeter` servicio define un `SayHello` llamar.
 * `SayHello` envía un `HelloRequest` del mensaje y recibe un `HelloResponse` mensaje:
 
-[!code-proto[](~/tutorials/grpc/grpc-start/samples/GrpcGreeter/Protos/greet.proto)]
+[!code-proto[](~/tutorials//grpc/grpc-start/sample/GrpcGreeter/Protos/greet.proto)]
 
 ## <a name="add-a-proto-file-to-a-c-app"></a>Agregar un archivo .proto a una C\# app
 
 El *.proto* archivo está incluido en un proyecto agregándolo a la `<Protobuf>` grupo de elementos:
 
-[!code-xml[](~/tutorials/grpc/grpc-start/samples/GrpcGreeter/GrpcGreeter.csproj?highlight=2&range=7-11)]
+[!code-xml[](~/tutorials//grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=2&range=7-11)]
 
 ## <a name="c-tooling-support-for-proto-files"></a>C#Compatibilidad con herramientas de .proto archivos
 
@@ -50,9 +50,9 @@ El paquete de herramientas [Grpc.Tools](https://www.nuget.org/packages/Grpc.Tool
 
 Este paquete es necesario para los proyectos de servidor y cliente. `Grpc.Tools` se pueden agregar mediante el Administrador de paquetes en Visual Studio o agregando un `<PackageReference>` al archivo de proyecto:
 
-[!code-xml[](~/tutorials/grpc/grpc-start/samples/GrpcGreeter/GrpcGreeter.csproj?highlight=1&range=17)]
+[!code-xml[](~/tutorials//grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=1&range=17)]
 
-El paquete de herramientas no es necesario en tiempo de ejecución, por lo que la dependencia está marcada con `PrivateAssets="All"`.
+El paquete de herramientas no es necesario en el runtime, de modo que la dependencia se marca con `PrivateAssets="All"`.
 
 ## <a name="generated-c-assets"></a>Genera C# activos
 
@@ -60,15 +60,15 @@ El paquete de herramientas genera la C# tipos que representan los mensajes defin
 
 Para los recursos de servidor, se genera un tipo base abstracto de servicio. El tipo base contiene las definiciones de todas las llamadas gRPC contenidas en el *.proto* archivo. Crear una implementación de servicio concreta que se deriva este tipo base e implementa la lógica para las llamadas gRPC. Para el `greet.proto`, en el ejemplo se ha descrito anteriormente, abstracta `GreeterBase` tipo que contiene un virtual `SayHello` se genera el método. Una implementación concreta `GreeterService` invalida el método e implementa la lógica que administra la llamada gRPC.
 
-[!code-csharp[](~/tutorials/grpc/grpc-start/samples/GrpcGreeter/Services/GreeterService.cs?name=snippet)]
+[!code-csharp[](~/tutorials//grpc/grpc-start/sample/GrpcGreeter/Services/GreeterService.cs?name=snippet)]
 
 Para los recursos del lado cliente, se genera un tipo concreto de cliente. Llama la gRPC el *.proto* archivo se traducen a métodos en el tipo concreto, que se puede llamar. Para el `greet.proto`, en el ejemplo se ha descrito anteriormente, un hormigón `GreeterClient` tipo se genera. Llame a `GreeterClient.SayHello` para iniciar una llamada gRPC al servidor.
 
-[!code-csharp[](~/tutorials/grpc/grpc-start/samples/GrpcGreeterClient/Program.cs?highlight=5-8&name=snippet)]
+[!code-csharp[](~/tutorials//grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?highlight=5-8&name=snippet)]
 
 De forma predeterminada, los recursos de servidor y cliente se generan para cada *.proto* archivo incluido en el `<Protobuf>` grupo de elementos. Para asegurarse de que solo los recursos de servidor se generan en un proyecto de servidor, el `GrpcServices` atributo está establecido en `Server`.
 
-[!code-xml[](~/tutorials/grpc/grpc-start/samples/GrpcGreeter/GrpcGreeter.csproj?highlight=2&range=7-11)]
+[!code-xml[](~/tutorials//grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=2&range=7-11)]
 
 De forma similar, el atributo está establecido en `Client` en proyectos de cliente.
 

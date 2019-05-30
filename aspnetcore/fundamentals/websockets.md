@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo empezar a usar WebSockets en ASP.N
 monikerRange: '>= aspnetcore-1.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 05/10/2019
 uid: fundamentals/websockets
-ms.openlocfilehash: 1b62dc91453437518e4b8f6f8dd0915977130766
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bba9cf051deaf57efdd82ca2fb1318fce79bd6cc
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64888250"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223215"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Compatibilidad con WebSockets en ASP.NET Core
 
@@ -122,6 +122,15 @@ El siguiente ejemplo se corresponde con un momento más adelante en el método `
 ::: moniker-end
 
 Una solicitud WebSocket puede proceder de cualquier dirección URL, pero este código de ejemplo solo acepta solicitudes de `/ws`.
+
+Cuando se usa un WebSocket, **debe** mantener la canalización de middleware en ejecución durante la duración de la conexión. Si intenta enviar o recibir un mensaje de WebSocket después de que finalice la canalización de middleware, es posible que obtenga una excepción como la siguiente:
+
+```
+System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed the WebSocket connection without completing the close handshake. ---> System.ObjectDisposedException: Cannot write to the response body, the response has completed.
+Object name: 'HttpResponseStream'.
+```
+
+Si utiliza un servicio en segundo plano para escribir datos en un WebSocket, asegúrese de mantener en ejecución el canal de middleware. Para ello, utilice un <xref:System.Threading.Tasks.TaskCompletionSource%601>. Pase `TaskCompletionSource` a su servicio de segundo plano y pídale que llame a <xref:System.Threading.Tasks.TaskCompletionSource%601.TrySetResult%2A> cuando termine con WebSocket. A continuación, `await` la propiedad <xref:System.Threading.Tasks.TaskCompletionSource%601.Task> durante la solicitud.
 
 ### <a name="send-and-receive-messages"></a>Enviar y recibir mensajes
 

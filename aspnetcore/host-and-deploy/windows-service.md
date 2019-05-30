@@ -5,62 +5,96 @@ description: Aprenda a hospedar una aplicación ASP.NET Core en un servicio de W
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/04/2019
+ms.date: 05/21/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: ec3a37fd859df7592fa0d6d9cc0109942a570e7a
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: ab36bc1b2827c80bb1e7b9e8cee558b346a991f8
+ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086985"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66251427"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hospedaje de ASP.NET Core en un servicio de Windows
 
 Por [Luke Latham](https://github.com/guardrex) y [Tom Dykstra](https://github.com/tdykstra)
 
-Una aplicación de ASP.NET Core se puede hospedar en Windows sin usar IIS como [servicio de Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications). Cuando se aloja como un servicio de Windows, la aplicación se inicia automáticamente después de reiniciar el equipo.
+Una aplicación de ASP.NET Core se puede hospedar en Windows sin usar IIS como [servicio de Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications). Cuando se hospeda como un servicio de Windows, la aplicación se inicia automáticamente después de reiniciar el servidor.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Requisitos previos
 
+* [ASP.NET Core SDK 2.1 o posterior](https://dotnet.microsoft.com/download)
 * [PowerShell 6.2 o posterior](https://github.com/PowerShell/PowerShell)
 
-> [!NOTE]
-> Para sistemas operativos Windows anteriores a la actualización de octubre de 2018 de Windows 10 (versión 1809/compilación 10.0.17763), el módulo [Microsoft.PowerShell.LocalAccounts](/powershell/module/microsoft.powershell.localaccounts) debe importarse con el [módulo WindowsCompatibility](https://github.com/PowerShell/WindowsCompatibility) para poder acceder al cmdlet [New-LocalUser](/powershell/module/microsoft.powershell.localaccounts/new-localuser) utilizado en la sección [Crear una cuenta de usuario](#create-a-user-account):
->
-> ```powershell
-> Install-Module WindowsCompatibility -Scope CurrentUser
-> Import-WinModule Microsoft.PowerShell.LocalAccounts
-> ```
+## <a name="app-configuration"></a>Configuración de aplicaciones
+
+::: moniker range=">= aspnetcore-3.0"
+
+Se llama a `IHostBuilder.UseWindowsService`, proporcionado por el paquete [Microsoft.Extensions.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.Extensions.Hosting.WindowsServices), cuando se crea el host. Si la aplicación se ejecuta como un servicio de Windows, el método:
+
+* Establece la vigencia del host en `WindowsServiceLifetime`.
+* Establece la raíz de contenido.
+* Habilita el registro en el registro de eventos con el nombre de la aplicación como nombre de origen predeterminado.
+  * El nivel de registro puede configurarse con la clave `Logging:LogLevel:Default` en el archivo *appsettings.Production.json*.
+  * Los administradores son los únicos que pueden crear nuevos orígenes de eventos. Cuando no se puede crear un origen de eventos con el nombre de la aplicación, se registra una advertencia para el origen *Aplicación* y los registros de eventos se deshabilitan.
+
+[!code-csharp[](windows-service/samples/3.x/AspNetCoreService/Program.cs?name=snippet_Program)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+La aplicación requiere referencias de paquetes para [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices) y [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog).
+
+Para probar y depurar cuando se ejecuta fuera de un servicio, agregue código para determinar si la aplicación se ejecuta como un servicio o una aplicación de consola. Compruebe si el depurador está asociado o hay presente un conmutador `--console`. Si alguna de estas condiciones se cumple (la aplicación no se ejecuta como un servicio), llame a <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*>. Si las condiciones no se cumplen (la aplicación se ejecuta como servicio):
+
+* Llame a <xref:System.IO.Directory.SetCurrentDirectory*> y use una ruta de acceso a la ubicación de publicación de la aplicación. No llame a <xref:System.IO.Directory.GetCurrentDirectory*> para obtener la ruta de acceso porque una aplicación de servicio de Windows devuelve una carpeta *C:\\WINDOWS\\system32* cuando se llama a <xref:System.IO.Directory.GetCurrentDirectory*>. Para obtener más información, consulte la sección [Directorio actual y raíz del contenido](#current-directory-and-content-root). Este paso se realiza antes de que la aplicación se configure en `CreateWebHostBuilder`.
+* Llame a <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> para ejecutar la aplicación como un servicio.
+
+Dado que el [Proveedor de configuración de línea de comandos](xref:fundamentals/configuration/index#command-line-configuration-provider) requiere pares nombre-valor en los argumentos de línea de comandos, el conmutador `--console` se quita de los argumentos antes de que <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> los reciba.
+
+Para escribir en el registro de eventos de Windows, agregue el proveedor EventLog a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureLogging*>. Establezca el nivel de registro con la clave `Logging:LogLevel:Default` en el archivo *appsettings.Production.json*.
+
+En el ejemplo siguiente de la aplicación de ejemplo, se llama a `RunAsCustomService` en lugar de a <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> con el fin de controlar los eventos de duración dentro de la aplicación. Para obtener más información, consulte la sección [Control de los eventos de inicio y detención](#handle-starting-and-stopping-events).
+
+[!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=snippet_Program)]
+
+::: moniker-end
 
 ## <a name="deployment-type"></a>Tipo de implementación
 
-Puede crear una implementación del servicio de Windows dependiente del marco o autocontenida. Para obtener información y consejos sobre los escenarios de implementación, consulte [Implementación de aplicaciones .NET Core](/dotnet/core/deploying/).
+Para obtener información y consejos sobre los escenarios de implementación, consulte [Implementación de aplicaciones .NET Core](/dotnet/core/deploying/).
 
-### <a name="framework-dependent-deployment"></a>Implementación dependiente de marco de trabajo
+### <a name="framework-dependent-deployment-fdd"></a>Implementación dependiente de marco (FDD)
 
-La implementación dependiente de marco de trabajo (FDD) se basa en la presencia de una versión compartida de .NET Core en todo el sistema en el sistema de destino. Cuando se utiliza el escenario FDD con una aplicación de servicio de Windows de ASP.NET Core, el SDK genera un archivo ejecutable (*\*.exe*), denominado *ejecutable dependiente del marco*.
+La implementación dependiente de marco de trabajo (FDD) se basa en la presencia de una versión compartida de .NET Core en todo el sistema en el sistema de destino. Cuando se adopta el escenario FDD siguiendo las instrucciones de este artículo, el SDK genera un archivo ejecutable ( *.exe*), denominado *ejecutable dependiente del marco*.
 
-### <a name="self-contained-deployment"></a>Implementación autocontenida
+::: moniker range=">= aspnetcore-3.0"
 
-Una implementación autocontenida (SCD) no depende de la presencia de los componentes compartidos en el sistema de destino. El tiempo de ejecución y las dependencias de la aplicación se implementan con la aplicación en el sistema host.
+Agregue los siguientes elementos de propiedad al archivo del proyecto:
 
-## <a name="convert-a-project-into-a-windows-service"></a>Convertir un proyecto en un servicio de Windows
-
-Realice los cambios siguientes en un proyecto de ASP.NET Core existente para ejecutar la aplicación como un servicio:
-
-### <a name="project-file-updates"></a>Actualizaciones del archivo del proyecto
-
-En función de su elección de [tipo de implementación](#deployment-type), actualice el archivo de proyecto:
-
-#### <a name="framework-dependent-deployment-fdd"></a>Implementación dependiente de marco (FDD)
-
-Agregue un [identificador en tiempo de ejecución (RID)](/dotnet/core/rid-catalog) de Windows al `<PropertyGroup>` que contiene la plataforma de destino. En el ejemplo siguiente, el RID se establece en `win7-x64`. Agregue la propiedad `<SelfContained>` establecida en `false`. Estas propiedades indican al SDK que genere un archivo ejecutable (*.exe*) de Windows.
+* `<OutputType>`&ndash; Tipo de salida de la aplicación (`Exe` para ejecutable).
+* `<LangVersion>`&ndash; Versión del lenguaje C# (`latest` o `preview`).
 
 No se requiere un archivo *web.config*, que normalmente se produce cuando se publica una aplicación ASP.NET Core, para una aplicación de Windows Services. Para deshabilitar la creación de un archivo *web.config* agregue la propiedad `<IsTransformWebConfigDisabled>` establecida en `true`.
 
-::: moniker range=">= aspnetcore-2.2"
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp3.0</TargetFramework>
+  <OutputType>Exe</OutputType>
+  <LangVersion>preview</LangVersion>
+  <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+</PropertyGroup>
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.2"
+
+El [identificador en tiempo de ejecución (RID)](/dotnet/core/rid-catalog) ([\<RuntimeIdentifier>](/dotnet/core/tools/csproj#runtimeidentifier)) contiene la plataforma de destino. En el ejemplo siguiente, el RID se establece en `win7-x64`. La propiedad `<SelfContained>` se establece en `false`. Estas propiedades indican al SDK que genere un archivo ejecutable ( *.exe*) para Windows y una aplicación que depende del marco .NET Core compartido.
+
+No se requiere un archivo *web.config*, que normalmente se produce cuando se publica una aplicación ASP.NET Core, para una aplicación de Windows Services. Para deshabilitar la creación de un archivo *web.config* agregue la propiedad `<IsTransformWebConfigDisabled>` establecida en `true`.
 
 ```xml
 <PropertyGroup>
@@ -75,7 +109,11 @@ No se requiere un archivo *web.config*, que normalmente se produce cuando se pub
 
 ::: moniker range="= aspnetcore-2.1"
 
-Agregue la propiedad `<UseAppHost>` establecida en `true`. Esta propiedad proporciona el servicio con una ruta de acceso de activación (un archivo ejecutable, *.exe*) para una FDD.
+El [identificador en tiempo de ejecución (RID)](/dotnet/core/rid-catalog) ([\<RuntimeIdentifier>](/dotnet/core/tools/csproj#runtimeidentifier)) contiene la plataforma de destino. En el ejemplo siguiente, el RID se establece en `win7-x64`. La propiedad `<SelfContained>` se establece en `false`. Estas propiedades indican al SDK que genere un archivo ejecutable ( *.exe*) para Windows y una aplicación que depende del marco .NET Core compartido.
+
+La propiedad `<UseAppHost>` se establece en `true`. Esta propiedad proporciona el servicio con una ruta de acceso de activación (un archivo ejecutable, *.exe*) para una FDD.
+
+No se requiere un archivo *web.config*, que normalmente se produce cuando se publica una aplicación ASP.NET Core, para una aplicación de Windows Services. Para deshabilitar la creación de un archivo *web.config* agregue la propiedad `<IsTransformWebConfigDisabled>` establecida en `true`.
 
 ```xml
 <PropertyGroup>
@@ -89,89 +127,50 @@ Agregue la propiedad `<UseAppHost>` establecida en `true`. Esta propiedad propor
 
 ::: moniker-end
 
-#### <a name="self-contained-deployment-scd"></a>Implementación autocontenida (SCD)
+### <a name="self-contained-deployment-scd"></a>Implementación autocontenida (SCD)
 
-Confirme la presencia del [identificador en tiempo de ejecución (RID)](/dotnet/core/rid-catalog) de Windows o agregue un RID al `<PropertyGroup>` que contiene la plataforma de destino. Deshabilite la creación de un archivo *web.config* agregando la propiedad `<IsTransformWebConfigDisabled>` establecida en `true`.
+Una implementación autocontenida (SCD) no depende de la presencia de un marco compartido en el sistema host. El tiempo de ejecución y las dependencias de la aplicación se implementan con la aplicación.
+
+Un [identificador en tiempo de ejecución (RID)](/dotnet/core/rid-catalog) se incluye en el `<PropertyGroup>` que contiene la plataforma de destino:
 
 ```xml
-<PropertyGroup>
-  <TargetFramework>netcoreapp2.2</TargetFramework>
-  <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-  <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
-</PropertyGroup>
+<RuntimeIdentifier>win7-x64</RuntimeIdentifier>
 ```
 
 Para publicar para varios RID:
 
 * Proporcione los RID en una lista delimitada por punto y coma.
-* Use el nombre de la propiedad `<RuntimeIdentifiers>` (plural).
+* Utilice el nombre de propiedad [\<RuntimeIdentifiers>](/dotnet/core/tools/csproj#runtimeidentifiers) (en plural).
 
-  Para más información, vea el [Catálogo de identificadores de entorno de ejecución (RID) de .NET Core](/dotnet/core/rid-catalog).
+Para más información, vea el [Catálogo de identificadores de entorno de ejecución (RID) de .NET Core](/dotnet/core/rid-catalog).
 
-Agregue una referencia de paquete de [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices).
+::: moniker range="< aspnetcore-3.0"
 
-Para habilitar el registro de eventos de Windows, agregue una referencia de paquete para [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog).
+Una propiedad `<SelfContained>` se establece en `true`:
 
-Para obtener más información, consulte la sección [Control de los eventos de inicio y detención](#handle-starting-and-stopping-events).
-
-### <a name="programmain-updates"></a>Actualizaciones de Program.Main
-
-Realice los siguientes cambios en `Program.Main`.
-
-* Para probar y depurar cuando se ejecuta fuera de un servicio, agregue código para determinar si la aplicación se ejecuta como un servicio o una aplicación de consola. Compruebe si el depurador está asociado o hay presente un argumento de línea de comandos `--console`.
-
-  Si alguna de estas condiciones se cumple (la aplicación no se ejecuta como un servicio), llame a <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> en el host web.
-
-  Si las condiciones no se cumplen (la aplicación se ejecuta como servicio):
-
-  * Llame a <xref:System.IO.Directory.SetCurrentDirectory*> y use una ruta de acceso a la ubicación de publicación de la aplicación. No llame a <xref:System.IO.Directory.GetCurrentDirectory*> para obtener la ruta de acceso porque una aplicación de servicio de Windows devuelve una carpeta *C:\\WINDOWS\\system32* cuando se llama a <xref:System.IO.Directory.GetCurrentDirectory*>. Para obtener más información, consulte la sección [Directorio actual y raíz del contenido](#current-directory-and-content-root).
-  * Llame a <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> para ejecutar la aplicación como un servicio.
-
-  Dado que el [Proveedor de configuración de línea de comandos](xref:fundamentals/configuration/index#command-line-configuration-provider) requiere pares nombre-valor en los argumentos de línea de comandos, el conmutador `--console` se quita de los argumentos antes de que <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> los reciba.
-
-* Para escribir en el registro de eventos de Windows, agregue el proveedor EventLog a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureLogging*>. Establezca el nivel de registro con la clave `Logging:LogLevel:Default` en el archivo *appsettings.Production.json*. Para fines de prueba y demostración, el archivo de configuración de producción de la aplicación de ejemplo establece el nivel de registro en `Information`. En producción, el valor se establece normalmente en `Error`. Para obtener más información, vea <xref:fundamentals/logging/index#windows-eventlog-provider>.
-
-[!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=snippet_Program)]
-
-## <a name="publish-the-app"></a>Publicar la aplicación
-
-Publique la aplicación con [dotnet publish](/dotnet/articles/core/tools/dotnet-publish), un [perfil de publicación de Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles) o Visual Studio Code. Al usar Visual Studio, seleccione **FolderProfile** y configure la **Ubicación de destino** antes de seleccionar el botón **Publicar**.
-
-Para publicar la aplicación de ejemplo mediante herramientas de la interfaz de la línea de comandos (CLI), ejecute el comando [dotnet publish](/dotnet/core/tools/dotnet-publish) en un shell de comandos de Windows desde la carpeta del proyecto con una configuración de versión pasada a la opción [-c|--configuration](/dotnet/core/tools/dotnet-publish#options). Use la opción [-o|--output](/dotnet/core/tools/dotnet-publish#options) con una ruta de acceso para publicar en una carpeta fuera de la aplicación.
-
-### <a name="publish-a-framework-dependent-deployment-fdd"></a>Publicación de una implementación dependiente de marco (FDD)
-
-En el ejemplo siguiente, la aplicación está publicada para la carpeta *c:\\svc*:
-
-```console
-dotnet publish --configuration Release --output c:\svc
+```xml
+<SelfContained>true</SelfContained>
 ```
 
-### <a name="publish-a-self-contained-deployment-scd"></a>Publicación de una implementación autocontenida (SCD)
+::: moniker-end
 
-El identificador relativo debe especificarse en la propiedad `<RuntimeIdenfifier>` o `<RuntimeIdentifiers>` del archivo del proyecto. Proporcione el entorno de ejecución a la opción [-r|--runtime](/dotnet/core/tools/dotnet-publish#options) del comando `dotnet publish`.
+## <a name="service-user-account"></a>Cuenta de usuario de servicio
 
-En el ejemplo siguiente, la aplicación está publicada para el entorno de ejecución `win7-x64` en la carpeta *c:\\svc*:
+Para crear una cuenta de usuario para un servicio, use el cmdlet [New-LocalUser](/powershell/module/microsoft.powershell.localaccounts/new-localuser) de un shell de comandos administrativos de PowerShell 6.
 
-```console
-dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
-```
+En la actualización de octubre de 2018 de Windows 10 (versión 1809/compilación 10.0.17763) o posterior:
 
-## <a name="create-a-user-account"></a>Creación de una cuenta de usuario
-
-Cree una cuenta de usuario para el servicio mediante el cmdlet [New-LocalUser](/powershell/module/microsoft.powershell.localaccounts/new-localuser) de un shell de comandos administrativos de PowerShell 6:
-
-```powershell
+```PowerShell
 New-LocalUser -Name {NAME}
 ```
 
-Proporcione una [contraseña segura](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements) cuando se le solicite.
+En el sistema operativo Windows anterior a la actualización de octubre de 2018 de Windows 10 (versión 1809/compilación 10.0.17763):
 
-Para la aplicación de ejemplo, cree una cuenta de usuario con el nombre `ServiceUser`.
-
-```powershell
-New-LocalUser -Name ServiceUser
+```console
+powershell -Command "New-LocalUser -Name {NAME}"
 ```
+
+Proporcione una [contraseña segura](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements) cuando se le solicite.
 
 A menos que el parámetro `-AccountExpires` se proporcione para el cmdlet [New-LocalUser](/powershell/module/microsoft.powershell.localaccounts/new-localuser) con una fecha de expiración <xref:System.DateTime>, la cuenta no expirará.
 
@@ -179,120 +178,88 @@ Para más información, vea [Microsoft.PowerShell.LocalAccounts](/powershell/mod
 
 Un enfoque alternativo de administración de usuarios al usar Active Directory consiste en usar cuentas de servicio administradas. Para obtener más información, consulte [grupo Managed Service Accounts Overview](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) (Información general sobre cuentas de servicio administradas de grupo).
 
-## <a name="set-permission-log-on-as-a-service"></a>Establecimiento de permisos: inicio de sesión como servicio
+## <a name="log-on-as-a-service-rights"></a>Derechos para iniciar sesión como servicio
 
-Conceda acceso de escritura, lectura y ejecución a la carpeta de la aplicación con el comando [icacls](/windows-server/administration/windows-commands/icacls) de un shell de comandos administrativos de PowerShell 6.
+Para establecer los derechos de *Iniciar sesión como servicio* para una cuenta de usuario del servicio:
+
+1. Abra el editor de la Directiva de seguridad local mediante la ejecución de *secpool.msc*.
+1. Expanda el nodo **Directivas locales** y, después, seleccione **Asignación de derechos de usuario**.
+1. Abra la directiva **Iniciar sesión como servicio**.
+1. Seleccione **Agregar usuario o grupo**.
+1. Proporcione el nombre de objeto (cuenta de usuario) mediante cualquiera de los métodos siguientes:
+   1. Escriba la cuenta de usuario (`{DOMAIN OR COMPUTER NAME\USER}`) en el campo del nombre de objeto y seleccione **Aceptar** para agregar el usuario a la directiva.
+   1. Seleccione **Opciones avanzadas**. Seleccione **Buscar ahora**. Seleccione la cuenta de usuario de la lista. Seleccione **Aceptar**. Seleccione **Aceptar** nuevo para agregar el usuario a la directiva.
+1. Seleccione **Aceptar** o **Aplicar** para aceptar los cambios.
+
+## <a name="create-and-manage-the-windows-service"></a>Creación y administración del servicio de Windows
+
+### <a name="create-a-service"></a>Creación de un servicio
+
+Use los comandos de PowerShell para registrar un servicio. Desde un shell de comandos administrativos de PowerShell 6, ejecute los comandos siguientes:
 
 ```powershell
-icacls "{PATH}" /grant "{USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS}" /t
+$acl = Get-Acl "{EXE PATH}"
+$aclRuleArgs = {DOMAIN OR COMPUTER NAME\USER}, "Read,Write,ReadAndExecute", "ContainerInherit,ObjectInherit", "None", "Allow"
+$accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule($aclRuleArgs)
+$acl.SetAccessRule($accessRule)
+$acl | Set-Acl "{EXE PATH}"
+
+New-Service -Name {NAME} -BinaryPathName {EXE FILE PATH} -Credential {DOMAIN OR COMPUTER NAME\USER} -Description "{DESCRIPTION}" -DisplayName "{DISPLAY NAME}" -StartupType Automatic
 ```
 
-* `{PATH}`: ruta de acceso a la carpeta de la aplicación.
-* `{USER ACCOUNT}`: cuenta del usuario (SID).
-* `(OI)`: la marca Object Inherit (Heredar objetos) propaga los permisos a los archivos subordinados.
-* `(CI)`: la marca Container Inherit (Heredar contenedores) propaga los permisos a las carpetas subordinadas.
-* `{PERMISSION FLAGS}`: define los permisos de acceso a la aplicación.
-  * Escritura (`W`)
-  * Lectura (`R`)
-  * Ejecución (`X`)
-  * Total (`F`)
-  * Modificación (`M`)
-* `/t`: se aplica de forma recursiva a las carpetas y los archivos subordinados existentes.
+* `{EXE PATH}`&ndash; Ruta de acceso a la carpeta de la aplicación en el host (por ejemplo, `d:\myservice`). No incluya el archivo ejecutable de la aplicación en la ruta de acceso. No se requiere una barra diagonal al final.
+* `{DOMAIN OR COMPUTER NAME\USER}` &ndash;Cuenta de usuario de servicio (por ejemplo, `Contoso\ServiceUser`).
+* `{NAME}` &ndash;Nombre de servicio (por ejemplo, `MyService`).
+* `{EXE FILE PATH}` &ndash; Ruta de acceso del ejecutable de la aplicación (por ejemplo, `d:\myservice\myservice.exe`). Incluya el nombre de archivo del ejecutable con la extensión.
+* `{DESCRIPTION}` &ndash; Descripción del servicio (por ejemplo, `My sample service`).
+* `{DISPLAY NAME}` &ndash; Nombre para mostrar del servicio (por ejemplo, `My Service`).
 
-Para la aplicación de ejemplo publicada en la carpeta *c:\\svc* y en la cuenta `ServiceUser` con permisos de escritura, lectura y ejecución, use el siguiente comando de un shell de comandos administrativos de PowerShell 6.
+### <a name="start-a-service"></a>Inicio de un servicio
+
+Inicie el servicio con el siguiente comando de PowerShell 6:
 
 ```powershell
-icacls "c:\svc" /grant "ServiceUser:(OI)(CI)WRX" /t
-```
-
-Para más información, vea [icacls](/windows-server/administration/windows-commands/icacls).
-
-## <a name="create-the-service"></a>Crear el servicio
-
-Use el script de PowerShell [RegisterService.ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/scripts) para registrar el servicio. Desde un shell de comandos administrativos de PowerShell 6, ejecute el script con el comando siguiente:
-
-```powershell
-.\RegisterService.ps1 
-    -Name {NAME} 
-    -DisplayName "{DISPLAY NAME}" 
-    -Description "{DESCRIPTION}" 
-    -Exe "{PATH TO EXE}\{ASSEMBLY NAME}.exe" 
-    -User {DOMAIN\USER}
-```
-
-En el ejemplo siguiente de la aplicación de ejemplo:
-
-* El servicio se denomina **MyService**.
-* El servicio publicado reside en la carpeta *c:\\svc*. El ejecutable de la aplicación se denomina *SampleApp.exe*.
-* El servicio se ejecuta en la cuenta `ServiceUser`. En el comando del ejemplo siguiente, el nombre del equipo local es `Desktop-PC`. Reemplace `Desktop-PC` por el nombre de equipo o el dominio del sistema.
-
-```powershell
-.\RegisterService.ps1 
-    -Name MyService 
-    -DisplayName "My Cool Service" 
-    -Description "This is the Sample App service." 
-    -Exe "c:\svc\SampleApp.exe" 
-    -User Desktop-PC\ServiceUser
-```
-
-## <a name="manage-the-service"></a>Administración del servicio
-
-### <a name="start-the-service"></a>Inicio del servicio
-
-Inicie el servicio con el comando `Start-Service -Name {NAME}` de PowerShell 6.
-
-Use el siguiente comando para iniciar el servicio de la aplicación de ejemplo:
-
-```powershell
-Start-Service -Name MyService
+Start-Service -Name {NAME}
 ```
 
 Este comando tarda unos segundos en iniciar el servicio.
 
-### <a name="determine-the-service-status"></a>Determinación del estado del servicio
+### <a name="determine-a-services-status"></a>Determinación del estado de un servicio
 
-Para comprobar el estado del servicio, use el comando `Get-Service -Name {NAME}` de PowerShell 6. El estado se notifica como uno de los siguientes valores:
+Para comprobar el estado de un servicio, use el siguiente comando de PowerShell 6:
+
+```powershell
+Get-Service -Name {NAME}
+```
+
+El estado se notifica como uno de los siguientes valores:
 
 * `Starting`
 * `Running`
 * `Stopping`
 * `Stopped`
 
-Use el siguiente comando para comprobar el estado del servicio de la aplicación de ejemplo:
+### <a name="stop-a-service"></a>Detención de un servicio
+
+Detenga un servicio con el siguiente comando de PowerShell 6:
 
 ```powershell
-Get-Service -Name MyService
+Stop-Service -Name {NAME}
 ```
 
-### <a name="browse-a-web-app-service"></a>Examinar un servicio de aplicación web
+### <a name="remove-a-service"></a>Eliminación de un servicio
 
-Si el servicio está en estado `RUNNING` y dicho servicio es una aplicación web, vaya a la aplicación en su ruta de acceso correspondiente (de forma predeterminada, `http://localhost:5000`, que redirige a `https://localhost:5001` cuando se usa el [Middleware de redirección de HTTPS](xref:security/enforcing-ssl)).
-
-Si es el servicio de la aplicación de ejemplo, vaya a la aplicación en `http://localhost:5000`.
-
-### <a name="stop-the-service"></a>Detener el servicio
-
-Detenga el servicio con el comando `Stop-Service -Name {NAME}` de PowerShell 6.
-
-Con el siguiente comando se detiene el servicio de la aplicación de ejemplo:
+Tras un breve intervalo para detener un servicio, elimine el servicio con el siguiente comando de PowerShell 6:
 
 ```powershell
-Stop-Service -Name MyService
+Remove-Service -Name {NAME}
 ```
 
-### <a name="remove-the-service"></a>Eliminación del servicio
-
-Tras un breve intervalo para detener un servicio, elimine el servicio con el comando `Remove-Service -Name {NAME}` de PowerShell 6.
-
-Con el siguiente comando se quita el servicio de la aplicación de ejemplo:
-
-```powershell
-Remove-Service -Name MyService
-```
+::: moniker range="< aspnetcore-3.0"
 
 ## <a name="handle-starting-and-stopping-events"></a>Control de los eventos de inicio y detención
 
-Para controlar los eventos <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStarting*>, <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStarted*> y <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStopping*>, realice los siguientes cambios adicionales:
+Para controlar los eventos <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStarting*>, <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStarted*> y <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService.OnStopping*>:
 
 1. Cree una clase que se derive de <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostService> con los métodos `OnStarting`, `OnStarted` y `OnStopping`:
 
@@ -308,7 +275,9 @@ Para controlar los eventos <xref:Microsoft.AspNetCore.Hosting.WindowsServices.We
    host.RunAsCustomService();
    ```
 
-   Para ver la ubicación de <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> en `Program.Main`, consulte el ejemplo de código que se muestra en la sección [Convertir un proyecto en un servicio de Windows](#convert-a-project-into-a-windows-service).
+   Para ver la ubicación de <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> en `Program.Main`, consulte el ejemplo de código que se muestra en la sección [Tipo de implementación](#deployment-type).
+
+::: moniker-end
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Escenarios de servidor proxy y equilibrador de carga
 
@@ -328,9 +297,19 @@ No se admite el uso del certificado de desarrollo HTTPS de ASP.NET Core para pro
 
 El directorio de trabajo actual devuelto por una llamada a <xref:System.IO.Directory.GetCurrentDirectory*> para un servicio de Windows es la carpeta *C:\\WINDOWS\\system32*. La carpeta *system32* no es una ubicación adecuada para almacenar los archivos de un servicio (por ejemplo los archivos de configuración). Utilice uno de los siguientes enfoques para mantener los archivos de configuración y los activos de un servicio, así como para acceder a ellos.
 
+::: moniker range=">= aspnetcore-3.0"
+
+### <a name="use-contentrootpath-or-contentrootfileprovider"></a>Uso de ContentRootPath o ContentRootFileProvider
+
+Use [IHostEnvironment.ContentRootPath](xref:Microsoft.Extensions.Hosting.IHostEnvironment.ContentRootPath) o <xref:Microsoft.Extensions.Hosting.IHostEnvironment.ContentRootFileProvider> para buscar los recursos de una aplicación.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 ### <a name="set-the-content-root-path-to-the-apps-folder"></a>Configuración de la ruta de acceso raíz del contenido en la carpeta de la aplicación
 
-<xref:Microsoft.Extensions.Hosting.IHostingEnvironment.ContentRootPath*> es la misma ruta de acceso proporcionada al argumento `binPath` cuando se crea el servicio. En lugar de llamar `GetCurrentDirectory` para crear rutas de acceso a los archivos de configuración, llame a <xref:System.IO.Directory.SetCurrentDirectory*> con la ruta de acceso a la raíz del contenido de la aplicación.
+<xref:Microsoft.Extensions.Hosting.IHostingEnvironment.ContentRootPath*> es la misma ruta de acceso proporcionada al argumento `binPath` cuando se crea un servicio. En lugar de llamar `GetCurrentDirectory` para crear rutas de acceso a los archivos de configuración, llame a <xref:System.IO.Directory.SetCurrentDirectory*> con la ruta de acceso a la raíz del contenido de la aplicación.
 
 En `Program.Main`, determine la ruta de acceso a la carpeta del archivo ejecutable del servicio y use la ruta de acceso para establecer la raíz del contenido de la aplicación:
 
@@ -344,12 +323,26 @@ CreateWebHostBuilder(args)
     .RunAsService();
 ```
 
-### <a name="store-the-services-files-in-a-suitable-location-on-disk"></a>Almacene los archivos del servicio en una ubicación adecuada en el disco.
+::: moniker-end
+
+### <a name="store-a-services-files-in-a-suitable-location-on-disk"></a>Almacenamiento de los archivos de un servicio en una ubicación adecuada en el disco
 
 Especifique una ruta de acceso absoluta con <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> al utilizar un <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> a la carpeta que contiene los archivos.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
+::: moniker range=">= aspnetcore-3.0"
+
+* [Kestrel: configuración de punto de conexión](xref:fundamentals/servers/kestrel#endpoint-configuration) (configuración de HTTPS y compatibilidad de SNI incluidas)
+* <xref:fundamentals/host/generic-host>
+* <xref:test/troubleshoot>
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 * [Kestrel: configuración de punto de conexión](xref:fundamentals/servers/kestrel#endpoint-configuration) (configuración de HTTPS y compatibilidad de SNI incluidas)
 * <xref:fundamentals/host/web-host>
 * <xref:test/troubleshoot>
+
+::: moniker-end
