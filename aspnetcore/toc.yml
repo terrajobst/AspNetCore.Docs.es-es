@@ -92,7 +92,7 @@
     - name: Aplicaciones de llamada a procedimiento remoto
       items:
         - name: Introducción al servicio gRPC en ASP.NET Core
-          uid: tutorials/grpc/grpc-client
+          uid: tutorials/grpc/grpc-start
     - name: Acceso a datos
       items:
         - name: EF Core con Razor Pages
@@ -530,8 +530,6 @@
       uid: grpc/migration
     - name: Comparación entre los servicios gRPC y las API HTTP
       uid: grpc/comparison
-    - name: Creación de un servidor y un cliente gRPC
-      uid: tutorials/grpc/grpc-client
 - name: 'Probar, depurar y solucionar problemas'
   items:
     - name: Pruebas unitarias
