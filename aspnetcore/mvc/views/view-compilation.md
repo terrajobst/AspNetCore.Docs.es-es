@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo se compilan los archivos de Razor 
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/02/2019
+ms.date: 05/30/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: df25c9ad03ff52c43aac1a761462772547b3b954
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: b78831dd95a721e35d4bf5b44cdd8823472f6aa2
+ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610137"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66395889"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Compilación de archivos de Razor en ASP.NET Core
 
@@ -45,7 +45,7 @@ Los archivos de Razor se compilan en tiempo de compilación y publicación media
 ## <a name="razor-compilation"></a>Compilación de Razor
 
 ::: moniker range=">= aspnetcore-3.0"
-La compilación de los archivos de Razor en tiempo de publicación y compilación está habilitada de manera predeterminada en el SDK de Razor. Cuando se habilita la compilación en tiempo de ejecución, complementará a la de tiempo de compilación y permitirá que se actualicen los archivos de Razor si se modifican.
+La compilación de los archivos de Razor en tiempo de publicación y compilación está habilitada de manera predeterminada en el SDK de Razor. Cuando se habilita la compilación en tiempo de ejecución, complementa a la de tiempo de compilación y permite que se actualicen los archivos de Razor si se modifican.
 
 ::: moniker-end
 
