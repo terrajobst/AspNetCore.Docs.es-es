@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/11/2018
 uid: security/anti-request-forgery
-ms.openlocfilehash: 4498bd88e7188ea6c0063aeec054bc20e13ed5f1
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: a32e0e2dbd7fab95562a562cb88767d4c1e8049d
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086438"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458487"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Evitar Cross-Site falsificación de solicitud entre (XSRF/CSRF) attacks en ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Falsificación de solicitud entre sitios (también conocida como XSRF o CSRF, pronunciado *vea surf*) es un ataque contra aplicaciones hospedadas en web mediante el cual una aplicación web malintencionado puede influir en la interacción entre un explorador cliente y una aplicación web que confía en que Explorador. Estos ataques son posibles porque los exploradores web envían algunos tipos de tokens de autenticación automáticamente con cada solicitud a un sitio Web. Esta forma de vulnerabilidad de seguridad es también se denomina un *ataque de un solo clic* o *sesión volando* porque el ataque aprovecha las ventajas de sesión del autenticado previamente en el usuario.
+Falsificación de solicitud entre sitios (también conocida como XSRF o CSRF) es un ataque contra aplicaciones hospedadas en web mediante el cual una aplicación web malintencionado puede influir en la interacción entre un explorador cliente y una aplicación web que confíe en ese explorador. Estos ataques son posibles porque los exploradores web envían algunos tipos de tokens de autenticación automáticamente con cada solicitud a un sitio Web. Esta forma de vulnerabilidad de seguridad es también se denomina un *ataque de un solo clic* o *sesión volando* porque el ataque aprovecha las ventajas de sesión del autenticado previamente en el usuario.
 
 Un ejemplo de un ataque CSRF:
 
