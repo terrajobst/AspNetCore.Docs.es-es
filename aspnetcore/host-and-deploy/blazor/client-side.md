@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/21/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: b572067e688d7e7f7c654a7a25703009c1a7e855
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: b50516b4dce28a6b105b2ab8b9386060d5392983
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223185"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376402"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>Hospedaje e implementación de Blazor del lado cliente
 
@@ -188,7 +188,9 @@ Para obtener información sobre cómo implementar en Azure App Service, vea <xre
 
 ## <a name="standalone-deployment"></a>Implementación independiente
 
-Una *implementación independiente* proporciona la aplicación Blazor del lado cliente como un conjunto de archivos estáticos que los clientes solicitan directamente. No se usa ningún servidor web para proporcionar la aplicación Blazor.
+Una *implementación independiente* proporciona la aplicación Blazor del lado cliente como un conjunto de archivos estáticos que los clientes solicitan directamente. Cualquier servidor de archivos estático es capaz de servir a la aplicación Blazor.
+
+Los activos de implementación independientes se publican en la carpeta */bin/Release/{RED DE DESTINO}/publish/{NOMBRE DE ENSAMBLADO}/dist*.
 
 ### <a name="iis"></a>IIS
 
