@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar aplicaciones de ASP.NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 06/03/2019
 uid: signalr/configuration
-ms.openlocfilehash: 703357fd52805e01515e5bac3b1a364ce7fe00f0
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 6c7bd602e621917c491bfb1e26ff0fcfc3a565b0
+ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087652"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66470369"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Configuración de ASP.NET Core SignalR
 
@@ -61,6 +61,8 @@ MessagePack serialización se puede configurar si se proporciona un delegado par
 
 En la tabla siguiente se describe las opciones para configurar los concentradores de SignalR:
 
+::: moniker range=">= aspnetcore-3.0"
+
 | Opción | Valor predeterminado | Descripción |
 | ------ | ------------- | ----------- |
 | `ClientTimeoutInterval` | 30 segundos | El servidor tendrá en cuenta el cliente desconectado si no ha recibido un mensaje (incluido keep-alive) en este intervalo. Puede tardar más de este intervalo de tiempo de espera para el cliente realmente marcarse desconectado debido a su implementación. El valor recomendado es doble el `KeepAliveInterval` valor.|
@@ -68,6 +70,21 @@ En la tabla siguiente se describe las opciones para configurar los concentradore
 | `KeepAliveInterval` | 15 segundos | Si el servidor no ha enviado un mensaje dentro de este intervalo, se envía automáticamente un mensaje ping para mantener abierta la conexión. Al cambiar `KeepAliveInterval`, cambie el `ServerTimeout` / `serverTimeoutInMilliseconds` configuración del cliente. Recomendado `ServerTimeout` / `serverTimeoutInMilliseconds` valor es doble el `KeepAliveInterval` valor.  |
 | `SupportedProtocols` | Todos los protocolos instalados | Protocolos admitidos por este concentrador. De forma predeterminada, se permiten todos los protocolos registrados en el servidor, pero se pueden quitar protocolos de esta lista para deshabilitar los protocolos específicos para los concentradores individuales. |
 | `EnableDetailedErrors` | `false` | Si `true`detallados se devuelven los mensajes de excepción a los clientes cuando se produce una excepción en un método de concentrador. El valor predeterminado es `false`, ya que estos mensajes de excepción pueden contener información confidencial. |
+| `StreamBufferCapacity` | `10` | El número máximo de elementos que pueden almacenarse en búfer para el cliente cargue secuencias. Si se alcanza este límite, el procesamiento de las llamadas se bloquea hasta que el servidor procesa los elementos de la secuencia.|
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.2"
+
+| Opción | Valor predeterminado | Descripción |
+| ------ | ------------- | ----------- |
+| `ClientTimeoutInterval` | 30 segundos | El servidor tendrá en cuenta el cliente desconectado si no ha recibido un mensaje (incluido keep-alive) en este intervalo. Puede tardar más de este intervalo de tiempo de espera para el cliente realmente marcarse desconectado debido a su implementación. El valor recomendado es doble el `KeepAliveInterval` valor.|
+| `HandshakeTimeout` | 15 segundos | Si el cliente no envía un mensaje de protocolo de enlace inicial dentro de este intervalo de tiempo, se cierra la conexión. Se trata de una opción avanzada que sólo debería modificarse si se producen errores de tiempo de espera del protocolo de enlace debido a la latencia de red graves. Para obtener más detalles sobre el proceso de negociación, consulte el [especificación del protocolo SignalR Hub](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
+| `KeepAliveInterval` | 15 segundos | Si el servidor no ha enviado un mensaje dentro de este intervalo, se envía automáticamente un mensaje ping para mantener abierta la conexión. Al cambiar `KeepAliveInterval`, cambie el `ServerTimeout` / `serverTimeoutInMilliseconds` configuración del cliente. Recomendado `ServerTimeout` / `serverTimeoutInMilliseconds` valor es doble el `KeepAliveInterval` valor.  |
+| `SupportedProtocols` | Todos los protocolos instalados | Protocolos admitidos por este concentrador. De forma predeterminada, se permiten todos los protocolos registrados en el servidor, pero se pueden quitar protocolos de esta lista para deshabilitar los protocolos específicos para los concentradores individuales. |
+| `EnableDetailedErrors` | `false` | Si `true`detallados se devuelven los mensajes de excepción a los clientes cuando se produce una excepción en un método de concentrador. El valor predeterminado es `false`, ya que estos mensajes de excepción pueden contener información confidencial. |
+
+::: moniker-end
 
 Se pueden configurar opciones para todos los centros proporcionando un delegado de opciones para la `AddSignalR` llamar `Startup.ConfigureServices`.
 
