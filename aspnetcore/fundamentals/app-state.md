@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/12/2019
 uid: fundamentals/app-state
-ms.openlocfilehash: cf5a1da78f3918bc4a49209157b9aa4bc7ed8458
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 3d878a389462aa7f3932f374034fb7cf11fd191c
+ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886870"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716328"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Estado de sesión y aplicación en ASP.NET Core
 
@@ -65,7 +65,7 @@ El estado de sesión muestra los siguientes comportamientos:
 * La aplicación conserva una sesión durante un tiempo limitado después de la última solicitud. La aplicación especifica un tiempo de espera de sesión o usa el valor predeterminado de 20 minutos. El estado de sesión es ideal para almacenar datos de usuario que son específicos de una sesión determinada, pero que no necesitan conservarse de forma permanente entre las sesiones.
 * Los datos de sesión se eliminan cuando se llama a la implementación [ISession.Clear](/dotnet/api/microsoft.aspnetcore.http.isession.clear) o cuando expira la sesión.
 * No hay ningún mecanismo predeterminado para informar al código de aplicación que se ha cerrado un explorador del cliente o cuando la cookie de sesión se elimina o caduca en el cliente.
-* Las plantillas de Razor Pages y ASP.NET Core MVC guardan conformidad con el Reglamento general de protección de datos (RGPD). Las cookies de estado de sesión no se marcan como esenciales de forma predeterminada, por lo que el estado de sesión no será funcional a menos que el visitante del sitio permita el seguimiento. Para obtener más información, vea <xref:security/gdpr#tempdata-provider-and-session-state-cookies-are-not-essential>.
+* Las plantillas de Razor Pages y ASP.NET Core MVC guardan conformidad con el Reglamento general de protección de datos (RGPD). Las cookies de estado de sesión no se marcan como esenciales de forma predeterminada, por lo que el estado de sesión no será funcional a menos que el visitante del sitio permita el seguimiento. Para obtener más información, vea <xref:security/gdpr#tempdata-provider-and-session-state-cookies-arent-essential>.
 
 > [!WARNING]
 > No almacene datos confidenciales en un estado de sesión. El usuario podría no cerrar el explorador y borrar la cookie de sesión. Algunos exploradores mantienen las cookies de sesión válidas en las ventanas del explorador. Es posible que una sesión no esté restringida a un único usuario y que el siguiente usuario continúe examinando la aplicación con la misma cookie de sesión.
