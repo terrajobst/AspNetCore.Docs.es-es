@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo transmitir datos entre el cliente 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 04/12/2019
+ms.date: 06/05/2019
 uid: signalr/streaming
-ms.openlocfilehash: 8f39fdfa45766b5bbec572970f009abefefdc419
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: a75156f398e113393ddb891d16eec3f09de80c09
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64897202"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750192"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>Usar la transmisión por secuencias en ASP.NET Core SignalR
 
@@ -36,7 +36,7 @@ ASP.NET Core SignalR es compatible con la transmisión por secuencias los valore
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Un método de concentrador se convierte automáticamente en un método de concentrador de transmisión por secuencias cuando vuelve una <xref:System.Threading.Channels.ChannelReader%601>, `IAsyncEnumerable<T>`, `Task<ChannelReader<T>>`, o `Task<IAsyncEnumerable<T>>`.
+Un método de concentrador se convierte automáticamente en un método de concentrador de transmisión por secuencias al regresar <xref:System.Collections.Generic.IAsyncEnumerable`1>, <xref:System.Threading.Channels.ChannelReader%601>, `Task<IAsyncEnumerable<T>>`, o `Task<ChannelReader<T>>`.
 
 ::: moniker-end
 
@@ -93,9 +93,23 @@ Métodos de concentrador de servidor a cliente streaming pueden aceptar un `Canc
 
 ### <a name="client-to-server-streaming"></a>Cliente a servidor de transmisión por secuencias
 
-Un método de concentrador se convierte automáticamente en un método de concentrador de cliente a servidor streaming cuando acepta uno o varios <xref:System.Threading.Channels.ChannelReader`1>s. El ejemplo siguiente muestra los conceptos básicos de lectura de transmisión por secuencias datos enviados desde el cliente. Cada vez que el cliente se escribe en el <xref:System.Threading.Channels.ChannelWriter`1>, los datos se escriben en el `ChannelReader` en el servidor que esté leyendo el método de concentrador.
+Un método de concentrador se convierte automáticamente en un método de concentrador de cliente a servidor streaming cuando acepta uno o más objetos de tipo <xref:System.Threading.Channels.ChannelReader%601> o <xref:System.Collections.Generic.IAsyncEnumerable%601>. El ejemplo siguiente muestra los conceptos básicos de lectura de transmisión por secuencias datos enviados desde el cliente. Cada vez que el cliente se escribe en el <xref:System.Threading.Channels.ChannelWriter%601>, los datos se escriben en el `ChannelReader` en el servidor desde el que está leyendo el método de concentrador.
 
 [!code-csharp[Streaming upload hub method](streaming/samples/3.0/Hubs/StreamHub.cs?name=snippet2)]
+
+Un <xref:System.Collections.Generic.IAsyncEnumerable%601> sigue la versión del método.
+
+[!INCLUDE[](~/includes/csharp-8-required.md)]
+
+```csharp
+public async Task UploadStream(IAsyncEnumerable<Stream> stream) 
+{
+    await foreach (var item in stream)
+    {
+        Console.WriteLine(item);
+    }
+}
+```
 
 ::: moniker-end
 
@@ -103,9 +117,55 @@ Un método de concentrador se convierte automáticamente en un método de concen
 
 ### <a name="server-to-client-streaming"></a>Streaming de servidor a cliente
 
-El `StreamAsChannelAsync` método `HubConnection` se utiliza para invocar un método de transmisión por secuencias del servidor al cliente. Pase el nombre del método de concentrador y los argumentos definidos en el método de concentrador a `StreamAsChannelAsync`. El parámetro genérico en `StreamAsChannelAsync<T>` especifica el tipo de objetos devueltos por el método de transmisión por secuencias. Un `ChannelReader<T>` se devuelve desde la invocación de la secuencia y representa el flujo en el cliente.
+
+::: moniker range=">= aspnetcore-3.0"
+
+El `StreamAsync` y `StreamAsChannelAsync` métodos en `HubConnection` se usan para invocar métodos de transmisión por secuencias con el cliente y el servidor. Pase el nombre del método de concentrador y los argumentos definidos en el método de concentrador a `StreamAsync` o `StreamAsChannelAsync`. El parámetro genérico en `StreamAsync<T>` y `StreamAsChannelAsync<T>` especifica el tipo de objetos devueltos por el método de transmisión por secuencias. Un objeto de tipo `IAsyncEnumerable<T>` o `ChannelReader<T>` se devuelve desde la invocación de la secuencia y representa el flujo en el cliente.
+
+Un `StreamAsync` ejemplo que devuelve `IAsyncEnumerable<int>`:
+
+```csharp
+// Call "Cancel" on this CancellationTokenSource to send a cancellation message to
+// the server, which will trigger the corresponding token in the hub method.
+var cancellationTokenSource = new CancellationTokenSource();
+var stream = await hubConnection.StreamAsync<int>(
+    "Counter", 10, 500, cancellationTokenSource.Token);
+
+await foreach (var count in stream)
+{
+    Console.WriteLine($"{count}");
+}
+
+Console.WriteLine("Streaming completed");
+```
+
+Correspondiente `StreamAsChannelAsync` ejemplo que devuelve `ChannelReader<int>`:
+
+```csharp
+// Call "Cancel" on this CancellationTokenSource to send a cancellation message to
+// the server, which will trigger the corresponding token in the hub method.
+var cancellationTokenSource = new CancellationTokenSource();
+var channel = await hubConnection.StreamAsChannelAsync<int>(
+    "Counter", 10, 500, cancellationTokenSource.Token);
+
+// Wait asynchronously for data to become available
+while (await channel.WaitToReadAsync())
+{
+    // Read all currently available data synchronously, before waiting for more data
+    while (channel.TryRead(out var count))
+    {
+        Console.WriteLine($"{count}");
+    }
+}
+
+Console.WriteLine("Streaming completed");
+```
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
+
+El `StreamAsChannelAsync` método `HubConnection` se utiliza para invocar un método de transmisión por secuencias del servidor al cliente. Pase el nombre del método de concentrador y los argumentos definidos en el método de concentrador a `StreamAsChannelAsync`. El parámetro genérico en `StreamAsChannelAsync<T>` especifica el tipo de objetos devueltos por el método de transmisión por secuencias. Un `ChannelReader<T>` se devuelve desde la invocación de la secuencia y representa el flujo en el cliente.
 
 ```csharp
 // Call "Cancel" on this CancellationTokenSource to send a cancellation message to
@@ -131,6 +191,8 @@ Console.WriteLine("Streaming completed");
 
 ::: moniker range="= aspnetcore-2.1"
 
+El `StreamAsChannelAsync` método `HubConnection` se utiliza para invocar un método de transmisión por secuencias del servidor al cliente. Pase el nombre del método de concentrador y los argumentos definidos en el método de concentrador a `StreamAsChannelAsync`. El parámetro genérico en `StreamAsChannelAsync<T>` especifica el tipo de objetos devueltos por el método de transmisión por secuencias. Un `ChannelReader<T>` se devuelve desde la invocación de la secuencia y representa el flujo en el cliente.
+
 ```csharp
 var channel = await hubConnection
     .StreamAsChannelAsync<int>("Counter", 10, 500, CancellationToken.None);
@@ -154,11 +216,29 @@ Console.WriteLine("Streaming completed");
 
 ### <a name="client-to-server-streaming"></a>Cliente a servidor de transmisión por secuencias
 
-Para invocar un método de concentrador de cliente a servidor streaming desde el cliente. NET, cree un `Channel` y pase el `ChannelReader` como argumento a `SendAsync`, `InvokeAsync`, o `StreamAsChannelAsync`, según el método de concentrador que se invoca.
+Hay dos maneras de invocar un método de concentrador de cliente a servidor streaming desde el cliente. NET. Puede que pase un `IAsyncEnumerable<T>` o un `ChannelReader` como argumento a `SendAsync`, `InvokeAsync`, o `StreamAsChannelAsync`, según el método de concentrador que se invoca.
 
-Cada vez que se escriben datos en el `ChannelWriter`, el método de concentrador en el servidor recibe un nuevo elemento con los datos del cliente.
+Cada vez que se escriben datos en el `IAsyncEnumerable` o `ChannelWriter` de objeto, el método de concentrador en el servidor recibe un nuevo elemento con los datos del cliente.
 
-Para finalizar la secuencia, complete el canal con `channel.Writer.Complete()`.
+Si usa un `IAsyncEnumerable` de objeto, finalice la secuencia después del método de devolución de elementos de flujo se cierra.
+
+[!INCLUDE[](~/includes/csharp-8-required.md)]
+
+```csharp
+async IAsyncEnumerable<string> clientStreamData()
+{
+    for (var i = 0; i < 5; i++)
+    {
+        var data = await FetchSomeData();
+        yield return data;
+    }
+    //After the for loop has completed and the local function exits the stream completion will be sent.
+}
+
+await connection.SendAsync("UploadStream", clientStreamData());
+```
+
+O si usa un `ChannelWriter`, complete el canal con `channel.Writer.Complete()`:
 
 ```csharp
 var channel = Channel.CreateBounded<string>(10);

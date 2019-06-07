@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo las páginas de Razor de ASP.NET C
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 10/25/2018
+ms.date: 06/05/2019
 uid: razor-pages/sdk
-ms.openlocfilehash: de51c9443e639cd64c234b6975cf7252bb7a2b9a
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8c4e882af93b043afaa0bcf86fd1583405f84be9
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64895302"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750175"
 ---
 # <a name="aspnet-core-razor-sdk"></a>SDK de Razor de ASP.NET Core
 
@@ -72,7 +72,7 @@ Las propiedades y elementos en la tabla siguiente se utilizan para configurar la
 | Elementos | Descripción |
 | ----- | ----------- |
 | `RazorGenerate` | Elementos (archivos *.cshtml*) que son entradas para los destinos de generación de código. |
-| `RazorCompile` | Elementos de elemento (*.cs* archivos) que son entradas para los destinos de compilación de Razor. Use este ItemGroup para especificar otros archivos que se compilen en el ensamblado de Razor. |
+| `RazorCompile` | Elementos de elemento ( *.cs* archivos) que son entradas para los destinos de compilación de Razor. Use este ItemGroup para especificar otros archivos que se compilen en el ensamblado de Razor. |
 | `RazorTargetAssemblyAttribute` | Elementos que se usan para generar atributos de código para el ensamblado de Razor. Por ejemplo:  <br>`RazorAssemblyAttribute`<br>`Include="System.Reflection.AssemblyMetadataAttribute"`<br>`_Parameter1="BuildSource" _Parameter2="https://docs.microsoft.com/">` |
 | `RazorEmbeddedResource` | Elementos que se agregan como recursos incrustados en el ensamblado generado de Razor. |
 
@@ -85,10 +85,10 @@ Las propiedades y elementos en la tabla siguiente se utilizan para configurar la
 | `EnableDefaultRazorGenerateItems` | Si es `true`, incluye los archivos *.cshtml* de los elementos `Content` en elementos `RazorGenerate`. |
 | `GenerateRazorTargetAssemblyInfo` | Cuando `true`, genera un *.cs* archivo que contiene los atributos especificados por `RazorAssemblyAttribute` e incluye el archivo en la salida de compilación. |
 | `EnableDefaultRazorTargetAssemblyInfoAttributes` | Si es `true`, agrega a `RazorAssemblyAttribute` un conjunto predeterminado de atributos de ensamblado. |
-| `CopyRazorGenerateFilesToPublishDirectory` | Cuando `true`, copias `RazorGenerate` elementos (*.cshtml*) archivos en el directorio de publicación. Normalmente, los archivos de Razor no son necesarios para una aplicación publicada si participa en la compilación en tiempo de compilación o tiempo de publicación. Tiene como valor predeterminado `false`. |
+| `CopyRazorGenerateFilesToPublishDirectory` | Cuando `true`, copias `RazorGenerate` elementos ( *.cshtml*) archivos en el directorio de publicación. Normalmente, los archivos de Razor no son necesarios para una aplicación publicada si participa en la compilación en tiempo de compilación o tiempo de publicación. Tiene como valor predeterminado `false`. |
 | `CopyRefAssembliesToPublishDirectory` | Si es `true`, copia los elementos de referencia del ensamblado en el directorio de publicación. Normalmente, los ensamblados de referencia no son necesarios para una aplicación publicada si la compilación de Razor se produce en tiempo de compilación o tiempo de publicación. Establecido en `true` si la aplicación publicada requiere compilación en tiempo de ejecución. Por ejemplo, establezca el valor en `true` si modifica la aplicación *.cshtml* archivos en tiempo de ejecución o usa vistas incrustadas. Tiene como valor predeterminado `false`. |
-| `IncludeRazorContentInPack` | Cuando `true`, todos los elementos de contenido de Razor (*.cshtml* archivos) se marcan para su inclusión en el paquete NuGet generado. Tiene como valor predeterminado `false`. |
-| `EmbedRazorGenerateSources` | Si es `true`, agrega los elementos de RazorGenerate (*.cshtml*) como archivos incrustados al ensamblado de Razor generado. Tiene como valor predeterminado `false`. |
+| `IncludeRazorContentInPack` | Cuando `true`, todos los elementos de contenido de Razor ( *.cshtml* archivos) se marcan para su inclusión en el paquete NuGet generado. Tiene como valor predeterminado `false`. |
+| `EmbedRazorGenerateSources` | Si es `true`, agrega los elementos de RazorGenerate ( *.cshtml*) como archivos incrustados al ensamblado de Razor generado. Tiene como valor predeterminado `false`. |
 | `UseRazorBuildServer` | Si es `true`, usa un proceso de servidor de compilación persistente para descargar el trabajo de generación de código. El valor predeterminado es `UseSharedCompilation`. |
 
 Para más información sobre las propiedades, consulte [Propiedades de MSBuild](/visualstudio/msbuild/msbuild-properties).
@@ -105,3 +105,13 @@ El SDK de Razor establece dos objetivos principales:
 * El SDK de Razor no publica de forma predeterminada los ensamblados de referencia necesarios para realizar una compilación en tiempo de ejecución. Como consecuencia, se producen errores de compilación cuando el modelo de aplicación se basa en la compilación en tiempo de ejecución; por ejemplo, la aplicación usa vistas incrustadas o cambia vistas tras haber sido publicada. Establezca `CopyRefAssembliesToPublishDirectory` en `true` para seguir publicando ensamblados de referencia.
 
 * Para una aplicación web, asegúrese de que su aplicación tiene como destino el `Microsoft.NET.Sdk.Web` SDK.
+
+## <a name="razor-language-version"></a>Versión de lenguaje Razor
+
+Cuando el destino es el `Microsoft.NET.Sdk.Web` SDK, la versión de lenguaje de Razor se deduce de la versión de framework de destino de la aplicación. Para los proyectos destinados a la `Microsoft.NET.Sdk.Razor` SDK o en el caso excepcional de que la aplicación requiere una versión de lenguaje Razor diferente que el valor deducido, se puede configurar una versión estableciendo el `<RazorLangVersion>` propiedad en el archivo de proyecto de la aplicación:
+
+```xml
+<PropertyGroup>
+  <RazorLangVersion>{VERSION}</RazorLangVersion>
+</PropertyGroup>
+```

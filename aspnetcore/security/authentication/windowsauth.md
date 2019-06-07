@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar la autenticación de Wi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 05/29/2019
+ms.date: 06/05/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 9dfff5dcba409ddca7e05c771b864ab121e0ea85
-ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
+ms.openlocfilehash: 900bbf5f14b1876ad537b2b77e4ba07d7aa168f2
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66395924"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750165"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurar la autenticación de Windows en ASP.NET Core
 
@@ -22,9 +22,17 @@ Por [Scott Addie](https://twitter.com/Scott_Addie) y [Luke Latham](https://githu
 
 Autenticación de Windows se basa en el sistema operativo para autenticar usuarios de aplicaciones de ASP.NET Core. Puede usar la autenticación de Windows cuando el servidor se ejecuta en una red corporativa mediante identidades de dominio de Active Directory o cuentas de Windows para identificar a los usuarios. Autenticación de Windows se adapta mejor a los entornos de intranet donde los usuarios, las aplicaciones cliente y servidores web pertenecen al mismo dominio de Windows.
 
-## <a name="launch-settings-debugger"></a>Iniciar configuración (depurador)
+## <a name="iisiis-express"></a>IIS/IIS Express
 
-Solo afecta la configuración para la configuración de inicio la *Properties/launchSettings.json* de archivos y no configurar el servidor IIS o HTTP.sys para la autenticación de Windows. Configuración del servidor se explica en el [habilitar servicios de autenticación en IIS o HTTP.sys](#authentication-services-for-iis-or-httpsys) sección.
+Agregar servicios de autenticación mediante la invocación <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (<xref:Microsoft.AspNetCore.Server.IISIntegration?displayProperty=fullName> espacio de nombres) en `Startup.ConfigureServices`:
+
+```csharp
+services.AddAuthentication(IISDefaults.AuthenticationScheme);
+```
+
+### <a name="launch-settings-debugger"></a>Iniciar configuración (depurador)
+
+Solo afecta la configuración para la configuración de inicio la *Properties/launchSettings.json* de archivos para IIS Express y no configura IIS para la autenticación de Windows. Configuración del servidor se explica en el [IIS](#iis) sección.
 
 El **aplicación Web** plantilla disponible a través de Visual Studio o la CLI de .NET Core puede configurarse para admitir la autenticación de Windows, que actualiza el *Properties/launchSettings.json* archivo de forma automática.
 
@@ -76,17 +84,7 @@ Actualización de la `iisSettings` nodo de la *launchSettings.json* archivo:
 
 Cuando se modifica un proyecto existente, compruebe que el archivo de proyecto incluye una referencia de paquete para el [Microsoft.AspNetCore.App metapaquete](xref:fundamentals/metapackage-app) **o** el [ Microsoft.AspNetCore.Authentication](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication/) paquete NuGet.
 
-## <a name="authentication-services-for-iis-or-httpsys"></a>Servicios de autenticación en IIS o HTTP.sys
-
-Según el escenario de hospedaje, siga las instrucciones de **cualquier** el [IIS](#iis) sección **o** [HTTP.sys](#httpsys) sección.
-
 ### <a name="iis"></a>IIS
-
-Agregar servicios de autenticación mediante la invocación <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (<xref:Microsoft.AspNetCore.Server.IISIntegration?displayProperty=fullName> espacio de nombres) en `Startup.ConfigureServices`:
-
-```csharp
-services.AddAuthentication(IISDefaults.AuthenticationScheme);
-```
 
 IIS usa el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) para hospedar aplicaciones ASP.NET Core. Autenticación de Windows se configura para IIS a través de la *web.config* archivo. Las siguientes secciones muestran cómo:
 
@@ -127,9 +125,9 @@ Use **cualquier** de los métodos siguientes:
   * Use el Administrador de IIS para restablecer la configuración en el *web.config* archivo después de que el archivo se sobrescribe en la implementación.
   * Agregar un *archivo web.config* a la aplicación localmente con la configuración.
 
-### <a name="httpsys"></a>HTTP.sys
+## <a name="httpsys"></a>HTTP.sys
 
-Aunque [Kestrel](xref:fundamentals/servers/kestrel) no es compatible con autenticación de Windows, puede usar [HTTP.sys](xref:fundamentals/servers/httpsys) para admitir los escenarios Auto-hospedados en Windows.
+En escenarios autohospedados; [Kestrel](xref:fundamentals/servers/kestrel) no compatibilidad con autenticación de Windows, pero puede usar [HTTP.sys](xref:fundamentals/servers/httpsys).
 
 Agregar servicios de autenticación mediante la invocación <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (<xref:Microsoft.AspNetCore.Server.HttpSys?displayProperty=fullName> espacio de nombres) en `Startup.ConfigureServices`:
 
