@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 0c2df3ec63f393b961754f496830cccb26f1cb76
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 2a7a942f43de94326e84977f09dc9a2e24dd00f0
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64884570"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692576"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -165,7 +165,9 @@ Una coincidencia que llama a <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsy
 
 [RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers) es una lista de las rutas que han participado en encontrar una coincidencia correcta con la solicitud. Las rutas se pueden anidar unas dentro de otras. La propiedad <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> refleja la ruta de acceso del árbol lógico de rutas que han tenido como resultado una coincidencia. Por lo general, el primer elemento de <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> es la colección de rutas y se debe usar para la generación de direcciones URL. El último elemento de <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> es el controlador de ruta que ha coincidido.
 
-### <a name="url-generation"></a>Generación de dirección URL
+<a name="lg"></a>
+
+### <a name="url-generation-with-linkgenerator"></a>Generación de direcciones URL con LinkGenerator
 
 ::: moniker range=">= aspnetcore-2.2"
 

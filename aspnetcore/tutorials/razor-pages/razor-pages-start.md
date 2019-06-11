@@ -3,14 +3,14 @@ title: 'Tutorial: Introducción a Razor Pages en ASP.NET Core'
 author: rick-anderson
 description: Esta serie de tutoriales muestra cómo usar Razor Pages en ASP.NET Core. Obtenga información sobre cómo crear un modelo, generar código para Razor Pages, usar Entity Framework Core y SQL Server para el acceso a datos, agregar la funcionalidad de búsqueda, agregar validación de entrada y usar migraciones para actualizar el modelo.
 ms.author: riande
-ms.date: 05/30/2019
+ms.date: 6/3/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: e9f11f68aa138ab74a0ffbbd0e32067bc984606d
-ms.sourcegitcommit: 9ae1fd11f39b0a72b2ae42f0b450345e6e306bc0
+ms.openlocfilehash: d843e47ccb5180fab34b4c4c4a4b5cbda21289bf
+ms.sourcegitcommit: a1364109d11d414121a6337b611bee61d6e489e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66415666"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491210"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Tutorial: Introducción a Razor Pages en ASP.NET Core
 
@@ -43,13 +43,17 @@ Al final de este tutorial, tendrá una aplicación web de Razor Pages que compi
 
 * En el menú **Archivo** de Visual Studio, seleccione **Nuevo** > **Proyecto**.
 
-* Cree una aplicación web de ASP.NET Core. Asigne al proyecto el nombre **RazorPagesMovie**. Es importante asignarle el nombre *RazorPagesMovie* para que los espacios de nombres coincidan al copiar y pegar el código.
+* Cree una nueva aplicación web de ASP.NET Core y seleccione **Siguiente**.
 
   ![Nueva aplicación web de ASP.NET Core](razor-pages-start/_static/np_2.1.png)
 
-* Seleccione **ASP.NET Core 2.2** en la lista desplegable y, luego, **Aplicación web**.
+* Asigne al proyecto el nombre **RazorPagesMovie**. Es importante asignarle el nombre *RazorPagesMovie* para que los espacios de nombres coincidan al copiar y pegar el código.
 
-  ![Nueva aplicación web de ASP.NET Core](razor-pages-start/_static/np_2_2.2.png)
+  ![Nueva aplicación web de ASP.NET Core](razor-pages-start/_static/config.png)
+
+* Seleccione **ASP.NET Core 2.2** en la lista desplegable, después **Aplicación web** y, por último, **Crear**.
+
+![Nueva aplicación web de ASP.NET Core](razor-pages-start/_static/np_2_2.2.png)
 
   Se crea el proyecto de inicio siguiente:
 
