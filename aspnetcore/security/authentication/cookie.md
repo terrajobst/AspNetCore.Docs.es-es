@@ -5,12 +5,12 @@ description: Obtener una explicación del uso de autenticación de cookies sin A
 ms.author: riande
 ms.date: 02/25/2019
 uid: security/authentication/cookie
-ms.openlocfilehash: 2bc3e16b1b32816b14ad5bb4ca905ae5ed51ab87
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: f3e02b357a83cf5fc4b9fcdc79b2fbe80da98507
+ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64897752"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66824756"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Usar autenticación de cookies sin ASP.NET Core Identity
 
@@ -195,7 +195,7 @@ await HttpContext.Authentication.SignInAsync(
 
 `SignInAsync` crea una cookie cifrada y lo agrega a la respuesta actual. Si no especifica un `AuthenticationScheme`, se usa el esquema predeterminado.
 
-En segundo plano, el cifrado que usa es ASP.NET Core [protección de datos](xref:security/data-protection/using-data-protection#security-data-protection-getting-started) sistema. Si se va a hospedar la aplicación en varias máquinas, equilibrio de carga entre aplicaciones o usar una granja de servidores web, entonces debe [configurar la protección de datos](xref:security/data-protection/configuration/overview) para usar el mismo conjunto de claves y el identificador de aplicación.
+En segundo plano, el cifrado que usa es ASP.NET Core [protección de datos](xref:security/data-protection/using-data-protection) sistema. Si se va a hospedar la aplicación en varias máquinas, equilibrio de carga entre aplicaciones o usar una granja de servidores web, entonces debe [configurar la protección de datos](xref:security/data-protection/configuration/overview) para usar el mismo conjunto de claves y el identificador de aplicación.
 
 ## <a name="sign-out"></a>Cerrar sesión
 
