@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/01/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: ee7d4b2ae04b5f6c262acc5da0f86f90ab50585f
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 435f06b85af4a1a5a78a870c2add3e15ff1ffe89
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085669"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837278"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -823,9 +823,10 @@ Para configurar las opciones de proveedor, use <xref:Microsoft.Extensions.Loggin
 
 ::: moniker-end
 
-Cuando se implementa en una aplicación de App Service, la aplicación respeta la configuración de la sección [Registros de diagnóstico](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) de la página **App Service** de Azure Portal. Cuando se actualiza esta configuración, los cambios se aplican inmediatamente sin necesidad de reiniciar ni de volver a implementar la aplicación.
+Al realizar una implementación en una aplicación de App Service, esta respeta la configuración de la sección [Registros de App Service](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) de la página **App Service** de Azure Portal. Cuando se actualiza la configuración siguiente, los cambios se aplican de inmediato sin necesidad de reiniciar ni de volver a implementar la aplicación.
 
-![Configuración de los registros de Azure](index/_static/azure-logging-settings.png)
+* **Registro de la aplicación (sistema de archivos)**
+* **Registro de la aplicación (blob)**
 
 La ubicación predeterminada de los archivos de registro es la carpeta *D:\\home\\LogFiles\\Application* y el nombre de archivo predeterminado es *diagnostics-aaaammdd.txt*. El límite de tamaño de archivo predeterminado es 10 MB, y el número máximo predeterminado de archivos que se conservan es 2. El nombre de blob predeterminado es *{nombre-de-la-aplicación}{marca de tiempo}/aaaa/mm/dd/hh/{guid}-applicationLog.txt*.
 
@@ -841,14 +842,11 @@ Las secuencias de registro de Azure permiten ver la actividad de registro en tie
 
 Para configurar las secuencias de registro de Azure:
 
-* Navegue hasta la página **Registros de diagnóstico** desde la página de portal de la aplicación.
+* Navegue hasta la página **Registros de App Service** desde la página de portal de la aplicación.
 * Establezca **Registro de la aplicación (sistema de archivos)** en **Activado**.
+* Elija el **Nivel** de registro.
 
-![Página de registros de diagnóstico de Azure Portal](index/_static/azure-diagnostic-logs.png)
-
-Navegue hasta la página **Secuencias de registro** para ver los mensajes de la aplicación. La aplicación los registra a través de la interfaz `ILogger`.
-
-![Secuencias de registro de aplicación de Azure Portal](index/_static/azure-log-streaming.png)
+Navegue hasta la página **Secuencia de registro** para consultar los mensajes de la aplicación. La aplicación los registra a través de la interfaz `ILogger`.
 
 ::: moniker range=">= aspnetcore-1.1"
 

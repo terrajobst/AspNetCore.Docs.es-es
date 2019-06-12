@@ -3,14 +3,14 @@ title: Información general sobre las API de consumidor para ASP.NET Core
 author: rick-anderson
 description: Recibir una breve descripción del consumidor diversas API disponibles dentro de la biblioteca de protección de datos de ASP.NET Core.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 06/11/2019
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: b0d11d097ee2d448b6781f6fa84445f6400fbc76
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: ff9badb55813cae0aa72d3a95dc53792332f109b
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087553"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837377"
 ---
 # <a name="consumer-apis-overview-for-aspnet-core"></a>Información general sobre las API de consumidor para ASP.NET Core
 
@@ -32,7 +32,7 @@ El concepto de la misma frente a diferentes `IDataProtector` ties realizar una c
 
 ## <a name="consuming-these-interfaces"></a>Consumo de estas interfaces
 
-Para un componente compatible con DI, el uso previsto es que el componente de tomar un `IDataProtectionProvider` parámetro en su constructor y que el sistema de DI ofrece este servicio automáticamente cuando se crea una instancia del componente.
+Para un componente compatible con DI, el uso previsto es que el componente toma una `IDataProtectionProvider` parámetro en su constructor y que el sistema de DI ofrece este servicio automáticamente cuando se crea una instancia del componente.
 
 > [!NOTE]
 > Algunas aplicaciones (por ejemplo, las aplicaciones de consola o aplicaciones de ASP.NET 4.x) podrían no ser compatibles con DI por lo que no se puede usar el mecanismo descrito aquí. Para estos escenarios consulte la [escenarios que no son compatibles con DI](xref:security/data-protection/configuration/non-di-scenarios) documento para obtener más información sobre cómo obtener una instancia de un `IDataProtection` proveedor sin tener que pasar a través de DI.
