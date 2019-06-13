@@ -3,14 +3,14 @@ title: Proveedores de almacenamiento de claves en ASP.NET Core
 author: rick-anderson
 description: Obtenga información acerca de los proveedores de almacenamiento de claves en ASP.NET Core y cómo configurar ubicaciones de almacenamiento de claves.
 ms.author: riande
-ms.date: 12/19/2018
+ms.date: 06/11/2019
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: d6dabc9e4581e0891d1dd14f73e086d50b45bba4
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 64c7e6b25d5b4acc72e96747a77826efaeb693fd
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64897452"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034770"
 ---
 # <a name="key-storage-providers-in-aspnet-core"></a>Proveedores de almacenamiento de claves en ASP.NET Core
 
@@ -33,21 +33,11 @@ public void ConfigureServices(IServiceCollection services)
 
 El `DirectoryInfo` puede apuntar a un directorio en el equipo local, o puede señalar a una carpeta en un recurso compartido de red. Si señala a un directorio en el equipo local (y el escenario es que solo las aplicaciones en el equipo local requieren acceso a usar este repositorio), considere el uso de [DPAPI de Windows](xref:security/data-protection/implementation/key-encryption-at-rest) (en Windows) para cifrar las claves en reposo. De lo contrario, considere el uso de un [certificado X.509](xref:security/data-protection/implementation/key-encryption-at-rest) para cifrar las claves en reposo.
 
-## <a name="azure-and-redis"></a>Azure y Redis
+## <a name="azure-storage"></a>Almacenamiento de Azure
 
-::: moniker range=">= aspnetcore-2.2"
+El [Microsoft.AspNetCore.DataProtection.AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/) paquete permite almacenar las claves de protección de datos en Azure Blob Storage. Las claves se pueden compartir entre varias instancias de una aplicación web. Las aplicaciones pueden compartir las cookies de autenticación o la protección de CSRF en varios servidores.
 
-El [Microsoft.AspNetCore.DataProtection.AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/) y [Microsoft.AspNetCore.DataProtection.StackExchangeRedis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.StackExchangeRedis/) paquetes permiten almacenar las claves de protección de datos en Azure Storage o un Redis memoria caché. Las claves se pueden compartir entre varias instancias de una aplicación web. Las aplicaciones pueden compartir las cookies de autenticación o la protección de CSRF en varios servidores.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.2"
-
-El [Microsoft.AspNetCore.DataProtection.AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/) y [Microsoft.AspNetCore.DataProtection.Redis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Redis/) paquetes permiten almacenar claves de protección de datos en Azure Storage o en una caché en Redis. Las claves se pueden compartir entre varias instancias de una aplicación web. Las aplicaciones pueden compartir las cookies de autenticación o la protección de CSRF en varios servidores.
-
-::: moniker-end
-
-Para configurar el proveedor de almacenamiento de blobs de Azure, llame a uno de los [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage) sobrecargas:
+Para configurar el proveedor de almacenamiento de blobs de Azure, llame a uno de los [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage) sobrecargas. 
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -56,6 +46,39 @@ public void ConfigureServices(IServiceCollection services)
         .PersistKeysToAzureBlobStorage(new Uri("<blob URI including SAS token>"));
 }
 ```
+
+Si la aplicación web se ejecuta como un servicio de Azure, los tokens de autenticación pueden crearse automáticamente con [ Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/). 
+
+```csharp
+var tokenProvider = new AzureServiceTokenProvider();
+var token = await tokenProvider.GetAccessTokenAsync("https://storage.azure.com/");
+var credentials = new StorageCredentials(new TokenCredential(token));
+var storageAccount = new CloudStorageAccount(credentials, "mystorageaccount", "core.windows.net", useHttps: true);
+var client = storageAccount.CreateCloudBlobClient();
+var container = client.GetContainerReference("my-key-container");
+
+// optional - provision the container automatically
+await container.CreateIfNotExistsAsync();
+
+services.AddDataProtection()
+    .PersistKeysToAzureBlobStorage(container, "keys.xml");
+```
+
+Vea [más detalles acerca de cómo configurar la autenticación de servicio a servicio.](/azure/key-vault/service-to-service-authentication)
+
+## <a name="redis"></a>Redis
+
+::: moniker range=">= aspnetcore-2.2"
+
+El [Microsoft.AspNetCore.DataProtection.StackExchangeRedis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.StackExchangeRedis/) paquete permite almacenar las claves de protección de datos en una caché en Redis. Las claves se pueden compartir entre varias instancias de una aplicación web. Las aplicaciones pueden compartir las cookies de autenticación o la protección de CSRF en varios servidores.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+El [Microsoft.AspNetCore.DataProtection.Redis](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Redis/) paquete permite almacenar las claves de protección de datos en una caché en Redis. Las claves se pueden compartir entre varias instancias de una aplicación web. Las aplicaciones pueden compartir las cookies de autenticación o la protección de CSRF en varios servidores.
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
 

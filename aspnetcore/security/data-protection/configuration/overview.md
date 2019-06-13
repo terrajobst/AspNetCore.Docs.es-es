@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/11/2019
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: ee43427fa1e82a365d49df50567b4ca7afb5a5d3
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 65a927b6288ca6cc41ee1bedd1080e52ffe0d3e1
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64897302"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034929"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Configurar la protección de datos de ASP.NET Core
 
@@ -23,7 +23,7 @@ Cuando se inicializa el sistema de protección de datos, se aplica [configuraci�
 Para estos escenarios, el sistema de protección de datos ofrece una API de configuración completo.
 
 > [!WARNING]
-> Al igual que los archivos de configuración, el conjunto de claves de protección de datos deben protegerse mediante los permisos adecuados. Puede elegir cifrar las claves en reposo, pero esto no impide que los atacantes crear nuevas claves. Por lo tanto, la seguridad de la aplicación se ve afectada. La ubicación de almacenamiento configurada con protección de datos debe tener su acceso limitado a la propia aplicación, similar a la manera en que desea proteger los archivos de configuración. Por ejemplo, si decide almacenar su conjunto de claves en el disco, utilice permisos del sistema de archivos. Asegúrese sólo la identidad bajo la que se ejecuta la aplicación web ha lectura, escritura y crear el acceso a ese directorio. Si usa Azure Table Storage, solo la aplicación web debe tener la capacidad de leer, escribir o crear nuevas entradas en el almacén de tablas, etcetera.
+> Al igual que los archivos de configuración, el conjunto de claves de protección de datos deben protegerse mediante los permisos adecuados. Puede elegir cifrar las claves en reposo, pero esto no impide que los atacantes crear nuevas claves. Por lo tanto, la seguridad de la aplicación se ve afectada. La ubicación de almacenamiento configurada con protección de datos debe tener su acceso limitado a la propia aplicación, similar a la manera en que desea proteger los archivos de configuración. Por ejemplo, si decide almacenar su conjunto de claves en el disco, utilice permisos del sistema de archivos. Asegúrese sólo la identidad bajo la que se ejecuta la aplicación web ha lectura, escritura y crear el acceso a ese directorio. Si usa Azure Blob Storage, solo la aplicación web debe tener la capacidad de leer, escribir o crear nuevas entradas en el almacén de blobs, etcetera.
 >
 > El método de extensión [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) devuelve un [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` expone métodos de extensión que se pueden encadenar juntos para configurar la protección de datos de opciones.
 
@@ -42,7 +42,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Establecer la ubicación de almacenamiento del conjunto de claves (por ejemplo, [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Dado que una llamada a la ubicación que se debe establecer `ProtectKeysWithAzureKeyVault` implementa un [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) que deshabilita la configuración de protección automática de los datos, incluida la ubicación de almacenamiento del conjunto de claves. El ejemplo anterior usa Azure Blob Storage para conservar el conjunto de claves. Para obtener más información, consulte [proveedores de almacenamiento de claves: Azure y Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis). También puede conservar el conjunto de claves localmente con [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
+Establecer la ubicación de almacenamiento del conjunto de claves (por ejemplo, [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Dado que una llamada a la ubicación que se debe establecer `ProtectKeysWithAzureKeyVault` implementa un [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) que deshabilita la configuración de protección automática de los datos, incluida la ubicación de almacenamiento del conjunto de claves. El ejemplo anterior usa Azure Blob Storage para conservar el conjunto de claves. Para obtener más información, consulte [proveedores de almacenamiento de claves: Azure Storage](xref:security/data-protection/implementation/key-storage-providers#azure-storage). También puede conservar el conjunto de claves localmente con [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
 
 El `keyIdentifier` es el identificador de clave de almacén de claves utilizado para el cifrado de clave. Por ejemplo, una clave creada en el almacén de claves denominado `dataprotection` en el `contosokeyvault` tiene el identificador de clave `https://contosokeyvault.vault.azure.net/keys/dataprotection/`. Proporcione la aplicación con **Unwrap Key** y **Wrap Key** permisos para el almacén de claves.
 
@@ -170,7 +170,7 @@ Cuando el sistema de protección de datos se proporciona un host de ASP.NET Core
 
 El mecanismo de aislamiento se funciona teniendo en cuenta cada aplicación en el equipo local como un único inquilino, por lo tanto el <xref:Microsoft.AspNetCore.DataProtection.IDataProtector> ha modificado para cualquier aplicación incluye automáticamente el identificador de aplicación como discriminador. Identificador único de la aplicación es la ruta de acceso física de la aplicación:
 
-* Para las aplicaciones hospedadas en [IIS](xref:fundamentals/servers/index#iis-http-server), el identificador único es la ruta de acceso física de IIS de la aplicación. Si una aplicación se implementa en un entorno de granja de servidores web, este valor es estable, suponiendo que los entornos de IIS se configuran de forma similar en todos los equipos en la granja de servidores web.
+* Para las aplicaciones hospedadas en IIS, el identificador único es la ruta de acceso física de IIS de la aplicación. Si una aplicación se implementa en un entorno de granja de servidores web, este valor es estable, suponiendo que los entornos de IIS se configuran de forma similar en todos los equipos en la granja de servidores web.
 * Para aplicaciones autohospedadas que se ejecutan el [servidor Kestrel](xref:fundamentals/servers/index#kestrel), el identificador único es la ruta de acceso física a la aplicación en el disco.
 
 El identificador único está diseñado para sobrevivir restablecimientos&mdash;tanto de la aplicación individual de la propia máquina.
