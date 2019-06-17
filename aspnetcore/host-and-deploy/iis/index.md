@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET C
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/24/2019
+ms.date: 05/28/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 41c07b86b50ea50df7420cb81f7b10133d395231
-ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
+ms.openlocfilehash: 7906891599b90fa73926781ca1a111e687798f63
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66470395"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034785"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -41,43 +41,68 @@ Se admiten las aplicaciones publicadas para implementaciones de 32 bits (x86) y
 
 Use un SDK de .NET Core de 64 bits (x64) para publicar una aplicación de 64 bits. Debe haber un tiempo de ejecución de 64 bits en el sistema host.
 
-## <a name="application-configuration"></a>Configuración de aplicación
-
-### <a name="enable-the-iisintegration-components"></a>Habilitación de los componentes de integración con IIS
-
-Los archivos *Program.cs* estándar llaman a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> para empezar a configurar un host:
-
-```csharp
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-        ...
-```
-
 ::: moniker range=">= aspnetcore-2.2"
 
-**Modelo de hospedaje en proceso**
+## <a name="hosting-models"></a>Modelos de hospedaje
 
-`CreateDefaultBuilder` agrega una instancia <xref:Microsoft.AspNetCore.Hosting.Server.IServer> mediante una llamada al método <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> para iniciar [CoreCLR](/dotnet/standard/glossary#coreclr) y hospedar la aplicación dentro del proceso de trabajo de IIS (*w3wp.exe* o *iisexpress.exe*). Las pruebas de rendimiento indican que el hospedaje de una aplicación .NET Core en proceso proporciona un rendimiento de solicitud considerablemente mayor en comparación con el hospedaje de solicitudes de aplicaciones fuera de proceso y de proxy para el servidor [Kestrel](xref:fundamentals/servers/kestrel).
+### <a name="in-process-hosting-model"></a>Modelo de hospedaje en proceso
+
+Con el hospedaje en proceso, una aplicación ASP.NET Core se ejecuta en el mismo proceso que su proceso de trabajo de IIS. El hospedaje en proceso proporciona un rendimiento mejorado con respecto al hospedaje fuera de proceso porque las solicitudes no se realizan mediante proxy en el adaptador de bucle invertido, una interfaz de red que devuelve el tráfico saliente a la misma máquina. IIS controla la administración de procesos con el [Servicio de activación de procesos de Windows (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
+
+El [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module):
+
+* Realiza la inicialización de aplicaciones.
+  * Carga [CoreCLR](/dotnet/standard/glossary#coreclr).
+  * Llama a `Program.Main`.
+* Controla la duración de la solicitud nativa de IIS.
 
 No se admite el modelo de hospedaje en proceso para aplicaciones de ASP.NET Core que tienen como destino .NET Framework.
 
-**Modelo de hospedaje fuera de proceso**
+En el siguiente diagrama se muestra la relación entre IIS, el módulo ASP.NET Core y una aplicación hospedada en proceso:
 
-Para el hospedaje fuera de proceso con IIS, `CreateDefaultBuilder` configura el servidor [Kestrel](xref:fundamentals/servers/kestrel) como servidor web y habilita IIS Integration mediante la configuración de la ruta de acceso y el puerto base para el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
+![Módulo ASP.NET Core en el escenario de hospedaje dentro de proceso](index/_static/ancm-inprocess.png)
 
-El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back-end. `CreateDefaultBuilder` agrega el middleware de integración de IIS y el [middleware de encabezados reenviados](xref:host-and-deploy/proxy-load-balancer) mediante la llamada al método <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*>. `UseIISIntegration` configura Kestrel para escuchar en el puerto dinámico en la dirección IP de localhost (`127.0.0.1`). Si el puerto dinámico es 1234, Kestrel escucha en `127.0.0.1:1234`. Esta configuración reemplaza a otras configuraciones de dirección URL proporcionadas por:
+Una solicitud llega de Internet al controlador HTTP.sys en modo kernel. El controlador enruta la solicitud nativa a IIS en el puerto configurado del sitio web, que suele ser el puerto 80 (HTTP) o 443 (HTTPS). El módulo recibe la solicitud nativa y la pasa a IIS HTTP Server (`IISHttpServer`). El servidor HTTP de IIS es una implementación de servidor en proceso para IIS que convierte una solicitud nativa en administrada.
 
-* `UseUrls`
-* [API de escucha de Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration)
-* [Configuración](xref:fundamentals/configuration/index) (u [opción --urls de la línea de comandos](xref:fundamentals/host/web-host#override-configuration))
+Una vez que IIS HTTP Server procesa la solicitud, la envía a la canalización de middleware de ASP.NET Core. La canalización de middleware controla la solicitud y la pasa como una instancia de `HttpContext` a la lógica de la aplicación. La respuesta de la aplicación se pasa a IIS a través del servidor HTTP de IIS. IIS envía la respuesta al cliente que inició la solicitud.
 
-No es necesario realizar llamadas a `UseUrls` o a la API `Listen` de Kestrel cuando se usa el módulo. Si se llama a `UseUrls` o `Listen`, Kestrel escucha en los puertos especificados cuando se ejecuta la aplicación sin IIS.
+El hospedaje en proceso es opcional para las aplicaciones existentes, pero, para las plantillas [dotnet new](/dotnet/core/tools/dotnet-new), este modelo es el predeterminado para todos los escenarios de IIS e IIS Express.
 
-Para obtener más información sobre los modelos de hospedaje dentro y fuera de proceso, vea el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) y la [Referencia de configuración del módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
+`CreateDefaultBuilder` agrega una instancia <xref:Microsoft.AspNetCore.Hosting.Server.IServer> mediante una llamada al método <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> para iniciar [CoreCLR](/dotnet/standard/glossary#coreclr) y hospedar la aplicación dentro del proceso de trabajo de IIS (*w3wp.exe* o *iisexpress.exe*). Las pruebas de rendimiento indican que el hospedaje de una aplicación .NET Core en proceso proporciona un rendimiento de solicitud considerablemente mayor en comparación con el hospedaje de solicitudes de aplicaciones fuera de proceso y de proxy para el servidor [Kestrel](xref:fundamentals/servers/kestrel).
+
+### <a name="out-of-process-hosting-model"></a>Modelo de hospedaje fuera de proceso
+
+Dado que las aplicaciones ASP.NET Core se ejecutan en un proceso independiente del proceso de trabajo de IIS, el módulo se encarga de la administración de procesos. El módulo inicia el proceso de la aplicación ASP.NET Core cuando entra la primera solicitud y reinicia la aplicación si esta se apaga o se bloquea. Este comportamiento es básicamente el mismo que el de las aplicaciones que se ejecutan en proceso y se administran a través del [Servicio de activación de procesos de Windows (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
+
+En el siguiente diagrama se muestra la relación entre IIS, el módulo ASP.NET Core y una aplicación hospedada fuera de proceso:
+
+![Módulo ASP.NET Core en el escenario de hospedaje fuera de proceso](index/_static/ancm-outofprocess.png)
+
+Las solicitudes llegan procedentes de Internet al controlador HTTP.sys en modo kernel. El controlador enruta las solicitudes a IIS en el puerto configurado del sitio web, que suele ser el puerto 80 (HTTP) o 443 (HTTPS). El módulo reenvía las solicitudes a Kestrel en un puerto aleatorio de la aplicación, que no es ni 80 ni 443.
+
+El módulo especifica el puerto a través de la variable de entorno en el inicio, y la extensión <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> configura el servidor para que escuche en `http://localhost:{PORT}`. Se realizan más comprobaciones y se rechazan las solicitudes que no se hayan originado en el módulo. El módulo no admite el reenvío de HTTPS, por lo que las solicitudes se reenvían a través de HTTP, aunque IIS las reciba a través de HTTPS.
+
+Una vez que Kestrel toma la solicitud del módulo, la envía a la canalización de middleware de ASP.NET Core. La canalización de middleware controla la solicitud y la pasa como una instancia de `HttpContext` a la lógica de la aplicación. El middleware agregado por la integración de IIS actualiza el esquema, la dirección IP remota y PathBase para responder del reenvío de la solicitud a Kestrel. La respuesta de la aplicación se vuelve a pasar a IIS, que la envía de nuevo al cliente HTTP que inició la solicitud.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
+
+ASP.NET Core se distribuye con el [servidor Kestrel](xref:fundamentals/servers/kestrel), un servidor HTTP multiplataforma predeterminado.
+
+Al usar [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) o [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), la aplicación se ejecuta en un proceso distinto al del proceso de trabajo de IIS (*fuera de proceso*) con el [servidor Kestrel](xref:fundamentals/servers/index#kestrel).
+
+Dado que las aplicaciones ASP.NET Core se ejecutan en un proceso independiente del proceso de trabajo de IIS, el módulo se encarga de la administración de procesos. El módulo inicia el proceso de la aplicación ASP.NET Core cuando entra la primera solicitud y reinicia la aplicación si esta se apaga o se bloquea. Este comportamiento es básicamente el mismo que el de las aplicaciones que se ejecutan en proceso y se administran a través del [Servicio de activación de procesos de Windows (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
+
+En el siguiente diagrama se muestra la relación entre IIS, el módulo ASP.NET Core y una aplicación hospedada fuera de proceso:
+
+![Módulo ASP.NET Core](index/_static/ancm-outofprocess.png)
+
+Las solicitudes llegan procedentes de Internet al controlador HTTP.sys en modo kernel. El controlador enruta las solicitudes a IIS en el puerto configurado del sitio web, que suele ser el puerto 80 (HTTP) o 443 (HTTPS). El módulo reenvía las solicitudes a Kestrel en un puerto aleatorio de la aplicación, que no es ni 80 ni 443.
+
+El módulo especifica el puerto a través de la variable de entorno en el inicio, y el [middleware de integración de IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) configura el servidor para que escuche en `http://localhost:{port}`. Se realizan más comprobaciones y se rechazan las solicitudes que no se hayan originado en el módulo. El módulo no admite el reenvío de HTTPS, por lo que las solicitudes se reenvían a través de HTTP, aunque IIS las reciba a través de HTTPS.
+
+Una vez que Kestrel toma la solicitud del módulo, la envía a la canalización de middleware de ASP.NET Core. La canalización de middleware controla la solicitud y la pasa como una instancia de `HttpContext` a la lógica de la aplicación. El middleware agregado por la integración de IIS actualiza el esquema, la dirección IP remota y PathBase para responder del reenvío de la solicitud a Kestrel. La respuesta de la aplicación se vuelve a pasar a IIS, que la envía de nuevo al cliente HTTP que inició la solicitud.
 
 `CreateDefaultBuilder` configura el servidor [Kestrel](xref:fundamentals/servers/kestrel) como servidor web y habilita IIS Integration mediante la configuración de la ruta de acceso y el puerto base para el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
 
@@ -89,9 +114,25 @@ El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back
 
 No es necesario realizar llamadas a `UseUrls` o a la API `Listen` de Kestrel cuando se usa el módulo. Si se llama a `UseUrls` o `Listen`, Kestrel escucha en el puerto especificado cuando se ejecuta la aplicación sin IIS.
 
+Para obtener más información sobre los modelos de hospedaje dentro y fuera de proceso, vea el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) y la [Referencia de configuración del módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
+
 ::: moniker-end
 
+Para obtener instrucciones sobre la configuración del módulo ASP.NET Core, vea <xref:host-and-deploy/aspnet-core-module>.
+
 Para obtener más información sobre el hospedaje, consulte [Hospedaje en ASP.NET Core](xref:fundamentals/index#host).
+
+## <a name="application-configuration"></a>Configuración de aplicación
+
+### <a name="enable-the-iisintegration-components"></a>Habilitación de los componentes de integración con IIS
+
+Un archivo *Program.cs* típico llama a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> para iniciar la configuración de un host que permite la integración con IIS:
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        ...
+```
 
 ### <a name="iis-options"></a>Opciones de IIS
 
@@ -307,7 +348,7 @@ Al implementar aplicaciones en servidores con [Web Deploy](/iis/install/installi
 
     ASP.NET Core se ejecuta en un proceso independiente y administra el runtime. ASP.NET Core no se basa en la carga de CLR de escritorio (.NET CLR); Core Common Language Runtime (CoreCLR) para .NET Core se arranca para hospedar la aplicación en el proceso de trabajo. El establecimiento de **Versión de .NET CLR** en **Sin código administrado** es opcional, pero no es lo recomendable.
 
-1. *ASP.NET Core 2.2 o posterior*: en el caso de las [implementaciones independientes](/dotnet/core/deploying/#self-contained-deployments-scd) de 64 bits (x64) en las que se use un [modelo de hospedaje en proceso](xref:fundamentals/servers/index#in-process-hosting-model), deshabilite el grupo de aplicaciones de los procesos de 32 bits (x86).
+1. *ASP.NET Core 2.2 o posterior*: en el caso de las [implementaciones independientes](/dotnet/core/deploying/#self-contained-deployments-scd) de 64 bits (x64) en las que se use un [modelo de hospedaje en proceso](#in-process-hosting-model), deshabilite el grupo de aplicaciones de los procesos de 32 bits (x86).
 
    En la barra lateral **Acciones** de la sección **Grupos de aplicaciones** de Administrador de IIS, seleccione **Establecer valores predeterminados de grupos de aplicaciones** o **Configuración avanzada**. Busque la opción **Habilitar aplicaciones de 32 bits** y establezca el valor en `False`. Las aplicaciones implementadas para un [hospedaje fuera de proceso](xref:host-and-deploy/aspnet-core-module#out-of-process-hosting-model) no se ven afectadas por este ajuste.
 
@@ -589,8 +630,8 @@ Para una aplicación de ASP.NET Core que tiene como destino .NET Framework, las 
 
 Cuando se hospeda en IIS mediante la versión 2 del módulo de ASP.NET Core:
 
-* [Módulo de inicialización de aplicaciones](#application-initialization-module): las aplicaciones hospedadas [dentro de proceso](xref:fundamentals/servers/index#in-process-hosting-model) o [fuera de proceso](xref:fundamentals/servers/index#out-of-process-hosting-model), se pueden configurar para iniciarse automáticamente en un reinicio de proceso de trabajo o un reinicio de servidor.
-* [Tiempo de espera de inactividad](#idle-timeout): las aplicaciones hospedadas [dentro de proceso](xref:fundamentals/servers/index#in-process-hosting-model) se pueden configurar para que no tengan tiempo de espera durante períodos de inactividad.
+* [Módulo de inicialización de aplicaciones](#application-initialization-module) &ndash; las aplicaciones hospedadas [dentro de proceso](#in-process-hosting-model) o [fuera de proceso](#out-of-process-hosting-model) se pueden configurar para iniciarse de forma automática en un reinicio de proceso de trabajo o un reinicio de servidor.
+* [Tiempo de espera de inactividad](#idle-timeout): las aplicaciones hospedadas [dentro de proceso](#in-process-hosting-model) se pueden configurar para que no tengan tiempo de espera durante períodos de inactividad.
 
 ### <a name="application-initialization-module"></a>Módulo de inicialización de aplicaciones
 
@@ -647,7 +688,7 @@ Para evitar la inactividad en la aplicación, establezca el tiempo de espera de 
 1. El valor predeterminado de **Tiempo de inactividad (minutos)**  es **20** minutos. Establezca **Tiempo de inactividad (minutos)** en **0** (cero). Seleccione **Aceptar**.
 1. Desactive y vuelva a activar el proceso de trabajo.
 
-Para evitar que las aplicaciones hospedadas [fuera de proceso](xref:fundamentals/servers/index#out-of-process-hosting-model) agoten el tiempo de espera, use cualquiera de los enfoques siguientes:
+Para evitar que las aplicaciones hospedadas [fuera de proceso](#out-of-process-hosting-model) agoten el tiempo de espera, use cualquiera de los enfoques siguientes:
 
 * Haga ping a la aplicación desde un servicio externo con el fin de mantenerla funcionando.
 * Si la aplicación solo hospeda servicios en segundo plano, evite el hospedaje de IIS y use un [servicio de Windows para hospedar la aplicación de ASP.NET Core](xref:host-and-deploy/windows-service).

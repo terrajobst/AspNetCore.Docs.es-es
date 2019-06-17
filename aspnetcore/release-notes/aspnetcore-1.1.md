@@ -5,12 +5,12 @@ description: Obtenga información sobre las nuevas características de ASP.NET C
 ms.author: riande
 ms.date: 12/18/2018
 uid: aspnetcore-1.1
-ms.openlocfilehash: a21b2b82bfefb5b24898cf58ef97284a143e2e4a
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 167842a7376a6bb0a88e6f41159730f076bb2bdb
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086416"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034721"
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>Novedades de ASP.NET Core 1.1
 
@@ -23,7 +23,7 @@ ASP.NET Core 1.1 incluye las siguientes características nuevas:
 - [Proveedor TempData basado en cookies](xref:fundamentals/app-state#tempdata)
 - [Proveedor de registros de Azure App Service](xref:fundamentals/logging/index#azure-app-service-provider)
 - [Proveedor de configuración de Azure Key Vault](xref:security/key-vault-configuration)
-- [Repositorios de claves de protección de datos de almacenamiento de Azure y Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis)
+- [Repositorios de claves de protección de datos de almacenamiento de Azure y Redis](xref:security/data-protection/implementation/key-storage-providers)
 - Servidor WebListener para Windows
 - [Compatibilidad con WebSockets](xref:fundamentals/websockets)
 

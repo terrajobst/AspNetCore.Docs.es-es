@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 61669dca24b552012ee057b89de28b7de1702c2b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 442570cdc79fe7c496392ffbcbc527cf841aefa9
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886170"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750080"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Tutorial: Implementación de la funcionalidad CRUD: ASP.NET MVC con EF Core
 
@@ -177,7 +177,7 @@ Reemplace el método de acción HttpPost Edit con el código siguiente.
 
 Estos cambios implementan un procedimiento recomendado de seguridad para evitar la publicación excesiva. El proveedor de scaffolding generó un atributo `Bind` y agregó la entidad creada por el enlazador de modelos a la entidad establecida con una marca `Modified`. Ese código no se recomienda para muchos escenarios porque el atributo `Bind` borra los datos ya existentes en los campos que no se enumeran en el parámetro `Include`.
 
-El código nuevo lee la entidad existente y llama a `TryUpdateModel` para actualizar los campos en la entidad recuperada [en función de la entrada del usuario en los datos de formulario publicados](xref:mvc/models/model-binding#how-model-binding-works). El seguimiento de cambios automático de Entity Framework establece la marca `Modified` en los campos que se cambian mediante la entrada de formulario. Cuando se llama al método `SaveChanges`, Entity Framework crea instrucciones SQL para actualizar la fila de la base de datos. Los conflictos de simultaneidad se ignoran y las columnas de tabla que se actualizaron por el usuario se actualizan en la base de datos. (En un tutorial posterior se muestra cómo controlar los conflictos de simultaneidad).
+El código nuevo lee la entidad existente y llama a `TryUpdateModel` para actualizar los campos en la entidad recuperada [en función de la entrada del usuario en los datos de formulario publicados](xref:mvc/models/model-binding). El seguimiento de cambios automático de Entity Framework establece la marca `Modified` en los campos que se cambian mediante la entrada de formulario. Cuando se llama al método `SaveChanges`, Entity Framework crea instrucciones SQL para actualizar la fila de la base de datos. Los conflictos de simultaneidad se ignoran y las columnas de tabla que se actualizaron por el usuario se actualizan en la base de datos. (En un tutorial posterior se muestra cómo controlar los conflictos de simultaneidad).
 
 Como procedimiento recomendado para evitar la publicación excesiva, los campos que quiera que se puedan actualizar por la página **Edit** se incluyen en la lista de permitidos en los parámetros `TryUpdateModel`. (La cadena vacía que precede a la lista de campos en la lista de parámetros es para el prefijo que se usa con los nombres de campos de formulario). Actualmente no se está protegiendo ningún campo adicional, pero enumerar los campos que quiere que el enlazador de modelos enlace garantiza que, si en el futuro agrega campos al modelo de datos, se protejan automáticamente hasta que los agregue aquí de forma explícita.
 

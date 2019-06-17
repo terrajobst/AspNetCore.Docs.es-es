@@ -5,14 +5,14 @@ description: Aprenda a diagnosticar problemas con las implementaciones de Intern
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/12/2019
+ms.date: 05/28/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: e4c93459f2030c7c0a55ea90e0cc8c8d30b76c51
-ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
+ms.openlocfilehash: cb42a262c89c27fa350e936184f8ddb3a02788f0
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66470462"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034744"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Solución de problemas de ASP.NET Core en IIS
 
@@ -330,13 +330,13 @@ Obtenga y analice un volcado de memoria en [Informe de errores de Windows (WER)]
 
 1. Cree una carpeta para almacenar los archivos de volcado de memoria en `c:\dumps`. El grupo de aplicaciones debe tener acceso de escritura a la carpeta.
 1. Ejecute el [script EnableDumps de PowerShell](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/EnableDumps.ps1):
-   * Si la aplicación usa el [modelo de hospedaje en proceso](xref:fundamentals/servers/index#in-process-hosting-model), ejecute el script *w3wp.exe*:
+   * Si la aplicación usa el [modelo de hospedaje en proceso](xref:host-and-deploy/iis/index#in-process-hosting-model), ejecute el script *w3wp.exe*:
 
      ```console
      .\EnableDumps w3wp.exe c:\dumps
      ```
 
-   * Si la aplicación usa el [modelo de hospedaje fuera de proceso](xref:fundamentals/servers/index#out-of-process-hosting-model), ejecute el script *dotnet.exe*:
+   * Si la aplicación usa el [modelo de hospedaje fuera de proceso](xref:host-and-deploy/iis/index#out-of-process-hosting-model), ejecute el script *dotnet.exe*:
 
      ```console
      .\EnableDumps dotnet.exe c:\dumps
@@ -344,13 +344,13 @@ Obtenga y analice un volcado de memoria en [Informe de errores de Windows (WER)]
 
 1. Ejecute la aplicación en las condiciones que hacen que se produzca el bloqueo.
 1. Una vez que se haya producido el bloqueo, ejecute el [script DisableDumps de PowerShell](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/DisableDumps.ps1):
-   * Si la aplicación usa el [modelo de hospedaje en proceso](xref:fundamentals/servers/index#in-process-hosting-model), ejecute el script *w3wp.exe*:
+   * Si la aplicación usa el [modelo de hospedaje en proceso](xref:host-and-deploy/iis/index#in-process-hosting-model), ejecute el script *w3wp.exe*:
 
      ```console
      .\DisableDumps w3wp.exe
      ```
 
-   * Si la aplicación usa el [modelo de hospedaje fuera de proceso](xref:fundamentals/servers/index#out-of-process-hosting-model), ejecute el script *dotnet.exe*:
+   * Si la aplicación usa el [modelo de hospedaje fuera de proceso](xref:host-and-deploy/iis/index#out-of-process-hosting-model), ejecute el script *dotnet.exe*:
 
      ```console
      .\DisableDumps dotnet.exe

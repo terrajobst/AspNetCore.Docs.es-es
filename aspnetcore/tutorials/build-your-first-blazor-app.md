@@ -5,14 +5,14 @@ description: Cree una aplicación Blazor paso a paso.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/19/2019
+ms.date: 06/12/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: d48b891127f4db929b631c0ddf199c07658e604c
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: df27dad17133f287b1c73dc308b4cc69426e0a63
+ms.sourcegitcommit: 739a3d7ca4fd2908ea0984940eca589a96359482
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970119"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67040710"
 ---
 # <a name="build-your-first-blazor-app"></a>Creación de la primera aplicación Blazor
 
@@ -36,7 +36,7 @@ Siga las instrucciones del artículo <xref:blazor/get-started> para crear un pro
 
    la interfaz de usuario del componente Counter se define mediante HTML. La lógica de la representación dinámica (por ejemplo, bucles, instrucciones condicionales, expresiones) se agrega mediante una sintaxis de C# insertada denominada [Razor](xref:mvc/views/razor). El marcado HTML y la lógica de representación de C# se convierten en una clase de componente en tiempo de compilación. El nombre de la clase de .NET generada coincide con el nombre del archivo.
 
-   Los miembros de la clase de componente se definen en un bloque `@functions`. En el bloque `@functions`, se especifica el estado del componente (propiedades, campos) y los métodos para el tratamiento de eventos o para definir otra lógica del componente. Estos miembros se utilizan como parte de la lógica de representación del componente y para el tratamiento de eventos.
+   Los miembros de la clase de componente se definen en un bloque `@code`. En el bloque `@code`, se especifica el estado del componente (propiedades, campos) y los métodos para el tratamiento de eventos o para definir otra lógica del componente. Estos miembros se utilizan como parte de la lógica de representación del componente y para el tratamiento de eventos.
 
    Al seleccionarse el botón **Click me**:
 
@@ -69,7 +69,7 @@ Incluya un componente en otro componente mediante una sintaxis HTML.
 
 Los componentes también pueden tener parámetros. Los parámetros del componente se definen mediante propiedades privadas en la clase de componentes decorada con `[Parameter]`. Use atributos para especificar argumentos para un componente en el marcado.
 
-1. Actualice el código de C# `@functions` del componente:
+1. Actualice el código de C# `@code` del componente:
 
    * Agregue una propiedad `IncrementAmount` decorada con el atributo `[Parameter]`.
    * Cambie el método `IncrementCount` para usar `IncrementAmount` al aumentar el valor de `currentCount`.
@@ -152,21 +152,13 @@ Agregue un nuevo componente a la aplicación que implemente una simple lista de 
 
 1. Recompile y ejecute la aplicación. Visite la nueva página Todo para confirmar que el vínculo al componente Todo funcione.
 
-1. Si está compilando una aplicación Blazor del lado servidor, agregue el espacio de nombres de la aplicación al archivo *\_Imports.razor*. En la siguiente instrucción `@using`, se presupone que el espacio de nombres de la aplicación es `WebApplication`:
-
-   ```cshtml
-   @using WebApplication
-   ```
-   
-   Las aplicaciones Blazor del lado cliente incluyen de forma predeterminada el espacio de nombres de la aplicación en el archivo  *\_Imports.razor*.
-
 1. Agregue un archivo *TodoItem.cs* a la raíz del proyecto para contener una clase que represente un elemento de la lista de tareas. Use el siguiente código de C# para la clase `TodoItem`:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/TodoItem.cs)]
 
 1. Vuelva al componente Todo (*Pages/Todo.razor*):
 
-   * Agregue un campo a los elementos de tareas pendientes en un bloque `@functions`. El componente Todo utiliza este campo para mantener el estado de la lista de tareas pendientes.
+   * Agregue un campo a los elementos de tareas pendientes en un bloque `@code`. El componente Todo utiliza este campo para mantener el estado de la lista de tareas pendientes.
    * Agregue el marcado de la lista no ordenada y un bucle `foreach` para que cada elemento de la lista se represente en un elemento de la lista de tareas pendientes.
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo4.razor?highlight=5-10,12-14)]
@@ -177,7 +169,7 @@ Agregue un nuevo componente a la aplicación que implemente una simple lista de 
 
 1. Recompile y ejecute la aplicación. Cuando se selecciona el botón **Add todo** (Agregar tarea pendiente), no ocurre nada porque no hay ningún controlador de eventos conectado al botón.
 
-1. Agregue un método `AddTodo` al componente Todo y regístrelo para hacer clic en los botones mediante el atributo `onclick`:
+1. Agregue un método `AddTodo` al componente Todo y regístrelo para hacer clic en los botones mediante el atributo `@onclick`:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo6.razor?highlight=2,7-10)]
 
@@ -188,7 +180,7 @@ Agregue un nuevo componente a la aplicación que implemente una simple lista de 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
 
    ```cshtml
-   <input placeholder="Something todo" bind="@newTodo" />
+   <input placeholder="Something todo" @bind="@newTodo" />
    ```
 
 1. Actualice el método `AddTodo` para agregar el `TodoItem` con el título especificado a la lista. Borre el valor de la entrada de texto mediante el establecimiento de `newTodo` en una cadena vacía:
