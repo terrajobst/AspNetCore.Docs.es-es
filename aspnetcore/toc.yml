@@ -166,10 +166,10 @@
       uid: fundamentals/middleware/index
     - name: administrador de flujos de trabajo
       items:
-        - name: Host web
-          uid: fundamentals/host/web-host
         - name: Host genérico
           uid: fundamentals/host/generic-host
+        - name: Host web
+          uid: fundamentals/host/web-host
     - name: Servidores
       uid: fundamentals/servers/index
     - name: Configuración
