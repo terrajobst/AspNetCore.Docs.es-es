@@ -5,12 +5,12 @@ description: Obtenga información acerca de los proveedores de almacenamiento de
 ms.author: riande
 ms.date: 06/11/2019
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: 49b068480fe7ba0a9b338aa5f5b7fc19fb98528f
-ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
+ms.openlocfilehash: 19d51399e24d085f7c34f70098ca02cbba7a888f
+ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048103"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67167041"
 ---
 # <a name="key-storage-providers-in-aspnet-core"></a>Proveedores de almacenamiento de claves en ASP.NET Core
 
@@ -37,7 +37,7 @@ El `DirectoryInfo` puede apuntar a un directorio en el equipo local, o puede se�
 
 El [Microsoft.AspNetCore.DataProtection.AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/) paquete permite almacenar las claves de protección de datos en Azure Blob Storage. Las claves se pueden compartir entre varias instancias de una aplicación web. Las aplicaciones pueden compartir las cookies de autenticación o la protección de CSRF en varios servidores.
 
-Para configurar el proveedor de almacenamiento de blobs de Azure, llame a uno de los [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage) sobrecargas. 
+Para configurar el proveedor de almacenamiento de blobs de Azure, llame a uno de los [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage) sobrecargas.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -47,7 +47,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Si la aplicación web se ejecuta como un servicio de Azure, los tokens de autenticación pueden crearse automáticamente con [ Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/). 
+Si la aplicación web se ejecuta como un servicio de Azure, los tokens de autenticación pueden crearse automáticamente con [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/).
 
 ```csharp
 var tokenProvider = new AzureServiceTokenProvider();
@@ -149,7 +149,7 @@ El parámetro genérico, `TContext`, debe heredar de [DbContext](/dotnet/api/mic
 
 [!code-csharp[Main](key-storage-providers/sample/MyKeysContext.cs)]
 
-Crear el `DataProtectionKeys` tabla. 
+Crear el `DataProtectionKeys` tabla.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 

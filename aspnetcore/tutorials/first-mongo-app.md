@@ -4,14 +4,14 @@ author: prkhandelwal
 description: En este tutorial se muestra cómo crear una API web de ASP.NET Core con una base de datos NoSQL de MongoDB.
 ms.author: scaddie
 ms.custom: mvc, seodec18
-ms.date: 06/04/2019
+ms.date: 06/10/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 6a8c5d75f562b38015101e039a2f5d96a5491595
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 5e3bdb10f0e192ba98df442959ceb68dc7c7adc5
+ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692548"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66824785"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Creación de una API Web con ASP.NET Core y MongoDB
 
@@ -26,6 +26,7 @@ En este tutorial aprenderá a:
 > * Crear una base de datos de MongoDB
 > * Definir un esquema y una colección de MongoDB
 > * Realizar operaciones de CRUD de MongoDB desde una API web
+> * Personalizar la serialización de JSON
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-mongo-app/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
@@ -172,7 +173,7 @@ La base de datos está lista. Puede empezar a crear la API web de ASP.NET Core.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
-1. Vaya a **Archivo** > **Nueva solución** >  **.NET Core** > **Aplicación**.
+1. Vaya a **Archivo** > **Nueva solución** > **.NET Core** > **Aplicación**.
 1. Seleccione la plantilla de proyecto de C# **API web ASP.NET Core** y, luego, **Siguiente**.
 1. Seleccione **.NET Core 2.2** en la lista desplegable **Plataforma de destino** y, luego, **Siguiente**.
 1. Escriba *BooksApi* en **Nombre del proyecto** y seleccione **Crear**.
@@ -187,7 +188,29 @@ La base de datos está lista. Puede empezar a crear la API web de ASP.NET Core.
 1. Agregue un directorio *Modelos* a la raíz del proyecto.
 1. Agregue una clase `Book` al directorio *Modelos* con el código siguiente:
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs)]
+    ```csharp
+    using MongoDB.Bson;
+    using MongoDB.Bson.Serialization.Attributes;
+    
+    namespace BooksApi.Models
+    {
+        public class Book
+        {
+            [BsonId]
+            [BsonRepresentation(BsonType.ObjectId)]
+            public string Id { get; set; }
+    
+            [BsonElement("Name")]
+            public string BookName { get; set; }
+    
+            public decimal Price { get; set; }
+    
+            public string Category { get; set; }
+    
+            public string Author { get; set; }
+        }
+    }
+    ```
 
     En la clase anterior, se requiere la propiedad `Id`
     
@@ -195,7 +218,7 @@ La base de datos está lista. Puede empezar a crear la API web de ASP.NET Core.
     * Se anota con [[BsonId]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonIdAttribute.htm) para designar esta propiedad como clave principal del documento.
     * Se anota con [[BsonRepresentation(BsonType.ObjectId)]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonRepresentationAttribute.htm) para permitir que el parámetro pase como tipo `string` en lugar de como una estructura [ObjectId](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_ObjectId.htm). Mongo controla la conversión de `string` a `ObjectId`.
     
-    Otras propiedades de la clase se anotan con el atributo [[BsonElement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm). El valor del atributo representa el nombre de propiedad en la colección de MongoDB.
+    La propiedad `BookName` se anota con el atributo [[BsonElement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm). El valor `Name` del atributo representa el nombre de propiedad en la colección de MongoDB.
 
 ## <a name="add-a-configuration-model"></a>Adición de un modelo configuración
 
@@ -209,9 +232,9 @@ La base de datos está lista. Puede empezar a crear la API web de ASP.NET Core.
 
     La clase anterior `BookstoreDatabaseSettings` se utiliza para almacenar los valores de propiedad `BookstoreDatabaseSettings` del archivo *appsettings.json*. Los nombres de las propiedades de JSON y C# son iguales para facilitar el proceso de asignación.
 
-1. Agregue el código siguiente a `Startup.ConfigureServices` antes de llamar a `AddMvc`:
+1. Agregue el código resaltado siguiente a `Startup.ConfigureServices`:
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureDatabaseSettings)]
+    [!code-csharp[](first-mongo-app/sample_snapshot/BooksApi/Startup.ConfigureServices.AddDbSettings.cs?highlight=3-7)]
 
     En el código anterior:
 
@@ -231,9 +254,9 @@ La base de datos está lista. Puede empezar a crear la API web de ASP.NET Core.
 
     En el código anterior, se recuperó una instancia de `IBookstoreDatabaseSettings` de la inserción de dependencias mediante la inserción de un constructor. Esta técnica proporciona acceso a los valores de configuración de *appsettings.json* que se agregaron en la sección [Adición de un modelo de configuración](#add-a-configuration-model).
 
-1. En `Startup.ConfigureServices`, registre la clase `BookService` con inserción de dependencias:
+1. Agregue el código resaltado siguiente a `Startup.ConfigureServices`:
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=9)]
+    [!code-csharp[](first-mongo-app/sample_snapshot/BooksApi/Startup.ConfigureServices.AddSingletonService.cs?highlight=9)]
 
     En el código anterior, la clase `BookService` se registra con inserción de dependencias para admitir la inserción del constructor en las clases de consumo. La duración de servicio de tipo singleton es la más adecuada porque `BookService` toma una dependencia directa sobre `MongoClient`. Según las [instrucciones oficiales de reutilización de cliente Mongo](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use), `MongoClient` debe registrarse en la inserción de dependencias con una duración de servicio de tipo singleton.
 
@@ -306,6 +329,33 @@ El controlador de API web anterior:
       "author":"Robert C. Martin"
     }
     ```
+
+## <a name="configure-json-serialization-options"></a>Configuración de las opciones de serialización de JSON
+
+Hay dos detalles que cambiar sobre las respuestas JSON devueltas en la sección [Prueba de la API web](#test-the-web-api):
+
+* Las mayúsculas y minúsculas Camel predeterminadas de los nombres de propiedad se deben cambiar para que coincidan con el uso de mayúsculas y minúsculas de Pascal de los nombres de propiedad del objeto CLR.
+* La propiedad `bookName` se debe devolver como `Name`.
+
+Para satisfacer los requisitos anteriores, realice los cambios siguientes:
+
+1. En `Startup.ConfigureServices`, cambie el código resaltado siguiente en la llamada al método `AddMvc`:
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=12)]
+
+    Con el cambio anterior, los nombres de propiedad de la respuesta JSON serializada de la API web coinciden con sus nombres de propiedad correspondientes en el tipo de objeto CLR. Por ejemplo, la propiedad `Author` de la clase `Book` se serializa como `Author`.
+
+1. En *Models/Book.cs*, anote la propiedad `BookName` con el atributo [[JsonProperty]](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonPropertyAttribute.htm) siguiente:
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs?name=snippet_BookNameProperty&highlight=2)]
+
+    El valor `Name` del atributo `[JsonProperty]` representa el nombre de propiedad en la respuesta JSON serializada de la API web.
+
+1. Agregue el código siguiente en la parte superior del archivo *Models/Book.cs* para resolver la referencia al atributo `[JsonProperty]`:
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs?name=snippet_NewtonsoftJsonImport)]
+
+1. Repita los pasos definidos en la sección [Prueba de la API web](#test-the-web-api). Observe la diferencia en los nombres de propiedad JSON.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,12 +5,12 @@ description: Obtenga información sobre la manera en que ASP.NET Core proporcion
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 3192ad150b914c00b315f38bd9fe077ebf402b37
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: ec78d35daf6823779fca491aca7b7b309db4b02e
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488707"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750037"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
 
@@ -30,7 +30,7 @@ La localización de la aplicación implica lo siguiente:
 
 3. Implementar una estrategia para seleccionar el idioma o la referencia cultural de cada solicitud
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="make-the-apps-content-localizable"></a>Hacer que el contenido de la aplicación sea localizable
 
@@ -197,7 +197,7 @@ Consideremos, por ejemplo, que quita el designador de referencia cultural ".fr" 
 
 ### <a name="generate-resource-files-with-visual-studio"></a>Generar archivos de recursos con Visual Studio
 
-Si crea un archivo de recursos en Visual Studio sin una referencia cultural en el nombre de archivo (por ejemplo, *Welcome.resx*), Visual Studio creará una clase de C# con una propiedad para cada cadena. Normalmente esto no interesa con ASP.NET Core;  por lo general, no tendrá un archivo de recursos *.resx* predeterminado (un archivo *.resx* sin el nombre de la referencia cultural). Se recomienda que cree el archivo *.resx* con un nombre de referencia cultural (por ejemplo, *Welcome.fr.resx*). Cuando cree un archivo *.resx* con un nombre de referencia cultural, Visual Studio no generará el archivo de clase. Suponemos que muchos desarrolladores no crearán un archivo de recursos de idioma predeterminado.
+Si crea un archivo de recursos en Visual Studio sin una referencia cultural en el nombre de archivo (por ejemplo, *Welcome.resx*), Visual Studio creará una clase de C# con una propiedad para cada cadena. Normalmente esto no interesa con ASP.NET Core; por lo general, no tendrá un archivo de recursos *.resx* predeterminado (un archivo *.resx* sin el nombre de la referencia cultural). Se recomienda que cree el archivo *.resx* con un nombre de referencia cultural (por ejemplo, *Welcome.fr.resx*). Cuando cree un archivo *.resx* con un nombre de referencia cultural, Visual Studio no generará el archivo de clase. Suponemos que muchos desarrolladores no crearán un archivo de recursos de idioma predeterminado.
 
 ### <a name="add-other-cultures"></a>Agregar otras referencias culturales
 
@@ -348,3 +348,4 @@ Términos:
 * [Globalización y localización de aplicaciones .NET](/dotnet/standard/globalization-localization/index)
 * [Recursos en archivos .resx](/dotnet/framework/resources/working-with-resx-files-programmatically)
 * [Kit de herramientas de aplicaciones multilingüe de Microsoft](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
+* [Localización y genéricos](https://github.com/hishamco/hishambinateya.com/blob/master/Posts/localization-and-generics.md)

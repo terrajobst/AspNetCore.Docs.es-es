@@ -4,14 +4,14 @@ author: ardalis
 description: Descubra cómo usar las vistas parciales para dividir los archivos de marcado de gran tamaño y reducir la duplicación de marcado común en las páginas web en aplicaciones ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/06/2019
+ms.date: 06/12/2019
 uid: mvc/views/partial
-ms.openlocfilehash: e13b2ea974697bb12c121d1a70fb5079d6aadb2d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 901fd52f89969141713e443890781a77308bd901
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64887470"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034916"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Vistas parciales en ASP.NET Core
 
@@ -48,7 +48,7 @@ No utilice una vista parcial donde se requiera la ejecución de código o lógic
 
 Una vista parcial es un archivo de marcado *.cshtml* que se mantiene dentro de la carpeta *Vistas* (MVC) o *Páginas* (Razor Pages).
 
-En ASP.NET Core MVC, la clase <xref:Microsoft.AspNetCore.Mvc.ViewResult> de un controlador es capaz de devolver una vista o una vista parcial. Está planeada una funcionalidad similar para Razor Pages en ASP.NET Core 2.2. En Razor Pages, una clase <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> puede devolver una clase <xref:Microsoft.AspNetCore.Mvc.PartialViewResult>. La referencia y representación de vistas parciales se describe en la sección [Referencia a una vista parcial](#reference-a-partial-view).
+En ASP.NET Core MVC, la clase <xref:Microsoft.AspNetCore.Mvc.ViewResult> de un controlador es capaz de devolver una vista o una vista parcial. En Razor Pages, un elemento <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> puede devolver una vista parcial representada como un objeto <xref:Microsoft.AspNetCore.Mvc.PartialViewResult>. La referencia y representación de vistas parciales se describe en la sección [Referencia a una vista parcial](#reference-a-partial-view).
 
 A diferencia de la representación de páginas o vistas de MVC, una vista parcial no ejecuta *_ViewStart.cshtml*. Para más información sobre *_ViewStart.cshtml*, vea <xref:mvc/views/layout>.
 
@@ -60,7 +60,7 @@ Los nombres de archivo de las vistas parciales suelen comenzar con un guión baj
 
 Una vista parcial es un archivo de marcado *.cshtml* que se mantiene dentro de la carpeta *Vistas*.
 
-La clase <xref:Microsoft.AspNetCore.Mvc.ViewResult> de un controlador es capaz de devolver una vista o una vista parcial.
+La clase <xref:Microsoft.AspNetCore.Mvc.ViewResult> de un controlador es capaz de devolver una vista o una vista parcial. La referencia y representación de vistas parciales se describe en la sección [Referencia a una vista parcial](#reference-a-partial-view).
 
 A diferencia de la representación de vistas de MVC, una vista parcial no ejecuta *_ViewStart.cshtml*. Para más información sobre *_ViewStart.cshtml*, vea <xref:mvc/views/layout>.
 
@@ -69,6 +69,33 @@ Los nombres de archivo de las vistas parciales suelen comenzar con un guión baj
 ::: moniker-end
 
 ## <a name="reference-a-partial-view"></a>Referencia a una vista parcial
+
+::: moniker range=">= aspnetcore-2.0"
+
+### <a name="use-a-partial-view-in-a-razor-pages-pagemodel"></a>Uso de una vista parcial en una clase PageModel de Razor Pages
+
+En ASP.NET Core 2.0 o 2.1, el método de controlador siguiente representa la vista parcial *\_AuthorPartialRP.cshtml* en la respuesta:
+
+```csharp
+public IActionResult OnGetPartial() =>
+    new PartialViewResult
+    {
+        ViewName = "_AuthorPartialRP",
+        ViewData = ViewData,
+    };
+```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+En ASP.NET Core 2.2 o posterior, un método de controlador puede llamar de forma alternativa al método <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageBase.Partial*> para generar un objeto `PartialViewResult`:
+
+[!code-csharp[](partial/sample/PartialViewsSample/Pages/DiscoveryRP.cshtml.cs?name=snippet_OnGetPartial)]
+
+::: moniker-end
+
+### <a name="use-a-partial-view-in-a-markup-file"></a>Uso de una vista parcial en un archivo de marcado
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -263,7 +290,7 @@ Puede pasar un modelo a una vista parcial. El modelo puede ser un objeto persona
 
 El siguiente marcado de la aplicación de ejemplo proviene de la página *Pages/ArticlesRP/ReadRP.cshtml*. La página contiene dos vistas parciales. La segunda vista parcial se pasa a un modelo y `ViewData` a la vista parcial. La sobrecarga del constructor de `ViewDataDictionary` se usa para pasar un nuevo diccionario `ViewData` a la vez que conserva el diccionario `ViewData` existente.
 
-[!code-cshtml[](partial/sample/PartialViewsSample/Pages/ArticlesRP/ReadRP.cshtml?name=snippet_ReadPartialViewRP&highlight=5,15-19)]
+[!code-cshtml[](partial/sample/PartialViewsSample/Pages/ArticlesRP/ReadRP.cshtml?name=snippet_ReadPartialViewRP&highlight=5,15-20)]
 
 *Pages/Shared/_AuthorPartialRP.cshtml* es la primera vista parcial a la que hace referencia el archivo de marcado *ReadRP.cshtml*:
 
@@ -279,7 +306,7 @@ El siguiente marcado de la aplicación de ejemplo proviene de la página *Pages/
 
 El marcado siguiente de la aplicación de ejemplo muestra la vista *Views/Articles/Read.cshtml*. La vista contiene dos vistas parciales. La segunda vista parcial se pasa a un modelo y `ViewData` a la vista parcial. La sobrecarga del constructor de `ViewDataDictionary` se usa para pasar un nuevo diccionario `ViewData` a la vez que conserva el diccionario `ViewData` existente.
 
-[!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_ReadPartialView&highlight=5,15-19)]
+[!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_ReadPartialView&highlight=5,15-20)]
 
 *Views/Shared/_AuthorPartial.cshtml* es la primera vista parcial a la que hace referencia el archivo de marcado *ReadRP.cshtml*:
 

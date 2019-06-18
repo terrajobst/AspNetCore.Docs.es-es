@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: cf8bb67703b564a711105123117498c94ab44e68
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 45506d071c90c91a61e6912ff51350b43e8ae136
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64889720"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034794"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Agregar un campo nuevo a una aplicación de ASP.NET Core MVC
 
@@ -25,7 +25,7 @@ En esta sección, Migraciones de [Entity Framework](/ef/core/get-started/aspnetc
 Al usar Code First de EF para crear una base de datos automáticamente, Code First hace lo siguiente:
 
 * Agrega una tabla a la base de datos para realizar un seguimiento del esquema de la base de datos.
-* Comprueba que la base de datos está sincronizada con las clases del modelo del que se generó. Si no está sincronizado, EF produce una excepción. Esto facilita la detección de problemas de código o base de datos incoherentes.
+* Comprueba que la base de datos está sincronizada con las clases del modelo desde las que se ha generado. Si no está sincronizado, EF produce una excepción. Esto facilita la detección de problemas de código o base de datos incoherentes.
 
 ## <a name="add-a-rating-property-to-the-movie-model"></a>Adición de una propiedad de clasificación al modelo Movie
 

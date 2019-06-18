@@ -5,14 +5,14 @@ description: Aprenda sobre la configuración de las aplicaciones hospedadas detr
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/24/2019
+ms.date: 06/11/2019
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 2423b5bed760ad879d1c47c5e64b0f815b50397e
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: ab48d80c9cb1c09b5164ed732e76a59687683e97
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251382"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034731"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Configuración de ASP.NET Core para trabajar con servidores proxy y equilibradores de carga
 
@@ -53,11 +53,11 @@ No todos los dispositivos de red agregan los encabezados `X-Forwarded-For` y `X-
 
 ## <a name="iisiis-express-and-aspnet-core-module"></a>IIS o IIS Express y el módulo ASP.NET Core
 
-El Middleware de encabezados reenviados se habilita de forma predeterminada mediante el [Middleware de integración con IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) cuando la aplicación se hospeda [fuera de proceso](xref:fundamentals/servers/index#out-of-process-hosting-model) detrás de IIS y del módulo ASP.NET Core. El Middleware de encabezados reenviados está activado para ejecutarse primero en la canalización de middleware con una configuración restringida específica del módulo ASP.NET Core debido a problemas de confianza con los encabezados reenviados (por ejemplo, [suplantación de IP](https://www.iplocation.net/ip-spoofing)). El middleware está configurado para reenviar los encabezados `X-Forwarded-For` y `X-Forwarded-Proto` y está restringido a un único proxy localhost. Si se requiere configuración adicional, consulte la sección [Opciones del Middleware de encabezados reenviados](#forwarded-headers-middleware-options).
+El Middleware de encabezados reenviados se habilita de forma predeterminada mediante el [Middleware de integración con IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) cuando la aplicación se hospeda [fuera de proceso](xref:host-and-deploy/iis/index#out-of-process-hosting-model) detrás de IIS y del módulo ASP.NET Core. El Middleware de encabezados reenviados está activado para ejecutarse primero en la canalización de middleware con una configuración restringida específica del módulo ASP.NET Core debido a problemas de confianza con los encabezados reenviados (por ejemplo, [suplantación de IP](https://www.iplocation.net/ip-spoofing)). El middleware está configurado para reenviar los encabezados `X-Forwarded-For` y `X-Forwarded-Proto` y está restringido a un único proxy localhost. Si se requiere configuración adicional, consulte la sección [Opciones del Middleware de encabezados reenviados](#forwarded-headers-middleware-options).
 
 ## <a name="other-proxy-server-and-load-balancer-scenarios"></a>Otros escenarios de servidor proxy y equilibrador de carga
 
-Al margen del uso de la [integración con IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) al hospedar [fuera de proceso](xref:fundamentals/servers/index#out-of-process-hosting-model), el Middleware de encabezados reenviados no está habilitado de forma predeterminada. El middleware de encabezados reenviados debe estar habilitado en una aplicación para procesar los encabezados reenviados con <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*>. Después de habilitar el middleware, si no se especifica <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> para él, el valor predeterminado [ForwardedHeadersOptions.ForwardedHeaders](xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders) es [ForwardedHeaders.None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders).
+Al margen del uso de la [integración con IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) al hospedar [fuera de proceso](xref:host-and-deploy/iis/index#out-of-process-hosting-model), el Middleware de encabezados reenviados no está habilitado de forma predeterminada. El middleware de encabezados reenviados debe estar habilitado en una aplicación para procesar los encabezados reenviados con <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*>. Después de habilitar el middleware, si no se especifica <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> para él, el valor predeterminado [ForwardedHeadersOptions.ForwardedHeaders](xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders) es [ForwardedHeaders.None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders).
 
 Configure el middleware con <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> para reenviar los encabezados `X-Forwarded-For` y `X-Forwarded-Proto` en `Startup.ConfigureServices`. Invoque el método <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> en `Startup.Configure` antes de llamar a otro middleware:
 
@@ -226,6 +226,38 @@ services.Configure<ForwardedHeadersOptions>(options =>
 });
 ```
 
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+## <a name="forward-the-scheme-for-linux-and-non-iis-reverse-proxies"></a>Reenvío del esquema para servidores proxy inversos Linux y que no son de IIS
+
+Las plantillas de .NET Core llaman a <xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*> y <xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*>. Estos métodos incluyen un sitio en un bucle infinito si se implementan en una instancia de Azure App Service de Linux, una máquina virtual Linux de Azure (VM), o bien detrás de cualquier otro servidor proxy inverso, además de IIS. El servidor proxy inverso termina TLS y Kestrel no es consciente del esquema de solicitud correcto. En esta configuración también se produce un error de OAuth y OIDC, ya que generan redirecciones incorrectas. <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> agrega y configura middleware de encabezados reenviados cuando se ejecuta detrás de IIS, pero no hay ninguna configuración automática coincidente para Linux (integración de Apache o Nginx).
+
+Para reenviar el esquema desde el servidor proxy en escenarios que no sean de IIS, agregue y configure Middleware de encabezados reenviados. En `Startup.ConfigureServices`, use el código siguiente:
+
+```csharp
+// using Microsoft.AspNetCore.HttpOverrides;
+
+if (string.Equals(
+    Environment.GetEnvironmentVariable("ASPNETCORE_FORWARDEDHEADERS_ENABLED"), 
+    "true", StringComparison.OrdinalIgnoreCase))
+{
+    services.Configure<ForwardedHeadersOptions>(options =>
+    {
+        options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | 
+            ForwardedHeaders.XForwardedProto;
+        // Only loopback proxies are allowed by default.
+        // Clear that restriction because forwarders are enabled by explicit 
+        // configuration.
+        options.KnownNetworks.Clear();
+        options.KnownProxies.Clear();
+    });
+}
+```
+
+Hasta que se proporcionen nuevas imágenes de contenedor en Azure, tendrá que crear una configuración de aplicación (variable de entorno) para `ASPNETCORE_FORWARDEDHEADERS_ENABLED` establecida en `true`. Para más información, vea [Templates do not work in Antares Linux due to missing scheme forwarders (aspnet/AspNetCore #4135)](https://github.com/aspnet/AspNetCore/issues/4135) (En Linux Antares no funcionan las plantillas debido a la ausencia de reenviadores de esquema (aspnet/AspNetCore #4135)).
+
+::: moniker-end
+
 ## <a name="troubleshoot"></a>Solucionar problemas
 
 Cuando no se reenvíen los encabezados como estaba previsto, habilite el [registro](xref:fundamentals/logging/index). Si los registros no proporcionan suficiente información para solucionar el problema, enumere los encabezados de solicitud recibidos por el servidor. Use middleware insertado para escribir encabezados de solicitud en la respuesta de una aplicación o para registrar los encabezados. 
@@ -310,6 +342,53 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 > [!IMPORTANT]
 > Admita solo las redes y los servidores proxy de confianza para reenviar encabezados. De lo contrario, se pueden producir ataques de [suplantación de IP](https://www.iplocation.net/ip-spoofing).
+
+## <a name="certificate-forwarding"></a>Reenvío de certificados 
+
+### <a name="on-azure"></a>En Azure
+
+Vea la [documentación de Azure](/azure/app-service/app-service-web-configure-tls-mutual-auth) para configurar Azure Web Apps. En el método `Startup.Configure` de la aplicación, agregue el código siguiente antes de la llamada a `app.UseAuthentication();`:
+
+```csharp
+app.UseCertificateForwarding();
+```
+
+También tendrá que configurar el middleware de reenvío de certificados para especificar el nombre de encabezado que usa Azure. En el método `Startup.ConfigureServices` de la aplicación, agregue el código siguiente para configurar el encabezado desde el que el middleware crea un certificado:
+
+```csharp
+services.AddCertificateForwarding(options =>
+    options.CertificateHeader = "X-ARR-ClientCert");
+```
+
+### <a name="with-other-web-proxies"></a>Con otros servidores proxy web
+
+Si usa un proxy que no sea IIS o Enrutamiento de solicitud de aplicaciones de Azure Web Apps, configure el proxy para reenviar el certificado que ha recibido en un encabezado HTTP. En el método `Startup.Configure` de la aplicación, agregue el código siguiente antes de la llamada a `app.UseAuthentication();`:
+
+```csharp
+app.UseCertificateForwarding();
+```
+
+También tendrá que configurar el middleware de reenvío de certificados para especificar el nombre de encabezado. En el método `Startup.ConfigureServices` de la aplicación, agregue el código siguiente para configurar el encabezado desde el que el middleware crea un certificado:
+
+```csharp
+services.AddCertificateForwarding(options =>
+    options.CertificateHeader = "YOUR_CERTIFICATE_HEADER_NAME");
+```
+
+Por último, si el proxy realiza una operación que no sea la codificación Base64 del certificado (como sucede con Nginx), establezca la opción `HeaderConverter`. Considere el ejemplo siguiente de `Startup.ConfigureServices`:
+
+```csharp
+services.AddCertificateForwarding(options =>
+{
+    options.CertificateHeader = "YOUR_CUSTOM_HEADER_NAME";
+    options.HeaderConverter = (headerValue) => 
+    {
+        var clientCertificate = 
+           /* some conversion logic to create an X509Certificate2 */
+        return clientCertificate;
+    }
+});
+```
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

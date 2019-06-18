@@ -4,14 +4,14 @@ author: juntaoluo
 description: En este tutorial se le mostrará cómo crear un servicio gRPC y un cliente gRPC en ASP.NET Core. Aprenda a crear un proyecto de servicio gRPC, edite un archivo proto y agregue una llamada de streaming dúplex.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 06/05/2019
+ms.date: 06/12/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 71e3321819eb7169f0896abe3e07849f59ea6fc7
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 919db3f31310342657c89100a6e25e8293648a9f
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692531"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034811"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Tutorial: Crear un servidor y un cliente gRPC en ASP.NET Core
 
@@ -86,13 +86,13 @@ En Visual Studio, seleccione **Archivo > Abrir** y elija el archivo *GrpcGreeter
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Presione Ctrl+F5 para ejecutar el servicio gRPC sin el depurador.
+* Presione `Ctrl+F5` para ejecutar el servicio gRPC sin el depurador.
 
   Visual Studio ejecuta el servicio en un símbolo del sistema.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
 
-* Ejecute el proyecto GrpcGreeter de gRPC Greeter desde la línea de comandos mediante `dotnet run`.
+* Ejecute el proyecto *GrpcGreeter* de gRPC Greeter desde la línea de comandos mediante `dotnet run`.
 
 <!-- End of combined VS/Mac tabs -->
 
@@ -112,7 +112,7 @@ info: Microsoft.Hosting.Lifetime[0]
 
 ### <a name="examine-the-project-files"></a>Examen de los archivo del proyecto
 
-Archivos de GrpcGreeter:
+Archivos de proyecto de *GrpcGreeter*:
 
 * *greet.proto*: El archivo *Protos/greet.proto* define el gRPC `Greeter` y se usa para generar los recursos de servidor gRPC. Para obtener más información, vea [Introducción a gRPC](xref:grpc/index).
 * Carpeta *Servicios*: contiene la implementación del servicio `Greeter`.
@@ -125,7 +125,7 @@ Archivos de GrpcGreeter:
 ## <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Seleccione **Archivo** > **Nuevo** > **Proyecto** de la barra de menús.
-* En el cuadro de diálogo **Crear un nuevo proyecto**, seleccione **Aplicación de consola (.NET Core)** .
+* En el cuadro de diálogo **Crear un nuevo proyecto**, seleccione **Aplicación de consola (.NET Core)**.
 * Seleccione **Siguiente**.
 * En el cuadro de texto **Nombre**, escriba "GrpcGreeterClient".
 * Seleccione **Crear**.
@@ -153,13 +153,13 @@ Siga las instrucciones que se indican [aquí](/dotnet/core/tutorials/using-on-ma
 
 Agregue los siguientes paquetes al proyecto de cliente gRPC:
 
-* [Grpc.Core](https://www.nuget.org/packages/Grpc.Core), que contiene la API de C# para el cliente de C-core.
+* [Grpc.Net.Client](https://www.nuget.org/packages/Grpc.Net.Client), que contiene el cliente de .NET Core.
 * [Google.Protobuf](https://www.nuget.org/packages/Google.Protobuf/), que contiene API de mensajes protobuf para C#.
 * [Grpc.Tools](https://www.nuget.org/packages/Grpc.Tools/), que contiene compatibilidad con herramientas de C# para archivos protobuf. El paquete de herramientas no es necesario en el runtime, de modo que la dependencia se marca con `PrivateAssets="All"`.
 
 ### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Instalación de los paquetes con la Consola del Administrador de paquetes (PMC) o mediante Administrar paquete de NuGet
+Instale los paquetes con la Consola del Administrador de paquetes (PMC) o mediante Administrar paquetes NuGet.
 
 #### <a name="pmc-option-to-install-packages"></a>Opción de PMC para instalar paquetes
 
@@ -168,7 +168,7 @@ Instalación de los paquetes con la Consola del Administrador de paquetes (PMC) 
 * Ejecute los comandos siguientes:
 
  ```powershell
-Install-Package Grpc.Core
+Install-Package Grpc.Net.Client
 Install-Package Google.Protobuf
 Install-Package Grpc.Tools
 ```
@@ -186,7 +186,7 @@ Install-Package Grpc.Tools
 Ejecute los siguientes comandos en el **terminal integrado**:
 
 ```console
-dotnet add GrpcGreeterClient.csproj package Grpc.Core
+dotnet add GrpcGreeterClient.csproj package Grpc.Net.Client
 dotnet add GrpcGreeterClient.csproj package Google.Protobuf
 dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 ```
@@ -194,8 +194,8 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 ### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
 * Haga clic con el botón derecho en la carpeta **Paquetes**, en **Panel de solución** > **Agregar paquetes**.
-* Escriba **Grpc.Core** en el cuadro de búsqueda.
-* Seleccione el paquete **Grpc.Core** en el panel de resultados y haga clic en **Agregar paquete**.
+* Escriba **Grpc.Net.Client** en el cuadro de búsqueda.
+* Seleccione el paquete **Grpc.Net.Client** en el panel de resultados y seleccione **Agregar paquete**.
 * Repita el proceso para `Google.Protobuf` y `Grpc.Tools`.
 
 ---
@@ -242,23 +242,21 @@ Actualice el archivo *Program.cs* del cliente gRPC con el código siguiente:
 
 El cliente de Greeter se crea mediante lo siguiente:
 
-* Creación de una instancia de `Channel` que contiene la información para crear la conexión al servicio gRPC.
-* Uso de `Channel` para construir el cliente de Greeter:
+* Creación de una instancia de `HttpClient` que contiene la información para crear la conexión al servicio gRPC.
+* Uso de `HttpClient` para construir el cliente de Greeter:
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=4-6)]
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=3-9)]
 
 El cliente de Greeter realiza una llamada al método `SayHello` asincrónico. Se muestra el resultado de la llamada a `SayHello`:
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=7-9)]
-
-Apague el parámetro `Channel` que usa el cliente cuando las operaciones hayan finalizado la liberación de todos los recursos.
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=10-12)]
 
 ## <a name="test-the-grpc-client-with-the-grpc-greeter-service"></a>Prueba del cliente gRPC con el servicio gRPC Greeter
 
 ### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* En el servicio Greeter, pulse Ctrl+F5 para iniciar el servidor sin el depurador.
-* En el proyecto GrpcGreeterClient, pulse Ctrl+F5 para iniciar el servidor sin el depurador.
+* En el servicio Greeter, presione `Ctrl+F5` para iniciar el servidor sin el depurador.
+* En el proyecto `GrpcGreeterClient`, presione `Ctrl+F5` para iniciar el servidor sin el depurador.
 
 ### <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
 

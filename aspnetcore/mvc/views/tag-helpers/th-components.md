@@ -4,14 +4,14 @@ author: scottaddie
 description: Obtenga información sobre qué son los componentes del asistente de etiquetas y cómo se usan en ASP.NET Core.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
-ms.date: 04/06/2019
+ms.date: 06/12/2019
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: 777bbcca3d1c2f03f386fa62df2a2e0b00409318
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b5b3abea6492cfaa7d6acd0e54073a8db12eb2a5
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64889740"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034755"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Componentes del asistente de etiquetas en ASP.NET Core
 
@@ -62,9 +62,16 @@ El código anterior enlaza un [widget de información sobre herramientas de arra
 
 Se debe agregar un componente de asistente de etiquetas a la colección de componentes de asistente de etiquetas de la aplicación. Hay tres maneras de agregarlo a la colección:
 
-1. [Registro mediante el contenedor de servicios](#registration-via-services-container)
-1. [Registro mediante un archivo de Razor](#registration-via-razor-file)
-1. [Registro con el modelo de página o controlador](#registration-via-page-model-or-controller)
+* [Componentes del asistente de etiquetas en ASP.NET Core](#tag-helper-components-in-aspnet-core)
+  * [Casos de uso](#use-cases)
+    * [Insertar en el elemento de encabezado HTML](#inject-into-html-head-element)
+    * [Insertar en el elemento del cuerpo HTML](#inject-into-html-body-element)
+  * [Registro de un componente](#register-a-component)
+    * [Registro mediante el contenedor de servicios](#registration-via-services-container)
+    * [Registro mediante un archivo de Razor](#registration-via-razor-file)
+    * [Registro con el modelo de página o controlador](#registration-via-page-model-or-controller)
+  * [Creación de un componente](#create-a-component)
+  * [Recursos adicionales](#additional-resources)
 
 ### <a name="registration-via-services-container"></a>Registro mediante el contenedor de servicios
 
