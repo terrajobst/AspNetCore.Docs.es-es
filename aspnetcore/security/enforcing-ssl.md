@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 8d48877153d6d75348e29299c669125904236de8
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 08ce50775d1b5348cb0528a1724cec2e5c72dae2
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692592"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152898"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Exigir HTTPS en ASP.NET Core
 
@@ -24,11 +24,32 @@ Este documento se muestra cómo:
 
 Ninguna API puede evitar que a un cliente envía información confidencial en la primera solicitud.
 
+::: moniker range="< aspnetcore-3.0"
+
 > [!WARNING]
+> ## <a name="api-projects"></a>Proyectos de API
+>
 > Hacer **no** usar [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) en las API Web que recibe información confidencial. `RequireHttpsAttribute` usa códigos de estado HTTP para redirigir los exploradores de HTTP a HTTPS. Los clientes de API no pueden entender o siguen las redirecciones de HTTP a HTTPS. Estos clientes pueden enviar información a través de HTTP. Las API Web deben:
 >
 > * No escucha en HTTP.
 > * Cierre la conexión con el código de estado 400 (solicitud incorrecta) y no atender la solicitud.
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+> [!WARNING]
+> ## <a name="api-projects"></a>Proyectos de API
+>
+> Hacer **no** usar [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) en las API Web que recibe información confidencial. `RequireHttpsAttribute` usa códigos de estado HTTP para redirigir los exploradores de HTTP a HTTPS. Los clientes de API no pueden entender o siguen las redirecciones de HTTP a HTTPS. Estos clientes pueden enviar información a través de HTTP. Las API Web deben:
+>
+> * No escucha en HTTP.
+> * Cierre la conexión con el código de estado 400 (solicitud incorrecta) y no atender la solicitud.
+>
+> ## <a name="hsts-and-api-projects"></a>Proyectos HSTS y API
+>
+> No incluyen los proyectos de API predeterminado [HSTS](#hsts) porque HSTS suele ser una instrucción única del explorador. Otros autores de llamadas, como teléfono o aplicaciones de escritorio, hacer **no** obedecen a la instrucción. Incluso dentro de los exploradores, una sola llamada autenticada a una API a través de HTTP tiene riesgos en redes no seguras. El modo seguro es configurar los proyectos de API para que sólo escuche y responda a través de HTTPS.
+
+::: moniker-end
 
 ## <a name="require-https"></a>Requisito de HTTPS
 
@@ -159,6 +180,8 @@ Requerir HTTPS globalmente (`options.Filters.Add(new RequireHttpsAttribute());`)
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
+<a name="hsts"></a>
 
 ## <a name="http-strict-transport-security-protocol-hsts"></a>Protocolo de seguridad de transporte estricto HTTP (HSTS)
 
