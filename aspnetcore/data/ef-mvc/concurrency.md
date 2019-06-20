@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: d3954800f4f1358565a627768e34465215dc4f6e
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bfe417a6153f74cf0ca2d9bcde4db1bba8453b3b
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886660"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152891"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Tutorial: Control de simultaneidad: ASP.NET MVC con EF Core
 
@@ -154,7 +154,7 @@ Sustituya el código existente para el método `Edit` de HttpPost por el siguien
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
-El código comienza por intentar leer el departamento que se va a actualizar. Si el método `SingleOrDefaultAsync` devuelve NULL, otro usuario eliminó el departamento. En ese caso, el código usa los valores del formulario expuesto para crear una entidad Department, por lo que puede volver a mostrarse la página Edit con un mensaje de error. Como alternativa, no tendrá que volver a crear la entidad Department si solo muestra un mensaje de error sin volver a mostrar los campos del departamento.
+El código comienza por intentar leer el departamento que se va a actualizar. Si el método `FirstOrDefaultAsync` devuelve NULL, otro usuario eliminó el departamento. En ese caso, el código usa los valores del formulario expuesto para crear una entidad Department, por lo que puede volver a mostrarse la página Edit con un mensaje de error. Como alternativa, no tendrá que volver a crear la entidad Department si solo muestra un mensaje de error sin volver a mostrar los campos del departamento.
 
 La vista almacena el valor `RowVersion` original en un campo oculto, y este método recibe ese valor en el parámetro `rowVersion`. Antes de llamar a `SaveChanges`, tendrá que colocar dicho valor de propiedad `RowVersion` original en la colección `OriginalValues` para la entidad.
 

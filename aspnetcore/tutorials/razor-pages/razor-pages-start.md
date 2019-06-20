@@ -5,12 +5,12 @@ description: Esta serie de tutoriales muestra cómo usar Razor Pages en ASP.NET 
 ms.author: riande
 ms.date: 6/3/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: e7d0312bd4b54586f4a3d403f464ded1aa49bcac
-ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
+ms.openlocfilehash: ee5ef572db8b3c4e152fd864177c0eea3edc1f20
+ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66824704"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048216"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Tutorial: Introducción a Razor Pages en ASP.NET Core
 
@@ -170,23 +170,23 @@ Contiene Razor Pages y los archivos auxiliares. Cada página de Razor se compone
 * Archivo *.cshtml* que contiene el marcado HTML con código C# que usa la sintaxis Razor.
 * Archivo *. cshtml.cs* que contiene C# código que controla los eventos de página.
 
-Los archivos auxiliares tienen nombres que comienzan con un carácter de subrayado. Por ejemplo, el archivo *_Layout.cshtml* configura los elementos de la interfaz de usuario comunes a todas las páginas. Este archivo configura el menú de navegación de la parte superior de la página y el aviso de copyright de la parte inferior de la página. Para obtener más información, vea <xref:mvc/views/layout>.
+Los archivos auxiliares tienen nombres que comienzan con un carácter de subrayado. Por ejemplo, el archivo *_Layout.cshtml* configura los elementos de la interfaz de usuario comunes a todas las páginas. Este archivo configura el menú de navegación de la parte superior de la página y el aviso de copyright de la parte inferior de la página. Para más información, consulte <xref:mvc/views/layout>.
 
 ### <a name="wwwroot-folder"></a>Carpeta wwwroot
 
-Contiene los archivos estáticos, como los archivos HTML, los archivos de JavaScript y los archivos CSS. Para obtener más información, vea <xref:fundamentals/static-files>.
+Contiene los archivos estáticos, como los archivos HTML, los archivos de JavaScript y los archivos CSS. Para más información, consulte <xref:fundamentals/static-files>.
 
 ### <a name="appsettingsjson"></a>appSettings.json
 
-Contiene los datos de configuración, como las cadenas de conexión. Para obtener más información, vea <xref:fundamentals/configuration/index>.
+Contiene los datos de configuración, como las cadenas de conexión. Para más información, consulte <xref:fundamentals/configuration/index>.
 
 ### <a name="programcs"></a>Program.cs
 
-Contiene el punto de entrada del programa. Para obtener más información, vea <xref:fundamentals/host/web-host>.
+Contiene el punto de entrada del programa. Para más información, consulte <xref:fundamentals/host/generic-host>.
 
 ### <a name="startupcs"></a>Startup.cs
 
-Contiene código que configura el comportamiento de la aplicación, como, por ejemplo, si se requiere consentimiento para las cookies. Para obtener más información, vea <xref:fundamentals/startup>.
+Contiene código que configura el comportamiento de la aplicación, como, por ejemplo, si se requiere consentimiento para las cookies. Para más información, consulte <xref:fundamentals/startup>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

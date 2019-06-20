@@ -4,14 +4,14 @@ author: tdykstra
 description: Obtenga información sobre cómo usar las imágenes de Docker de .NET Core publicadas desde el registro de Docker. Extraiga imágenes y cree las suyas propias.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 04/09/2019
+ms.date: 06/18/2019
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: 48fc53a4c2139960c0f696af5732ff68fc6c4b8a
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: ea96ae6d36c7e8320ea49e666a807ece72645865
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65451014"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67207789"
 ---
 # <a name="docker-images-for-aspnet-core"></a>Imágenes de Docker para ASP.NET Core
 
@@ -140,7 +140,7 @@ En algunos escenarios, puede que quiera implementar una aplicación en un conten
 
 * Vaya a la carpeta de proyecto en *dotnet-docker/samples/aspnetapp/aspnetapp*.
 
-* Ejecute el comando [dotnet publish](https://docs.microsoft.com/dotnet/core/tools/dotnet-publish.md):
+* Ejecute el comando [dotnet publish](/dotnet/core/tools/dotnet-publish):
 
   ```console
   dotnet publish -c Release -o published
