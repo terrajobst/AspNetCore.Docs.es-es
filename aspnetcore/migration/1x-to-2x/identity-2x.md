@@ -3,14 +3,14 @@ title: Migrar de autenticación e identidad a ASP.NET Core 2.0
 author: scottaddie
 description: En este artículo se describe los pasos más comunes para migrar la autenticación de ASP.NET Core 1.x y la identidad a ASP.NET Core 2.0.
 ms.author: scaddie
-ms.date: 06/13/2019
+ms.date: 06/21/2019
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 3e8bc75b87a85159c9668b52eea32bb7d700be6c
-ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
+ms.openlocfilehash: c83356e12fa5ae581b369265b9d857b08445ed51
+ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67196379"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67313743"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Migrar de autenticación e identidad a ASP.NET Core 2.0
 
@@ -304,18 +304,31 @@ En los 2.0 proyectos, importe el `Microsoft.AspNetCore.Authentication` espacio d
 ## <a name="windows-authentication-httpsys--iisintegration"></a>Autenticación de Windows (HTTP.sys / IISIntegration)
 
 Hay dos variaciones de autenticación de Windows:
-1. El host sólo permite que los usuarios autenticados
-2. El host permite tanto anónimos y los usuarios autenticados
 
-La primera variación que se ha descrito anteriormente se ve afectada por los cambios de 2.0.
+* El host sólo permite que los usuarios autenticados. Esta variación no se ve afectada por los cambios de 2.0.
+* El host permite tanto anónimos y los usuarios autenticados. Esta variación se ve afectada por los cambios de 2.0. Por ejemplo, la aplicación debe permitir que los usuarios anónimos en el [IIS](xref:host-and-deploy/iis/index) o [HTTP.sys](xref:fundamentals/servers/httpsys) capas pero autorizar a los usuarios en el nivel de controlador. En este escenario, establezca el esquema predeterminado el `Startup.ConfigureServices` método.
 
-La segunda variación que se ha descrito anteriormente se ve afectada por los cambios de 2.0. Por ejemplo, es posible que se lo que permite a los usuarios anónimos en su aplicación en IIS o [HTTP.sys](xref:fundamentals/servers/httpsys) pero autorizando a los usuarios en el nivel de controlador de capas. En este escenario, establezca el esquema predeterminado en `IISDefaults.AuthenticationScheme` en el `Startup.ConfigureServices` método:
+  Para [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/), Establece el esquema predeterminado en `IISDefaults.AuthenticationScheme`:
 
-```csharp
-services.AddAuthentication(IISDefaults.AuthenticationScheme);
-```
+  ```csharp
+  using Microsoft.AspNetCore.Server.IISIntegration;
 
-No se pudo establecer el esquema predeterminado impide que la solicitud authorize al desafío de trabajo.
+  services.AddAuthentication(IISDefaults.AuthenticationScheme);
+  ```
+
+  Para [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/), Establece el esquema predeterminado en `HttpSysDefaults.AuthenticationScheme`:
+
+  ```csharp
+  using Microsoft.AspNetCore.Server.HttpSys;
+
+  services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
+  ```
+
+  No se pudo establecer el esquema predeterminado que impide que la solicitud authorize (desafío) funcione con la siguiente excepción:
+
+  > `System.InvalidOperationException`: No se especificó ningún authenticationScheme y no había ningún DefaultChallengeScheme encuentra.
+
+Para obtener más información, consulta <xref:security/authentication/windowsauth>.
 
 <a name="identity-cookie-options"></a>
 

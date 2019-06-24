@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Conozca y solucione advertencias y errores en proyectos de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2019
+ms.date: 06/19/2019
 uid: test/troubleshoot
-ms.openlocfilehash: 3d755b2f0c509d65dea86bbe719e42935d87d546
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bcec8a55a5111e1f3acf53ae2f57b45e6e609d25
+ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64895332"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67313673"
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>Solución de problemas de proyectos de ASP.NET Core
 
@@ -27,11 +27,11 @@ Los vínculos siguientes proporcionan orientación para la solución:
 
 ## <a name="net-core-sdk-warnings"></a>Advertencias de SDK de .NET core
 
-### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>Se instalan las versiones de 64 bits del SDK de .NET Core y 32 bits
+### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>Se instalan las versiones de 32 bits y 64 bits del SDK de .NET Core
 
 En el **nuevo proyecto** cuadro de diálogo para ASP.NET Core, es posible que vea la advertencia siguiente:
 
-> Se instalan las versiones de 32 y 64 bits del SDK de .NET Core. Sólo las plantillas de las versiones de 64 bits instaladas en ' C:\\archivos de programa\\dotnet\\sdk\\' se mostrará.
+> Se instalan las versiones de 32 bits y 64 bits del SDK de .NET Core. Sólo las plantillas de las versiones de 64 bits instaladas en ' C:\\archivos de programa\\dotnet\\sdk\\"se muestran.
 
 Esta advertencia aparece cuando (x86) 32 bits y las versiones de 64 bits (x 64) de la [SDK de .NET Core](https://www.microsoft.com/net/download/all) están instalados. Causas comunes que se pueden instalar ambas versiones se incluyen:
 
@@ -45,9 +45,9 @@ Desinstalar el SDK de .NET Core de 32 bits para evitar esta advertencia. Desinst
 
 En el **nuevo proyecto** cuadro de diálogo para ASP.NET Core, es posible que vea la advertencia siguiente:
 
-> El SDK de .NET Core está instalado en varias ubicaciones. Sólo las plantillas de los SDK instalados en ' C:\\archivos de programa\\dotnet\\sdk\\' se mostrará.
+> El SDK de .NET Core está instalado en varias ubicaciones. Sólo las plantillas de los SDK instalados en ' C:\\archivos de programa\\dotnet\\sdk\\"se muestran.
 
-Vea este mensaje cuando haya al menos una instalación de SDK de .NET Core en un directorio fuera de *C:\\archivos de programa\\dotnet\\sdk\\*. Normalmente esto sucede cuando el SDK de .NET Core se ha implementado en un equipo con copiar y pegar en lugar del instalador MSI.
+Vea este mensaje cuando haya al menos una instalación de SDK de .NET Core en un directorio fuera de *C:\\archivos de programa\\dotnet\\sdk\\* . Normalmente esto sucede cuando el SDK de .NET Core se ha implementado en un equipo con copiar y pegar en lugar del instalador MSI.
 
 Desinstale todos los 32-bit SDK de .NET Core y los tiempos de ejecución para evitar esta advertencia. Desinstalar desde **Panel de Control** > **programas y características** > **desinstalar o cambiar un programa**. Si entiende por qué se produce la advertencia y sus implicaciones, puede omitir la advertencia.
 

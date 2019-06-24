@@ -4,14 +4,14 @@ author: rick-anderson
 description: En este tutorial se muestra la integración de autenticación de usuario de la cuenta de Google en una aplicación de ASP.NET Core existente.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 1/11/2019
+ms.date: 06/19/2019
 uid: security/authentication/google-logins
-ms.openlocfilehash: 44c79b3279db7946b6d89a726bd3f5acfb5f51af
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b0edac411e73cd2eec7c4e212b99971577f59cfb
+ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64895542"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316450"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Configuración de inicio de sesión externo de Google en ASP.NET Core
 
@@ -25,7 +25,7 @@ Este tutorial muestra cómo habilitar usuarios iniciar sesión con su cuenta de 
 
 * Vaya a [la integración de Google signo In de la aplicación web](https://developers.google.com/identity/sign-in/web/devconsole-project) y seleccione **configurar un proyecto**.
 * En el **configuración del cliente de OAuth** cuadro de diálogo, seleccione **servidor Web**.
-* En el **URI de redireccionamiento autorizado** cuadro de entrada de texto, establecer el URI de redireccionamiento. Por ejemplo, `https://localhost:5001/signin-google`
+* En el **URI de redireccionamiento autorizado** cuadro de entrada de texto, establecer el URI de redireccionamiento. Por ejemplo, `https://localhost:5001/signin-google`.
 * Guardar el **Id. de cliente** y **secreto de cliente**.
 * Al implementar el sitio, registrar la nueva url pública desde el **Google Console**.
 
@@ -44,7 +44,9 @@ Puede administrar las credenciales de la API y el uso en el [consola de API](htt
 
 ## <a name="configure-google-authentication"></a>Configurar la autenticación de Google
 
-Agregar el servicio de Google `Startup.ConfigureServices`.
+Agregar el servicio de Google `Startup.ConfigureServices`:
+
+[!code-csharp[](~/security/authentication/social/social-code/StartupGoogle.cs?name=snippet_ConfigureServices&highlight=10-18)]
 
 [!INCLUDE [default settings configuration](includes/default-settings2-2.md)]
 
@@ -58,7 +60,7 @@ Agregar el servicio de Google `Startup.ConfigureServices`.
 
 [!INCLUDE[](includes/chain-auth-providers.md)]
 
-Consulte la [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) referencia de API para obtener más información sobre las opciones de configuración compatible con la autenticación de Google. Esto puede utilizarse para solicitar información diferente sobre el usuario.
+Consulte la <xref:Microsoft.AspNetCore.Authentication.Google.GoogleOptions> referencia de API para obtener más información sobre las opciones de configuración compatible con la autenticación de Google. Esto puede utilizarse para solicitar información diferente sobre el usuario.
 
 ## <a name="change-the-default-callback-uri"></a>Cambiar el URI de devolución de llamada predeterminada
 
@@ -67,8 +69,8 @@ El segmento del URI `/signin-google` se establece como la devolución de llamada
 ## <a name="troubleshooting"></a>Solución de problemas
 
 * Si el inicio de sesión no funciona y no recibe algún error, cambie al modo de desarrollo para hacer más fácil de depurar el problema.
-* Si la identidad no está configurada mediante una llamada a `services.AddIdentity` en `ConfigureServices`, al intentar autenticar los resultados en *ArgumentException: Se debe proporcionar la opción 'SignInScheme'*. La plantilla de proyecto que se usa en este tutorial, se garantiza que esto se realiza.
-* Si la base de datos de sitio no se ha creado aplicando a la migración inicial, obtendrá *error en una operación de base de datos al procesar la solicitud* error. Pulse **aplicar migraciones** para crear la base de datos y actualizar para continuar más allá del error.
+* Si la identidad no está configurada mediante una llamada a `services.AddIdentity` en `ConfigureServices`, al intentar autenticar los resultados en *ArgumentException: Se debe proporcionar la opción 'SignInScheme'* . La plantilla de proyecto que se usa en este tutorial, se garantiza que esto se realiza.
+* Si la base de datos de sitio no se ha creado aplicando a la migración inicial, obtendrá *error en una operación de base de datos al procesar la solicitud* error. Seleccione **aplicar migraciones** para crear la base de datos y actualice la página para continuar más allá del error.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
