@@ -298,6 +298,8 @@
           uid: blazor/javascript-interop
         - name: Depuración
           uid: blazor/debug
+        - name: Llamada a una API de web
+          uid: blazor/call-web-api
         - name: Hospedaje e implementación
           items:
             - name: Información general
