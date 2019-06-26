@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
 uid: test/razor-pages-tests
-ms.openlocfilehash: f1526b8803f43ec8cbe77c1d2c100d9daf6cd316
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: f0e47f975579dc114eaeda375028ec62696f58ed
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64893722"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394740"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Pruebas unitarias páginas de Razor en ASP.NET Core
 
@@ -66,7 +66,7 @@ La aplicación de prueba es una aplicación de consola en el *tests/RazorPagesTe
 | Carpeta de la aplicación de prueba | Descripción |
 | --------------- | ----------- |
 | *UnitTests*     | <ul><li>*DataAccessLayerTest.cs* contiene las pruebas unitarias para la capa DAL.</li><li>*IndexPageTests.cs* contiene las pruebas unitarias para el modelo de página de índice.</li></ul> |
-| *Utilidades*     | Contiene el `TestingDbContextOptions` método utilizado para crear nueva base de datos de opciones de contexto para cada prueba unitaria DAL para que la base de datos se restablece a su condición de la línea base para cada prueba. |
+| *Utilidades*     | Contiene el `TestDbContextOptions` método utilizado para crear nueva base de datos de opciones de contexto para cada prueba unitaria DAL para que la base de datos se restablece a su condición de la línea base para cada prueba. |
 
 El marco de pruebas es [xUnit](https://xunit.github.io/). El objeto de marco de simulación es [Moq](https://github.com/moq/moq4).
 
@@ -93,14 +93,14 @@ using (var db = new AppDbContext(optionsBuilder.Options))
 }
 ```
 
-El problema con este enfoque es que cada prueba recibe la base de datos en cualquier estado de la prueba anterior lo dejó. Esto puede ser problemático cuando se intenta escribir pruebas de unidad atómica que no interfieren entre sí. Para forzar la `AppDbContext` para usar un nuevo contexto de base de datos para cada prueba, proporcione un `DbContextOptions` instancia que se basa en un nuevo proveedor de servicios. La aplicación de prueba muestra cómo hacerlo mediante su `Utilities` método de la clase `TestingDbContextOptions` (*tests/RazorPagesTestSample.Tests/Utilities/Utilities.cs*):
+El problema con este enfoque es que cada prueba recibe la base de datos en cualquier estado de la prueba anterior lo dejó. Esto puede ser problemático cuando se intenta escribir pruebas de unidad atómica que no interfieren entre sí. Para forzar la `AppDbContext` para usar un nuevo contexto de base de datos para cada prueba, proporcione un `DbContextOptions` instancia que se basa en un nuevo proveedor de servicios. La aplicación de prueba muestra cómo hacerlo mediante su `Utilities` método de la clase `TestDbContextOptions` (*tests/RazorPagesTestSample.Tests/Utilities/Utilities.cs*):
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
 Mediante el `DbContextOptions` en la unidad DAL pruebas permite que cada prueba ejecutar de forma atómica con una instancia de base de datos actualizada:
 
 ```csharp
-using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
+using (var db = new AppDbContext(Utilities.TestDbContextOptions()))
 {
     // Use the db here in the unit test.
 }
