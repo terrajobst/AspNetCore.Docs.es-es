@@ -3,14 +3,14 @@ title: Personalización del modelo de identidad en ASP.NET Core
 author: ajcvickers
 description: En este artículo se describe cómo personalizar el modelo de datos subyacente de Entity Framework Core para ASP.NET Core Identity.
 ms.author: avickers
-ms.date: 04/24/2019
+ms.date: 07/01/2019
 uid: security/authentication/customize_identity_model
-ms.openlocfilehash: 53ce77e20722f3ba3282ff4455a0b70d30e635b0
-ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
+ms.openlocfilehash: f549fdff4a416b5fadcb2b1078b051bbab8e402e
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65536018"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500478"
 ---
 # <a name="identity-model-customization-in-aspnet-core"></a>Personalización del modelo de identidad en ASP.NET Core
 
@@ -72,7 +72,7 @@ El [tipos de entidad](#entity-types) están relacionados entre sí de las manera
 
 ### <a name="default-model-configuration"></a>Configuración predeterminada del modelo
 
-Identidad define muchos *las clases de contexto* que heredan de <xref:Microsoft.EntityFrameworkCore.DbContext> para configurar y usar el modelo. Esta configuración se realiza mediante el [EF Core Fluent API de Code First](/ef/core/modeling/) en el <xref:Microsoft.EntityFrameworkCore.DbContext.OnModelCreating*> método de la clase de contexto. La configuración predeterminada es:
+Identidad define muchos *las clases de contexto* que heredan de [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) para configurar y usar el modelo. Esta configuración se realiza mediante el [EF Core Fluent API de Code First](/ef/core/modeling/) en el [OnModelCreating](/dotnet/api/microsoft.entityframeworkcore.dbcontext.onmodelcreating) método de la clase de contexto. La configuración predeterminada es:
 
 ```csharp
 builder.Entity<TUser>(b =>
@@ -463,7 +463,7 @@ Siga estos pasos para cambiar el tipo de clave principal:
             .AddDefaultTokenProviders();
     ```
 
-    Tipo de datos de la clave principal se deduce mediante el análisis de la <xref:Microsoft.EntityFrameworkCore.DbContext> objeto.
+    Tipo de datos de la clave principal se deduce mediante el análisis de la [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) objeto.
 
     En ASP.NET Core 2.1 o posterior, la identidad se proporciona como una biblioteca de clases de Razor. Para obtener más información, consulta <xref:security/authentication/scaffold-identity>. Por lo tanto, el código anterior requiere una llamada a <xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>. Si el proveedor de scaffolding de identidad se usó para agregar archivos de identidad para el proyecto, quite la llamada a `AddDefaultUI`.
 
@@ -477,7 +477,7 @@ Siga estos pasos para cambiar el tipo de clave principal:
             .AddDefaultTokenProviders();
     ```
 
-    Tipo de datos de la clave principal se deduce mediante el análisis de la <xref:Microsoft.EntityFrameworkCore.DbContext> objeto.
+    Tipo de datos de la clave principal se deduce mediante el análisis de la [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) objeto.
 
     ::: moniker-end
 
@@ -507,7 +507,7 @@ Siga estos pasos para cambiar el tipo de clave principal:
 
     [!code-csharp[](customize-identity-model/samples/2.1/RazorPagesSampleApp/Startup.cs?name=snippet_ConfigureServices&highlight=13-16)]
 
-    Tipo de datos de la clave principal se deduce mediante el análisis de la <xref:Microsoft.EntityFrameworkCore.DbContext> objeto.
+    Tipo de datos de la clave principal se deduce mediante el análisis de la [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) objeto.
 
     En ASP.NET Core 2.1 o posterior, la identidad se proporciona como una biblioteca de clases de Razor. Para obtener más información, consulta <xref:security/authentication/scaffold-identity>. Por lo tanto, el código anterior requiere una llamada a <xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>. Si el proveedor de scaffolding de identidad se usó para agregar archivos de identidad para el proyecto, quite la llamada a `AddDefaultUI`.
 
@@ -521,7 +521,7 @@ Siga estos pasos para cambiar el tipo de clave principal:
 
     [!code-csharp[](customize-identity-model/samples/2.0/RazorPagesSampleApp/Startup.cs?name=snippet_ConfigureServices&highlight=7-9)]
 
-    Tipo de datos de la clave principal se deduce mediante el análisis de la <xref:Microsoft.EntityFrameworkCore.DbContext> objeto.
+    Tipo de datos de la clave principal se deduce mediante el análisis de la [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) objeto.
 
     ::: moniker-end
 
@@ -962,7 +962,7 @@ En esta sección, se agrega compatibilidad con servidores proxy de la carga dife
 Tipos de entidad pueden realizarse adecuados para diferida carga de varias maneras, como se describe en el [documentación de EF Core](/ef/core/querying/related-data#lazy-loading). Por motivos de simplicidad, use servidores proxy de la carga diferida, lo que requiere:
 
 * Instalación de la [Microsoft.EntityFrameworkCore.Proxies](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Proxies/) paquete.
-* Una llamada a <xref:Microsoft.EntityFrameworkCore.ProxiesExtensions.UseLazyLoadingProxies*> dentro de <xref:Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext*>.
+* Una llamada a <xref:Microsoft.EntityFrameworkCore.ProxiesExtensions.UseLazyLoadingProxies*> dentro de [AddDbContext\<TContext >](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext).
 * Tipos de entidades públicas con `public virtual` las propiedades de navegación.
 
 El ejemplo siguiente se muestra cómo llamar `UseLazyLoadingProxies` en `Startup.ConfigureServices`:

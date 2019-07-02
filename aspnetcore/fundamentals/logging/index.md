@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/01/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 435f06b85af4a1a5a78a870c2add3e15ff1ffe89
-ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
+ms.openlocfilehash: f028a94a9b2014129a96cff2c06ba00f99ea5d15
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66837278"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500392"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -29,7 +29,7 @@ Un proveedor de registro muestra o almacena registros. Por ejemplo, el proveedor
 
 Para usar un proveedor, llame al método de extensión `Add{provider name}` del proveedor en *Program.cs*:
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=17-19)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=18-20)]
 
 La plantilla de proyecto predeterminada llama a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, que agrega los siguientes proveedores de registro:
 
@@ -443,7 +443,7 @@ Para suprimir todos los registros, especifique `LogLevel.None` como el nivel de 
 
 El código de la plantilla de proyecto llama a `CreateDefaultBuilder` para configurar el registro para los proveedores de consola y de depuración. El método `CreateDefaultBuilder` también establece el registro para buscar la configuración en una sección `Logging`, mediante código similar al siguiente:
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=16)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=17)]
 
 Los datos de configuración especifican niveles de registro mínimo por proveedor y categoría, como en el ejemplo siguiente:
 

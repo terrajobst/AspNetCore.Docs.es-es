@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar la autenticación de Wi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 06/12/2019
+ms.date: 07/01/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 93f833adff95f25d570947cd1a9035d652f522c2
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 30f1f554a29412ed6b84115d457d2da1aba91c17
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034952"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500504"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurar la autenticación de Windows en ASP.NET Core
 
@@ -145,7 +145,10 @@ Use **cualquier** de los métodos siguientes:
  El [Microsoft.AspNetCore.Authentication.Negotiate](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Negotiate) se puede usar el paquete NuGet con [Kestrel](xref:fundamentals/servers/kestrel) para admitir la autenticación de Windows mediante Negotiate, Kerberos y NTLM en Windows, Linux y macOS.
 
 > [!WARNING]
-> Las credenciales pueden conservarse entre las solicitudes en una conexión. *Negociar la autenticación no debe usarse con servidores proxy a menos que el proxy mantiene una afinidad de conexión de 1:1 (una conexión persistente) con Kestrel.* Esto significa que no se debe usar autenticación de negociación con Kestrel detrás de IIS [fuera de proceso de módulo de ASP.NET Core (ANCM)](xref:host-and-deploy/iis/index#out-of-process-hosting-model).
+> Las credenciales pueden conservarse entre las solicitudes en una conexión. *Negociar la autenticación no debe usarse con servidores proxy a menos que el proxy mantiene una afinidad de conexión de 1:1 (una conexión persistente) con Kestrel.*
+
+> [!NOTE]
+> El controlador Negotiate detecta si el servidor subyacente admite autenticación de Windows de forma nativa y si está habilitado. Si el servidor admite la autenticación de Windows, pero está deshabilitado, se produce un error que le pide que habilite la implementación del servidor. Cuando se habilita la autenticación de Windows en el servidor, el controlador Negotiate reenvía de manera transparente a él.
 
  Agregar servicios de autenticación mediante la invocación <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (`Microsoft.AspNetCore.Authentication.Negotiate` espacio de nombres) y `AddNegotitate` (`Microsoft.AspNetCore.Authentication.Negotiate` espacio de nombres) en `Startup.ConfigureServices`:
 
@@ -255,7 +258,17 @@ Mientras el [Microsoft.AspNetCore.Authentication.Negotiate](https://www.nuget.or
 
 ## <a name="claims-transformations"></a>Transformaciones de notificaciones
 
+::: moniker range=">= aspnetcore-3.0"
+
+Al hospedarse con IIS, <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> no se llama internamente para inicializar un usuario. Por tanto, se usa una implementación de <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> para transformar las notificaciones después de que cada autenticación no se active de forma predeterminada. Para obtener más información y un ejemplo de código que activa las transformaciones de notificaciones, consulte <xref:host-and-deploy/aspnet-core-module#in-process-hosting-model>.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 Al hospedar con el modo en proceso IIS, <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> no se llama internamente para inicializar un usuario. Por tanto, se usa una implementación de <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> para transformar las notificaciones después de que cada autenticación no se active de forma predeterminada. Para obtener más información y un ejemplo de código que activa las transformaciones de notificaciones cuando se hospedan en proceso, consulte <xref:host-and-deploy/aspnet-core-module#in-process-hosting-model>.
+
+::: moniker-end
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
