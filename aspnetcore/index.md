@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/07/2019
 uid: index
-ms.openlocfilehash: 6dd722b3b78d2af81497bde9e0519feb9af84748
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: ec2b5b72eeff21d183397284b0d538681282d45b
+ms.sourcegitcommit: 47cc13ab90913af9a2887cef0896bb4e9aba4dd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086140"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67399159"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -50,11 +50,11 @@ ASP.NET Core se integra perfectamente con bibliotecas y marcos populares del lad
 
 ## <a name="aspnet-core-targeting-net-framework"></a>ASP.NET Core con .NET Framework como destino
 
-ASP.NET Core 2.x puede tener como destino .NET Core o .NET Framework. Las aplicaciones de ASP.NET Core que tienen como destino .NET Framework no son multiplataforma, sino que solo se ejecutan en Windows. Por lo general, ASP.NET Core 2.x está formado por bibliotecas de [.NET Standard](/dotnet/standard/net-standard). Las bibliotecas escritas con .NET Standard 2.0 se ejecutan en [cualquier plataforma .NET que implementa .NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support).
+ASP.NET Core 2.x puede tener como destino .NET Core o .NET Framework. Las aplicaciones de ASP.NET Core que tienen como destino .NET Framework no son multiplataforma, sino que solo se ejecutan en Windows. Por lo general, ASP.NET Core 2.x está formado por bibliotecas de [.NET Standard](/dotnet/standard/net-standard). Las bibliotecas escritas con .NET Standard 2.0 se ejecutan en [cualquier plataforma .NET que implementa .NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support).
 
 ASP.NET Core 2.x se admite en las versiones de .NET Framework que implementan .NET Standard 2.0:
 
-* Se recomienda encarecidamente .NET Framework 4.7.1 y posterior.
+* Se recomienda la versión más reciente de .NET Framework.
 * .NET Framework 4.6.1 y posterior.
 
 ASP.NET Core 3.0 y versiones posteriores solo se ejecutan en .NET Core. Para obtener más información sobre este cambio, vea [A first look at changes coming in ASP.NET Core 3.0](https://blogs.msdn.microsoft.com/webdev/2018/10/29/a-first-look-at-changes-coming-in-asp-net-core-3-0/) (Descripción general de los cambios que se aplicarán a ASP.NET Core 3.0).

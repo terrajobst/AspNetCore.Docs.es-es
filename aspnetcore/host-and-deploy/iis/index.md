@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/28/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 7906891599b90fa73926781ca1a111e687798f63
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 2dab8b4839d6778d5dc6a3daf96c1719eecfe0fb
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034785"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394632"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -69,6 +69,17 @@ Una vez que IIS HTTP Server procesa la solicitud, la envía a la canalización d
 El hospedaje en proceso es opcional para las aplicaciones existentes, pero, para las plantillas [dotnet new](/dotnet/core/tools/dotnet-new), este modelo es el predeterminado para todos los escenarios de IIS e IIS Express.
 
 `CreateDefaultBuilder` agrega una instancia <xref:Microsoft.AspNetCore.Hosting.Server.IServer> mediante una llamada al método <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> para iniciar [CoreCLR](/dotnet/standard/glossary#coreclr) y hospedar la aplicación dentro del proceso de trabajo de IIS (*w3wp.exe* o *iisexpress.exe*). Las pruebas de rendimiento indican que el hospedaje de una aplicación .NET Core en proceso proporciona un rendimiento de solicitud considerablemente mayor en comparación con el hospedaje de solicitudes de aplicaciones fuera de proceso y de proxy para el servidor [Kestrel](xref:fundamentals/servers/kestrel).
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+> [!NOTE]
+> Las aplicaciones publicadas como un único archivo ejecutable no se pueden cargar por el modelo de hospedaje en proceso.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
 
 ### <a name="out-of-process-hosting-model"></a>Modelo de hospedaje fuera de proceso
 
@@ -315,7 +326,7 @@ Para obtener una versión anterior del instalador:
    * `OPT_NO_RUNTIME=1` &ndash; Omita la instalación del entorno de ejecución de .NET Core.
    * `OPT_NO_SHAREDFX=1` &ndash; Omita la instalación del marco compartido de ASP.NET (entorno de ejecución de ASP.NET).
    * `OPT_NO_X86=1` &ndash; Omita la instalación de entornos de ejecución x86. Utilice este parámetro cuando sepa que no va a hospedar aplicaciones de 32 bits. Si hay alguna posibilidad de que vaya a hospedar aplicaciones de 32 bits y 64 bits en el futuro, no use este parámetro e instale ambos entornos de ejecución.
-   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; Deshabilite la comprobación para usar una configuración compartida de IIS cuando la configuración compartida (*applicationHost.config*) esté en la misma máquina que la instalación de IIS. *Solo disponible para ASP.NET Core 2.2 o instaladores del conjunto de hospedaje posteriores.* Para obtener más información, vea <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
+   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; Deshabilite la comprobación para usar una configuración compartida de IIS cuando la configuración compartida (*applicationHost.config*) esté en la misma máquina que la instalación de IIS. *Solo disponible para ASP.NET Core 2.2 o instaladores del conjunto de hospedaje posteriores.* Para más información, consulte <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
 1. Reinicie el sistema o ejecute **net stop was /y**, seguido de **net start w3svc**, desde un shell de comandos. Al reiniciar IIS, se recoge un cambio en la variable PATH del sistema, que es una variable de entorno, realizado por el programa de instalación.
 
 > [!NOTE]
