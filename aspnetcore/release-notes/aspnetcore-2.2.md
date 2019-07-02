@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: aspnetcore-2.2
-ms.openlocfilehash: cdc761b645b91777bdf6084c3ad4659fcea55039
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: ad7b5ecc4f03d845375b1612150da183df9ec0d9
+ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64883210"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316581"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>Novedades de ASP.NET Core 2.2
 
@@ -19,7 +19,7 @@ En este artículo se resaltan los cambios más importantes de ASP.NET Core 2.2, 
 
 ## <a name="openapi-analyzers--conventions"></a>Convenciones y analizadores de OpenAPI
 
-OpenAPI (antes conocido como Swagger) es una especificación independiente del lenguaje que sirve para describir API REST. El ecosistema de OpenAPI dispone de herramientas que permiten descubrir, probar y generar código de cliente mediante la especificación. El soporte técnico para generar y visualizar los documentos de OpenAPI en ASP.NET Core MVC se proporciona a través de proyectos controlados por la comunidad como [NSwag](https://github.com/RSuter/NSwag) y [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore). ASP.NET Core 2.2 proporciona experiencias de uso de herramientas y entornos de ejecución mejoradas para crear documentos de OpenAPI.
+OpenAPI (antes conocido como Swagger) es una especificación independiente del lenguaje que sirve para describir API REST. El ecosistema de OpenAPI dispone de herramientas que permiten descubrir, probar y generar código de cliente mediante la especificación. El soporte técnico para generar y visualizar los documentos de OpenAPI en ASP.NET Core MVC se proporciona a través de proyectos controlados por la comunidad como [NSwag](https://github.com/RicoSuter/NSwag) y [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore). ASP.NET Core 2.2 proporciona experiencias de uso de herramientas y entornos de ejecución mejoradas para crear documentos de OpenAPI.
 
 Para obtener más información, vea los siguientes recursos:
 
@@ -53,7 +53,7 @@ Para obtener más información, consulte [Comprobaciones de estado en ASP.NET Co
 
 ## <a name="http2-in-kestrel"></a>HTTP/2 en Kestrel
 
-ASP.NET Core 2.2 es compatible con HTTP/2. 
+ASP.NET Core 2.2 es compatible con HTTP/2.
 
 HTTP/2 es una revisión completa del protocolo HTTP. Entre las características más importantes de HTTP/2 destacan la compresión de encabezados y las secuencias totalmente multiplexadas a través de una sola conexión. Aunque HTTP/2 conserva la semántica de HTTP (encabezados y métodos HTTP, etc.), la manera de entramar y enviar estos datos es una diferencia importante respecto a HTTP/1.x.
 

@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/03/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 4cfca4b38543ff073bb98dc09b483d96096928ae
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 3a254af4d56cb4abc7004a67b0d0b42de2b878b1
+ms.sourcegitcommit: 47cc13ab90913af9a2887cef0896bb4e9aba4dd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692573"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67399116"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hospedaje de ASP.NET Core en un servicio de Windows
 
@@ -211,7 +211,7 @@ Un enfoque alternativo de administración de usuarios al usar Active Directory c
 
 Para establecer los derechos de *Iniciar sesión como servicio* para una cuenta de usuario del servicio:
 
-1. Abra el editor de la Directiva de seguridad local mediante la ejecución de *secpool.msc*.
+1. Abra el editor de la Directiva de seguridad local mediante la ejecución de *secpol.msc*.
 1. Expanda el nodo **Directivas locales** y, después, seleccione **Asignación de derechos de usuario**.
 1. Abra la directiva **Iniciar sesión como servicio**.
 1. Seleccione **Agregar usuario o grupo**.
@@ -310,7 +310,7 @@ Para controlar los eventos <xref:Microsoft.AspNetCore.Hosting.WindowsServices.We
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Escenarios de servidor proxy y equilibrador de carga
 
-Los servicios que interactúan con las solicitudes de Internet o de una red corporativa y están detrás de un proxy o de un equilibrador de carga podrían requerir configuración adicional. Para obtener más información, vea <xref:host-and-deploy/proxy-load-balancer>.
+Los servicios que interactúan con las solicitudes de Internet o de una red corporativa y están detrás de un proxy o de un equilibrador de carga podrían requerir configuración adicional. Para más información, consulte <xref:host-and-deploy/proxy-load-balancer>.
 
 ## <a name="configure-https"></a>Configuración de HTTPS
 

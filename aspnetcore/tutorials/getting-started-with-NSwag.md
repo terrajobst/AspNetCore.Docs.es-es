@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Obtenga información sobre cómo usar NSwag para generar documentación y páginas de ayuda de una ASP.NET Web API.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/30/2018
+ms.date: 06/21/2019
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 787f51629b044e638d2790b3dda8723c2644c2d8
-ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
+ms.openlocfilehash: c5b2dc47328d6d3c271a87579fa8c300109bd734
+ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66470430"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316555"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>Introducción a NSwag y ASP.NET Core
 
@@ -43,7 +43,7 @@ Registre el middleware de NSwag para:
 * Generar la especificación de Swagger para la API web implementada.
 * Proporcionar la interfaz de usuario de Swagger para examinar y probar la API web.
 
-Para usar [NSwag](https://github.com/RSuter/NSwag) con middleware de ASP.NET Core, instale el paquete NuGet [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore/). Este paquete contiene el middleware para generar y proporcionar la especificación de Swagger, la interfaz de usuario de Swagger (v2 y v3) y la [interfaz de usuario de ReDoc](https://github.com/Rebilly/ReDoc).
+Para usar [NSwag](https://github.com/RicoSuter/NSwag) con middleware de ASP.NET Core, instale el paquete NuGet [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore/). Este paquete contiene el middleware para generar y proporcionar la especificación de Swagger, la interfaz de usuario de Swagger (v2 y v3) y la [interfaz de usuario de ReDoc](https://github.com/Rebilly/ReDoc).
 
 Use uno de los siguientes métodos para instalar el paquete NuGet de NSwag:
 
@@ -91,17 +91,13 @@ dotnet add TodoApi.csproj package NSwag.AspNetCore
 
 ## <a name="add-and-configure-swagger-middleware"></a>Agregar y configurar el middleware de Swagger
 
- Para agregar y configurar Swagger en su aplicación de ASP.NET Core, realice los siguientes pasos en la clase `Startup`:
+Para agregar y configurar Swagger en su aplicación de ASP.NET Core, realice los siguientes pasos:
 
-* Importe los siguientes espacios de nombres:
-
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_StartupConfigureImports)]
-
-* En el método `ConfigureServices`, registre los servicios necesarios de Swagger:
+* En el método `Startup.ConfigureServices`, registre los servicios necesarios de Swagger:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_ConfigureServices&highlight=8)]
 
-* En el método `Configure`, habilite el middleware para servir la especificación y la interfaz de usuario de Swagger:
+* En el método `Startup.Configure`, habilite el middleware para servir la especificación y la interfaz de usuario de Swagger:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=6-7)]
 
@@ -113,15 +109,15 @@ dotnet add TodoApi.csproj package NSwag.AspNetCore
 
 Para aprovechar las capacidades de generación de código de NSwag, elija una de las siguientes opciones:
 
-* [NSwagStudio](https://github.com/NSwag/NSwag/wiki/NSwagStudio), una aplicación de escritorio de Windows que permite generar código de cliente de API de C# o TypeScript.
+* [NSwagStudio](https://github.com/RicoSuter/NSwag/wiki/NSwagStudio), una aplicación de escritorio de Windows que permite generar código de cliente de API de C# o TypeScript.
 * Paquetes NuGet [NSwag.CodeGeneration.CSharp](https://www.nuget.org/packages/NSwag.CodeGeneration.CSharp/) o [NSwag.CodeGeneration.TypeScript](https://www.nuget.org/packages/NSwag.CodeGeneration.TypeScript/) para generar código dentro del proyecto.
-* NSwag desde la [línea de comandos](https://github.com/NSwag/NSwag/wiki/CommandLine).
-* Paquete NuGet [NSwag.MSBuild](https://github.com/NSwag/NSwag/wiki/MSBuild).
+* NSwag desde la [línea de comandos](https://github.com/RicoSuter/NSwag/wiki/CommandLine).
+* Paquete NuGet [NSwag.MSBuild](https://github.com/RicoSuter/NSwag/wiki/MSBuild).
 * [Servicio conectado de Unchase OpenAPI (Swagger)](https://marketplace.visualstudio.com/items?itemName=Unchase.unchaseopenapiconnectedservice), un servicio conectado de Visual Studio para generar código de cliente de API en C# o TypeScript. También genera controladores de C# para los servicios de OpenAPI con NSwag.
 
 ### <a name="generate-code-with-nswagstudio"></a>Generación de código con NSwagStudio
 
-* Instale NSwagStudio siguiendo las instrucciones del [repositorio de GitHub de NSwagStudio](https://github.com/RSuter/NSwag/wiki/NSwagStudio).
+* Instale NSwagStudio siguiendo las instrucciones del [repositorio de GitHub de NSwagStudio](https://github.com/RicoSuter/NSwag/wiki/NSwagStudio).
 * Inicie NSwagStudio y escriba la URL del archivo *swagger.json* en el cuadro de texto **Swagger Specification URL** (URL de especificación de Swagger). Por ejemplo, *http://localhost:44354/swagger/v1/swagger.json* .
 * Haga clic en el botón **Create local Copy** (Crear copia local) para generar una representación JSON de la especificación de Swagger.
 
@@ -277,7 +273,7 @@ La acción anterior devuelve `IActionResult` pero, dentro de la acción, devuelv
 
 ::: moniker range=">= aspnetcore-2.1"
 
- Dado que NSwag usa [Reflection](/dotnet/csharp/programming-guide/concepts/reflection) y el tipo de valor devuelto recomendado para acciones de API web es [ActionResult\<T>](xref:Microsoft.AspNetCore.Mvc.ActionResult%601), solo puede inferir el tipo de valor devuelto definido por `T`. No puede inferir automáticamente ningún otro tipo de valor devuelto. 
+ Dado que NSwag usa [Reflection](/dotnet/csharp/programming-guide/concepts/reflection) y el tipo de valor devuelto recomendado para acciones de API web es [ActionResult\<T>](xref:Microsoft.AspNetCore.Mvc.ActionResult%601), solo puede inferir el tipo de valor devuelto definido por `T`. No puede inferir automáticamente ningún otro tipo de valor devuelto.
 
 Considere el ejemplo siguiente:
 
@@ -287,7 +283,7 @@ La acción anterior devuelve `ActionResult<T>`. Dentro de la acción, se devuelv
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateActionAttributes)]
 
-En ASP.NET Core 2.2 o versiones posteriores, puede usar las convenciones en lugar de decorar explícitamente acciones individuales con `[ProducesResponseType]`. Para obtener más información, vea <xref:web-api/advanced/conventions>.
+En ASP.NET Core 2.2 o versiones posteriores, puede usar las convenciones en lugar de decorar explícitamente acciones individuales con `[ProducesResponseType]`. Para más información, consulte <xref:web-api/advanced/conventions>.
 
 ::: moniker-end
 

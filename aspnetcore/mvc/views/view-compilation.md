@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo se compilan los archivos de Razor 
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/30/2019
+ms.date: 06/20/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: b78831dd95a721e35d4bf5b44cdd8823472f6aa2
-ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
+ms.openlocfilehash: ff66148fc9aad2871f9f55ce76b5a0dacb0ad10c
+ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66395889"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67313784"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Compilación de archivos de Razor en ASP.NET Core
 
@@ -125,17 +125,13 @@ Para obtener instrucciones y ejemplos de configuración de la versión de compat
 La compilación en tiempo de ejecución se habilita mediante el paquete `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation`. Para habilitar la compilación en tiempo de ejecución, las aplicaciones deben:
 
 * Instalar el paquete NuGet [Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/).
-* En la aplicación, actualice `ConfigureServices` para incluir una llamada a `AddMvcRazorRuntimeCompilation`:
+* Actualice el método `Startup.ConfigureServices` del proyecto para incluir una llamada a `AddRazorRuntimeCompilation`:
 
   ```csharp
   services
-      .AddMvc()
-      .AddRazorRuntimeCompilation()
+      .AddControllersWithViews()
+      .AddRazorRuntimeCompilation();
   ```
-
-Para que la compilación en tiempo de ejecución funcione cuando se implemente, las aplicaciones también deben modificar sus archivos de proyecto para establecer `PreserveCompilationReferences` en `true`.
-
-[!code-xml[](view-compilation/sample/RuntimeCompilation.csproj?highlight=4)]
 
 ::: moniker-end
 

@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Obtenga información sobre cómo agregar Swashbuckle a un proyecto de ASP.NET Core Web API para integrar la interfaz de usuario de Swagger.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 04/04/2019
+ms.date: 06/21/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: ebbdfa4cfeb3013cd961167439dd261f2e058a4b
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 033f2dda9942f91f23158cf2d986062157a3b69e
+ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087610"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316605"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introducción a Swashbuckle y ASP.NET Core
 
@@ -39,7 +39,7 @@ Se puede agregar Swashbuckle con los métodos siguientes:
   * Ejecute el siguiente comando:
 
     ```powershell
-    Install-Package Swashbuckle.AspNetCore
+    Install-Package Swashbuckle.AspNetCore -Version 5.0.0-rc2
     ```
 
 * En el cuadro de diálogo **Administrar paquetes NuGet**:
@@ -60,7 +60,7 @@ Se puede agregar Swashbuckle con los métodos siguientes:
 Ejecute el siguiente comando en el **terminal integrado**:
 
 ```console
-dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
+dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 ```
 
 ### <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
@@ -68,14 +68,14 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
 Ejecute el siguiente comando:
 
 ```console
-dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
+dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 ```
 
 ---
 
 ## <a name="add-and-configure-swagger-middleware"></a>Agregar y configurar el middleware de Swagger
 
-Importe el siguiente espacio de nombres para que use la clase `Info`:
+En la clase `Startup`, importe el siguiente espacio de nombres para que use la clase `OpenApiInfo`:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_InfoClassNamespace)]
 
@@ -393,7 +393,7 @@ Ahora, la interfaz de usuario de Swagger documenta de forma clara los códigos d
 
 ::: moniker range=">= aspnetcore-2.2"
 
-En ASP.NET Core 2.2 o versiones posteriores, las convenciones se pueden usar como alternativa a la representación explícita de acciones individuales con `[ProducesResponseType]`. Para obtener más información, vea <xref:web-api/advanced/conventions>.
+En ASP.NET Core 2.2 o versiones posteriores, las convenciones se pueden usar como alternativa a la representación explícita de acciones individuales con `[ProducesResponseType]`. Para más información, consulte <xref:web-api/advanced/conventions>.
 
 ::: moniker-end
 

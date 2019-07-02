@@ -5,14 +5,14 @@ description: Aprenda a diagnosticar problemas con las implementaciones de Intern
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 06/19/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: cb42a262c89c27fa350e936184f8ddb3a02788f0
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 4df370dd9b1a5a651bcf767b8b9ace4220bdc345
+ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034744"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67313650"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Solución de problemas de ASP.NET Core en IIS
 
@@ -20,189 +20,14 @@ Por [Luke Latham](https://github.com/guardrex)
 
 En este artículo se proporcionan instrucciones sobre cómo diagnosticar un problema de inicio de ASP.NET Core al hospedarse con [Internet Information Services (IIS)](/iis). La información de este artículo se aplica al hospedaje en IIS en Windows Server y el escritorio de Windows.
 
-::: moniker range=">= aspnetcore-2.2"
-
-En Visual Studio, un proyecto de ASP.NET Core toma como predeterminado el hospedaje de [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) durante la depuración. El código de estado *502.5 - Error de proceso* o *500.30 - Error de inicio* que se produce al efectuar la depuración localmente se puede solucionar si se sigue el consejo de este tema.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.2"
-
-En Visual Studio, un proyecto de ASP.NET Core toma como predeterminado el hospedaje de [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) durante la depuración. El código de estado *502.5 Error de proceso* que se produce al realizar la depuración localmente se puede solucionar si se sigue el consejo de este tema.
-
-::: moniker-end
-
 Temas adicionales de solución de problemas:
 
-<xref:host-and-deploy/azure-apps/troubleshoot> Aunque App Service usa el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) e IIS para hospedar las aplicaciones, consulte el tema dedicado para obtener instrucciones específicas.
-
-<xref:fundamentals/error-handling> Descubra cómo controlar los errores de aplicaciones de ASP.NET Core durante el desarrollo en un sistema local.
-
-[Información sobre cómo depurar con Visual Studio](/visualstudio/debugger/getting-started-with-the-debugger) En este tema se presentan las características del depurador de Visual Studio.
-
-[Depuración con Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging) Obtenga información sobre la compatibilidad de depuración integrada en Visual Studio Code.
-
-## <a name="app-startup-errors"></a>Errores de inicio de aplicación
-
-### <a name="5025-process-failure"></a>502.5 Error de proceso
-
-El proceso de trabajo no funciona. La aplicación no se inicia.
-
-El módulo ASP.NET Core intenta iniciar el proceso dotnet de back-end, pero no lo consigue. La causa del error de inicio del proceso se suele determinar a partir de las entradas del [registro de eventos de la aplicación](#application-event-log) y del [registro de stdout del módulo ASP.NET Core](#aspnet-core-module-stdout-log).
-
-Una condición de error habitual es que la aplicación esté mal configurada porque tiene como destino una versión del marco compartido de ASP.NET Core que no está presente. Compruebe qué versiones del marco compartido de ASP.NET Core están instaladas en el equipo de destino. El *marco de trabajo compartido* es el conjunto de ensamblados (archivos *.dll*) que se instalan en la máquina, y se hace referencia a ellos mediante un metapaquete como `Microsoft.AspNetCore.App`. La referencia del metapaquete puede especificar una versión mínima necesaria. Para más información, consulte este artículo sobre el [marco de trabajo compartido](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/).
-
-La página de error *502.5 Error de proceso* se devuelve cuando el proceso de trabajo no se puede iniciar debido a un error de configuración de la aplicación o del hospedaje:
-
-![Ventana del explorador que muestra la página 502.5 Error de proceso](troubleshoot/_static/process-failure-page.png)
-
-::: moniker range="= aspnetcore-2.2"
-
-### <a name="50030-in-process-startup-failure"></a>500.30 Error de inicio en proceso
-
-El proceso de trabajo no funciona. La aplicación no se inicia.
-
-El módulo ASP.NET Core intenta iniciar el proceso CLR de .NET Core, pero no lo consigue. La causa del error de inicio del proceso se suele determinar a partir de las entradas del [registro de eventos de la aplicación](#application-event-log) y del [registro de stdout del módulo ASP.NET Core](#aspnet-core-module-stdout-log).
-
-Una condición de error habitual es que la aplicación esté mal configurada porque tiene como destino una versión del marco compartido de ASP.NET Core que no está presente. Compruebe qué versiones del marco compartido de ASP.NET Core están instaladas en el equipo de destino.
-
-### <a name="5000-in-process-handler-load-failure"></a>500.0 Error de carga del controlador en proceso
-
-El proceso de trabajo no funciona. La aplicación no se inicia.
-
-El módulo ASP.NET Core no logra encontrar el CLR de .NET Core y el controlador de solicitudes en proceso (*aspnetcorev2_inprocess.dll*). Compruebe lo siguiente:
-
-* Que la aplicación tiene como destino el paquete de NuGet [Microsoft.AspNetCore.Server.IIS](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IIS) o el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
-* Que la versión del marco compartido de ASP.NET Core que la aplicación tiene como destino esté instalada en el equipo de destino.
-
-### <a name="5000-out-of-process-handler-load-failure"></a>500.0 Error de carga del controlador fuera de proceso
-
-El proceso de trabajo no funciona. La aplicación no se inicia.
-
-El módulo ASP.NET Core no logra encontrar el controlador de solicitudes de hospedaje fuera de proceso. Asegúrese de que el archivo *aspnetcorev2_outofprocess.dll* está presente en una subcarpeta junto a *aspnetcorev2.dll*.
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-3.0"
-
-### <a name="50031-ancm-failed-to-find-native-dependencies"></a>500.31 ANMC no pudo encontrar las dependencias nativas
-
-El proceso de trabajo no funciona. La aplicación no se inicia.
-
-El módulo ASP.NET Core intenta iniciar el proceso del entorno de ejecución de .NET Core, pero no lo consigue. Este error de inicio suele deberse a que el entorno de ejecución de `Microsoft.NETCore.App` o `Microsoft.AspNetCore.App` no está instalado. Si la aplicación se implementa para ASP.NET Core 3.0 y esa versión no existe en el equipo, se produce este error. Este es un mensaje de error de ejemplo:
-
-```
-The specified framework 'Microsoft.NETCore.App', version '3.0.0' was not found.
-  - The following frameworks were found:
-      2.2.1 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
-      3.0.0-preview5-27626-15 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
-      3.0.0-preview6-27713-13 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
-      3.0.0-preview6-27714-15 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
-      3.0.0-preview6-27723-08 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
-```
-
-El mensaje de error enumera todas las versiones instaladas de .NET Core y la versión solicitada por la aplicación. Para corregir este error, hay dos posibilidades:
-
-* Instalar la versión adecuada de .NET Core en la máquina.
-* Cambiar el destino de la aplicación a una versión de .NET Core que exista en la máquina.
-* Publique la aplicación como una [implementación independiente](/dotnet/core/deploying/#self-contained-deployments-scd).
-
-Cuando se ejecuta en desarrollo (la variable de entorno `ASPNETCORE_ENVIRONMENT` se establece en `Development`), el error específico se escribe en la respuesta HTTP. La causa de un error de inicio de proceso también se encuentra en el [registro de eventos de la aplicación](#application-event-log).
-
-### <a name="50032-ancm-failed-to-load-dll"></a>500.32 ANCM No se pudo cargar el archivo .dll
-
-El proceso de trabajo no funciona. La aplicación no se inicia.
-
-La causa más común de este error es que la aplicación se haya publicado para una arquitectura de procesador no compatible. Si el proceso de trabajo se ejecuta como una aplicación de 32 bits y la aplicación se diseñó para 64 bits, se produce este error.
-
-Para corregir este error, hay dos posibilidades:
-
-* Volver a publicar la aplicación para la misma arquitectura de procesador que el proceso de trabajo.
-* Publicar la aplicación como una [implementación dependiente del marco](/dotnet/core/deploying/#framework-dependent-executables-fde).
-
-### <a name="50033-ancm-request-handler-load-failure"></a>500.33 Error de carga del controlador de solicitud
-
-El proceso de trabajo no funciona. La aplicación no se inicia.
-
-La aplicación no hizo referencia al marco `Microsoft.AspNetCore.App`. Solo las aplicaciones diseñadas para el marco `Microsoft.AspNetCore.App` pueden hospedarse en el módulo ASP.NET Core.
-
-Para corregir este error, confirme que la aplicación tiene como destino el marco `Microsoft.AspNetCore.App`. Compruebe en `.runtimeconfig.json` cuál es el marco de destino de la aplicación.
-
-### <a name="50034-ancm-mixed-hosting-models-not-supported"></a>500.34 ANCM Modelos de hospedaje mixto no admitidos
-
-El proceso de trabajo no puede ejecutar a la vez una aplicación en proceso y una aplicación fuera de proceso.
-
-Para corregir este error, ejecute las aplicaciones en grupos de aplicaciones de IIS independientes.
-
-### <a name="50035-ancm-multiple-in-process-applications-in-same-process"></a>500.35 ANCM Varias aplicaciones en proceso en el mismo proceso
-
-El proceso de trabajo no puede ejecutar a la vez una aplicación en proceso y una aplicación fuera de proceso.
-
-Para corregir este error, ejecute las aplicaciones en grupos de aplicaciones de IIS independientes.
-
-### <a name="50036-ancm-out-of-process-handler-load-failure"></a>500.36 Error de carga del controlador fuera de proceso
-
-El controlador de solicitudes de fuera de proceso, *aspnetcorev2_outofprocess.dll*, no está junto al archivo *aspnetcorev2.dll*. Esto indica una instalación dañada del módulo ASP.NET Core.
-
-Para corregir este error, repare la instalación del [conjunto de hospedaje de .NET Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle) (para IIS) o Visual Studio (para IIS Express).
-
-### <a name="50037-ancm-failed-to-start-within-startup-time-limit"></a>500.37 ANCM no se pudo iniciar en el límite de tiempo de inicio
-
-ANCM no se pudo iniciar dentro del límite de tiempo de inicio proporcionado. De forma predeterminada, el tiempo de espera es de 120 segundos.
-
-Este error puede producirse cuando se inicia un gran número de aplicaciones en el mismo equipo. Busque picos de uso de CPU o memoria en el servidor durante el inicio. Es posible que deba escalonar el proceso de inicio de varias aplicaciones.
-
-### <a name="50030-in-process-startup-failure"></a>500.30 Error de inicio en proceso
-
-El proceso de trabajo no funciona. La aplicación no se inicia.
-
-El módulo ASP.NET Core intenta iniciar el proceso del entorno de ejecución de .NET Core, pero no lo consigue. La causa del error de inicio del proceso se suele determinar a partir de las entradas del [registro de eventos de la aplicación](#application-event-log) y del [registro de stdout del módulo ASP.NET Core](#aspnet-core-module-stdout-log).
-
-### <a name="5000-in-process-handler-load-failure"></a>500.0 Error de carga del controlador en proceso
-
-El proceso de trabajo no funciona. La aplicación no se inicia.
-
-Error desconocido al cargar los componentes del módulo ASP.NET Core. Realice una de las siguientes acciones:
-
-* Póngase en contacto con el [equipo de soporte técnico de Microsoft](https://support.microsoft.com/oas/default.aspx?prid=15832) (seleccione **Herramientas de desarrollo** y, después, **ASP.NET Core**).
-* Formule una pregunta en Stack Overflow.
-* Registre un problema en nuestro [repositorio de GitHub](https://github.com/aspnet/AspNetCore).
-
-::: moniker-end
-
-### <a name="500-internal-server-error"></a>500 Error interno del servidor
-
-La aplicación se inicia, pero un error impide que el servidor complete la solicitud.
-
-Este error se produce dentro del código de la aplicación durante el inicio o mientras se crea una respuesta. La respuesta no puede contener nada o puede aparecer como *500 Error interno del servidor* en el explorador. El registro de eventos de la aplicación normalmente indica que la aplicación se ha iniciado normalmente. Desde la perspectiva del servidor, eso es correcto. La aplicación se inició, pero no puede generar una respuesta válida. [Ejecute la aplicación en un símbolo del sistema](#run-the-app-at-a-command-prompt) en el servidor o [habilite el registro de stdout del módulo ASP.NET Core](#aspnet-core-module-stdout-log) para solucionar el problema.
-
-### <a name="failed-to-start-application-errorcode-0x800700c1"></a>No se pudo iniciar la aplicación (código de error "0x800700c1")
-
-```
-EventID: 1010
-Source: IIS AspNetCore Module V2
-Failed to start application '/LM/W3SVC/6/ROOT/', ErrorCode '0x800700c1'.
-```
-
-Error al iniciar la aplicación porque el ensamblado de la aplicación ( *.dll*) no se ha podido cargar.
-
-Este error se produce cuando hay un error de coincidencia del valor de bits entre la aplicación publicada y el proceso w3wp/iisexpress.
-
-Confirme que la opción de 32 bits del grupo de aplicaciones sea correcta:
-
-1. Seleccione el grupo de aplicaciones en **Grupos de aplicaciones** del Administrador de IIS.
-1. Seleccione **Configuración avanzada** en **Modificar grupo de aplicaciones**, en el panel **Acciones**.
-1. Establezca **Habilitar aplicaciones de 32 bits**:
-   * Si implementa una aplicación de 32 bits (x86), establezca el valor en `True`.
-   * Si implementa una aplicación de 64 bits (x64), establezca el valor en `False`.
-
-### <a name="connection-reset"></a>Restablecimiento de la conexión
-
-Si se produce un error después de que se envían los encabezados, el servidor no tiene tiempo para enviar un mensaje **500 Error interno del servidor** cuando se produce un error. Esto suele ocurrir cuando se produce un error durante la serialización de objetos complejos en una respuesta. Este tipo de error aparece como un error de *restablecimiento de la conexión* en el cliente. El [Registro de aplicaciones](xref:fundamentals/logging/index) puede ayudar a solucionar estos tipos de errores.
-
-## <a name="default-startup-limits"></a>Límites de inicio predeterminados
-
-El módulo ASP.NET Core está configurado con un valor predeterminado *startupTimeLimit* de 120 segundos. Cuando se deja en el valor predeterminado, una aplicación puede tardar hasta dos minutos en iniciarse antes de que el módulo registre un error de proceso. Para información sobre la configuración del módulo, consulte [Atributos del elemento aspNetCore](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
+* Azure App Service también usa el [módulo de ASP.NET Core](xref:host-and-deploy/aspnet-core-module) e IIS para hospedar aplicaciones. Para ver consejos de solución de problemas pertenecientes específicamente a Azure App Service, consulte <xref:host-and-deploy/azure-apps/troubleshoot>.
+* En <xref:fundamentals/error-handling> se explica cómo controlar los errores de aplicaciones de ASP.NET Core durante el desarrollo en un sistema local.
+* En [Información sobre cómo depurar con Visual Studio](/visualstudio/debugger/getting-started-with-the-debugger) se presentan las características del depurador de Visual Studio.
+* En [Depuración con Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging) se describe la compatibilidad de depuración integrada en Visual Studio Code.
+
+[!INCLUDE[](~/includes/azure-iis-startup-errors.md)]
 
 ## <a name="troubleshoot-app-startup-errors"></a>Solución de problemas de errores de inicio de la aplicación
 

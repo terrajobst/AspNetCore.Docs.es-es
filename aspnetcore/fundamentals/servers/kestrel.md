@@ -5,14 +5,14 @@ description: Obtenga información sobre Kestrel, el servidor web multiplataforma
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 06/24/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: b18e7139970accd504a83e458afb2c7f9035a921
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: 7d66d04ec3b91d0ab1a67cacb2030cf52054454b
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207771"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394725"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web Kestrel en ASP.NET Core
 
@@ -195,7 +195,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ### <a name="maximum-client-connections"></a>Las conexiones máximas de cliente
 
-<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits.MaxConcurrentConnections>  
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits.MaxConcurrentConnections>
 <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits.MaxConcurrentUpgradedConnections>
 
 El número máximo de conexiones de TCP abiertas simultáneas que se pueden establecer para toda la aplicación con este código:
@@ -289,7 +289,7 @@ Cuando se ejecuta una aplicación [fuera de proceso](xref:host-and-deploy/iis/in
 
 ### <a name="minimum-request-body-data-rate"></a>La velocidad mínima de los datos del cuerpo de solicitud.
 
-<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits.MinRequestBodyDataRate>  
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits.MinRequestBodyDataRate>
 <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits.MinResponseDataRate>
 
 Kestrel comprueba cada segundo si los datos entran a la velocidad especificada en bytes por segundo. Si la velocidad está por debajo del mínimo, se agota el tiempo de espera de la conexión. El período de gracia es la cantidad de tiempo que Kestrel da al cliente para aumentar su velocidad de envío hasta el mínimo; no se comprueba la velocidad durante ese tiempo. Este período de gracia permite evitar que se interrumpan las conexiones que inicialmente están enviando datos a una velocidad lenta debido a un inicio lento de TCP.
@@ -327,7 +327,15 @@ Puede invalidar los límites de velocidad mínima por solicitud en el middleware
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Limits&highlight=6-21)]
 
-::: moniker range=">= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
+
+La característica <xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinResponseDataRateFeature> a la que se hace referencia en el ejemplo anterior no está presente en `HttpContext.Features` para las solicitudes HTTP/2, porque generalmente no se permite modificar los límites de velocidad por solicitud debido a la compatibilidad del protocolo con la multiplexación de solicitudes. Sin embargo, <xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinRequestBodyDataRateFeature> sigue estando presente en `HttpContext.Features` para las solicitudes HTTP/2, ya que el límite de velocidad de lectura aún puede estar *completamente deshabilitado* por solicitud estableciendo `IHttpMinRequestBodyDataRateFeature.MinDataRate` en `null` incluso para una solicitud HTTP/2. Si se intenta leer `IHttpMinRequestBodyDataRateFeature.MinDataRate` o se intenta su establecimiento en un valor distinto de `null`, se obtendrá una excepción `NotSupportedException` con una solicitud HTTP/2 dada.
+
+Se siguen aplicando límites de velocidad en todo el servidor configurados con `KestrelServerOptions.Limits` a las conexiones HTTP/1.x y HTTP/2.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.2"
 
 Ninguna de las características de velocidad a las que se hace referencia en el ejemplo anterior están presentes en `HttpContext.Features` para las solicitudes HTTP/2, porque no se permite modificar los límites de velocidad por solicitud en HTTP/2 debido a la compatibilidad del protocolo con la multiplexación de solicitudes. Se siguen aplicando límites de velocidad en todo el servidor configurados con `KestrelServerOptions.Limits` a las conexiones HTTP/1.x y HTTP/2.
 
@@ -456,6 +464,47 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 ```
 
 El valor predeterminado es 96 KB (98 304).
+
+::: moniker-end
+
+### <a name="synchronous-io"></a>E/S sincrónica
+
+::: moniker range=">= aspnetcore-3.0"
+
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.AllowSynchronousIO> controla si se permite la E/S sincrónica para la solicitud y la respuesta. El valor predeterminado es `false`.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.AllowSynchronousIO> controla si se permite la E/S sincrónica para la solicitud y la respuesta. El valor predeterminado es `true`.
+
+::: moniker-end
+
+> [!WARNING]
+> Un gran número de operaciones de E/S sincrónicas de bloqueo puede dar lugar al colapso del grupo de subprocesos, lo que hace que la aplicación no responda. Habilite solo `AllowSynchronousIO` al usar una biblioteca que no admite la E/S asincrónica.
+
+::: moniker range=">= aspnetcore-2.2"
+
+En el siguiente ejemplo se habilita la E/S sincrónica:
+
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_SyncIO&highlight=3)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+En el siguiente ejemplo se deshabilita la E/S sincrónica:
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .UseKestrel(options =>
+        {
+            options.AllowSynchronousIO = false;
+        });
+```
 
 ::: moniker-end
 
@@ -759,13 +808,13 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
                 listenOptions.UseHttps(httpsOptions =>
                 {
                     var localhostCert = CertificateLoader.LoadFromStoreCert(
-                        "localhost", "My", StoreLocation.CurrentUser, 
+                        "localhost", "My", StoreLocation.CurrentUser,
                         allowInvalid: true);
                     var exampleCert = CertificateLoader.LoadFromStoreCert(
-                        "example.com", "My", StoreLocation.CurrentUser, 
+                        "example.com", "My", StoreLocation.CurrentUser,
                         allowInvalid: true);
                     var subExampleCert = CertificateLoader.LoadFromStoreCert(
-                        "sub.example.com", "My", StoreLocation.CurrentUser, 
+                        "sub.example.com", "My", StoreLocation.CurrentUser,
                         allowInvalid: true);
                     var certs = new Dictionary<string, X509Certificate2>(
                         StringComparer.OrdinalIgnoreCase);
@@ -802,13 +851,13 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
                 listenOptions.UseHttps(httpsOptions =>
                 {
                     var localhostCert = CertificateLoader.LoadFromStoreCert(
-                        "localhost", "My", StoreLocation.CurrentUser, 
+                        "localhost", "My", StoreLocation.CurrentUser,
                         allowInvalid: true);
                     var exampleCert = CertificateLoader.LoadFromStoreCert(
-                        "example.com", "My", StoreLocation.CurrentUser, 
+                        "example.com", "My", StoreLocation.CurrentUser,
                         allowInvalid: true);
                     var subExampleCert = CertificateLoader.LoadFromStoreCert(
-                        "sub.example.com", "My", StoreLocation.CurrentUser, 
+                        "sub.example.com", "My", StoreLocation.CurrentUser,
                         allowInvalid: true);
                     var certs = new Dictionary<string, X509Certificate2>(
                         StringComparer.OrdinalIgnoreCase);
@@ -1015,13 +1064,13 @@ private class TlsFilterAdapter : IConnectionAdapter
     {
         var tlsFeature = context.Features.Get<ITlsHandshakeFeature>();
 
-        // Throw NotSupportedException for any cipher algorithm that you don't 
-        // wish to support. Alternatively, define and compare 
-        // ITlsHandshakeFeature.CipherAlgorithm to a list of acceptable cipher 
+        // Throw NotSupportedException for any cipher algorithm that you don't
+        // wish to support. Alternatively, define and compare
+        // ITlsHandshakeFeature.CipherAlgorithm to a list of acceptable cipher
         // suites.
         //
-        // A ITlsHandshakeFeature.CipherAlgorithm of CipherAlgorithmType.Null 
-        // indicates that no cipher algorithm supported by Kestrel matches the 
+        // A ITlsHandshakeFeature.CipherAlgorithm of CipherAlgorithmType.Null
+        // indicates that no cipher algorithm supported by Kestrel matches the
         // requested algorithm(s).
         if (tlsFeature.CipherAlgorithm == CipherAlgorithmType.Null)
         {
@@ -1094,7 +1143,7 @@ En el caso de los proyectos de ASP.NET Core 2.1 o posterior que usan el metapaqu
 * Agregar una dependencia del paquete [Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv/) al archivo de proyecto de la aplicación:
 
     ```xml
-    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv" 
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv"
                       Version="<LATEST_VERSION>" />
     ```
 
