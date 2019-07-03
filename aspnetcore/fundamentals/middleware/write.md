@@ -2,60 +2,56 @@
 title: Escritura de middleware de ASP.NET Core personalizado
 author: rick-anderson
 description: Obtenga información sobre cómo escribir middleware de ASP.NET Core personalizado.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 06/17/2019
 uid: fundamentals/middleware/write
-ms.openlocfilehash: 2c5577394a10370d92c8a83f9d806b63f3245c8b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 352db93dd7061070c76e34f6c03883f68e2041ee
+ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64889170"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67167110"
 ---
-# <a name="write-custom-aspnet-core-middleware"></a><span data-ttu-id="05ed2-103">Escritura de middleware de ASP.NET Core personalizado</span><span class="sxs-lookup"><span data-stu-id="05ed2-103">Write custom ASP.NET Core middleware</span></span>
+# <a name="write-custom-aspnet-core-middleware"></a><span data-ttu-id="aba9a-103">Escritura de middleware de ASP.NET Core personalizado</span><span class="sxs-lookup"><span data-stu-id="aba9a-103">Write custom ASP.NET Core middleware</span></span>
 
-<span data-ttu-id="05ed2-104">Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="05ed2-104">By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Steve Smith](https://ardalis.com/)</span></span>
+<span data-ttu-id="aba9a-104">Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="aba9a-104">By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Steve Smith](https://ardalis.com/)</span></span>
 
-<span data-ttu-id="05ed2-105">El software intermedio es un software que se ensambla en una canalización de una aplicación para controlar las solicitudes y las respuestas.</span><span class="sxs-lookup"><span data-stu-id="05ed2-105">Middleware is software that's assembled into an app pipeline to handle requests and responses.</span></span> <span data-ttu-id="05ed2-106">ASP.NET Core proporciona un completo conjunto de componentes de middleware integrados, pero en algunos escenarios es posible que quiera escribir middleware personalizado.</span><span class="sxs-lookup"><span data-stu-id="05ed2-106">ASP.NET Core provides a rich set of built-in middleware components, but in some scenarios you might want to write a custom middleware.</span></span>
+<span data-ttu-id="aba9a-105">El software intermedio es un software que se ensambla en una canalización de una aplicación para controlar las solicitudes y las respuestas.</span><span class="sxs-lookup"><span data-stu-id="aba9a-105">Middleware is software that's assembled into an app pipeline to handle requests and responses.</span></span> <span data-ttu-id="aba9a-106">ASP.NET Core proporciona un completo conjunto de componentes de middleware integrados, pero en algunos escenarios es posible que quiera escribir middleware personalizado.</span><span class="sxs-lookup"><span data-stu-id="aba9a-106">ASP.NET Core provides a rich set of built-in middleware components, but in some scenarios you might want to write a custom middleware.</span></span>
 
-## <a name="middleware-class"></a><span data-ttu-id="05ed2-107">Clase de middleware</span><span class="sxs-lookup"><span data-stu-id="05ed2-107">Middleware class</span></span>
+## <a name="middleware-class"></a><span data-ttu-id="aba9a-107">Clase de middleware</span><span class="sxs-lookup"><span data-stu-id="aba9a-107">Middleware class</span></span>
 
-<span data-ttu-id="05ed2-108">El middleware normalmente está encapsulado en una clase y se expone con un método de extensión.</span><span class="sxs-lookup"><span data-stu-id="05ed2-108">Middleware is generally encapsulated in a class and exposed with an extension method.</span></span> <span data-ttu-id="05ed2-109">Use el siguiente software intermedio a modo de ejemplo. En este se establece la referencia cultural de la solicitud actual a partir de la cadena de solicitud:</span><span class="sxs-lookup"><span data-stu-id="05ed2-109">Consider the following middleware, which sets the culture for the current request from a query string:</span></span>
+<span data-ttu-id="aba9a-108">El middleware normalmente está encapsulado en una clase y se expone con un método de extensión.</span><span class="sxs-lookup"><span data-stu-id="aba9a-108">Middleware is generally encapsulated in a class and exposed with an extension method.</span></span> <span data-ttu-id="aba9a-109">Use el siguiente software intermedio a modo de ejemplo. En este se establece la referencia cultural de la solicitud actual a partir de la cadena de solicitud:</span><span class="sxs-lookup"><span data-stu-id="aba9a-109">Consider the following middleware, which sets the culture for the current request from a query string:</span></span>
 
 [!code-csharp[](index/snapshot/Culture/StartupCulture.cs?name=snippet1)]
 
-<span data-ttu-id="05ed2-110">El código de ejemplo anterior se usa para mostrar la creación de un componente de software intermedio.</span><span class="sxs-lookup"><span data-stu-id="05ed2-110">The preceding sample code is used to demonstrate creating a middleware component.</span></span> <span data-ttu-id="05ed2-111">Para obtener más información sobre la compatibilidad con la localización integrada de ASP.NET Core, vea <xref:fundamentals/localization>.</span><span class="sxs-lookup"><span data-stu-id="05ed2-111">For ASP.NET Core's built-in localization support, see <xref:fundamentals/localization>.</span></span>
+<span data-ttu-id="aba9a-110">El código de ejemplo anterior se usa para mostrar la creación de un componente de software intermedio.</span><span class="sxs-lookup"><span data-stu-id="aba9a-110">The preceding sample code is used to demonstrate creating a middleware component.</span></span> <span data-ttu-id="aba9a-111">Para obtener más información sobre la compatibilidad con la localización integrada de ASP.NET Core, vea <xref:fundamentals/localization>.</span><span class="sxs-lookup"><span data-stu-id="aba9a-111">For ASP.NET Core's built-in localization support, see <xref:fundamentals/localization>.</span></span>
 
-<span data-ttu-id="05ed2-112">Puede probar el middleware si pasa la referencia cultural.</span><span class="sxs-lookup"><span data-stu-id="05ed2-112">You can test the middleware by passing in the culture.</span></span> <span data-ttu-id="05ed2-113">Por ejemplo: `http://localhost:7997/?culture=no`.</span><span class="sxs-lookup"><span data-stu-id="05ed2-113">For example, `http://localhost:7997/?culture=no`.</span></span>
+<span data-ttu-id="aba9a-112">Pruebe el middleware pasando la referencia cultural.</span><span class="sxs-lookup"><span data-stu-id="aba9a-112">Test the middleware by passing in the culture.</span></span> <span data-ttu-id="aba9a-113">Por ejemplo, solicite `https://localhost:5001/?culture=no`.</span><span class="sxs-lookup"><span data-stu-id="aba9a-113">For example, request `https://localhost:5001/?culture=no`.</span></span>
 
-<span data-ttu-id="05ed2-114">El código siguiente mueve el delegado de middleware a una clase:</span><span class="sxs-lookup"><span data-stu-id="05ed2-114">The following code moves the middleware delegate to a class:</span></span>
+<span data-ttu-id="aba9a-114">El código siguiente mueve el delegado de middleware a una clase:</span><span class="sxs-lookup"><span data-stu-id="aba9a-114">The following code moves the middleware delegate to a class:</span></span>
 
 [!code-csharp[](index/snapshot/Culture/RequestCultureMiddleware.cs)]
 
-::: moniker range="< aspnetcore-2.0"
+<span data-ttu-id="aba9a-115">La clase de middleware debe incluir:</span><span class="sxs-lookup"><span data-stu-id="aba9a-115">The middleware class must include:</span></span>
 
-<span data-ttu-id="05ed2-115">El nombre del software intermedio del método `Task` debe ser `Invoke`.</span><span class="sxs-lookup"><span data-stu-id="05ed2-115">The middleware `Task` method's name must be `Invoke`.</span></span> <span data-ttu-id="05ed2-116">En ASP.NET Core 2.0 o posterior, el nombre puede ser `Invoke` o `InvokeAsync`.</span><span class="sxs-lookup"><span data-stu-id="05ed2-116">In ASP.NET Core 2.0 or later, the name can be either `Invoke` or `InvokeAsync`.</span></span>
+* <span data-ttu-id="aba9a-116">Un constructor público con un parámetro de tipo <xref:Microsoft.AspNetCore.Http.RequestDelegate>.</span><span class="sxs-lookup"><span data-stu-id="aba9a-116">A public constructor with a parameter of type <xref:Microsoft.AspNetCore.Http.RequestDelegate>.</span></span>
+* <span data-ttu-id="aba9a-117">Un método público llamado `Invoke` o `InvokeAsync`.</span><span class="sxs-lookup"><span data-stu-id="aba9a-117">A public method named `Invoke` or `InvokeAsync`.</span></span> <span data-ttu-id="aba9a-118">Este método debe:</span><span class="sxs-lookup"><span data-stu-id="aba9a-118">This method must:</span></span>
+  * <span data-ttu-id="aba9a-119">Devolver `Task`.</span><span class="sxs-lookup"><span data-stu-id="aba9a-119">Return a `Task`.</span></span>
+  * <span data-ttu-id="aba9a-120">Aceptar un primer parámetro de tipo <xref:Microsoft.AspNetCore.Http.HttpContext>.</span><span class="sxs-lookup"><span data-stu-id="aba9a-120">Accept a first parameter of type <xref:Microsoft.AspNetCore.Http.HttpContext>.</span></span>
+  
+<span data-ttu-id="aba9a-121">Los parámetros adicionales para el constructor y `Invoke`/`InvokeAsync` se rellenan mediante la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="aba9a-121">Additional parameters for the constructor and `Invoke`/`InvokeAsync` are populated by [dependency injection (DI)](xref:fundamentals/dependency-injection).</span></span>
 
-::: moniker-end
+## <a name="middleware-dependencies"></a><span data-ttu-id="aba9a-122">Dependencias de middleware</span><span class="sxs-lookup"><span data-stu-id="aba9a-122">Middleware dependencies</span></span>
 
-## <a name="middleware-extension-method"></a><span data-ttu-id="05ed2-117">Método de extensión de middleware</span><span class="sxs-lookup"><span data-stu-id="05ed2-117">Middleware extension method</span></span>
+<span data-ttu-id="aba9a-123">El middleware debería seguir el [principio de dependencias explicitas](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies) mediante la exposición de sus dependencias en el constructor.</span><span class="sxs-lookup"><span data-stu-id="aba9a-123">Middleware should follow the [Explicit Dependencies Principle](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies) by exposing its dependencies in its constructor.</span></span> <span data-ttu-id="aba9a-124">El middleware se construye una vez por *duración de la aplicación*.</span><span class="sxs-lookup"><span data-stu-id="aba9a-124">Middleware is constructed once per *application lifetime*.</span></span> <span data-ttu-id="aba9a-125">Si necesita compartir servicios con software intermedio en una solicitud, vea la sección [Dependencias de middleware bajo solicitud](#per-request-middleware-dependencies).</span><span class="sxs-lookup"><span data-stu-id="aba9a-125">See the [Per-request middleware dependencies](#per-request-middleware-dependencies) section if you need to share services with middleware within a request.</span></span>
 
-<span data-ttu-id="05ed2-118">El método de extensión siguiente expone el software intermedio mediante <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>:</span><span class="sxs-lookup"><span data-stu-id="05ed2-118">The following extension method exposes the middleware through <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>:</span></span>
+<span data-ttu-id="aba9a-126">Los componentes de software intermedio pueden resolver sus dependencias de una [inserción de dependencias (DI)](xref:fundamentals/dependency-injection) mediante parámetros del constructor.</span><span class="sxs-lookup"><span data-stu-id="aba9a-126">Middleware components can resolve their dependencies from [dependency injection (DI)](xref:fundamentals/dependency-injection) through constructor parameters.</span></span> <span data-ttu-id="aba9a-127">[UseMiddleware&lt;T&gt;](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions.usemiddleware#Microsoft_AspNetCore_Builder_UseMiddlewareExtensions_UseMiddleware_Microsoft_AspNetCore_Builder_IApplicationBuilder_System_Type_System_Object___) también puede aceptar parámetros adicionales directamente.</span><span class="sxs-lookup"><span data-stu-id="aba9a-127">[UseMiddleware&lt;T&gt;](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions.usemiddleware#Microsoft_AspNetCore_Builder_UseMiddlewareExtensions_UseMiddleware_Microsoft_AspNetCore_Builder_IApplicationBuilder_System_Type_System_Object___) can also accept additional parameters directly.</span></span>
 
-[!code-csharp[](index/snapshot/Culture/RequestCultureMiddlewareExtensions.cs)]
+## <a name="per-request-middleware-dependencies"></a><span data-ttu-id="aba9a-128">Dependencias de middleware bajo solicitud</span><span class="sxs-lookup"><span data-stu-id="aba9a-128">Per-request middleware dependencies</span></span>
 
-<span data-ttu-id="05ed2-119">El código siguiente llama al middleware desde `Startup.Configure`:</span><span class="sxs-lookup"><span data-stu-id="05ed2-119">The following code calls the middleware from `Startup.Configure`:</span></span>
-
-[!code-csharp[](index/snapshot/Culture/Startup.cs?name=snippet1&highlight=5)]
-
-<span data-ttu-id="05ed2-120">El middleware debería seguir el [principio de dependencias explicitas](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies) mediante la exposición de sus dependencias en el constructor.</span><span class="sxs-lookup"><span data-stu-id="05ed2-120">Middleware should follow the [Explicit Dependencies Principle](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies) by exposing its dependencies in its constructor.</span></span> <span data-ttu-id="05ed2-121">El middleware se construye una vez por *duración de la aplicación*.</span><span class="sxs-lookup"><span data-stu-id="05ed2-121">Middleware is constructed once per *application lifetime*.</span></span> <span data-ttu-id="05ed2-122">Si necesita compartir servicios con software intermedio en una solicitud, vea la sección [Dependencias bajo solicitud](#per-request-dependencies).</span><span class="sxs-lookup"><span data-stu-id="05ed2-122">See the [Per-request dependencies](#per-request-dependencies) section if you need to share services with middleware within a request.</span></span>
-
-<span data-ttu-id="05ed2-123">Los componentes de software intermedio pueden resolver sus dependencias de una [inserción de dependencias (DI)](xref:fundamentals/dependency-injection) mediante parámetros del constructor.</span><span class="sxs-lookup"><span data-stu-id="05ed2-123">Middleware components can resolve their dependencies from [dependency injection (DI)](xref:fundamentals/dependency-injection) through constructor parameters.</span></span> <span data-ttu-id="05ed2-124">[UseMiddleware&lt;T&gt;](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions.usemiddleware#Microsoft_AspNetCore_Builder_UseMiddlewareExtensions_UseMiddleware_Microsoft_AspNetCore_Builder_IApplicationBuilder_System_Type_System_Object___) también puede aceptar parámetros adicionales directamente.</span><span class="sxs-lookup"><span data-stu-id="05ed2-124">[UseMiddleware&lt;T&gt;](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions.usemiddleware#Microsoft_AspNetCore_Builder_UseMiddlewareExtensions_UseMiddleware_Microsoft_AspNetCore_Builder_IApplicationBuilder_System_Type_System_Object___) can also accept additional parameters directly.</span></span>
-
-## <a name="per-request-dependencies"></a><span data-ttu-id="05ed2-125">Dependencias bajo solicitud</span><span class="sxs-lookup"><span data-stu-id="05ed2-125">Per-request dependencies</span></span>
-
-<span data-ttu-id="05ed2-126">Dado que el software intermedio se construye al inicio de la aplicación y no bajo solicitud, los servicios de duración *con ámbito* que usan los constructores de software intermedio no se comparten con otros tipos insertados mediante dependencias durante cada solicitud.</span><span class="sxs-lookup"><span data-stu-id="05ed2-126">Because middleware is constructed at app startup, not per-request, *scoped* lifetime services used by middleware constructors aren't shared with other dependency-injected types during each request.</span></span> <span data-ttu-id="05ed2-127">Si debe compartir un servicio *con ámbito* entre su middleware y otros tipos, agregue esos servicios a la signatura del método `Invoke`.</span><span class="sxs-lookup"><span data-stu-id="05ed2-127">If you must share a *scoped* service between your middleware and other types, add these services to the `Invoke` method's signature.</span></span> <span data-ttu-id="05ed2-128">El método `Invoke` puede aceptar parámetros adicionales que la inserción de dependencias propaga:</span><span class="sxs-lookup"><span data-stu-id="05ed2-128">The `Invoke` method can accept additional parameters that are populated by DI:</span></span>
+<span data-ttu-id="aba9a-129">Dado que el software intermedio se construye al inicio de la aplicación y no bajo solicitud, los servicios de duración *con ámbito* que usan los constructores de software intermedio no se comparten con otros tipos insertados mediante dependencias durante cada solicitud.</span><span class="sxs-lookup"><span data-stu-id="aba9a-129">Because middleware is constructed at app startup, not per-request, *scoped* lifetime services used by middleware constructors aren't shared with other dependency-injected types during each request.</span></span> <span data-ttu-id="aba9a-130">Si debe compartir un servicio *con ámbito* entre su middleware y otros tipos, agregue esos servicios a la signatura del método `Invoke`.</span><span class="sxs-lookup"><span data-stu-id="aba9a-130">If you must share a *scoped* service between your middleware and other types, add these services to the `Invoke` method's signature.</span></span> <span data-ttu-id="aba9a-131">El método `Invoke` puede aceptar parámetros adicionales que la inserción de dependencias propaga:</span><span class="sxs-lookup"><span data-stu-id="aba9a-131">The `Invoke` method can accept additional parameters that are populated by DI:</span></span>
 
 ```csharp
 public class CustomMiddleware
@@ -76,7 +72,17 @@ public class CustomMiddleware
 }
 ```
 
-## <a name="additional-resources"></a><span data-ttu-id="05ed2-129">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="05ed2-129">Additional resources</span></span>
+## <a name="middleware-extension-method"></a><span data-ttu-id="aba9a-132">Método de extensión de middleware</span><span class="sxs-lookup"><span data-stu-id="aba9a-132">Middleware extension method</span></span>
+
+<span data-ttu-id="aba9a-133">El método de extensión siguiente expone el software intermedio mediante <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>:</span><span class="sxs-lookup"><span data-stu-id="aba9a-133">The following extension method exposes the middleware through <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>:</span></span>
+
+[!code-csharp[](index/snapshot/Culture/RequestCultureMiddlewareExtensions.cs)]
+
+<span data-ttu-id="aba9a-134">El código siguiente llama al middleware desde `Startup.Configure`:</span><span class="sxs-lookup"><span data-stu-id="aba9a-134">The following code calls the middleware from `Startup.Configure`:</span></span>
+
+[!code-csharp[](index/snapshot/Culture/Startup.cs?name=snippet1&highlight=5)]
+
+## <a name="additional-resources"></a><span data-ttu-id="aba9a-135">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="aba9a-135">Additional resources</span></span>
 
 * <xref:fundamentals/middleware/index>
 * <xref:migration/http-modules>
