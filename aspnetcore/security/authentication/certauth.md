@@ -3,15 +3,15 @@ title: Configurar la autenticación de certificado en ASP.NET Core
 author: blowdart
 description: Obtenga información sobre cómo configurar la autenticación de certificado en ASP.NET Core para IIS y HTTP.sys.
 monikerRange: '>= aspnetcore-3.0'
-ms.author: barry.dorrans
+ms.author: bdorrans
 ms.date: 06/11/2019
 uid: security/authentication/certauth
-ms.openlocfilehash: 37567128531187bfe7dd6c9f5aa990226e70f35f
-ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
+ms.openlocfilehash: 8609c58265340da1d618135795915d6c49e750a3
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66837542"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538719"
 ---
 # <a name="overview"></a>Información general
 
@@ -89,7 +89,7 @@ El controlador tiene dos eventos:
 * `OnAuthenticationFailed` &ndash; Se llama si se produce durante la autenticación de una excepción y le permite reaccionar.
 * `OnCertificateValidated` &ndash; Se llama después de que se validó el certificado pasó la validación y se ha creado una entidad de seguridad predeterminada. Este evento permite realizar su propia validación y aumentar o reemplazar la entidad de seguridad. Para obtener ejemplos incluyen:
   * Determinar si el certificado se conoce a los servicios.
-  * Creación de su propia entidad de seguridad. Considere el siguiente ejemplo de `Startup.ConfigureServices`:
+  * Creación de su propia entidad de seguridad. Considere el ejemplo siguiente de `Startup.ConfigureServices`:
 
 ```csharp
 services.AddAuthentication(
@@ -125,7 +125,7 @@ services.AddAuthentication(
 
 Si encuentra el certificado de entrada no cumple su validación adicional, llame a `context.Fail("failure reason")` con un motivo del error.
 
-Funcionalidad para el real, probablemente quiera llamar a un servicio registrado en la inserción de dependencias que se conecta a una base de datos u otro tipo de almacén de usuario. Acceso al servicio utilizando el contexto que se pasa el delegado. Considere el siguiente ejemplo de `Startup.ConfigureServices`:
+Funcionalidad para el real, probablemente quiera llamar a un servicio registrado en la inserción de dependencias que se conecta a una base de datos u otro tipo de almacén de usuario. Acceso al servicio utilizando el contexto que se pasa el delegado. Considere el ejemplo siguiente de `Startup.ConfigureServices`:
 
 ```csharp
 services.AddAuthentication(
