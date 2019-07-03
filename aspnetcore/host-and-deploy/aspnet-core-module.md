@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar el módulo de ASP.NET C
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/05/2019
+ms.date: 06/17/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: f287a9bad623c5ff5c41868c7c4408b572b39000
-ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
+ms.openlocfilehash: d5392ff6b15eeb3a4502df578665538b936aae6f
+ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66716357"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67167072"
 ---
 # <a name="aspnet-core-module"></a>Módulo ASP.NET Core
 
@@ -256,7 +256,7 @@ Para obtener información sobre la configuración de aplicaciones secundarias de
 
 ::: moniker range=">= aspnetcore-2.2"
 
-| Atributo | Descripción | Default |
+| Atributo | DESCRIPCIÓN | Default |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Atributo de cadena opcional.</p><p>Argumentos para el archivo ejecutable especificado en **processPath**.</p> | |
 | `disableStartUpErrorPage` | <p>Atributo Boolean opcional.</p><p>Si es true, la página **502.5 - Error en el proceso** se suprime, y tiene prioridad la página de código de estado 502 configurada en *web.config*.</p> | `false` |
@@ -275,7 +275,7 @@ Para obtener información sobre la configuración de aplicaciones secundarias de
 
 ::: moniker range="< aspnetcore-2.2"
 
-| Atributo | Descripción | Default |
+| Atributo | DESCRIPCIÓN | Default |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Atributo de cadena opcional.</p><p>Argumentos para el archivo ejecutable especificado en **processPath**.</p>| |
 | `disableStartUpErrorPage` | <p>Atributo Boolean opcional.</p><p>Si es true, la página **502.5 - Error en el proceso** se suprime, y tiene prioridad la página de código de estado 502 configurada en *web.config*.</p> | `false` |
@@ -451,11 +451,27 @@ El módulo ASP.NET Core es configurable para proporcionar registros de diagnóst
     stdoutLogFile="\\?\%home%\LogFiles\stdout"
     hostingModel="InProcess">
   <handlerSettings>
-    <handlerSetting name="debugFile" value="aspnetcore-debug.log" />
+    <handlerSetting name="debugFile" value=".\logs\aspnetcore-debug.log" />
     <handlerSetting name="debugLevel" value="FILE,TRACE" />
   </handlerSettings>
 </aspNetCore>
 ```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+Al crearse el archivo de registro, el módulo crea las carpetas de la ruta de acceso (*logs* en el ejemplo anterior). El grupo de aplicaciones debe tener acceso de escritura a la ubicación en la que se escriben los registros (use `IIS AppPool\<app_pool_name>` para proporcionar permiso de escritura).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+El módulo no crea automáticamente las carpetas de la ruta de acceso proporcionada al valor `<handlerSetting>` (*logs* en el ejemplo anterior), que deben existir previamente en la implementación. El grupo de aplicaciones debe tener acceso de escritura a la ubicación en la que se escriben los registros (use `IIS AppPool\<app_pool_name>` para proporcionar permiso de escritura).
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
 
 Los valores de nivel de depuración (`debugLevel`) pueden incluir el nivel y la ubicación.
 
