@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial: Creación de una API web con ASP.NET Core MVC'
+title: 'Tutorial: Creación de una API web con ASP.NET Core'
 author: rick-anderson
-description: Compilación de una API web con ASP.NET Core MVC
+description: Aprenda a crear de una API web con ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/4/2019
+ms.date: 06/18/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: dce2926e3cb19d6ac8d2af0e9b96c31dee1d92fd
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 17e8ee08fca775b8fccc3f2e6cd6067caca9c79f
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087525"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67207779"
 ---
-# <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Tutorial: Creación de una API web con ASP.NET Core MVC
+# <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Tutorial: Creación de una API web con ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Mike Wasson](https://github.com/mikewasson)
 
@@ -39,13 +39,13 @@ Al final, tendrá una API web que pueda administrar las tareas "pendientes" alma
 
 En este tutorial se crea la siguiente API:
 
-|API | Descripción | Cuerpo de la solicitud | Cuerpo de la respuesta |
+|API | DESCRIPCIÓN | Cuerpo de la solicitud | Cuerpo de la respuesta |
 |--- | ---- | ---- | ---- |
 |GET /api/todo | Obtener todas las tareas pendientes | Ninguna | Matriz de tareas pendientes|
-|GET /api/todo/{id} | Obtener un elemento por identificador | Ninguna | Tarea pendiente|
+|GET /api/todo/{id} | Obtener un elemento por identificador | None | Tarea pendiente|
 |POST /api/todo | Incorporación de un nuevo elemento | Tarea pendiente | Tarea pendiente |
-|PUT /api/todo/{id} | Actualizar un elemento existente &nbsp; | Tarea pendiente | Ninguna |
-|DELETE /api/todo/{id} &nbsp; &nbsp; | Eliminar un elemento &nbsp; &nbsp; | Ninguna | Ninguna|
+|PUT /api/todo/{id} | Actualizar un elemento existente &nbsp; | Tarea pendiente | None |
+|DELETE /api/todo/{id} &nbsp; &nbsp; | Eliminar un elemento &nbsp; &nbsp; | None | None|
 
 En el diagrama siguiente, se muestra el diseño de la aplicación.
 
@@ -88,7 +88,7 @@ En el diagrama siguiente, se muestra el diseño de la aplicación.
 
   ![Cuadro de diálogo de nuevo proyecto de macOS](first-web-api-mac/_static/1.png)
   
-* En el cuadro de diálogo **Configurar la nueva API web de ASP.NET Core**, acepte la **plataforma de destino** predeterminada de **.NET Core 2.2*.
+* En el cuadro de diálogo **Configurar la nueva API web de ASP.NET Core**, acepte la **plataforma de destino** predeterminada de * *.NET Core 2.2*.
 
 * Escriba *TodoApi* en **Nombre del proyecto** y seleccione **Crear**.
 
@@ -276,7 +276,7 @@ Los tipos de valores devueltos `ActionResult` pueden representar una gama amplia
 
 En este tutorial se usa Postman para probar la API web.
 
-* Instale [Postman](https://www.getpostman.com/apps).
+* Instale [Postman](https://www.getpostman.com/downloads/).
 * Inicie la aplicación web.
 * Inicie Postman.
 * Deshabilite **Comprobación del certificado SSL**.
@@ -315,7 +315,7 @@ El método `CreatedAtAction` realiza las acciones siguientes:
 * En Postman, establezca el método HTTP en `POST`.
 * Seleccione la pestaña **Cuerpo**.
 * Seleccione el botón de radio **Raw** (Sin formato).
-* Establezca el tipo en **JSON (application/json)**.
+* Establezca el tipo en **JSON (application/json)** .
 * En el cuerpo de la solicitud, introduzca JSON para una tarea pendiente:
 
     ```json

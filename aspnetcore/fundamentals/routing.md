@@ -4,14 +4,14 @@ author: rick-anderson
 description: Descubra cómo el enrutamiento de ASP.NET Core es responsable de asignar URI de solicitud a los selectores de punto de conexión y de distribuir las solicitudes entrantes a los puntos de conexión.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 06/17/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 2a7a942f43de94326e84977f09dc9a2e24dd00f0
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 71cb7215651a263e588531c9be644326c0b6eda6
+ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692576"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67167097"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -141,6 +141,21 @@ La clase <xref:Microsoft.AspNetCore.Builder.RouterMiddleware> conecta el enrutam
 
 La coincidencia de dirección URL es el proceso por el cual el enrutamiento envía una solicitud entrante a un *punto de conexión*. Este proceso se basa en datos de la ruta de dirección URL, pero se puede ampliar para tener en cuenta cualquier dato de la solicitud. La capacidad de enviar solicitudes a controladores independientes es clave para escalar el tamaño y la complejidad de una aplicación.
 
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+Cuando se ejecuta un middleware de enrutamiento, se establece un punto de conexión (`Endpoint`) y se enrutan los valores a una característica de <xref:Microsoft.AspNetCore.Http.HttpContext>. Para la solicitud actual:
+
+* Al llamar a `HttpContext.GetEndpoint` se obtiene el punto de conexión.
+* `HttpRequest.RouteValues` obtiene la colección de valores de ruta.
+
+El middleware que se ejecuta después del middleware de enrutamiento puede ver el punto de conexión y tomar medidas. Por ejemplo, un middleware de autorización puede consultar la colección de metadatos del punto de conexión de una directiva de autorización. Después de que se ejecuta todo el middleware en la canalización de procesamiento de solicitudes, se invoca al delegado del punto de conexión seleccionado.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
 El sistema de enrutamiento en el enrutamiento de punto de conexión es responsable de todas las decisiones relativas al envío. Como el middleware aplica las directivas en función del punto de conexión seleccionado, es importante que cualquier decisión que pueda afectar a la distribución o la aplicación de directivas de seguridad se realice dentro del sistema de enrutamiento.
 
 Cuando se ejecuta el delegado del punto de conexión, las propiedades de [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData) se establecen en los valores adecuados en función del procesamiento de solicitudes realizado hasta el momento.
@@ -195,7 +210,7 @@ Se llama a <xref:Microsoft.AspNetCore.Routing.LinkGenerator> con una dirección.
 
 Los métodos proporcionados por <xref:Microsoft.AspNetCore.Routing.LinkGenerator> admiten funciones estándar de generación de vínculos para cualquier tipo de dirección. La forma más útil de usar el generador de vínculos es a través de métodos de extensión que realicen operaciones para un tipo de dirección específica.
 
-| Método de extensión   | Descripción                                                         |
+| Método de extensión   | DESCRIPCIÓN                                                         |
 | ------------------ | ------------------------------------------------------------------- |
 | <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetPathByAddress*> | Genera un URI con una ruta de acceso absoluta en función de los valores proporcionados. |
 | <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetUriByAddress*> | Genera un URI absoluto en función de los valores proporcionados.             |

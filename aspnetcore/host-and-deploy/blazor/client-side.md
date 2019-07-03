@@ -1,20 +1,20 @@
 ---
-title: Hospedaje e implementación de Blazor del lado cliente
+title: Hospedaje e implementación de ASP.NET Core Blazor del lado cliente
 author: guardrex
 description: Obtenga información sobre cómo hospedar e implementar una aplicación de Blazor con ASP.NET Core, redes de entrega de contenido (CDN), servidores de archivos y GitHub Pages.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/21/2019
+ms.date: 06/14/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: b50516b4dce28a6b105b2ab8b9386060d5392983
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: 7567473ae8acd9e1072954907f0fe9c7beea29ad
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376402"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67153192"
 ---
-# <a name="host-and-deploy-blazor-client-side"></a>Hospedaje e implementación de Blazor del lado cliente
+# <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Hospedaje e implementación de ASP.NET Core Blazor del lado cliente
 
 Por [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com) y [Daniel Roth](https://github.com/danroth27)
 
@@ -102,7 +102,7 @@ Con el [modelo de hospedaje del lado cliente](xref:blazor/hosting-models#client-
 
 ## <a name="configure-the-linker"></a>Configurar el enlazador
 
-Blazor realiza la vinculación de lenguaje intermedio (IL) en cada compilación para quitar el IL innecesario de los ensamblados de salida. La vinculación de ensamblados puede controlarse en la compilación. Para obtener más información, vea <xref:host-and-deploy/blazor/configure-linker>.
+Blazor realiza la vinculación de lenguaje intermedio (IL) en cada compilación para quitar el IL innecesario de los ensamblados de salida. La vinculación de ensamblados puede controlarse en la compilación. Para más información, consulte <xref:host-and-deploy/blazor/configure-linker>.
 
 ## <a name="rewrite-urls-for-correct-routing"></a>Reescritura de las URL para conseguir un enrutamiento correcto
 

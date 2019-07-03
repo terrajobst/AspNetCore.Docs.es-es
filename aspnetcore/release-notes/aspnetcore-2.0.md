@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/28/2019
 uid: aspnetcore-2.0
-ms.openlocfilehash: 5cf7b9aa7ccf86f1a89e6145cfc185c5ef803e66
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: dac5a48042a71774cb884e30a166be68bee69691
+ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376406"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048113"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novedades de ASP.NET Core 2.0
 
@@ -60,7 +60,7 @@ Para más información, vea [Introduction to Logging](xref:fundamentals/logging/
 
 Hay un nuevo modelo de autenticación que facilita la configuración de la autenticación de una aplicación mediante la inserción de dependencias.
 
-Hay plantillas nuevas disponibles para configurar la autenticación de aplicaciones web y API web con [Azure AD B2C] (https://azure.microsoft.com/services/active-directory-b2c/).
+Hay plantillas nuevas disponibles para configurar la autenticación de aplicaciones web y API web con [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/).
 
 Para información sobre el estado de la documentación planeada, vea este [problema de GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/3054).
 
