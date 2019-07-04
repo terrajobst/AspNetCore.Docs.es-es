@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 671e39ded50e50bbfe6d12879895bee74367f754
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: ae409158defe15ffaa7454039b302cf3c6437e54
+ms.sourcegitcommit: 6d9cf728465cdb0de1037633a8b7df9a8989cccb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64890780"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67463286"
 ---
 # <a name="use-web-api-conventions"></a>Uso de convenciones de API web
 
@@ -50,7 +50,7 @@ Las convenciones no se crean, y es posible que cada acción esté asociada a una
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     ```
 
-Para obtener más información sobre `[ProducesDefaultResponseType]`, vea [Default Response](https://swagger.io/docs/specification/describing-responses/#default) (Respuesta predeterminada).
+    Para obtener más información sobre `[ProducesDefaultResponseType]`, vea [Default Response](https://swagger.io/docs/specification/describing-responses/#default) (Respuesta predeterminada).
 
 1. `Microsoft.AspNetCore.Mvc.ApiConventionTypeAttribute` aplicado a un controlador: se aplica el tipo de convención especificado a todas las acciones del controlador. Un método de convención se representa con sugerencias que determinan las acciones a las que este se aplica. Para obtener más información sobre las sugerencias, consulte [Creación de convenciones de API web](#create-web-api-conventions).
 

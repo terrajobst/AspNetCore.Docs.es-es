@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 12/06/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
 ms.openlocfilehash: c0251032d83349d4d3925d1ec594c9230ed6ad2d
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.sourcegitcommit: 6d9cf728465cdb0de1037633a8b7df9a8989cccb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 07/01/2019
 ms.locfileid: "67207644"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Publicar una aplicación de ASP.NET Core en Azure con Visual Studio
@@ -29,7 +29,7 @@ Para solucionar un problema de implementación de App Service, vea <xref:host-an
 
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 
-En la página de inicio de Visual Studio, seleccione **Archivo > Nuevo > Proyecto...**.
+En la página de inicio de Visual Studio, seleccione **Archivo > Nuevo > Proyecto...** .
 
 ![menú Archivo](publish-to-azure-webapp-using-vs/_static/file_new_project.png)
 
@@ -158,7 +158,7 @@ Haga clic en **Publicar**. Visual Studio publica la aplicación en Azure. Cuando
 
     [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
 
-* Haga clic con el botón derecho sobre el proyecto y vuelva a seleccionar **Publicar...**.
+* Haga clic con el botón derecho sobre el proyecto y vuelva a seleccionar **Publicar...** .
 
 ![Menú contextual abierto con el vínculo Publicar resaltado](publish-to-azure-webapp-using-vs/_static/pub.png)
 
