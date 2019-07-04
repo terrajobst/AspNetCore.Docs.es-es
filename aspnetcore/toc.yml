@@ -816,6 +816,8 @@
           uid: security/authentication/2fa
         - name: Uso de la autenticación de cookies sin Identity
           uid: security/authentication/cookie
+        - name: Uso de la autenticación social sin Identity
+          uid: security/authentication/social/social-without-identity
         - name: Azure Active Directory
           items:
             - name: Información general
