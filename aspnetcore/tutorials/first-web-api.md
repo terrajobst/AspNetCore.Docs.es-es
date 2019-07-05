@@ -4,14 +4,14 @@ author: rick-anderson
 description: Aprenda a crear de una API web con ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 06/23/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 17e8ee08fca775b8fccc3f2e6cd6067caca9c79f
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: a53f7019c1079296f073e743ddbf9d90fc5abad3
+ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207779"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67555874"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Tutorial: Creación de una API web con ASP.NET Core
 
@@ -49,24 +49,39 @@ En este tutorial se crea la siguiente API:
 
 En el diagrama siguiente, se muestra el diseño de la aplicación.
 
-![El cliente está representado por un cuadro a la izquierda, envía una solicitud y recibe una respuesta de la aplicación, representada por un cuadro en la parte derecha. En el cuadro de la aplicación, hay tres cuadros que representan el controlador, el modelo y la capa de acceso a datos. La solicitud entra en el controlador de la aplicación y se producen operaciones de lectura/escritura entre el controlador y la capa de acceso a datos. El modelo se serializa y se devuelve al cliente en la respuesta.](first-web-api/_static/architecture.png)
+![El cliente está representado por un cuadro a la izquierda. Envía una solicitud y recibe una respuesta de la aplicación, representada por un cuadro en la parte derecha. En el cuadro de la aplicación, hay tres cuadros que representan el controlador, el modelo y la capa de acceso a datos. La solicitud entra en el controlador de la aplicación y se producen operaciones de lectura/escritura entre el controlador y la capa de acceso a datos. El modelo se serializa y se devuelve al cliente en la respuesta.](first-web-api/_static/architecture.png)
 
-[!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
+## <a name="prerequisites"></a>Requisitos previos
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+[!INCLUDE[](~/includes/net-core-prereqs-vs2019-2.2.md)]
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+[!INCLUDE[](~/includes/net-core-prereqs-vsc-2.2.md)]
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+
+[!INCLUDE[](~/includes/net-core-prereqs-mac-2.2.md)]
+
+---
 
 ## <a name="create-a-web-project"></a>Creación de un proyecto web
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * En el menú **Archivo**, seleccione **Nuevo** > **Proyecto**.
-* Seleccione la plantilla **Aplicación web ASP.NET Core**. Asigne al proyecto el nombre *TodoApi* y haga clic en **Aceptar**.
-* En el cuadro de diálogo **Nueva aplicación web ASP.NET Core - TodoApi**, seleccione la versión de ASP.NET Core. Seleccione la plantilla **API** y haga clic en **Aceptar**. **No** seleccione **Habilitar compatibilidad con Docker**.
+* Seleccione la plantilla **Aplicación web ASP.NET Core** y haga clic en **Siguiente**.
+* Asigne al proyecto el nombre *TodoApi* y haga clic en **Crear**.
+* En el cuadro de diálogo **Crear una aplicación web ASP.NET Core**, confirme que las opciones **.NET Core** y **ASP.NET Core 2.2** estén seleccionadas. Seleccione la plantilla **API** y haga clic en **Crear**. **No** seleccione **Habilitar compatibilidad con Docker**.
 
 ![Cuadro de diálogo de nuevo proyecto de VS](first-web-api/_static/vs.png)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Abra el [terminal integrado](https://code.visualstudio.com/docs/editor/integrated-terminal).
-* Cambie el directorio (`cd`) a la carpeta que va a contener la carpeta del proyecto.
+* Cambie los directorios (`cd`) a la carpeta que va a contener la carpeta del proyecto.
 * Ejecute los comandos siguientes:
 
    ```console
@@ -386,13 +401,13 @@ Use Postman para eliminar una tarea pendiente:
 * Establezca el URI del objeto que quiera eliminar, por ejemplo, `https://localhost:5001/api/todo/1`.
 * Seleccione **Enviar**.
 
-La aplicación de ejemplo permite eliminar todos los elementos, pero al eliminar el último elemento, se creará uno nuevo en el constructor de clase de modelo la próxima vez que se llame a la API.
+La aplicación de ejemplo permite eliminar todos los elementos. Sin embargo, al eliminar el último elemento, se creará uno nuevo en el constructor de clase de modelo la próxima vez que se llame a la API.
 
 ## <a name="call-the-api-with-jquery"></a>Llamada a la API con jQuery
 
 En esta sección, se agrega una página HTML que usa jQuery para llamar a la API web. jQuery inicia la solicitud y actualiza la página con los detalles de la respuesta de la API.
 
-Configure la aplicación para [atender archivos estáticos](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) y [habilitar la asignación de archivos predeterminada](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_):
+Configure la aplicación para [atender archivos estáticos](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) y [habilitar la asignación de archivos predeterminada](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) mediante la actualización de *Startup.cs* con el siguiente código resaltado:
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Startup.cs?highlight=14-15&name=snippet_configure)]
 
