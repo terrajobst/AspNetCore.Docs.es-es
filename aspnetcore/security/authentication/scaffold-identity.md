@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 7445db31e461bf61e8a91af7239187a6ece9d011
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9e784864ee78bdfb76dab7748f3fb81728b9c289
+ms.sourcegitcommit: 91cc1f07ef178ab709ea42f8b3a10399c970496e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64897362"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622766"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Identidad de scaffold en proyectos de ASP.NET Core
 
@@ -164,7 +164,7 @@ Se reemplaza el valor predeterminado de identidad en el código siguiente:
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet2)]
 
-El siguiente el código establece la [LoginPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.loginpath), [LogoutPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.logoutpath), y [AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath):
+El código siguiente establece la [LoginPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.loginpath), [LogoutPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.logoutpath), y [AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath):
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet3)]
 

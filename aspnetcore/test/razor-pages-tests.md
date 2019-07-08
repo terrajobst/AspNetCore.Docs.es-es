@@ -2,16 +2,17 @@
 title: Pruebas unitarias páginas de Razor en ASP.NET Core
 author: guardrex
 description: Obtenga información sobre cómo crear pruebas unitarias para aplicaciones de las páginas de Razor.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/27/2017
+ms.date: 07/07/2017
 uid: test/razor-pages-tests
-ms.openlocfilehash: f0e47f975579dc114eaeda375028ec62696f58ed
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: f89b4fcb0065e725f70deec7859e373f9158b4bd
+ms.sourcegitcommit: 91cc1f07ef178ab709ea42f8b3a10399c970496e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394740"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622777"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Pruebas unitarias páginas de Razor en ASP.NET Core
 
@@ -26,20 +27,20 @@ ASP.NET Core es compatible con las pruebas unitarias de aplicaciones de las pág
 
 En este tema se supone que tiene un conocimiento básico de aplicaciones de las páginas de Razor y pruebas unitarias. Si no está familiarizado con los conceptos de pruebas o aplicaciones de las páginas de Razor, consulte los temas siguientes:
 
-* [Introducción a las páginas de Razor](xref:razor-pages/index)
-* [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start)
+* <xref:razor-pages/index>
+* <xref:tutorials/razor-pages/razor-pages-start>
 * [Prueba unitaria de C# en .NET Core mediante pruebas de dotnet y xUnit](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 El proyecto de ejemplo se compone de dos aplicaciones:
 
-| Aplicación         | Carpeta del proyecto                        | Descripción |
-| ----------- | ------------------------------------- | ----------- |
-| Aplicación de mensaje | *src/RazorPagesTestSample*            | Permite al usuario agregar, eliminar uno, elimine todo y analizar los mensajes. |
-| Aplicación de prueba    | *tests/RazorPagesTestSample.Tests*    | Utilizado para la aplicación de mensajes de pruebas unitarias: Capa de acceso a datos (DAL) y el modelo de página de índice. |
+| Aplicación         | Carpeta del proyecto                     | Descripción |
+| ----------- | ---------------------------------- | ----------- |
+| Aplicación de mensaje | *src/RazorPagesTestSample*         | Permite que un usuario agregar un mensaje, eliminar un mensaje, eliminar todos los mensajes y analizar los mensajes (buscar el número medio de palabras por mensaje). |
+| Aplicación de prueba    | *tests/RazorPagesTestSample.Tests* | Se usa para pruebas de unidad DAL y modelo de página de índice de la aplicación de mensaje. |
 
-Se pueden ejecutar las pruebas con las características integradas de prueba de un IDE, como [Visual Studio](https://visualstudio.microsoft.com). Si usa [Visual Studio Code](https://code.visualstudio.com/) o la línea de comandos, ejecute el siguiente comando en un símbolo del sistema en el *tests/RazorPagesTestSample.Tests* carpeta:
+Se pueden ejecutar las pruebas con las características integradas de prueba de un IDE, como [Visual Studio](/visualstudio/test/unit-test-your-code) o [Visual Studio para Mac](/dotnet/core/tutorials/using-on-mac-vs-full-solution). Si usa [Visual Studio Code](https://code.visualstudio.com/) o la línea de comandos, ejecute el siguiente comando en un símbolo del sistema en el *tests/RazorPagesTestSample.Tests* carpeta:
 
 ```console
 dotnet test
@@ -47,17 +48,17 @@ dotnet test
 
 ## <a name="message-app-organization"></a>Organización de la aplicación de mensaje
 
-La aplicación de mensaje es un sencillo sistema de mensajes de las páginas de Razor con las siguientes características:
+La aplicación de mensaje es un sistema de mensajes de las páginas de Razor con las siguientes características:
 
-* La página de índice de la aplicación (*Pages/index.cshtml* y *Pages/Index.cshtml.cs*) proporciona una interfaz de usuario y la página de métodos de modelo para controlar la adición, eliminación y análisis de mensajes (palabras medios por mensaje) .
+* La página de índice de la aplicación (*Pages/index.cshtml* y *Pages/Index.cshtml.cs*) proporciona los métodos del modelo para controlar la adición, eliminación y análisis de mensajes (buscar el número medio de una interfaz de usuario y una página palabras por mensaje).
 * Se describe un mensaje mediante la `Message` clase (*Data/Message.cs*) con dos propiedades: `Id` (clave) y `Text` (mensaje). El `Text` propiedad es necesaria y limitada a 200 caracteres.
 * Los mensajes se almacenan mediante [base de datos de Entity Framework en memoria](/ef/core/providers/in-memory/)&#8224;.
-* La aplicación contiene una capa de acceso a datos (DAL) en su clase de contexto de base de datos, `AppDbContext` (*Data/AppDbContext.cs*). Los métodos de la capa DAL se marcan `virtual`, lo que permite a los métodos para su uso en las pruebas de simulación.
+* La aplicación contiene un DAL de su clase de contexto de base de datos, `AppDbContext` (*Data/AppDbContext.cs*). Los métodos de la capa DAL se marcan `virtual`, lo que permite a los métodos para su uso en las pruebas de simulación.
 * Si la base de datos está vacía en el inicio de la aplicación, el almacén de mensajes se inicializa con tres mensajes. Estos *propagar mensajes* también se usan en las pruebas.
 
 &#8224;El tema EF, [pruebas con InMemory](/ef/core/miscellaneous/testing/in-memory), se explica cómo usar una base de datos en memoria para las pruebas con MSTest. Este tema se usa el [xUnit](https://xunit.github.io/) marco de pruebas. Los conceptos de pruebas e implementaciones de prueba a través de diferentes marcos son similares pero no idénticos.
 
-Aunque la aplicación no usa el modelo de repositorio y no es un ejemplo eficaz de la [patrón de unidades de trabajo (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages admite estos patrones de desarrollo. Para obtener más información, consulte [diseñar la capa de persistencia de infraestructura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) y [lógica del controlador de pruebas](/aspnet/core/mvc/controllers/testing) (el ejemplo implementa el modelo de repositorio).
+Aunque la aplicación de ejemplo no usa el modelo de repositorio y no es un ejemplo eficaz de la [patrón de unidades de trabajo (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages admite estos patrones de desarrollo. Para obtener más información, consulte [diseñar la capa de persistencia de infraestructura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) y <xref:mvc/controllers/testing> (el ejemplo implementa el modelo de repositorio).
 
 ## <a name="test-app-organization"></a>Organización de la aplicación de prueba
 
@@ -81,7 +82,7 @@ La aplicación de mensaje tiene un DAL con cuatro métodos incluidos en el `AppD
 | `DeleteAllMessagesAsync` | Todos los elimina `Message` las entradas de la base de datos.                           |
 | `DeleteMessageAsync`     | Elimina una sola `Message` desde la base de datos `Id`.                      |
 
-Pruebas unitarias de la capa DAL requieren [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) al crear un nuevo `AppDbContext` para cada prueba. Un método para crear el `DbContextOptions` de cada prueba consiste en usar un [DbContextOptionsBuilder](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptionsbuilder):
+Pruebas unitarias de la capa DAL requieren <xref:Microsoft.EntityFrameworkCore.DbContextOptions> al crear un nuevo `AppDbContext` para cada prueba. Un método para crear el `DbContextOptions` de cada prueba consiste en usar un <xref:Microsoft.EntityFrameworkCore.DbContextOptionsBuilder>:
 
 ```csharp
 var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>()
@@ -148,15 +149,15 @@ Otro conjunto de pruebas unitarias es responsable de pruebas de métodos del mod
 | Método del modelo de página | Función |
 | ----------------- | -------- |
 | `OnGetAsync` | Obtiene los mensajes de la capa DAL para la interfaz de usuario mediante el `GetMessagesAsync` método. |
-| `OnPostAddMessageAsync` | Si el `ModelState` es válido, las llamadas `AddMessageAsync` para agregar un mensaje a la base de datos. |
+| `OnPostAddMessageAsync` | Si el [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary) es válido, las llamadas `AddMessageAsync` para agregar un mensaje a la base de datos. |
 | `OnPostDeleteAllMessagesAsync` | Las llamadas `DeleteAllMessagesAsync` para eliminar todos los mensajes en la base de datos. |
 | `OnPostDeleteMessageAsync` | Ejecuta `DeleteMessageAsync` para eliminar un mensaje con el `Id` especificado. |
 | `OnPostAnalyzeMessagesAsync` | Si uno o más mensajes en la base de datos, calcula el número medio de palabras por mensaje. |
 
 Los métodos del modelo de página se prueban utilizando siete pruebas en el `IndexPageTests` clase (*tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs*). Las pruebas de usan el patrón de Act Assert organizar familiar. Estas pruebas se centran en:
 
-* Determinar si los métodos siguen el comportamiento correcto cuando el `ModelState` no es válido.
-* Confirmar los métodos generan el valor correcto `IActionResult`.
+* Determinar si los métodos siguen el comportamiento correcto cuando el [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary) no es válido.
+* Confirmar los métodos generan el valor correcto <xref:Microsoft.AspNetCore.Mvc.IActionResult>.
 * Comprobando que se realizan correctamente las asignaciones de valor de propiedad.
 
 Este grupo de pruebas a menudo imitar los métodos de la capa DAL para generar los datos esperados para el paso de Act donde se ejecuta un método del modelo de página. Por ejemplo, el `GetMessagesAsync` método de la `AppDbContext` se simula para producir una salida. Cuando este método ejecuta en un método del modelo de página, el simulacro devuelve el resultado. Los datos no proceden de la base de datos. Esto crea condiciones de prueba predecible y confiable para el uso de la capa DAL en las pruebas del modelo de página.
@@ -181,17 +182,18 @@ En el `Assert` paso, los mensajes reales (`actualMessages`) se asignan desde el 
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs?name=snippet3)]
 
-Otras pruebas en este grupo crean página de objetos de modelo que incluyen la `DefaultHttpContext`, el `ModelStateDictionary`, un `ActionContext` para establecer el `PageContext`, un `ViewDataDictionary`y un `PageContext`. Estos son útiles para realizar pruebas. Por ejemplo, la aplicación de mensajes establece una `ModelState` error con `AddModelError` para comprobar que válido `PageResult` se devuelve cuando `OnPostAddMessageAsync` se ejecuta:
+Otras pruebas en este grupo crean página de objetos de modelo que incluyen la <xref:Microsoft.AspNetCore.Http.DefaultHttpContext>, el <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary>, un <xref:Microsoft.AspNetCore.Mvc.ActionContext> para establecer el `PageContext`, un `ViewDataDictionary`y un `PageContext`. Estos son útiles para realizar pruebas. Por ejemplo, la aplicación de mensajes establece una `ModelState` error con <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.AddModelError*> para comprobar que válido <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageResult> se devuelve cuando `OnPostAddMessageAsync` se ejecuta:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs?name=snippet4&highlight=11,26,29,32)]
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Prueba unitaria de C# en .NET Core mediante pruebas de dotnet y xUnit](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Controladores de pruebas](xref:mvc/controllers/testing)
+* <xref:mvc/controllers/testing>
 * [Prueba unitaria del código](/visualstudio/test/unit-test-your-code) (Visual Studio)
-* [Pruebas de integración](xref:test/integration-tests)
+* <xref:test/integration-tests>
 * [xUnit.net](https://xunit.github.io/)
-* [Introducción a xUnit.net (.NET Core/ASP.NET Core)](https://xunit.github.io/docs/getting-started-dotnet-core)
+* [Creación de una solución completa de .NET Core en macOS con Visual Studio para Mac](/dotnet/core/tutorials/using-on-mac-vs-full-solution)
+* [Introducción a xUnit.net: Uso de .NET Core con la línea de comandos de .NET SDK](https://xunit.github.io/docs/getting-started-dotnet-core)
 * [Moq](https://github.com/moq/moq4)
 * [Guía de inicio rápido de Moq](https://github.com/Moq/moq4/wiki/Quickstart)
