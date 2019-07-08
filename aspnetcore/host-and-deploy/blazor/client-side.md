@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo hospedar e implementar una aplicac
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 07/02/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: 7567473ae8acd9e1072954907f0fe9c7beea29ad
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 46c99364098557557bff0c38cab5a91ee2d3979b
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67153192"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538648"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Hospedaje e implementación de ASP.NET Core Blazor del lado cliente
 
@@ -106,19 +106,19 @@ Blazor realiza la vinculación de lenguaje intermedio (IL) en cada compilación 
 
 ## <a name="rewrite-urls-for-correct-routing"></a>Reescritura de las URL para conseguir un enrutamiento correcto
 
-Enrutar las solicitudes para los componentes de la página en una aplicación del lado cliente no es tan sencillo como enrutar las solicitudes a una aplicación hospedada del lado servidor. Imagine que tiene una aplicación del lado cliente con dos páginas:
+Enrutar las solicitudes para los componentes de la página en una aplicación del lado cliente no es tan sencillo como enrutar las solicitudes a una aplicación hospedada del lado servidor. Imagine que tiene una aplicación del lado cliente con dos componentes:
 
-* **_Main.razor**: se carga en la raíz de la aplicación y contiene un vínculo a la página de información (`href="About"`).
-* **_About.Razor**: página Acerca de.
+* *Main.razor* &ndash; se carga en la raíz de la aplicación y contiene un vínculo al componente `About` (`href="About"`).
+* *About.Razor* &ndash; componente `About`.
 
 Cuando se solicita el documento predeterminado de la aplicación mediante la barra de direcciones del explorador (por ejemplo, `https://www.contoso.com/`):
 
 1. El explorador realiza una solicitud.
 1. Se devuelve la página predeterminada, que suele ser *index.html*.
 1. *index.html* arranca la aplicación.
-1. Se carga el enrutador de Blazor y se muestra la página principal de Razor (*Main.razor*).
+1. Se carga el enrutador de Blazor y se representa el componente `Main` de Razor.
 
-En la página principal, al seleccionar el vínculo a la página de información, se carga la página de información. Seleccionar el vínculo a la página de información funciona en el cliente porque el enrutador de Blazor impide que el explorador realice una solicitud en Internet a `www.contoso.com` sobre `About` y presenta la propia página de información. Todas las solicitudes de páginas internas *dentro de la aplicación del lado cliente* funcionan del mismo modo: Las solicitudes no desencadenan solicitudes basadas en el explorador a recursos hospedados en el servidor en Internet. El enrutador controla las solicitudes de forma interna.
+En la página principal, seleccionar el vínculo al componente `About` funciona en el cliente porque el enrutador de Blazor impide que el explorador haga una solicitud en Internet a `www.contoso.com` sobre `About` y presenta el propio componente `About` representado. Todas las solicitudes de puntos de conexión internos *dentro de la aplicación del lado cliente* funcionan del mismo modo: Las solicitudes no desencadenan solicitudes basadas en el explorador a recursos hospedados en el servidor en Internet. El enrutador controla las solicitudes de forma interna.
 
 Si se realiza una solicitud mediante la barra de direcciones del explorador para `www.contoso.com/About`, se produce un error. Este recurso no existe en el host de Internet de la aplicación, por lo que se devuelve una respuesta *404 No encontrado*.
 
@@ -148,7 +148,7 @@ La aplicación responde de forma local en `http://localhost:port/CoolApp`.
 
 Para más información, vea la sección sobre el [valor de configuración de host de la ruta de acceso base](#path-base).
 
-Si una aplicación usa el [modelo de hospedaje del lado cliente](xref:blazor/hosting-models#client-side) (basado en la plantilla de proyecto de **Blazor**; la plantilla `blazor` al usar el comando [dotnet new](/dotnet/core/tools/dotnet-new)) y se hospeda como una subaplicación de IIS en una aplicación ASP.NET Core, es importante deshabilitar el controlador del módulo de ASP.NET Core heredado o asegurarse de que la subaplicación no hereda la sección `<handlers>` de la aplicación raíz (principal) en el archivo *web.config*.
+Si una aplicación usa el [modelo de hospedaje del lado cliente](xref:blazor/hosting-models#client-side) (basado en la plantilla de proyecto de **Blazor** (lado cliente); la plantilla `blazor` al usar el comando [dotnet new](/dotnet/core/tools/dotnet-new)) y se hospeda como una subaplicación de IIS en una aplicación ASP.NET Core, es importante deshabilitar el controlador del módulo de ASP.NET Core heredado o asegurarse de que la subaplicación no hereda la sección `<handlers>` de la aplicación raíz (principal) en el archivo *web.config*.
 
 Para quitar el controlador del archivo *web.config* publicado de la aplicación, agregue una sección `<handlers>` al archivo:
 
@@ -178,7 +178,7 @@ Además de configurarse la ruta de acceso base de la aplicación, se quita el co
 
 ## <a name="hosted-deployment-with-aspnet-core"></a>Implementación hospedada con ASP.NET Core
 
-Una *implementación hospedada* proporciona la aplicación Blazor del lado cliente a los exploradores desde una [aplicación ASP.NET Core](xref:index) que se ejecuta en un servidor.
+Una *implementación hospedada* proporciona la aplicación Blazor del lado cliente a los exploradores desde una [aplicación ASP.NET Core](xref:index) que se ejecuta en un servidor web.
 
 La aplicación Blazor se incluye con la aplicación ASP.NET Core en la salida publicada para que ambas se implementen juntas. Se requiere un servidor web que pueda hospedar una aplicación ASP.NET Core. En el caso de una implementación hospedada, Visual Studio incluye la plantilla de proyecto de **Blazor (hospedada en ASP.NET Core)** (la plantilla `blazorhosted` al usar el comando [dotnet new](/dotnet/core/tools/dotnet-new)).
 

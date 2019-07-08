@@ -5,14 +5,14 @@ description: Cree una aplicación Blazor paso a paso.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/12/2019
+ms.date: 07/01/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: df27dad17133f287b1c73dc308b4cc69426e0a63
-ms.sourcegitcommit: 739a3d7ca4fd2908ea0984940eca589a96359482
+ms.openlocfilehash: d592c5bac1eb9822843a1ad1513a15fdfd6b1032
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67040710"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500308"
 ---
 # <a name="build-your-first-blazor-app"></a>Creación de la primera aplicación Blazor
 
@@ -20,7 +20,7 @@ Por [Daniel Roth](https://github.com/danroth27) y [Luke Latham](https://github.c
 
 En este tutorial se muestra cómo crear y modificar una aplicación de Blazor.
 
-Siga las instrucciones del artículo <xref:blazor/get-started> para crear un proyecto de Blazor en este tutorial.
+Siga las instrucciones del artículo <xref:blazor/get-started> para crear un proyecto de Blazor en este tutorial. Denomine el proyecto *ToDoList*.
 
 ## <a name="build-components"></a>Creación de componentes
 
@@ -28,24 +28,24 @@ Siga las instrucciones del artículo <xref:blazor/get-started> para crear un pro
 
 1. En la página Contador, seleccione el botón **Click me** para aumentar el contador sin una actualización de página. Aumentar un contador en una página web suele requerir la escritura de JavaScript, pero Blazor proporciona una mejor manera de usar C#.
 
-1. Examine la implementación del componente Counter en el archivo *Counter.razor*.
+1. Examine la implementación del componente `Counter` en el archivo *Counter.razor*.
 
    *Pages/Counter.razor*:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter1.razor)]
 
-   la interfaz de usuario del componente Counter se define mediante HTML. La lógica de la representación dinámica (por ejemplo, bucles, instrucciones condicionales, expresiones) se agrega mediante una sintaxis de C# insertada denominada [Razor](xref:mvc/views/razor). El marcado HTML y la lógica de representación de C# se convierten en una clase de componente en tiempo de compilación. El nombre de la clase de .NET generada coincide con el nombre del archivo.
+   la interfaz de usuario del componente `Counter` se define mediante HTML. La lógica de la representación dinámica (por ejemplo, bucles, instrucciones condicionales, expresiones) se agrega mediante una sintaxis de C# insertada denominada [Razor](xref:mvc/views/razor). El marcado HTML y la lógica de representación de C# se convierten en una clase de componente en tiempo de compilación. El nombre de la clase de .NET generada coincide con el nombre del archivo.
 
    Los miembros de la clase de componente se definen en un bloque `@code`. En el bloque `@code`, se especifica el estado del componente (propiedades, campos) y los métodos para el tratamiento de eventos o para definir otra lógica del componente. Estos miembros se utilizan como parte de la lógica de representación del componente y para el tratamiento de eventos.
 
    Al seleccionarse el botón **Click me**:
 
-   * Se llama al controlador `onclick` registrado del componente Counter (el método `IncrementCount`).
-   * El componente Counter regenera su árbol de representación.
+   * Se llama al controlador `onclick` registrado del componente `Counter` (el método `IncrementCount`).
+   * El componente `Counter` regenera su árbol de representación.
    * El nuevo árbol de representación se compara con el anterior.
    * Únicamente se aplican modificaciones en Document Object Model (DOM). Se actualiza el recuento mostrado.
 
-1. Modifique la lógica de C# del componente Counter para hacer que el recuento se incremente en dos en lugar de uno.
+1. Modifique la lógica de C# del componente `Counter` para hacer que el recuento se incremente en dos en lugar de uno.
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter2.razor?highlight=14)]
 
@@ -55,15 +55,15 @@ Siga las instrucciones del artículo <xref:blazor/get-started> para crear un pro
 
 Incluya un componente en otro componente mediante una sintaxis HTML.
 
-1. Agregue el componente Counter al componente Index de la aplicación; para ello, agregue un elemento `<Counter />` al componente Index (*Index.razor*).
+1. Agregue el componente `Counter` al componente `Index` de la aplicación al agregar un elemento `<Counter />` al componente `Index` (*Index.razor*).
 
-   Si usa Blazor para esta experiencia, hay un componente Survey Prompt (elemento `<SurveyPrompt>`) en el componente Index. Reemplace el elemento `<SurveyPrompt>` por el elemento `<Counter>`. Si usa una aplicación de servidor de Blazor para esta experiencia, agregue el elemento `<Counter>` al componente Index:
+   Si para esta experiencia usa el lado cliente de Blazor, el componente `Index` usa un componente `SurveyPrompt`. Reemplace el elemento `<SurveyPrompt>` por un elemento `<Counter />`. Si para esta experiencia usa una aplicación de servidor de Blazor, agregue el elemento `<Counter />` al elemento `Index`:
 
    *Pages/Index.razor*:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
-1. Recompile y ejecute la aplicación. El componente Index tiene su propio contador.
+1. Recompile y ejecute la aplicación. El componente `Index` tiene su propio contador.
 
 ## <a name="component-parameters"></a>Parámetros del componente
 
@@ -83,23 +83,23 @@ Los componentes también pueden tener parámetros. Los parámetros del component
    > From Visual Studio, you can quickly add a component parameter by using the `para` snippet. Type `para` and press the `Tab` key twice.
 -->
 
-1. Especifique un parámetro `IncrementAmount` en el elemento `<Counter>` del componente Index mediante un atributo. Establezca el valor para incrementar el contador en diez.
+1. Especifique un parámetro `IncrementAmount` en el elemento `<Counter>` del componente `Index` mediante un atributo. Establezca el valor para incrementar el contador en diez.
 
    *Pages/Index.razor*:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-1. Vuelva a cargar el componente Index. El contador se incrementa en diez cada vez que se selecciona el botón **Click me**. El contador del componente Counter sigue incrementándose en uno.
+1. Recargue el componente `Index`. El contador se incrementa en diez cada vez que se selecciona el botón **Click me**. El contador del componente `Counter` sigue incrementándose en uno.
 
 ## <a name="route-to-components"></a>Enrutamiento a los componentes
 
-La directiva `@page` en la parte superior del archivo *Counter.razor* especifica que el componente Counter es un punto de conexión de enrutamiento. El componente Counter controla las solicitudes enviadas a `/counter`. Sin la directiva `@page`, el componente no controla las solicitudes enrutadas, pero otros componentes aún pueden usar el componente.
+La directiva `@page` en la parte superior del archivo *Counter.razor* especifica que el componente `Counter` es un punto de conexión de enrutamiento. El componente `Counter` controla las solicitudes enviadas a `/counter`. Sin la directiva `@page`, el componente no controla las solicitudes enrutadas, pero otros componentes aún pueden usar el componente.
 
 ## <a name="dependency-injection"></a>Inserción de dependencias
 
 Los servicios registrados en el contenedor de servicios de la aplicación están disponibles para los componentes mediante una [inserción de dependencia (DI)](xref:fundamentals/dependency-injection). Inserte servicios en un componente mediante la directiva `@inject`.
 
-Examine las directivas del componente FetchData.
+Examine las directivas del componente `FetchData`.
 
 Si trabaja con la aplicación de servidor de Blazor, el servicio `WeatherForecastService` se registra como [singleton](xref:fundamentals/dependency-injection#service-lifetimes), de modo que una instancia del servicio está disponible en toda la aplicación. La directiva `@inject` se usa para insertar la instancia del servicio `WeatherForecastService` en el componente.
 
@@ -107,7 +107,7 @@ Si trabaja con la aplicación de servidor de Blazor, el servicio `WeatherForecas
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1.razor?highlight=3)]
 
-El componente FetchData usa el servicio insertado, como `ForecastService`, para recuperar una matriz de objetos `WeatherForecast`:
+El componente `FetchData` usa el servicio insertado, como `ForecastService`, para recuperar una matriz de objetos `WeatherForecast`:
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
@@ -136,11 +136,11 @@ Agregue un nuevo componente a la aplicación que implemente una simple lista de 
    <h1>Todo</h1>
    ```
 
-1. Agregue el componente Todo a la barra de navegación.
+1. Agregue el componente `Todo` a la barra de navegación.
 
-   El componente NavMenu (*Shared/NavMenu.razor*) se usa en el diseño de la aplicación. Los diseños son componentes que le permiten impedir la duplicación de contenido en la aplicación. Para obtener más información, vea <xref:blazor/layouts>.
+   El componente `NavMenu` (*Shared/NavMenu.razor*) se usa en el diseño de la aplicación. Los diseños son componentes que le permiten impedir la duplicación de contenido en la aplicación.
 
-   Agregue un elemento `<NavLink>` a la página Todo mediante la adición del siguiente marcado de elementos de lista debajo de los elementos de lista existentes en el archivo *Shared/NavMenu.razor*:
+   Agregue un elemento `<NavLink>` al componente `Todo` mediante la incorporación del siguiente marcado de elementos de lista debajo de los elementos de lista existentes en el archivo *Shared/NavMenu.razor*:
 
    ```cshtml
    <li class="nav-item px-3">
@@ -150,32 +150,30 @@ Agregue un nuevo componente a la aplicación que implemente una simple lista de 
    </li>
    ```
 
-1. Recompile y ejecute la aplicación. Visite la nueva página Todo para confirmar que el vínculo al componente Todo funcione.
+1. Recompile y ejecute la aplicación. Visite la nueva página Todo para confirmar que el vínculo al componente `Todo` funcione.
 
 1. Agregue un archivo *TodoItem.cs* a la raíz del proyecto para contener una clase que represente un elemento de la lista de tareas. Use el siguiente código de C# para la clase `TodoItem`:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/TodoItem.cs)]
 
-1. Vuelva al componente Todo (*Pages/Todo.razor*):
+1. Vuelva al componente `Todo` (*Pages/Todo.razor*):
 
-   * Agregue un campo a los elementos de tareas pendientes en un bloque `@code`. El componente Todo utiliza este campo para mantener el estado de la lista de tareas pendientes.
-   * Agregue el marcado de la lista no ordenada y un bucle `foreach` para que cada elemento de la lista se represente en un elemento de la lista de tareas pendientes.
+   * Agregue un campo a los elementos de tareas pendientes en un bloque `@code`. El componente `Todo` utiliza este campo para mantener el estado de la lista de tareas pendientes.
+   * Agregue el marcado de la lista no ordenada y un bucle `foreach` para que cada elemento de la lista se represente en un elemento de la lista de tareas pendientes (`<li>`).
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo4.razor?highlight=5-10,12-14)]
 
-1. Para agregar elementos de tareas pendientes a la lista, la aplicación requiere elementos de la interfaz de usuario. Agregue una entrada de texto y un botón debajo de la lista:
+1. Para agregar elementos de tareas pendientes a la lista, la aplicación requiere elementos de la interfaz de usuario. Agregue una entrada de texto (`<input>`) y un botón (`<button>`) debajo de la lista no ordenada (`<ul>...</ul>`):
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo5.razor?highlight=12-13)]
 
 1. Recompile y ejecute la aplicación. Cuando se selecciona el botón **Add todo** (Agregar tarea pendiente), no ocurre nada porque no hay ningún controlador de eventos conectado al botón.
 
-1. Agregue un método `AddTodo` al componente Todo y regístrelo para hacer clic en los botones mediante el atributo `@onclick`:
+1. Agregue un método `AddTodo` al componente `Todo` y regístrelo para seleccionar los botones mediante el atributo `@onclick`. El método `AddTodo` de C# se llama cuando se selecciona el botón:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo6.razor?highlight=2,7-10)]
 
-   El método `AddTodo` de C# se llama cuando se selecciona el botón.
-
-1. Para obtener el título del nuevo elemento de tarea pendiente, agregue un campo de cadena `newTodo` y enlácelo al valor de la entrada de texto mediante el atributo `bind`:
+1. Para obtener el título del nuevo elemento de tarea pendiente, agregue un campo de cadena `newTodo` en la parte superior del bloque `@code` y enlácelo al valor de la entrada de texto mediante el atributo `bind` en el elemento `<input>`:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
 
@@ -199,12 +197,11 @@ Agregue un nuevo componente a la aplicación que implemente una simple lista de 
    <h1>Todo (@todos.Count(todo => !todo.IsDone))</h1>
    ```
 
-1. El componente Todo completado (*Pages/Todo.razor*):
+1. El componente `Todo` completado (*Pages/Todo.razor*):
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Todo.razor)]
 
 1. Recompile y ejecute la aplicación. Agregue elementos de tarea pendiente para probar el nuevo código.
 
-## <a name="publish-and-deploy-the-app"></a>Publicar e implementar la aplicación
-
-Para publicar la aplicación, consulte <xref:host-and-deploy/blazor/index>.
+> [!div class="nextstepaction"]
+> <xref:blazor/components>
