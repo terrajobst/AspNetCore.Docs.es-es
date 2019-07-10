@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/05/2019
 uid: test/loadtests
-ms.openlocfilehash: 0a8449ea2c9df0f2ac93058f03af0a1a2aa66508
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 3c21da6c799bc3080a1a16cb62ae4535b8890a1b
+ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64897442"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724490"
 ---
 # <a name="aspnet-core-loadstress-testing"></a>Las pruebas de carga o esfuerzo de ASP.NET Core
 
@@ -74,6 +74,7 @@ En la lista siguiente contiene las herramientas de rendimiento web de terceros c
 * [Algarrobas](https://locust.io/)
 * [West Wind WebSurge](http://websurge.west-wind.com/)
 * [Netling](https://github.com/hallatore/Netling)
+* [Vegeta](https://github.com/tsenart/vegeta)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

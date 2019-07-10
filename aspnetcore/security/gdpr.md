@@ -2,23 +2,47 @@
 title: Reglamento de protección de datos generales (RGPD) se admiten en ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre cómo obtener acceso a los puntos de extensión de RGPD en una aplicación web ASP.NET Core.
-monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/05/2019
+ms.date: 07/11/2019
 uid: security/gdpr
-ms.openlocfilehash: 1580187afef56e8e2f5be7a4bae32912e6305c5a
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 01d2f8943c0995c1400122b89c4ca7c459a85279
+ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152855"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724570"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Soporte técnico del Reglamento General de protección de datos (RGPD) de la UE en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ASP.NET Core proporciona las API y plantillas para ayudar a cumplir algunos de los [Reglamento General de protección de datos (RGPD) de la UE](https://www.eugdpr.org/) requisitos:
+
+::: moniker range=">= aspnetcore-3.0"
+
+* Las plantillas de proyecto incluyen puntos de extensión y auxiliar marcado que se puede reemplazar con la privacidad y la directiva de uso de cookies.
+* El *Pages/Privacy.cshtml* página o *Views/Home/Privacy.cshtml* vista proporciona una página para detallar política de privacidad de su sitio.
+
+Para habilitar la característica de consentimiento de cookie predeterminado que se encuentra en las plantillas de ASP.NET Core 2.2 en una aplicación de ASP.NET Core 3.0 plantilla generada:
+
+* Agregar [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) demasiado `Startup.ConfigureServices` y [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) a `Startup.Configure`:
+
+  [!code-csharp[Main](gdpr/sample/RP3.0/Startup.cs?name=snippet1&highlight=12-19,38)]
+
+* Agregar la parcial de consentimiento de cookie para la *_Layout.cshtml* archivo:
+
+  [!code-cshtml[Main](gdpr/sample/RP3.0/Pages/Shared/_Layout.cshtml?name=snippet&highlight=4)]
+
+* Agregar el  *\_CookieConsentPartial.cshtml* archivo al proyecto:
+
+  [!code-cshtml[Main](gdpr/sample/RP3.0/Pages/Shared/_CookieConsentPartial.cshtml)]
+
+* Seleccione la versión de ASP.NET Core 2.2 de este artículo para obtener información acerca de la característica de consentimiento de la cookie.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.2"
 
 * Las plantillas de proyecto incluyen puntos de extensión y auxiliar marcado que se puede reemplazar con la privacidad y la directiva de uso de cookies.
 * Una característica de consentimiento de cookie permite pedir consentimiento (y realizar un seguimiento) de los usuarios para almacenar información personal. Si un usuario no ha dado su consentimiento para la recopilación de datos y la aplicación tiene [CheckConsentNeeded](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.checkconsentneeded) establecido en `true`, las cookies no esenciales no se envían al explorador.
@@ -32,17 +56,7 @@ El [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/live/
 
 ## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>ASP.NET Core RGPD se admiten en código generado por plantilla
 
-::: moniker range="< aspnetcore-2.2"
-
-Las páginas de Razor y MVC proyectos creados con las plantillas de proyecto no tienen consentimiento RGPD o una cookie se admite. Para agregar el RGPD, copie el código generado en las plantillas de ASP.NET Core 2.2.
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.2"
-
 Las páginas de Razor y MVC los proyectos creados con las plantillas de proyecto incluyen la compatibilidad de RGPD siguiente:
-
-::: moniker-end
 
 * [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) y [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) se establecen en el `Startup` clase.
 * El  *\_CookieConsentPartial.cshtml* [vista parcial](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper). Un **Accept** botón se incluye en este archivo. Cuando el usuario hace clic en el **Accept** botón, da su consentimiento para almacenar las cookies se proporciona.
@@ -63,7 +77,7 @@ Las páginas de Razor y MVC los proyectos creados con las plantillas de proyecto
 
 El  *\_CookieConsentPartial.cshtml* vista parcial:
 
-[!code-html[](gdpr/sample/RP/Pages/Shared/_CookieConsentPartial.cshtml)]
+[!code-html[](gdpr/sample/RP2.2/Pages/Shared/_CookieConsentPartial.cshtml)]
 
 Este parcial:
 
@@ -75,7 +89,7 @@ Este parcial:
 
 Si su consentimiento almacenar las cookies no ha facilitado, solo las cookies de marcado esencial se envían al explorador. El código siguiente realiza una cookie esenciales:
 
-[!code-csharp[Main](gdpr/sample/RP/Pages/Cookie.cshtml.cs?name=snippet1&highlight=5)]
+[!code-csharp[Main](gdpr/sample/RP2.2/Pages/Cookie.cshtml.cs?name=snippet1&highlight=5)]
 
 <a name="tempdata"></a>
 
@@ -83,11 +97,11 @@ Si su consentimiento almacenar las cookies no ha facilitado, solo las cookies de
 
 El [proveedor TempData](xref:fundamentals/app-state#tempdata) cookie no es esencial. Si se deshabilita el seguimiento, el proveedor TempData no funcionará. Para habilitar el proveedor TempData cuando se deshabilita el seguimiento, marcar la cookie de TempData como esencial en `Startup.ConfigureServices`:
 
-[!code-csharp[Main](gdpr/sample/RP/Startup.cs?name=snippet1)]
+[!code-csharp[Main](gdpr/sample/RP2.2/Startup.cs?name=snippet1)]
 
 [Estado de sesión](xref:fundamentals/app-state) las cookies no son esenciales. Estado de sesión no funcionará cuando se deshabilita el seguimiento. El código siguiente hace que las cookies de sesión esenciales:
 
-[!code-csharp[](gdpr/sample/RP/Startup.cs?name=snippet2)]
+[!code-csharp[](gdpr/sample/RP2.2/Startup.cs?name=snippet2)]
 
 <a name="pd"></a>
 
@@ -105,6 +119,8 @@ Notas:
 * El **eliminar** y **descargar** vínculos solo actúan sobre los datos de identidad predeterminada. Las aplicaciones que crean datos de usuario personalizada deben ampliarse para eliminación y descarga los datos de usuario personalizada. Para obtener más información, consulte [Add, descargar y eliminar datos de usuario personalizada para identidad](xref:security/authentication/add-user-data).
 * Guarda los tokens para el usuario que se almacenan en la tabla de base de datos de identidad `AspNetUserTokens` se eliminan cuando el usuario se elimina mediante el comportamiento de eliminación en cascada debido a la [clave externa](https://github.com/aspnet/Identity/blob/release/2.1/src/EF/IdentityUserContext.cs#L152).
 * [Autenticación de proveedor externo](xref:security/authentication/social/index), como Facebook y Google, no está disponible antes de que se acepte la directiva.
+
+::: moniker-end
 
 ## <a name="encryption-at-rest"></a>Cifrado en reposo
 

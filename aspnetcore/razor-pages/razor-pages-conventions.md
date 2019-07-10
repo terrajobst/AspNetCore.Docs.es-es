@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: 4e07b5803adbce94982584212fa65afbfd427b64
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 59c8af648b50deb51f3762c14348d08acd48886e
+ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64893512"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724451"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Convenciones de aplicación y de ruta de páginas de Razor en ASP.NET Core
 
@@ -270,7 +270,7 @@ Solicite la página About del ejemplo en `localhost:5000/About` y revise los enc
 
 El modelo de páginas de aplicación se usa para comprobar la ruta de acceso relativa de los segmentos que conducen a la página Page2 en la carpeta *OtherPages*. Si la condición se supera, se agrega un encabezado. Si no, se aplica `EmptyFilter`.
 
-`EmptyFilter` es un [filtro de acciones](xref:mvc/controllers/filters#action-filters). Las páginas de Razor pasan por alto los filtros de acción, así que `EmptyFilter` no funciona del modo previsto si la ruta de acceso no contiene `OtherPages/Page2`.
+`EmptyFilter` es un [filtro de acciones](xref:mvc/controllers/filters#action-filters). Puesto que los filtros de acción se omiten las páginas de Razor, el `EmptyFilter` según lo previsto si no contiene la ruta de acceso no tiene ningún efecto `OtherPages/Page2`.
 
 Solicite la página Page2 del ejemplo en `localhost:5000/OtherPages/Page2` y revise los encabezados para ver el resultado:
 
