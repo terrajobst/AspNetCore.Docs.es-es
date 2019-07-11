@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.date: 04/11/2019
 uid: performance/diagnostic-tools
-ms.openlocfilehash: 66676b5a2b95b87bfbbd50022e279e35a12b9793
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: d273897b9ad26d57eb94b196b58f14019a96d07d
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894192"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815618"
 ---
 # <a name="performance-diagnostic-tools"></a>Herramientas de diagnóstico de rendimiento
 
@@ -53,7 +53,7 @@ Para más información, consulte [Application Insights para ASP.NET Core](/azure
 
 [PerfView](https://github.com/Microsoft/perfview) es una herramienta de análisis de rendimiento creada por el equipo .NET específicamente para diagnosticar problemas de rendimiento. NET. PerfView permite un análisis de CPU uso, memoria y GC comportamiento, los eventos de rendimiento y tiempo de reloj.
 
-Puede aprender más sobre PerfView y cómo empezar a trabajar con [tutoriales en vídeo PerfView](http://channel9.msdn.com/Series/PerfView-Tutorial) o mediante la lectura de la Guía de usuario disponible en la herramienta o [en GitHub](https://github.com/Microsoft/perfview).
+Puede aprender más sobre PerfView y cómo empezar a trabajar con [tutoriales en vídeo PerfView](https://channel9.msdn.com/Series/PerfView-Tutorial) o mediante la lectura de la Guía de usuario disponible en la herramienta o [en GitHub](https://github.com/Microsoft/perfview).
 
 ## <a name="windows-performance-toolkit"></a>Kit de herramientas de rendimiento de Windows
 

@@ -22,6 +22,6 @@ Cuando la solicitud incluye el `Accept-Encoding` compresión de encabezado y la 
 
 ## <a name="use-the-sample"></a>Use el ejemplo
 
-1. Realizar una solicitud con [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), o [Postman](https://www.getpostman.com/) a la aplicación sin un `Accept-Encoding` encabezado y tenga en cuenta la carga de respuesta, el tamaño de respuesta, y encabezados de respuesta.
+1. Realizar una solicitud con [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/), o [Postman](https://www.getpostman.com/) a la aplicación sin un `Accept-Encoding` encabezado y tenga en cuenta la carga de respuesta, el tamaño de respuesta, y encabezados de respuesta.
 1. Agregar un `Accept-Encoding: br` o `Accept-Encoding: gzip` encabezado y tenga en cuenta el tamaño de respuesta comprimida y encabezados de respuesta. Quita el tamaño de respuesta y el `Content-Encoding` el middleware que indica que la compresión con cualquier Gzip incluye el encabezado de respuesta o Brotli se ha producido. Cuando se observa el cuerpo de respuesta para la Lorem Ipsum o **testfile1kb.txt** respuesta, verá que el texto está comprimido y no se puede leer.
 1. Agregar un `Accept-Encoding: mycustomcompression` encabezado y tenga en cuenta los encabezados de respuesta. El `CustomCompressionProvider` es una implementación vacía que realmente no comprimir la respuesta, pero puede crear un contenedor de secuencia de compresión personalizado para el `CreateStream()` método.

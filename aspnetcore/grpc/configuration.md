@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar gRPC para aplicaciones 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.custom: mvc
-ms.date: 5/30/2019
+ms.date: 05/30/2019
 uid: grpc/configuration
-ms.openlocfilehash: 1f8250dc9aa8b82da384ee28287011baa19dc11f
-ms.sourcegitcommit: a1364109d11d414121a6337b611bee61d6e489e9
+ms.openlocfilehash: e269d701f45c0b852a9006107f0162cc5af2c38a
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491234"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814925"
 ---
 # <a name="grpc-for-aspnet-core-configuration"></a>gRPC para la configuración de ASP.NET Core
 
@@ -20,11 +20,11 @@ ms.locfileid: "66491234"
 
 En la tabla siguiente se describe las opciones de configuración de servicios de gRPC:
 
-| Opción | Valor predeterminado | Descripción |
+| Opción | Valor predeterminado | DESCRIPCIÓN |
 | ------ | ------------- | ----------- |
 | `SendMaxMessageSize` | `null` | El tamaño máximo del mensaje en bytes que se pueden enviar desde el servidor. Intentando enviar un mensaje que supera los resultados de tamaño máximo de mensaje configurado en una excepción. |
 | `ReceiveMaxMessageSize` | 4 MB | El tamaño máximo del mensaje en bytes, que puede ser recibido por el servidor. Si el servidor recibe un mensaje que supera este límite, produce una excepción. Al aumentar este valor permite que el servidor recibir los mensajes más grandes, pero puede repercutir negativamente en el consumo de memoria. |
-| `EnableDetailedErrors` | `false` | Si `true`detallados se devuelven los mensajes de excepción a los clientes cuando se produce una excepción en un método de servicio. De manera predeterminada, es `false`. Establecer `EnableDetailedErrors` a `true` puede producir la pérdida de información confidencial. |
+| `EnableDetailedErrors` | `false` | Si `true`detallados se devuelven los mensajes de excepción a los clientes cuando se produce una excepción en un método de servicio. El valor predeterminado es `false`. Establecer `EnableDetailedErrors` a `true` puede producir la pérdida de información confidencial. |
 | `CompressionProviders` | gzip | Una colección de proveedores de compresión utilizado para comprimir y descomprimir los mensajes. Se pueden crear proveedores de compresión personalizado y agregados a la colección. El valor predeterminado configurado el proveedor admite **gzip** compresión. |
 | `ResponseCompressionAlgorithm` | `null` | El algoritmo de compresión utilizado para comprimir los mensajes enviados desde el servidor. El algoritmo debe coincidir con un proveedor de compresión en `CompressionProviders`. Para que el algoritmo comprimir una respuesta, el cliente debe indicar admite el algoritmo enviando el **grpc-codificación aceptada** encabezado. |
 | `ResponseCompressionLevel` | `null` | El nivel de compresión para comprimir los mensajes enviados desde el servidor. |

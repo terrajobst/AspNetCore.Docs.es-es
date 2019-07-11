@@ -3,14 +3,14 @@ title: Esquemas de directivas en ASP.NET Core
 author: rick-anderson
 description: Esquemas de autenticación de directiva que sea más fácil tener un esquema de autenticación lógico único
 ms.author: riande
-ms.date: 2/28/2019
+ms.date: 02/28/2019
 uid: security/authentication/policyschemes
-ms.openlocfilehash: 1a2d92e6fa54189b8154fc501b31c8a99d1f9081
-ms.sourcegitcommit: 357a7120632b20465801c093e4e5bd4a315496a8
+ms.openlocfilehash: be03f349455c673b0739935ad20e596325c8cb74
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67649174"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815284"
 ---
 # <a name="policy-schemes-in-aspnet-core"></a>Esquemas de directivas en ASP.NET Core
 

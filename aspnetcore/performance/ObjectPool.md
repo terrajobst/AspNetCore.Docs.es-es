@@ -4,14 +4,14 @@ author: rick-anderson
 description: Sugerencias para aumentar el rendimiento en aplicaciones de ASP.NET Core mediante ObjectPool.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
-ms.date: 4/11/2019
+ms.date: 04/11/2019
 uid: performance/ObjectPool
-ms.openlocfilehash: 92106d5add7dbda36e451614429baa0db420f0e8
-ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
+ms.openlocfilehash: 771f19e54a908b8b2cd85ff72f368f16e94a2310
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724839"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815525"
 ---
 # <a name="object-reuse-with-objectpool-in-aspnet-core"></a>Reutilización de los objetos con ObjectPool en ASP.NET Core
 
@@ -42,7 +42,7 @@ Usar agrupación de objetos solo después de recopilar datos de rendimiento medi
 
 <xref:Microsoft.Extensions.ObjectPool.ObjectPool`1> -la abstracción del grupo de objetos básicos. Se utiliza para obtener y devolver objetos.
 
-<xref:Microsoft.Extensions.ObjectPool.PooledObjectPolicy%601> -implementar esto para personalizar cómo se crea un objeto y cómo es *restablecer* cuando regrese al grupo. Esto se puede pasar a un grupo de objetos que se construye directamente... O
+<xref:Microsoft.Extensions.ObjectPool.PooledObjectPolicy%601> -implementar esto para personalizar cómo se crea un objeto y cómo es *restablecer* cuando regrese al grupo. Esto se puede pasar a un grupo de objetos que se construye directamente... OR
 
 <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create*> actúa como un generador para crear los grupos de objetos.
 <!-- REview, there is no ObjectPoolProvider<T> -->

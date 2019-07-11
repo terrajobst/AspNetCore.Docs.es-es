@@ -5,12 +5,12 @@ description: Obtenga información sobre Cross-Site Scripting (XSS) y las técnic
 ms.author: riande
 ms.date: 10/02/2018
 uid: security/cross-site-scripting
-ms.openlocfilehash: 50f0211a2c64708d9b788dd10ce9064e66014d55
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1e9e988be68313cfd493832519c1be89335d6e48
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64895352"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815207"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Evitar Cross-Site Scripting (XSS) en ASP.NET Core
 
@@ -138,7 +138,7 @@ Esto se representará en el explorador como sigue:
    ```
 
 >[!WARNING]
-> No concatene la entrada de desconfianza en el código JavaScript para crear los elementos DOM. Debe usar `createElement()` y asignar los valores de la propiedad de forma adecuada, como `node.TextContent=`, o use `element.SetAttribute()` / `element[attribute]=` en caso contrario, se expone a una vulnerabilidad DOM XSS.
+> No concatene la entrada de desconfianza en el código JavaScript para crear los elementos DOM. Debe usar `createElement()` y asignar los valores de la propiedad de forma adecuada, como `node.TextContent=`, o use `element.SetAttribute()`/`element[attribute]=` en caso contrario, se expone a una vulnerabilidad DOM XSS.
 
 ## <a name="accessing-encoders-in-code"></a>Obtener acceso a los codificadores en código
 
@@ -214,7 +214,7 @@ En este ejemplo se amplía la lista segura para que incluya el intervalo Unicode
 <p>This link text is in Chinese: <a href="/">汉语/漢語</a></p>
    ```
 
-Los intervalos de la lista segura se especifican como gráficos de código Unicode, no los idiomas. El [estándar Unicode](http://unicode.org/) tiene una lista de [gráficos de código](http://www.unicode.org/charts/index.html) puede usar para buscar el gráfico que contiene los caracteres. Cada codificador, Html, JavaScript y dirección Url, debe configurarse por separado.
+Los intervalos de la lista segura se especifican como gráficos de código Unicode, no los idiomas. El [estándar Unicode](https://unicode.org/) tiene una lista de [gráficos de código](https://www.unicode.org/charts/index.html) puede usar para buscar el gráfico que contiene los caracteres. Cada codificador, Html, JavaScript y dirección Url, debe configurarse por separado.
 
 > [!NOTE]
 > La personalización de la lista segura solo afecta a los codificadores de código abiertos a través de DI. Si tiene acceso directamente a un codificador a través de `System.Text.Encodings.Web.*Encoder.Default` , a continuación, el valor predeterminado, Latín básico solo safelist se usará.

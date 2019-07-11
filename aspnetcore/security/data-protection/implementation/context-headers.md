@@ -5,12 +5,12 @@ description: Obtenga información sobre los detalles de implementación de los e
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 2b8fd594672bf623d38bfae90d05a984f92ce6a3
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 518423f5df93924d3df144994e4beb1755cd0bfc
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087565"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814013"
 ---
 # <a name="context-headers-in-aspnet-core"></a>Encabezados de contexto en ASP.NET Core
 
@@ -48,7 +48,7 @@ El encabezado de contexto se compone de los siguientes componentes:
 
 Idealmente, podemos pasar vectores ceros para K_E y K_H. Sin embargo, queremos evitar la situación donde el algoritmo subyacente comprueba la existencia de claves débiles antes de realizar cualquier operación (especialmente DES y 3DES), que impide utilizando un modelo repetible o simple como un vector de ceros.
 
-En su lugar, usamos NIST SP800-108 KDF en el modo contador (consulte [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), s. 5.1) con una clave de longitud cero, etiqueta y contexto y HMACSHA512 como el PRF subyacente. Se derivan | K_E | + | K_H | bytes de salida, a continuación, descomponer el resultado en K_E y K_H a sí mismos. Matemáticamente, esto se representa como sigue.
+En su lugar, usamos NIST SP800-108 KDF en el modo contador (consulte [NIST SP800-108](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), s. 5.1) con una clave de longitud cero, etiqueta y contexto y HMACSHA512 como el PRF subyacente. Se derivan | K_E | + | K_H | bytes de salida, a continuación, descomponer el resultado en K_E y K_H a sí mismos. Matemáticamente, esto se representa como sigue.
 
 ( K_E || K_H ) = SP800_108_CTR(prf = HMACSHA512, key = "", label = "", context = "")
 

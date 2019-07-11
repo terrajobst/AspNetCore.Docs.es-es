@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/13/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 78c63cf135ca92f0b5f6c6828b2ae34a44a7b36c
-ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
+ms.openlocfilehash: be176ed612be0773c4a5b52607c023da3856ac14
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65621024"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815331"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Proveedor de configuración de almacén de claves de Azure en ASP.NET Core
 
@@ -34,7 +34,7 @@ Para usar el proveedor de configuración de Azure Key Vault, agregue una referen
 Adoptar la [administra las identidades de los recursos de Azure](/azure/active-directory/managed-identities-azure-resources/overview) escenario, agregue una referencia de paquete a la [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) paquete.
 
 > [!NOTE]
-> En el momento de escribir la última versión estable de `Microsoft.Azure.Services.AppAuthentication`, versión `1.0.3`, proporciona compatibilidad para [asignado por el sistema administra identidades](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka). Compatibilidad con *asignada por el usuario administra las identidades* está disponible en el `1.2.0-preview2` paquete. En este tema se muestra el uso de identidades administradas por el sistema y la aplicación de ejemplo proporcionada usa la versión `1.0.3` de la `Microsoft.Azure.Services.AppAuthentication` paquete.
+> En el momento de escribir la última versión estable de `Microsoft.Azure.Services.AppAuthentication`, versión `1.0.3`, proporciona compatibilidad para [asignado por el sistema administra identidades](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-work). Compatibilidad con *asignada por el usuario administra las identidades* está disponible en el `1.2.0-preview2` paquete. En este tema se muestra el uso de identidades administradas por el sistema y la aplicación de ejemplo proporcionada usa la versión `1.0.3` de la `Microsoft.Azure.Services.AppAuthentication` paquete.
 
 ## <a name="sample-app"></a>Aplicación de ejemplo
 
@@ -120,11 +120,11 @@ Configurar Azure AD, Azure Key Vault y la aplicación para usar un identificador
 
 La aplicación de ejemplo usa un identificador de la aplicación y del certificado X.509 cuando la `#define` instrucción en la parte superior de la *Program.cs* archivo se establece en `Certificate`.
 
-1. Crear un archivo PKCS #12 (*.pfx*) certificado. Las opciones de creación de certificados incluyen [MakeCert en Windows](/windows/desktop/seccrypto/makecert) y [OpenSSL](https://www.openssl.org/).
+1. Crear un archivo PKCS #12 ( *.pfx*) certificado. Las opciones de creación de certificados incluyen [MakeCert en Windows](/windows/desktop/seccrypto/makecert) y [OpenSSL](https://www.openssl.org/).
 1. Instale el certificado en el almacén de certificados personales del usuario actual. Marcar la clave como exportable es opcional. Tenga en cuenta la huella digital del certificado, que se usa más adelante en este proceso.
-1. Exportar el archivo PKCS #12 (*.pfx*) certificado como un certificado con codificación DER (*.cer*).
+1. Exportar el archivo PKCS #12 ( *.pfx*) certificado como un certificado con codificación DER ( *.cer*).
 1. Registrar la aplicación con Azure AD (**registros de aplicaciones**).
-1. Cargue el certificado con codificación DER (*.cer*) a Azure AD:
+1. Cargue el certificado con codificación DER ( *.cer*) a Azure AD:
    1. Seleccione la aplicación en Azure AD.
    1. Vaya a **certificados y secretos**.
    1. Seleccione **cargar certificado** para cargar el certificado, que contiene la clave pública. Un *.cer*, *.pem*, o *.crt* certificado es aceptable.
@@ -287,7 +287,7 @@ Examine el siguiente [Serilog](https://serilog.net/) proporcionado por un archiv
 
 La configuración se muestra en el archivo JSON anterior se almacena en Azure Key Vault con guión doble (`--`) numérica y notación de segmentos:
 
-| Key | Valor |
+| Clave | Valor |
 | --- | ----- |
 | `Serilog--WriteTo--0--Name` | `AzureTableStorage` |
 | `Serilog--WriteTo--0--Args--storageTableName` | `logs` |
@@ -308,7 +308,7 @@ Configuration.Reload();
 
 Generar secretos expirados y deshabilitados una `KeyVaultClientException`. Para evitar que la aplicación genere, reemplace la aplicación o actualizar el secreto deshabilitado o expirado.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solución de problemas
 
 Cuando no se puede cargar la configuración mediante el proveedor de la aplicación, se escribe un mensaje de error en la [infraestructura de registro de ASP.NET Core](xref:fundamentals/logging/index). Configuración de carga evitará que las condiciones siguientes:
 

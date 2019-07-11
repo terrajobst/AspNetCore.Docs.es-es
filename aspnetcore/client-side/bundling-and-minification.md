@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 06/17/2019
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: c3ec67d9f5c2b8eb44b5ced911ccfd0fa40a52a7
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 6254a74fd0a11669706a2a89b156a3223e300d1c
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152768"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813505"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Agrupar y minificar recursos estáticos en ASP.NET Core
 
@@ -53,7 +53,7 @@ Original | Se cambia el nombre
 
 En la tabla siguiente se describe las diferencias entre cargar activos y uso de unión y minificación individualmente:
 
-Acción | Con B/M | Sin B/M | Cambio
+. | Con B/M | Sin B/M | Cambio
 --- | :---: | :---: | :---:
 Solicitudes de archivos  | 7   | 18     | 157%
 KB transferido | 156 | 264.68 | 70%
@@ -86,7 +86,7 @@ El *bundleconfig.json* archivo define las opciones para cada paquete. En el ejem
 Opciones de configuración incluyen:
 
 * `outputFileName`: El nombre del archivo de paquete para la salida. Puede contener una ruta de acceso relativa desde la *bundleconfig.json* archivo. **required**
-* `inputFiles`: Una matriz de archivos que se va a agrupar. Estas son las rutas de acceso relativas al archivo de configuración. **opcional**, * da como resultado un valor vacío en un archivo de resultados vacío. [uso de comodines](http://www.tldp.org/LDP/abs/html/globbingref.html) se admiten patrones.
+* `inputFiles`: Una matriz de archivos que se va a agrupar. Estas son las rutas de acceso relativas al archivo de configuración. **opcional**, * da como resultado un valor vacío en un archivo de resultados vacío. [uso de comodines](https://www.tldp.org/LDP/abs/html/globbingref.html) se admiten patrones.
 * `minify`: Las opciones de reducción para el tipo de salida. **opcional**, *predeterminado: `minify: { enabled: true }`*
   * Las opciones de configuración están disponibles por tipo de archivo de salida.
     * [Minificador CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)

@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: 4afc9ac0a3c54b452c6a1b23e4de31d7e2fc5284
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 302a5e10a70e40e75ab9fe4b3e5a98c4e847b822
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894152"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815217"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Autenticación y autorización para las spa
 
@@ -251,7 +251,7 @@ Esta sección describe la implementación de la aplicación en Azure websites qu
 
 Para implementar en Azure Websites, implemente la aplicación siguiendo los pasos de [implementar la aplicación en Azure](xref:tutorials/publish-to-azure-webapp-using-vs#deploy-the-app-to-azure) para crear los recursos de Azure necesarios e implementar la aplicación en producción.
 
-Después de seguir las instrucciones anteriores, la aplicación se implementa en Azure pero todavía no es funcional. El certificado utilizado por la aplicación todavía debe configurarse. Busque la huella digital del certificado que se usará y siga los pasos descritos en [cargar sus certificados](/azure/app-service/app-service-web-ssl-cert-load#load-your-certificates).
+Después de seguir las instrucciones anteriores, la aplicación se implementa en Azure pero todavía no es funcional. El certificado utilizado por la aplicación todavía debe configurarse. Busque la huella digital del certificado que se usará y siga los pasos descritos en [cargar sus certificados](/azure/app-service/app-service-web-ssl-cert-load#load-the-certificate-in-code).
 
 Aunque estos pasos mencionan SSL, no hay un **certificados privados** sección en el portal donde puede cargar el certificado aprovisionado para usar con la aplicación.
 

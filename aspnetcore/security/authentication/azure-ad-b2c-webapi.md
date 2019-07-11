@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 0eb8b533f44a1f72cfc3c4ec5ec060adb37eed6c
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: c917a5130857165716bd801ac19dad0f53a7d214
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610358"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815376"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticación en web API con Azure Active Directory B2C en ASP.NET Core
 
@@ -46,11 +46,11 @@ Crear un inquilino de Azure AD B2C [tal como se describe en la documentación de
 
 ## <a name="configure-a-sign-up-or-sign-in-policy"></a>Configurar una directiva de registro o inicio de sesión
 
-Siga los pasos de la documentación de Azure AD B2C para [crear una directiva de registro o inicio de sesión](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-sign-up-or-sign-in-policy). Nombre de la directiva **SiUpIn**.  Use los valores de ejemplo proporcionados en la documentación de **proveedores de identidades**, **atributos de registro**, y **notificaciones de aplicación**. Mediante el **ejecutar ahora** botón para probar la directiva como se describe en la documentación es opcional.
+Siga los pasos de la documentación de Azure AD B2C para [crear una directiva de registro o inicio de sesión](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions). Nombre de la directiva **SiUpIn**.  Use los valores de ejemplo proporcionados en la documentación de **proveedores de identidades**, **atributos de registro**, y **notificaciones de aplicación**. Mediante el **ejecutar ahora** botón para probar la directiva como se describe en la documentación es opcional.
 
 ## <a name="register-the-api-in-azure-ad-b2c"></a>Registrar la API en B2C de Azure AD
 
-En el inquilino de Azure AD B2C recién creado, registre la API mediante [los pasos descritos en la documentación de](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-api) bajo el **registrar una API web** sección.
+En el inquilino de Azure AD B2C recién creado, registre la API mediante [los pasos descritos en la documentación de](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application) bajo el **registrar una API web** sección.
 
 Use los siguientes valores:
 
@@ -106,7 +106,7 @@ En Visual Studio, ejecute la API. Visual Studio inicia un explorador que señala
 
 ### <a name="register-postman-as-a-web-app"></a>Registrar a Postman como una aplicación web
 
-Puesto que Postman simula una aplicación web que obtiene los tokens desde el inquilino de Azure AD B2C, debe registrarse en el inquilino como una aplicación web. Registrar el uso de Postman [los pasos descritos en la documentación de](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-app) bajo el **registrar una aplicación web** sección. Detener el **crear un secreto de cliente de aplicación web** sección. No es necesario un secreto de cliente para este tutorial. 
+Puesto que Postman simula una aplicación web que obtiene los tokens desde el inquilino de Azure AD B2C, debe registrarse en el inquilino como una aplicación web. Registrar el uso de Postman [los pasos descritos en la documentación de](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application) bajo el **registrar una aplicación web** sección. Detener el **crear un secreto de cliente de aplicación web** sección. No es necesario un secreto de cliente para este tutorial. 
 
 Use los siguientes valores:
 

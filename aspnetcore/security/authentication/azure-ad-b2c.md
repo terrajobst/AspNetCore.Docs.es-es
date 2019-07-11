@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 3cb878aff7bf0c6c8efe7f3f0c0f06c74acef477
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: 54117bf0dd45305d060eef5fecfb98ed45f8ecdb
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538730"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815297"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticación en la nube con Azure Active Directory B2C en ASP.NET Core
 
@@ -43,21 +43,21 @@ Crear un inquilino de Azure Active Directory B2C [tal como se describe en la doc
 
 ## <a name="register-the-app-in-azure-ad-b2c"></a>Registrar la aplicación en B2C de Azure AD
 
-En el inquilino de Azure AD B2C recién creado, registre la aplicación mediante [los pasos descritos en la documentación de](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-app) bajo el **registrar una aplicación web** sección. Detener el **crear un secreto de cliente de aplicación web** sección. No es necesario un secreto de cliente para este tutorial. 
+En el inquilino de Azure AD B2C recién creado, registre la aplicación mediante [los pasos descritos en la documentación de](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application) bajo el **registrar una aplicación web** sección. Detener el **crear un secreto de cliente de aplicación web** sección. No es necesario un secreto de cliente para este tutorial. 
 
 Use los siguientes valores:
 
 | Parámetro                       | Valor                     | Notas                                                                                                                                                                                              |
 |-------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Name**                      | *&lt;Nombre de la aplicación&gt;*        | Escriba un **nombre** para la aplicación que describe la aplicación a los consumidores.                                                                                                                                 |
+| **Nombre**                      | *&lt;Nombre de la aplicación&gt;*        | Escriba un **nombre** para la aplicación que describe la aplicación a los consumidores.                                                                                                                                 |
 | **Incluir aplicación web o API web** | Sí                       |                                                                                                                                                                                                    |
 | **Permitir flujo implícito**       | Sí                       |                                                                                                                                                                                                    |
 | **Dirección URL de respuesta**                 | `https://localhost:44300/signin-oidc` | Direcciones URL de respuesta son puntos de conexión donde Azure AD B2C devolverá los tokens que solicita la aplicación. Visual Studio proporciona la dirección URL de respuesta para usar. Por ahora, escriba `https://localhost:44300/signin-oidc` para completar el formulario. |
-| **URI de Id. de aplicación**                | Deje en blanco               | No es necesario para este tutorial.                                                                                                                                                                    |
-| **Incluir a cliente nativo**     | No                        |                                                                                                                                                                                                    |
+| **URI de Id. de aplicación**                | Déjelo en blanco               | No es necesario para este tutorial.                                                                                                                                                                    |
+| **Incluir a cliente nativo**     | Sin                        |                                                                                                                                                                                                    |
 
 > [!WARNING]
-> Si la configuración de una URL de respuesta que no sean localhost, ser consciente de la [restricciones en lo que se permite en la lista dirección URL de respuesta](/azure/active-directory-b2c/active-directory-b2c-app-registration#choosing-a-web-app-or-api-reply-url). 
+> Si la configuración de una URL de respuesta que no sean localhost, ser consciente de la [restricciones en lo que se permite en la lista dirección URL de respuesta](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application). 
 
 Una vez registrada la aplicación, se muestra la lista de aplicaciones en el inquilino. Seleccione la aplicación que acaba de registrar. Seleccione el **copia** icono a la derecha de la **Id. de aplicación** campo para copiarlo en el Portapapeles.
 
@@ -101,7 +101,7 @@ Volver a la ventana del explorador con las propiedades de la aplicación B2C sig
 
 ## <a name="configure-policies"></a>Configuración de directivas
 
-Siga los pasos de la documentación de Azure AD B2C para [crear una directiva de registro o inicio de sesión](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-sign-up-or-sign-in-policy)y, a continuación, [crear una directiva de restablecimiento de contraseña](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy). Use los valores de ejemplo proporcionados en la documentación de **proveedores de identidades**, **atributos de registro**, y **notificaciones de aplicación**. Mediante el **ejecutar ahora** para probar las directivas, como se describe en la documentación es opcional.
+Siga los pasos de la documentación de Azure AD B2C para [crear una directiva de registro o inicio de sesión](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions)y, a continuación, [crear una directiva de restablecimiento de contraseña](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions). Use los valores de ejemplo proporcionados en la documentación de **proveedores de identidades**, **atributos de registro**, y **notificaciones de aplicación**. Mediante el **ejecutar ahora** para probar las directivas, como se describe en la documentación es opcional.
 
 > [!WARNING]
 > Asegúrese de los nombres de directiva exactamente como se describe en la documentación de esas directivas utilizadas en el **Cambiar autenticación** cuadro de diálogo de Visual Studio. Los nombres de directiva se pueden comprobar en *appsettings.json*.
@@ -130,7 +130,7 @@ services.Configure<JwtBearerOptions>(
     });
 ```
 
-## <a name="run-the-app"></a>Ejecutar la aplicación
+## <a name="run-the-app"></a>Ejecución de la aplicación
 
 En Visual Studio, presione **F5** para compilar y ejecutar la aplicación. Una vez que inicie la aplicación web, seleccione **Accept** para aceptar el uso de cookies (si se le solicita) y, a continuación, seleccione **inicie sesión en**.
 
@@ -146,7 +146,7 @@ Después de iniciar sesión correctamente, el explorador se redirige a la aplica
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha aprendido a:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Crear a un inquilino de Azure Active Directory B2C

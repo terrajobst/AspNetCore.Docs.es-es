@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/05/2019
 uid: test/integration-tests
-ms.openlocfilehash: 3af2a1f7c6a65d7ff42597972ee151a50fc95fb6
-ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
+ms.openlocfilehash: a4e22e53b4658a7c6da3c9e15671a355b212f559
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66716368"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815367"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
 
@@ -184,7 +184,7 @@ El `SendAsync` métodos de extensión de aplicación auxiliar (*Helpers/HttpClie
   * Botón de envío (`IHtmlElement`) y valores de formulario (`IEnumerable<KeyValuePair<string, string>>`)
 
 > [!NOTE]
-> [AngleSharp](https://anglesharp.github.io/) es biblioteca que se usa para fines de demostración en este tema y la aplicación de ejemplo de análisis de un tercero. AngleSharp no es compatible o necesarias para las pruebas de integración de aplicaciones de ASP.NET Core. Se pueden usar otros analizadores, como el [Html agilidad Pack (GRACIA)](http://html-agility-pack.net/). Otro enfoque consiste en escribir código para controlar el token de comprobación de solicitud y la cookie antifalsificación el sistema antifalsificación directamente.
+> [AngleSharp](https://anglesharp.github.io/) es biblioteca que se usa para fines de demostración en este tema y la aplicación de ejemplo de análisis de un tercero. AngleSharp no es compatible o necesarias para las pruebas de integración de aplicaciones de ASP.NET Core. Se pueden usar otros analizadores, como el [Html agilidad Pack (GRACIA)](https://html-agility-pack.net/). Otro enfoque consiste en escribir código para controlar el token de comprobación de solicitud y la cookie antifalsificación el sistema antifalsificación directamente.
 
 ## <a name="customize-the-client-with-withwebhostbuilder"></a>Personalización del cliente con WithWebHostBuilder
 
@@ -200,7 +200,7 @@ Porque otra prueba en el `IndexPageTests` clase realiza una operación que elimi
 
 En la tabla siguiente se muestra el valor predeterminado [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) disponibles al crear `HttpClient` instancias.
 
-| Opción | Descripción | Default |
+| Opción | DESCRIPCIÓN | Valor predeterminado |
 | ------ | ----------- | ------- |
 | [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) | Obtiene o establece si `HttpClient` instancias deben seguir automáticamente las respuestas de redirección. | `true` |
 | [BaseAddress](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.baseaddress) | Obtiene o establece la dirección base del `HttpClient` instancias. | `http://localhost` |
@@ -331,7 +331,7 @@ Después de las pruebas de la `IClassFixture` implementación se ejecutan, [Test
 
 El [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) se compone de dos aplicaciones:
 
-| Aplicación | Directorio del proyecto | Descripción |
+| Aplicación | Directorio del proyecto | DESCRIPCIÓN |
 | --- | ----------------- | ----------- |
 | Mensaje de aplicación (SUT) | *src/RazorPagesProject* | Permite al usuario agregar, eliminar uno, elimine todo y analizar los mensajes. |
 | Aplicación de prueba | *tests/RazorPagesProject.Tests* | Utilizado para la prueba de integración del SUT. |
@@ -361,7 +361,7 @@ Aunque la aplicación no usa el modelo de repositorio y no es un ejemplo eficaz 
 
 La aplicación de prueba es una aplicación de consola en el *tests/RazorPagesProject.Tests* directory.
 
-| Directorio de aplicación de prueba | Descripción |
+| Directorio de aplicación de prueba | DESCRIPCIÓN |
 | ------------------ | ----------- |
 | *BasicTests* | *BasicTests.cs* contiene métodos de prueba para el enrutamiento, obtener acceso a una página segura por un usuario no autenticado y obtener un perfil de usuario de GitHub y comprobación de inicio de sesión de usuario del perfil. |
 | *IntegrationTests* | *IndexPageTests.cs* contiene las pruebas de integración de la página de índice mediante custom `WebApplicationFactory` clase. |

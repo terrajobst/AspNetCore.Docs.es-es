@@ -4,14 +4,14 @@ author: rick-anderson
 description: En este ejemplo se muestra la integración de autenticación de usuario de la cuenta de Microsoft en una aplicación de ASP.NET Core existente.
 ms.author: riande
 ms.custom: mvc
-ms.date: 5/11/2019
+ms.date: 05/11/2019
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 16ec2d5f2bccc59958b884869ef42af9cfa13df0
-ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
+ms.openlocfilehash: 2c690e5bd8465806d42091616917cfdd747ef8f0
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316589"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815577"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Configuración de inicio de sesión externo Account de Microsoft con ASP.NET Core
 
@@ -28,7 +28,7 @@ Si no tienes una cuenta de Microsoft, seleccione **crearla**. Después de inicia
 * Seleccione **nuevo registro**
 * Escriba un **nombre**.
 * Seleccione una opción para **admite tipos de cuenta**.  <!-- Accounts for any org work with MS domain accounts. Most folks probably want the last option, personal MS accounts -->
-* En **URI de redireccionamiento**, escriba la dirección URL de desarrollo con `/signin-microsoft` anexado. Por ejemplo: `https://localhost:44389/signin-microsoft`. El esquema de autenticación de Microsoft configurado más adelante en este ejemplo controlará automáticamente las solicitudes en `/signin-microsoft` ruta para implementar el flujo de OAuth.
+* En **URI de redireccionamiento**, escriba la dirección URL de desarrollo con `/signin-microsoft` anexado. Por ejemplo, `https://localhost:44389/signin-microsoft`. El esquema de autenticación de Microsoft configurado más adelante en este ejemplo controlará automáticamente las solicitudes en `/signin-microsoft` ruta para implementar el flujo de OAuth.
 * Seleccione **registrar**
 
 ### <a name="create-client-secret"></a>Crear el secreto de cliente
@@ -79,7 +79,7 @@ Ha iniciado sesión con sus credenciales de Microsoft:
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 * Si el proveedor de Microsoft Account le redirige a una página de error de inicio de sesión, tenga en cuenta el error título y descripción cadena parámetros de consulta justo después de la `#` (hashtag) en el Uri.
 

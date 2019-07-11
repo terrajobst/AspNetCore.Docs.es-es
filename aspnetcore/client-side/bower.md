@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 08e6daa537c6c6f92a1cf80d70745e8ef606f580
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1292b75bdfe1cea56d9c8bc282b0dd90fc945a33
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64893002"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813527"
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Administrar los paquetes del lado cliente con Bower en ASP.NET Core
 
@@ -22,9 +22,9 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel arroz](https://twitt
 >
 > Yarn con Webpack es una alternativa popular para el que [instrucciones de migración](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) están disponibles.
 
-[Bower](https://bower.io/) llama a sí mismo "Administrador de paquetes para la web". En el ecosistema de. NET, llena este vacío a la incapacidad de NuGet para entregar archivos de contenido estático a la izquierda. Para los proyectos de ASP.NET Core, estos archivos estáticos son inherentes a las bibliotecas de cliente como [jQuery](http://jquery.com/) y [Bootstrap](http://getbootstrap.com/). Para las bibliotecas. NET, seguir usando [NuGet](https://www.nuget.org/) Administrador de paquetes.
+[Bower](https://bower.io/) llama a sí mismo "Administrador de paquetes para la web". En el ecosistema de. NET, llena este vacío a la incapacidad de NuGet para entregar archivos de contenido estático a la izquierda. Para los proyectos de ASP.NET Core, estos archivos estáticos son inherentes a las bibliotecas de cliente como [jQuery](https://jquery.com/) y [Bootstrap](https://getbootstrap.com/). Para las bibliotecas. NET, seguir usando [NuGet](https://www.nuget.org/) Administrador de paquetes.
 
-Proceso de compilación de nuevos proyectos creados con las plantillas de proyecto de ASP.NET Core que configurar el cliente. [jQuery](http://jquery.com/) y [Bootstrap](http://getbootstrap.com/) están instalados, y es compatible con Bower.
+Proceso de compilación de nuevos proyectos creados con las plantillas de proyecto de ASP.NET Core que configurar el cliente. [jQuery](https://jquery.com/) y [Bootstrap](https://getbootstrap.com/) están instalados, y es compatible con Bower.
 
 Los paquetes del lado cliente se muestran en el *bower.json* archivo. Las plantillas de proyecto de ASP.NET Core configura *bower.json* con jQuery, validación de jQuery y Bootstrap.
 
@@ -50,7 +50,7 @@ Abra el *bower.json* archivo y agregue "font awesome" a las dependencias. Intell
 
 ![versión de bower IntelliSense](bower/_static/version-intelliSense.png)
 
-Usos de bower [versionamiento semántico](http://semver.org/) para organizar las dependencias. Control de versiones semántico, también conocido como SemVer, identifica los paquetes con el esquema de numeración \<principal >.\< secundaria >. \<revisión >. IntelliSense simplifica el control de versiones semántico mostrando solo algunas opciones comunes. El elemento superior de la lista de IntelliSense (4.6.3 en el ejemplo anterior) se considera la última versión estable del paquete. El símbolo de intercalación (^) coincide con la versión principal más reciente y la tilde (~) con la versión secundaria más reciente.
+Usos de bower [versionamiento semántico](https://semver.org/) para organizar las dependencias. Control de versiones semántico, también conocido como SemVer, identifica los paquetes con el esquema de numeración \<principal >.\< secundaria >. \<revisión >. IntelliSense simplifica el control de versiones semántico mostrando solo algunas opciones comunes. El elemento superior de la lista de IntelliSense (4.6.3 en el ejemplo anterior) se considera la última versión estable del paquete. El símbolo de intercalación (^) coincide con la versión principal más reciente y la tilde (~) con la versión secundaria más reciente.
 
 Guardar el *bower.json* archivo. Visual Studio inspecciona el *bower.json* archivo para los cambios. Al guardar, el *bower install* se ejecuta el comando. Vea la ventana de salida **Bower o npm** vista para el comando exacto que se ejecuta.
 
