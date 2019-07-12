@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/11/2019
 uid: fundamentals/index
-ms.openlocfilehash: 3cf311f8e6be4ed12c79ceecc15ccc1babfb0117
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: a6c848987c97103864fd5410922346e85a68c353
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034862"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856234"
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
@@ -33,7 +33,7 @@ Aquí tiene una clase `Startup` de ejemplo:
 
 [!code-csharp[](index/snapshots/2.x/Startup1.cs?highlight=3,12)]
 
-Para obtener más información, vea <xref:fundamentals/startup>.
+Para más información, consulte <xref:fundamentals/startup>.
 
 ## <a name="dependency-injection-services"></a>Inserción de dependencias (servicios)
 
@@ -45,7 +45,7 @@ Aquí tiene una clase que usa DI para obtener un objeto de contexto de Entity Fr
 
 Aunque DI está integrada, está diseñada para permitirle conectar un contenedor de inversión de control (IoC) de terceros si lo prefiere.
 
-Para obtener más información, vea <xref:fundamentals/dependency-injection>.
+Para más información, consulte <xref:fundamentals/dependency-injection>.
 
 ## <a name="middleware"></a>Software intermedio
 
@@ -59,7 +59,7 @@ El código resaltado en el ejemplo siguiente configura la canalización de contr
 
 ASP.NET Core incluye una gran variedad de software intermedio integrado. Además, puede escribir software intermedio personalizado.
 
-Para obtener más información, vea <xref:fundamentals/middleware/index>.
+Para más información, consulte <xref:fundamentals/middleware/index>.
 
 ## <a name="host"></a>administrador de flujos de trabajo
 
@@ -87,7 +87,7 @@ Los métodos `CreateDefaultBuilder` y `ConfigureWebHostDefaults` configuran un h
 * Cargue la configuración de *appsettings.json*, *appsettings.[nombre del entorno].json*, las variables de entorno, los argumentos de línea de comandos y otros orígenes de configuración.
 * Envíe la salida de registro a la consola y los proveedores de depuración.
 
-Para obtener más información, vea <xref:fundamentals/host/generic-host>.
+Para más información, consulte <xref:fundamentals/host/generic-host>.
 
 ::: moniker-end
 
@@ -105,7 +105,7 @@ El métodos `CreateDefaultBuilder` configura un host con opciones de uso común,
 * Cargue la configuración de *appsettings.json*, *appsettings.[nombre del entorno].json*, las variables de entorno, los argumentos de línea de comandos y otros orígenes de configuración.
 * Envíe la salida de registro a la consola y los proveedores de depuración.
 
-Para obtener más información, vea <xref:fundamentals/host/web-host>.
+Para más información, consulte <xref:fundamentals/host/web-host>.
 
 ::: moniker-end
 
@@ -154,13 +154,13 @@ ASP.NET Core proporciona la implementación de servidor multiplataforma *Kestrel
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-ASP.NET Core proporciona la implementación de servidor multiplataforma *Kestrel*. En ASP.NET Core 2.0 y versiones posteriores, Kestrel puede ejecutarse como servidor perimetral de acceso público expuesto directamente a Internet. Kestrel se suele ejecutar en una configuración de proxy inverso con [Nginx](http://nginx.org) o [Apache](https://httpd.apache.org/).
+ASP.NET Core proporciona la implementación de servidor multiplataforma *Kestrel*. En ASP.NET Core 2.0 y versiones posteriores, Kestrel puede ejecutarse como servidor perimetral de acceso público expuesto directamente a Internet. Kestrel se suele ejecutar en una configuración de proxy inverso con [Nginx](https://nginx.org) o [Apache](https://httpd.apache.org/).
 
 ---
 
 ::: moniker-end
 
-Para obtener más información, vea <xref:fundamentals/servers/index>.
+Para más información, consulte <xref:fundamentals/servers/index>.
 
 ## <a name="configuration"></a>Configuración
 
@@ -170,7 +170,7 @@ Por ejemplo, puede especificar que la configuración procede de *appsettings.jso
 
 Para administrar los datos de configuración confidencial como las contraseñas, ASP.NET Core proporciona una [herramienta de administrador secreto](xref:security/app-secrets). Para los secretos de producción, se recomienda [Azure Key Vault](xref:security/key-vault-configuration).
 
-Para obtener más información, vea <xref:fundamentals/configuration/index>.
+Para más información, consulte <xref:fundamentals/configuration/index>.
 
 ## <a name="options"></a>Opciones
 
@@ -187,7 +187,7 @@ var options = new WebSocketOptions
 app.UseWebSockets(options);
 ```
 
-Para obtener más información, vea <xref:fundamentals/configuration/options>.
+Para más información, consulte <xref:fundamentals/configuration/options>.
 
 ## <a name="environments"></a>Entornos
 
@@ -197,7 +197,7 @@ El siguiente ejemplo de código desde la clase `Startup` configura la aplicació
 
 [!code-csharp[](index/snapshots/2.x/Startup2.cs?highlight=3-6)]
 
-Para obtener más información, vea <xref:fundamentals/environments>.
+Para más información, consulte <xref:fundamentals/environments>.
 
 ## <a name="logging"></a>Registro
 
@@ -219,13 +219,13 @@ Aquí tiene un código de ejemplo que usa un objeto `ILogger`, con la inserción
 
 La interfaz `ILogger` le permite pasar cualquier número de campos para el proveedor de registro. Los campos habitualmente se usan para construir una cadena de mensaje, pero el proveedor también puede enviarlos como campos independientes o almacén de datos. Esta característica permite a los proveedores de registro implementar el [registro semántico, también conocido como registro estructurado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Para obtener más información, vea <xref:fundamentals/logging/index>.
+Para más información, consulte <xref:fundamentals/logging/index>.
 
 ## <a name="routing"></a>Enrutamiento
 
 Una *ruta* es un patrón de dirección URL que se asigna a un controlador. El controlador normalmente es una página de Razor, un método de acción en un controlador MVC o un software intermedio. El enrutamiento de ASP.NET Core le permite controlar las direcciones URL usadas por la aplicación.
 
-Para obtener más información, vea <xref:fundamentals/routing>.
+Para más información, consulte <xref:fundamentals/routing>.
 
 ## <a name="error-handling"></a>Control de errores
 
@@ -236,7 +236,7 @@ ASP.NET Core tiene características integradas para controlar los errores, tales
 * Páginas de códigos de estado estáticos
 * Control de excepciones de inicio
 
-Para obtener más información, vea <xref:fundamentals/error-handling>.
+Para más información, consulte <xref:fundamentals/error-handling>.
 
 ## <a name="make-http-requests"></a>Realización de solicitudes HTTP
 
@@ -248,7 +248,7 @@ Una implementación de `IHttpClientFactory` está disponible para crear instanci
 * Administra la agrupación y duración de las instancias de `HttpClientMessageHandler` subyacentes para evitar los problemas de DNS que suelen producirse al administrar las duraciones de `HttpClient` manualmente.
 * Agrega una experiencia de registro configurable (a través de `ILogger`) en todas las solicitudes enviadas a través de los clientes creados por Factory.
 
-Para obtener más información, vea <xref:fundamentals/http-requests>.
+Para más información, consulte <xref:fundamentals/http-requests>.
 
 ## <a name="content-root"></a>Raíz del contenido
 
@@ -272,4 +272,4 @@ La raíz web (también conocida como *webroot*) es la ruta de acceso base a los 
 
 En los archivos de Razor ( *.cshtml*), la virgulilla `~/` apunta a la raíz web. Las rutas de acceso que empiezan por `~/` se conocen como rutas de acceso virtuales.
 
-Para obtener más información, vea <xref:fundamentals/static-files>.
+Para más información, consulte <xref:fundamentals/static-files>.
