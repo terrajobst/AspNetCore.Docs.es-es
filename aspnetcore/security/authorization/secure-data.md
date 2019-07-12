@@ -6,328 +6,646 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 7013a88aac26426d1f84d1f52e35e319b3764cdb
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 222ae1d6212b838e5c70f831960fa23a9924a0ae
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894452"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856141"
 ---
-# <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a><span data-ttu-id="89df7-104">Crear una aplicación ASP.NET Core con datos de usuario protegidos por autorización</span><span class="sxs-lookup"><span data-stu-id="89df7-104">Create an ASP.NET Core app with user data protected by authorization</span></span>
+# <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a><span data-ttu-id="2fb24-104">Crear una aplicación ASP.NET Core con datos de usuario protegidos por autorización</span><span class="sxs-lookup"><span data-stu-id="2fb24-104">Create an ASP.NET Core app with user data protected by authorization</span></span>
 
-<span data-ttu-id="89df7-105">Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Joe Audette](https://twitter.com/joeaudette)</span><span class="sxs-lookup"><span data-stu-id="89df7-105">By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Joe Audette](https://twitter.com/joeaudette)</span></span>
+<span data-ttu-id="2fb24-105">Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Joe Audette](https://twitter.com/joeaudette)</span><span class="sxs-lookup"><span data-stu-id="2fb24-105">By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Joe Audette](https://twitter.com/joeaudette)</span></span>
 
 ::: moniker range="<= aspnetcore-1.1"
 
-<span data-ttu-id="89df7-106">Consulte [este PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) para la versión de ASP.NET Core MVC.</span><span class="sxs-lookup"><span data-stu-id="89df7-106">See [this PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) for the ASP.NET Core MVC version.</span></span> <span data-ttu-id="89df7-107">La versión 1.1 de ASP.NET Core de este tutorial se encuentra en [esto](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data) carpeta.</span><span class="sxs-lookup"><span data-stu-id="89df7-107">The ASP.NET Core 1.1 version of this tutorial is in [this](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data) folder.</span></span> <span data-ttu-id="89df7-108">La 1.1 de ejemplo de ASP.NET Core se encuentra en la [ejemplos](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).</span><span class="sxs-lookup"><span data-stu-id="89df7-108">The 1.1 ASP.NET Core sample is in the [samples](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).</span></span>
+<span data-ttu-id="2fb24-106">Consulte [este PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) para la versión de ASP.NET Core MVC.</span><span class="sxs-lookup"><span data-stu-id="2fb24-106">See [this PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) for the ASP.NET Core MVC version.</span></span> <span data-ttu-id="2fb24-107">La versión 1.1 de ASP.NET Core de este tutorial se encuentra en [esto](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data) carpeta.</span><span class="sxs-lookup"><span data-stu-id="2fb24-107">The ASP.NET Core 1.1 version of this tutorial is in [this](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data) folder.</span></span> <span data-ttu-id="2fb24-108">La 1.1 de ejemplo de ASP.NET Core se encuentra en la [ejemplos](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).</span><span class="sxs-lookup"><span data-stu-id="2fb24-108">The 1.1 ASP.NET Core sample is in the [samples](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).</span></span>
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-<span data-ttu-id="89df7-109">Consulte [este pdf](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_July16_18.pdf)</span><span class="sxs-lookup"><span data-stu-id="89df7-109">See [this pdf](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_July16_18.pdf)</span></span>
+<span data-ttu-id="2fb24-109">Consulte [este pdf](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_July16_18.pdf)</span><span class="sxs-lookup"><span data-stu-id="2fb24-109">See [this pdf](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_July16_18.pdf)</span></span>
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-3.0"
 
-<span data-ttu-id="89df7-110">Este tutorial muestra cómo crear una aplicación web ASP.NET Core con los datos protegidos por autorización del usuario.</span><span class="sxs-lookup"><span data-stu-id="89df7-110">This tutorial shows how to create an ASP.NET Core web app with user data protected by authorization.</span></span> <span data-ttu-id="89df7-111">Muestra una lista de contactos que autentican los usuarios (registrados) ha creado.</span><span class="sxs-lookup"><span data-stu-id="89df7-111">It displays a list of contacts that authenticated (registered) users have created.</span></span> <span data-ttu-id="89df7-112">Hay tres grupos de seguridad:</span><span class="sxs-lookup"><span data-stu-id="89df7-112">There are three security groups:</span></span>
+<span data-ttu-id="2fb24-110">Este tutorial muestra cómo crear una aplicación web ASP.NET Core con los datos protegidos por autorización del usuario.</span><span class="sxs-lookup"><span data-stu-id="2fb24-110">This tutorial shows how to create an ASP.NET Core web app with user data protected by authorization.</span></span> <span data-ttu-id="2fb24-111">Muestra una lista de contactos que autentican los usuarios (registrados) ha creado.</span><span class="sxs-lookup"><span data-stu-id="2fb24-111">It displays a list of contacts that authenticated (registered) users have created.</span></span> <span data-ttu-id="2fb24-112">Hay tres grupos de seguridad:</span><span class="sxs-lookup"><span data-stu-id="2fb24-112">There are three security groups:</span></span>
 
-* <span data-ttu-id="89df7-113">**Usuarios registrados** puede ver todos los datos aprobados y pueden sus propios datos de editar o eliminar.</span><span class="sxs-lookup"><span data-stu-id="89df7-113">**Registered users** can view all the approved data and can edit/delete their own data.</span></span>
-* <span data-ttu-id="89df7-114">**Los administradores de** puede aprobar o rechazar los datos de contacto.</span><span class="sxs-lookup"><span data-stu-id="89df7-114">**Managers** can approve or reject contact data.</span></span> <span data-ttu-id="89df7-115">Solo contactos aprobados son visibles para los usuarios.</span><span class="sxs-lookup"><span data-stu-id="89df7-115">Only approved contacts are visible to users.</span></span>
-* <span data-ttu-id="89df7-116">**Los administradores** puede aprobar o rechazar y editar o eliminar todos los datos.</span><span class="sxs-lookup"><span data-stu-id="89df7-116">**Administrators** can approve/reject and edit/delete any data.</span></span>
+* <span data-ttu-id="2fb24-113">**Usuarios registrados** puede ver todos los datos aprobados y pueden sus propios datos de editar o eliminar.</span><span class="sxs-lookup"><span data-stu-id="2fb24-113">**Registered users** can view all the approved data and can edit/delete their own data.</span></span>
+* <span data-ttu-id="2fb24-114">**Los administradores de** puede aprobar o rechazar los datos de contacto.</span><span class="sxs-lookup"><span data-stu-id="2fb24-114">**Managers** can approve or reject contact data.</span></span> <span data-ttu-id="2fb24-115">Solo contactos aprobados son visibles para los usuarios.</span><span class="sxs-lookup"><span data-stu-id="2fb24-115">Only approved contacts are visible to users.</span></span>
+* <span data-ttu-id="2fb24-116">**Los administradores** puede aprobar o rechazar y editar o eliminar todos los datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-116">**Administrators** can approve/reject and edit/delete any data.</span></span>
 
-<span data-ttu-id="89df7-117">En la siguiente imagen, el usuario Rick (`rick@example.com`) ha iniciado sesión.</span><span class="sxs-lookup"><span data-stu-id="89df7-117">In the following image, user Rick (`rick@example.com`) is signed in.</span></span> <span data-ttu-id="89df7-118">Rick solo puede ver los contactos aprobados y **editar**/**eliminar**/**crear nuevo** vínculos para sus contactos.</span><span class="sxs-lookup"><span data-stu-id="89df7-118">Rick can only view approved contacts and **Edit**/**Delete**/**Create New** links for his contacts.</span></span> <span data-ttu-id="89df7-119">El último registro, creado por Rick, muestra **editar** y **eliminar** vínculos.</span><span class="sxs-lookup"><span data-stu-id="89df7-119">Only the last record, created by Rick, displays **Edit** and **Delete** links.</span></span> <span data-ttu-id="89df7-120">Otros usuarios no verán el último registro hasta un administrador o un administrador cambia el estado a "Aprobado".</span><span class="sxs-lookup"><span data-stu-id="89df7-120">Other users won't see the last record until a manager or administrator changes the status to "Approved".</span></span>
+<span data-ttu-id="2fb24-117">Las imágenes en este documento no coinciden exactamente con las plantillas más recientes.</span><span class="sxs-lookup"><span data-stu-id="2fb24-117">The images in this document exactly don't match the latest templates.</span></span>
+
+<span data-ttu-id="2fb24-118">En la siguiente imagen, el usuario Rick (`rick@example.com`) ha iniciado sesión.</span><span class="sxs-lookup"><span data-stu-id="2fb24-118">In the following image, user Rick (`rick@example.com`) is signed in.</span></span> <span data-ttu-id="2fb24-119">Rick solo puede ver los contactos aprobados y **editar**/**eliminar**/**crear nuevo** vínculos para sus contactos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-119">Rick can only view approved contacts and **Edit**/**Delete**/**Create New** links for his contacts.</span></span> <span data-ttu-id="2fb24-120">El último registro, creado por Rick, muestra **editar** y **eliminar** vínculos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-120">Only the last record, created by Rick, displays **Edit** and **Delete** links.</span></span> <span data-ttu-id="2fb24-121">Otros usuarios no verán el último registro hasta un administrador o un administrador cambia el estado a "Aprobado".</span><span class="sxs-lookup"><span data-stu-id="2fb24-121">Other users won't see the last record until a manager or administrator changes the status to "Approved".</span></span>
 
 ![Captura de pantalla con Rick ha iniciado sesión](secure-data/_static/rick.png)
 
-<span data-ttu-id="89df7-122">En la siguiente imagen, `manager@contoso.com` se registre y del rol managers:</span><span class="sxs-lookup"><span data-stu-id="89df7-122">In the following image, `manager@contoso.com` is signed in and in the managers role:</span></span>
+<span data-ttu-id="2fb24-123">En la siguiente imagen, `manager@contoso.com` está firmado en y en función del administrador:</span><span class="sxs-lookup"><span data-stu-id="2fb24-123">In the following image, `manager@contoso.com` is signed in and in the manager's role:</span></span>
 
 ![Captura de pantalla mostrando manager@contoso.com iniciada](secure-data/_static/manager1.png)
 
-<span data-ttu-id="89df7-124">La siguiente imagen muestra a los administradores de la vista de detalles de un contacto:</span><span class="sxs-lookup"><span data-stu-id="89df7-124">The following image shows the managers details view of a contact:</span></span>
+<span data-ttu-id="2fb24-125">La siguiente imagen muestra a los administradores de la vista de detalles de un contacto:</span><span class="sxs-lookup"><span data-stu-id="2fb24-125">The following image shows the managers details view of a contact:</span></span>
 
 ![Vista del Administrador de un contacto](secure-data/_static/manager.png)
 
-<span data-ttu-id="89df7-126">El **aprobar** y **rechazar** solo se muestran los botones para administradores y administradores.</span><span class="sxs-lookup"><span data-stu-id="89df7-126">The **Approve** and **Reject** buttons are only displayed for managers and administrators.</span></span>
+<span data-ttu-id="2fb24-127">El **aprobar** y **rechazar** solo se muestran los botones para administradores y administradores.</span><span class="sxs-lookup"><span data-stu-id="2fb24-127">The **Approve** and **Reject** buttons are only displayed for managers and administrators.</span></span>
 
-<span data-ttu-id="89df7-127">En la siguiente imagen, `admin@contoso.com` se registre y en la función Administradores:</span><span class="sxs-lookup"><span data-stu-id="89df7-127">In the following image, `admin@contoso.com` is signed in and in the administrators role:</span></span>
+<span data-ttu-id="2fb24-128">En la siguiente imagen, `admin@contoso.com` se registre y en la función de administrador:</span><span class="sxs-lookup"><span data-stu-id="2fb24-128">In the following image, `admin@contoso.com` is signed in and in the administrator's role:</span></span>
 
 ![Captura de pantalla mostrando admin@contoso.com iniciada](secure-data/_static/admin.png)
 
-<span data-ttu-id="89df7-129">El administrador tiene todos los privilegios.</span><span class="sxs-lookup"><span data-stu-id="89df7-129">The administrator has all privileges.</span></span> <span data-ttu-id="89df7-130">Puede leer, editar o eliminar cualquier contacto y cambiar el estado de los contactos.</span><span class="sxs-lookup"><span data-stu-id="89df7-130">She can read/edit/delete any contact and change the status of contacts.</span></span>
+<span data-ttu-id="2fb24-130">El administrador tiene todos los privilegios.</span><span class="sxs-lookup"><span data-stu-id="2fb24-130">The administrator has all privileges.</span></span> <span data-ttu-id="2fb24-131">Puede leer, editar o eliminar cualquier contacto y cambiar el estado de los contactos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-131">She can read/edit/delete any contact and change the status of contacts.</span></span>
 
-<span data-ttu-id="89df7-131">Se ha creado la aplicación por [scaffolding](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) siguiente `Contact` modelo:</span><span class="sxs-lookup"><span data-stu-id="89df7-131">The app was created by [scaffolding](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) the following `Contact` model:</span></span>
+<span data-ttu-id="2fb24-132">Se ha creado la aplicación por [scaffolding](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) siguiente `Contact` modelo:</span><span class="sxs-lookup"><span data-stu-id="2fb24-132">The app was created by [scaffolding](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) the following `Contact` model:</span></span>
 
 [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
-<span data-ttu-id="89df7-132">El ejemplo contiene los siguientes controladores de autorización:</span><span class="sxs-lookup"><span data-stu-id="89df7-132">The sample contains the following authorization handlers:</span></span>
+<span data-ttu-id="2fb24-133">El ejemplo contiene los siguientes controladores de autorización:</span><span class="sxs-lookup"><span data-stu-id="2fb24-133">The sample contains the following authorization handlers:</span></span>
 
-* <span data-ttu-id="89df7-133">`ContactIsOwnerAuthorizationHandler`: Garantiza que un usuario solo puede modificar sus datos.</span><span class="sxs-lookup"><span data-stu-id="89df7-133">`ContactIsOwnerAuthorizationHandler`: Ensures that a user can only edit their data.</span></span>
-* <span data-ttu-id="89df7-134">`ContactManagerAuthorizationHandler`: Permite a los administradores aprobar o rechazar los contactos.</span><span class="sxs-lookup"><span data-stu-id="89df7-134">`ContactManagerAuthorizationHandler`: Allows managers to approve or reject contacts.</span></span>
-* <span data-ttu-id="89df7-135">`ContactAdministratorsAuthorizationHandler`: Permite que los administradores pueden aprobar o rechazar los contactos y editar o eliminar contactos.</span><span class="sxs-lookup"><span data-stu-id="89df7-135">`ContactAdministratorsAuthorizationHandler`: Allows administrators to approve or reject contacts and to edit/delete contacts.</span></span>
+* <span data-ttu-id="2fb24-134">`ContactIsOwnerAuthorizationHandler`: Garantiza que un usuario solo puede modificar sus datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-134">`ContactIsOwnerAuthorizationHandler`: Ensures that a user can only edit their data.</span></span>
+* <span data-ttu-id="2fb24-135">`ContactManagerAuthorizationHandler`: Permite a los administradores aprobar o rechazar los contactos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-135">`ContactManagerAuthorizationHandler`: Allows managers to approve or reject contacts.</span></span>
+* <span data-ttu-id="2fb24-136">`ContactAdministratorsAuthorizationHandler`: Permite que los administradores pueden aprobar o rechazar los contactos y editar o eliminar contactos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-136">`ContactAdministratorsAuthorizationHandler`: Allows administrators to approve or reject contacts and to edit/delete contacts.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="89df7-136">Requisitos previos</span><span class="sxs-lookup"><span data-stu-id="89df7-136">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="2fb24-137">Requisitos previos</span><span class="sxs-lookup"><span data-stu-id="2fb24-137">Prerequisites</span></span>
 
-<span data-ttu-id="89df7-137">En este tutorial se avanza.</span><span class="sxs-lookup"><span data-stu-id="89df7-137">This tutorial is advanced.</span></span> <span data-ttu-id="89df7-138">Debe estar familiarizado con:</span><span class="sxs-lookup"><span data-stu-id="89df7-138">You should be familiar with:</span></span>
+<span data-ttu-id="2fb24-138">En este tutorial se avanza.</span><span class="sxs-lookup"><span data-stu-id="2fb24-138">This tutorial is advanced.</span></span> <span data-ttu-id="2fb24-139">Debe estar familiarizado con:</span><span class="sxs-lookup"><span data-stu-id="2fb24-139">You should be familiar with:</span></span>
 
-* [<span data-ttu-id="89df7-139">ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="89df7-139">ASP.NET Core</span></span>](xref:tutorials/first-mvc-app/start-mvc)
-* [<span data-ttu-id="89df7-140">Autenticación</span><span class="sxs-lookup"><span data-stu-id="89df7-140">Authentication</span></span>](xref:security/authentication/identity)
-* [<span data-ttu-id="89df7-141">Confirmación de cuentas y recuperación de contraseñas</span><span class="sxs-lookup"><span data-stu-id="89df7-141">Account Confirmation and Password Recovery</span></span>](xref:security/authentication/accconfirm)
-* [<span data-ttu-id="89df7-142">Autorización</span><span class="sxs-lookup"><span data-stu-id="89df7-142">Authorization</span></span>](xref:security/authorization/introduction)
-* [<span data-ttu-id="89df7-143">Entity Framework Core</span><span class="sxs-lookup"><span data-stu-id="89df7-143">Entity Framework Core</span></span>](xref:data/ef-mvc/intro)
+* [<span data-ttu-id="2fb24-140">ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="2fb24-140">ASP.NET Core</span></span>](xref:tutorials/first-mvc-app/start-mvc)
+* [<span data-ttu-id="2fb24-141">Autenticación</span><span class="sxs-lookup"><span data-stu-id="2fb24-141">Authentication</span></span>](xref:security/authentication/identity)
+* [<span data-ttu-id="2fb24-142">Confirmación de cuentas y recuperación de contraseñas</span><span class="sxs-lookup"><span data-stu-id="2fb24-142">Account Confirmation and Password Recovery</span></span>](xref:security/authentication/accconfirm)
+* [<span data-ttu-id="2fb24-143">Autorización</span><span class="sxs-lookup"><span data-stu-id="2fb24-143">Authorization</span></span>](xref:security/authorization/introduction)
+* [<span data-ttu-id="2fb24-144">Entity Framework Core</span><span class="sxs-lookup"><span data-stu-id="2fb24-144">Entity Framework Core</span></span>](xref:data/ef-mvc/intro)
 
-::: moniker-end
+## <a name="the-starter-and-completed-app"></a><span data-ttu-id="2fb24-145">El inicio y la aplicación completada</span><span class="sxs-lookup"><span data-stu-id="2fb24-145">The starter and completed app</span></span>
 
-::: moniker range="= aspnetcore-2.1"
+<span data-ttu-id="2fb24-146">[Descargar](xref:index#how-to-download-a-sample) el [completado](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) app.</span><span class="sxs-lookup"><span data-stu-id="2fb24-146">[Download](xref:index#how-to-download-a-sample) the [completed](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) app.</span></span> <span data-ttu-id="2fb24-147">[Prueba](#test-the-completed-app) la aplicación completa, por lo que se familiarice con sus características de seguridad.</span><span class="sxs-lookup"><span data-stu-id="2fb24-147">[Test](#test-the-completed-app) the completed app so you become familiar with its security features.</span></span>
 
-<span data-ttu-id="89df7-144">En ASP.NET Core 2.1, `User.IsInRole` se produce un error cuando se usa `AddDefaultIdentity`.</span><span class="sxs-lookup"><span data-stu-id="89df7-144">In ASP.NET Core 2.1, `User.IsInRole` fails when using `AddDefaultIdentity`.</span></span> <span data-ttu-id="89df7-145">Este tutorial se usa `AddDefaultIdentity` y, por tanto, requiere ASP.NET Core 2.2 o posterior.</span><span class="sxs-lookup"><span data-stu-id="89df7-145">This tutorial uses `AddDefaultIdentity` and therefore requires ASP.NET Core 2.2 or later.</span></span> <span data-ttu-id="89df7-146">Consulte [este problema de GitHub](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) para una solución alternativa.</span><span class="sxs-lookup"><span data-stu-id="89df7-146">See [this GitHub issue](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) for a work-around.</span></span>
+### <a name="the-starter-app"></a><span data-ttu-id="2fb24-148">La aplicación de inicio</span><span class="sxs-lookup"><span data-stu-id="2fb24-148">The starter app</span></span>
 
-::: moniker-end
+<span data-ttu-id="2fb24-149">[Descargar](xref:index#how-to-download-a-sample) el [starter](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) app.</span><span class="sxs-lookup"><span data-stu-id="2fb24-149">[Download](xref:index#how-to-download-a-sample) the [starter](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) app.</span></span>
 
-::: moniker range=">= aspnetcore-2.1"
+<span data-ttu-id="2fb24-150">Ejecute la aplicación, pulse el **ContactManager** vincular y compruebe que puede crear, editar y eliminar un contacto.</span><span class="sxs-lookup"><span data-stu-id="2fb24-150">Run the app, tap the **ContactManager** link, and verify you can create, edit, and delete a contact.</span></span>
 
-## <a name="the-starter-and-completed-app"></a><span data-ttu-id="89df7-147">El inicio y la aplicación completada</span><span class="sxs-lookup"><span data-stu-id="89df7-147">The starter and completed app</span></span>
+## <a name="secure-user-data"></a><span data-ttu-id="2fb24-151">Proteger los datos de usuario</span><span class="sxs-lookup"><span data-stu-id="2fb24-151">Secure user data</span></span>
 
-<span data-ttu-id="89df7-148">[Descargar](xref:index#how-to-download-a-sample) el [completado](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) app.</span><span class="sxs-lookup"><span data-stu-id="89df7-148">[Download](xref:index#how-to-download-a-sample) the [completed](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) app.</span></span> <span data-ttu-id="89df7-149">[Prueba](#test-the-completed-app) la aplicación completa, por lo que se familiarice con sus características de seguridad.</span><span class="sxs-lookup"><span data-stu-id="89df7-149">[Test](#test-the-completed-app) the completed app so you become familiar with its security features.</span></span>
+<span data-ttu-id="2fb24-152">Las siguientes secciones contienen todos los pasos principales para crear la aplicación de datos de usuario segura.</span><span class="sxs-lookup"><span data-stu-id="2fb24-152">The following sections have all the major steps to create the secure user data app.</span></span> <span data-ttu-id="2fb24-153">Resultarle útil consultar el proyecto completado.</span><span class="sxs-lookup"><span data-stu-id="2fb24-153">You may find it helpful to refer to the completed project.</span></span>
 
-### <a name="the-starter-app"></a><span data-ttu-id="89df7-150">La aplicación de inicio</span><span class="sxs-lookup"><span data-stu-id="89df7-150">The starter app</span></span>
+### <a name="tie-the-contact-data-to-the-user"></a><span data-ttu-id="2fb24-154">Vincular los datos de contacto para el usuario</span><span class="sxs-lookup"><span data-stu-id="2fb24-154">Tie the contact data to the user</span></span>
 
-<span data-ttu-id="89df7-151">[Descargar](xref:index#how-to-download-a-sample) el [starter](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) app.</span><span class="sxs-lookup"><span data-stu-id="89df7-151">[Download](xref:index#how-to-download-a-sample) the [starter](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) app.</span></span>
+<span data-ttu-id="2fb24-155">Usar ASP.NET [identidad](xref:security/authentication/identity) Id. de usuario para garantizar que los usuarios puede editar sus datos, pero no otros datos de los usuarios.</span><span class="sxs-lookup"><span data-stu-id="2fb24-155">Use the ASP.NET [Identity](xref:security/authentication/identity) user ID to ensure users can edit their data, but not other users data.</span></span> <span data-ttu-id="2fb24-156">Agregar `OwnerID` y `ContactStatus` a la `Contact` modelo:</span><span class="sxs-lookup"><span data-stu-id="2fb24-156">Add `OwnerID` and `ContactStatus` to the `Contact` model:</span></span>
 
-<span data-ttu-id="89df7-152">Ejecute la aplicación, pulse el **ContactManager** vincular y compruebe que puede crear, editar y eliminar un contacto.</span><span class="sxs-lookup"><span data-stu-id="89df7-152">Run the app, tap the **ContactManager** link, and verify you can create, edit, and delete a contact.</span></span>
+[!code-csharp[](secure-data/samples/final3/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
 
-## <a name="secure-user-data"></a><span data-ttu-id="89df7-153">Proteger los datos de usuario</span><span class="sxs-lookup"><span data-stu-id="89df7-153">Secure user data</span></span>
+<span data-ttu-id="2fb24-157">`OwnerID` es el identificador del usuario desde el `AspNetUser` de tabla en la [identidad](xref:security/authentication/identity) base de datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-157">`OwnerID` is the user's ID from the `AspNetUser` table in the [Identity](xref:security/authentication/identity) database.</span></span> <span data-ttu-id="2fb24-158">El `Status` campo determina si un contacto es visible para los usuarios en general.</span><span class="sxs-lookup"><span data-stu-id="2fb24-158">The `Status` field determines if a contact is viewable by general users.</span></span>
 
-<span data-ttu-id="89df7-154">Las siguientes secciones contienen todos los pasos principales para crear la aplicación de datos de usuario segura.</span><span class="sxs-lookup"><span data-stu-id="89df7-154">The following sections have all the major steps to create the secure user data app.</span></span> <span data-ttu-id="89df7-155">Resultarle útil consultar el proyecto completado.</span><span class="sxs-lookup"><span data-stu-id="89df7-155">You may find it helpful to refer to the completed project.</span></span>
-
-### <a name="tie-the-contact-data-to-the-user"></a><span data-ttu-id="89df7-156">Vincular los datos de contacto para el usuario</span><span class="sxs-lookup"><span data-stu-id="89df7-156">Tie the contact data to the user</span></span>
-
-<span data-ttu-id="89df7-157">Usar ASP.NET [identidad](xref:security/authentication/identity) Id. de usuario para garantizar que los usuarios puede editar sus datos, pero no otros datos de los usuarios.</span><span class="sxs-lookup"><span data-stu-id="89df7-157">Use the ASP.NET [Identity](xref:security/authentication/identity) user ID to ensure users can edit their data, but not other users data.</span></span> <span data-ttu-id="89df7-158">Agregar `OwnerID` y `ContactStatus` a la `Contact` modelo:</span><span class="sxs-lookup"><span data-stu-id="89df7-158">Add `OwnerID` and `ContactStatus` to the `Contact` model:</span></span>
-
-[!code-csharp[](secure-data/samples/final2.1/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
-
-<span data-ttu-id="89df7-159">`OwnerID` es el identificador del usuario desde el `AspNetUser` de tabla en la [identidad](xref:security/authentication/identity) base de datos.</span><span class="sxs-lookup"><span data-stu-id="89df7-159">`OwnerID` is the user's ID from the `AspNetUser` table in the [Identity](xref:security/authentication/identity) database.</span></span> <span data-ttu-id="89df7-160">El `Status` campo determina si un contacto es visible para los usuarios en general.</span><span class="sxs-lookup"><span data-stu-id="89df7-160">The `Status` field determines if a contact is viewable by general users.</span></span>
-
-<span data-ttu-id="89df7-161">Crear una nueva migración y actualización de la base de datos:</span><span class="sxs-lookup"><span data-stu-id="89df7-161">Create a new migration and update the database:</span></span>
+<span data-ttu-id="2fb24-159">Crear una nueva migración y actualización de la base de datos:</span><span class="sxs-lookup"><span data-stu-id="2fb24-159">Create a new migration and update the database:</span></span>
 
 ```console
 dotnet ef migrations add userID_Status
 dotnet ef database update
 ```
 
-### <a name="add-role-services-to-identity"></a><span data-ttu-id="89df7-162">Agregar servicios de función a la identidad</span><span class="sxs-lookup"><span data-stu-id="89df7-162">Add Role services to Identity</span></span>
+### <a name="add-role-services-to-identity"></a><span data-ttu-id="2fb24-160">Agregar servicios de función a la identidad</span><span class="sxs-lookup"><span data-stu-id="2fb24-160">Add Role services to Identity</span></span>
 
-<span data-ttu-id="89df7-163">Anexar [AddRoles](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) para agregar servicios de rol:</span><span class="sxs-lookup"><span data-stu-id="89df7-163">Append [AddRoles](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) to add Role services:</span></span>
+<span data-ttu-id="2fb24-161">Anexar [AddRoles](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) para agregar servicios de rol:</span><span class="sxs-lookup"><span data-stu-id="2fb24-161">Append [AddRoles](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) to add Role services:</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Startup.cs?name=snippet2&highlight=12)]
+[!code-csharp[](secure-data/samples/final3/Startup.cs?name=snippet2&highlight=9)]
 
-### <a name="require-authenticated-users"></a><span data-ttu-id="89df7-164">Requerir que los usuarios autenticados</span><span class="sxs-lookup"><span data-stu-id="89df7-164">Require authenticated users</span></span>
+### <a name="require-authenticated-users"></a><span data-ttu-id="2fb24-162">Requerir que los usuarios autenticados</span><span class="sxs-lookup"><span data-stu-id="2fb24-162">Require authenticated users</span></span>
 
-<span data-ttu-id="89df7-165">Establezca la directiva de autenticación predeterminado para exigir que los usuarios se autentiquen:</span><span class="sxs-lookup"><span data-stu-id="89df7-165">Set the default authentication policy to require users to be authenticated:</span></span>
+<span data-ttu-id="2fb24-163">Establezca la directiva de autenticación predeterminado para exigir que los usuarios se autentiquen:</span><span class="sxs-lookup"><span data-stu-id="2fb24-163">Set the default authentication policy to require users to be authenticated:</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Startup.cs?name=snippet&highlight=17-99)] 
+[!code-csharp[](secure-data/samples/final3/Startup.cs?name=snippet&highlight=15-99)] 
 
- <span data-ttu-id="89df7-166">Puede rechazar la autenticación en el nivel de método de página de Razor, controlador o acción con el `[AllowAnonymous]` atributo.</span><span class="sxs-lookup"><span data-stu-id="89df7-166">You can opt out of authentication at the Razor Page, controller, or action method level with the `[AllowAnonymous]` attribute.</span></span> <span data-ttu-id="89df7-167">Configuración de la directiva de autenticación predeterminado para exigir que los usuarios se autentiquen protege recién agregada de las páginas de Razor y controladores.</span><span class="sxs-lookup"><span data-stu-id="89df7-167">Setting the default authentication policy to require users to be authenticated protects newly added Razor Pages and controllers.</span></span> <span data-ttu-id="89df7-168">Tener la autenticación requerida por el valor predeterminado es más segura que confiar en los nuevos controladores y las páginas de Razor debe incluir el `[Authorize]` atributo.</span><span class="sxs-lookup"><span data-stu-id="89df7-168">Having authentication required by default is more secure than relying on new controllers and Razor Pages to include the `[Authorize]` attribute.</span></span>
+ <span data-ttu-id="2fb24-164">Puede rechazar la autenticación en el nivel de método de página de Razor, controlador o acción con el `[AllowAnonymous]` atributo.</span><span class="sxs-lookup"><span data-stu-id="2fb24-164">You can opt out of authentication at the Razor Page, controller, or action method level with the `[AllowAnonymous]` attribute.</span></span> <span data-ttu-id="2fb24-165">Configuración de la directiva de autenticación predeterminado para exigir que los usuarios se autentiquen protege recién agregada de las páginas de Razor y controladores.</span><span class="sxs-lookup"><span data-stu-id="2fb24-165">Setting the default authentication policy to require users to be authenticated protects newly added Razor Pages and controllers.</span></span> <span data-ttu-id="2fb24-166">Tener la autenticación requerida por el valor predeterminado es más segura que confiar en los nuevos controladores y las páginas de Razor debe incluir el `[Authorize]` atributo.</span><span class="sxs-lookup"><span data-stu-id="2fb24-166">Having authentication required by default is more secure than relying on new controllers and Razor Pages to include the `[Authorize]` attribute.</span></span>
 
-<span data-ttu-id="89df7-169">Agregar [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) al índice, acerca de y póngase en contacto con páginas para los usuarios anónimos pueden obtener información sobre el sitio antes de que se registren.</span><span class="sxs-lookup"><span data-stu-id="89df7-169">Add [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) to the Index, About, and Contact pages so anonymous users can get information about the site before they register.</span></span>
+<span data-ttu-id="2fb24-167">Agregar [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) a las páginas de índice y privacidad para los usuarios anónimos pueden obtener información sobre el sitio antes de que se registren.</span><span class="sxs-lookup"><span data-stu-id="2fb24-167">Add [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) to the Index and Privacy pages so anonymous users can get information about the site before they register.</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Pages/Index.cshtml.cs?highlight=1,6)]
+[!code-csharp[](secure-data/samples/final3/Pages/Index.cshtml.cs?highlight=1,7)]
 
-### <a name="configure-the-test-account"></a><span data-ttu-id="89df7-170">Configurar la cuenta de prueba</span><span class="sxs-lookup"><span data-stu-id="89df7-170">Configure the test account</span></span>
+### <a name="configure-the-test-account"></a><span data-ttu-id="2fb24-168">Configurar la cuenta de prueba</span><span class="sxs-lookup"><span data-stu-id="2fb24-168">Configure the test account</span></span>
 
-<span data-ttu-id="89df7-171">La `SeedData` clase crea dos cuentas: administrador y administrador.</span><span class="sxs-lookup"><span data-stu-id="89df7-171">The `SeedData` class creates two accounts: administrator and manager.</span></span> <span data-ttu-id="89df7-172">Use la [herramienta Secret Manager](xref:security/app-secrets) para establecer una contraseña para estas cuentas.</span><span class="sxs-lookup"><span data-stu-id="89df7-172">Use the [Secret Manager tool](xref:security/app-secrets) to set a password for these accounts.</span></span> <span data-ttu-id="89df7-173">Establecer la contraseña del directorio de proyecto (el directorio que contiene *Program.cs*):</span><span class="sxs-lookup"><span data-stu-id="89df7-173">Set the password from the project directory (the directory containing *Program.cs*):</span></span>
+<span data-ttu-id="2fb24-169">La `SeedData` clase crea dos cuentas: administrador y administrador.</span><span class="sxs-lookup"><span data-stu-id="2fb24-169">The `SeedData` class creates two accounts: administrator and manager.</span></span> <span data-ttu-id="2fb24-170">Use la [herramienta Secret Manager](xref:security/app-secrets) para establecer una contraseña para estas cuentas.</span><span class="sxs-lookup"><span data-stu-id="2fb24-170">Use the [Secret Manager tool](xref:security/app-secrets) to set a password for these accounts.</span></span> <span data-ttu-id="2fb24-171">Establecer la contraseña del directorio de proyecto (el directorio que contiene *Program.cs*):</span><span class="sxs-lookup"><span data-stu-id="2fb24-171">Set the password from the project directory (the directory containing *Program.cs*):</span></span>
 
 ```console
 dotnet user-secrets set SeedUserPW <PW>
 ```
 
-<span data-ttu-id="89df7-174">Si no se especifica una contraseña segura, se produce una excepción cuando `SeedData.Initialize` se llama.</span><span class="sxs-lookup"><span data-stu-id="89df7-174">If a strong password is not specified, an exception is thrown when `SeedData.Initialize` is called.</span></span>
+<span data-ttu-id="2fb24-172">Si no se especifica una contraseña segura, se produce una excepción cuando `SeedData.Initialize` se llama.</span><span class="sxs-lookup"><span data-stu-id="2fb24-172">If a strong password is not specified, an exception is thrown when `SeedData.Initialize` is called.</span></span>
 
-<span data-ttu-id="89df7-175">Actualización `Main` usar la contraseña de la prueba:</span><span class="sxs-lookup"><span data-stu-id="89df7-175">Update `Main` to use the test password:</span></span>
+<span data-ttu-id="2fb24-173">Actualización `Main` usar la contraseña de la prueba:</span><span class="sxs-lookup"><span data-stu-id="2fb24-173">Update `Main` to use the test password:</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Program.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final3/Program.cs?name=snippet)]
 
-### <a name="create-the-test-accounts-and-update-the-contacts"></a><span data-ttu-id="89df7-176">Crear las cuentas de prueba y actualizar los contactos</span><span class="sxs-lookup"><span data-stu-id="89df7-176">Create the test accounts and update the contacts</span></span>
+### <a name="create-the-test-accounts-and-update-the-contacts"></a><span data-ttu-id="2fb24-174">Crear las cuentas de prueba y actualizar los contactos</span><span class="sxs-lookup"><span data-stu-id="2fb24-174">Create the test accounts and update the contacts</span></span>
 
-<span data-ttu-id="89df7-177">Actualización de la `Initialize` método en el `SeedData` clase para crear las cuentas de prueba:</span><span class="sxs-lookup"><span data-stu-id="89df7-177">Update the `Initialize` method in the `SeedData` class to create the test accounts:</span></span>
+<span data-ttu-id="2fb24-175">Actualización de la `Initialize` método en el `SeedData` clase para crear las cuentas de prueba:</span><span class="sxs-lookup"><span data-stu-id="2fb24-175">Update the `Initialize` method in the `SeedData` class to create the test accounts:</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Data/SeedData.cs?name=snippet_Initialize)]
+[!code-csharp[](secure-data/samples/final3/Data/SeedData.cs?name=snippet_Initialize)]
 
-<span data-ttu-id="89df7-178">Agregue el identificador de usuario administrador y `ContactStatus` a los contactos.</span><span class="sxs-lookup"><span data-stu-id="89df7-178">Add the administrator user ID and `ContactStatus` to the contacts.</span></span> <span data-ttu-id="89df7-179">Realice uno de los contactos "Enviado" y un "rechazada".</span><span class="sxs-lookup"><span data-stu-id="89df7-179">Make one of the contacts "Submitted" and one "Rejected".</span></span> <span data-ttu-id="89df7-180">Agregue el Id. de usuario y el estado a todos los contactos.</span><span class="sxs-lookup"><span data-stu-id="89df7-180">Add the user ID and status to all the contacts.</span></span> <span data-ttu-id="89df7-181">Póngase en contacto un solo con se muestra:</span><span class="sxs-lookup"><span data-stu-id="89df7-181">Only one contact is shown:</span></span>
+<span data-ttu-id="2fb24-176">Agregue el identificador de usuario administrador y `ContactStatus` a los contactos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-176">Add the administrator user ID and `ContactStatus` to the contacts.</span></span> <span data-ttu-id="2fb24-177">Realice uno de los contactos "Enviado" y un "rechazada".</span><span class="sxs-lookup"><span data-stu-id="2fb24-177">Make one of the contacts "Submitted" and one "Rejected".</span></span> <span data-ttu-id="2fb24-178">Agregue el Id. de usuario y el estado a todos los contactos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-178">Add the user ID and status to all the contacts.</span></span> <span data-ttu-id="2fb24-179">Póngase en contacto un solo con se muestra:</span><span class="sxs-lookup"><span data-stu-id="2fb24-179">Only one contact is shown:</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Data/SeedData.cs?name=snippet1&highlight=17,18)]
+[!code-csharp[](secure-data/samples/final3/Data/SeedData.cs?name=snippet1&highlight=17,18)]
 
-## <a name="create-owner-manager-and-administrator-authorization-handlers"></a><span data-ttu-id="89df7-182">Crear controladores de autorización de administrador, administrador y propietario</span><span class="sxs-lookup"><span data-stu-id="89df7-182">Create owner, manager, and administrator authorization handlers</span></span>
+## <a name="create-owner-manager-and-administrator-authorization-handlers"></a><span data-ttu-id="2fb24-180">Crear controladores de autorización de administrador, administrador y propietario</span><span class="sxs-lookup"><span data-stu-id="2fb24-180">Create owner, manager, and administrator authorization handlers</span></span>
 
-<span data-ttu-id="89df7-183">Crear un `ContactIsOwnerAuthorizationHandler` clase en el *autorización* carpeta.</span><span class="sxs-lookup"><span data-stu-id="89df7-183">Create a `ContactIsOwnerAuthorizationHandler` class in the *Authorization* folder.</span></span> <span data-ttu-id="89df7-184">El `ContactIsOwnerAuthorizationHandler` comprueba que el usuario que actúan en un recurso posee el recurso.</span><span class="sxs-lookup"><span data-stu-id="89df7-184">The `ContactIsOwnerAuthorizationHandler` verifies that the user acting on a resource owns the resource.</span></span>
+<span data-ttu-id="2fb24-181">Crear un `ContactIsOwnerAuthorizationHandler` clase en el *autorización* carpeta.</span><span class="sxs-lookup"><span data-stu-id="2fb24-181">Create a `ContactIsOwnerAuthorizationHandler` class in the *Authorization* folder.</span></span> <span data-ttu-id="2fb24-182">El `ContactIsOwnerAuthorizationHandler` comprueba que el usuario que actúan en un recurso posee el recurso.</span><span class="sxs-lookup"><span data-stu-id="2fb24-182">The `ContactIsOwnerAuthorizationHandler` verifies that the user acting on a resource owns the resource.</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Authorization/ContactIsOwnerAuthorizationHandler.cs)]
+[!code-csharp[](secure-data/samples/final3/Authorization/ContactIsOwnerAuthorizationHandler.cs)]
 
-<span data-ttu-id="89df7-185">El `ContactIsOwnerAuthorizationHandler` llamadas [contexto. Se realizan correctamente](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) si el usuario autenticado actual es el propietario del contacto.</span><span class="sxs-lookup"><span data-stu-id="89df7-185">The `ContactIsOwnerAuthorizationHandler` calls [context.Succeed](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) if the current authenticated user is the contact owner.</span></span> <span data-ttu-id="89df7-186">Controladores de autorización con carácter general:</span><span class="sxs-lookup"><span data-stu-id="89df7-186">Authorization handlers generally:</span></span>
+<span data-ttu-id="2fb24-183">El `ContactIsOwnerAuthorizationHandler` llamadas [contexto. Se realizan correctamente](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) si el usuario autenticado actual es el propietario del contacto.</span><span class="sxs-lookup"><span data-stu-id="2fb24-183">The `ContactIsOwnerAuthorizationHandler` calls [context.Succeed](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) if the current authenticated user is the contact owner.</span></span> <span data-ttu-id="2fb24-184">Controladores de autorización con carácter general:</span><span class="sxs-lookup"><span data-stu-id="2fb24-184">Authorization handlers generally:</span></span>
 
-* <span data-ttu-id="89df7-187">Devolver `context.Succeed` cuando se cumplen los requisitos.</span><span class="sxs-lookup"><span data-stu-id="89df7-187">Return `context.Succeed` when the requirements are met.</span></span>
-* <span data-ttu-id="89df7-188">Devolver `Task.CompletedTask` cuando no se cumplen los requisitos.</span><span class="sxs-lookup"><span data-stu-id="89df7-188">Return `Task.CompletedTask` when requirements aren't met.</span></span> <span data-ttu-id="89df7-189">`Task.CompletedTask` ni éxito o error&mdash;permite que otros controladores de autorización ejecutar.</span><span class="sxs-lookup"><span data-stu-id="89df7-189">`Task.CompletedTask` is neither success or failure&mdash;it allows other authorization handlers to run.</span></span>
+* <span data-ttu-id="2fb24-185">Devolver `context.Succeed` cuando se cumplen los requisitos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-185">Return `context.Succeed` when the requirements are met.</span></span>
+* <span data-ttu-id="2fb24-186">Devolver `Task.CompletedTask` cuando no se cumplen los requisitos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-186">Return `Task.CompletedTask` when requirements aren't met.</span></span> <span data-ttu-id="2fb24-187">`Task.CompletedTask` no es correcto o error&mdash;permite que otros controladores de autorización ejecutar.</span><span class="sxs-lookup"><span data-stu-id="2fb24-187">`Task.CompletedTask` is not success or failure&mdash;it allows other authorization handlers to run.</span></span>
 
-<span data-ttu-id="89df7-190">Si necesita explícitamente un error, devolver [contexto. Un error](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).</span><span class="sxs-lookup"><span data-stu-id="89df7-190">If you need to explicitly fail, return [context.Fail](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).</span></span>
+<span data-ttu-id="2fb24-188">Si necesita explícitamente un error, devolver [contexto. Un error](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).</span><span class="sxs-lookup"><span data-stu-id="2fb24-188">If you need to explicitly fail, return [context.Fail](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).</span></span>
 
-<span data-ttu-id="89df7-191">La aplicación permite a los propietarios de contacto para editar, eliminar o crear sus propios datos.</span><span class="sxs-lookup"><span data-stu-id="89df7-191">The app allows contact owners to edit/delete/create their own data.</span></span> <span data-ttu-id="89df7-192">`ContactIsOwnerAuthorizationHandler` no es necesario comprobar la operación que se pasa en el parámetro de requisito.</span><span class="sxs-lookup"><span data-stu-id="89df7-192">`ContactIsOwnerAuthorizationHandler` doesn't need to check the operation passed in the requirement parameter.</span></span>
+<span data-ttu-id="2fb24-189">La aplicación permite a los propietarios de contacto para editar, eliminar o crear sus propios datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-189">The app allows contact owners to edit/delete/create their own data.</span></span> <span data-ttu-id="2fb24-190">`ContactIsOwnerAuthorizationHandler` no es necesario comprobar la operación que se pasa en el parámetro de requisito.</span><span class="sxs-lookup"><span data-stu-id="2fb24-190">`ContactIsOwnerAuthorizationHandler` doesn't need to check the operation passed in the requirement parameter.</span></span>
 
-### <a name="create-a-manager-authorization-handler"></a><span data-ttu-id="89df7-193">Crear un controlador de autorización de administrador</span><span class="sxs-lookup"><span data-stu-id="89df7-193">Create a manager authorization handler</span></span>
+### <a name="create-a-manager-authorization-handler"></a><span data-ttu-id="2fb24-191">Crear un controlador de autorización de administrador</span><span class="sxs-lookup"><span data-stu-id="2fb24-191">Create a manager authorization handler</span></span>
 
-<span data-ttu-id="89df7-194">Crear un `ContactManagerAuthorizationHandler` clase en el *autorización* carpeta.</span><span class="sxs-lookup"><span data-stu-id="89df7-194">Create a `ContactManagerAuthorizationHandler` class in the *Authorization* folder.</span></span> <span data-ttu-id="89df7-195">El `ContactManagerAuthorizationHandler` comprueba que el usuario que actúan en el recurso es un administrador.</span><span class="sxs-lookup"><span data-stu-id="89df7-195">The `ContactManagerAuthorizationHandler` verifies the user acting on the resource is a manager.</span></span> <span data-ttu-id="89df7-196">Solo los administradores pueden aprobar o rechazar los cambios de contenido (nuevos o modificados).</span><span class="sxs-lookup"><span data-stu-id="89df7-196">Only managers can approve or reject content changes (new or changed).</span></span>
+<span data-ttu-id="2fb24-192">Crear un `ContactManagerAuthorizationHandler` clase en el *autorización* carpeta.</span><span class="sxs-lookup"><span data-stu-id="2fb24-192">Create a `ContactManagerAuthorizationHandler` class in the *Authorization* folder.</span></span> <span data-ttu-id="2fb24-193">El `ContactManagerAuthorizationHandler` comprueba que el usuario que actúan en el recurso es un administrador.</span><span class="sxs-lookup"><span data-stu-id="2fb24-193">The `ContactManagerAuthorizationHandler` verifies the user acting on the resource is a manager.</span></span> <span data-ttu-id="2fb24-194">Solo los administradores pueden aprobar o rechazar los cambios de contenido (nuevos o modificados).</span><span class="sxs-lookup"><span data-stu-id="2fb24-194">Only managers can approve or reject content changes (new or changed).</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Authorization/ContactManagerAuthorizationHandler.cs)]
+[!code-csharp[](secure-data/samples/final3/Authorization/ContactManagerAuthorizationHandler.cs)]
 
-### <a name="create-an-administrator-authorization-handler"></a><span data-ttu-id="89df7-197">Cree un controlador de autorización de administrador</span><span class="sxs-lookup"><span data-stu-id="89df7-197">Create an administrator authorization handler</span></span>
+### <a name="create-an-administrator-authorization-handler"></a><span data-ttu-id="2fb24-195">Cree un controlador de autorización de administrador</span><span class="sxs-lookup"><span data-stu-id="2fb24-195">Create an administrator authorization handler</span></span>
 
-<span data-ttu-id="89df7-198">Crear un `ContactAdministratorsAuthorizationHandler` clase en el *autorización* carpeta.</span><span class="sxs-lookup"><span data-stu-id="89df7-198">Create a `ContactAdministratorsAuthorizationHandler` class in the *Authorization* folder.</span></span> <span data-ttu-id="89df7-199">El `ContactAdministratorsAuthorizationHandler` comprueba que el usuario que actúan en el recurso es un administrador.</span><span class="sxs-lookup"><span data-stu-id="89df7-199">The `ContactAdministratorsAuthorizationHandler` verifies the user acting on the resource is an administrator.</span></span> <span data-ttu-id="89df7-200">Administrador puede realizar todas las operaciones.</span><span class="sxs-lookup"><span data-stu-id="89df7-200">Administrator can do all operations.</span></span>
+<span data-ttu-id="2fb24-196">Crear un `ContactAdministratorsAuthorizationHandler` clase en el *autorización* carpeta.</span><span class="sxs-lookup"><span data-stu-id="2fb24-196">Create a `ContactAdministratorsAuthorizationHandler` class in the *Authorization* folder.</span></span> <span data-ttu-id="2fb24-197">El `ContactAdministratorsAuthorizationHandler` comprueba que el usuario que actúan en el recurso es un administrador.</span><span class="sxs-lookup"><span data-stu-id="2fb24-197">The `ContactAdministratorsAuthorizationHandler` verifies the user acting on the resource is an administrator.</span></span> <span data-ttu-id="2fb24-198">Administrador puede realizar todas las operaciones.</span><span class="sxs-lookup"><span data-stu-id="2fb24-198">Administrator can do all operations.</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Authorization/ContactAdministratorsAuthorizationHandler.cs)]
+[!code-csharp[](secure-data/samples/final3/Authorization/ContactAdministratorsAuthorizationHandler.cs)]
 
-## <a name="register-the-authorization-handlers"></a><span data-ttu-id="89df7-201">Registrar los controladores de autorización</span><span class="sxs-lookup"><span data-stu-id="89df7-201">Register the authorization handlers</span></span>
+## <a name="register-the-authorization-handlers"></a><span data-ttu-id="2fb24-199">Registrar los controladores de autorización</span><span class="sxs-lookup"><span data-stu-id="2fb24-199">Register the authorization handlers</span></span>
 
-<span data-ttu-id="89df7-202">Se deben registrar los servicios mediante Entity Framework Core para [inserción de dependencias](xref:fundamentals/dependency-injection) mediante [AddScoped](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions).</span><span class="sxs-lookup"><span data-stu-id="89df7-202">Services using Entity Framework Core must be registered for [dependency injection](xref:fundamentals/dependency-injection) using [AddScoped](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions).</span></span> <span data-ttu-id="89df7-203">El `ContactIsOwnerAuthorizationHandler` utiliza ASP.NET Core [identidad](xref:security/authentication/identity), que se basa en Entity Framework Core.</span><span class="sxs-lookup"><span data-stu-id="89df7-203">The `ContactIsOwnerAuthorizationHandler` uses ASP.NET Core [Identity](xref:security/authentication/identity), which is built on Entity Framework Core.</span></span> <span data-ttu-id="89df7-204">Registre los controladores con la colección de servicios para que estén disponibles para el `ContactsController` a través de [inserción de dependencias](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="89df7-204">Register the handlers with the service collection so they're available to the `ContactsController` through [dependency injection](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="89df7-205">Agregue el código siguiente al final de `ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="89df7-205">Add the following code to the end of `ConfigureServices`:</span></span>
+<span data-ttu-id="2fb24-200">Se deben registrar los servicios mediante Entity Framework Core para [inserción de dependencias](xref:fundamentals/dependency-injection) mediante [AddScoped](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions).</span><span class="sxs-lookup"><span data-stu-id="2fb24-200">Services using Entity Framework Core must be registered for [dependency injection](xref:fundamentals/dependency-injection) using [AddScoped](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions).</span></span> <span data-ttu-id="2fb24-201">El `ContactIsOwnerAuthorizationHandler` utiliza ASP.NET Core [identidad](xref:security/authentication/identity), que se basa en Entity Framework Core.</span><span class="sxs-lookup"><span data-stu-id="2fb24-201">The `ContactIsOwnerAuthorizationHandler` uses ASP.NET Core [Identity](xref:security/authentication/identity), which is built on Entity Framework Core.</span></span> <span data-ttu-id="2fb24-202">Registre los controladores con la colección de servicios para que estén disponibles para el `ContactsController` a través de [inserción de dependencias](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="2fb24-202">Register the handlers with the service collection so they're available to the `ContactsController` through [dependency injection](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="2fb24-203">Agregue el código siguiente al final de `ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="2fb24-203">Add the following code to the end of `ConfigureServices`:</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Startup.cs?name=snippet_defaultPolicy&highlight=27-99)]
+[!code-csharp[](secure-data/samples/final3/Startup.cs?name=snippet_defaultPolicy&highlight=23-99)]
 
-<span data-ttu-id="89df7-206">`ContactAdministratorsAuthorizationHandler` y `ContactManagerAuthorizationHandler` se agregan como singleton.</span><span class="sxs-lookup"><span data-stu-id="89df7-206">`ContactAdministratorsAuthorizationHandler` and `ContactManagerAuthorizationHandler` are added as singletons.</span></span> <span data-ttu-id="89df7-207">Lo singletons con estado porque no usan EF y toda la información necesaria se encuentra en la `Context` parámetro de la `HandleRequirementAsync` método.</span><span class="sxs-lookup"><span data-stu-id="89df7-207">They're singletons because they don't use EF and all the information needed is in the `Context` parameter of the `HandleRequirementAsync` method.</span></span>
+<span data-ttu-id="2fb24-204">`ContactAdministratorsAuthorizationHandler` y `ContactManagerAuthorizationHandler` se agregan como singleton.</span><span class="sxs-lookup"><span data-stu-id="2fb24-204">`ContactAdministratorsAuthorizationHandler` and `ContactManagerAuthorizationHandler` are added as singletons.</span></span> <span data-ttu-id="2fb24-205">Lo singletons con estado porque no usan EF y toda la información necesaria se encuentra en la `Context` parámetro de la `HandleRequirementAsync` método.</span><span class="sxs-lookup"><span data-stu-id="2fb24-205">They're singletons because they don't use EF and all the information needed is in the `Context` parameter of the `HandleRequirementAsync` method.</span></span>
 
-## <a name="support-authorization"></a><span data-ttu-id="89df7-208">Admitir la autorización</span><span class="sxs-lookup"><span data-stu-id="89df7-208">Support authorization</span></span>
+## <a name="support-authorization"></a><span data-ttu-id="2fb24-206">Admitir la autorización</span><span class="sxs-lookup"><span data-stu-id="2fb24-206">Support authorization</span></span>
 
-<span data-ttu-id="89df7-209">En esta sección, actualice las páginas de Razor y agregue una clase de los requisitos de operaciones.</span><span class="sxs-lookup"><span data-stu-id="89df7-209">In this section, you update the Razor Pages and add an operations requirements class.</span></span>
+<span data-ttu-id="2fb24-207">En esta sección, actualice las páginas de Razor y agregue una clase de los requisitos de operaciones.</span><span class="sxs-lookup"><span data-stu-id="2fb24-207">In this section, you update the Razor Pages and add an operations requirements class.</span></span>
 
-### <a name="review-the-contact-operations-requirements-class"></a><span data-ttu-id="89df7-210">Revisión de la clase de los requisitos de las operaciones de contacto</span><span class="sxs-lookup"><span data-stu-id="89df7-210">Review the contact operations requirements class</span></span>
+### <a name="review-the-contact-operations-requirements-class"></a><span data-ttu-id="2fb24-208">Revisión de la clase de los requisitos de las operaciones de contacto</span><span class="sxs-lookup"><span data-stu-id="2fb24-208">Review the contact operations requirements class</span></span>
 
-<span data-ttu-id="89df7-211">Revise el `ContactOperations` clase.</span><span class="sxs-lookup"><span data-stu-id="89df7-211">Review the `ContactOperations` class.</span></span> <span data-ttu-id="89df7-212">Esta clase contiene los requisitos que admite la aplicación:</span><span class="sxs-lookup"><span data-stu-id="89df7-212">This class contains the requirements the app supports:</span></span>
+<span data-ttu-id="2fb24-209">Revise el `ContactOperations` clase.</span><span class="sxs-lookup"><span data-stu-id="2fb24-209">Review the `ContactOperations` class.</span></span> <span data-ttu-id="2fb24-210">Esta clase contiene los requisitos que admite la aplicación:</span><span class="sxs-lookup"><span data-stu-id="2fb24-210">This class contains the requirements the app supports:</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Authorization/ContactOperations.cs)]
+[!code-csharp[](secure-data/samples/final3/Authorization/ContactOperations.cs)]
 
-### <a name="create-a-base-class-for-the-contacts-razor-pages"></a><span data-ttu-id="89df7-213">Crear una clase base para las páginas de Razor de contactos</span><span class="sxs-lookup"><span data-stu-id="89df7-213">Create a base class for the Contacts Razor Pages</span></span>
+### <a name="create-a-base-class-for-the-contacts-razor-pages"></a><span data-ttu-id="2fb24-211">Crear una clase base para las páginas de Razor de contactos</span><span class="sxs-lookup"><span data-stu-id="2fb24-211">Create a base class for the Contacts Razor Pages</span></span>
 
-<span data-ttu-id="89df7-214">Cree una clase base que contiene los servicios usados en los contactos de las páginas de Razor.</span><span class="sxs-lookup"><span data-stu-id="89df7-214">Create a base class that contains the services used in the contacts Razor Pages.</span></span> <span data-ttu-id="89df7-215">La clase base coloca el código de inicialización en una ubicación:</span><span class="sxs-lookup"><span data-stu-id="89df7-215">The base class puts the initialization code in one location:</span></span>
+<span data-ttu-id="2fb24-212">Cree una clase base que contiene los servicios usados en los contactos de las páginas de Razor.</span><span class="sxs-lookup"><span data-stu-id="2fb24-212">Create a base class that contains the services used in the contacts Razor Pages.</span></span> <span data-ttu-id="2fb24-213">La clase base coloca el código de inicialización en una ubicación:</span><span class="sxs-lookup"><span data-stu-id="2fb24-213">The base class puts the initialization code in one location:</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/DI_BasePageModel.cs)]
+[!code-csharp[](secure-data/samples/final3/Pages/Contacts/DI_BasePageModel.cs)]
 
-<span data-ttu-id="89df7-216">El código anterior:</span><span class="sxs-lookup"><span data-stu-id="89df7-216">The preceding code:</span></span>
+<span data-ttu-id="2fb24-214">El código anterior:</span><span class="sxs-lookup"><span data-stu-id="2fb24-214">The preceding code:</span></span>
 
-* <span data-ttu-id="89df7-217">Agrega el `IAuthorizationService` service acceda a los controladores de autorización.</span><span class="sxs-lookup"><span data-stu-id="89df7-217">Adds the `IAuthorizationService` service to access to the authorization handlers.</span></span>
-* <span data-ttu-id="89df7-218">Agrega la identidad `UserManager` service.</span><span class="sxs-lookup"><span data-stu-id="89df7-218">Adds the Identity `UserManager` service.</span></span>
-* <span data-ttu-id="89df7-219">Agregue la `ApplicationDbContext`.</span><span class="sxs-lookup"><span data-stu-id="89df7-219">Add the `ApplicationDbContext`.</span></span>
+* <span data-ttu-id="2fb24-215">Agrega el `IAuthorizationService` service acceda a los controladores de autorización.</span><span class="sxs-lookup"><span data-stu-id="2fb24-215">Adds the `IAuthorizationService` service to access to the authorization handlers.</span></span>
+* <span data-ttu-id="2fb24-216">Agrega la identidad `UserManager` service.</span><span class="sxs-lookup"><span data-stu-id="2fb24-216">Adds the Identity `UserManager` service.</span></span>
+* <span data-ttu-id="2fb24-217">Agregue la `ApplicationDbContext`.</span><span class="sxs-lookup"><span data-stu-id="2fb24-217">Add the `ApplicationDbContext`.</span></span>
 
-### <a name="update-the-createmodel"></a><span data-ttu-id="89df7-220">Actualizar el CreateModel</span><span class="sxs-lookup"><span data-stu-id="89df7-220">Update the CreateModel</span></span>
+### <a name="update-the-createmodel"></a><span data-ttu-id="2fb24-218">Actualizar el CreateModel</span><span class="sxs-lookup"><span data-stu-id="2fb24-218">Update the CreateModel</span></span>
 
-<span data-ttu-id="89df7-221">Actualizar el constructor del modelo de página create para usar el `DI_BasePageModel` clase base:</span><span class="sxs-lookup"><span data-stu-id="89df7-221">Update the create page model constructor to use the `DI_BasePageModel` base class:</span></span>
+<span data-ttu-id="2fb24-219">Actualizar el constructor del modelo de página create para usar el `DI_BasePageModel` clase base:</span><span class="sxs-lookup"><span data-stu-id="2fb24-219">Update the create page model constructor to use the `DI_BasePageModel` base class:</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Create.cshtml.cs?name=snippetCtor)]
+[!code-csharp[](secure-data/samples/final3/Pages/Contacts/Create.cshtml.cs?name=snippetCtor)]
 
-<span data-ttu-id="89df7-222">Actualización de la `CreateModel.OnPostAsync` método:</span><span class="sxs-lookup"><span data-stu-id="89df7-222">Update the `CreateModel.OnPostAsync` method to:</span></span>
+<span data-ttu-id="2fb24-220">Actualización de la `CreateModel.OnPostAsync` método:</span><span class="sxs-lookup"><span data-stu-id="2fb24-220">Update the `CreateModel.OnPostAsync` method to:</span></span>
 
-* <span data-ttu-id="89df7-223">Agregue el identificador de usuario para el `Contact` modelo.</span><span class="sxs-lookup"><span data-stu-id="89df7-223">Add the user ID to the `Contact` model.</span></span>
-* <span data-ttu-id="89df7-224">Llamar al controlador de autorización para comprobar que el usuario tiene permiso para crear contactos.</span><span class="sxs-lookup"><span data-stu-id="89df7-224">Call the authorization handler to verify the user has permission to create contacts.</span></span>
+* <span data-ttu-id="2fb24-221">Agregue el identificador de usuario para el `Contact` modelo.</span><span class="sxs-lookup"><span data-stu-id="2fb24-221">Add the user ID to the `Contact` model.</span></span>
+* <span data-ttu-id="2fb24-222">Llamar al controlador de autorización para comprobar que el usuario tiene permiso para crear contactos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-222">Call the authorization handler to verify the user has permission to create contacts.</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Create.cshtml.cs?name=snippet_Create)]
+[!code-csharp[](secure-data/samples/final3/Pages/Contacts/Create.cshtml.cs?name=snippet_Create)]
 
-### <a name="update-the-indexmodel"></a><span data-ttu-id="89df7-225">Actualizar el IndexModel</span><span class="sxs-lookup"><span data-stu-id="89df7-225">Update the IndexModel</span></span>
+### <a name="update-the-indexmodel"></a><span data-ttu-id="2fb24-223">Actualizar el IndexModel</span><span class="sxs-lookup"><span data-stu-id="2fb24-223">Update the IndexModel</span></span>
 
-<span data-ttu-id="89df7-226">Actualización de la `OnGetAsync` método por lo que solo contactos aprobados se muestran a los usuarios generales:</span><span class="sxs-lookup"><span data-stu-id="89df7-226">Update the `OnGetAsync` method so only approved contacts are shown to general users:</span></span>
+<span data-ttu-id="2fb24-224">Actualización de la `OnGetAsync` método por lo que solo contactos aprobados se muestran a los usuarios generales:</span><span class="sxs-lookup"><span data-stu-id="2fb24-224">Update the `OnGetAsync` method so only approved contacts are shown to general users:</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Index.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final3/Pages/Contacts/Index.cshtml.cs?name=snippet)]
 
-### <a name="update-the-editmodel"></a><span data-ttu-id="89df7-227">Actualizar el EditModel</span><span class="sxs-lookup"><span data-stu-id="89df7-227">Update the EditModel</span></span>
+### <a name="update-the-editmodel"></a><span data-ttu-id="2fb24-225">Actualizar el EditModel</span><span class="sxs-lookup"><span data-stu-id="2fb24-225">Update the EditModel</span></span>
 
-<span data-ttu-id="89df7-228">Agregar un controlador de autorización para comprobar que el usuario propietario del contacto.</span><span class="sxs-lookup"><span data-stu-id="89df7-228">Add an authorization handler to verify the user owns the contact.</span></span> <span data-ttu-id="89df7-229">Dado que se está validando la autorización de recursos, el `[Authorize]` atributo no es suficiente.</span><span class="sxs-lookup"><span data-stu-id="89df7-229">Because resource authorization is being validated, the `[Authorize]` attribute is not enough.</span></span> <span data-ttu-id="89df7-230">La aplicación no tiene acceso al recurso cuando se evalúan los atributos.</span><span class="sxs-lookup"><span data-stu-id="89df7-230">The app doesn't have access to the resource when attributes are evaluated.</span></span> <span data-ttu-id="89df7-231">Autorización basada en el recurso debe ser un imperativo.</span><span class="sxs-lookup"><span data-stu-id="89df7-231">Resource-based authorization must be imperative.</span></span> <span data-ttu-id="89df7-232">Las comprobaciones deben realizarse una vez que la aplicación tenga acceso al recurso, cargándolo en el modelo de página o cargándola en el controlador de sí mismo.</span><span class="sxs-lookup"><span data-stu-id="89df7-232">Checks must be performed once the app has access to the resource, either by loading it in the page model or by loading it within the handler itself.</span></span> <span data-ttu-id="89df7-233">Con frecuencia acceder al recurso pasando la clave de recurso.</span><span class="sxs-lookup"><span data-stu-id="89df7-233">You frequently access the resource by passing in the resource key.</span></span>
+<span data-ttu-id="2fb24-226">Agregar un controlador de autorización para comprobar que el usuario propietario del contacto.</span><span class="sxs-lookup"><span data-stu-id="2fb24-226">Add an authorization handler to verify the user owns the contact.</span></span> <span data-ttu-id="2fb24-227">Dado que se está validando la autorización de recursos, el `[Authorize]` atributo no es suficiente.</span><span class="sxs-lookup"><span data-stu-id="2fb24-227">Because resource authorization is being validated, the `[Authorize]` attribute is not enough.</span></span> <span data-ttu-id="2fb24-228">La aplicación no tiene acceso al recurso cuando se evalúan los atributos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-228">The app doesn't have access to the resource when attributes are evaluated.</span></span> <span data-ttu-id="2fb24-229">Autorización basada en el recurso debe ser un imperativo.</span><span class="sxs-lookup"><span data-stu-id="2fb24-229">Resource-based authorization must be imperative.</span></span> <span data-ttu-id="2fb24-230">Las comprobaciones deben realizarse una vez que la aplicación tenga acceso al recurso, cargándolo en el modelo de página o cargándola en el controlador de sí mismo.</span><span class="sxs-lookup"><span data-stu-id="2fb24-230">Checks must be performed once the app has access to the resource, either by loading it in the page model or by loading it within the handler itself.</span></span> <span data-ttu-id="2fb24-231">Con frecuencia acceder al recurso pasando la clave de recurso.</span><span class="sxs-lookup"><span data-stu-id="2fb24-231">You frequently access the resource by passing in the resource key.</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Edit.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final3/Pages/Contacts/Edit.cshtml.cs?name=snippet)]
 
-### <a name="update-the-deletemodel"></a><span data-ttu-id="89df7-234">Actualizar el DeleteModel</span><span class="sxs-lookup"><span data-stu-id="89df7-234">Update the DeleteModel</span></span>
+### <a name="update-the-deletemodel"></a><span data-ttu-id="2fb24-232">Actualizar el DeleteModel</span><span class="sxs-lookup"><span data-stu-id="2fb24-232">Update the DeleteModel</span></span>
 
-<span data-ttu-id="89df7-235">Actualice el modelo de página de delete para usar el controlador de autorización para comprobar que el usuario tiene permiso delete en el contacto.</span><span class="sxs-lookup"><span data-stu-id="89df7-235">Update the delete page model to use the authorization handler to verify the user has delete permission on the contact.</span></span>
+<span data-ttu-id="2fb24-233">Actualice el modelo de página de delete para usar el controlador de autorización para comprobar que el usuario tiene permiso delete en el contacto.</span><span class="sxs-lookup"><span data-stu-id="2fb24-233">Update the delete page model to use the authorization handler to verify the user has delete permission on the contact.</span></span>
 
-[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Delete.cshtml.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/final3/Pages/Contacts/Delete.cshtml.cs?name=snippet)]
 
-## <a name="inject-the-authorization-service-into-the-views"></a><span data-ttu-id="89df7-236">Insertar el servicio de autorización en las vistas</span><span class="sxs-lookup"><span data-stu-id="89df7-236">Inject the authorization service into the views</span></span>
+## <a name="inject-the-authorization-service-into-the-views"></a><span data-ttu-id="2fb24-234">Insertar el servicio de autorización en las vistas</span><span class="sxs-lookup"><span data-stu-id="2fb24-234">Inject the authorization service into the views</span></span>
 
-<span data-ttu-id="89df7-237">Actualmente, se muestra en la interfaz de usuario edita y elimina los vínculos para los contactos que no se puede modificar el usuario.</span><span class="sxs-lookup"><span data-stu-id="89df7-237">Currently, the UI shows edit and delete links for contacts the user can't modify.</span></span>
+<span data-ttu-id="2fb24-235">Actualmente, se muestra en la interfaz de usuario edita y elimina los vínculos para los contactos que no se puede modificar el usuario.</span><span class="sxs-lookup"><span data-stu-id="2fb24-235">Currently, the UI shows edit and delete links for contacts the user can't modify.</span></span>
 
-<span data-ttu-id="89df7-238">Insertar el servicio de autorización en el *Views/_viewimports.cshtml* para que esté disponible para todas las vistas de archivos:</span><span class="sxs-lookup"><span data-stu-id="89df7-238">Inject the authorization service in the *Views/_ViewImports.cshtml* file so it's available to all views:</span></span>
+<span data-ttu-id="2fb24-236">Insertar el servicio de autorización en el *Pages/_viewimports.cshtml* para que esté disponible para todas las vistas de archivos:</span><span class="sxs-lookup"><span data-stu-id="2fb24-236">Inject the authorization service in the *Pages/_ViewImports.cshtml* file so it's available to all views:</span></span>
 
-[!code-cshtml[](secure-data/samples/final2.1/Pages/_ViewImports.cshtml?highlight=6-99)]
+[!code-cshtml[](secure-data/samples/final3/Pages/_ViewImports.cshtml?highlight=6-99)]
 
-<span data-ttu-id="89df7-239">El marcado anterior agrega varios `using` instrucciones.</span><span class="sxs-lookup"><span data-stu-id="89df7-239">The preceding markup adds several `using` statements.</span></span>
+<span data-ttu-id="2fb24-237">El marcado anterior agrega varios `using` instrucciones.</span><span class="sxs-lookup"><span data-stu-id="2fb24-237">The preceding markup adds several `using` statements.</span></span>
 
-<span data-ttu-id="89df7-240">Actualización de la **editar** y **eliminar** vincula en *Pages/Contacts/Index.cshtml* por lo que sólo se representen a los usuarios con los permisos adecuados:</span><span class="sxs-lookup"><span data-stu-id="89df7-240">Update the **Edit** and **Delete** links in *Pages/Contacts/Index.cshtml* so they're only rendered for users with the appropriate permissions:</span></span>
+<span data-ttu-id="2fb24-238">Actualización de la **editar** y **eliminar** vincula en *Pages/Contacts/Index.cshtml* por lo que sólo se representen a los usuarios con los permisos adecuados:</span><span class="sxs-lookup"><span data-stu-id="2fb24-238">Update the **Edit** and **Delete** links in *Pages/Contacts/Index.cshtml* so they're only rendered for users with the appropriate permissions:</span></span>
 
-[!code-cshtml[](secure-data/samples/final2.1/Pages/Contacts/Index.cshtml?highlight=34-36,62-999)]
+[!code-cshtml[](secure-data/samples/final3/Pages/Contacts/Index.cshtml?highlight=34-36,62-999)]
 
 > [!WARNING]
-> <span data-ttu-id="89df7-241">Ocultar los vínculos de los usuarios que no tienen permiso para cambiar los datos no proteger la aplicación.</span><span class="sxs-lookup"><span data-stu-id="89df7-241">Hiding links from users that don't have permission to change data doesn't secure the app.</span></span> <span data-ttu-id="89df7-242">Ocultar vínculos hace que la aplicación más fácil de usar mostrando vínculos solo es válido.</span><span class="sxs-lookup"><span data-stu-id="89df7-242">Hiding links makes the app more user-friendly by displaying only valid links.</span></span> <span data-ttu-id="89df7-243">Los usuarios pueden hack las direcciones URL generadas para invocar Editar y eliminar operaciones en los datos que no poseen.</span><span class="sxs-lookup"><span data-stu-id="89df7-243">Users can hack the generated URLs to invoke edit and delete operations on data they don't own.</span></span> <span data-ttu-id="89df7-244">La página de Razor o el controlador debe exigir comprobaciones de acceso para proteger los datos.</span><span class="sxs-lookup"><span data-stu-id="89df7-244">The Razor Page or controller must enforce access checks to secure the data.</span></span>
+> <span data-ttu-id="2fb24-239">Ocultar los vínculos de los usuarios que no tienen permiso para cambiar los datos no proteger la aplicación.</span><span class="sxs-lookup"><span data-stu-id="2fb24-239">Hiding links from users that don't have permission to change data doesn't secure the app.</span></span> <span data-ttu-id="2fb24-240">Ocultar vínculos hace que la aplicación más fácil de usar mostrando vínculos solo es válido.</span><span class="sxs-lookup"><span data-stu-id="2fb24-240">Hiding links makes the app more user-friendly by displaying only valid links.</span></span> <span data-ttu-id="2fb24-241">Los usuarios pueden hack las direcciones URL generadas para invocar Editar y eliminar operaciones en los datos que no poseen.</span><span class="sxs-lookup"><span data-stu-id="2fb24-241">Users can hack the generated URLs to invoke edit and delete operations on data they don't own.</span></span> <span data-ttu-id="2fb24-242">La página de Razor o el controlador debe exigir comprobaciones de acceso para proteger los datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-242">The Razor Page or controller must enforce access checks to secure the data.</span></span>
 
-### <a name="update-details"></a><span data-ttu-id="89df7-245">Detalles de la actualización</span><span class="sxs-lookup"><span data-stu-id="89df7-245">Update Details</span></span>
+### <a name="update-details"></a><span data-ttu-id="2fb24-243">Detalles de la actualización</span><span class="sxs-lookup"><span data-stu-id="2fb24-243">Update Details</span></span>
 
-<span data-ttu-id="89df7-246">Actualice la vista de detalles para que los administradores pueden aprobar o rechazar contactos:</span><span class="sxs-lookup"><span data-stu-id="89df7-246">Update the details view so managers can approve or reject contacts:</span></span>
+<span data-ttu-id="2fb24-244">Actualice la vista de detalles para que los administradores pueden aprobar o rechazar contactos:</span><span class="sxs-lookup"><span data-stu-id="2fb24-244">Update the details view so managers can approve or reject contacts:</span></span>
 
 [!code-cshtml[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml?name=snippet)]
 
-<span data-ttu-id="89df7-247">Actualice el modelo de página de detalles:</span><span class="sxs-lookup"><span data-stu-id="89df7-247">Update the details page model:</span></span>
+<span data-ttu-id="2fb24-245">Actualice el modelo de página de detalles:</span><span class="sxs-lookup"><span data-stu-id="2fb24-245">Update the details page model:</span></span>
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml.cs?name=snippet)]
 
-## <a name="add-or-remove-a-user-to-a-role"></a><span data-ttu-id="89df7-248">Agregar o quitar un usuario a un rol</span><span class="sxs-lookup"><span data-stu-id="89df7-248">Add or remove a user to a role</span></span>
+## <a name="add-or-remove-a-user-to-a-role"></a><span data-ttu-id="2fb24-246">Agregar o quitar un usuario a un rol</span><span class="sxs-lookup"><span data-stu-id="2fb24-246">Add or remove a user to a role</span></span>
 
-<span data-ttu-id="89df7-249">Consulte [este problema](https://github.com/aspnet/AspNetCore.Docs/issues/8502) para obtener información sobre:</span><span class="sxs-lookup"><span data-stu-id="89df7-249">See [this issue](https://github.com/aspnet/AspNetCore.Docs/issues/8502) for information on:</span></span>
+<span data-ttu-id="2fb24-247">Consulte [este problema](https://github.com/aspnet/AspNetCore.Docs/issues/8502) para obtener información sobre:</span><span class="sxs-lookup"><span data-stu-id="2fb24-247">See [this issue](https://github.com/aspnet/AspNetCore.Docs/issues/8502) for information on:</span></span>
 
-* <span data-ttu-id="89df7-250">Quita los privilegios de un usuario.</span><span class="sxs-lookup"><span data-stu-id="89df7-250">Removing privileges from a user.</span></span> <span data-ttu-id="89df7-251">Por ejemplo un usuario en una aplicación de chat de silencio.</span><span class="sxs-lookup"><span data-stu-id="89df7-251">For example muting a user in a chat app.</span></span>
-* <span data-ttu-id="89df7-252">Agregar privilegios a un usuario.</span><span class="sxs-lookup"><span data-stu-id="89df7-252">Adding privileges to a user.</span></span>
+* <span data-ttu-id="2fb24-248">Quita los privilegios de un usuario.</span><span class="sxs-lookup"><span data-stu-id="2fb24-248">Removing privileges from a user.</span></span> <span data-ttu-id="2fb24-249">Por ejemplo, un usuario en una aplicación de chat de silencio.</span><span class="sxs-lookup"><span data-stu-id="2fb24-249">For example, muting a user in a chat app.</span></span>
+* <span data-ttu-id="2fb24-250">Agregar privilegios a un usuario.</span><span class="sxs-lookup"><span data-stu-id="2fb24-250">Adding privileges to a user.</span></span>
 
-## <a name="test-the-completed-app"></a><span data-ttu-id="89df7-253">Probar la aplicación completada</span><span class="sxs-lookup"><span data-stu-id="89df7-253">Test the completed app</span></span>
+## <a name="test-the-completed-app"></a><span data-ttu-id="2fb24-251">Probar la aplicación completada</span><span class="sxs-lookup"><span data-stu-id="2fb24-251">Test the completed app</span></span>
 
-<span data-ttu-id="89df7-254">Si ya no ha establecido una contraseña para cuentas de usuario inicializados, utilice el [herramienta Secret Manager](xref:security/app-secrets#secret-manager) para establecer una contraseña:</span><span class="sxs-lookup"><span data-stu-id="89df7-254">If you haven't already set a password for seeded user accounts, use the [Secret Manager tool](xref:security/app-secrets#secret-manager) to set a password:</span></span>
+<span data-ttu-id="2fb24-252">Si ya no ha establecido una contraseña para cuentas de usuario inicializados, utilice el [herramienta Secret Manager](xref:security/app-secrets#secret-manager) para establecer una contraseña:</span><span class="sxs-lookup"><span data-stu-id="2fb24-252">If you haven't already set a password for seeded user accounts, use the [Secret Manager tool](xref:security/app-secrets#secret-manager) to set a password:</span></span>
 
-* <span data-ttu-id="89df7-255">Elija una contraseña segura: Use ocho o más caracteres y al menos un carácter en mayúsculas, números y símbolos.</span><span class="sxs-lookup"><span data-stu-id="89df7-255">Choose a strong password: Use eight or more characters and at least one upper-case character, number, and symbol.</span></span> <span data-ttu-id="89df7-256">Por ejemplo, `Passw0rd!` cumple los requisitos de contraseña segura.</span><span class="sxs-lookup"><span data-stu-id="89df7-256">For example, `Passw0rd!` meets the strong password requirements.</span></span>
-* <span data-ttu-id="89df7-257">Ejecute el siguiente comando desde la carpeta del proyecto, donde `<PW>` es la contraseña:</span><span class="sxs-lookup"><span data-stu-id="89df7-257">Execute the following command from the project's folder, where `<PW>` is the password:</span></span>
+* <span data-ttu-id="2fb24-253">Elija una contraseña segura: Use ocho o más caracteres y al menos un carácter en mayúsculas, números y símbolos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-253">Choose a strong password: Use eight or more characters and at least one upper-case character, number, and symbol.</span></span> <span data-ttu-id="2fb24-254">Por ejemplo, `Passw0rd!` cumple los requisitos de contraseña segura.</span><span class="sxs-lookup"><span data-stu-id="2fb24-254">For example, `Passw0rd!` meets the strong password requirements.</span></span>
+* <span data-ttu-id="2fb24-255">Ejecute el siguiente comando desde la carpeta del proyecto, donde `<PW>` es la contraseña:</span><span class="sxs-lookup"><span data-stu-id="2fb24-255">Execute the following command from the project's folder, where `<PW>` is the password:</span></span>
 
   ```console
   dotnet user-secrets set SeedUserPW <PW>
   ```
 
-<span data-ttu-id="89df7-258">Si la aplicación tiene contactos:</span><span class="sxs-lookup"><span data-stu-id="89df7-258">If the app has contacts:</span></span>
+<span data-ttu-id="2fb24-256">Si la aplicación tiene contactos:</span><span class="sxs-lookup"><span data-stu-id="2fb24-256">If the app has contacts:</span></span>
 
-* <span data-ttu-id="89df7-259">Eliminar todos los registros en el `Contact` tabla.</span><span class="sxs-lookup"><span data-stu-id="89df7-259">Delete all of the records in the `Contact` table.</span></span>
-* <span data-ttu-id="89df7-260">Reinicie la aplicación para inicializar la base de datos.</span><span class="sxs-lookup"><span data-stu-id="89df7-260">Restart the app to seed the database.</span></span>
+* <span data-ttu-id="2fb24-257">Eliminar todos los registros en el `Contact` tabla.</span><span class="sxs-lookup"><span data-stu-id="2fb24-257">Delete all of the records in the `Contact` table.</span></span>
+* <span data-ttu-id="2fb24-258">Reinicie la aplicación para inicializar la base de datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-258">Restart the app to seed the database.</span></span>
 
-<span data-ttu-id="89df7-261">Es una manera fácil de probar la aplicación completa iniciar los tres distintos exploradores (o las sesiones de InPrivate o incognito).</span><span class="sxs-lookup"><span data-stu-id="89df7-261">An easy way to test the completed app is to launch three different browsers (or incognito/InPrivate sessions).</span></span> <span data-ttu-id="89df7-262">En un explorador, registre un nuevo usuario (por ejemplo, `test@example.com`).</span><span class="sxs-lookup"><span data-stu-id="89df7-262">In one browser, register a new user (for example, `test@example.com`).</span></span> <span data-ttu-id="89df7-263">Inicie sesión con un usuario diferente en cada explorador.</span><span class="sxs-lookup"><span data-stu-id="89df7-263">Sign in to each browser with a different user.</span></span> <span data-ttu-id="89df7-264">Compruebe las siguientes operaciones:</span><span class="sxs-lookup"><span data-stu-id="89df7-264">Verify the following operations:</span></span>
+<span data-ttu-id="2fb24-259">Es una manera fácil de probar la aplicación completa iniciar los tres distintos exploradores (o las sesiones de InPrivate o incognito).</span><span class="sxs-lookup"><span data-stu-id="2fb24-259">An easy way to test the completed app is to launch three different browsers (or incognito/InPrivate sessions).</span></span> <span data-ttu-id="2fb24-260">En un explorador, registre un nuevo usuario (por ejemplo, `test@example.com`).</span><span class="sxs-lookup"><span data-stu-id="2fb24-260">In one browser, register a new user (for example, `test@example.com`).</span></span> <span data-ttu-id="2fb24-261">Inicie sesión con un usuario diferente en cada explorador.</span><span class="sxs-lookup"><span data-stu-id="2fb24-261">Sign in to each browser with a different user.</span></span> <span data-ttu-id="2fb24-262">Compruebe las siguientes operaciones:</span><span class="sxs-lookup"><span data-stu-id="2fb24-262">Verify the following operations:</span></span>
 
-* <span data-ttu-id="89df7-265">Usuarios registrados pueden ver todos los datos de contacto aprobados.</span><span class="sxs-lookup"><span data-stu-id="89df7-265">Registered users can view all of the approved contact data.</span></span>
-* <span data-ttu-id="89df7-266">Los usuarios registrados pueden editar o eliminar sus propios datos.</span><span class="sxs-lookup"><span data-stu-id="89df7-266">Registered users can edit/delete their own data.</span></span>
-* <span data-ttu-id="89df7-267">Los administradores pueden aprobar o rechazar datos de contacto.</span><span class="sxs-lookup"><span data-stu-id="89df7-267">Managers can approve/reject contact data.</span></span> <span data-ttu-id="89df7-268">El `Details` ver muestra **aprobar** y **rechazar** botones.</span><span class="sxs-lookup"><span data-stu-id="89df7-268">The `Details` view shows **Approve** and **Reject** buttons.</span></span>
-* <span data-ttu-id="89df7-269">Los administradores pueden aprobar o rechazar y editar o eliminar todos los datos.</span><span class="sxs-lookup"><span data-stu-id="89df7-269">Administrators can approve/reject and edit/delete all data.</span></span>
+* <span data-ttu-id="2fb24-263">Usuarios registrados pueden ver todos los datos de contacto aprobados.</span><span class="sxs-lookup"><span data-stu-id="2fb24-263">Registered users can view all of the approved contact data.</span></span>
+* <span data-ttu-id="2fb24-264">Los usuarios registrados pueden editar o eliminar sus propios datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-264">Registered users can edit/delete their own data.</span></span>
+* <span data-ttu-id="2fb24-265">Los administradores pueden aprobar o rechazar datos de contacto.</span><span class="sxs-lookup"><span data-stu-id="2fb24-265">Managers can approve/reject contact data.</span></span> <span data-ttu-id="2fb24-266">El `Details` ver muestra **aprobar** y **rechazar** botones.</span><span class="sxs-lookup"><span data-stu-id="2fb24-266">The `Details` view shows **Approve** and **Reject** buttons.</span></span>
+* <span data-ttu-id="2fb24-267">Los administradores pueden aprobar o rechazar y editar o eliminar todos los datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-267">Administrators can approve/reject and edit/delete all data.</span></span>
 
-| <span data-ttu-id="89df7-270">Usuario</span><span class="sxs-lookup"><span data-stu-id="89df7-270">User</span></span>                | <span data-ttu-id="89df7-271">Propagadas por la aplicación</span><span class="sxs-lookup"><span data-stu-id="89df7-271">Seeded by the app</span></span> | <span data-ttu-id="89df7-272">Opciones</span><span class="sxs-lookup"><span data-stu-id="89df7-272">Options</span></span>                                  |
+| <span data-ttu-id="2fb24-268">Usuario</span><span class="sxs-lookup"><span data-stu-id="2fb24-268">User</span></span>                | <span data-ttu-id="2fb24-269">Propagadas por la aplicación</span><span class="sxs-lookup"><span data-stu-id="2fb24-269">Seeded by the app</span></span> | <span data-ttu-id="2fb24-270">Opciones</span><span class="sxs-lookup"><span data-stu-id="2fb24-270">Options</span></span>                                  |
 | ------------------- | :---------------: | ---------------------------------------- |
-| test@example.com    | <span data-ttu-id="89df7-273">No</span><span class="sxs-lookup"><span data-stu-id="89df7-273">No</span></span>                | <span data-ttu-id="89df7-274">Editar o eliminar los datos propios.</span><span class="sxs-lookup"><span data-stu-id="89df7-274">Edit/delete the own data.</span></span>                |
-| manager@contoso.com | <span data-ttu-id="89df7-275">Sí</span><span class="sxs-lookup"><span data-stu-id="89df7-275">Yes</span></span>               | <span data-ttu-id="89df7-276">Aprobar o rechazar y editar o eliminar los datos propios.</span><span class="sxs-lookup"><span data-stu-id="89df7-276">Approve/reject and edit/delete own data.</span></span> |
-| admin@contoso.com   | <span data-ttu-id="89df7-277">Sí</span><span class="sxs-lookup"><span data-stu-id="89df7-277">Yes</span></span>               | <span data-ttu-id="89df7-278">Aprobar o rechazar y editar o eliminar todos los datos.</span><span class="sxs-lookup"><span data-stu-id="89df7-278">Approve/reject and edit/delete all data.</span></span> |
+| test@example.com    | <span data-ttu-id="2fb24-271">No</span><span class="sxs-lookup"><span data-stu-id="2fb24-271">No</span></span>                | <span data-ttu-id="2fb24-272">Editar o eliminar los datos propios.</span><span class="sxs-lookup"><span data-stu-id="2fb24-272">Edit/delete the own data.</span></span>                |
+| manager@contoso.com | <span data-ttu-id="2fb24-273">Sí</span><span class="sxs-lookup"><span data-stu-id="2fb24-273">Yes</span></span>               | <span data-ttu-id="2fb24-274">Aprobar o rechazar y editar o eliminar los datos propios.</span><span class="sxs-lookup"><span data-stu-id="2fb24-274">Approve/reject and edit/delete own data.</span></span> |
+| admin@contoso.com   | <span data-ttu-id="2fb24-275">Sí</span><span class="sxs-lookup"><span data-stu-id="2fb24-275">Yes</span></span>               | <span data-ttu-id="2fb24-276">Aprobar o rechazar y editar o eliminar todos los datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-276">Approve/reject and edit/delete all data.</span></span> |
 
-<span data-ttu-id="89df7-279">Crear un contacto en el explorador del administrador.</span><span class="sxs-lookup"><span data-stu-id="89df7-279">Create a contact in the administrator's browser.</span></span> <span data-ttu-id="89df7-280">Copie la dirección URL para su eliminación y editar en el contacto del administrador.</span><span class="sxs-lookup"><span data-stu-id="89df7-280">Copy the URL for delete and edit from the administrator contact.</span></span> <span data-ttu-id="89df7-281">Pegue estos vínculos en el explorador del usuario de prueba para comprobar que el usuario de prueba no puede realizar estas operaciones.</span><span class="sxs-lookup"><span data-stu-id="89df7-281">Paste these links into the test user's browser to verify the test user can't perform these operations.</span></span>
+<span data-ttu-id="2fb24-277">Crear un contacto en el explorador del administrador.</span><span class="sxs-lookup"><span data-stu-id="2fb24-277">Create a contact in the administrator's browser.</span></span> <span data-ttu-id="2fb24-278">Copie la dirección URL para su eliminación y editar en el contacto del administrador.</span><span class="sxs-lookup"><span data-stu-id="2fb24-278">Copy the URL for delete and edit from the administrator contact.</span></span> <span data-ttu-id="2fb24-279">Pegue estos vínculos en el explorador del usuario de prueba para comprobar que el usuario de prueba no puede realizar estas operaciones.</span><span class="sxs-lookup"><span data-stu-id="2fb24-279">Paste these links into the test user's browser to verify the test user can't perform these operations.</span></span>
 
-## <a name="create-the-starter-app"></a><span data-ttu-id="89df7-282">Crear la aplicación de inicio</span><span class="sxs-lookup"><span data-stu-id="89df7-282">Create the starter app</span></span>
+## <a name="create-the-starter-app"></a><span data-ttu-id="2fb24-280">Crear la aplicación de inicio</span><span class="sxs-lookup"><span data-stu-id="2fb24-280">Create the starter app</span></span>
 
-* <span data-ttu-id="89df7-283">Cree una aplicación de páginas de Razor denominada "ContactManager"</span><span class="sxs-lookup"><span data-stu-id="89df7-283">Create a Razor Pages app named "ContactManager"</span></span>
-  * <span data-ttu-id="89df7-284">Creación de la aplicación con **cuentas de usuario individuales**.</span><span class="sxs-lookup"><span data-stu-id="89df7-284">Create the app with **Individual User Accounts**.</span></span>
-  * <span data-ttu-id="89df7-285">Asígnele el nombre "ContactManager" para el espacio de nombres coincida con el espacio de nombres utilizado en el ejemplo.</span><span class="sxs-lookup"><span data-stu-id="89df7-285">Name it "ContactManager" so the namespace matches the namespace used in the sample.</span></span>
-  * <span data-ttu-id="89df7-286">`-uld` Especifica LocalDB en lugar de SQLite</span><span class="sxs-lookup"><span data-stu-id="89df7-286">`-uld` specifies LocalDB instead of SQLite</span></span>
+* <span data-ttu-id="2fb24-281">Cree una aplicación de páginas de Razor denominada "ContactManager"</span><span class="sxs-lookup"><span data-stu-id="2fb24-281">Create a Razor Pages app named "ContactManager"</span></span>
+  * <span data-ttu-id="2fb24-282">Creación de la aplicación con **cuentas de usuario individuales**.</span><span class="sxs-lookup"><span data-stu-id="2fb24-282">Create the app with **Individual User Accounts**.</span></span>
+  * <span data-ttu-id="2fb24-283">Asígnele el nombre "ContactManager" para el espacio de nombres coincida con el espacio de nombres utilizado en el ejemplo.</span><span class="sxs-lookup"><span data-stu-id="2fb24-283">Name it "ContactManager" so the namespace matches the namespace used in the sample.</span></span>
+  * <span data-ttu-id="2fb24-284">`-uld` Especifica LocalDB en lugar de SQLite</span><span class="sxs-lookup"><span data-stu-id="2fb24-284">`-uld` specifies LocalDB instead of SQLite</span></span>
 
   ```console
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
-* <span data-ttu-id="89df7-287">Agregar *Models/Contact.cs*:</span><span class="sxs-lookup"><span data-stu-id="89df7-287">Add *Models/Contact.cs*:</span></span>
+* <span data-ttu-id="2fb24-285">Agregar *Models/Contact.cs*:</span><span class="sxs-lookup"><span data-stu-id="2fb24-285">Add *Models/Contact.cs*:</span></span>
 
   [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
-* <span data-ttu-id="89df7-288">Scaffold el `Contact` modelo.</span><span class="sxs-lookup"><span data-stu-id="89df7-288">Scaffold the `Contact` model.</span></span>
-* <span data-ttu-id="89df7-289">Crear la migración inicial y actualizar la base de datos:</span><span class="sxs-lookup"><span data-stu-id="89df7-289">Create initial migration and update the database:</span></span>
+* <span data-ttu-id="2fb24-286">Scaffold el `Contact` modelo.</span><span class="sxs-lookup"><span data-stu-id="2fb24-286">Scaffold the `Contact` model.</span></span>
+* <span data-ttu-id="2fb24-287">Crear la migración inicial y actualizar la base de datos:</span><span class="sxs-lookup"><span data-stu-id="2fb24-287">Create initial migration and update the database:</span></span>
+
+```console
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet tool install -g dotnet-aspnet-codegenerator
+dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -outDir Pages\Contacts --referenceScriptLibraries
+dotnet ef database drop -f
+dotnet ef migrations add initial
+dotnet ef database update
+  ```
+
+<span data-ttu-id="2fb24-288">Si experimenta un error con el `dotnet aspnet-codegenerator razorpage` de comandos, consulte [este problema de GitHub](https://github.com/aspnet/Scaffolding/issues/984).</span><span class="sxs-lookup"><span data-stu-id="2fb24-288">If you experience a bug with the `dotnet aspnet-codegenerator razorpage` command, see [this GitHub issue](https://github.com/aspnet/Scaffolding/issues/984).</span></span>
+
+* <span data-ttu-id="2fb24-289">Actualización de la **ContactManager** anclar en el *Pages/Shared/_Layout.cshtml* archivo:</span><span class="sxs-lookup"><span data-stu-id="2fb24-289">Update the **ContactManager** anchor in the *Pages/Shared/_Layout.cshtml* file:</span></span>
+
+ ```cshtml
+<a class="navbar-brand" asp-area="" asp-page="/Contacts/Index">ContactManager</a>
+  ```
+
+* <span data-ttu-id="2fb24-290">Probar la aplicación mediante la creación, edición y eliminación de un contacto</span><span class="sxs-lookup"><span data-stu-id="2fb24-290">Test the app by creating, editing, and deleting a contact</span></span>
+
+### <a name="seed-the-database"></a><span data-ttu-id="2fb24-291">Inicializar la base de datos</span><span class="sxs-lookup"><span data-stu-id="2fb24-291">Seed the database</span></span>
+
+<span data-ttu-id="2fb24-292">Agregar el [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter3/Data/SeedData.cs) clase a la *datos* carpeta:</span><span class="sxs-lookup"><span data-stu-id="2fb24-292">Add the [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter3/Data/SeedData.cs) class to the *Data* folder:</span></span>
+
+[!code-csharp[](secure-data/samples/starter3/Data/SeedData.cs)]
+
+<span data-ttu-id="2fb24-293">Llame a `SeedData.Initialize` desde `Main`:</span><span class="sxs-lookup"><span data-stu-id="2fb24-293">Call `SeedData.Initialize` from `Main`:</span></span>
+
+[!code-csharp[](secure-data/samples/starter3/Program.cs)]
+
+<span data-ttu-id="2fb24-294">Probar que la aplicación había propagado la base de datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-294">Test that the app seeded the database.</span></span> <span data-ttu-id="2fb24-295">Si no hay ninguna fila en la base de datos de contacto, no se ejecuta el método de inicialización.</span><span class="sxs-lookup"><span data-stu-id="2fb24-295">If there are any rows in the contact DB, the seed method doesn't run.</span></span>
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1 < aspnetcore-3.0"
+
+<span data-ttu-id="2fb24-296">Este tutorial muestra cómo crear una aplicación web ASP.NET Core con los datos protegidos por autorización del usuario.</span><span class="sxs-lookup"><span data-stu-id="2fb24-296">This tutorial shows how to create an ASP.NET Core web app with user data protected by authorization.</span></span> <span data-ttu-id="2fb24-297">Muestra una lista de contactos que autentican los usuarios (registrados) ha creado.</span><span class="sxs-lookup"><span data-stu-id="2fb24-297">It displays a list of contacts that authenticated (registered) users have created.</span></span> <span data-ttu-id="2fb24-298">Hay tres grupos de seguridad:</span><span class="sxs-lookup"><span data-stu-id="2fb24-298">There are three security groups:</span></span>
+
+* <span data-ttu-id="2fb24-299">**Usuarios registrados** puede ver todos los datos aprobados y pueden sus propios datos de editar o eliminar.</span><span class="sxs-lookup"><span data-stu-id="2fb24-299">**Registered users** can view all the approved data and can edit/delete their own data.</span></span>
+* <span data-ttu-id="2fb24-300">**Los administradores de** puede aprobar o rechazar los datos de contacto.</span><span class="sxs-lookup"><span data-stu-id="2fb24-300">**Managers** can approve or reject contact data.</span></span> <span data-ttu-id="2fb24-301">Solo contactos aprobados son visibles para los usuarios.</span><span class="sxs-lookup"><span data-stu-id="2fb24-301">Only approved contacts are visible to users.</span></span>
+* <span data-ttu-id="2fb24-302">**Los administradores** puede aprobar o rechazar y editar o eliminar todos los datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-302">**Administrators** can approve/reject and edit/delete any data.</span></span>
+
+<span data-ttu-id="2fb24-303">En la siguiente imagen, el usuario Rick (`rick@example.com`) ha iniciado sesión.</span><span class="sxs-lookup"><span data-stu-id="2fb24-303">In the following image, user Rick (`rick@example.com`) is signed in.</span></span> <span data-ttu-id="2fb24-304">Rick solo puede ver los contactos aprobados y **editar**/**eliminar**/**crear nuevo** vínculos para sus contactos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-304">Rick can only view approved contacts and **Edit**/**Delete**/**Create New** links for his contacts.</span></span> <span data-ttu-id="2fb24-305">El último registro, creado por Rick, muestra **editar** y **eliminar** vínculos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-305">Only the last record, created by Rick, displays **Edit** and **Delete** links.</span></span> <span data-ttu-id="2fb24-306">Otros usuarios no verán el último registro hasta un administrador o un administrador cambia el estado a "Aprobado".</span><span class="sxs-lookup"><span data-stu-id="2fb24-306">Other users won't see the last record until a manager or administrator changes the status to "Approved".</span></span>
+
+![Captura de pantalla con Rick ha iniciado sesión](secure-data/_static/rick.png)
+
+<span data-ttu-id="2fb24-308">En la siguiente imagen, `manager@contoso.com` está firmado en y en función del administrador:</span><span class="sxs-lookup"><span data-stu-id="2fb24-308">In the following image, `manager@contoso.com` is signed in and in the manager's role:</span></span>
+
+![Captura de pantalla mostrando manager@contoso.com iniciada](secure-data/_static/manager1.png)
+
+<span data-ttu-id="2fb24-310">La siguiente imagen muestra a los administradores de la vista de detalles de un contacto:</span><span class="sxs-lookup"><span data-stu-id="2fb24-310">The following image shows the managers details view of a contact:</span></span>
+
+![Vista del Administrador de un contacto](secure-data/_static/manager.png)
+
+<span data-ttu-id="2fb24-312">El **aprobar** y **rechazar** solo se muestran los botones para administradores y administradores.</span><span class="sxs-lookup"><span data-stu-id="2fb24-312">The **Approve** and **Reject** buttons are only displayed for managers and administrators.</span></span>
+
+<span data-ttu-id="2fb24-313">En la siguiente imagen, `admin@contoso.com` se registre y en la función de administrador:</span><span class="sxs-lookup"><span data-stu-id="2fb24-313">In the following image, `admin@contoso.com` is signed in and in the administrator's role:</span></span>
+
+![Captura de pantalla mostrando admin@contoso.com iniciada](secure-data/_static/admin.png)
+
+<span data-ttu-id="2fb24-315">El administrador tiene todos los privilegios.</span><span class="sxs-lookup"><span data-stu-id="2fb24-315">The administrator has all privileges.</span></span> <span data-ttu-id="2fb24-316">Puede leer, editar o eliminar cualquier contacto y cambiar el estado de los contactos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-316">She can read/edit/delete any contact and change the status of contacts.</span></span>
+
+<span data-ttu-id="2fb24-317">Se ha creado la aplicación por [scaffolding](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) siguiente `Contact` modelo:</span><span class="sxs-lookup"><span data-stu-id="2fb24-317">The app was created by [scaffolding](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) the following `Contact` model:</span></span>
+
+[!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
+
+<span data-ttu-id="2fb24-318">El ejemplo contiene los siguientes controladores de autorización:</span><span class="sxs-lookup"><span data-stu-id="2fb24-318">The sample contains the following authorization handlers:</span></span>
+
+* <span data-ttu-id="2fb24-319">`ContactIsOwnerAuthorizationHandler`: Garantiza que un usuario solo puede modificar sus datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-319">`ContactIsOwnerAuthorizationHandler`: Ensures that a user can only edit their data.</span></span>
+* <span data-ttu-id="2fb24-320">`ContactManagerAuthorizationHandler`: Permite a los administradores aprobar o rechazar los contactos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-320">`ContactManagerAuthorizationHandler`: Allows managers to approve or reject contacts.</span></span>
+* <span data-ttu-id="2fb24-321">`ContactAdministratorsAuthorizationHandler`: Permite que los administradores pueden aprobar o rechazar los contactos y editar o eliminar contactos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-321">`ContactAdministratorsAuthorizationHandler`: Allows administrators to approve or reject contacts and to edit/delete contacts.</span></span>
+
+## <a name="prerequisites"></a><span data-ttu-id="2fb24-322">Requisitos previos</span><span class="sxs-lookup"><span data-stu-id="2fb24-322">Prerequisites</span></span>
+
+<span data-ttu-id="2fb24-323">En este tutorial se avanza.</span><span class="sxs-lookup"><span data-stu-id="2fb24-323">This tutorial is advanced.</span></span> <span data-ttu-id="2fb24-324">Debe estar familiarizado con:</span><span class="sxs-lookup"><span data-stu-id="2fb24-324">You should be familiar with:</span></span>
+
+* [<span data-ttu-id="2fb24-325">ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="2fb24-325">ASP.NET Core</span></span>](xref:tutorials/first-mvc-app/start-mvc)
+* [<span data-ttu-id="2fb24-326">Autenticación</span><span class="sxs-lookup"><span data-stu-id="2fb24-326">Authentication</span></span>](xref:security/authentication/identity)
+* [<span data-ttu-id="2fb24-327">Confirmación de cuentas y recuperación de contraseñas</span><span class="sxs-lookup"><span data-stu-id="2fb24-327">Account Confirmation and Password Recovery</span></span>](xref:security/authentication/accconfirm)
+* [<span data-ttu-id="2fb24-328">Autorización</span><span class="sxs-lookup"><span data-stu-id="2fb24-328">Authorization</span></span>](xref:security/authorization/introduction)
+* [<span data-ttu-id="2fb24-329">Entity Framework Core</span><span class="sxs-lookup"><span data-stu-id="2fb24-329">Entity Framework Core</span></span>](xref:data/ef-mvc/intro)
+
+## <a name="the-starter-and-completed-app"></a><span data-ttu-id="2fb24-330">El inicio y la aplicación completada</span><span class="sxs-lookup"><span data-stu-id="2fb24-330">The starter and completed app</span></span>
+
+<span data-ttu-id="2fb24-331">[Descargar](xref:index#how-to-download-a-sample) el [completado](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) app.</span><span class="sxs-lookup"><span data-stu-id="2fb24-331">[Download](xref:index#how-to-download-a-sample) the [completed](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) app.</span></span> <span data-ttu-id="2fb24-332">[Prueba](#test-the-completed-app) la aplicación completa, por lo que se familiarice con sus características de seguridad.</span><span class="sxs-lookup"><span data-stu-id="2fb24-332">[Test](#test-the-completed-app) the completed app so you become familiar with its security features.</span></span>
+
+### <a name="the-starter-app"></a><span data-ttu-id="2fb24-333">La aplicación de inicio</span><span class="sxs-lookup"><span data-stu-id="2fb24-333">The starter app</span></span>
+
+<span data-ttu-id="2fb24-334">[Descargar](xref:index#how-to-download-a-sample) el [starter](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) app.</span><span class="sxs-lookup"><span data-stu-id="2fb24-334">[Download](xref:index#how-to-download-a-sample) the [starter](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) app.</span></span>
+
+<span data-ttu-id="2fb24-335">Ejecute la aplicación, pulse el **ContactManager** vincular y compruebe que puede crear, editar y eliminar un contacto.</span><span class="sxs-lookup"><span data-stu-id="2fb24-335">Run the app, tap the **ContactManager** link, and verify you can create, edit, and delete a contact.</span></span>
+
+## <a name="secure-user-data"></a><span data-ttu-id="2fb24-336">Proteger los datos de usuario</span><span class="sxs-lookup"><span data-stu-id="2fb24-336">Secure user data</span></span>
+
+<span data-ttu-id="2fb24-337">Las siguientes secciones contienen todos los pasos principales para crear la aplicación de datos de usuario segura.</span><span class="sxs-lookup"><span data-stu-id="2fb24-337">The following sections have all the major steps to create the secure user data app.</span></span> <span data-ttu-id="2fb24-338">Resultarle útil consultar el proyecto completado.</span><span class="sxs-lookup"><span data-stu-id="2fb24-338">You may find it helpful to refer to the completed project.</span></span>
+
+### <a name="tie-the-contact-data-to-the-user"></a><span data-ttu-id="2fb24-339">Vincular los datos de contacto para el usuario</span><span class="sxs-lookup"><span data-stu-id="2fb24-339">Tie the contact data to the user</span></span>
+
+<span data-ttu-id="2fb24-340">Usar ASP.NET [identidad](xref:security/authentication/identity) Id. de usuario para garantizar que los usuarios puede editar sus datos, pero no otros datos de los usuarios.</span><span class="sxs-lookup"><span data-stu-id="2fb24-340">Use the ASP.NET [Identity](xref:security/authentication/identity) user ID to ensure users can edit their data, but not other users data.</span></span> <span data-ttu-id="2fb24-341">Agregar `OwnerID` y `ContactStatus` a la `Contact` modelo:</span><span class="sxs-lookup"><span data-stu-id="2fb24-341">Add `OwnerID` and `ContactStatus` to the `Contact` model:</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
+
+<span data-ttu-id="2fb24-342">`OwnerID` es el identificador del usuario desde el `AspNetUser` de tabla en la [identidad](xref:security/authentication/identity) base de datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-342">`OwnerID` is the user's ID from the `AspNetUser` table in the [Identity](xref:security/authentication/identity) database.</span></span> <span data-ttu-id="2fb24-343">El `Status` campo determina si un contacto es visible para los usuarios en general.</span><span class="sxs-lookup"><span data-stu-id="2fb24-343">The `Status` field determines if a contact is viewable by general users.</span></span>
+
+<span data-ttu-id="2fb24-344">Crear una nueva migración y actualización de la base de datos:</span><span class="sxs-lookup"><span data-stu-id="2fb24-344">Create a new migration and update the database:</span></span>
+
+```console
+dotnet ef migrations add userID_Status
+dotnet ef database update
+```
+
+### <a name="add-role-services-to-identity"></a><span data-ttu-id="2fb24-345">Agregar servicios de función a la identidad</span><span class="sxs-lookup"><span data-stu-id="2fb24-345">Add Role services to Identity</span></span>
+
+<span data-ttu-id="2fb24-346">Anexar [AddRoles](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) para agregar servicios de rol:</span><span class="sxs-lookup"><span data-stu-id="2fb24-346">Append [AddRoles](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) to add Role services:</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Startup.cs?name=snippet2&highlight=12)]
+
+### <a name="require-authenticated-users"></a><span data-ttu-id="2fb24-347">Requerir que los usuarios autenticados</span><span class="sxs-lookup"><span data-stu-id="2fb24-347">Require authenticated users</span></span>
+
+<span data-ttu-id="2fb24-348">Establezca la directiva de autenticación predeterminado para exigir que los usuarios se autentiquen:</span><span class="sxs-lookup"><span data-stu-id="2fb24-348">Set the default authentication policy to require users to be authenticated:</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Startup.cs?name=snippet&highlight=17-99)] 
+
+ <span data-ttu-id="2fb24-349">Puede rechazar la autenticación en el nivel de método de página de Razor, controlador o acción con el `[AllowAnonymous]` atributo.</span><span class="sxs-lookup"><span data-stu-id="2fb24-349">You can opt out of authentication at the Razor Page, controller, or action method level with the `[AllowAnonymous]` attribute.</span></span> <span data-ttu-id="2fb24-350">Configuración de la directiva de autenticación predeterminado para exigir que los usuarios se autentiquen protege recién agregada de las páginas de Razor y controladores.</span><span class="sxs-lookup"><span data-stu-id="2fb24-350">Setting the default authentication policy to require users to be authenticated protects newly added Razor Pages and controllers.</span></span> <span data-ttu-id="2fb24-351">Tener la autenticación requerida por el valor predeterminado es más segura que confiar en los nuevos controladores y las páginas de Razor debe incluir el `[Authorize]` atributo.</span><span class="sxs-lookup"><span data-stu-id="2fb24-351">Having authentication required by default is more secure than relying on new controllers and Razor Pages to include the `[Authorize]` attribute.</span></span>
+
+<span data-ttu-id="2fb24-352">Agregar [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) al índice, acerca de y póngase en contacto con páginas para los usuarios anónimos pueden obtener información sobre el sitio antes de que se registren.</span><span class="sxs-lookup"><span data-stu-id="2fb24-352">Add [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) to the Index, About, and Contact pages so anonymous users can get information about the site before they register.</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Pages/Index.cshtml.cs?highlight=1,6)]
+
+### <a name="configure-the-test-account"></a><span data-ttu-id="2fb24-353">Configurar la cuenta de prueba</span><span class="sxs-lookup"><span data-stu-id="2fb24-353">Configure the test account</span></span>
+
+<span data-ttu-id="2fb24-354">La `SeedData` clase crea dos cuentas: administrador y administrador.</span><span class="sxs-lookup"><span data-stu-id="2fb24-354">The `SeedData` class creates two accounts: administrator and manager.</span></span> <span data-ttu-id="2fb24-355">Use la [herramienta Secret Manager](xref:security/app-secrets) para establecer una contraseña para estas cuentas.</span><span class="sxs-lookup"><span data-stu-id="2fb24-355">Use the [Secret Manager tool](xref:security/app-secrets) to set a password for these accounts.</span></span> <span data-ttu-id="2fb24-356">Establecer la contraseña del directorio de proyecto (el directorio que contiene *Program.cs*):</span><span class="sxs-lookup"><span data-stu-id="2fb24-356">Set the password from the project directory (the directory containing *Program.cs*):</span></span>
+
+```console
+dotnet user-secrets set SeedUserPW <PW>
+```
+
+<span data-ttu-id="2fb24-357">Si no se especifica una contraseña segura, se produce una excepción cuando `SeedData.Initialize` se llama.</span><span class="sxs-lookup"><span data-stu-id="2fb24-357">If a strong password is not specified, an exception is thrown when `SeedData.Initialize` is called.</span></span>
+
+<span data-ttu-id="2fb24-358">Actualización `Main` usar la contraseña de la prueba:</span><span class="sxs-lookup"><span data-stu-id="2fb24-358">Update `Main` to use the test password:</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Program.cs?name=snippet)]
+
+### <a name="create-the-test-accounts-and-update-the-contacts"></a><span data-ttu-id="2fb24-359">Crear las cuentas de prueba y actualizar los contactos</span><span class="sxs-lookup"><span data-stu-id="2fb24-359">Create the test accounts and update the contacts</span></span>
+
+<span data-ttu-id="2fb24-360">Actualización de la `Initialize` método en el `SeedData` clase para crear las cuentas de prueba:</span><span class="sxs-lookup"><span data-stu-id="2fb24-360">Update the `Initialize` method in the `SeedData` class to create the test accounts:</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Data/SeedData.cs?name=snippet_Initialize)]
+
+<span data-ttu-id="2fb24-361">Agregue el identificador de usuario administrador y `ContactStatus` a los contactos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-361">Add the administrator user ID and `ContactStatus` to the contacts.</span></span> <span data-ttu-id="2fb24-362">Realice uno de los contactos "Enviado" y un "rechazada".</span><span class="sxs-lookup"><span data-stu-id="2fb24-362">Make one of the contacts "Submitted" and one "Rejected".</span></span> <span data-ttu-id="2fb24-363">Agregue el Id. de usuario y el estado a todos los contactos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-363">Add the user ID and status to all the contacts.</span></span> <span data-ttu-id="2fb24-364">Póngase en contacto un solo con se muestra:</span><span class="sxs-lookup"><span data-stu-id="2fb24-364">Only one contact is shown:</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Data/SeedData.cs?name=snippet1&highlight=17,18)]
+
+## <a name="create-owner-manager-and-administrator-authorization-handlers"></a><span data-ttu-id="2fb24-365">Crear controladores de autorización de administrador, administrador y propietario</span><span class="sxs-lookup"><span data-stu-id="2fb24-365">Create owner, manager, and administrator authorization handlers</span></span>
+
+<span data-ttu-id="2fb24-366">Crear un `ContactIsOwnerAuthorizationHandler` clase en el *autorización* carpeta.</span><span class="sxs-lookup"><span data-stu-id="2fb24-366">Create a `ContactIsOwnerAuthorizationHandler` class in the *Authorization* folder.</span></span> <span data-ttu-id="2fb24-367">El `ContactIsOwnerAuthorizationHandler` comprueba que el usuario que actúan en un recurso posee el recurso.</span><span class="sxs-lookup"><span data-stu-id="2fb24-367">The `ContactIsOwnerAuthorizationHandler` verifies that the user acting on a resource owns the resource.</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Authorization/ContactIsOwnerAuthorizationHandler.cs)]
+
+<span data-ttu-id="2fb24-368">El `ContactIsOwnerAuthorizationHandler` llamadas [contexto. Se realizan correctamente](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) si el usuario autenticado actual es el propietario del contacto.</span><span class="sxs-lookup"><span data-stu-id="2fb24-368">The `ContactIsOwnerAuthorizationHandler` calls [context.Succeed](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) if the current authenticated user is the contact owner.</span></span> <span data-ttu-id="2fb24-369">Controladores de autorización con carácter general:</span><span class="sxs-lookup"><span data-stu-id="2fb24-369">Authorization handlers generally:</span></span>
+
+* <span data-ttu-id="2fb24-370">Devolver `context.Succeed` cuando se cumplen los requisitos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-370">Return `context.Succeed` when the requirements are met.</span></span>
+* <span data-ttu-id="2fb24-371">Devolver `Task.CompletedTask` cuando no se cumplen los requisitos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-371">Return `Task.CompletedTask` when requirements aren't met.</span></span> <span data-ttu-id="2fb24-372">`Task.CompletedTask` no es correcto o error&mdash;permite que otros controladores de autorización ejecutar.</span><span class="sxs-lookup"><span data-stu-id="2fb24-372">`Task.CompletedTask` is not success or failure&mdash;it allows other authorization handlers to run.</span></span>
+
+<span data-ttu-id="2fb24-373">Si necesita explícitamente un error, devolver [contexto. Un error](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).</span><span class="sxs-lookup"><span data-stu-id="2fb24-373">If you need to explicitly fail, return [context.Fail](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).</span></span>
+
+<span data-ttu-id="2fb24-374">La aplicación permite a los propietarios de contacto para editar, eliminar o crear sus propios datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-374">The app allows contact owners to edit/delete/create their own data.</span></span> <span data-ttu-id="2fb24-375">`ContactIsOwnerAuthorizationHandler` no es necesario comprobar la operación que se pasa en el parámetro de requisito.</span><span class="sxs-lookup"><span data-stu-id="2fb24-375">`ContactIsOwnerAuthorizationHandler` doesn't need to check the operation passed in the requirement parameter.</span></span>
+
+### <a name="create-a-manager-authorization-handler"></a><span data-ttu-id="2fb24-376">Crear un controlador de autorización de administrador</span><span class="sxs-lookup"><span data-stu-id="2fb24-376">Create a manager authorization handler</span></span>
+
+<span data-ttu-id="2fb24-377">Crear un `ContactManagerAuthorizationHandler` clase en el *autorización* carpeta.</span><span class="sxs-lookup"><span data-stu-id="2fb24-377">Create a `ContactManagerAuthorizationHandler` class in the *Authorization* folder.</span></span> <span data-ttu-id="2fb24-378">El `ContactManagerAuthorizationHandler` comprueba que el usuario que actúan en el recurso es un administrador.</span><span class="sxs-lookup"><span data-stu-id="2fb24-378">The `ContactManagerAuthorizationHandler` verifies the user acting on the resource is a manager.</span></span> <span data-ttu-id="2fb24-379">Solo los administradores pueden aprobar o rechazar los cambios de contenido (nuevos o modificados).</span><span class="sxs-lookup"><span data-stu-id="2fb24-379">Only managers can approve or reject content changes (new or changed).</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Authorization/ContactManagerAuthorizationHandler.cs)]
+
+### <a name="create-an-administrator-authorization-handler"></a><span data-ttu-id="2fb24-380">Cree un controlador de autorización de administrador</span><span class="sxs-lookup"><span data-stu-id="2fb24-380">Create an administrator authorization handler</span></span>
+
+<span data-ttu-id="2fb24-381">Crear un `ContactAdministratorsAuthorizationHandler` clase en el *autorización* carpeta.</span><span class="sxs-lookup"><span data-stu-id="2fb24-381">Create a `ContactAdministratorsAuthorizationHandler` class in the *Authorization* folder.</span></span> <span data-ttu-id="2fb24-382">El `ContactAdministratorsAuthorizationHandler` comprueba que el usuario que actúan en el recurso es un administrador.</span><span class="sxs-lookup"><span data-stu-id="2fb24-382">The `ContactAdministratorsAuthorizationHandler` verifies the user acting on the resource is an administrator.</span></span> <span data-ttu-id="2fb24-383">Administrador puede realizar todas las operaciones.</span><span class="sxs-lookup"><span data-stu-id="2fb24-383">Administrator can do all operations.</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Authorization/ContactAdministratorsAuthorizationHandler.cs)]
+
+## <a name="register-the-authorization-handlers"></a><span data-ttu-id="2fb24-384">Registrar los controladores de autorización</span><span class="sxs-lookup"><span data-stu-id="2fb24-384">Register the authorization handlers</span></span>
+
+<span data-ttu-id="2fb24-385">Se deben registrar los servicios mediante Entity Framework Core para [inserción de dependencias](xref:fundamentals/dependency-injection) mediante [AddScoped](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions).</span><span class="sxs-lookup"><span data-stu-id="2fb24-385">Services using Entity Framework Core must be registered for [dependency injection](xref:fundamentals/dependency-injection) using [AddScoped](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions).</span></span> <span data-ttu-id="2fb24-386">El `ContactIsOwnerAuthorizationHandler` utiliza ASP.NET Core [identidad](xref:security/authentication/identity), que se basa en Entity Framework Core.</span><span class="sxs-lookup"><span data-stu-id="2fb24-386">The `ContactIsOwnerAuthorizationHandler` uses ASP.NET Core [Identity](xref:security/authentication/identity), which is built on Entity Framework Core.</span></span> <span data-ttu-id="2fb24-387">Registre los controladores con la colección de servicios para que estén disponibles para el `ContactsController` a través de [inserción de dependencias](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="2fb24-387">Register the handlers with the service collection so they're available to the `ContactsController` through [dependency injection](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="2fb24-388">Agregue el código siguiente al final de `ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="2fb24-388">Add the following code to the end of `ConfigureServices`:</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Startup.cs?name=snippet_defaultPolicy&highlight=27-99)]
+
+<span data-ttu-id="2fb24-389">`ContactAdministratorsAuthorizationHandler` y `ContactManagerAuthorizationHandler` se agregan como singleton.</span><span class="sxs-lookup"><span data-stu-id="2fb24-389">`ContactAdministratorsAuthorizationHandler` and `ContactManagerAuthorizationHandler` are added as singletons.</span></span> <span data-ttu-id="2fb24-390">Lo singletons con estado porque no usan EF y toda la información necesaria se encuentra en la `Context` parámetro de la `HandleRequirementAsync` método.</span><span class="sxs-lookup"><span data-stu-id="2fb24-390">They're singletons because they don't use EF and all the information needed is in the `Context` parameter of the `HandleRequirementAsync` method.</span></span>
+
+## <a name="support-authorization"></a><span data-ttu-id="2fb24-391">Admitir la autorización</span><span class="sxs-lookup"><span data-stu-id="2fb24-391">Support authorization</span></span>
+
+<span data-ttu-id="2fb24-392">En esta sección, actualice las páginas de Razor y agregue una clase de los requisitos de operaciones.</span><span class="sxs-lookup"><span data-stu-id="2fb24-392">In this section, you update the Razor Pages and add an operations requirements class.</span></span>
+
+### <a name="review-the-contact-operations-requirements-class"></a><span data-ttu-id="2fb24-393">Revisión de la clase de los requisitos de las operaciones de contacto</span><span class="sxs-lookup"><span data-stu-id="2fb24-393">Review the contact operations requirements class</span></span>
+
+<span data-ttu-id="2fb24-394">Revise el `ContactOperations` clase.</span><span class="sxs-lookup"><span data-stu-id="2fb24-394">Review the `ContactOperations` class.</span></span> <span data-ttu-id="2fb24-395">Esta clase contiene los requisitos que admite la aplicación:</span><span class="sxs-lookup"><span data-stu-id="2fb24-395">This class contains the requirements the app supports:</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Authorization/ContactOperations.cs)]
+
+### <a name="create-a-base-class-for-the-contacts-razor-pages"></a><span data-ttu-id="2fb24-396">Crear una clase base para las páginas de Razor de contactos</span><span class="sxs-lookup"><span data-stu-id="2fb24-396">Create a base class for the Contacts Razor Pages</span></span>
+
+<span data-ttu-id="2fb24-397">Cree una clase base que contiene los servicios usados en los contactos de las páginas de Razor.</span><span class="sxs-lookup"><span data-stu-id="2fb24-397">Create a base class that contains the services used in the contacts Razor Pages.</span></span> <span data-ttu-id="2fb24-398">La clase base coloca el código de inicialización en una ubicación:</span><span class="sxs-lookup"><span data-stu-id="2fb24-398">The base class puts the initialization code in one location:</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/DI_BasePageModel.cs)]
+
+<span data-ttu-id="2fb24-399">El código anterior:</span><span class="sxs-lookup"><span data-stu-id="2fb24-399">The preceding code:</span></span>
+
+* <span data-ttu-id="2fb24-400">Agrega el `IAuthorizationService` service acceda a los controladores de autorización.</span><span class="sxs-lookup"><span data-stu-id="2fb24-400">Adds the `IAuthorizationService` service to access to the authorization handlers.</span></span>
+* <span data-ttu-id="2fb24-401">Agrega la identidad `UserManager` service.</span><span class="sxs-lookup"><span data-stu-id="2fb24-401">Adds the Identity `UserManager` service.</span></span>
+* <span data-ttu-id="2fb24-402">Agregue la `ApplicationDbContext`.</span><span class="sxs-lookup"><span data-stu-id="2fb24-402">Add the `ApplicationDbContext`.</span></span>
+
+### <a name="update-the-createmodel"></a><span data-ttu-id="2fb24-403">Actualizar el CreateModel</span><span class="sxs-lookup"><span data-stu-id="2fb24-403">Update the CreateModel</span></span>
+
+<span data-ttu-id="2fb24-404">Actualizar el constructor del modelo de página create para usar el `DI_BasePageModel` clase base:</span><span class="sxs-lookup"><span data-stu-id="2fb24-404">Update the create page model constructor to use the `DI_BasePageModel` base class:</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Create.cshtml.cs?name=snippetCtor)]
+
+<span data-ttu-id="2fb24-405">Actualización de la `CreateModel.OnPostAsync` método:</span><span class="sxs-lookup"><span data-stu-id="2fb24-405">Update the `CreateModel.OnPostAsync` method to:</span></span>
+
+* <span data-ttu-id="2fb24-406">Agregue el identificador de usuario para el `Contact` modelo.</span><span class="sxs-lookup"><span data-stu-id="2fb24-406">Add the user ID to the `Contact` model.</span></span>
+* <span data-ttu-id="2fb24-407">Llamar al controlador de autorización para comprobar que el usuario tiene permiso para crear contactos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-407">Call the authorization handler to verify the user has permission to create contacts.</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Create.cshtml.cs?name=snippet_Create)]
+
+### <a name="update-the-indexmodel"></a><span data-ttu-id="2fb24-408">Actualizar el IndexModel</span><span class="sxs-lookup"><span data-stu-id="2fb24-408">Update the IndexModel</span></span>
+
+<span data-ttu-id="2fb24-409">Actualización de la `OnGetAsync` método por lo que solo contactos aprobados se muestran a los usuarios generales:</span><span class="sxs-lookup"><span data-stu-id="2fb24-409">Update the `OnGetAsync` method so only approved contacts are shown to general users:</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Index.cshtml.cs?name=snippet)]
+
+### <a name="update-the-editmodel"></a><span data-ttu-id="2fb24-410">Actualizar el EditModel</span><span class="sxs-lookup"><span data-stu-id="2fb24-410">Update the EditModel</span></span>
+
+<span data-ttu-id="2fb24-411">Agregar un controlador de autorización para comprobar que el usuario propietario del contacto.</span><span class="sxs-lookup"><span data-stu-id="2fb24-411">Add an authorization handler to verify the user owns the contact.</span></span> <span data-ttu-id="2fb24-412">Dado que se está validando la autorización de recursos, el `[Authorize]` atributo no es suficiente.</span><span class="sxs-lookup"><span data-stu-id="2fb24-412">Because resource authorization is being validated, the `[Authorize]` attribute is not enough.</span></span> <span data-ttu-id="2fb24-413">La aplicación no tiene acceso al recurso cuando se evalúan los atributos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-413">The app doesn't have access to the resource when attributes are evaluated.</span></span> <span data-ttu-id="2fb24-414">Autorización basada en el recurso debe ser un imperativo.</span><span class="sxs-lookup"><span data-stu-id="2fb24-414">Resource-based authorization must be imperative.</span></span> <span data-ttu-id="2fb24-415">Las comprobaciones deben realizarse una vez que la aplicación tenga acceso al recurso, cargándolo en el modelo de página o cargándola en el controlador de sí mismo.</span><span class="sxs-lookup"><span data-stu-id="2fb24-415">Checks must be performed once the app has access to the resource, either by loading it in the page model or by loading it within the handler itself.</span></span> <span data-ttu-id="2fb24-416">Con frecuencia acceder al recurso pasando la clave de recurso.</span><span class="sxs-lookup"><span data-stu-id="2fb24-416">You frequently access the resource by passing in the resource key.</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Edit.cshtml.cs?name=snippet)]
+
+### <a name="update-the-deletemodel"></a><span data-ttu-id="2fb24-417">Actualizar el DeleteModel</span><span class="sxs-lookup"><span data-stu-id="2fb24-417">Update the DeleteModel</span></span>
+
+<span data-ttu-id="2fb24-418">Actualice el modelo de página de delete para usar el controlador de autorización para comprobar que el usuario tiene permiso delete en el contacto.</span><span class="sxs-lookup"><span data-stu-id="2fb24-418">Update the delete page model to use the authorization handler to verify the user has delete permission on the contact.</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Delete.cshtml.cs?name=snippet)]
+
+## <a name="inject-the-authorization-service-into-the-views"></a><span data-ttu-id="2fb24-419">Insertar el servicio de autorización en las vistas</span><span class="sxs-lookup"><span data-stu-id="2fb24-419">Inject the authorization service into the views</span></span>
+
+<span data-ttu-id="2fb24-420">Actualmente, se muestra en la interfaz de usuario edita y elimina los vínculos para los contactos que no se puede modificar el usuario.</span><span class="sxs-lookup"><span data-stu-id="2fb24-420">Currently, the UI shows edit and delete links for contacts the user can't modify.</span></span>
+
+<span data-ttu-id="2fb24-421">Insertar el servicio de autorización en el *Views/_viewimports.cshtml* para que esté disponible para todas las vistas de archivos:</span><span class="sxs-lookup"><span data-stu-id="2fb24-421">Inject the authorization service in the *Views/_ViewImports.cshtml* file so it's available to all views:</span></span>
+
+[!code-cshtml[](secure-data/samples/final2.1/Pages/_ViewImports.cshtml?highlight=6-99)]
+
+<span data-ttu-id="2fb24-422">El marcado anterior agrega varios `using` instrucciones.</span><span class="sxs-lookup"><span data-stu-id="2fb24-422">The preceding markup adds several `using` statements.</span></span>
+
+<span data-ttu-id="2fb24-423">Actualización de la **editar** y **eliminar** vincula en *Pages/Contacts/Index.cshtml* por lo que sólo se representen a los usuarios con los permisos adecuados:</span><span class="sxs-lookup"><span data-stu-id="2fb24-423">Update the **Edit** and **Delete** links in *Pages/Contacts/Index.cshtml* so they're only rendered for users with the appropriate permissions:</span></span>
+
+[!code-cshtml[](secure-data/samples/final2.1/Pages/Contacts/Index.cshtml?highlight=34-36,62-999)]
+
+> [!WARNING]
+> <span data-ttu-id="2fb24-424">Ocultar los vínculos de los usuarios que no tienen permiso para cambiar los datos no proteger la aplicación.</span><span class="sxs-lookup"><span data-stu-id="2fb24-424">Hiding links from users that don't have permission to change data doesn't secure the app.</span></span> <span data-ttu-id="2fb24-425">Ocultar vínculos hace que la aplicación más fácil de usar mostrando vínculos solo es válido.</span><span class="sxs-lookup"><span data-stu-id="2fb24-425">Hiding links makes the app more user-friendly by displaying only valid links.</span></span> <span data-ttu-id="2fb24-426">Los usuarios pueden hack las direcciones URL generadas para invocar Editar y eliminar operaciones en los datos que no poseen.</span><span class="sxs-lookup"><span data-stu-id="2fb24-426">Users can hack the generated URLs to invoke edit and delete operations on data they don't own.</span></span> <span data-ttu-id="2fb24-427">La página de Razor o el controlador debe exigir comprobaciones de acceso para proteger los datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-427">The Razor Page or controller must enforce access checks to secure the data.</span></span>
+
+### <a name="update-details"></a><span data-ttu-id="2fb24-428">Detalles de la actualización</span><span class="sxs-lookup"><span data-stu-id="2fb24-428">Update Details</span></span>
+
+<span data-ttu-id="2fb24-429">Actualice la vista de detalles para que los administradores pueden aprobar o rechazar contactos:</span><span class="sxs-lookup"><span data-stu-id="2fb24-429">Update the details view so managers can approve or reject contacts:</span></span>
+
+[!code-cshtml[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml?name=snippet)]
+
+<span data-ttu-id="2fb24-430">Actualice el modelo de página de detalles:</span><span class="sxs-lookup"><span data-stu-id="2fb24-430">Update the details page model:</span></span>
+
+[!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml.cs?name=snippet)]
+
+## <a name="add-or-remove-a-user-to-a-role"></a><span data-ttu-id="2fb24-431">Agregar o quitar un usuario a un rol</span><span class="sxs-lookup"><span data-stu-id="2fb24-431">Add or remove a user to a role</span></span>
+
+<span data-ttu-id="2fb24-432">Consulte [este problema](https://github.com/aspnet/AspNetCore.Docs/issues/8502) para obtener información sobre:</span><span class="sxs-lookup"><span data-stu-id="2fb24-432">See [this issue](https://github.com/aspnet/AspNetCore.Docs/issues/8502) for information on:</span></span>
+
+* <span data-ttu-id="2fb24-433">Quita los privilegios de un usuario.</span><span class="sxs-lookup"><span data-stu-id="2fb24-433">Removing privileges from a user.</span></span> <span data-ttu-id="2fb24-434">Por ejemplo, un usuario en una aplicación de chat de silencio.</span><span class="sxs-lookup"><span data-stu-id="2fb24-434">For example, muting a user in a chat app.</span></span>
+* <span data-ttu-id="2fb24-435">Agregar privilegios a un usuario.</span><span class="sxs-lookup"><span data-stu-id="2fb24-435">Adding privileges to a user.</span></span>
+
+## <a name="test-the-completed-app"></a><span data-ttu-id="2fb24-436">Probar la aplicación completada</span><span class="sxs-lookup"><span data-stu-id="2fb24-436">Test the completed app</span></span>
+
+<span data-ttu-id="2fb24-437">Si ya no ha establecido una contraseña para cuentas de usuario inicializados, utilice el [herramienta Secret Manager](xref:security/app-secrets#secret-manager) para establecer una contraseña:</span><span class="sxs-lookup"><span data-stu-id="2fb24-437">If you haven't already set a password for seeded user accounts, use the [Secret Manager tool](xref:security/app-secrets#secret-manager) to set a password:</span></span>
+
+* <span data-ttu-id="2fb24-438">Elija una contraseña segura: Use ocho o más caracteres y al menos un carácter en mayúsculas, números y símbolos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-438">Choose a strong password: Use eight or more characters and at least one upper-case character, number, and symbol.</span></span> <span data-ttu-id="2fb24-439">Por ejemplo, `Passw0rd!` cumple los requisitos de contraseña segura.</span><span class="sxs-lookup"><span data-stu-id="2fb24-439">For example, `Passw0rd!` meets the strong password requirements.</span></span>
+* <span data-ttu-id="2fb24-440">Ejecute el siguiente comando desde la carpeta del proyecto, donde `<PW>` es la contraseña:</span><span class="sxs-lookup"><span data-stu-id="2fb24-440">Execute the following command from the project's folder, where `<PW>` is the password:</span></span>
+
+  ```console
+  dotnet user-secrets set SeedUserPW <PW>
+  ```
+
+* <span data-ttu-id="2fb24-441">Eliminación y actualización de la base de datos</span><span class="sxs-lookup"><span data-stu-id="2fb24-441">Drop and update the database</span></span>
+    ```console
+     dotnet ef database drop -f
+     dotnet ef database update  
+```
+
+* <span data-ttu-id="2fb24-442">Reinicie la aplicación para inicializar la base de datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-442">Restart the app to seed the database.</span></span>
+
+<span data-ttu-id="2fb24-443">Es una manera fácil de probar la aplicación completa iniciar los tres distintos exploradores (o las sesiones de InPrivate o incognito).</span><span class="sxs-lookup"><span data-stu-id="2fb24-443">An easy way to test the completed app is to launch three different browsers (or incognito/InPrivate sessions).</span></span> <span data-ttu-id="2fb24-444">En un explorador, registre un nuevo usuario (por ejemplo, `test@example.com`).</span><span class="sxs-lookup"><span data-stu-id="2fb24-444">In one browser, register a new user (for example, `test@example.com`).</span></span> <span data-ttu-id="2fb24-445">Inicie sesión con un usuario diferente en cada explorador.</span><span class="sxs-lookup"><span data-stu-id="2fb24-445">Sign in to each browser with a different user.</span></span> <span data-ttu-id="2fb24-446">Compruebe las siguientes operaciones:</span><span class="sxs-lookup"><span data-stu-id="2fb24-446">Verify the following operations:</span></span>
+
+* <span data-ttu-id="2fb24-447">Usuarios registrados pueden ver todos los datos de contacto aprobados.</span><span class="sxs-lookup"><span data-stu-id="2fb24-447">Registered users can view all of the approved contact data.</span></span>
+* <span data-ttu-id="2fb24-448">Los usuarios registrados pueden editar o eliminar sus propios datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-448">Registered users can edit/delete their own data.</span></span>
+* <span data-ttu-id="2fb24-449">Los administradores pueden aprobar o rechazar datos de contacto.</span><span class="sxs-lookup"><span data-stu-id="2fb24-449">Managers can approve/reject contact data.</span></span> <span data-ttu-id="2fb24-450">El `Details` ver muestra **aprobar** y **rechazar** botones.</span><span class="sxs-lookup"><span data-stu-id="2fb24-450">The `Details` view shows **Approve** and **Reject** buttons.</span></span>
+* <span data-ttu-id="2fb24-451">Los administradores pueden aprobar o rechazar y editar o eliminar todos los datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-451">Administrators can approve/reject and edit/delete all data.</span></span>
+
+| <span data-ttu-id="2fb24-452">Usuario</span><span class="sxs-lookup"><span data-stu-id="2fb24-452">User</span></span>                | <span data-ttu-id="2fb24-453">Propagadas por la aplicación</span><span class="sxs-lookup"><span data-stu-id="2fb24-453">Seeded by the app</span></span> | <span data-ttu-id="2fb24-454">Opciones</span><span class="sxs-lookup"><span data-stu-id="2fb24-454">Options</span></span>                                  |
+| ------------------- | :---------------: | ---------------------------------------- |
+| test@example.com    | <span data-ttu-id="2fb24-455">No</span><span class="sxs-lookup"><span data-stu-id="2fb24-455">No</span></span>                | <span data-ttu-id="2fb24-456">Editar o eliminar los datos propios.</span><span class="sxs-lookup"><span data-stu-id="2fb24-456">Edit/delete the own data.</span></span>                |
+| manager@contoso.com | <span data-ttu-id="2fb24-457">Sí</span><span class="sxs-lookup"><span data-stu-id="2fb24-457">Yes</span></span>               | <span data-ttu-id="2fb24-458">Aprobar o rechazar y editar o eliminar los datos propios.</span><span class="sxs-lookup"><span data-stu-id="2fb24-458">Approve/reject and edit/delete own data.</span></span> |
+| admin@contoso.com   | <span data-ttu-id="2fb24-459">Sí</span><span class="sxs-lookup"><span data-stu-id="2fb24-459">Yes</span></span>               | <span data-ttu-id="2fb24-460">Aprobar o rechazar y editar o eliminar todos los datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-460">Approve/reject and edit/delete all data.</span></span> |
+
+<span data-ttu-id="2fb24-461">Crear un contacto en el explorador del administrador.</span><span class="sxs-lookup"><span data-stu-id="2fb24-461">Create a contact in the administrator's browser.</span></span> <span data-ttu-id="2fb24-462">Copie la dirección URL para su eliminación y editar en el contacto del administrador.</span><span class="sxs-lookup"><span data-stu-id="2fb24-462">Copy the URL for delete and edit from the administrator contact.</span></span> <span data-ttu-id="2fb24-463">Pegue estos vínculos en el explorador del usuario de prueba para comprobar que el usuario de prueba no puede realizar estas operaciones.</span><span class="sxs-lookup"><span data-stu-id="2fb24-463">Paste these links into the test user's browser to verify the test user can't perform these operations.</span></span>
+
+## <a name="create-the-starter-app"></a><span data-ttu-id="2fb24-464">Crear la aplicación de inicio</span><span class="sxs-lookup"><span data-stu-id="2fb24-464">Create the starter app</span></span>
+
+* <span data-ttu-id="2fb24-465">Cree una aplicación de páginas de Razor denominada "ContactManager"</span><span class="sxs-lookup"><span data-stu-id="2fb24-465">Create a Razor Pages app named "ContactManager"</span></span>
+  * <span data-ttu-id="2fb24-466">Creación de la aplicación con **cuentas de usuario individuales**.</span><span class="sxs-lookup"><span data-stu-id="2fb24-466">Create the app with **Individual User Accounts**.</span></span>
+  * <span data-ttu-id="2fb24-467">Asígnele el nombre "ContactManager" para el espacio de nombres coincida con el espacio de nombres utilizado en el ejemplo.</span><span class="sxs-lookup"><span data-stu-id="2fb24-467">Name it "ContactManager" so the namespace matches the namespace used in the sample.</span></span>
+  * <span data-ttu-id="2fb24-468">`-uld` Especifica LocalDB en lugar de SQLite</span><span class="sxs-lookup"><span data-stu-id="2fb24-468">`-uld` specifies LocalDB instead of SQLite</span></span>
+
+  ```console
+  dotnet new webapp -o ContactManager -au Individual -uld
+  ```
+
+* <span data-ttu-id="2fb24-469">Agregar *Models/Contact.cs*:</span><span class="sxs-lookup"><span data-stu-id="2fb24-469">Add *Models/Contact.cs*:</span></span>
+
+  [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
+
+* <span data-ttu-id="2fb24-470">Scaffold el `Contact` modelo.</span><span class="sxs-lookup"><span data-stu-id="2fb24-470">Scaffold the `Contact` model.</span></span>
+* <span data-ttu-id="2fb24-471">Crear la migración inicial y actualizar la base de datos:</span><span class="sxs-lookup"><span data-stu-id="2fb24-471">Create initial migration and update the database:</span></span>
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -outDir Pages\Contacts --referenceScriptLibraries
@@ -336,31 +654,31 @@ dotnet user-secrets set SeedUserPW <PW>
   dotnet ef database update
   ```
 
-* <span data-ttu-id="89df7-290">Actualización de la **ContactManager** anclar en el *Pages/_Layout.cshtml* archivo:</span><span class="sxs-lookup"><span data-stu-id="89df7-290">Update the **ContactManager** anchor in the *Pages/_Layout.cshtml* file:</span></span>
+* <span data-ttu-id="2fb24-472">Actualización de la **ContactManager** anclar en el *Pages/_Layout.cshtml* archivo:</span><span class="sxs-lookup"><span data-stu-id="2fb24-472">Update the **ContactManager** anchor in the *Pages/_Layout.cshtml* file:</span></span>
 
   ```cshtml
   <a asp-page="/Contacts/Index" class="navbar-brand">ContactManager</a>
   ```
 
-* <span data-ttu-id="89df7-291">Probar la aplicación mediante la creación, edición y eliminación de un contacto</span><span class="sxs-lookup"><span data-stu-id="89df7-291">Test the app by creating, editing, and deleting a contact</span></span>
+* <span data-ttu-id="2fb24-473">Probar la aplicación mediante la creación, edición y eliminación de un contacto</span><span class="sxs-lookup"><span data-stu-id="2fb24-473">Test the app by creating, editing, and deleting a contact</span></span>
 
-### <a name="seed-the-database"></a><span data-ttu-id="89df7-292">Inicializar la base de datos</span><span class="sxs-lookup"><span data-stu-id="89df7-292">Seed the database</span></span>
+### <a name="seed-the-database"></a><span data-ttu-id="2fb24-474">Inicializar la base de datos</span><span class="sxs-lookup"><span data-stu-id="2fb24-474">Seed the database</span></span>
 
-<span data-ttu-id="89df7-293">Agregar el [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) clase a la *datos* carpeta.</span><span class="sxs-lookup"><span data-stu-id="89df7-293">Add the [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) class to the *Data* folder.</span></span>
+<span data-ttu-id="2fb24-475">Agregar el [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) clase a la *datos* carpeta.</span><span class="sxs-lookup"><span data-stu-id="2fb24-475">Add the [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) class to the *Data* folder.</span></span>
 
-<span data-ttu-id="89df7-294">Llame a `SeedData.Initialize` desde `Main`:</span><span class="sxs-lookup"><span data-stu-id="89df7-294">Call `SeedData.Initialize` from `Main`:</span></span>
+<span data-ttu-id="2fb24-476">Llame a `SeedData.Initialize` desde `Main`:</span><span class="sxs-lookup"><span data-stu-id="2fb24-476">Call `SeedData.Initialize` from `Main`:</span></span>
 
 [!code-csharp[](secure-data/samples/starter2.1/Program.cs?name=snippet)]
 
-<span data-ttu-id="89df7-295">Probar que la aplicación había propagado la base de datos.</span><span class="sxs-lookup"><span data-stu-id="89df7-295">Test that the app seeded the database.</span></span> <span data-ttu-id="89df7-296">Si no hay ninguna fila en la base de datos de contacto, no se ejecuta el método de inicialización.</span><span class="sxs-lookup"><span data-stu-id="89df7-296">If there are any rows in the contact DB, the seed method doesn't run.</span></span>
+<span data-ttu-id="2fb24-477">Probar que la aplicación había propagado la base de datos.</span><span class="sxs-lookup"><span data-stu-id="2fb24-477">Test that the app seeded the database.</span></span> <span data-ttu-id="2fb24-478">Si no hay ninguna fila en la base de datos de contacto, no se ejecuta el método de inicialización.</span><span class="sxs-lookup"><span data-stu-id="2fb24-478">If there are any rows in the contact DB, the seed method doesn't run.</span></span>
+
+::: moniker-end
 
 <a name="secure-data-add-resources-label"></a>
 
-### <a name="additional-resources"></a><span data-ttu-id="89df7-297">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="89df7-297">Additional resources</span></span>
+### <a name="additional-resources"></a><span data-ttu-id="2fb24-479">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="2fb24-479">Additional resources</span></span>
 
-* [<span data-ttu-id="89df7-298">Compilar una aplicación web de .NET Core y SQL Database en Azure App Service</span><span class="sxs-lookup"><span data-stu-id="89df7-298">Build a .NET Core and SQL Database web app in Azure App Service</span></span>](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
-* <span data-ttu-id="89df7-299">[Laboratorio de autorización de ASP.NET Core](https://github.com/blowdart/AspNetAuthorizationWorkshop).</span><span class="sxs-lookup"><span data-stu-id="89df7-299">[ASP.NET Core Authorization Lab](https://github.com/blowdart/AspNetAuthorizationWorkshop).</span></span> <span data-ttu-id="89df7-300">Este laboratorio explica con más detalle en las características de seguridad, presentadas en este tutorial.</span><span class="sxs-lookup"><span data-stu-id="89df7-300">This lab goes into more detail on the security features introduced in this tutorial.</span></span>
+* [<span data-ttu-id="2fb24-480">Compilar una aplicación web de .NET Core y SQL Database en Azure App Service</span><span class="sxs-lookup"><span data-stu-id="2fb24-480">Build a .NET Core and SQL Database web app in Azure App Service</span></span>](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
+* <span data-ttu-id="2fb24-481">[Laboratorio de autorización de ASP.NET Core](https://github.com/blowdart/AspNetAuthorizationWorkshop).</span><span class="sxs-lookup"><span data-stu-id="2fb24-481">[ASP.NET Core Authorization Lab](https://github.com/blowdart/AspNetAuthorizationWorkshop).</span></span> <span data-ttu-id="2fb24-482">Este laboratorio explica con más detalle en las características de seguridad, presentadas en este tutorial.</span><span class="sxs-lookup"><span data-stu-id="2fb24-482">This lab goes into more detail on the security features introduced in this tutorial.</span></span>
 * <xref:security/authorization/introduction>
-* [<span data-ttu-id="89df7-301">Autorización personalizada basada en directivas</span><span class="sxs-lookup"><span data-stu-id="89df7-301">Custom policy-based authorization</span></span>](xref:security/authorization/policies)
-
-::: moniker-end
+* [<span data-ttu-id="2fb24-483">Autorización personalizada basada en directivas</span><span class="sxs-lookup"><span data-stu-id="2fb24-483">Custom policy-based authorization</span></span>](xref:security/authorization/policies)
