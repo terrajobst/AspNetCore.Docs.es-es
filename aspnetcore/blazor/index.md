@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seoapril2019
 ms.date: 07/01/2019
 uid: blazor/index
-ms.openlocfilehash: dbfadf9481cf16279e2a491bc04f51058e1d8a9c
-ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
+ms.openlocfilehash: d91ba4fd5ada714a539375715745241f05e9fc70
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67500421"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813366"
 ---
 # <a name="introduction-to-blazor"></a>Introducción a Blazor
 
@@ -107,7 +107,7 @@ El lado cliente de Blazor es un marco de trabajo de aplicación de una única p�
 
 La ejecución de código .NET dentro de exploradores web se consigue mediante [WebAssembly](http://webassembly.org) (abreviado como *wasm*). WebAssembly es un formato de código de bytes compacto optimizado para descargas rápidas y una velocidad de ejecución máxima. WebAssembly es un estándar web abierto y se admite en exploradores web sin complementos.
 
-El código de WebAssembly puede acceder a toda la funcionalidad del explorador mediante la *interoperabilidad de JavaScript*. El código de .NET que se ejecuta a través de WebAssembly en el explorador se ejecuta a su vez en el espacio aislado de JavaScript del explorador con las protecciones que proporciona dicho espacio aislado contra acciones malintencionadas en la máquina cliente.
+El código de WebAssembly puede acceder a toda la funcionalidad del explorador mediante la *interoperabilidad de JavaScript* ** . El código de .NET que se ejecuta a través de WebAssembly en el explorador se ejecuta a su vez en el espacio aislado de JavaScript del explorador con las protecciones que proporciona dicho espacio aislado contra acciones malintencionadas en la máquina cliente.
 
 ![El lado cliente de Blazor ejecuta código de .NET en el explorador con WebAssembly.](index/_static/blazor-client-side.png)
 
@@ -145,7 +145,7 @@ Las API que no pueden aplicarse dentro de un explorador web (por ejemplo, para a
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [WebAssembly](http://webassembly.org/)
+* [WebAssembly](https://webassembly.org/)
 * <xref:blazor/hosting-models>
 * [Guía de C#](/dotnet/csharp/)
 * <xref:mvc/views/razor>
