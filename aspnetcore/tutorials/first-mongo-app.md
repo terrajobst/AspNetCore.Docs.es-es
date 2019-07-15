@@ -4,14 +4,14 @@ author: prkhandelwal
 description: En este tutorial se muestra cómo crear una API web de ASP.NET Core con una base de datos NoSQL de MongoDB.
 ms.author: scaddie
 ms.custom: mvc, seodec18
-ms.date: 06/10/2019
+ms.date: 07/10/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 426b4c0dee290153b9b1bf83deec14fa728183cb
-ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
+ms.openlocfilehash: c64f6e69a19e294a18cc72c860af0a03ef70d444
+ms.sourcegitcommit: 357a7120632b20465801c093e4e5bd4a315496a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048083"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67649190"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Creación de una API Web con ASP.NET Core y MongoDB
 
@@ -109,6 +109,9 @@ Use el Shell de mongo en los pasos siguientes para crear una base de datos, hace
       ]
     }
     ```
+  
+  > [!NOTE]
+  > Los identificadores que se muestran en este artículo no coinciden con los que se mostrarán cuando ejecute este ejemplo.
 
 1. Vea los documentos en la base de datos mediante el comando siguiente:
 
@@ -318,11 +321,11 @@ El controlador de API web anterior:
     ]
     ```
 
-1. Vaya a `http://localhost:<port>/api/books/5bfd996f7b8e48dc15ff215e` para probar el método de acción `Get` sobrecargado del controlador. Se muestra la siguiente respuesta JSON:
+1. Vaya a `http://localhost:<port>/api/books/{id here}` para probar el método de acción `Get` sobrecargado del controlador. Se muestra la siguiente respuesta JSON:
 
     ```json
     {
-      "id":"5bfd996f7b8e48dc15ff215e",
+      "id":"{ID}",
       "bookName":"Clean Code",
       "price":43.15,
       "category":"Computers",

@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la API de configuración para
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/24/2019
+ms.date: 07/11/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 81820e8161965fcca2f97d00708df5a29df668de
-ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
+ms.openlocfilehash: 3351ab743ce38b78b1c5857e52020fdeda12cbe7
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66824833"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67855816"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configuración en ASP.NET Core
 
@@ -21,6 +21,7 @@ Por [Luke Latham](https://github.com/guardrex)
 La configuración de la aplicación en ASP.NET Core se basa en pares clave-valor establecidos por *proveedores de configuración*. Los proveedores de configuración leen los datos de configuración en los pares clave-valor de distintos orígenes de configuración:
 
 * Azure Key Vault
+* Azure App Configuration
 * Argumentos de la línea de comandos
 * Proveedores personalizados (instalados o creados)
 * Archivos de directorio
@@ -38,7 +39,7 @@ El *patrón de opciones* es una extensión de los conceptos de configuración qu
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-## <a name="host-vs-app-configuration"></a>Configuración de host frente a configuración de aplicación
+## <a name="host-versus-app-configuration"></a>Configuración de host y de aplicación
 
 Antes de configurar e iniciar la aplicación, se configura e inicia un *host*. El host es responsable de la administración del inicio y la duración de la aplicación. Tanto la aplicación como el host se configuran mediante los proveedores de configuración que se describen en este tema. Los pares clave-valor de la configuración de host se vuelven parte de la configuración global de la aplicación. Para obtener más información sobre cómo se usan los proveedores de configuración cuando se compila el host y cómo afectan los orígenes de configuración a la configuración del host, consulte [El host](xref:fundamentals/index#host).
 
@@ -68,7 +69,7 @@ Adopte estos procedimientos recomendados:
 
 Obtenga más información sobre [cómo usar varios entornos](xref:fundamentals/environments) y cómo administrar el [almacenamiento seguro de secretos de aplicación en el desarrollo con el Administrador de secretos](xref:security/app-secrets) (incluye consejos sobre el uso de variables de entorno para almacenar información confidencial). El Administrador de secretos usa el proveedor de configuración de archivo para almacenar secretos de usuario en un archivo JSON del sistema local. El proveedor de configuración de archivo se describe más adelante en este tema.
 
-[Azure Key Vault](https://azure.microsoft.com/services/key-vault/) es una opción para el almacenamiento seguro de los secretos de aplicación. Para obtener más información, vea <xref:security/key-vault-configuration>.
+[Azure Key Vault](https://azure.microsoft.com/services/key-vault/) es una opción para el almacenamiento seguro de los secretos de aplicación. Para más información, consulte <xref:security/key-vault-configuration>.
 
 ## <a name="hierarchical-configuration-data"></a>Datos de configuración jerárquica
 
@@ -145,6 +146,7 @@ La siguiente tabla muestra los proveedores de configuración disponibles para la
 | Proveedor | Proporciona la configuración de&hellip; |
 | -------- | ----------------------------------- |
 | [Proveedor de configuración de Azure Key Vault](xref:security/key-vault-configuration) (temas de *Seguridad*) | Azure Key Vault |
+| [Proveedor de Azure App Configuration](/azure/azure-app-configuration/quickstart-aspnet-core-app) (documentación de Azure) | Azure App Configuration |
 | [Proveedor de configuración de línea de comandos](#command-line-configuration-provider) | Parámetros de la línea de comandos |
 | [Proveedor de configuración personalizada](#custom-configuration-provider) | Origen personalizado |
 | [Proveedor de configuración de variables de entorno](#environment-variables-configuration-provider) | Variables de entorno |
@@ -331,7 +333,7 @@ Para activar la configuración de variables de entorno, llame al método de exte
 
 [Azure App Service](https://azure.microsoft.com/services/app-service/) permite establecer las variables de entorno en Azure Portal que pueden invalidar la configuración de la aplicación mediante el proveedor de configuración de variables de entorno. Para más información, consulte [Aplicaciones de Azure: Invalidación de la configuración de la aplicación mediante Azure Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
 
-`AddEnvironmentVariables` se usa para cargar variables de entorno con el prefijo `ASPNETCORE_` para la [configuración de host](#host-vs-app-configuration) al inicializar un nuevo elemento <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>. Para más información, consulte [Host web: Configuración de un host](xref:fundamentals/host/web-host#set-up-a-host).
+`AddEnvironmentVariables` se usa para cargar variables de entorno con el prefijo `ASPNETCORE_` para la [configuración de host](#host-versus-app-configuration) al inicializar un nuevo elemento <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>. Para más información, consulte [Host web: Configuración de un host](xref:fundamentals/host/web-host#set-up-a-host).
 
 `CreateDefaultBuilder` también carga:
 
@@ -945,7 +947,7 @@ Dados los datos de ejemplo, `sectionExists` es `false` porque no hay una secció
 
 ## <a name="bind-to-a-class"></a>Enlace a una clase
 
-La configuración se puede enlazar a clases que representan grupos de configuraciones relacionadas a través del *patrón de opciones*. Para obtener más información, vea <xref:fundamentals/configuration/options>.
+La configuración se puede enlazar a clases que representan grupos de configuraciones relacionadas a través del *patrón de opciones*. Para más información, consulte <xref:fundamentals/configuration/options>.
 
 Los valores de configuración se devuelven como cadenas, pero llamar a <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> permite la construcción de objetos [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object). `Bind` está en el paquete [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/), que está en el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 
@@ -966,7 +968,7 @@ Se crean los siguientes pares clave-valor de configuración:
 | starship:class        | Constitution                                      |
 | starship:length       | 304.8                                             |
 | starship:commissioned | False                                             |
-| trademark             | Paramount Pictures Corp. http://www.paramount.com |
+| trademark             | Paramount Pictures Corp. https://www.paramount.com |
 
 La aplicación de ejemplo llama a `GetSection` con la clave `starship`. Los pares clave-valor `starship` están aislados. El método `Bind` se llama en la subsección que pasa una instancia de la clase `Starship`. Después de enlazar los valores de instancia, la instancia está asignada a una propiedad para la representación:
 
@@ -1232,7 +1234,7 @@ En una vista de MVC:
 
 ## <a name="add-configuration-from-an-external-assembly"></a>Agregar configuración a partir de un ensamblado externo
 
-Una implementación de <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> permite agregar mejoras a una aplicación al iniciarla a partir de un ensamblado externo fuera de la clase `Startup` de esta. Para obtener más información, vea <xref:fundamentals/configuration/platform-specific-configuration>.
+Una implementación de <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> permite agregar mejoras a una aplicación al iniciarla a partir de un ensamblado externo fuera de la clase `Startup` de esta. Para más información, consulte <xref:fundamentals/configuration/platform-specific-configuration>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
