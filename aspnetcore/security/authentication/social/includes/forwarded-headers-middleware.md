@@ -6,4 +6,4 @@ El esquema se usa en la generación de vínculos que afecta al flujo de autentic
 
 Use middleware de encabezados reenviados para que la información de solicitud original esté disponible para la aplicación para procesar las solicitudes.
 
-Para obtener más información, vea <xref:host-and-deploy/proxy-load-balancer>.
+Para más información, consulte <xref:host-and-deploy/proxy-load-balancer>.
