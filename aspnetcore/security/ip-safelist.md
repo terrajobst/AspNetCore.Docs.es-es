@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: cfbb50ea33ae3af577f13b00bccc75fe0be57f79
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: ca05989efabea3a71c6912e98055a6746e0f5966
+ms.sourcegitcommit: 1bf80f4acd62151ff8cce517f03f6fa891136409
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898152"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68223931"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>Lista segura IP de cliente para ASP.NET Core
 
@@ -23,7 +23,7 @@ En este artículo se muestra tres maneras de implementar un safelist IP (tambié
 * Filtros de acción para comprobar la dirección IP remota de las solicitudes de los métodos de acción o controladores concretos.
 * Filtros de páginas de Razor para comprobar la dirección IP remota de solicitudes de páginas de Razor.
 
-La aplicación de ejemplo muestra ambos enfoques. En cada caso, una cadena que contiene las direcciones IP de cliente aprobadas se almacena en una configuración de aplicación. El software intermedio o el filtro analiza la cadena en una lista y comprueba si la dirección IP remota está en la lista. Si no es así, se devuelve un código de estado HTTP 403 Prohibido.
+En cada caso, una cadena que contiene las direcciones IP de cliente aprobadas se almacena en una configuración de aplicación. El software intermedio o el filtro analiza la cadena en una lista y comprueba si la dirección IP remota está en la lista. Si no es así, se devuelve un código de estado HTTP 403 Prohibido.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
@@ -37,7 +37,7 @@ La lista está configurada en el *appsettings.json* archivo. Es una lista delimi
 
 El `Configure` método agrega el software intermedio y pasa la cadena de safelist a él en un parámetro de constructor.
 
-[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_Configure&highlight=7)]
+[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_Configure&highlight=10)]
 
 El middleware analiza la cadena en una matriz y busca la dirección IP remota de la matriz. Si no se encuentra la dirección IP remota, el middleware devuelve HTTP 401 prohibido. Este proceso de validación se omite para las solicitudes HTTP Get.
 

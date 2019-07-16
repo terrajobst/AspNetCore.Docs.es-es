@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/31/2019
 uid: grpc/basics
-ms.openlocfilehash: 00772144cb484b78a256f178642463577d316be2
-ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
+ms.openlocfilehash: 78d744d641396c449a142375c69730333f8183cd
+ms.sourcegitcommit: 1bf80f4acd62151ff8cce517f03f6fa891136409
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67196347"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68223884"
 ---
 # <a name="grpc-services-with-c"></a>gRPC servicios con c#\#
 
@@ -30,9 +30,9 @@ Por ejemplo, considere la *greet.proto* archivo usado en [Introducción gRPC ser
 
 * Define un `Greeter` service.
 * El `Greeter` servicio define un `SayHello` llamar.
-* `SayHello` envía un `HelloRequest` del mensaje y recibe un `HelloResponse` mensaje:
+* `SayHello` envía un `HelloRequest` del mensaje y recibe un `HelloReply` mensaje:
 
-[!code-proto[](~/tutorials//grpc/grpc-start/sample/GrpcGreeter/Protos/greet.proto)]
+[!code-protobuf[](~/tutorials//grpc/grpc-start/sample/GrpcGreeter/Protos/greet.proto)]
 
 ## <a name="add-a-proto-file-to-a-c-app"></a>Agregar un archivo .proto a una C\# app
 
