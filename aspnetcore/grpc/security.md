@@ -22,7 +22,7 @@ En este artículo se proporciona información sobre cómo proteger gRPC con .NET
 
 ## <a name="transport-security"></a>Seguridad de transporte
 
-los mensajes gRPC se envían y se reciben mediante HTTP/2. Se recomienda:
+Los mensajes gRPC se envían y se reciben mediante HTTP/2. Se recomienda:
 
 * La seguridad de la [capa de transporte (TLS)](https://tools.ietf.org/html/rfc5246) se usa para proteger los mensajes en aplicaciones gRPC de producción.
 * gRPC Services solo debe escuchar y responder a través de puertos seguros.
@@ -39,7 +39,7 @@ Los mensajes entrantes a los clientes y servicios de gRPC se cargan en la memori
 
 gRPC usa los límites de tamaño por mensaje para administrar los mensajes entrantes y salientes. De forma predeterminada, gRPC limita los mensajes entrantes a 4 MB. No hay ningún límite en los mensajes salientes.
 
-En el servidor, los límites de mensajes gRPC se pueden configurar para todos los servicios de `AddGrpc`una aplicación con:
+En el servidor, los límites de mensajes gRPC se pueden configurar para todos los servicios de `AddGrpc` una aplicación con:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -52,7 +52,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Los límites también se pueden configurar para un servicio individual `AddServiceOptions<TService>`mediante. Para obtener más información sobre cómo configurar los límites de tamaño de los mensajes, vea [configuración de gRPC](xref:grpc/configuration).
+Los límites también se pueden configurar para un servicio individual `AddServiceOptions<TService>` mediante. Para obtener más información sobre cómo configurar los límites de tamaño de los mensajes, vea [configuración de gRPC](xref:grpc/configuration).
 
 ## <a name="client-certificate-validation"></a>Validación de certificados de cliente
 
