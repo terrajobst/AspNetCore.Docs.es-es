@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET C
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 07/16/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 2dab8b4839d6778d5dc6a3daf96c1719eecfe0fb
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: 644d84f9adba650b3ef10ba69cc75c22845be211
+ms.sourcegitcommit: 7e00e8236ca4eabf058f07020a5a3882daf7564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394632"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239241"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -338,7 +338,7 @@ Al implementar aplicaciones en servidores con [Web Deploy](/iis/install/installi
 
 ## <a name="create-the-iis-site"></a>Creación del sitio de IIS
 
-1. En el sistema de hospedaje, cree una carpeta para que contenga los archivos y las carpetas publicados de la aplicación. En el tema [Estructura de directorios](xref:host-and-deploy/directory-structure) se describe el diseño de implementación de una aplicación.
+1. En el sistema de hospedaje, cree una carpeta para que contenga los archivos y las carpetas publicados de la aplicación. En un paso posterior, la ruta de acceso de la carpeta se proporciona a IIS como la ruta de acceso física a la aplicación. Para obtener más información sobre el diseño de carpetas y archivos de implementación de una aplicación, consulte <xref:host-and-deploy/directory-structure>.
 
 1. En Administrador de IIS, abra el nodo del servidor en el panel **Conexiones**. Haga clic con el botón derecho en la carpeta **Sitios**. Haga clic en **Agregar sitio web** en el menú contextual.
 
@@ -372,11 +372,11 @@ Para más información, consulte [Configurar la autenticación de Windows](xref:
 
 ## <a name="deploy-the-app"></a>Implementación de la aplicación
 
-Implemente la aplicación en la carpeta que ha creado en el sistema de hospedaje. [Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) es el mecanismo recomendado para la implementación.
+Implemente la aplicación en la carpeta **Ruta de acceso física** de IIS que se creó en la sección [Creación del sitio de IIS](#create-the-iis-site). [Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) es el mecanismo recomendado para la implementación, pero existen varias opciones para mover la aplicación desde la carpeta *publicar* del proyecto a la carpeta de implementación del sistema host.
 
 ### <a name="web-deploy-with-visual-studio"></a>Web Deploy con Visual Studio
 
-Vea el tema [Visual Studio publish profiles for ASP.NET Core app deployment](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles) (Perfiles de publicación de Visual Studio para la implementación de aplicaciones de ASP.NET Core) para obtener más información sobre cómo crear un perfil de publicación para su uso con Web Deploy. Si el proveedor de hospedaje proporciona un perfil de publicación o admite la creación de uno, descargue su perfil e impórtelo mediante el cuadro de diálogo **Publicar** de Visual Studio.
+Vea el tema [Visual Studio publish profiles for ASP.NET Core app deployment](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles) (Perfiles de publicación de Visual Studio para la implementación de aplicaciones de ASP.NET Core) para obtener más información sobre cómo crear un perfil de publicación para su uso con Web Deploy. Si el proveedor de hospedaje proporciona un perfil de publicación o permite crear uno, descargue su perfil e impórtelo mediante el cuadro de diálogo **Publicar** de Visual Studio:
 
 ![Cuadro de diálogo Publicar](index/_static/pub-dialog.png)
 
@@ -386,11 +386,15 @@ También puede usar [Web Deploy](/iis/publish/using-web-deploy/introduction-to-w
 
 ### <a name="alternatives-to-web-deploy"></a>Alternativas a Web Deploy
 
-Use cualquiera de los métodos disponibles para mover la aplicación al sistema de hospedaje, como copia manual, Xcopy, Robocopy o PowerShell.
+Use cualquiera de los métodos disponibles para mover la aplicación al sistema de hospedaje, como copia manual, [Xcopy](/windows-server/administration/windows-commands/xcopy), [Robocopy](/windows-server/administration/windows-commands/robocopy) o [PowerShell](/powershell/).
 
 Para obtener más información sobre ASP.NET Core en IIS, vea la sección [Recursos de implementación para administradores de IIS](#deployment-resources-for-iis-administrators).
 
 ## <a name="browse-the-website"></a>Examinar el sitio web
+
+Cuando la aplicación esté implementada en el sistema de hospedaje, realice una solicitud a uno de los puntos de conexión públicos de la aplicación.
+
+En el ejemplo siguiente, el sitio se enlaza a un **Nombre de host** de IIS de `www.mysite.com` en el **Puerto** `80`. Se realiza una solicitud a `http://www.mysite.com`:
 
 ![El explorador Microsoft Edge ha cargado la página de inicio de IIS.](index/_static/browsewebsite.png)
 
