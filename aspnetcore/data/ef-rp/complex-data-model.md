@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: a65543f805b197031bd46ef1974d4d4a5018b2d1
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: f995f3f74da4910de518af875eb89349a8457573
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65516902"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813710"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Modelo de datos (5 de 8)
 
@@ -67,7 +67,7 @@ El atributo `DisplayFormat` puede usarse por sí solo. Normalmente se recomienda
 
 Para obtener más información, vea la [documentación del asistente de etiquetas \<entrada&gt;](xref:mvc/views/working-with-forms#the-input-tag-helper).
 
-Ejecutar la aplicación. Vaya a la página de índice de Students. Ya no se muestran las horas. Todas las vistas que usa el modelo `Student` muestran la fecha sin hora.
+Ejecute la aplicación. Vaya a la página de índice de Students. Ya no se muestran las horas. Todas las vistas que usa el modelo `Student` muestran la fecha sin hora.
 
 ![Página de índice de estudiantes en la que se muestran las fechas sin horas](complex-data-model/_static/dates-no-times.png)
 
@@ -486,7 +486,7 @@ El código anterior agrega las nuevas entidades y configura la clave principal c
 
 ## <a name="fluent-api-alternative-to-attributes"></a>Alternativa de la API fluida a los atributos
 
-El método `OnModelCreating` del código anterior usa la *API fluida* para configurar el comportamiento de EF Core. La API se denomina "fluida" porque a menudo se usa para encadenar una serie de llamadas de método en una única instrucción. El [código siguiente](/ef/core/modeling/#methods-of-configuration) es un ejemplo de la API fluida:
+El método `OnModelCreating` del código anterior usa la *API fluida* para configurar el comportamiento de EF Core. La API se denomina "fluida" porque a menudo se usa para encadenar una serie de llamadas de método en una única instrucción. El [código siguiente](/ef/core/modeling/#use-fluent-api-to-configure-a-model) es un ejemplo de la API fluida:
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -512,7 +512,7 @@ Algunos de los atributos utilizados en este tutorial se usan para:
 * Solo configuración de EF Core (por ejemplo, `HasKey`).
 * Validación y configuración de EF Core (por ejemplo, `[StringLength(50)]`).
 
-Para obtener más información sobre la diferencia entre los atributos y la API fluida, vea [Métodos de configuración](/ef/core/modeling/#methods-of-configuration).
+Para obtener más información sobre la diferencia entre los atributos y la API fluida, vea [Métodos de configuración](/ef/core/modeling/).
 
 ## <a name="entity-diagram-showing-relationships"></a>Diagrama de entidades en el que se muestran las relaciones
 
@@ -604,7 +604,7 @@ dotnet ef database update
 
 ---
 
-Ejecutar la aplicación. Ejecutar la aplicación ejecuta el método `DbInitializer.Initialize`. `DbInitializer.Initialize` rellena la base de datos nueva.
+Ejecute la aplicación. Ejecutar la aplicación ejecuta el método `DbInitializer.Initialize`. `DbInitializer.Initialize` rellena la base de datos nueva.
 
 Abra la base de datos en SSOX:
 

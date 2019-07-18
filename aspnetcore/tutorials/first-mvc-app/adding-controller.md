@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo agregar un controlador a una senci
 ms.author: riande
 ms.date: 02/28/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: 9dbfb52109260dbfe0c6c094a7ac4edae47d24e7
-ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
+ms.openlocfilehash: f28dc96b66fce736242d26a2584fea0a23375e23
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66837337"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815192"
 ---
-# <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Agregar un controlador a una aplicación de ASP.NET Core MVC
+# <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Adición de un controlador a una aplicación de ASP.NET MVC
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -28,7 +28,7 @@ El patrón de MVC ayuda a crear aplicaciones que separan los diferentes aspectos
 
 En esta serie de tutoriales se tratarán estos conceptos y se mostrará cómo usarlos para crear una aplicación de película. El proyecto de MVC contiene carpetas para *controladores* y *vistas*.
 
-## <a name="add-a-controller"></a>Incorporación de un controlador
+## <a name="add-a-controller"></a>Adición de un controlador
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -68,7 +68,7 @@ Cada método `public` en un controlador puede ser invocado como un punto de cone
 
 Un extremo HTTP es una dirección URL que se puede usar como destino en la aplicación web, como por ejemplo `https://localhost:5001/HelloWorld`. Combina el protocolo usado `HTTPS`, la ubicación de red del servidor web (incluido el puerto TCP) `localhost:5001` y el URI de destino `HelloWorld`.
 
-El primer comentario indica que se trata de un método [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) que se invoca anexando `/HelloWorld/` a la dirección URL base. El segundo comentario especifica un método [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) que se invoca anexando `/HelloWorld/Welcome/` a la dirección URL. Más adelante en el tutorial se usa el motor de scaffolding para generar métodos `HTTP POST` que actualizan los datos.
+El primer comentario indica que se trata de un método [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) que se invoca anexando `/HelloWorld/` a la dirección URL base. El segundo comentario especifica un método [HTTP GET](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) que se invoca anexando `/HelloWorld/Welcome/` a la dirección URL. Más adelante en el tutorial se usa el motor de scaffolding para generar métodos `HTTP POST` que actualizan los datos.
 
 Ejecute la aplicación en modo de no depuración y anexione "HelloWorld" a la ruta de acceso en la barra de direcciones. El método `Index` devuelve una cadena.
 
@@ -95,7 +95,7 @@ Vaya a `https://localhost:xxxx/HelloWorld/Welcome`. El método `Welcome` se ejec
 
 ![Ventana del explorador que muestra la respuesta de la aplicación "This is the Welcome action method" (Este es el método de acción predeterminado)](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
-Modifique el código para pasar cierta información del parámetro desde la dirección URL al controlador. Por ejemplo: `/HelloWorld/Welcome?name=Rick&numtimes=4`. Cambie el método `Welcome` para que incluya dos parámetros, como se muestra en el código siguiente.
+Modifique el código para pasar cierta información del parámetro desde la dirección URL al controlador. Por ejemplo, `/HelloWorld/Welcome?name=Rick&numtimes=4`. Cambie el método `Welcome` para que incluya dos parámetros, como se muestra en el código siguiente.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 
@@ -115,7 +115,7 @@ Ejecute la aplicación y navegue a:
 
 En la ilustración anterior, el segmento de dirección URL (`Parameters`) no se usa, y los parámetros `name` y `numTimes` se pasan como [cadenas de consulta](https://wikipedia.org/wiki/Query_string). El `?` (signo de interrogación) en la dirección URL anterior es un separador y le siguen las cadenas de consulta. El carácter `&` separa las cadenas de consulta.
 
-Reemplace el método `Welcome` con el código siguiente:
+Reemplace el método `Welcome` por el código siguiente:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo se usan los componentes de vista en ASP.NET Core y cómo agregarlos a las aplicaciones.
 ms.author: riande
 ms.custom: mvc
-ms.date: 5/14/2019
+ms.date: 05/14/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: 17fd7aa977868d522df9f27e0c23d07b016bfb7c
-ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
+ms.openlocfilehash: ff84abf9e0c682d22196a0a0f5f377990c80a6ae
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65621077"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815275"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componentes de vista en ASP.NET Core
 
@@ -42,7 +42,7 @@ Los componentes de vista están diseñados para cualquier lugar que tenga lógic
 
 Un componente de vista consta de dos partes: la clase (normalmente derivada de [ViewComponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)) y el resultado que devuelve (por lo general, una vista). Al igual que los controladores, un componente de vista puede ser un POCO, pero la mayoría de los desarrolladores prefieren aprovechar las ventajas que ofrecen los métodos y las propiedades disponibles al derivar de `ViewComponent`.
 
-Al estudiar si los componentes de visualización cumplen las especificaciones de una aplicación, considere la posibilidad de usar los componentes de Razor en su lugar. Los componentes de Razor también combinan el marcado con código de C# para producir unidades de interfaz de usuario reutilizables. Los componentes de Razor están diseñados para ofrecer productividad a los desarrolladores mediante elementos de composición y lógica de interfaz de usuario del lado cliente. Para obtener más información, vea <xref:blazor/components>.
+Al estudiar si los componentes de visualización cumplen las especificaciones de una aplicación, considere la posibilidad de usar los componentes de Razor en su lugar. Los componentes de Razor también combinan el marcado con código de C# para producir unidades de interfaz de usuario reutilizables. Los componentes de Razor están diseñados para ofrecer productividad a los desarrolladores mediante elementos de composición y lógica de interfaz de usuario del lado cliente. Para más información, consulte <xref:blazor/components>.
 
 ## <a name="creating-a-view-component"></a>Crear un componente de vista
 
@@ -86,7 +86,7 @@ La ruta de búsqueda se aplica a los proyectos que utilizan controladores y vist
 
 El nombre de vista predeterminado para un componente de vista es *Default*, lo que significa que el archivo de vista normalmente se denominará *Default.cshtml*. Puede especificar un nombre de vista diferente al crear el resultado del componente de vista o al llamar al método `View`.
 
-Se recomienda que asigne el nombre *Default.cshtml* al archivo de vista y use la ruta de acceso *Views/Shared/Components/{Nombre de componente de vista}/{Nombre de vista}*. El componente de vista `PriorityList` usado en este ejemplo usa *Views/Shared/Components/PriorityList/Default.cshtml* para la vista del componente de vista.
+Se recomienda que asigne el nombre *Default.cshtml* al archivo de vista y use la ruta de acceso *Views/Shared/Components/{Nombre de componente de vista}/{Nombre de vista}* . El componente de vista `PriorityList` usado en este ejemplo usa *Views/Shared/Components/PriorityList/Default.cshtml* para la vista del componente de vista.
 
 ## <a name="invoking-a-view-component"></a>Invocar un componente de vista
 
@@ -184,7 +184,7 @@ Notas sobre el código:
 
   [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
 
-   La vista de Razor toma una lista de `TodoItem` y muestra estos elementos. Si el método `InvokeAsync` del componente de vista no pasa el nombre de la vista (como en nuestro ejemplo), se usa *Default* para el nombre de vista, según la convención. Más adelante en el tutorial veremos cómo pasar el nombre de la vista. Para reemplazar el estilo predeterminado de un controlador concreto, agregue una vista a la carpeta de vistas específicas del controlador (por ejemplo, *Views/ToDo/Components/PriorityList/Default.cshtml)*.
+   La vista de Razor toma una lista de `TodoItem` y muestra estos elementos. Si el método `InvokeAsync` del componente de vista no pasa el nombre de la vista (como en nuestro ejemplo), se usa *Default* para el nombre de vista, según la convención. Más adelante en el tutorial veremos cómo pasar el nombre de la vista. Para reemplazar el estilo predeterminado de un controlador concreto, agregue una vista a la carpeta de vistas específicas del controlador (por ejemplo, *Views/ToDo/Components/PriorityList/Default.cshtml)* .
 
     Si el componente de vista es específico del controlador, puede agregarlo a la carpeta específica del controlador (*Views/ToDo/Components/PriorityList/Default.cshtml*).
 

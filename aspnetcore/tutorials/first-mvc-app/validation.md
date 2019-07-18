@@ -5,12 +5,12 @@ description: Cómo agregar la validación a una aplicación de ASP.NET Core.
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: 6c59d0188f67872c7dd5599967551d7d390bfdcf
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: f94d1003732b8ff04ec8aba3005f8c95a876cd67
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "65875037"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815118"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Agregar validación a una aplicación ASP.NET Core MVC
 
@@ -43,7 +43,7 @@ Observe cómo el formulario presenta automáticamente un mensaje de error de val
 
 Una ventaja importante es que no fue necesario cambiar ni una sola línea de código en la clase `MoviesController` o en la vista *Create.cshtml* para habilitar esta interfaz de usuario de validación. El controlador y las vistas que creó en pasos anteriores de este tutorial seleccionaron automáticamente las reglas de validación que especificó mediante atributos de validación en las propiedades de la clase del modelo `Movie`. Pruebe la aplicación mediante el método de acción `Edit` y se aplicará la misma validación.
 
-Los datos del formulario no se enviarán al servidor hasta que dejen de producirse errores de validación de cliente. Puede comprobarlo colocando un punto de interrupción en el método `HTTP Post` mediante la [herramienta Fiddler](http://www.telerik.com/fiddler) o las [herramientas de desarrollo F12](/microsoft-edge/devtools-guide).
+Los datos del formulario no se enviarán al servidor hasta que dejen de producirse errores de validación de cliente. Puede comprobarlo colocando un punto de interrupción en el método `HTTP Post` mediante la [herramienta Fiddler](https://www.telerik.com/fiddler) o las [herramientas de desarrollo F12](/microsoft-edge/devtools-guide).
 
 ## <a name="how-validation-works"></a>Cómo funciona la validación
 

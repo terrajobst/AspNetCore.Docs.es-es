@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/24/2019
 uid: web-api/jsonpatch
-ms.openlocfilehash: 14710e6431a2a7ce60fa7f190bef184da85281a0
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 97264903d85dbb397e85fdbf7b070e2aaae74bc8
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64888420"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815550"
 ---
 # <a name="jsonpatch-in-aspnet-core-web-api"></a>JsonPatch en la API web de ASP.NET Core
 
@@ -71,7 +71,7 @@ Los cambios realizados mediante la aplicación de un documento JSON Patch a un r
 
 ## <a name="path-syntax"></a>Sintaxis de path
 
-La propiedad [path](http://tools.ietf.org/html/rfc6901) de un objeto de operación tiene barras inversas entre niveles. Por ejemplo: `"/address/zipCode"`.
+La propiedad [path](https://tools.ietf.org/html/rfc6901) de un objeto de operación tiene barras inversas entre niveles. Por ejemplo, `"/address/zipCode"`.
 
 Para especificar elementos de matriz se usan índices de base cero. El primer elemento de la matriz `addresses` estaría en `/addresses/0`. Para usar `add` al final de una matriz, use un guion (-) en lugar de un número de índice: `/addresses/-`.
 
@@ -100,7 +100,7 @@ En un controlador de API, un método de acción para JSON Patch:
 * Acepta `JsonPatchDocument<T>`, normalmente con [FromBody].
 * Llama a `ApplyTo` en el documento de revisión para aplicar los cambios.
 
-Por ejemplo:
+Este es un ejemplo:
 
 [!code-csharp[](jsonpatch/samples/2.2/Controllers/HomeController.cs?name=snippet_PatchAction&highlight=1,3,9)]
 
@@ -221,6 +221,6 @@ Para probar el ejemplo, ejecute la aplicación y envíe solicitudes HTTP con la 
 
 * [Especificación del método PATCH de IETF RFC 5789](https://tools.ietf.org/html/rfc5789)
 * [Especificación del método JSON PATCH de IETF RFC 6902](https://tools.ietf.org/html/rfc6902)
-* [Especificación del formato de ruta de acceso JSON Patch de IETF RFC 6901](http://tools.ietf.org/html/rfc6901)
-* [Documentación de JSON Patch](http://jsonpatch.com/). Incluye vínculos a recursos para crear documentos JSON Patch.
+* [Especificación del formato de ruta de acceso JSON Patch de IETF RFC 6901](https://tools.ietf.org/html/rfc6901)
+* [Documentación de JSON Patch](https://jsonpatch.com/). Incluye vínculos a recursos para crear documentos JSON Patch.
 * [Código fuente de JSON Patch para ASP.NET Core](https://github.com/aspnet/AspNetCore/tree/master/src/Features/JsonPatch/src)

@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo trabajar con métodos de controlad
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 36c8141ba5827366572dabcfd0fdf9600c745706
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 6d960da5acecbb95893bd339b4391560bedffb3d
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64889770"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815418"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Vistas y métodos de controlador en ASP.NET Core
 
@@ -76,7 +76,7 @@ En el código siguiente se muestra el método `HTTP POST Edit`, que procesa los 
 
 ::: moniker-end
 
-El atributo `[Bind]` es una manera de proteger contra el [exceso de publicación](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Solo debe incluir propiedades en el atributo `[Bind]` que quiera cambiar. Para más información, consulte [Protección del controlador frente al exceso de publicación](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) ofrece un enfoque alternativo para evitar el exceso de publicaciones.
+El atributo `[Bind]` es una manera de proteger contra el [exceso de publicación](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Solo debe incluir propiedades en el atributo `[Bind]` que quiera cambiar. Para más información, consulte [Protección del controlador frente al exceso de publicación](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [ViewModels](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) ofrece un enfoque alternativo para evitar el exceso de publicaciones.
 
 Observe que el segundo método de acción `Edit` va precedido del atributo `[HttpPost]`.
 
@@ -151,7 +151,7 @@ Todos los métodos `HttpGet` del controlador de películas siguen un patrón sim
 * [Creación de asistentes de etiquetas](xref:mvc/views/tag-helpers/authoring)
 * [Prevención de ataques de falsificación de solicitudes](xref:security/anti-request-forgery)
 * Protección del controlador frente al [exceso de publicación](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
-* [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
+* [ViewModels](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Asistente de etiquetas de formulario](xref:mvc/views/working-with-forms)
 * [Asistente de etiquetas de entrada](xref:mvc/views/working-with-forms)
 * [Asistente de etiquetas de elementos de etiqueta](xref:mvc/views/working-with-forms)

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 05/29/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 7628565d8646c0a057e28aa54dc9ce9198750c15
-ms.sourcegitcommit: 9ae1fd11f39b0a72b2ae42f0b450345e6e306bc0
+ms.openlocfilehash: b050011aa38743353fb2a7d133abcdca0b8c6d33
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66415676"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814815"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Aplicación de formato a datos de respuesta en ASP.NET Core Web API
 
@@ -63,7 +63,7 @@ El siguiente método de acción usa los métodos del asistente `Ok` y `NotFound`
 
 [!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=8,10&range=28-38)]
 
-Se devolverá una respuesta con formato JSON, a menos que se haya solicitado otro formato y el servidor pueda devolverlo. Puede usar una herramienta como [Fiddler](http://www.telerik.com/fiddler) para crear una solicitud que incluya un encabezado Accept y especifique otro formato. En ese caso, si el servidor tiene un *formateador* que puede producir una respuesta en el formato solicitado, el resultado se devolverá en el formato preferido por el cliente.
+Se devolverá una respuesta con formato JSON, a menos que se haya solicitado otro formato y el servidor pueda devolverlo. Puede usar una herramienta como [Fiddler](https://www.telerik.com/fiddler) para crear una solicitud que incluya un encabezado Accept y especifique otro formato. En ese caso, si el servidor tiene un *formateador* que puede producir una respuesta en el formato solicitado, el resultado se devolverá en el formato preferido por el cliente.
 
 ![Consola de Fiddler en la que se muestra una solicitud GET creada manualmente con el valor application/xml para el encabezado Accept](formatting/_static/fiddler-composer.png)
 

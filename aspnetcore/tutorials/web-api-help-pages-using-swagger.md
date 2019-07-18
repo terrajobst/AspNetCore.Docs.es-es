@@ -6,16 +6,16 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/20/2018
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: fb65b84b781b5c19040b559f0d7635ceb00cf4a0
-ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
+ms.openlocfilehash: 06a942ca213c7c0a58932494be0ed23cb6896d48
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316562"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856090"
 ---
 # <a name="aspnet-core-web-api-help-pages-with-swagger--openapi"></a>Páginas de ayuda de ASP.NET Core Web API con Swagger/Open API
 
-Por [Christoph Nienaber](https://twitter.com/zuckerthoben) y [Rico Suter](http://rsuter.com)
+Por [Christoph Nienaber](https://twitter.com/zuckerthoben) y [Rico Suter](https://blog.rsuter.com/)
 
 Cuando un desarrollador usa una API Web, puede que le resulte complicado comprender sus diversos métodos. [Swagger](https://swagger.io/), también conocido como [OpenAPI](https://www.openapis.org/), resuelve el problema de generar páginas útiles de ayuda y documentación relativas a las API web. Así, reporta ventajas como una documentación interactiva, la generación de SDK de cliente y la detectabilidad de API.
 
@@ -102,18 +102,18 @@ El elemento principal del flujo de Swagger es la especificación de Swagger, que
 }
 ```
 
-## <a name="swagger-ui"></a>Interfaz de usuario de Swagger
+## <a name="swagger-ui"></a>Swagger UI
 
 La [interfaz de usuario de Swagger](https://swagger.io/swagger-ui/) es una interfaz de usuario basada en Internet que proporciona información sobre el servicio por medio de la especificación de Swagger generada. Swashbuckle y NSwag incluyen una versión insertada de la interfaz de usuario de Swagger, de modo que se puede hospedar en una aplicación ASP.NET Core realizando una llamada de registro de middleware. La interfaz de usuario web tiene este aspecto:
 
-![Interfaz de usuario de Swagger](web-api-help-pages-using-swagger/_static/swagger-ui.png)
+![Swagger UI](web-api-help-pages-using-swagger/_static/swagger-ui.png)
 
 Todos los métodos de acción públicos aplicados a los controladores se pueden probar desde la interfaz de usuario. Haga clic en un nombre de método para expandir la sección. Agregue todos los parámetros necesarios y haga clic en **Try it out!** (¡Pruébelo!).
 
 ![Ejemplo de prueba de acción GET de Swagger](web-api-help-pages-using-swagger/_static/get-try-it-out.png)
 
 > [!NOTE]
-> La versión de interfaz de usuario de Swagger usada para las capturas de pantalla es la versión 2. Para obtener un ejemplo de la versión 3, vea el [ejemplo de Petstore](http://petstore.swagger.io/).
+> La versión de interfaz de usuario de Swagger usada para las capturas de pantalla es la versión 2. Para obtener un ejemplo de la versión 3, vea el [ejemplo de Petstore](https://petstore.swagger.io/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

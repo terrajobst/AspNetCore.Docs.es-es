@@ -1,92 +1,91 @@
 ---
-title: Solución de problemas de proyectos de ASP.NET Core
+title: Solucionar problemas de proyectos de ASP.NET Core
 author: Rick-Anderson
 description: Conozca y solucione advertencias y errores en proyectos de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/19/2019
+ms.date: 07/10/2019
 uid: test/troubleshoot
-ms.openlocfilehash: bcec8a55a5111e1f3acf53ae2f57b45e6e609d25
-ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
+ms.openlocfilehash: b434af2dd046045836d2f6f7f7b7b2d57699bedc
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313673"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308281"
 ---
-# <a name="troubleshoot-aspnet-core-projects"></a>Solución de problemas de proyectos de ASP.NET Core
+# <a name="troubleshoot-aspnet-core-projects"></a>Solucionar problemas de proyectos de ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Los vínculos siguientes proporcionan orientación para la solución:
+Los vínculos siguientes proporcionan instrucciones para la solución de problemas:
 
-* <xref:host-and-deploy/azure-apps/troubleshoot>
-* <xref:host-and-deploy/iis/troubleshoot>
+* <xref:test/troubleshoot-azure-iis>
 * <xref:host-and-deploy/azure-iis-errors-reference>
-* [Conferencia NDC (London, 2018): Diagnosticar problemas en aplicaciones ASP.NET Core](https://www.youtube.com/watch?v=RYI0DHoIVaA)
-* [Blog de ASP.NET: Solucionar problemas de rendimiento de ASP.NET Core](https://blogs.msdn.microsoft.com/webdev/2018/05/23/asp-net-core-performance-improvements/)
+* [NDC Conference (Londres, 2018): Diagnóstico de problemas en aplicaciones ASP.NET Core](https://www.youtube.com/watch?v=RYI0DHoIVaA)
+* [Blog de ASP.NET: Solución de problemas de rendimiento de ASP.NET Core](https://blogs.msdn.microsoft.com/webdev/2018/05/23/asp-net-core-performance-improvements/)
 
-## <a name="net-core-sdk-warnings"></a>Advertencias de SDK de .NET core
+## <a name="net-core-sdk-warnings"></a>SDK de .NET Core advertencias
 
-### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>Se instalan las versiones de 32 bits y 64 bits del SDK de .NET Core
+### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>Se instalan las versiones 32 y 64 bits de los SDK de .NET Core
 
-En el **nuevo proyecto** cuadro de diálogo para ASP.NET Core, es posible que vea la advertencia siguiente:
+En el cuadro de diálogo **nuevo proyecto** de ASP.net Core, puede ver la siguiente ADVERTENCIA:
 
-> Se instalan las versiones de 32 bits y 64 bits del SDK de .NET Core. Sólo las plantillas de las versiones de 64 bits instaladas en ' C:\\archivos de programa\\dotnet\\sdk\\"se muestran.
+> Se instalan las versiones de 32 y 64 bits de los SDK de .NET Core. Solo se muestran las plantillas de las versiones de 64 bits instaladas\\en '\\C:\\archivos de programa dotnet\\SDK '.
 
-Esta advertencia aparece cuando (x86) 32 bits y las versiones de 64 bits (x 64) de la [SDK de .NET Core](https://www.microsoft.com/net/download/all) están instalados. Causas comunes que se pueden instalar ambas versiones se incluyen:
+Esta advertencia aparece cuando se instalan las versiones de 32 bits (x86) y 64 bits (x64) del [SDK de .net Core](https://www.microsoft.com/net/download/all) . Los motivos comunes por los que se pueden instalar ambas versiones son:
 
-* Descargar al instalador del SDK de .NET Core con un equipo de 32 bits pero, a continuación, copiarla en y originalmente había instalado en un equipo de 64 bits.
-* Se instaló el SDK de .NET Core de 32 bits por otra aplicación.
-* Descargado e instalada la versión incorrecta.
+* Originalmente descargó el instalador de SDK de .NET Core mediante un equipo de 32 bits, pero lo copió y lo instaló en un equipo de 64 bits.
+* Otra aplicación instaló el SDK de .NET Core de 32 bits.
+* Se descargó e instaló la versión incorrecta.
 
-Desinstalar el SDK de .NET Core de 32 bits para evitar esta advertencia. Desinstalar desde **Panel de Control** > **programas y características** > **desinstalar o cambiar un programa**. Si entiende por qué se produce la advertencia y sus implicaciones, puede omitir la advertencia.
+Desinstale el SDK de .NET Core de 32 bits para evitar esta advertencia. Desinstalar en **el panel** > de control**programas y características** > **desinstalar o cambiar un programa**. Si comprende por qué se produce la advertencia y sus implicaciones, puede omitir la advertencia.
 
-### <a name="the-net-core-sdk-is-installed-in-multiple-locations"></a>El SDK de .NET Core está instalado en varias ubicaciones
+### <a name="the-net-core-sdk-is-installed-in-multiple-locations"></a>El SDK de .NET Core se instala en varias ubicaciones
 
-En el **nuevo proyecto** cuadro de diálogo para ASP.NET Core, es posible que vea la advertencia siguiente:
+En el cuadro de diálogo **nuevo proyecto** de ASP.net Core, puede ver la siguiente ADVERTENCIA:
 
-> El SDK de .NET Core está instalado en varias ubicaciones. Sólo las plantillas de los SDK instalados en ' C:\\archivos de programa\\dotnet\\sdk\\"se muestran.
+> El SDK de .NET Core se instala en varias ubicaciones. Solo se muestran las plantillas de los SDK instalados en\\' C\\:\\archivos\\de programa dotnet SDK '.
 
-Vea este mensaje cuando haya al menos una instalación de SDK de .NET Core en un directorio fuera de *C:\\archivos de programa\\dotnet\\sdk\\* . Normalmente esto sucede cuando el SDK de .NET Core se ha implementado en un equipo con copiar y pegar en lugar del instalador MSI.
+Verá este mensaje si tiene al menos una instalación del SDK de .net Core en un directorio fuera de *C:\\archivos\\de\\programa dotnet SDK\\* . Normalmente esto sucede cuando el SDK de .NET Core se ha implementado en una máquina mediante copiar y pegar en lugar de con el instalador de MSI.
 
-Desinstale todos los 32-bit SDK de .NET Core y los tiempos de ejecución para evitar esta advertencia. Desinstalar desde **Panel de Control** > **programas y características** > **desinstalar o cambiar un programa**. Si entiende por qué se produce la advertencia y sus implicaciones, puede omitir la advertencia.
+Desinstale todos los SDK de .NET Core de 32 bits y los tiempos de ejecución para evitar esta advertencia. Desinstalar en **el panel** > de control**programas y características** > **desinstalar o cambiar un programa**. Si comprende por qué se produce la advertencia y sus implicaciones, puede omitir la advertencia.
 
-### <a name="no-net-core-sdks-were-detected"></a>Se han detectado ningún SDK de .NET Core
+### <a name="no-net-core-sdks-were-detected"></a>No se detectó ningún SDK de .NET Core.
 
-* En Visual Studio **nuevo proyecto** cuadro de diálogo para ASP.NET Core, es posible que vea la advertencia siguiente:
+* En el cuadro de diálogo **nuevo proyecto** de Visual Studio para ASP.net Core, es posible que vea la siguiente ADVERTENCIA:
 
-  > Se han detectado ningún SDK de .NET Core, asegúrese de que se incluyen en la variable de entorno `PATH`.
+  > No se detectó ningún SDK de .NET Core, asegúrese de que se incluyen `PATH`en la variable de entorno.
 
-* Cuando se ejecuta un `dotnet` comando, aparece la advertencia como:
+* Al ejecutar un `dotnet` comando, la advertencia aparece como:
 
-  > No era posible encontrar cualquier SDK de dotnet instalado.
+  > No es posible encontrar ningún SDK de dotnet instalado.
 
-Estas advertencias aparecen cuando la variable de entorno `PATH` no apunta a ningún SDK de .NET Core en el equipo. Para resolver este problema:
+Estas advertencias aparecen cuando la variable `PATH` de entorno no apunta a ningún SDK de .net Core en la máquina. Para resolver este problema:
 
-* Instale el SDK de .NET Core. Obtener el instalador más reciente de [descargas de .NET](https://dotnet.microsoft.com/download).
-* Compruebe que la `PATH` variable de entorno se apunta a la ubicación donde está instalado el SDK (`C:\Program Files\dotnet\` para 64-bit/x64 o `C:\Program Files (x86)\dotnet\` para 32-bit/x86). El instalador del SDK se establece normalmente el `PATH`. Instale siempre el mismo valor de bits SDK y los tiempos de ejecución en el mismo equipo.
+* Instale el SDK de .NET Core. Obtenga el instalador más reciente de las [descargas de .net](https://dotnet.microsoft.com/download).
+* Compruebe que la `PATH` variable de entorno apunta a la ubicación donde está instalado el SDK`C:\Program Files\dotnet\` (para 64 bits/x64 o `C:\Program Files (x86)\dotnet\` para 32 bits/x86). Normalmente, el instalador de SDK `PATH`establece el. Instale siempre los mismos SDK de bits y tiempos de ejecución en el mismo equipo.
 
-### <a name="missing-sdk-after-installing-the-net-core-hosting-bundle"></a>Faltan SDK después de instalar el lote de hospedaje de .NET Core
+### <a name="missing-sdk-after-installing-the-net-core-hosting-bundle"></a>Falta el SDK después de instalar el lote de hospedaje de .NET Core
 
-Instalar el [conjunto de hospedaje de .NET Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle) modifica el `PATH` cuando instala el tiempo de ejecución de .NET Core para que apunte a la versión de 32 bits (x 86) de .NET Core (`C:\Program Files (x86)\dotnet\`). Esto puede provocar que faltan SDK cuando el núcleo de .NET de 32 bits (x 86) `dotnet` se usa el comando ([ningún SDK de .NET Core se detectaron](#no-net-core-sdks-were-detected)). Para resolver este problema, mueva `C:\Program Files\dotnet\` a una posición delante `C:\Program Files (x86)\dotnet\` en el `PATH`.
+Al instalar el [lote de hospedaje de .net Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle) , se modifica el `PATH` cuando se instala el tiempo de ejecución de .net Core para que apunte a la versión de 32 bits (x86) de .net Core (`C:\Program Files (x86)\dotnet\`). Esto puede dar lugar a que falten SDK cuando se usa el comando .net Core `dotnet` de 32 bits (x86) ([no se detectó ningún SDK de .net Core](#no-net-core-sdks-were-detected)). Para resolver este problema, desplácese `C:\Program Files\dotnet\` a una posición anterior `C:\Program Files (x86)\dotnet\` a `PATH`la.
 
 ## <a name="obtain-data-from-an-app"></a>Obtención de datos de una aplicación
 
-Si una aplicación es capaz de responder a las solicitudes, puede obtener los siguientes datos de la aplicación con middleware:
+Si una aplicación es capaz de responder a las solicitudes, puede obtener los siguientes datos de la aplicación mediante middleware:
 
-* Solicitar &ndash; método, esquema, host, pathbase, ruta de acceso, cadena de consulta, encabezados
-* Conexión &ndash; dirección IP remota, puerto remoto, dirección IP local, puerto local, el certificado de cliente
-* Identidad &ndash; nombre, nombre para mostrar
+* Método &ndash; de solicitud, esquema, host, pathbase, ruta de acceso, cadena de consulta, encabezados
+* Dirección &ndash; IP remota de conexión, Puerto remoto, dirección IP local, puerto local, certificado de cliente
+* Nombre &ndash; de identidad, nombre para mostrar
 * Valores de configuración
 * Variables de entorno
 
-Incluya las líneas siguientes [middleware](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder) código al principio de la `Startup.Configure` canalización de procesamiento de solicitudes del método. El entorno se comprueba antes de ejecuta el software intermedio para asegurarse de que el código solo se ejecuta en el entorno de desarrollo.
+Coloque el siguiente código de [middleware](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder) al principio de la `Startup.Configure` canalización de procesamiento de solicitudes del método. El entorno se comprueba antes de que se ejecute el middleware para asegurarse de que el código solo se ejecuta en el entorno de desarrollo.
 
 Para obtener el entorno, use cualquiera de los métodos siguientes:
 
-* Insertar el `IHostingEnvironment` en el `Startup.Configure` método y comprobar el entorno con la variable local. El código de ejemplo siguiente muestra este enfoque.
+* Inserte en el `Startup.Configure` método y compruebe el entorno con la variable local. `IHostingEnvironment` En el código de ejemplo siguiente se muestra este enfoque.
 
-* Asignar el entorno a una propiedad en el `Startup` clase. Comprobar el entorno mediante la propiedad (por ejemplo, `if (Environment.IsDevelopment())`).
+* Asigne el entorno a una propiedad en la `Startup` clase. Compruebe el entorno con la propiedad (por ejemplo, `if (Environment.IsDevelopment())`).
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, 

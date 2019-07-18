@@ -3,14 +3,14 @@ title: 'Páginas de Razor con EF Core en ASP.NET Core: CRUD (2 de 8)'
 author: rick-anderson
 description: Se muestra cómo crear, leer, actualizar y eliminar con EF Core
 ms.author: riande
-ms.date: 6/31/2017
+ms.date: 06/30/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: ec22c82b3b70399017b5b9aa61896440db647062
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: 2e2aaa3c84759bde39ec3f46ff5ba8699f6c219b
+ms.sourcegitcommit: 1bf80f4acd62151ff8cce517f03f6fa891136409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750025"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68223839"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: CRUD (2 de 8)
 
@@ -203,7 +203,7 @@ En esta sección, se agrega código para implementar un mensaje de error persona
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
 
-Reemplace el método `OnGetAsync` con el código siguiente:
+Reemplace el método `OnGetAsync` por el código siguiente:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Delete.cshtml.cs?name=snippet_OnGetAsync&highlight=1,9,17-20)]
 

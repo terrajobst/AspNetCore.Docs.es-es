@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: 9737e45729b4e5abd9a33824c4d6610ca21681c0
-ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
+ms.openlocfilehash: 43b69e9b7588ad575f203200c5bc59a4272d0066
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2019
-ms.locfileid: "66458478"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814112"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Validación de modelos en ASP.NET Core MVC y Razor Pages
 
@@ -59,7 +59,7 @@ Estos son algunos de los atributos de validación integrados:
 
 En el espacio de nombres [System.ComponentModel.DataAnnotations](xref:System.ComponentModel.DataAnnotations) encontrará una lista completa de atributos de validación.
 
-### <a name="error-messages"></a>Mensajes de error
+### <a name="error-messages"></a>mensajes de error
 
 Los atributos de validación permiten especificar el mensaje de error que se mostrará para una entrada no válida. Por ejemplo:
 
@@ -153,7 +153,7 @@ Si necesita una validación que no proporcionan los atributos integrados, puede 
 * [Crear atributos personalizados](#custom-attributes)
 * [Implementar IValidatableObject](#ivalidatableobject)
 
-## <a name="custom-attributes"></a>Atributos personalizados
+## <a name="custom-attributes"></a>Personalización de atributos
 
 Para los escenarios que no se controlan mediante los atributos de validación integrados, puede crear atributos de validación personalizados. Cree una clase que herede de <xref:System.ComponentModel.DataAnnotations.ValidationAttribute> y reemplace el método <xref:System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid*>.
 
@@ -315,7 +315,7 @@ Para personalizar la validación del lado cliente, es necesario generar atributo
 
 [!code-javascript[](validation/sample/wwwroot/js/classicMovieValidator.js?name=snippet_UnobtrusiveValidation)]
 
-Para obtener información sobre cómo escribir adaptadores, vea la [documentación de jQuery Validate](http://jqueryvalidation.org/documentation/).
+Para obtener información sobre cómo escribir adaptadores, vea la [documentación de jQuery Validate](https://jqueryvalidation.org/documentation/).
 
 El uso de un adaptador para un campo determinado se desencadena mediante atributos `data-` que:
 

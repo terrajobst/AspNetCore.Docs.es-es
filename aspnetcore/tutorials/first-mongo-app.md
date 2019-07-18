@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc, seodec18
 ms.date: 07/10/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: c64f6e69a19e294a18cc72c860af0a03ef70d444
-ms.sourcegitcommit: 357a7120632b20465801c093e4e5bd4a315496a8
+ms.openlocfilehash: 99b28407a249a5c0bc6a0cf3a285c04f1d6187a7
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67649190"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815651"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Creación de una API Web con ASP.NET Core y MongoDB
 
@@ -284,7 +284,7 @@ La clase`BookService` usa los miembros `MongoDB.Driver` siguientes para realizar
 * [InsertOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne.htm): inserta el objeto proporcionado como un nuevo documento en la colección.
 * [ReplaceOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_ReplaceOne.htm): reemplaza un único documento que cumpla los criterios de búsqueda indicados por el objeto proporcionado.
 
-## <a name="add-a-controller"></a>Incorporación de un controlador
+## <a name="add-a-controller"></a>Adición de un controlador
 
 Agregue una clase `BooksController` al directorio *Controladores* con el código siguiente:
 
@@ -294,7 +294,7 @@ El controlador de API web anterior:
 
 * Usa la clase `BookService` para realizar operaciones CRUD.
 * Contiene métodos de acción para admitir las solicitudes GET, POST, PUT y DELETE de HTTP.
-* Llama a <xref:System.Web.Http.ApiController.CreatedAtRoute*> en el método de acción `Create` para devolver una respuesta [HTTP 201](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). El código de estado 201 es la respuesta estándar para un método HTTP POST que crea un recurso en el servidor. `CreatedAtRoute` también agrega un encabezado `Location` a la respuesta. El encabezado `Location` especifica el identificador URI del libro recién creado.
+* Llama a <xref:System.Web.Http.ApiController.CreatedAtRoute*> en el método de acción `Create` para devolver una respuesta [HTTP 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). El código de estado 201 es la respuesta estándar para un método HTTP POST que crea un recurso en el servidor. `CreatedAtRoute` también agrega un encabezado `Location` a la respuesta. El encabezado `Location` especifica el identificador URI del libro recién creado.
 
 ## <a name="test-the-web-api"></a>Prueba de la API web
 

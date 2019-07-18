@@ -4,14 +4,14 @@ author: ricardoserradas
 description: Obtenga información sobre cómo publicar una aplicación de ASP.NET Core en Azure App Service con Visual Studio Code.
 ms.author: riserrad
 ms.custom: mvc
-ms.date: 04/16/2019
+ms.date: 07/10/2019
 uid: tutorials/publish-to-azure-webapp-using-vscode
-ms.openlocfilehash: 2eaae62af97927fbe22e7f5d4fadfc2265c5a5cd
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: 97e8fcb1e5470245c80fad0875abb5fdace7853c
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538748"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308314"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio-code"></a>Publicación de una aplicación de ASP.NET Core en Azure con Visual Studio Code
 
@@ -19,17 +19,17 @@ Autor: [Ricardo Serradas](https://twitter.com/ricardoserradas)
 
 [!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
-Para solucionar un problema de implementación de App Service, vea <xref:host-and-deploy/azure-apps/troubleshoot>.
+Para solucionar un problema de implementación de App Service, vea <xref:test/troubleshoot-azure-iis>.
 
 ## <a name="intro"></a>Introducción
 
 En este tutorial aprenderá a crear una aplicación MVC ASP.Net Core y a implementarla en Visual Studio Code.
 
-## <a name="set-up"></a>Configurar
+## <a name="set-up"></a>Instalación
 
 - Abra una [cuenta gratuita de Azure](https://azure.microsoft.com/free/dotnet/) si no tiene una.
 - Instale el [SDK de .NET Core](https://dotnet.microsoft.com/download).
-- Instalación de [Visual Studio Code](https://code.visualstudio.com/Download)
+- Instalar [Visual Studio Code](https://code.visualstudio.com/Download)
   - Instale la [extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) en Visual Studio Code.
   - Instale la [extensión de Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) en Visual Studio Code y configúrela antes de continuar.
 
@@ -90,7 +90,7 @@ tasks.json
 
 Estos son archivos de utilidad que le ayudarán a compilar y depurar su aplicación web .NET Core.
 
-## <a name="run-the-app"></a>Ejecutar la aplicación
+## <a name="run-the-app"></a>Ejecución de la aplicación
 
 Antes de implementar la aplicación en Azure, asegúrese de que se ejecuta correctamente en la máquina local.
 
@@ -111,7 +111,7 @@ Para mantener la sesión de depuración, haga clic en `Advanced` y luego en `Con
 
 ![Estructura de carpetas de publicación](publish-to-azure-webapp-using-vscode/_static/publish-folder.jpg)
 
-## <a name="publish-to-azure-app-service"></a>Publicación en Azure App Service
+## <a name="publish-to-azure-app-service"></a>Publicar en Azure App Service
 
 Aproveche la extensión de Azure App Service para Visual Studio Code y siga los pasos que se indican a continuación para publicar el sitio web directamente en Azure App Service.
 

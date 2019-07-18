@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 72d5b2e902a95442ccffb7a149b917c50373775b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 5be53baf4b9eb8774501fbf7f781370f7f687d0c
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64889930"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814951"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware de reescritura de URL en ASP.NET Core
 
@@ -89,7 +89,7 @@ Las principales razones para usar la tecnologías de reescritura de URL basadas 
 
   La única manera de saber con certeza con qué enfoque el rendimiento disminuye más, o si la disminución de este es insignificante, es mediante una comparación.
 
-## <a name="package"></a>Package
+## <a name="package"></a>Paquete
 
 Para incluir el middleware en el proyecto, agregue una referencia de paquete al [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) del archivo de proyecto, que contiene el paquete [Microsoft.AspNetCore.Rewrite](https://www.nuget.org/packages/Microsoft.AspNetCore.Rewrite).
 
@@ -109,7 +109,7 @@ Hay tres opciones que permiten a la aplicación redirigir solicitudes distintas 
 
 * <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWww*> &ndash; Redirige la solicitud al subdominio `www` si la solicitud de entrada es distinta de `www`. Se redirige con un código de estado [Status307TemporaryRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status307TemporaryRedirect). Una sobrecarga permite proporcionar el código de estado para la respuesta. Use un campo de la clase <xref:Microsoft.AspNetCore.Http.StatusCodes> para una asignación de código de estado.
 
-### <a name="url-redirect"></a>Redirección de URL
+### <a name="url-redirect"></a>Redirección de direcciones URL
 
 Use <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirect*> para redirigir las solicitudes. El primer parámetro contiene la expresión regular para hacer coincidir la ruta de acceso de la URL entrante. El segundo parámetro es la cadena de reemplazo. El tercer parámetro, si está presente, especifica el código de estado. Si no se especifica el código de estado, el valor predeterminado es *302 - Encontrado*, lo que indica que el recurso se ha movido o reemplazado temporalmente.
 
@@ -191,7 +191,7 @@ El acento circunflejo (`^`) al principio de la expresión significa que la búsq
 
 En el ejemplo anterior de la regla de redireccionamiento (`redirect-rule/(.*)`), no hay ningún acento circunflejo (`^`) al principio de la expresión regular. Por tanto, cualquier carácter puede preceder a `redirect-rule/` en la ruta de acceso para que la coincidencia sea correcta.
 
-| Ruta de acceso                               | Coincidir con |
+| Path                               | Match |
 | ---------------------------------- | :---: |
 | `/redirect-rule/1234/5678`         | Sí   |
 | `/my-cool-redirect-rule/1234/5678` | Sí   |
@@ -199,13 +199,13 @@ En el ejemplo anterior de la regla de redireccionamiento (`redirect-rule/(.*)`),
 
 La regla de reescritura, `^rewrite-rule/(\d+)/(\d+)`, solo encuentra rutas de acceso que empiezan con `rewrite-rule/`. En la tabla siguiente, observe la diferencia de coincidencia.
 
-| Ruta de acceso                              | Coincidir con |
+| Path                              | Match |
 | --------------------------------- | :---: |
 | `/rewrite-rule/1234/5678`         | Sí   |
 | `/my-cool-rewrite-rule/1234/5678` | No    |
-| `/anotherrewrite-rule/1234/5678`  | No    |
+| `/anotherrewrite-rule/1234/5678`  | Sin    |
 
-Después de la parte `^rewrite-rule/` de la expresión, hay dos grupos de captura, `(\d+)/(\d+)`. `\d` significa *buscar un dígito (número)*. El signo más (`+`) significa *buscar uno o más de los caracteres anteriores*. Por tanto, la URL debe contener un número seguido de una barra diagonal, seguida de otro número. Estos grupos de capturas se insertan en la URL de reescritura como `$1` y `$2`. La cadena de reemplazo de la regla de reescritura coloca los grupos capturados en la cadena de consulta. La ruta de acceso solicitada de `/rewrite-rule/1234/5678` se reescribe para obtener el recurso en `/rewritten?var1=1234&var2=5678`. Si una cadena de consulta está presente en la solicitud original, se conserva cuando se reescribe la dirección URL.
+Después de la parte `^rewrite-rule/` de la expresión, hay dos grupos de captura, `(\d+)/(\d+)`. `\d` significa *buscar un dígito (número)* . El signo más (`+`) significa *buscar uno o más de los caracteres anteriores*. Por tanto, la URL debe contener un número seguido de una barra diagonal, seguida de otro número. Estos grupos de capturas se insertan en la URL de reescritura como `$1` y `$2`. La cadena de reemplazo de la regla de reescritura coloca los grupos capturados en la cadena de consulta. La ruta de acceso solicitada de `/rewrite-rule/1234/5678` se reescribe para obtener el recurso en `/rewritten?var1=1234&var2=5678`. Si una cadena de consulta está presente en la solicitud original, se conserva cuando se reescribe la dirección URL.
 
 No hay ningún recorrido de ida y vuelta al servidor para obtener el recurso. Si el recurso existe, se captura y se devuelve al cliente con un código de estado *200 - Correcto*. Como el cliente no se redirige, la dirección URL no cambia en la barra de direcciones del explorador. Los clientes no pueden detectar que se ha producido una operación de reescritura de URL en el servidor.
 
@@ -322,7 +322,7 @@ El middleware admite las siguientes variables de servidor del Módulo URL Rewrit
 
 Use <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.Add*> para implementar su propia lógica de la regla en un método. `Add` expone el elemento <xref:Microsoft.AspNetCore.Rewrite.RewriteContext>, lo que hace que <xref:Microsoft.AspNetCore.Http.HttpContext> esté disponible para usarlo en el método. [RewriteContext.Result](xref:Microsoft.AspNetCore.Rewrite.RewriteContext.Result*) determina cómo se administra el procesamiento adicional en la canalización. Establezca el valor en uno de los campos <xref:Microsoft.AspNetCore.Rewrite.RuleResult> que se describen en la tabla siguiente.
 
-| `RewriteContext.Result`              | Acción                                                           |
+| `RewriteContext.Result`              | .                                                           |
 | ------------------------------------ | ---------------------------------------------------------------- |
 | `RuleResult.ContinueRules` (valor predeterminado) | Continuar aplicando las reglas.                                         |
 | `RuleResult.EndResponse`             | Dejar de aplicar las reglas y enviar la respuesta.                       |
@@ -376,7 +376,7 @@ Solicitud original: `/image.jpg`
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Inicio de aplicaciones](startup.md)
-* [Middleware](xref:fundamentals/middleware/index)
+* [Software intermedio](xref:fundamentals/middleware/index)
 * [Expresiones regulares en .NET](/dotnet/articles/standard/base-types/regular-expressions)
 * [Lenguaje de expresiones regulares: referencia rápida](/dotnet/articles/standard/base-types/quick-ref)
 * [Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/) (mod_rewrite de Apache)
@@ -384,5 +384,5 @@ Solicitud original: `/image.jpg`
 * [URL Rewrite Module Configuration Reference](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference) (Referencia de configuración del Módulo URL Rewrite)
 * [IIS URL Rewrite Module Forum](https://forums.iis.net/1152.aspx) (Foro del Módulo URL Rewrite para IIS)
 * [Cómo simplificar la estructura de direcciones URL](https://support.google.com/webmasters/answer/76329?hl=en)
-* [10 URL Rewriting Tips and Tricks](http://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/) (10 trucos y consejos para reescritura de URL)
+* [10 URL Rewriting Tips and Tricks](https://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/) (10 trucos y consejos para reescritura de URL)
 * [To slash or not to slash](https://webmasters.googleblog.com/2010/04/to-slash-or-not-to-slash.html) (Usar la barra diagonal o no)

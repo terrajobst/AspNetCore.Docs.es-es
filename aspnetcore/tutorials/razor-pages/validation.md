@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo agregar validación a una página de Razor de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/5/2018
+ms.date: 12/05/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 38e1fff9c7a212af992951dbf57e124cae69d36f
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: 8495849c89ca3d6fd2b2006b61ce2ec75ff504a5
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874986"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815659"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Agregar la validación a una página de Razor de ASP.NET Core
 
@@ -47,7 +47,7 @@ Una ventaja importante es que **no** se han necesitado cambios de código en las
 Los datos del formulario no se publicarán en el servidor hasta que dejen de producirse errores de validación de cliente. Compruebe que los datos del formulario no se publican mediante uno o varios de los métodos siguientes:
 
 * Coloque un punto de interrupción en el método `OnPostAsync`. Envíe el formulario (seleccione **Crear** o **Guardar**). El punto de interrupción nunca se alcanza.
-* Use la [herramienta Fiddler](http://www.telerik.com/fiddler).
+* Use la [herramienta Fiddler](https://www.telerik.com/fiddler).
 * Use las herramientas de desarrollo del explorador para supervisar el tráfico de red.
 
 ### <a name="server-side-validation"></a>Validación de servidor
@@ -121,7 +121,7 @@ El código siguiente muestra la combinación de atributos en una línea:
 
 En [Get started with Razor Pages and EF Core](xref:data/ef-rp/intro) (Introducción a Razor Pages y EF Core) se muestran operaciones avanzadas de EF Core con Razor Pages.
 
-### <a name="publish-to-azure"></a>Publicar en Azure
+### <a name="publish-to-azure"></a>Publicación en Azure
 
 Para obtener información sobre la implementación en Azure, consulte [Tutorial: Compilación de una aplicación ASP.NET en Azure con SQL Database](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Estas instrucciones son para una aplicación ASP.NET, no para una aplicación ASP.NET Core, pero los pasos son los mismos.
 

@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/20/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: eefe507efadb5ef0a03854d931402f9eaa23a266
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: 3f48cda8f89d3f3dcce220cad4e405472b510df4
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394758"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814878"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web HTTP.sys en ASP.NET Core
 
@@ -30,13 +30,13 @@ HTTP.sys admite las siguientes características:
 * HTTPS con SNI
 * HTTP/2 a través de TLS (Windows 10 o posterior)
 * Transmisión directa de archivos
-* Almacenamiento en caché de respuestas
+* Almacenamiento en caché de respuesta
 * WebSockets (Windows 8 o posterior)
 
-Versiones de Windows compatibles:
+Versiones compatibles de Windows:
 
 * Windows 7 o posterior
-* Windows Server 2008 R2 o posterior
+* Windows Server 2008 R2 o versiones posteriores
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
@@ -119,7 +119,7 @@ HTTP.sys delega en la autenticación de modo kernel con el protocolo de autentic
 
 ::: moniker range=">= aspnetcore-3.0"
 
-   | Propiedad. | DESCRIPCIÓN | Default |
+   | Propiedad | DESCRIPCIÓN | Valor predeterminado |
    | -------- | ----------- | :-----: |
    | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Controlar si se permite la entrada/salida sincrónica de los objetos `HttpContext.Request.Body` y `HttpContext.Response.Body`. | `false` |
    | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Permitir solicitudes anónimas. | `true` |
@@ -137,7 +137,7 @@ HTTP.sys delega en la autenticación de modo kernel con el protocolo de autentic
 
 ::: moniker range="< aspnetcore-3.0"
 
-   | Propiedad. | DESCRIPCIÓN | Default |
+   | Propiedad | DESCRIPCIÓN | Valor predeterminado |
    | -------- | ----------- | :-----: |
    | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Controlar si se permite la entrada/salida sincrónica de los objetos `HttpContext.Request.Body` y `HttpContext.Response.Body`. | `true` |
    | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Permitir solicitudes anónimas. | `true` |
@@ -195,7 +195,7 @@ HTTP.sys delega en la autenticación de modo kernel con el protocolo de autentic
    * **.NET Core**: si la aplicación requiere .NET Core, obtenga y ejecute el instalador del **entorno de ejecución de .NET Core** desde las [descargas de .NET](https://dotnet.microsoft.com/download). No instale el SDK completo en el servidor.
    * **.NET Framework**: si la aplicación requiere .NET Framework, consulte la [guía de instalación de .NET Framework.](/dotnet/framework/install/) Instale la versión necesaria de .NET Framework. El instalador de la versión más reciente de .NET Framework está disponible en la página de [descargas de .NET Core](https://dotnet.microsoft.com/download).
 
-   Si la aplicación se basa en la [implementación autocontenida](/dotnet/core/deploying/#framework-dependent-deployments-scd), incluirá el entorno de ejecución en la implementación. No se requiere la instalación de ningún marco en el servidor.
+   Si la aplicación se basa en la [implementación autocontenida](/dotnet/core/deploying/#self-contained-deployments-scd), incluirá el entorno de ejecución en la implementación. No se requiere la instalación de ningún marco en el servidor.
 
 1. Configure los puertos y las direcciones URL en la aplicación.
 
@@ -300,7 +300,7 @@ HTTP.sys delega en la autenticación de modo kernel con el protocolo de autentic
    * [Comandos Netsh para protocolo de transferencia de hipertexto (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
    * [Cadenas de UrlPrefix](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
-1. Ejecutar la aplicación.
+1. Ejecute la aplicación.
 
    No se necesitan privilegios de administrador para ejecutar la aplicación al enlazar a localhost mediante HTTP (no HTTPS) con un número de puerto mayor que 1024. Para otras configuraciones (por ejemplo, usar una dirección IP local o enlazar al puerto 443), ejecute la aplicación con privilegios de administrador.
 

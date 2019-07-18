@@ -4,14 +4,14 @@ author: CamSoper
 description: Supervisión y depurar el código como parte de una solución de DevOps con ASP.NET Core y Azure
 ms.author: casoper
 ms.custom: mvc, seodec18
-ms.date: 10/24/2018
+ms.date: 07/10/2019
 uid: azure/devops/monitor
-ms.openlocfilehash: 00489bd92dfff8fd80bd24c2e60193d32031d7c4
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1d8ed99f4387dbc99929164c558cc2ce14bd9ea0
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64893072"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68307955"
 ---
 # <a name="monitor-and-debug"></a>Supervisar y depurar
 
@@ -37,11 +37,11 @@ App Service web apps se supervisan con facilidad en tiempo real. El portal de Az
 
     ![Panel de captura de pantalla que muestra información general](./media/monitoring/overview.png)
 
-    * **Http 5xx**: Recuento de errores de servidor, normalmente excepciones en el código de ASP.NET Core.
-    * **Datos de**: Entrada de datos que entran en la aplicación web.
+    * **Http 5xx**: Recuento de errores del lado servidor, normalmente excepciones en el código ASP.NET Core.
+    * **Datos en**: Entrada de datos que entra en la aplicación Web.
     * **Datos de salida**: Salida de datos de la aplicación web a los clientes.
-    * **Las solicitudes**: Número de solicitudes HTTP.
-    * **Tiempo promedio de respuesta**: Tiempo medio de la aplicación web responder a las solicitudes HTTP.
+    * **Solicitudes**: Recuento de solicitudes HTTP.
+    * **Tiempo medio de respuesta**: Promedio de tiempo para que la aplicación web responda a las solicitudes HTTP.
 
     También se encuentran varias herramientas de autoservicio para la optimización y solución de problemas en esta página.
 
@@ -89,7 +89,7 @@ Los registros de aplicación y el servidor Web están deshabilitados de forma pr
 
     ![Vínculo de registros de diagnóstico](./media/monitoring/logging.png)
 
-1. Activar **registro de la aplicación (Filesystem)**. Si se le solicite, haga clic en el cuadro para instalar las extensiones para habilitar el registro en la aplicación web de aplicación.
+1. Activar **registro de la aplicación (Filesystem)** . Si se le solicite, haga clic en el cuadro para instalar las extensiones para habilitar el registro en la aplicación web de aplicación.
 1. Establecer **registro del servidor Web** a **sistema de archivos**.
 1. Escriba el **período de retención** en días. Por ejemplo, 30.
 1. Haga clic en **Guardar**.
@@ -111,7 +111,7 @@ Los registros también pueden ser [transmite a través de CLI de Azure o Azure P
 
 Azure Monitor proporciona también [alertas en tiempo real](/azure/monitoring-and-diagnostics/insights-alerts-portal) basadas en métricas, eventos administrativos y otros criterios.
 
-> *Nota: Actualmente, las alertas en métricas de la aplicación web solo está disponible en el servicio de alertas (clásico).*
+> *Nota: Actualmente, las alertas de las métricas de aplicación web solo están disponibles en el servicio de alertas (clásico).*
 
 El [alertas (clásico) servicio](/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) puede encontrarse en Azure Monitor o en el **supervisión** sección de la configuración de App Service.
 
@@ -135,7 +135,7 @@ En esta sección, se completó las tareas siguientes:
 
 ## <a name="additional-reading"></a>Lecturas adicionales
 
-* <xref:host-and-deploy/azure-apps/troubleshoot>
+* <xref:test/troubleshoot-azure-iis>
 * <xref:host-and-deploy/azure-iis-errors-reference>
 * [Supervisar el rendimiento de la aplicación web de Azure con Application Insights](/azure/application-insights/app-insights-azure-web-apps)
 * [Habilitar el registro de diagnósticos para las aplicaciones web en Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log)

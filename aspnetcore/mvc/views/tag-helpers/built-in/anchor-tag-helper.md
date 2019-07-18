@@ -4,18 +4,18 @@ author: pkellner
 description: Descubra los atributos del asistente de etiquetas delimitadoras de ASP.NET Core y el papel que desempeña cada atributo al ampliar el comportamiento de la etiqueta delimitadora de código HTML.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 4/18/2019
+ms.date: 04/18/2019
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: de45c99194d4825c1e404aa193b0f076ba659748
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 44fc4ff6334e33630974181021aa1a6880a89917
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64883430"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856222"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>Asistente de etiquetas delimitadoras en ASP.NET Core
 
-De [Peter Kellner](http://peterkellner.net) y [Scott Addie](https://github.com/scottaddie)
+De [Peter Kellner](https://peterkellner.net) y [Scott Addie](https://github.com/scottaddie)
 
 El [asistente de etiquetas delimitadoras](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper) mejora la etiqueta delimitadora de código HTML estándar (`<a ... ></a>`) agregando nuevos atributos. Por convención, los nombres de atributo tienen el prefijo `asp-`. El valor de atributo `href` del elemento delimitador representado se determina mediante los valores de los atributos `asp-`.
 
@@ -41,7 +41,7 @@ El código HTML generado:
 <a href="/Speaker">All Speakers</a>
 ```
 
-Si el atributo `asp-controller` está especificado y `asp-action` no lo está, el valor `asp-action` predeterminado es la acción del controlador asociada a la vista que se está ejecutando. Si se omite `asp-action` en el marcado anterior y se usa el asistente de etiquetas delimitadoras en la vista *Index* de *HomeController* (*/Home*), el código HTML generado es el siguiente:
+Si el atributo `asp-controller` está especificado y `asp-action` no lo está, el valor `asp-action` predeterminado es la acción del controlador asociada a la vista que se está ejecutando. Si se omite `asp-action` en el marcado anterior y se usa el asistente de etiquetas delimitadoras en la vista *Index* de *HomeController* ( */Home*), el código HTML generado es el siguiente:
 
 ```html
 <a href="/Home">All Speakers</a>
@@ -218,7 +218,7 @@ Tenga en cuenta la siguiente jerarquía de directorios:
       * **Controladores**
         * *HomeController.cs*
       * **Vistas**
-        * **Página principal**
+        * **Local**
           * *AboutBlog.cshtml*
           * *Index.cshtml*
         * *\_ViewStart.cshtml*

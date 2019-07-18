@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: 916a68c187cbf516a59d3c5d7578cdb6ada01b86
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 964072ad276f7e3e411ee41cb03a2efb9d05c585
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64887670"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856114"
 ---
 # <a name="image-tag-helper-in-aspnet-core"></a>Asistente de etiquetas de imagen en ASP.NET Core
 
-Por [Peter Kellner](http://peterkellner.net)
+Por [Peter Kellner](https://peterkellner.net)
 
 El asistente de etiquetas de imagen mejora la etiqueta `<img>` para proporcionar un comportamiento de limpieza de caché para archivos de imagen estática.
 
@@ -46,7 +46,7 @@ En este ejemplo se usa un asistente de etiquetas de imagen:
 <img src="~/images/asplogo.png" asp-append-version="true">
 ```
 
-Si el archivo estático existe en el directorio */wwwroot/images/*, el código HTML generado es similar al siguiente (el valor hash será diferente):
+Si el archivo estático existe en el directorio */wwwroot/images/* , el código HTML generado es similar al siguiente (el valor hash será diferente):
 
 ```html
 <img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM">

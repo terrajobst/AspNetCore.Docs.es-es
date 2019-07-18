@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2019
 uid: host-and-deploy/iis/transform-webconfig
-ms.openlocfilehash: bd8cf7d8515e874eefd2c326727f56d0a4b502a7
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 58dee024f5b032d1ef13df02648727b6a07eac1f
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087079"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813360"
 ---
 # <a name="transform-webconfig"></a>Transformación de web.config
 
@@ -21,9 +21,9 @@ Por [Vijay Ramakrishnan](https://github.com/vijayrkn) y [Luke Latham](https://gi
 Las transformaciones en el archivo *web.config* se pueden aplicar automáticamente al publicarse una aplicación en función de:
 
 * [Configuración de compilación](#build-configuration)
-* [Profile](#profile)
+* [Perfil](#profile)
 * [Entorno](#environment)
-* [Custom](#custom)
+* [Personalizada](#custom)
 
 Estas transformaciones se producen en cualquiera de los escenarios de generación *web.config* siguientes:
 
@@ -138,7 +138,7 @@ Al publicar desde Visual Studio y usar un perfil de publicación, consulte <xref
 
 La variable de entorno `ASPNETCORE_ENVIRONMENT` se agrega automáticamente al archivo *web.config* al especificarse el nombre del entorno.
 
-## <a name="custom"></a>Personalizados
+## <a name="custom"></a>Personalizado
 
 Las transformaciones personalizadas se ejecutan en último lugar, una vez transformados la [configuración de compilación](#build-configuration), el [perfil](#profile) y el [entorno](#environment).
 
@@ -182,5 +182,5 @@ dotnet publish /p:IsWebConfigTransformDisabled=true
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Sintaxis de transformación de Web.config para la implementación de proyectos de aplicación web](http://go.microsoft.com/fwlink/?LinkId=301874)
+* [Sintaxis de transformación de Web.config para la implementación de proyectos de aplicación web](https://go.microsoft.com/fwlink/?LinkId=301874)
 * [Sintaxis de transformación de Web.config para la implementación de proyectos web usando Visual Studio](https://docs.microsoft.com/previous-versions/aspnet/dd465326(v=vs.110))

@@ -9,7 +9,7 @@
 >* Copiar datos de la tabla antigua a la nueva tabla.
 >* Eliminar la tabla anterior.
 >
->Para obtener más información, vea los siguientes recursos:
+>Para obtener más información, consulte los siguientes recursos:
 >
 > * [Limitaciones del proveedor de base de datos SQLite para EF Core](/ef/core/providers/sqlite/limitations)
 > * [Personalización del código de migración](/ef/core/managing-schemas/migrations/#customize-migration-code)

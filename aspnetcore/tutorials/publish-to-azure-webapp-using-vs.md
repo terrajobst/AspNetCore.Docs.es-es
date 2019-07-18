@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo publicar una aplicación de ASP.NET Core en Azure App Service con Visual Studio.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/06/2018
+ms.date: 07/10/2019
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: c0251032d83349d4d3925d1ec594c9230ed6ad2d
-ms.sourcegitcommit: 6d9cf728465cdb0de1037633a8b7df9a8989cccb
+ms.openlocfilehash: dbb8229a52c8c93da94406ad64d03eff9631afb4
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67207644"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308333"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Publicar una aplicación de ASP.NET Core en Azure con Visual Studio
 
@@ -21,9 +21,9 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Vea [Publish to Azure from Visual Studio for Mac](https://blog.xamarin.com/publish-azure-visual-studio-mac/) (Publicación en Azure desde Visual Studio para Mac) si trabaja en un equipo macOS.
 
-Para solucionar un problema de implementación de App Service, vea <xref:host-and-deploy/azure-apps/troubleshoot>.
+Para solucionar un problema de implementación de App Service, vea <xref:test/troubleshoot-azure-iis>.
 
-## <a name="set-up"></a>Configurar
+## <a name="set-up"></a>Instalación
 
 * Abra una [cuenta gratuita de Azure](https://azure.microsoft.com/free/dotnet/) si no tiene una. 
 
@@ -31,7 +31,7 @@ Para solucionar un problema de implementación de App Service, vea <xref:host-an
 
 En la página de inicio de Visual Studio, seleccione **Archivo > Nuevo > Proyecto...** .
 
-![menú Archivo](publish-to-azure-webapp-using-vs/_static/file_new_project.png)
+![Menú Archivo](publish-to-azure-webapp-using-vs/_static/file_new_project.png)
 
 Complete el cuadro de diálogo **Nuevo proyecto**:
 
@@ -57,7 +57,7 @@ Se mostrará el cuadro de diálogo **Cambiar autenticación**.
 
 Visual Studio crea la solución.
 
-## <a name="run-the-app"></a>Ejecutar la aplicación
+## <a name="run-the-app"></a>Ejecución de la aplicación
 
 * Presione CTRL+F5 para ejecutar el proyecto.
 * Pruebe los vínculos **Acerca de** y **Contacto**.
@@ -91,7 +91,7 @@ En el cuadro de diálogo **Publicar**:
 
 ![Cuadro de diálogo Publicar](publish-to-azure-webapp-using-vs/_static/maas1.png)
 
-### <a name="create-azure-resources"></a>Crear recursos de Azure
+### <a name="create-azure-resources"></a>Creación de recursos de Azure
 
 Aparece el cuadro de diálogo **Crear servicio de aplicaciones**:
 
@@ -144,7 +144,7 @@ En la página **Configuración** del cuadro de diálogo **Publicar**, haga lo si
 
 Haga clic en **Publicar**. Visual Studio publica la aplicación en Azure. Cuando la implementación termine, la aplicación se abre en un explorador.
 
-### <a name="test-your-app-in-azure"></a>Prueba de la aplicación en Azure
+### <a name="test-your-app-in-azure"></a>Prueba de las aplicaciones en Azure
 
 * Pruebe los vínculos **Acerca de** y **Contacto**.
 
@@ -191,4 +191,4 @@ Cuando haya terminado de probar la aplicación, vaya a [Azure Portal](https://po
 * [Grupos de recursos de Azure](/azure/azure-resource-manager/resource-group-overview#resource-groups)
 * [Azure SQL Database](/azure/sql-database/)
 * <xref:host-and-deploy/visual-studio-publish-profiles>
-* <xref:host-and-deploy/azure-apps/troubleshoot>
+* <xref:test/troubleshoot-azure-iis>

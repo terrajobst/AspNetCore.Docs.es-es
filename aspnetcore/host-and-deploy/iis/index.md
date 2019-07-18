@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/16/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 644d84f9adba650b3ef10ba69cc75c22845be211
-ms.sourcegitcommit: 7e00e8236ca4eabf058f07020a5a3882daf7564f
+ms.openlocfilehash: a3d8c87fdb1cbc3b8b11b15f797190d626edad59
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68239241"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308066"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -20,12 +20,12 @@ Por [Luke Latham](https://github.com/guardrex)
 
 [Instalación del conjunto de hospedaje de .NET Core](#install-the-net-core-hosting-bundle)
 
-## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
+## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
 
 Los siguientes sistemas operativos son compatibles:
 
 * Windows 7 o posterior
-* Windows Server 2008 R2 o posterior
+* Windows Server 2008 R2 o versiones posteriores
 
 El [servidor HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominado WebListener) no funciona en una configuración de proxy inverso con IIS. Use el [servidor Kestrel](xref:fundamentals/servers/kestrel).
 
@@ -133,7 +133,7 @@ Para obtener instrucciones sobre la configuración del módulo ASP.NET Core, vea
 
 Para obtener más información sobre el hospedaje, consulte [Hospedaje en ASP.NET Core](xref:fundamentals/index#host).
 
-## <a name="application-configuration"></a>Configuración de aplicación
+## <a name="application-configuration"></a>Configuración de aplicaciones
 
 ### <a name="enable-the-iisintegration-components"></a>Habilitación de los componentes de integración con IIS
 
@@ -199,7 +199,7 @@ services.Configure<IISOptions>(options =>
 });
 ```
 
-| Opción                         | Default | Parámetro |
+| Opción                         | Default | Configuración |
 | ------------------------------ | :-----: | ------- |
 | `AutomaticAuthentication`      | `true`  | Si es `true`, el [middleware de integración con IIS](#enable-the-iisintegration-components) establece el `HttpContext.User` autenticado mediante [autenticación de Windows](xref:security/authentication/windowsauth). Si es `false`, el middleware solo proporciona una identidad para `HttpContext.User` y responde a los desafíos cuando se le solicita explícitamente mediante el `AuthenticationScheme`. Autenticación de Windows debe estar habilitado en IIS para que `AutomaticAuthentication` funcione. Para más información, consulte el tema [Autenticación de Windows](xref:security/authentication/windowsauth). |
 | `AuthenticationDisplayName`    | `null`  | Establece el nombre para mostrar que se muestra a los usuarios en las páginas de inicio de sesión. |
@@ -370,7 +370,7 @@ Al implementar aplicaciones en servidores con [Web Deploy](/iis/install/installi
 **Configuración de la autenticación de Windows (opcional)**  
 Para más información, consulte [Configurar la autenticación de Windows](xref:security/authentication/windowsauth).
 
-## <a name="deploy-the-app"></a>Implementación de la aplicación
+## <a name="deploy-the-app"></a>Implementar la aplicación
 
 Implemente la aplicación en la carpeta **Ruta de acceso física** de IIS que se creó en la sección [Creación del sitio de IIS](#create-the-iis-site). [Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) es el mecanismo recomendado para la implementación, pero existen varias opciones para mover la aplicación desde la carpeta *publicar* del proyecto a la carpeta de implementación del sistema host.
 
@@ -447,7 +447,7 @@ Para configurar la protección de datos en IIS para conservar el conjunto de cla
 
   1. Vaya a la carpeta *%windir%/system32/inetsrv/config*.
   1. Abra el archivo *applicationHost.config*.
-  1. Busque el elemento `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>` .
+  1. Busque el elemento `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>`.
   1. Confirme que el atributo `setProfileEnvironment` no está presente, que adopta de forma predeterminada el valor `true`, o establezca explícitamente el valor del atributo en `true`.
 
 * **Usar el sistema de archivos como un almacén de conjunto de claves**
@@ -734,10 +734,10 @@ Obtenga información sobre la estructura de directorios de las aplicaciones ASP.
 [Estructura de directorios](xref:host-and-deploy/directory-structure)
 
 Descubra módulos activos e inactivos de IIS para aplicaciones ASP.NET Core y cómo administrar módulos de IIS.  
-[Módulos de IIS](xref:host-and-deploy/iis/troubleshoot)
+[Módulos de IIS](xref:host-and-deploy/iis/modules)
 
 Obtenga información sobre cómo diagnosticar problemas con las implementaciones de aplicaciones ASP.NET Core por parte de IIS.  
-[Solucionar problemas](xref:host-and-deploy/iis/troubleshoot)
+[Solucionar problemas](xref:test/troubleshoot-azure-iis)
 
 Identifique los errores comunes al hospedar aplicaciones ASP.NET Core en IIS.  
 [Referencia de errores comunes de Azure App Service e IIS](xref:host-and-deploy/azure-iis-errors-reference)

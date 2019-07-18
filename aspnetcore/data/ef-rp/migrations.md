@@ -3,14 +3,14 @@ title: 'Páginas de Razor con EF Core en ASP.NET Core: Migraciones (4 de 8)'
 author: rick-anderson
 description: En este tutorial, empezará a usar la característica de EF Core de migraciones para administrar los cambios de modelos de datos en una aplicación de ASP.NET Core MVC.
 ms.author: riande
-ms.date: 6/31/2017
+ms.date: 06/30/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 406b94d74a99dcec3b2ce01a5eb3313c48819148
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: 54225a8126e04eb4ff3a6a0cde9d305249299887
+ms.sourcegitcommit: 1bf80f4acd62151ff8cce517f03f6fa891136409
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517012"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68223866"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Migraciones (4 de 8)
 
@@ -154,7 +154,7 @@ La migración de bases de datos debe realizarse como parte de la implementación
 
 EF Core usa la tabla `__MigrationsHistory` para ver si es necesario ejecutar las migraciones. Si la base de datos está actualizada, no se ejecuta ninguna migración.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 Descargue la [aplicación completada](
 https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations).
@@ -167,7 +167,7 @@ The login failed.
 Login failed for user 'user name'.
 ```
 
-Solución: Ejecute `dotnet ef database update`.
+Solución: Ejecute `dotnet ef database update`
 
 ### <a name="additional-resources"></a>Recursos adicionales
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/08/2019
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: d2b2456c7ab6b72f2270b6edc17000695061cc2b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: f2d5dbbdc80eec035616ddea234ee5d3343eeae8
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64887760"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815188"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Compatibilidad de IIS de tiempo de desarrollo en Visual Studio para ASP.NET Core
 
@@ -58,7 +58,7 @@ IIS debe tener un sitio web configurado con lo siguiente:
 
 Para un nuevo proyecto que requiere HTTPS, seleccione la casilla **Configurar para HTTPS** en la ventana **Crear una aplicación web ASP.NET Core**. Al seleccionar la casilla, se agrega [redireccionamiento HTTPS y middleware HSTS](xref:security/enforcing-ssl) a la aplicación cuando esta se crea.
 
-Para un proyecto existente que requiere HTTPS, use el redireccionamiento HTTPS y el middleware HSTS en `Startup.Configure`. Para obtener más información, vea <xref:security/enforcing-ssl>.
+Para un proyecto existente que requiere HTTPS, use el redireccionamiento HTTPS y el middleware HSTS en `Startup.Configure`. Para más información, consulte <xref:security/enforcing-ssl>.
 
 Para un proyecto que usa HTTP, el [redireccionamiento HTTPS y el middleware HSTS](xref:security/enforcing-ssl) no se agregan a la aplicación. No se requiere ninguna configuración de la aplicación.
 
@@ -68,7 +68,7 @@ Cree un nuevo perfil de inicio para agregar la compatibilidad con IIS en tiempo 
 
 ::: moniker range=">= aspnetcore-3.0"
 
-1. Haga clic con el botón derecho en el **Explorador de soluciones**. Haga clic en **Propiedades**. Abra la pestaña **Depurar**.
+1. Haga clic con el botón derecho en el **Explorador de soluciones**. Seleccione **Propiedades**. Abra la pestaña **Depurar**.
 1. En **Perfil**, seleccione el botón **Nuevo**. Asigne el perfil el nombre "IIS" en la ventana emergente. Seleccione **Aceptar** para crear el perfil.
 1. En **Iniciar**, seleccione **IIS** en la lista.
 1. Active la casilla **Iniciar explorador** y proporcione la dirección URL del punto de conexión.
@@ -89,7 +89,7 @@ Cree un nuevo perfil de inicio para agregar la compatibilidad con IIS en tiempo 
 
 ::: moniker range="< aspnetcore-3.0"
 
-1. Haga clic con el botón derecho en el **Explorador de soluciones**. Haga clic en **Propiedades**. Abra la pestaña **Depurar**.
+1. Haga clic con el botón derecho en el **Explorador de soluciones**. Seleccione **Propiedades**. Abra la pestaña **Depurar**.
 1. En **Perfil**, seleccione el botón **Nuevo**. Asigne el perfil el nombre "IIS" en la ventana emergente. Seleccione **Aceptar** para crear el perfil.
 1. En **Iniciar**, seleccione **IIS** en la lista.
 1. Active la casilla **Iniciar explorador** y proporcione la dirección URL del punto de conexión.
@@ -108,7 +108,7 @@ Cree un nuevo perfil de inicio para agregar la compatibilidad con IIS en tiempo 
 
 ::: moniker-end
 
-Si no se usa Visual Studio, agregue manualmente un perfil de inicio al archivo [launchSettings.json](http://json.schemastore.org/launchsettings) en la carpeta *Propiedades*. El siguiente ejemplo configura el perfil para usar el protocolo HTTPS:
+Si no se usa Visual Studio, agregue manualmente un perfil de inicio al archivo [launchSettings.json](https://json.schemastore.org/launchsettings) en la carpeta *Propiedades*. El siguiente ejemplo configura el perfil para usar el protocolo HTTPS:
 
 ```json
 {

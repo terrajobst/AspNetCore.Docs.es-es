@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: fb69584f6e9d4756e175bbd6f3deb1f413b80fc5
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 0273a9805dd5db5450f57dcf3fd4d952308df074
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64890470"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856213"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Asistente de etiquetas de caché en ASP.NET Core MVC
 
-Por [Peter Kellner](http://peterkellner.net) y [Luke Latham](https://github.com/guardrex) 
+Por [Peter Kellner](https://peterkellner.net) y [Luke Latham](https://github.com/guardrex) 
 
 El asistente de etiquetas de caché proporciona la capacidad para mejorar el rendimiento de la aplicación de ASP.NET Core al permitir almacenar en memoria caché su contenido en el proveedor de caché interno de ASP.NET Core.
 
@@ -33,11 +33,11 @@ La primera solicitud a la página que contiene el asistente de etiquetas muestra
 
 ### <a name="enabled"></a>enabled
 
-| Tipo de atributo  | Ejemplos        | Default |
+| Tipo de atributo  | Ejemplos        | Valor predeterminado |
 | --------------- | --------------- | ------- |
-| Booleano         | `true`, `false` | `true`  |
+| Boolean         | `true`, `false` | `true`  |
 
-`enabled` determina si se almacena en caché el contenido incluido por el asistente de etiquetas de caché. De manera predeterminada, es `true`. Si establece en `false`, el resultado representado **no** se almacena en caché.
+`enabled` determina si se almacena en caché el contenido incluido por el asistente de etiquetas de caché. El valor predeterminado es `true`. Si establece en `false`, el resultado representado **no** se almacena en caché.
 
 Ejemplo:
 
@@ -65,7 +65,7 @@ En este ejemplo se almacena en caché el contenido del asistente de etiquetas de
 
 ### <a name="expires-after"></a>expires-after
 
-| Tipo de atributo | Ejemplo                      | Default    |
+| Tipo de atributo | Ejemplo                      | Valor predeterminado    |
 | -------------- | ---------------------------- | ---------- |
 | `TimeSpan`     | `@TimeSpan.FromSeconds(120)` | 20 minutos |
 
@@ -101,7 +101,7 @@ Ejemplo:
 
 | Tipo de atributo | Ejemplos                                    |
 | -------------- | ------------------------------------------- |
-| String         | `User-Agent`, `User-Agent,content-encoding` |
+| Cadena         | `User-Agent`, `User-Agent,content-encoding` |
 
 `vary-by-header` acepta una lista de los valores de encabezado separados por comas que desencadenan una actualización de la caché cuando cambian.
 
@@ -117,7 +117,7 @@ En el ejemplo siguiente se supervisa el valor del encabezado `User-Agent`. En el
 
 | Tipo de atributo | Ejemplos             |
 | -------------- | -------------------- |
-| String         | `Make`, `Make,Model` |
+| Cadena         | `Make`, `Make,Model` |
 
 `vary-by-query` acepta una lista de valores separados por comas de <xref:Microsoft.AspNetCore.Http.IQueryCollection.Keys*> en una cadena de consulta (<xref:Microsoft.AspNetCore.Http.HttpRequest.Query*>) que desencadenan una actualización de la caché cuando cambia el valor de cualquiera de las claves.
 
@@ -133,7 +133,7 @@ En este ejemplo se supervisan los valores de `Make` y `Model`. En el ejemplo se 
 
 | Tipo de atributo | Ejemplos             |
 | -------------- | -------------------- |
-| String         | `Make`, `Make,Model` |
+| Cadena         | `Make`, `Make,Model` |
 
 `vary-by-route` acepta una lista delimitada por comas de nombres de parámetros de ruta que desencadenan una actualización de la caché cuando el valor del parámetro de datos de ruta cambia.
 
@@ -159,7 +159,7 @@ routes.MapRoute(
 
 | Tipo de atributo | Ejemplos                                                                         |
 | -------------- | -------------------------------------------------------------------------------- |
-| String         | `.AspNetCore.Identity.Application`, `.AspNetCore.Identity.Application,HairColor` |
+| Cadena         | `.AspNetCore.Identity.Application`, `.AspNetCore.Identity.Application,HairColor` |
 
 `vary-by-cookie` acepta una lista delimitada por comas de nombres de cookies que desencadenan una actualización de la caché cuando los valores de las cookies cambian.
 
@@ -173,9 +173,9 @@ En este ejemplo se supervisa la cookie asociada con ASP.NET Core Identity. Cuand
 
 ### <a name="vary-by-user"></a>vary-by-user
 
-| Tipo de atributo  | Ejemplos        | Default |
+| Tipo de atributo  | Ejemplos        | Valor predeterminado |
 | --------------- | --------------- | ------- |
-| Booleano         | `true`, `false` | `true`  |
+| Boolean         | `true`, `false` | `true`  |
 
 `vary-by-user` especifica la memoria caché se restablece o no cuando cambia el usuario que ha iniciado la sesión (o la entidad de seguridad del contexto). El usuario actual también se conoce como entidad de seguridad del contexto de solicitud y puede verse en una vista Razor mediante una referencia a `@User.Identity.Name`.
 
@@ -193,7 +193,7 @@ Con este atributo, se mantiene el contenido en caché a través de un ciclo de i
 
 | Tipo de atributo | Ejemplo  |
 | -------------- | -------- |
-| String         | `@Model` |
+| Cadena         | `@Model` |
 
 `vary-by` permite personalizar qué datos se almacenan en caché. Cuando el objeto al que hace referencia el valor de cadena del atributo cambia, el contenido del asistente de etiqueta de caché se actualiza. A menudo se asignan a este atributo una concatenación de cadenas de valores del modelo. De hecho, esto provoca una situación en la que una actualización de cualquiera de los valores concatenados invalida la memoria caché.
 
@@ -222,7 +222,7 @@ public IActionResult Index(string myParam1, string myParam2, string myParam3)
 
 ### <a name="priority"></a>priority
 
-| Tipo de atributo      | Ejemplos                               | Default  |
+| Tipo de atributo      | Ejemplos                               | Valor predeterminado  |
 | ------------------- | -------------------------------------- | -------- |
 | `CacheItemPriority` | `High`, `Low`, `NeverRemove`, `Normal` | `Normal` |
 

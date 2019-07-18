@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 2776e3357941d0e7932882c39af121f85d037d62
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8ef458108e60850d0d54e7b1e6472c5b92984ccc
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64887250"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813540"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Tutorial: Creación de un modelo de datos complejo: ASP.NET MVC con EF Core
 
@@ -22,7 +22,7 @@ Cuando haya terminado, las clases de entidad conformarán el modelo de datos com
 
 ![Diagrama de entidades](complex-data-model/_static/diagram.png)
 
-En este tutorial ha:
+En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
 > * Personaliza el modelo de datos
@@ -285,7 +285,7 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 ## <a name="create-department-entity"></a>Crea la entidad Department
 
-![La entidad Department](complex-data-model/_static/department-entity.png)
+![Entidad de departamento](complex-data-model/_static/department-entity.png)
 
 Cree *Models/Department.cs* con el código siguiente:
 
@@ -397,7 +397,7 @@ Este código agrega las nuevas entidades y configura la clave principal compuest
 
 ## <a name="about-a-fluent-api-alternative"></a>Acerca de una alternativa de la API fluida
 
-En el código del método `OnModelCreating` de la clase `DbContext` se usa la *API fluida* para configurar el comportamiento de EF. La API se denomina "fluida" porque a menudo se usa para encadenar una serie de llamadas de método en una única instrucción, como en este ejemplo de la [documentación de EF Core](/ef/core/modeling/#methods-of-configuration):
+En el código del método `OnModelCreating` de la clase `DbContext` se usa la *API fluida* para configurar el comportamiento de EF. La API se denomina "fluida" porque a menudo se usa para encadenar una serie de llamadas de método en una única instrucción, como en este ejemplo de la [documentación de EF Core](/ef/core/modeling/#use-fluent-api-to-configure-a-model):
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -412,7 +412,7 @@ En este tutorial, solo se usa la API fluida para la asignación de base de datos
 
 Algunos desarrolladores prefieren usar la API fluida exclusivamente para mantener "limpias" las clases de entidad. Si quiere, puede mezclar atributos y la API fluida, y hay algunas personalizaciones que solo se pueden realizar mediante la API fluida, pero en general el procedimiento recomendado es elegir uno de estos dos enfoques y usarlo de forma constante siempre que sea posible. Si usa ambos enfoques, tenga en cuenta que siempre que hay un conflicto, la API fluida invalida los atributos.
 
-Para obtener más información sobre la diferencia entre los atributos y la API fluida, vea [Métodos de configuración](/ef/core/modeling/#methods-of-configuration).
+Para obtener más información sobre la diferencia entre los atributos y la API fluida, vea [Métodos de configuración](/ef/core/modeling/).
 
 ## <a name="entity-diagram-showing-relationships"></a>Diagrama de entidades en el que se muestran las relaciones
 
@@ -513,7 +513,7 @@ Haga clic con el botón derecho en la tabla **CourseAssignment** y seleccione **
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha:
+En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
 > * Personalizado el modelo de datos

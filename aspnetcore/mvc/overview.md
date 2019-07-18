@@ -5,12 +5,12 @@ description: Conozca ASP.NET Core MVC, un marco completo para crear aplicaciones
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: eb636616ab952f506993ae5f4692e5e966bb20f4
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 819bc93a7580626bf586b984b0ce169306df56d9
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087319"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815352"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Información general de ASP.NET Core MVC
 
@@ -29,7 +29,7 @@ En el siguiente diagrama se muestran los tres componentes principales y cuál ha
 Con esta delineación de responsabilidades es más sencillo escalar la aplicación, porque resulta más fácil codificar, depurar y probar algo (modelo, vista o controlador) que tenga un solo trabajo. Es más difícil actualizar, probar y depurar código que tenga dependencias repartidas entre dos o más de estas tres áreas. Por ejemplo, la lógica de la interfaz de usuario tiende a cambiar con mayor frecuencia que la lógica de negocios. Si el código de presentación y la lógica de negocios se combinan en un solo objeto, un objeto que contenga lógica de negocios deberá modificarse cada vez que cambie la interfaz de usuario. A menudo esto genera errores y es necesario volver a probar la lógica de negocio después de cada cambio mínimo en la interfaz de usuario.
 
 > [!NOTE]
-> La vista y el controlador dependen del modelo. Sin embargo, el modelo no depende de la vista ni del controlador.  Esta es una de las ventajas principales de la separación. Esta separación permite compilar y probar el modelo con independencia de la presentación visual.
+> La vista y el controlador dependen del modelo. Sin embargo, el modelo no depende de la vista ni del controlador. Esta es una de las ventajas principales de la separación. Esta separación permite compilar y probar el modelo con independencia de la presentación visual.
 
 ### <a name="model-responsibilities"></a>Responsabilidades del modelo
 
@@ -179,7 +179,7 @@ Además de ser una plataforma excelente para crear sitios web, ASP.NET Core MVC 
 
 El marco incluye compatibilidad con la negociación de contenido HTTP y compatibilidad integrada para [aplicar formato a datos](xref:web-api/advanced/formatting) como JSON o XML. Escriba [formateadores personalizados](xref:web-api/advanced/custom-formatters) para agregar compatibilidad con sus propios formatos.
 
-Use la generación de vínculos para habilitar la compatibilidad con hipermedios. Habilite fácilmente la compatibilidad con el [uso compartido de recursos entre orígenes (CORS)](http://www.w3.org/TR/cors/) para que las API web se pueden compartir entre varias aplicaciones web.
+Use la generación de vínculos para habilitar la compatibilidad con hipermedios. Habilite fácilmente la compatibilidad con el [uso compartido de recursos entre orígenes (CORS)](https://www.w3.org/TR/cors/) para que las API web se pueden compartir entre varias aplicaciones web.
 
 ### <a name="testability"></a>Capacidad de prueba
 
@@ -252,4 +252,4 @@ Los [componentes de vista](views/view-components.md) permiten empaquetar la lóg
 
 El método <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> permite a una aplicación participar o no en los cambios de comportamiento importantes incorporados en ASP.NET Core MVC 2.1 o una versión posterior.
 
-Para obtener más información, vea <xref:mvc/compatibility-version>.
+Para más información, consulte <xref:mvc/compatibility-version>.
