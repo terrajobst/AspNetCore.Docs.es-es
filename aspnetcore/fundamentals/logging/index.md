@@ -6,18 +6,18 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 51433cbf35e434300fbefae29f33594e765bcc7b
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: cdb5cad2302cc8ec02107021005b8590efce7533
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67855924"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308218"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/) y [Tom Dykstra](https://github.com/tdykstra)
 
-ASP.NET Core es compatible con una API de registro que funciona con una gran variedad de proveedores de registro integrados y de terceros. En este artículo se muestra cómo usar las API de registro con proveedores integrados.
+ASP.NET Core es compatible con una API de registro que funciona con una variedad de proveedores de registro integrados y de terceros. En este artículo se muestra cómo usar las API de registro con proveedores integrados.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
@@ -36,7 +36,7 @@ El código anterior requiere referencias a `Microsoft.Extensions.Logging` y `Mic
 La plantilla de proyecto predeterminada llama a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, que agrega los siguientes proveedores de registro:
 
 * Consola
-* Depuración
+* Depurar
 * EventSource (a partir de ASP.NET Core 2.2)
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_TemplateCode&highlight=7)]
@@ -219,7 +219,7 @@ En el resto de este artículo se explican algunos detalles y opciones para el re
 
 Las interfaces `ILogger` e `ILoggerFactory` se encuentran en [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/), y sus implementaciones predeterminadas en [Microsoft.Extensions.Logging](https://www.nuget.org/packages/microsoft.extensions.logging/).
 
-## <a name="log-category"></a>Categoría de registro
+## <a name="log-category"></a>Categoría del registro
 
 Cuando se crea un objeto `ILogger`, se ha especificado una *categoría* para él. Esa categoría se incluye con cada mensaje de registro creado por esa instancia de `ILogger`. La categoría puede ser cualquier cadena, pero la convención es usar el nombre de clase, como "TodoApi.Controllers.TodoController".
 
@@ -465,16 +465,16 @@ El segundo `AddFilter` especifica el proveedor de depuración mediante su nombre
 
 Los datos de configuración y el código de `AddFilter` que se muestran en los ejemplos anteriores crean las reglas que se muestran en la tabla siguiente. Las seis primeras proceden del ejemplo de configuración y las dos últimas del ejemplo de código.
 
-| número | Proveedor      | Categorías que comienzan por...          | Nivel de registro mínimo |
+| Number | Proveedor      | Categorías que comienzan por...          | Nivel de registro mínimo |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1      | Depuración         | Todas las categorías                          | Información       |
+| 1      | Depurar         | Todas las categorías                          | Information       |
 | 2      | Consola       | Microsoft.AspNetCore.Mvc.Razor.Internal | Advertencia           |
-| 3      | Consola       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Depuración             |
+| 3      | Consola       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Depurar             |
 | 4      | Consola       | Microsoft.AspNetCore.Mvc.Razor          | Error             |
-| 5      | Consola       | Todas las categorías                          | Información       |
-| 6      | Todos los proveedores | Todas las categorías                          | Depuración             |
-| 7      | Todos los proveedores | Sistema                                  | Depuración             |
-| 8      | Depuración         | Microsoft                               | Seguimiento             |
+| 5      | Consola       | Todas las categorías                          | Information       |
+| 6      | Todos los proveedores | Todas las categorías                          | Depurar             |
+| 7      | Todos los proveedores | Sistema                                  | Depurar             |
+| 8      | Depurar         | Microsoft                               | Seguimiento             |
 
 Cuando se crea un objeto `ILogger`, el objeto `ILoggerFactory` selecciona una sola regla por proveedor para aplicar a ese registrador. Todos los mensajes escritos por una instancia `ILogger` se filtran según las reglas seleccionadas. De las reglas disponibles se selecciona la más específica posible para cada par de categoría y proveedor.
 
@@ -497,7 +497,7 @@ La instancia `ILogger` resultante envía los registros de nivel `Trace` y superi
 Cada proveedor define un *alias* que se puede utilizar en la configuración en lugar del nombre de tipo completo.  Para los proveedores integrados, use los alias siguientes:
 
 * Consola
-* Depuración
+* Depurar
 * EventSource
 * EventLog
 * TraceSource
@@ -614,16 +614,16 @@ warn: TodoApi.Controllers.TodoController[4000]
 
 ASP.NET Core incluye los proveedores siguientes:
 
-* [Consola](#console-provider)
-* [Depurar](#debug-provider)
+* [Console](#console-provider)
+* [Depuración](#debug-provider)
 * [EventSource](#eventsource-provider)
 * [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
 * [AzureAppServicesFile](#azure-app-service-provider)
 * [AzureAppServicesBlob](#azure-app-service-provider)
-* [ApplicationInsights](#azure-application-insights-trace-logging)
+* [Application Insights](#azure-application-insights-trace-logging)
 
-Para información sobre el registro de stdout, consulte <xref:host-and-deploy/iis/troubleshoot#aspnet-core-module-stdout-log> y <xref:host-and-deploy/azure-apps/troubleshoot#aspnet-core-module-stdout-log>.
+Para obtener información sobre stdout y el registro de depuración con el módulo ASP.NET Core, consulte <xref:test/troubleshoot-azure-iis> y <xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection>.
 
 ### <a name="console-provider"></a>Proveedor de la consola
 
@@ -847,7 +847,7 @@ Las secuencias de registro de Azure permiten ver la actividad de registro en tie
 Para configurar las secuencias de registro de Azure:
 
 * Navegue hasta la página **Registros de App Service** desde la página de portal de la aplicación.
-* Establezca **Registro de la aplicación (sistema de archivos)** en **Activado**.
+* Establezca la opción **Registro de la aplicación (sistema de archivos)** en **Activada**.
 * Elija el **Nivel** de registro.
 
 Navegue hasta la página **Secuencia de registro** para consultar los mensajes de la aplicación. La aplicación los registra a través de la interfaz `ILogger`.
@@ -862,7 +862,7 @@ El proveedor de registro se incluye como dependencia de [Microsoft.ApplicationIn
 
 No use el paquete [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) &mdash;que es para ASP.NET 4.x.
 
-Para obtener más información, vea los siguientes recursos:
+Para obtener más información, consulte los siguientes recursos:
 
 * [Información general de Application Insights](/azure/application-insights/app-insights-overview)
 * [Application Insights para aplicaciones de ASP.NET Core](/azure/azure-monitor/app/asp-net-core-no-visualstudio): comience aquí si quiere implementar la variedad completa de telemetría de Application Insights junto con el registro.

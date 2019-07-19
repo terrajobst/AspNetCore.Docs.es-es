@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 04/06/2019
 uid: razor-pages/index
-ms.openlocfilehash: 419355d670536fef1a38fbcb8ce1fd880c0e9b0d
-ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
+ms.openlocfilehash: 406e89c96ea63493091d0287077e244faee5f730
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555738"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308004"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -169,7 +169,7 @@ La propiedad `Customer` usa el atributo `[BindProperty]` para participar en el e
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_PageModel&highlight=10-11)]
 
-De forma predeterminada, las páginas de Razor enlazan propiedades solo con verbos que no sean GET. Enlazar a propiedades puede reducir la cantidad de código que se debe escribir. Enlazar reduce el código al usar la misma propiedad para representar los campos de formulario (`<input asp-for="Customer.Name">`) y aceptar la entrada.
+De forma predeterminada, Razor Pages enlaza propiedades solo con verbos que no sean `GET`. Enlazar a propiedades puede reducir la cantidad de código que se debe escribir. Enlazar reduce el código al usar la misma propiedad para representar los campos de formulario (`<input asp-for="Customer.Name">`) y aceptar la entrada.
 
 [!INCLUDE[](~/includes/bind-get.md)]
 
@@ -185,7 +185,7 @@ El archivo *Index.cshtml* contiene el siguiente marcado para crear un vínculo d
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-El [asistente de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usado el atributo `asp-route-{value}` para generar un vínculo a la página de edición. El vínculo contiene datos de ruta con el identificador del contacto. Por ejemplo: `http://localhost:5000/Edit/1`. Use el atributo `asp-area` para especificar un área. Para más información, consulte <xref:mvc/controllers/areas>.
+El [asistente de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usado el atributo `asp-route-{value}` para generar un vínculo a la página de edición. El vínculo contiene datos de ruta con el identificador del contacto. Por ejemplo, `http://localhost:5000/Edit/1`. Use el atributo `asp-area` para especificar un área. Para más información, consulte <xref:mvc/controllers/areas>.
 
 El archivo *Pages/Edit.cshtml*:
 
@@ -218,7 +218,7 @@ Aquí tiene un ejemplo de un botón de eliminar representado con un id. de conta
 
 Al seleccionar el botón, se envía una solicitud de formulario `POST` al servidor. De forma predeterminada, el nombre del método de control se selecciona de acuerdo con el valor del parámetro `handler` y según el esquema `OnPost[handler]Async`.
 
-Como en este ejemplo `handler` es `delete`, el método de control `OnPostDeleteAsync` se usa para procesar la solicitud `POST`. Si `asp-page-handler` se establece en otro valor, como `remove`, se seleccionará un método de control de páginas con el nombre `OnPostRemoveAsync`.
+Como en este ejemplo `handler` es `delete`, el método de control `OnPostDeleteAsync` se usa para procesar la solicitud `POST`. Si `asp-page-handler` se establece en otro valor, como `remove`, se seleccionará un método de controlador llamado `OnPostRemoveAsync`.
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Index.cshtml.cs?range=26-37)]
 
@@ -239,11 +239,11 @@ Las propiedades de un valor `PageModel` se pueden decorar con el atributo [Requi
 
 Para obtener más información, vea [Validación de modelos](xref:mvc/models/validation).
 
-## <a name="manage-head-requests-with-the-onget-handler"></a>Administración de solicitudes HEAD con el controlador OnGet
+## <a name="handle-head-requests-with-an-onget-handler-fallback"></a>Control de solicitudes HEAD con un controlador OnGet de reserva
 
-Las solicitudes HEAD le permiten recuperar los encabezados de un recurso específico. A diferencia de las solicitudes GET, las solicitudes HEAD no devuelven un cuerpo de respuesta.
+Las solicitudes `HEAD` permiten recuperar los encabezados de un recurso específico. A diferencia de las solicitudes `GET`, las solicitudes `HEAD` no devuelven un cuerpo de respuesta.
 
-Normalmente, se crea un controlador HEAD al que se llama para las solicitudes HEAD: 
+Normalmente, se crea un controlador `OnHead` al que se llama para las solicitudes `HEAD`: 
 
 ```csharp
 public void OnHead()
@@ -252,18 +252,16 @@ public void OnHead()
 }
 ```
 
-Si no se define ningún controlador HEAD (`OnHead`), las páginas de Razor vuelven a llamar al controlador de páginas GET (`OnGet`) en ASP.NET Core 2.1 o posterior. En ASP.NET Core 2.1 y 2.2, este comportamiento se produce con [SetCompatibilityVersion](xref:mvc/compatibility-version) en `Startup.Configure`:
+En ASP.NET Core 2.1 o versiones posteriores, Razor Pages recurre a una llamada al controlador `OnGet` si no se define ningún controlador `OnHead`. Este comportamiento se habilita mediante la llamada a [SetCompatibilityVersion](xref:mvc/compatibility-version) en `Startup.ConfigureServices`:
 
 ```csharp
 services.AddMvc()
-    .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+    .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 ```
 
-Las plantillas predeterminadas generan la llamada `SetCompatibilityVersion` en ASP.NET Core 2.1 y 2.2.
+Las plantillas predeterminadas generan la llamada `SetCompatibilityVersion` en ASP.NET Core 2.1 y 2.2. `SetCompatibilityVersion` define con eficacia la opción de las páginas de Razor `AllowMappingHeadRequestsToGetHandler` como `true`.
 
-`SetCompatibilityVersion` define con eficacia la opción de las páginas de Razor `AllowMappingHeadRequestsToGetHandler` como `true`.
-
-En lugar de participar en todos los comportamientos de 2.1 con `SetCompatibilityVersion`, puede participar explícitamente en comportamientos específicos. El código que se indica a continuación participa en las solicitudes HEAD de asignación del controlador GET.
+En lugar de aceptar todos los comportamientos con `SetCompatibilityVersion`, puede aceptar explícitamente comportamientos *específicos*. El código siguiente permite que las solicitudes `HEAD` se asignen al controlador `OnGet`:
 
 ```csharp
 services.AddMvc()
@@ -401,7 +399,7 @@ El nombre de página es la ruta de acceso a la página de la carpeta raíz */Pag
 
 La generación de direcciones URL para las páginas admite nombres relativos. En la siguiente tabla, se muestra qué página de índice está seleccionada con diferentes parámetros `RedirectToPage` de *Pages/Customers/Create.cshtml*:
 
-| RedirectToPage(x)| Página |
+| RedirectToPage(x)| Page |
 | ----------------- | ------------ |
 | RedirectToPage("/Index") | *Pages/Index* |
 | RedirectToPage("./Index"); | *Pages/Customers/Index* |
@@ -487,7 +485,7 @@ Para obtener más información, vea [TempData](xref:fundamentals/app-state#tempd
 
 ## <a name="multiple-handlers-per-page"></a>Varios controladores por página
 
-La siguiente página genera marcado para dos controladores de páginas mediante el asistente de etiquetas `asp-page-handler`:
+En la página siguiente se usa el asistente de etiquetas `asp-page-handler` para generar marcado para dos controladores:
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml?highlight=12-13)]
 

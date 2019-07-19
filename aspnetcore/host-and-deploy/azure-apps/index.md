@@ -5,14 +5,14 @@ description: Este artículo contiene vínculos a recursos de implementación y h
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 07/16/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 5daefde13310ebeb232ef4c8886b12ad78182e50
-ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
+ms.openlocfilehash: bbdb3e92b6b8afb44d9c0c95c240002c7b7c17db
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048243"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308156"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -42,13 +42,13 @@ Configure una compilación de integración continua para una aplicación de ASP.
 [Espacio aislado de Azure Web App](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
 Detecte limitaciones de ejecución en tiempo de ejecución de Azure App Service aplicadas por la plataforma de aplicaciones de Azure.
 
-## <a name="application-configuration"></a>Configuración de aplicación
+## <a name="application-configuration"></a>Configuración de aplicaciones
 
 ### <a name="platform"></a>Plataforma
 
 ::: moniker range=">= aspnetcore-2.2"
 
-Los runtimes para aplicaciones de 64 bits (x64) y 32 bits (x86) están presentes en Azure App Service. El [SDK de .NET Core](/dotnet/core/sdk) está disponible en App Service es para 32 bits, pero puede implementar aplicaciones de 64 bits con la consola de [Kudu](https://github.com/projectkudu/kudu/wiki) o [el comando MSDeploy con un perfil de publicador de Visual Studio o CLI](xref:host-and-deploy/visual-studio-publish-profiles).
+Los runtimes para aplicaciones de 64 bits (x64) y 32 bits (x86) están presentes en Azure App Service. El [SDK de .NET Core](/dotnet/core/sdk) que está disponible en App Service es para 32 bits, pero es posible implementar aplicaciones de 64 bits compiladas localmente con la consola de [Kudu](https://github.com/projectkudu/kudu/wiki) o el proceso de publicación de Visual Studio. Para obtener más información, consulte la sección [Publicar e implementar la aplicación](#publish-and-deploy-the-app).
 
 ::: moniker-end
 
@@ -57,6 +57,8 @@ Los runtimes para aplicaciones de 64 bits (x64) y 32 bits (x86) están presentes
 En el caso de las aplicaciones con dependencias nativas, los runtimes de 32 bits (x86) están presentes Azure App Service. El [SDK de .NET Core](/dotnet/core/sdk) disponible en App Service es de 32 bits.
 
 ::: moniker-end
+
+Para obtener más detalles sobre los componentes y los métodos de distribución del marco .NET Core —por ejemplo, información sobre .NET Core Runtime—, consulte [Sobre .NET Core: Composición](/dotnet/core/about#composition).
 
 ### <a name="packages"></a>Paquetes
 
@@ -80,7 +82,7 @@ Cuando una aplicación usa el [host genérico](xref:fundamentals/host/generic-ho
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.0 <= aspnetcore-2.2"
+::: moniker range="< aspnetcore-3.0"
 
 Cuando una aplicación compila el host mediante [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), en las variables de entorno que configuran el host se usa el prefijo `ASPNETCORE_`. Para más información, consulte <xref:fundamentals/host/web-host> y el [proveedor de configuración de variables de entorno](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
@@ -115,7 +117,7 @@ Descubra cómo habilitar y acceder a registro de diagnóstico para los códigos 
 <xref:fundamentals/error-handling>  
 Conozca los métodos habituales para controlar los errores en las aplicaciones de ASP.NET Core.
 
-<xref:host-and-deploy/azure-apps/troubleshoot>  
+<xref:test/troubleshoot-azure-iis>  
 Obtenga información sobre cómo diagnosticar problemas con las implementaciones de Azure App Service con las aplicaciones de ASP.NET Core.
 
 <xref:host-and-deploy/azure-iis-errors-reference>  
@@ -132,14 +134,14 @@ Al realizar un intercambio entre ranuras de implementación, cualquier sistema q
 * Almacén SQL
 * Redis Cache
 
-Para obtener más información, vea <xref:security/data-protection/implementation/key-storage-providers>.
+Para más información, consulte <xref:security/data-protection/implementation/key-storage-providers>.
 
 ## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Implementar una versión preliminar de ASP.NET Core en Azure App Service
 
-Siga uno de estos procedimientos:
+Si la aplicación se basa en una versión preliminar de .NET Core, use uno de los métodos siguientes:
 
 * [Instalación de la extensión de sitio de versión preliminar](#install-the-preview-site-extension).
-* [Implementación de la aplicación independiente](#deploy-the-app-self-contained).
+* [Implementación de la versión preliminar de una aplicación independiente](#deploy-a-self-contained-preview-app).
 * [Uso de Docker con Web Apps para contenedores](#use-docker-with-web-apps-for-containers).
 
 ### <a name="install-the-preview-site-extension"></a>Instalación de la extensión de sitio de versión preliminar
@@ -188,7 +190,7 @@ Si usa una plantilla de ARM para crear e implementar aplicaciones, puede usar el
 
 [!code-json[](index/sample/arm.json?highlight=2)]
 
-### <a name="deploy-the-app-self-contained"></a>Implementación de la aplicación independiente
+### <a name="deploy-a-self-contained-preview-app"></a>Implementación de la versión preliminar de una aplicación independiente
 
 Una [implementación independiente (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) que tiene como destino un entorno de ejecución en versión preliminar transporta el entorno de ejecución en versión preliminar en la implementación.
 
@@ -197,26 +199,76 @@ Al implementar una aplicación independiente:
 * El sitio en Azure App Service no requiere la [extensión del sitio en versión preliminar](#install-the-preview-site-extension).
 * Se debe publicar la aplicación siguiendo un enfoque diferente que cuando se publica para una [implementación dependiente del marco (FDD)](/dotnet/core/deploying#framework-dependent-deployments-fdd).
 
-#### <a name="publish-from-visual-studio"></a>Publicación desde Visual Studio
+Siga las instrucciones de la sección [Implementación de la aplicación independiente](#deploy-the-app-self-contained).
 
-1. Seleccione **Compilar** > **Publicar {nombre de la aplicación}** desde la barra de herramientas de Visual Studio.
+### <a name="use-docker-with-web-apps-for-containers"></a>Usar Docker con Web Apps para contenedores
+
+[Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) contiene las imágenes de Docker de versión preliminar más recientes. Las imágenes se pueden usar como base. Use la imagen y efectúe la implementación en Web App for Containers con normalidad.
+
+## <a name="publish-and-deploy-the-app"></a>Publicar e implementar la aplicación
+
+### <a name="deploy-the-app-framework-dependent"></a>Implementación de la aplicación dependiente del marco de trabajo
+
+::: moniker range=">= aspnetcore-2.2"
+
+Para una [implementación dependiente de marco de trabajo](/dotnet/core/deploying/#framework-dependent-deployments-fdd) de 64 bits:
+
+* Use un SDK de .NET Core de 64 bits para compilar una aplicación de 64 bits.
+* Establezca la **Plataforma** en **64 bits** en **Configuración** > **Configuración general** de App Service. La aplicación debe usar un plan de servicio básico o superior para habilitar la elección del valor de bits de la plataforma.
+
+::: moniker-end
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+1. Seleccione **Compilar** > **Publicar {Nombre de la aplicación}** en la barra de herramientas de Visual Studio o, en el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**.
+1. En el cuadro de diálogo **Elegir un destino de publicación**, confirme que está seleccionado **App Service**.
+1. Seleccione **Opciones avanzadas**. Se abre el cuadro de diálogo **Publicar**.
+1. En el cuadro de diálogo **Publicar**:
+   * Confirme que está seleccionada la configuración de **Versión**.
+   * Abra la lista desplegable **Modo de implementación** y seleccione **Dependiente de marco de trabajo**.
+   * Seleccione **Portátil** como **Tiempo de ejecución de destino**.
+   * Si necesita quitar archivos adicionales tras la implementación, abra **Opciones de publicación de archivos** y active la casilla de verificación para quitar archivos adicionales en el destino.
+   * Seleccione **Guardar**.
+1. Cree un sitio nuevo o actualice un sitio existente siguiendo las instrucciones restantes del asistente para publicación.
+
+# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli/)
+
+1. En el archivo de proyecto, no especifique [Identificador en tiempo de ejecución (RID)](/dotnet/core/rid-catalog).
+
+1. Desde un shell de comandos, publique la aplicación en Configuración de versión con el comando [dotnet publish](/dotnet/core/tools/dotnet-publish). En el ejemplo siguiente, la aplicación está publicada como aplicación dependiente de marco de trabajo:
+
+   ```console
+   dotnet publish --configuration Release
+   ```
+
+1. Mueva el contenido del directorio *bin/Release/{TARGET FRAMEWORK}/publish* al sitio de App Service. Si va a arrastrar el contenido de la carpeta *publish* de su disco duro local o de un recurso compartido de red directamente a App Service en la consola de [Kudu](https://github.com/projectkudu/kudu/wiki), arrastre los archivos a la carpeta `D:\home\site\wwwroot` en la consola de Kudu.
+
+---
+
+### <a name="deploy-the-app-self-contained"></a>Implementación de la aplicación independiente
+
+Use Visual Studio o las herramientas de la interfaz de la línea de comandos (CLI) para una [implementación independiente (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+1. Seleccione **Compilar** > **Publicar {Nombre de la aplicación}** en la barra de herramientas de Visual Studio o, en el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**.
 1. En el cuadro de diálogo **Elegir un destino de publicación**, confirme que está seleccionado **App Service**.
 1. Seleccione **Opciones avanzadas**. Se abre el cuadro de diálogo **Publicar**.
 1. En el cuadro de diálogo **Publicar**:
    * Confirme que está seleccionada la configuración de **Versión**.
    * Abra la lista desplegable **Modo de implementación** y seleccione **Independiente**.
-   * Seleccione el entorno de ejecución de destino en la lista desplegable **Tiempo de ejecución de destino**. De manera predeterminada, es `win-x86`.
+   * Seleccione el entorno de ejecución de destino en la lista desplegable **Tiempo de ejecución de destino**. El valor predeterminado es `win-x86`.
    * Si necesita quitar archivos adicionales tras la implementación, abra **Opciones de publicación de archivos** y active la casilla de verificación para quitar archivos adicionales en el destino.
    * Seleccione **Guardar**.
 1. Cree un sitio nuevo o actualice un sitio existente siguiendo las instrucciones restantes del asistente para publicación.
 
-#### <a name="publish-using-command-line-interface-cli-tools"></a>Publicación mediante las herramientas de la interfaz de la línea de comandos (CLI)
+# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli/)
 
 1. En el archivo de proyecto, especifique uno o más [identificadores de entorno de ejecución (RID)](/dotnet/core/rid-catalog). Use `<RuntimeIdentifier>` (en singular) para un único RID o use `<RuntimeIdentifiers>` (en plural) para proporcionar una lista de RID delimitada por puntos y coma. En el ejemplo siguiente, se especifica el RID `win-x86`:
 
    ```xml
    <PropertyGroup>
-     <TargetFramework>netcoreapp2.1</TargetFramework>
+     <TargetFramework>{TARGET FRAMEWORK}</TargetFramework>
      <RuntimeIdentifier>win-x86</RuntimeIdentifier>
    </PropertyGroup>
    ```
@@ -227,15 +279,13 @@ Al implementar una aplicación independiente:
    dotnet publish --configuration Release --runtime win-x86
    ```
 
-1. Mueva el contenido del directorio *bin/Release/{TARGET FRAMEWORK}/{RUNTIME IDENTIFIER}/publish* al sitio de App Service.
+1. Mueva el contenido del directorio *bin/Release/{TARGET FRAMEWORK}/{RUNTIME IDENTIFIER}/publish* al sitio de App Service. Si va a arrastrar el contenido de la carpeta *publish* de su disco duro local o de un recurso compartido de red directamente a App Service en la consola de Kudu, arrastre los archivos a la carpeta `D:\home\site\wwwroot` en la consola de Kudu.
 
-### <a name="use-docker-with-web-apps-for-containers"></a>Usar Docker con Web Apps para contenedores
-
-[Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) contiene las imágenes de Docker de versión preliminar más recientes. Las imágenes se pueden usar como base. Use la imagen y efectúe la implementación en Web App for Containers con normalidad.
+---
 
 ## <a name="protocol-settings-https"></a>Configuración del protocolo (HTTPS)
 
-Los enlaces de protocolo seguro permiten especificar un certificado para usarlo al responder a solicitudes a través de HTTPS. Los enlaces requieren un certificado privado válido ( *.pfx*) que se haya emitido para el nombre de host en cuestión. Para obtener más información, consulte [Tutorial: Enlazar un certificado SSL personalizado existente a Azure App Service](/azure/app-service/app-service-web-tutorial-custom-ssl).
+Los enlaces de protocolo seguro permiten especificar un certificado para usarlo al responder a solicitudes a través de HTTPS. Los enlaces requieren un certificado privado válido ( *.pfx*) que se haya emitido para el nombre de host en cuestión. Para más información, consulte [Tutorial: Enlazar un certificado SSL personalizado existente a Azure App Service](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ## <a name="transform-webconfig"></a>Transformación de web.config
 
