@@ -52,7 +52,7 @@
               uid: tutorials/first-mvc-app/index
             - name: Primeros pasos
               uid: tutorials/first-mvc-app/start-mvc
-            - name: Incorporación de un controlador
+            - name: Adición de un controlador
               uid: tutorials/first-mvc-app/adding-controller
             - name: Agregar una vista
               uid: tutorials/first-mvc-app/adding-view
@@ -167,7 +167,7 @@
       uid: fundamentals/dependency-injection
     - name: Software intermedio
       uid: fundamentals/middleware/index
-    - name: administrador de flujos de trabajo
+    - name: Host
       items:
         - name: Host genérico
           uid: fundamentals/host/generic-host
@@ -185,7 +185,7 @@
       uid: fundamentals/logging/index
     - name: Enrutamiento
       uid: fundamentals/routing
-    - name: Control de errores
+    - name: errores
       uid: fundamentals/error-handling
     - name: Realización de solicitudes HTTP
       displayName: 'httpclient, httpclientfactory'
@@ -238,7 +238,7 @@
               uid: tutorials/first-mvc-app/index
             - name: Primeros pasos
               uid: tutorials/first-mvc-app/start-mvc
-            - name: Incorporación de un controlador
+            - name: Adición de un controlador
               uid: tutorials/first-mvc-app/adding-controller
             - name: Agregar una vista
               uid: tutorials/first-mvc-app/adding-view
@@ -292,7 +292,7 @@
           uid: blazor/class-libraries
         - name: Diseños
           uid: blazor/layouts
-        - name: Inserción de dependencias
+        - name: Inserción de dependencia
           uid: blazor/dependency-injection
         - name: Enrutamiento
           uid: blazor/routing
@@ -300,7 +300,7 @@
           uid: blazor/javascript-interop
         - name: Seguridad e identidad
           uid: security/blazor/index
-        - name: Depuración
+        - name: Depurar
           uid: blazor/debug
         - name: Llamada a una API de web
           uid: blazor/call-web-api
@@ -332,7 +332,7 @@
               uid: client-side/libman/index
             - name: CLI
               uid: client-side/libman/libman-cli
-            - name: Programa para la mejora
+            - name: Visual Studio
               uid: client-side/libman/libman-vs
         - name: Grunt
           uid: client-side/using-grunt
@@ -365,13 +365,13 @@
           items:
             - name: Delimitador
               uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-            - name: instancias y claves
+            - name: Memoria caché
               uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
             - name: Caché distribuida
               uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
             - name: Entorno
               uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
-            - name: Form
+            - name: Formulario
               href: 'mvc/views/working-with-forms.md#the-form-tag-helper'
             - name: Imagen
               uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
@@ -389,7 +389,7 @@
               href: 'mvc/views/working-with-forms.md#the-validation-message-tag-helper'
             - name: Resumen de validación
               href: 'mvc/views/working-with-forms.md#the-validation-summary-tag-helper'
-    - name: Avanzadas
+    - name: Avanzado
       items:
         - name: Componentes de vista
           uid: mvc/views/view-components
@@ -447,7 +447,7 @@
           uid: tutorials/signalr
         - name: SignalR con TypeScript
           uid: tutorials/signalr-typescript-webpack
-    - name: Muestras
+    - name: Ejemplos
       href: 'https://github.com/aspnet/SignalR-samples'
       displayName: signalr
     - name: Conceptos de servidor
@@ -506,7 +506,7 @@
     - name: Autenticación y autorización
       uid: signalr/authn-and-authz
       displayName: signalr
-    - name: Consideraciones de seguridad
+    - name: Consideraciones sobre la seguridad
       uid: signalr/security
       displayName: signalr
     - name: Protocolo de concentrador MessagePack
@@ -521,7 +521,7 @@
     - name: WebSockets sin SignalR
       displayName: signalr
       uid: fundamentals/websockets
-    - name: Registro y diagnósticos
+    - name: Registro y diagnóstico
       displayName: signalr
       uid: signalr/diagnostics
 - name: Aplicaciones de llamada a procedimiento remoto
@@ -534,6 +534,10 @@
       uid: grpc/aspnetcore
     - name: Configuración
       uid: grpc/configuration
+    - name: Autenticación y autorización
+      uid: grpc/authn-and-authz
+    - name: Consideraciones sobre la seguridad
+      uid: grpc/security
     - name: Migración de servicios gRPC de CCore a ASP.NET Core
       uid: grpc/migration
     - name: Comparación entre los servicios gRPC y las API HTTP
@@ -556,10 +560,14 @@
       uid: test/integration-tests
     - name: Pruebas de esfuerzo y carga
       uid: test/loadtests
-    - name: Solucionar problemas
+    - name: Solución de problemas
       uid: test/troubleshoot
     - name: Registro
       uid: fundamentals/logging/index
+    - name: Solución de problemas de Azure e IIS
+      uid: test/troubleshoot-azure-iis
+    - name: Referencia de errores de Azure y IIS
+      uid: host-and-deploy/azure-iis-errors-reference
 - name: Acceso a datos
   items:
     - name: Tutoriales
@@ -622,7 +630,7 @@
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-blobs?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
         - name: Queue Storage
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-        - name: Table Storage
+        - name: Almacenamiento de tablas
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
 - name: Hospedaje e implementación
   displayName: publish
@@ -654,9 +662,9 @@
         - name: Módulo ASP.NET Core
           displayName: 'azure, deploy, publish'
           uid: host-and-deploy/aspnet-core-module
-        - name: Solucionar problemas
+        - name: Solución de problemas
           displayName: 'azure, deploy, publish'
-          uid: host-and-deploy/azure-apps/troubleshoot
+          uid: test/troubleshoot-azure-iis
         - name: Referencia de errores
           displayName: 'azure, deploy, publish'
           uid: host-and-deploy/azure-iis-errors-reference
@@ -695,9 +703,9 @@
         - name: Módulos de IIS
           displayName: 'deploy, publish'
           uid: host-and-deploy/iis/modules
-        - name: Solucionar problemas
+        - name: Solución de problemas
           displayName: 'deploy, publish'
-          uid: host-and-deploy/iis/troubleshoot
+          uid: test/troubleshoot-azure-iis
         - name: Referencia de errores
           displayName: 'deploy, publish'
           uid: host-and-deploy/azure-iis-errors-reference
@@ -752,7 +760,7 @@
     - name: Estructura de directorios
       displayName: 'deploy, publish'
       uid: host-and-deploy/directory-structure
-    - name: Comprobaciones de estado
+    - name: Comprobaciones de mantenimiento
       uid: host-and-deploy/health-checks
       displayName: 'deploy, publish'
     - name: Blazor
@@ -770,7 +778,7 @@
   items:
     - name: Información general
       uid: security/index
-    - name: Autenticación
+    - name: Authentication
       items:
         - name: Introducción a Identity
           uid: security/authentication/identity
@@ -844,7 +852,7 @@
           uid: security/authentication/individual
         - name: Configuración de la autenticación de los certificados
           uid: security/authentication/certauth
-    - name: Autorización
+    - name: Authorization
       items:
         - name: Información general
           uid: security/authorization/introduction
@@ -973,7 +981,7 @@
   items:
     - name: Información general
       uid: performance/performance-best-practices
-    - name: Almacenamiento en caché de respuestas
+    - name: Almacenamiento en caché de respuesta
       items:
         - name: Información general
           uid: performance/caching/response
@@ -998,9 +1006,9 @@
       uid: fundamentals/localization
     - name: Localización de un objeto portátil
       uid: fundamentals/portable-object-localization
-    - name: Solucionar problemas
+    - name: Solución de problemas
       uid: fundamentals/troubleshoot-aspnet-core-localization
-- name: Avanzadas
+- name: Avanzado
   items:
     - name: Enlace de modelos
       uid: mvc/models/model-binding
@@ -1068,7 +1076,7 @@
           uid: migration/proper-to-2x/index
         - name: MVC
           uid: migration/mvc
-        - name: Web API
+        - name: API Web
           uid: migration/webapi
         - name: Configuración
           uid: migration/configuration
@@ -1083,7 +1091,7 @@
     - name: Registro (no en ASP.NET Core)
       displayName: 'migrate, migration'
       uid: migration/logging-nonaspnetcore
-- name: referencia de API
+- name: Referencia de API
   href: /dotnet/api/?view=aspnetcore-2.2
-- name: Contribuir
+- name: Contribuciones
   href: 'https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md'
