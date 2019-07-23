@@ -2,7 +2,7 @@
 
 ### <a name="add-a-database-context-class"></a>Agregar una clase de contexto de base de datos
 
-Agregue la clase `RazorPagesMovieContext` siguiente a la carpeta *Models*:
+Agregue la clase `RazorPagesMovieContext` siguiente a la carpeta *Data*:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 
@@ -12,7 +12,7 @@ El código anterior crea una propiedad `DbSet` para el conjunto de entidades. En
 
 ### <a name="add-a-database-connection-string"></a>Agregar una cadena de conexión de base de datos
 
-Agregue una cadena de conexión al archivo *appsettings.json*:
+Agregue una cadena de conexión al archivo *appsettings.json*, tal como se muestra en el código resaltado siguiente:
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
 

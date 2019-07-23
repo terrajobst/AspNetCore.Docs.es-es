@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/09/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 1455aa9ce4ea24eaeb396134f91b6d089b346c17
-ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
+ms.openlocfilehash: 9293de38dcca1c0672f9cc3defa8d3c1b0b13d5a
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724441"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67855895"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -95,7 +95,7 @@ En la aplicación de ejemplo, el servicio `IMyDependency` está registrado con e
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=5)]
 
 > [!NOTE]
-> Cada método de extensión `services.Add{SERVICE_NAME}` agrega servicios (y potencialmente los configura). Por ejemplo, `services.AddMvc()` agrega los servicios que Razor Pages y MVC requieren. Se recomienda que las aplicaciones sigan esta convención. Coloque los métodos de extensión en el espacio de nombres <xref:Microsoft.Extensions.DependencyInjection?displayProperty=fullName> para encapsular grupos de registros del servicio.
+> Cada método de extensión `services.Add{SERVICE_NAME}` agrega servicios (y potencialmente los configura). Por ejemplo, `services.AddMvc()` agrega los servicios que Razor Pages y MVC requieren. Se recomienda que las aplicaciones sigan esta convención. Coloque los métodos de extensión en el espacio de nombres [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection) para encapsular grupos de registros del servicio.
 
 Si el constructor del servicio requiere un [tipo integrado](/dotnet/csharp/language-reference/keywords/built-in-types-table), como `string`, se puede insertar mediante la [configuración](xref:fundamentals/configuration/index) o el [patrón de opciones](xref:fundamentals/configuration/options):
 
@@ -123,7 +123,7 @@ En la aplicación de ejemplo, la instancia `IMyDependency` se solicita y usa par
 
 El método `Startup.ConfigureServices` se encarga de definir los servicios que la aplicación usa, incluidas las características de plataforma como Entity Framework Core y ASP.NET Core MVC. Inicialmente, el valor `IServiceCollection` proporcionado a `ConfigureServices` tiene los siguientes servicios definidos (en función de [cómo se configurara el host](xref:fundamentals/index#host)):
 
-| Tipo de servicio | Período de duración |
+| Tipo de servicio | Vigencia |
 | ------------ | -------- |
 | <xref:Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory?displayProperty=fullName> | Transitorio |
 | <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime?displayProperty=fullName> | Singleton |
@@ -140,7 +140,7 @@ El método `Startup.ConfigureServices` se encarga de definir los servicios que l
 | <xref:System.Diagnostics.DiagnosticSource?displayProperty=fullName> | Singleton |
 | <xref:System.Diagnostics.DiagnosticListener?displayProperty=fullName> | Singleton |
 
-Cuando un método de extensión de la colección de servicio está disponible para registrar un servicio (y sus servicios dependientes, si es necesario), la convención consiste en usar un solo método de extensión `Add{SERVICE_NAME}` para registrar todos los servicios requeridos por dicho servicio. El código siguiente es un ejemplo de cómo agregar servicios adicionales al contenedor mediante los métodos de extensión <xref:Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext*>, <xref:Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions.AddIdentityCore*> y <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*>:
+Cuando un método de extensión de la colección de servicio está disponible para registrar un servicio (y sus servicios dependientes, si es necesario), la convención consiste en usar un solo método de extensión `Add{SERVICE_NAME}` para registrar todos los servicios requeridos por dicho servicio. El código siguiente es un ejemplo de cómo agregar servicios adicionales al contenedor mediante los métodos de extensión [AddDbContext\<TContext>](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), <xref:Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions.AddIdentityCore*> y <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*>:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -156,9 +156,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Para más información, consulte la clase <xref:Microsoft.Extensions.DependencyInjection.ServiceCollection> en la documentación de la API.
+Para obtener más información, consulte la clase <xref:Microsoft.Extensions.DependencyInjection.ServiceCollection> en la documentación de la API.
 
-## <a name="service-lifetimes"></a>Duraciones de servicios
+## <a name="service-lifetimes"></a>Vigencia de los servicios
 
 Elija una duración adecuada para cada servicio registrado. Los servicios de ASP.NET Core pueden configurarse con las duraciones siguientes:
 
@@ -186,11 +186,11 @@ Cada método de extensión de registro del servicio ofrece sobrecargas útiles e
 
 | Método | Automático<br>objeto<br>eliminación | Múltiple<br>implementaciones | Transferencia de argumentos |
 | ------ | :-----------------------------: | :-------------------------: | :-------: |
-| `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Ejemplo:<br>`services.AddScoped<IMyDep, MyDep>();` | Sí | Sí | No |
+| `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Ejemplo:<br>`services.AddScoped<IMyDep, MyDep>();` | Sí | Sí | Sin |
 | `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddScoped<IMyDep>(sp => new MyDep());`<br>`services.AddScoped<IMyDep>(sp => new MyDep("A string!"));` | Sí | Sí | Sí |
-| `Add{LIFETIME}<{IMPLEMENTATION}>()`<br>Ejemplo:<br>`services.AddScoped<MyDep>();` | Sí | No | No |
-| `Add{LIFETIME}<{SERVICE}>(new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddScoped<IMyDep>(new MyDep());`<br>`services.AddScoped<IMyDep>(new MyDep("A string!"));` | No | Sí | Sí |
-| `Add{LIFETIME}(new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddScoped(new MyDep());`<br>`services.AddScoped(new MyDep("A string!"));` | No | No | Sí |
+| `Add{LIFETIME}<{IMPLEMENTATION}>()`<br>Ejemplo:<br>`services.AddScoped<MyDep>();` | Sí | No | Sin |
+| `Add{LIFETIME}<{SERVICE}>(new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddScoped<IMyDep>(new MyDep());`<br>`services.AddScoped<IMyDep>(new MyDep("A string!"));` | Sin | Sí | Sí |
+| `Add{LIFETIME}(new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddScoped(new MyDep());`<br>`services.AddScoped(new MyDep("A string!"));` | Sin | No | Sí |
 
 Para obtener más información sobre el tipo de eliminación, consulte la sección [Eliminación de servicios](#disposal-of-services). Un escenario común para varias implementaciones es [utilizar tipos de simulación para las pruebas](xref:test/integration-tests#inject-mock-services).
 
@@ -204,7 +204,7 @@ services.AddSingleton<IMyDependency, MyDependency>();
 services.TryAddSingleton<IMyDependency, DifferentDependency>();
 ```
 
-Para obtener más información, consulte:
+Para más información, consulte:
 
 * <xref:Microsoft.Extensions.DependencyInjection.Extensions.ServiceCollectionDescriptorExtensions.TryAdd*>
 * <xref:Microsoft.Extensions.DependencyInjection.Extensions.ServiceCollectionDescriptorExtensions.TryAddTransient*>
@@ -242,7 +242,7 @@ Cuando se resuelven los servicios mediante `ActivatorUtilities`, la inserción d
 
 ## <a name="entity-framework-contexts"></a>Contextos de Entity Framework
 
-Los contextos de Entity Framework normalmente se agregan al contenedor de servicios mediante la [duración con ámbito](#service-lifetimes) porque las operaciones de base de datos de aplicación web se suelen limitar a la solicitud de cliente. La duración predeterminada se limita si no se especifica una duración mediante una sobrecarga de <xref:Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext*> al registrar el contexto de base de datos. En los servicios de una duración determinada no se debe usar un contexto de base de datos con una duración más corta que el servicio.
+Los contextos de Entity Framework normalmente se agregan al contenedor de servicios mediante la [duración con ámbito](#service-lifetimes) porque las operaciones de base de datos de aplicación web se suelen limitar a la solicitud de cliente. La duración predeterminada se limita si no se especifica una duración mediante una sobrecarga de [AddDbContext\<TContext>](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) al registrar el contexto de base de datos. En los servicios de una duración determinada no se debe usar un contexto de base de datos con una duración más corta que el servicio.
 
 ## <a name="lifetime-and-registration-options"></a>Opciones de registro y duración
 

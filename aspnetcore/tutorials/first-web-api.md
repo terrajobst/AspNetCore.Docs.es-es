@@ -4,14 +4,14 @@ author: rick-anderson
 description: Aprenda a crear de una API web con ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/23/2019
+ms.date: 07/11/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: a53f7019c1079296f073e743ddbf9d90fc5abad3
-ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
+ms.openlocfilehash: 95410cef9753fbb0eda6136320b59682e0553ea7
+ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555874"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67893202"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Tutorial: Creación de una API web con ASP.NET Core
 
@@ -19,7 +19,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Mike Wasson](https://git
 
 En este tutorial se enseñan los conceptos básicos de la compilación de una API web con ASP.NET Core.
 
-En este tutorial aprenderá a:
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear un proyecto de API web.
@@ -99,7 +99,7 @@ En el diagrama siguiente, se muestra el diseño de la aplicación.
 
   ![macOS: Nueva solución](first-web-api-mac/_static/sln.png)
 
-* Seleccione **Aplicación .NET Core** > **API web de ASP.NET Core** > **Siguiente**.
+* Seleccione **.NET Core** > **Aplicación** > **API** > **Siguiente**.
 
   ![Cuadro de diálogo de nuevo proyecto de macOS](first-web-api-mac/_static/1.png)
   
@@ -127,7 +127,7 @@ Presione Ctrl+F5 para ejecutar la aplicación. En un explorador, vaya a la sigui
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
-Seleccione **Ejecutar** > **Iniciar con depuración** para iniciar la aplicación. Visual Studio para Mac inicia un explorador y navega hasta `https://localhost:<port>`, donde `<port>` es un número de puerto elegido aleatoriamente. Se devuelve un error HTTP 404 (No encontrado). Anexe `/api/values` a la dirección URL (cambie la dirección URL a `https://localhost:<port>/api/values`).
+Seleccione **Ejecutar** > **Iniciar depuración** para iniciar la aplicación. Visual Studio para Mac inicia un explorador y navega hasta `https://localhost:<port>`, donde `<port>` es un número de puerto elegido aleatoriamente. Se devuelve un error HTTP 404 (No encontrado). Anexe `/api/values` a la dirección URL (cambie la dirección URL a `https://localhost:<port>/api/values`).
 
 ---
 
@@ -246,6 +246,8 @@ Estos métodos implementan dos puntos de conexión GET:
 * `GET /api/todo`
 * `GET /api/todo/{id}`
 
+Detenga la aplicación si todavía está en ejecución. Luego, ejecútela de nuevo para incluir los últimos cambios.
+
 Llame a los dos puntos de conexión desde un explorador para probar la aplicación. Por ejemplo:
 
 * `https://localhost:<port>/api/todo`
@@ -302,7 +304,7 @@ En este tutorial se usa Postman para probar la API web.
 
 * Cree una nueva solicitud.
   * Establezca el método HTTP en **GET**.
-  * Establezca la dirección URL de la solicitud en `https://localhost:<port>/api/todo`. Por ejemplo: `https://localhost:5001/api/todo`.
+  * Establezca la dirección URL de la solicitud en `https://localhost:<port>/api/todo`. Por ejemplo, `https://localhost:5001/api/todo`.
 * Establezca **Vista de dos paneles** en Postman.
 * Seleccione **Enviar**.
 
@@ -460,7 +462,7 @@ Para eliminar una tarea pendiente, hay que establecer el valor `type` de la llam
 
 [Vea o descargue el código de ejemplo para este tutorial](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-web-api/samples). Vea [cómo descargarlo](xref:index#how-to-download-a-sample).
 
-Para obtener más información, vea los siguientes recursos:
+Para obtener más información, consulte los siguientes recursos:
 
 * <xref:web-api/index>
 * <xref:tutorials/web-api-help-pages-using-swagger>
@@ -473,7 +475,7 @@ Para obtener más información, vea los siguientes recursos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha aprendido a:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Crear un proyecto de API web.

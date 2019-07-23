@@ -4,14 +4,14 @@ author: rick-anderson
 description: Se explican las diferencias entre ASP.NET Core. y ASP.NET 4.x, y cómo elegir entre ellos.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 05/02/2019
+ms.date: 07/15/2019
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 97d65df8df1e27694d818098958288874e8ab92e
-ms.sourcegitcommit: 47cc13ab90913af9a2887cef0896bb4e9aba4dd5
+ms.openlocfilehash: 9e093e83a1f6367cbb244076a8351644244f9874
+ms.sourcegitcommit: 7e00e8236ca4eabf058f07020a5a3882daf7564f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67399175"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239204"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Elección entre ASP.NET 4.x y ASP.NET Core
 
@@ -38,13 +38,13 @@ En la tabla siguiente se compara ASP.NET Core en ASP.NET 4.x.
 |Varias versiones por equipo|Una versión por equipo|
 |Desarrollo con [Visual Studio](https://visualstudio.microsoft.com/vs/), [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/) o [Visual Studio Code](https://code.visualstudio.com/) con C# o F#|Desarrollo con [Visual Studio](https://visualstudio.microsoft.com/vs/) con C#, VB o F#|
 |Mayor rendimiento que ASP.NET 4.x|Buen rendimiento|
-|[Elegir .NET Framework o .NET Core](/dotnet/standard/choosing-core-framework-server)|Usar el tiempo de ejecución de .NET Framework|
+|[Uso del entorno de ejecución de .NET Core](/dotnet/standard/choosing-core-framework-server)|Usar el tiempo de ejecución de .NET Framework|
 
 Vea [ASP.NET Core con .NET Framework como destino](xref:index#target-framework) para obtener información sobre la compatibilidad de ASP.NET Core 2.x en .NET Framework.
 
 ## <a name="aspnet-core-scenarios"></a>Escenarios de ASP.NET Core
 
-* [Sitios web](xref:tutorials/first-mvc-app/index)
+* [Websites](xref:tutorials/first-mvc-app/index)
 * [API](xref:tutorials/first-web-api)
 * [En tiempo real](xref:signalr/index)
 * [Implementación de una aplicación ASP.NET Core en Azure](/azure/app-service/app-service-web-get-started-dotnet)

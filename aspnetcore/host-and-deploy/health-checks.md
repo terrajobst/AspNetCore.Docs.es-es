@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar las comprobaciones de e
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/23/2019
+ms.date: 07/11/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 5119267a8da5c950989b14b7c2e818aa22806506
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 43b6c3b55170eaf3a989d0f2779edac5290df823
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64887930"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67855913"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Comprobaciones de estado en ASP.NET Core
 
@@ -603,7 +603,7 @@ Para distribuir una comprobación de estado como una biblioteca, haga lo siguien
    * nombre de la comprobación de estado (`name`). En el caso de `null`, se utiliza `example_health_check`.
    * punto de datos de cadena para la comprobación de estado (`data1`).
    * punto de datos enteros para la comprobación de estado (`data2`). En el caso de `null`, se utiliza `1`.
-   * estado de error (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>). De manera predeterminada, es `null`. Si `null`, [HealthStatus.Unhealthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) se notifica para un estado de error.
+   * estado de error (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>). El valor predeterminado es `null`. Si `null`, [HealthStatus.Unhealthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) se notifica para un estado de error.
    * etiquetas (`IEnumerable<string>`).
 
    ```csharp
@@ -684,3 +684,20 @@ En el ejemplo `LivenessProbeStartup` de la aplicación de ejemplo, la comprobaci
 > [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) incluye editores para varios sistemas, como [Application Insights](/azure/application-insights/app-insights-overview).
 >
 > [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) es un puerto de [BeatPulse](https://github.com/xabaril/beatpulse) y Microsoft no lo mantiene ni lo admite.
+
+## <a name="restrict-health-checks-with-mapwhen"></a>Restricción de las comprobaciones de estado con MapWhen
+
+Use <xref:Microsoft.AspNetCore.Builder.MapWhenExtensions.MapWhen*> para crear de forma condicional una rama de la canalización de solicitudes para los puntos de conexión de comprobación del estado.
+
+En el ejemplo siguiente, `MapWhen` crea una rama de la canalización de solicitudes para activar el middleware de comprobación del estado si se recibe una solicitud GET para el punto de conexión `api/HealthCheck`:
+
+```csharp
+app.MapWhen(
+    context => context.Request.Method == HttpMethod.Get.Method && 
+        context.Request.Path.StartsWith("/api/HealthCheck"),
+    builder => builder.UseHealthChecks());
+
+app.UseMvc();
+```
+
+Para más información, consulte <xref:fundamentals/middleware/index#use-run-and-map>.

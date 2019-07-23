@@ -5,14 +5,14 @@ description: Descubra cómo controlar errores en aplicaciones ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/03/2019
+ms.date: 07/10/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: 6b92cb6b68b1c70d67f42284d548729e598f9a8b
-ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
+ms.openlocfilehash: f9f91455b273b99608ca6f1524df6cb748a26669
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2019
-ms.locfileid: "66458442"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308206"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Controlar errores en ASP.NET Core
 
@@ -38,7 +38,7 @@ La página incluye la siguiente información sobre la excepción y la solicitud:
 * Seguimiento de la pila
 * Parámetros de cadena de consulta (si existen)
 * Cookies (si existen)
-* Encabezados
+* encabezados
 
 Para ver la Página de excepciones para el desarrollador en la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), use la directiva de preprocesador `DevEnvironment` y seleccione **Trigger an exception** (Desencadenar una excepción) en la página principal.
 
@@ -204,7 +204,7 @@ La capa de hospedaje puede mostrar una página de error para un error de inicio 
 * El proceso de dotnet se bloquea.
 * No se muestra ninguna página de error si el servidor HTTP es [Kestrel](xref:fundamentals/servers/kestrel).
 
-Si se ejecuta en [IIS](/iis) o [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) devuelve un *error de proceso 502.5* si el proceso no se puede iniciar. Para obtener más información, vea <xref:host-and-deploy/iis/troubleshoot>. Para obtener información sobre cómo solucionar problemas de inicio con Azure App Service, vea <xref:host-and-deploy/azure-apps/troubleshoot>.
+Si se ejecuta en [IIS](/iis), en Azure App Service o en [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) devuelve un *error de proceso 502.5* si el proceso no se puede iniciar. Para más información, consulte <xref:test/troubleshoot-azure-iis>.
 
 ## <a name="database-error-page"></a>Página de error de la base de datos
 
@@ -219,7 +219,7 @@ if (env.IsDevelopment())
 
 ## <a name="exception-filters"></a>Filtros de excepciones
 
-En las aplicaciones de MVC, los filtros de excepciones se pueden configurar globalmente, o bien por controlador o por acción. En las aplicaciones de Razor Pages, se pueden configurar a nivel global o por modelo de página. Estos filtros controlan todas las excepciones no controladas que se hayan producido durante la ejecución de una acción de controlador o de otro filtro. Para obtener más información, vea <xref:mvc/controllers/filters#exception-filters>.
+En las aplicaciones de MVC, los filtros de excepciones se pueden configurar globalmente, o bien por controlador o por acción. En las aplicaciones de Razor Pages, se pueden configurar a nivel global o por modelo de página. Estos filtros controlan todas las excepciones no controladas que se hayan producido durante la ejecución de una acción de controlador o de otro filtro. Para más información, consulte <xref:mvc/controllers/filters#exception-filters>.
 
 > [!TIP]
 > Los filtros de excepciones son útiles para interceptar las excepciones que se producen en las acciones de MVC, pero no son tan flexibles como el middleware de control de excepciones. Se recomienda usar el middleware. Use filtros únicamente cuando deba realizar el control de errores de manera diferente según la acción de MVC elegida.
@@ -230,6 +230,5 @@ Para obtener información sobre cómo controlar los errores de estado de los mod
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
+* <xref:test/troubleshoot-azure-iis>
 * <xref:host-and-deploy/azure-iis-errors-reference>
-* <xref:host-and-deploy/iis/troubleshoot>
-* <xref:host-and-deploy/azure-apps/troubleshoot>

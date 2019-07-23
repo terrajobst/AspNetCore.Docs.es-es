@@ -4,14 +4,14 @@ author: rick-anderson
 description: Aprenda a proporcionar y proteger los archivos estáticos y a configurar los comportamientos de middleware de hospedaje de archivos estáticos en una aplicación web de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/08/2019
+ms.date: 07/8/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: bcd179bd89b90d80fc81645b24296a1fa70cca0a
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1c665d1206e984fe41e9f57bb5356839c354dde2
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64888390"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308193"
 ---
 # <a name="static-files-in-aspnet-core"></a>Archivos estáticos en ASP.NET Core
 
@@ -23,7 +23,7 @@ Los archivos estáticos, como HTML, CSS, imágenes y JavaScript, son activos que
 
 ## <a name="serve-static-files"></a>Proporcionar archivos estáticos
 
-Los archivos estáticos se almacenan en el directorio raíz de la Web del proyecto. El directorio predeterminado es *\<content_root>/wwwroot*, pero puede cambiarse a través del método [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_). Vea [Raíz del contenido](xref:fundamentals/index#content-root) y [Raíz web](xref:fundamentals/index#web-root) para obtener más información.
+Los archivos estáticos se almacenan en el directorio raíz de la web del proyecto. El directorio predeterminado es *\<content_root>/wwwroot*, pero puede cambiarse a través del método [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_). Vea [Raíz del contenido](xref:fundamentals/index#content-root) y [Raíz web](xref:fundamentals/index#web-root) para obtener más información.
 
 El host de web de la aplicación debe tener conocimiento del directorio raíz del contenido.
 
@@ -50,7 +50,7 @@ Se puede acceder a los archivos estáticos a través de una ruta de acceso relat
   * **images**
   * **js**
 
-El formato de URI para acceder a un archivo en la subcarpeta *images* es *http://\<dirección_servidor>/images/\<nombre_archivo_imagen>*. Por ejemplo, *http://localhost:9189/images/banner3.svg*.
+El formato de URI para acceder a un archivo en la subcarpeta *images* es *http://\<dirección_servidor>/images/\<nombre_archivo_imagen>* . Por ejemplo, *http://localhost:9189/images/banner3.svg* .
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -206,7 +206,7 @@ Se debe llamar a `AddDirectoryBrowser` cuando el valor de la propiedad `EnableDi
 
 Al usar la jerarquía de archivos y el código anterior, las direcciones URL se resuelven como se indica a continuación:
 
-| Identificador URI            |                             Respuesta  |
+| URI            |                             Response  |
 | ------- | ------|
 | *http://\<dirección_servidor>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
 | *http://\<dirección_servidor>/StaticFiles*             |     MyStaticFiles/default.html |
@@ -224,7 +224,7 @@ La clase [FileExtensionContentTypeProvider](/dotnet/api/microsoft.aspnetcore.sta
 
 [!code-csharp[](static-files/samples/1x/StartupFileExtensionContentTypeProvider.cs?name=snippet_ConfigureMethod&highlight=3-12,19)]
 
-Vea [Tipos de contenido MIME](http://www.iana.org/assignments/media-types/media-types.xhtml).
+Vea [Tipos de contenido MIME](https://www.iana.org/assignments/media-types/media-types.xhtml).
 
 ## <a name="non-standard-content-types"></a>Tipos de contenido no estándar
 
@@ -260,5 +260,5 @@ Con el código anterior, una solicitud para un archivo con un tipo de contenido 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Middleware](xref:fundamentals/middleware/index)
+* [Software intermedio](xref:fundamentals/middleware/index)
 * [Introducción a ASP.NET Core](xref:index)

@@ -4,14 +4,14 @@ author: ardalis
 description: Obtenga información sobre cómo funcionan los filtros y cómo se pueden usar en ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 5/08/2019
+ms.date: 05/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: cdf121b97396cb23103d49cd141b9ef19b8c0cc6
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: 50b199744f32ad19335080da406db69665ec1ae9
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223022"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856154"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtros en ASP.NET Core
 
@@ -133,10 +133,10 @@ El ejemplo siguiente que ilustra el orden en el que se llama a los métodos de f
 | Secuencia | Ámbito del filtro | Método de filtro |
 |:--------:|:------------:|:-------------:|
 | 1 | Global | `OnActionExecuting` |
-| 2 | Controlador | `OnActionExecuting` |
+| 2 | Controller | `OnActionExecuting` |
 | 3 | Método | `OnActionExecuting` |
 | 4 | Método | `OnActionExecuted` |
-| 5 | Controlador | `OnActionExecuted` |
+| 5 | Controller | `OnActionExecuted` |
 | 6 | Global | `OnActionExecuted` |
 
 Esta secuencia pone de manifiesto lo siguiente:
@@ -190,13 +190,13 @@ La propiedad `Order` se puede establecer con un parámetro de constructor:
 
 Considere los mismos tres filtros de acción que se muestran en el ejemplo anterior. Si la propiedad `Order` del controlador y de los filtros globales está establecida en 1 y 2 respectivamente, el orden de ejecución se invierte.
 
-| Secuencia | Ámbito del filtro | Propiedad`Order`  | Método de filtro |
+| Secuencia | Ámbito del filtro | Propiedad `Order` | Método de filtro |
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1 | Método | 0 | `OnActionExecuting` |
-| 2 | Controlador | 1  | `OnActionExecuting` |
+| 2 | Controller | 1  | `OnActionExecuting` |
 | 3 | Global | 2  | `OnActionExecuting` |
 | 4 | Global | 2  | `OnActionExecuted` |
-| 5 | Controlador | 1  | `OnActionExecuted` |
+| 5 | Controller | 1  | `OnActionExecuted` |
 | 6 | Método | 0  | `OnActionExecuted` |
 
 La propiedad `Order` invalida el ámbito al determinar el orden en el que se ejecutarán los filtros. Los filtros se clasifican por orden en primer lugar y, después, se usa el ámbito para priorizar en caso de igualdad. Todos los filtros integrados implementan `IOrderedFilter` y establecen el valor predeterminado de `Order` en 0. En los filtros integrados, el ámbito determina el orden, a menos que `Order` se establezca en un valor distinto de cero.
@@ -218,7 +218,7 @@ Por tanto, el filtro `AddHeader` nunca se ejecuta en relación con la acción `S
 
 [!code-csharp[](./filters/sample/FiltersSample/Controllers/SampleController.cs?name=snippet_AddHeader&highlight=1,9)]
 
-## <a name="dependency-injection"></a>Inserción de dependencias
+## <a name="dependency-injection"></a>Inserción de dependencia
 
 Los filtros se pueden agregar por tipo o por instancia. Si se agrega una instancia, esta se utiliza para todas las solicitudes. Si se agrega un tipo, se activa por tipo. Un filtro activado por tipo significa:
 
@@ -259,7 +259,7 @@ En el código siguiente, el atributo `ServiceFilter` recupera una instancia del 
 
 [!code-csharp[](./filters/sample/FiltersSample/Controllers/HomeController.cs?name=snippet_ServiceFilter&highlight=1)]
 
-[ServiceFilterAttribute.IsReusable](xref:Microsoft.AspNetCore.Mvc.ServiceFilterAttribute.IsReusable):
+Al usar `ServiceFilterAttribute`, si se establece [ServiceFilterAttribute.IsReusable](xref:Microsoft.AspNetCore.Mvc.ServiceFilterAttribute.IsReusable):
 
 * Proporciona una sugerencia que la instancia de filtro *podría* reutilizarse fuera del ámbito de la solicitud en la que se creó. El entorno de ejecución de ASP.NET Core no garantiza:
 
@@ -279,7 +279,10 @@ Dado que los tipos `TypeFilterAttribute` no se resuelven directamente desde el c
 * Los tipos a los que se hace referencia con `TypeFilterAttribute` no tienen que estar registrados con el contenedor de inserción de dependencias.  Sus dependencias se completan a través del contenedor de inserción de dependencias.
 * `TypeFilterAttribute` puede aceptar opcionalmente argumentos de constructor del tipo en cuestión.
 
-Al usar `TypeFilterAttribute`, el valor `IsReusable` es una sugerencia de que la instancia de filtro *podría* reutilizarse fuera del ámbito de la solicitud en la que se creó. El entorno de ejecución de ASP.NET Core no ofrece ninguna garantía de que se vaya a crear una única instancia del filtro. `IsReusable` no debe usarse con un filtro que dependa de servicios con una duración distinta de singleton.
+Al usar `TypeFilterAttribute`, si se establece [TypeFilterAttribute.IsReusable](xref:Microsoft.AspNetCore.Mvc.TypeFilterAttribute.IsReusable):
+* Proporciona una sugerencia que indica que la instancia de filtro *podría* reutilizarse fuera del ámbito de la solicitud en la que se creó. El entorno de ejecución de ASP.NET Core no ofrece ninguna garantía de que se vaya a crear una única instancia del filtro.
+
+* No debe usarse con un filtro que depende de servicios con una duración distinta de singleton.
 
 En el siguiente ejemplo se muestra cómo pasar argumentos a un tipo mediante `TypeFilterAttribute`:
 
@@ -490,7 +493,7 @@ Puede implementar `IFilterFactory` con las implementaciones de atributos persona
 El código anterior se puede probar mediante la ejecución del [ejemplo de descargar](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample):
 
 * Invoque las herramientas de desarrollador de F12.
-* Navegue a `https://localhost:5001/Sample/HeaderWithFactory`.
+* Vaya a `https://localhost:5001/Sample/HeaderWithFactory`.
 
 Las herramientas de desarrollador F12 muestran los siguientes encabezados de respuesta agregados por el código de ejemplo:
 

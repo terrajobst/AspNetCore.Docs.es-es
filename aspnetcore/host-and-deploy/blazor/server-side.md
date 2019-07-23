@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/11/2019
 uid: host-and-deploy/blazor/server-side
-ms.openlocfilehash: 8b332c2fb439e9832d604ed26f972b266eed2507
-ms.sourcegitcommit: 9bb29f9ba6f0645ee8b9cabda07e3a5aa52cd659
+ms.openlocfilehash: 56a03ff583bf85497e2b3bacc70123845a046e3d
+ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67406122"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67892697"
 ---
 # <a name="host-and-deploy-blazor-server-side"></a>Hospedaje e implementación de Blazor del lado servidor
 
@@ -26,7 +26,7 @@ Las aplicaciones del lado servidor que usan el [modelo de hospedaje del lado ser
 
 Con el [modelo de hospedaje del lado servidor](xref:blazor/hosting-models#server-side), Blazor se ejecuta en el servidor desde una aplicación ASP.NET Core. Las actualizaciones de la interfaz de usuario, el control de eventos y las llamadas de JavaScript se controlan mediante una conexión de [SignalR](xref:signalr/introduction).
 
-Se requiere un servidor web que pueda hospedar una aplicación ASP.NET Core. Visual Studio incluye la plantilla de proyecto **Blazor (servidor)** (`blazorserverside` cuando se usa el comando [dotnet new](/dotnet/core/tools/dotnet-new)).
+Se requiere un servidor web que pueda hospedar una aplicación ASP.NET Core. Visual Studio incluye la plantilla de proyecto **Blazor Server App** (plantilla `blazorserverside` cuando se usa el comando [dotnet new](/dotnet/core/tools/dotnet-new)).
 
 ## <a name="connection-scale-out"></a>Escalabilidad horizontal de la conexión
 
