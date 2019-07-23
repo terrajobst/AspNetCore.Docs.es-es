@@ -52,7 +52,7 @@
               uid: tutorials/first-mvc-app/index
             - name: Primeros pasos
               uid: tutorials/first-mvc-app/start-mvc
-            - name: Adición de un controlador
+            - name: Incorporación de un controlador
               uid: tutorials/first-mvc-app/adding-controller
             - name: Agregar una vista
               uid: tutorials/first-mvc-app/adding-view
@@ -167,7 +167,7 @@
       uid: fundamentals/dependency-injection
     - name: Software intermedio
       uid: fundamentals/middleware/index
-    - name: Host
+    - name: administrador de flujos de trabajo
       items:
         - name: Host genérico
           uid: fundamentals/host/generic-host
@@ -185,14 +185,14 @@
       uid: fundamentals/logging/index
     - name: Enrutamiento
       uid: fundamentals/routing
-    - name: errores
+    - name: Control de errores
       uid: fundamentals/error-handling
     - name: Realización de solicitudes HTTP
       displayName: 'httpclient, httpclientfactory'
       uid: fundamentals/http-requests
     - name: Archivos estáticos
       uid: fundamentals/static-files
-    - name: Generador de código
+    - name: aspnet-codegenerator
       uid: fundamentals/tools/dotnet-aspnet-codegenerator
 - name: Aplicaciones web
   items:
@@ -238,7 +238,7 @@
               uid: tutorials/first-mvc-app/index
             - name: Primeros pasos
               uid: tutorials/first-mvc-app/start-mvc
-            - name: Adición de un controlador
+            - name: Incorporación de un controlador
               uid: tutorials/first-mvc-app/adding-controller
             - name: Agregar una vista
               uid: tutorials/first-mvc-app/adding-view
@@ -292,7 +292,7 @@
           uid: blazor/class-libraries
         - name: Diseños
           uid: blazor/layouts
-        - name: Inserción de dependencia
+        - name: Inserción de dependencias
           uid: blazor/dependency-injection
         - name: Enrutamiento
           uid: blazor/routing
@@ -300,7 +300,7 @@
           uid: blazor/javascript-interop
         - name: Seguridad e identidad
           uid: security/blazor/index
-        - name: Depurar
+        - name: Depuración
           uid: blazor/debug
         - name: Llamada a una API de web
           uid: blazor/call-web-api
@@ -332,7 +332,7 @@
               uid: client-side/libman/index
             - name: CLI
               uid: client-side/libman/libman-cli
-            - name: Visual Studio
+            - name: Programa para la mejora
               uid: client-side/libman/libman-vs
         - name: Grunt
           uid: client-side/using-grunt
@@ -365,13 +365,13 @@
           items:
             - name: Delimitador
               uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-            - name: Memoria caché
+            - name: instancias y claves
               uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
             - name: Caché distribuida
               uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
             - name: Entorno
               uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
-            - name: Formulario
+            - name: Form
               href: 'mvc/views/working-with-forms.md#the-form-tag-helper'
             - name: Imagen
               uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
@@ -389,7 +389,7 @@
               href: 'mvc/views/working-with-forms.md#the-validation-message-tag-helper'
             - name: Resumen de validación
               href: 'mvc/views/working-with-forms.md#the-validation-summary-tag-helper'
-    - name: Avanzado
+    - name: Avanzadas
       items:
         - name: Componentes de vista
           uid: mvc/views/view-components
@@ -447,7 +447,7 @@
           uid: tutorials/signalr
         - name: SignalR con TypeScript
           uid: tutorials/signalr-typescript-webpack
-    - name: Ejemplos
+    - name: Muestras
       href: 'https://github.com/aspnet/SignalR-samples'
       displayName: signalr
     - name: Conceptos de servidor
@@ -506,7 +506,7 @@
     - name: Autenticación y autorización
       uid: signalr/authn-and-authz
       displayName: signalr
-    - name: Consideraciones sobre la seguridad
+    - name: Consideraciones de seguridad
       uid: signalr/security
       displayName: signalr
     - name: Protocolo de concentrador MessagePack
@@ -521,7 +521,7 @@
     - name: WebSockets sin SignalR
       displayName: signalr
       uid: fundamentals/websockets
-    - name: Registro y diagnóstico
+    - name: Registro y diagnósticos
       displayName: signalr
       uid: signalr/diagnostics
 - name: Aplicaciones de llamada a procedimiento remoto
@@ -536,7 +536,7 @@
       uid: grpc/configuration
     - name: Autenticación y autorización
       uid: grpc/authn-and-authz
-    - name: Consideraciones sobre la seguridad
+    - name: Consideraciones de seguridad
       uid: grpc/security
     - name: Migración de servicios gRPC de CCore a ASP.NET Core
       uid: grpc/migration
@@ -560,7 +560,7 @@
       uid: test/integration-tests
     - name: Pruebas de esfuerzo y carga
       uid: test/loadtests
-    - name: Solución de problemas
+    - name: Solucionar problemas
       uid: test/troubleshoot
     - name: Registro
       uid: fundamentals/logging/index
@@ -630,7 +630,7 @@
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-blobs?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
         - name: Queue Storage
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-        - name: Almacenamiento de tablas
+        - name: Table Storage
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
 - name: Hospedaje e implementación
   displayName: publish
@@ -662,7 +662,7 @@
         - name: Módulo ASP.NET Core
           displayName: 'azure, deploy, publish'
           uid: host-and-deploy/aspnet-core-module
-        - name: Solución de problemas
+        - name: Solucionar problemas
           displayName: 'azure, deploy, publish'
           uid: test/troubleshoot-azure-iis
         - name: Referencia de errores
@@ -703,7 +703,7 @@
         - name: Módulos de IIS
           displayName: 'deploy, publish'
           uid: host-and-deploy/iis/modules
-        - name: Solución de problemas
+        - name: Solucionar problemas
           displayName: 'deploy, publish'
           uid: test/troubleshoot-azure-iis
         - name: Referencia de errores
@@ -760,7 +760,7 @@
     - name: Estructura de directorios
       displayName: 'deploy, publish'
       uid: host-and-deploy/directory-structure
-    - name: Comprobaciones de mantenimiento
+    - name: Comprobaciones de estado
       uid: host-and-deploy/health-checks
       displayName: 'deploy, publish'
     - name: Blazor
@@ -778,7 +778,7 @@
   items:
     - name: Información general
       uid: security/index
-    - name: Authentication
+    - name: Autenticación
       items:
         - name: Introducción a Identity
           uid: security/authentication/identity
@@ -852,7 +852,7 @@
           uid: security/authentication/individual
         - name: Configuración de la autenticación de los certificados
           uid: security/authentication/certauth
-    - name: Authorization
+    - name: Autorización
       items:
         - name: Información general
           uid: security/authorization/introduction
@@ -981,7 +981,7 @@
   items:
     - name: Información general
       uid: performance/performance-best-practices
-    - name: Almacenamiento en caché de respuesta
+    - name: Almacenamiento en caché de respuestas
       items:
         - name: Información general
           uid: performance/caching/response
@@ -1006,9 +1006,9 @@
       uid: fundamentals/localization
     - name: Localización de un objeto portátil
       uid: fundamentals/portable-object-localization
-    - name: Solución de problemas
+    - name: Solucionar problemas
       uid: fundamentals/troubleshoot-aspnet-core-localization
-- name: Avanzado
+- name: Avanzadas
   items:
     - name: Enlace de modelos
       uid: mvc/models/model-binding
@@ -1076,7 +1076,7 @@
           uid: migration/proper-to-2x/index
         - name: MVC
           uid: migration/mvc
-        - name: API Web
+        - name: Web API
           uid: migration/webapi
         - name: Configuración
           uid: migration/configuration
@@ -1091,7 +1091,7 @@
     - name: Registro (no en ASP.NET Core)
       displayName: 'migrate, migration'
       uid: migration/logging-nonaspnetcore
-- name: Referencia de API
+- name: referencia de API
   href: /dotnet/api/?view=aspnetcore-2.2
-- name: Contribuciones
+- name: Contribuir
   href: 'https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md'
