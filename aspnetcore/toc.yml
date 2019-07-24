@@ -826,7 +826,7 @@
           uid: security/authentication/identity-enable-qrcodes
         - name: Autenticación en dos fases con SMS
           uid: security/authentication/2fa
-        - name: Uso de la autenticación de cookies sin Identity
+        - name: Uso de la autenticación de cookies sin identidad
           uid: security/authentication/cookie
         - name: Uso de la autenticación social sin Identity
           uid: security/authentication/social/social-without-identity
