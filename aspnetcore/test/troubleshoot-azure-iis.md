@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo diagnosticar problemas con las imp
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/17/2019
+ms.date: 07/18/2019
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: 46d4a11c594844e059fa8555255d7321f7b48631
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: deae568a6ba88c9a8365b9d7f2df629899bc64a1
+ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308798"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68483317"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Solucionar problemas de ASP.NET Core en Azure App Service e IIS
 
@@ -48,6 +48,31 @@ En Visual Studio, un proyecto de ASP.NET Core toma como predeterminado el hosped
 En Visual Studio, un proyecto de ASP.NET Core toma como predeterminado el hospedaje de [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) durante la depuración. Un *error de proceso 502,5* que se produce cuando la depuración local se puede diagnosticar con los consejos de este tema.
 
 ::: moniker-end
+
+### <a name="40314-forbidden"></a>403,14 prohibido
+
+No se puede iniciar la aplicación. Se registra el siguiente error:
+
+```
+The Web server is configured to not list the contents of this directory.
+```
+
+Normalmente, el error se debe a una implementación interrumpida en el sistema de hospedaje, que incluye cualquiera de los siguientes escenarios:
+
+* La aplicación se implementa en la carpeta incorrecta en el sistema de hospedaje.
+* El proceso de implementación no pudo trasladar todos los archivos y carpetas de la aplicación a la carpeta de implementación en el sistema de hospedaje.
+* Falta el archivo *Web. config* de la implementación o el contenido del archivo *Web. config* no tiene el formato correcto.
+
+Realice los pasos siguientes:
+
+1. Elimine todos los archivos y carpetas de la carpeta de implementación en el sistema de hospedaje.
+1. Vuelva a implementar el contenido de la carpeta de *publicación* de la aplicación en el sistema de hospedaje con el método normal de implementación, como Visual Studio, PowerShell o la implementación manual:
+   * Confirme que el archivo *Web. config* está presente en la implementación y que su contenido es correcto.
+   * Cuando hospede en Azure App Service, confirme que la aplicación se implementa en la `D:\home\site\wwwroot` carpeta.
+   * Cuando la aplicación esté hospedada por IIS, confirme que la aplicación se implementa en la **ruta de acceso física** de IIS que se muestra en la **configuración básica**del **Administrador de IIS**.
+1. Confirme que todos los archivos y carpetas de la aplicación se han implementado comparando la implementación en el sistema host con el contenido de la carpeta de *publicación* del proyecto.
+
+Para obtener más información sobre el diseño de una aplicación ASP.NET Core publicada, <xref:host-and-deploy/directory-structure>vea. Para obtener más información acerca del archivo *Web. config* , <xref:host-and-deploy/aspnet-core-module#configuration-with-webconfig>vea.
 
 ### <a name="500-internal-server-error"></a>500 Error interno del servidor
 
@@ -192,6 +217,8 @@ Confirme que la opción de 32 bits del grupo de aplicaciones sea correcta:
 1. Establezca **Habilitar aplicaciones de 32 bits**:
    * Si implementa una aplicación de 32 bits (x86), establezca el valor en `True`.
    * Si implementa una aplicación de 64 bits (x64), establezca el valor en `False`.
+
+Confirme que no hay ningún conflicto entre una `<Platform>` propiedad de MSBuild en el archivo de proyecto y el de la aplicación.
 
 ### <a name="connection-reset"></a>Restablecimiento de la conexión
 
@@ -592,7 +619,7 @@ A veces se produce un error en una aplicación que funciona inmediatamente despu
 * [Application Insights para ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
 * [Sección de aplicaciones Web de depuración remota de solución de problemas de una aplicación web en Azure App Service con Visual Studio](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug)
 * [Introducción a diagnósticos de Azure App Service](/azure/app-service/app-service-diagnostics)
-* [Procedimientos: Supervisar aplicaciones en Azure App Service](/azure/app-service/web-sites-monitor)
+* [Cómo: Supervisar aplicaciones en Azure App Service](/azure/app-service/web-sites-monitor)
 * [Solución de problemas de una aplicación web en Azure App Service con Visual Studio](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
 * [Solucionar los errores HTTP de "502 Puerta de enlace no válida" y "503 Servicio no disponible" en las aplicaciones web de Azure](/azure/app-service/app-service-web-troubleshoot-http-502-http-503)
 * [Solucionar los problemas de rendimiento reducido de aplicaciones web en Azure App Service](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
