@@ -8,10 +8,10 @@ ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
 ms.openlocfilehash: 43b69e9b7588ad575f203200c5bc59a4272d0066
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 07/22/2019
 ms.locfileid: "67814112"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Validación de modelos en ASP.NET Core MVC y Razor Pages
@@ -59,7 +59,7 @@ Estos son algunos de los atributos de validación integrados:
 
 En el espacio de nombres [System.ComponentModel.DataAnnotations](xref:System.ComponentModel.DataAnnotations) encontrará una lista completa de atributos de validación.
 
-### <a name="error-messages"></a>mensajes de error
+### <a name="error-messages"></a>Mensajes de error
 
 Los atributos de validación permiten especificar el mensaje de error que se mostrará para una entrada no válida. Por ejemplo:
 
@@ -153,7 +153,7 @@ Si necesita una validación que no proporcionan los atributos integrados, puede 
 * [Crear atributos personalizados](#custom-attributes)
 * [Implementar IValidatableObject](#ivalidatableobject)
 
-## <a name="custom-attributes"></a>Personalización de atributos
+## <a name="custom-attributes"></a>Atributos personalizados
 
 Para los escenarios que no se controlan mediante los atributos de validación integrados, puede crear atributos de validación personalizados. Cree una clase que herede de <xref:System.ComponentModel.DataAnnotations.ValidationAttribute> y reemplace el método <xref:System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid*>.
 

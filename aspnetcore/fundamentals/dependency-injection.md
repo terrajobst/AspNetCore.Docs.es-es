@@ -5,14 +5,14 @@ description: Obtenga información sobre la manera en que ASP.NET Core implementa
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/09/2019
+ms.date: 07/24/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 9293de38dcca1c0672f9cc3defa8d3c1b0b13d5a
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 100eab0bdee12a6e61ac26538c83aa997f8eaee3
+ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67855895"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68483202"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -123,7 +123,7 @@ En la aplicación de ejemplo, la instancia `IMyDependency` se solicita y usa par
 
 El método `Startup.ConfigureServices` se encarga de definir los servicios que la aplicación usa, incluidas las características de plataforma como Entity Framework Core y ASP.NET Core MVC. Inicialmente, el valor `IServiceCollection` proporcionado a `ConfigureServices` tiene los siguientes servicios definidos (en función de [cómo se configurara el host](xref:fundamentals/index#host)):
 
-| Tipo de servicio | Vigencia |
+| Tipo de servicio | Período de duración |
 | ------------ | -------- |
 | <xref:Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory?displayProperty=fullName> | Transitorio |
 | <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime?displayProperty=fullName> | Singleton |
@@ -158,7 +158,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Para obtener más información, consulte la clase <xref:Microsoft.Extensions.DependencyInjection.ServiceCollection> en la documentación de la API.
 
-## <a name="service-lifetimes"></a>Vigencia de los servicios
+## <a name="service-lifetimes"></a>Duraciones de servicios
 
 Elija una duración adecuada para cada servicio registrado. Los servicios de ASP.NET Core pueden configurarse con las duraciones siguientes:
 
@@ -186,11 +186,11 @@ Cada método de extensión de registro del servicio ofrece sobrecargas útiles e
 
 | Método | Automático<br>objeto<br>eliminación | Múltiple<br>implementaciones | Transferencia de argumentos |
 | ------ | :-----------------------------: | :-------------------------: | :-------: |
-| `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Ejemplo:<br>`services.AddScoped<IMyDep, MyDep>();` | Sí | Sí | Sin |
+| `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Ejemplo:<br>`services.AddScoped<IMyDep, MyDep>();` | Sí | Sí | No |
 | `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddScoped<IMyDep>(sp => new MyDep());`<br>`services.AddScoped<IMyDep>(sp => new MyDep("A string!"));` | Sí | Sí | Sí |
-| `Add{LIFETIME}<{IMPLEMENTATION}>()`<br>Ejemplo:<br>`services.AddScoped<MyDep>();` | Sí | No | Sin |
-| `Add{LIFETIME}<{SERVICE}>(new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddScoped<IMyDep>(new MyDep());`<br>`services.AddScoped<IMyDep>(new MyDep("A string!"));` | Sin | Sí | Sí |
-| `Add{LIFETIME}(new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddScoped(new MyDep());`<br>`services.AddScoped(new MyDep("A string!"));` | Sin | No | Sí |
+| `Add{LIFETIME}<{IMPLEMENTATION}>()`<br>Ejemplo:<br>`services.AddScoped<MyDep>();` | Sí | No | No |
+| `Add{LIFETIME}<{SERVICE}>(new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddScoped<IMyDep>(new MyDep());`<br>`services.AddScoped<IMyDep>(new MyDep("A string!"));` | No | Sí | Sí |
+| `Add{LIFETIME}(new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddScoped(new MyDep());`<br>`services.AddScoped(new MyDep("A string!"));` | No | No | Sí |
 
 Para obtener más información sobre el tipo de eliminación, consulte la sección [Eliminación de servicios](#disposal-of-services). Un escenario común para varias implementaciones es [utilizar tipos de simulación para las pruebas](xref:test/integration-tests#inject-mock-services).
 
@@ -204,7 +204,7 @@ services.AddSingleton<IMyDependency, MyDependency>();
 services.TryAddSingleton<IMyDependency, DifferentDependency>();
 ```
 
-Para más información, consulte:
+Para obtener más información, consulte:
 
 * <xref:Microsoft.Extensions.DependencyInjection.Extensions.ServiceCollectionDescriptorExtensions.TryAdd*>
 * <xref:Microsoft.Extensions.DependencyInjection.Extensions.ServiceCollectionDescriptorExtensions.TryAddTransient*>
@@ -474,31 +474,37 @@ El patrón de diseño Factory Method de un servicio único, como el segundo argu
   **Incorrecto:**
 
   ```csharp
-  public void MyMethod()
+  public class MyClass()
   {
-      var options = 
-          _services.GetService<IOptionsMonitor<MyOptions>>();
-      var option = options.CurrentValue.Option;
+      public void MyMethod()
+      {
+          var optionsMonitor = 
+              _services.GetService<IOptionsMonitor<MyOptions>>();
+          var option = optionsMonitor.CurrentValue.Option;
 
-      ...
+          ...
+      }
   }
   ```
 
   **Correcto**:
 
   ```csharp
-  private readonly MyOptions _options;
-
-  public MyClass(IOptionsMonitor<MyOptions> options)
+  public class MyClass
   {
-      _options = options.CurrentValue;
-  }
+      private readonly IOptionsMonitor<MyOptions> _optionsMonitor;
 
-  public void MyMethod()
-  {
-      var option = _options.Option;
+      public MyClass(IOptionsMonitor<MyOptions> optionsMonitor)
+      {
+          _optionsMonitor = optionsMonitor;
+      }
 
-      ...
+      public void MyMethod()
+      {
+          var option = _optionsMonitor.CurrentValue.Option;
+
+          ...
+      }
   }
   ```
 

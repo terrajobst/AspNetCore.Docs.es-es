@@ -5,12 +5,12 @@ description: Obtenga información sobre la sintaxis de marcado de Razor para ins
 ms.author: riande
 ms.date: 06/12/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 87c5b97a653c139b8b79f4270e0d9d0081815433
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 634623aa6df860a2ff728da4e65d277326db37e2
+ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034942"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68440367"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Referencia de sintaxis de Razor para ASP.NET Core
 
@@ -210,7 +210,7 @@ El lenguaje predeterminado de un bloque de código es C#, pero la página de Raz
 
 ### <a name="explicit-delimited-transition"></a>Transición delimitada explícita
 
-Para definir una subsección de un bloque de código que deba representar HTML, inserte los caracteres que quiera representar entre etiquetas de Razor **\<text>**:
+Para definir una subsección de un bloque de código que deba representar HTML, inserte los caracteres que quiera representar entre etiquetas de Razor **\<text>** :
 
 ```cshtml
 @for (var i = 0; i < people.Length; i++)
@@ -224,8 +224,8 @@ Emplee este método para representar HTML que no esté insertado entre etiquetas
 
 La etiqueta **\<text>** es útil para controlar el espacio en blanco al representar el contenido:
 
-* Solo se representa el contenido entre etiquetas **\<text>**.
-* En la salida HTML no hay espacios en blanco antes o después de la etiqueta **\<text>**.
+* Solo se representa el contenido entre etiquetas **\<text>** .
+* En la salida HTML no hay espacios en blanco antes o después de la etiqueta **\<text>** .
 
 ### <a name="explicit-line-transition-with-"></a>Transición de línea explícita con @:
 
@@ -581,9 +581,6 @@ La directiva `@attribute` agrega el atributo especificado a la clase de la pági
 ```cshtml
 @attribute [Authorize]
 ```
-
-> [!WARNING]
-> En la versión preliminar 6 de ASP.NET Core 3.0, hay un problema conocido en el que las directivas `@attribute` no funcionan en los archivos *\_Imports.razor* y *\_ViewImports.cshtml*. Esto se solucionará en la versión preliminar 7.
 
 ### <a name="namespace"></a>@namespace
 
