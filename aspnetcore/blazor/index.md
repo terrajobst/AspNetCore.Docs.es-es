@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seoapril2019
 ms.date: 07/01/2019
 uid: blazor/index
-ms.openlocfilehash: e0af0f27d79973f10493251c3f6c6daebe1b99a8
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 69a82bebdb787003e36568ca03e1104b9f2edf15
+ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67855778"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68412403"
 ---
 # <a name="introduction-to-blazor"></a>Introducción a Blazor
 
@@ -56,7 +56,7 @@ El siguiente marcado de Razor muestra un componente (*Dialog.razor*), que se pue
 
     @ChildContent
 
-    <button @onclick="@OnYes">Yes!</button>
+    <button @onclick="OnYes">Yes!</button>
 </div>
 
 @code {
