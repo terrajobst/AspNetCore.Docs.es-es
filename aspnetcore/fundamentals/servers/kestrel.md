@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/24/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 0a2072c3c97faaf51c36df63a5751246d344a971
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 1266813524bb5f33c50ff4e0a0961570f21689f1
+ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856186"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68483228"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web Kestrel en ASP.NET Core
 
@@ -514,7 +514,7 @@ Para más información sobre otras opciones y límites de Kestrel, vea:
 * <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits>
 * <xref:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions>
 
-## <a name="endpoint-configuration"></a>Configuración del punto de conexión
+## <a name="endpoint-configuration"></a>Configuración de punto de conexión
 
 ASP.NET Core enlaza de forma predeterminada a:
 
@@ -687,41 +687,41 @@ En el siguiente ejemplo de *appsettings.json*:
 
 ```json
 {
-"Kestrel": {
-  "Endpoints": {
-    "Http": {
-      "Url": "http://localhost:5000"
-    },
+  "Kestrel": {
+    "Endpoints": {
+      "Http": {
+        "Url": "http://localhost:5000"
+      },
 
-    "HttpsInlineCertFile": {
-      "Url": "https://localhost:5001",
-      "Certificate": {
-        "Path": "<path to .pfx file>",
-        "Password": "<certificate password>"
+      "HttpsInlineCertFile": {
+        "Url": "https://localhost:5001",
+        "Certificate": {
+          "Path": "<path to .pfx file>",
+          "Password": "<certificate password>"
+        }
+      },
+
+      "HttpsInlineCertStore": {
+        "Url": "https://localhost:5002",
+        "Certificate": {
+          "Subject": "<subject; required>",
+          "Store": "<certificate store; required>",
+          "Location": "<location; defaults to CurrentUser>",
+          "AllowInvalid": "<true or false; defaults to false>"
+        }
+      },
+
+      "HttpsDefaultCert": {
+        "Url": "https://localhost:5003"
+      },
+
+      "Https": {
+        "Url": "https://*:5004",
+        "Certificate": {
+          "Path": "<path to .pfx file>",
+          "Password": "<certificate password>"
+        }
       }
-    },
-
-    "HttpsInlineCertStore": {
-      "Url": "https://localhost:5002",
-      "Certificate": {
-        "Subject": "<subject; required>",
-        "Store": "<certificate store; required>",
-        "Location": "<location; defaults to CurrentUser>",
-        "AllowInvalid": "<true or false; defaults to false>"
-      }
-    },
-
-    "HttpsDefaultCert": {
-      "Url": "https://localhost:5003"
-    },
-
-    "Https": {
-      "Url": "https://*:5004",
-      "Certificate": {
-      "Path": "<path to .pfx file>",
-      "Password": "<certificate password>"
-      }
-    }
     },
     "Certificates": {
       "Default": {
