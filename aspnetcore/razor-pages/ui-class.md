@@ -7,18 +7,18 @@ ms.author: riande
 ms.date: 06/28/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: d59f643a23b48ccbddf498ef534ee8432b010f40
-ms.sourcegitcommit: 6d9cf728465cdb0de1037633a8b7df9a8989cccb
+ms.openlocfilehash: 77c7d4a318610fcd424da0485abd41d11e3fad6a
+ms.sourcegitcommit: fbc66827e319d28bebed678ea5fd42f582fe3c34
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67463253"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493563"
 ---
-# <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Crear la interfaz de usuario reutilizable con el proyecto de biblioteca de clases de Razor en ASP.NET Core
+# <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Crear una interfaz de usuario reutilizable mediante el proyecto de biblioteca de clases de Razor en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Las vistas de Razor, páginas, controladores, modelos de página, [componentes Razor](xref:blazor/class-libraries), [ver componentes](xref:mvc/views/view-components), y se pueden generar modelos de datos en una biblioteca de clases de Razor (RCL). Las RCL se pueden empaquetar y reutilizar. Las aplicaciones pueden incluir la RCL y reemplazar las vistas y páginas que contienen. Cuando existe una vista, vista parcial o página de Razor tanto en la aplicación web como en la RCL, tendrá prioridad el marcado de Razor (archivo *.cshtml*) de la aplicación web.
+Las vistas, páginas, controladores, modelos de páginas, [componentes de Razor](xref:blazor/class-libraries), componentes de [vista](xref:mvc/views/view-components)y modelos de datos de Razor se pueden integrar en una biblioteca de clases de Razor (RCL). Las RCL se pueden empaquetar y reutilizar. Las aplicaciones pueden incluir la RCL y reemplazar las vistas y páginas que contienen. Cuando existe una vista, vista parcial o página de Razor tanto en la aplicación web como en la RCL, tendrá prioridad el marcado de Razor (archivo *.cshtml*) de la aplicación web.
 
 Esta característica requiere [!INCLUDE[](~/includes/2.1-SDK.md)]
 
@@ -34,7 +34,7 @@ Esta característica requiere [!INCLUDE[](~/includes/2.1-SDK.md)]
 * Confirme que **ASP.NET Core 2.1** o una versión posterior está seleccionado.
 * Seleccione **Razor Class Library** (Biblioteca de clases de Razor) > **Aceptar**.
 
-Un RCL tiene el siguiente archivo del proyecto:
+Un RCL tiene el siguiente archivo de proyecto:
 
 [!code-xml[Main](ui-class/samples/cli/RazorUIClassLib/RazorUIClassLib.csproj)]
 
@@ -52,16 +52,16 @@ Para más información, vea [dotnet new](/dotnet/core/tools/dotnet-new). Para ev
 
 Agregue archivos de Razor a la RCL.
 
-Las plantillas de ASP.NET Core se suponen que el contenido RCL está en el *áreas* carpeta. Consulte [diseño de páginas RCL](#afs) para crear contenido en un RCL que expone `~/Pages` lugar `~/Areas/Pages`.
+Las plantillas de ASP.NET Core se suponen que el contenido RCL está en el *áreas* carpeta. Consulte [diseño de páginas de RCL](#afs) para crear un RCL que exponga contenido `~/Pages` en lugar `~/Areas/Pages`de.
 
-## <a name="referencing-rcl-content"></a>Hacer referencia a contenido RCL
+## <a name="referencing-rcl-content"></a>Referencia al contenido de RCL
 
 Los siguientes elementos pueden hacer referencia a la RCL:
 
 * Paquete NuGet. Vea [Creación de paquetes NuGet](/nuget/create-packages/creating-a-package), [dotnet add package](/dotnet/core/tools/dotnet-add-package) y [Creación y publicación de un paquete NuGet](/nuget/quickstart/create-and-publish-a-package-using-visual-studio).
 * *{NombreDeProyecto}.csproj*. Vea [dotnet-add reference](/dotnet/core/tools/dotnet-add-reference).
 
-## <a name="walkthrough-create-an-rcl-project-and-use-from-a-razor-pages-project"></a>Tutorial: Cree un proyecto RCL y use desde un proyecto de páginas de Razor
+## <a name="walkthrough-create-an-rcl-project-and-use-from-a-razor-pages-project"></a>Tutorial: Creación de un proyecto de RCL y uso de un proyecto de Razor Pages
 
 En lugar de crearlo, puede descargar el [proyecto completo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) y comprobarlo. La descarga de ejemplo contiene más código y vínculos que hacen que el proyecto sea fácil de comprobar. Puede dejar sus comentarios en [este problema de GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/6098) sobre las descargas de ejemplo en comparación con las instrucciones paso a paso.
 
@@ -91,7 +91,7 @@ dotnet run
 
 Siga las instrucciones de [Probar WebApp1](#test).
 
-## <a name="create-an-rcl"></a>Crear un RCL
+## <a name="create-an-rcl"></a>Creación de un RCL
 
 En esta sección, se crea un RCL. y se agregarán a ella archivos de Razor.
 
@@ -174,7 +174,7 @@ Ejecute la aplicación.
 
 # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
-Crear una aplicación web de páginas de Razor y un archivo de solución que contiene la aplicación de las páginas de Razor y el RCL:
+Cree una aplicación Web de Razor Pages y un archivo de solución que contenga la aplicación Razor Pages y RCL:
 
 ```console
 dotnet new webapp -o WebApp1
@@ -197,13 +197,13 @@ dotnet run
 
 ### <a name="test-webapp1"></a>Probar WebApp1
 
-Compruebe que la biblioteca de clases de interfaz de usuario de Razor está en uso:
+Compruebe que la biblioteca de clases de la interfaz de usuario de Razor está en uso:
 
 * Vaya a `/MyFeature/Page1`.
 
 ## <a name="override-views-partial-views-and-pages"></a>Reemplazar vistas, vistas parciales y páginas
 
-Cuando existe una vista, vista parcial o página de Razor tanto en la aplicación web como en la RCL, tendrá prioridad el marcado de Razor (archivo *.cshtml*) de la aplicación web. Por ejemplo, agregar *WebApp1/Areas/MyFeature/Pages/Page1.cshtml* a WebApp1, y Page1 en la WebApp1 tendrá prioridad sobre Page1 en la RCL.
+Cuando existe una vista, vista parcial o página de Razor tanto en la aplicación web como en la RCL, tendrá prioridad el marcado de Razor (archivo *.cshtml*) de la aplicación web. Por ejemplo, agregue *WebApp1/areas/mi Feature/pages/Page1. cshtml* a WebApp1 y Page1 en WebApp1 tendrá prioridad sobre PÁGINA1 en RCL.
 
 En la descarga de ejemplo, cambie el nombre *WebApp1/Areas/MyFeature2* por *WebApp1/Areas/MyFeature* para comprobar la prioridad.
 
@@ -230,31 +230,31 @@ Supongamos que *RazorUIClassLib, compartidos o páginas* contiene dos archivos p
 
 ::: moniker range=">= aspnetcore-3.0"
 
-## <a name="create-an-rcl-with-static-assets"></a>Crear un RCL con activos estáticos
+## <a name="create-an-rcl-with-static-assets"></a>Creación de un RCL con recursos estáticos
 
-Un RCL puede requerir recursos estáticos de complementaria que pueden hacer referencia a la aplicación de consumo de la RCL. ASP.NET Core permite crear RCLs que incluyen recursos estáticos que están disponibles para una aplicación que lo consume.
+Una RCL puede requerir recursos estáticos complementarios a los que puede hacer referencia la aplicación de consumo de RCL. ASP.NET Core permite crear RCLs que incluyen recursos estáticos que están disponibles para una aplicación de consumo.
 
-Para incluir recursos complementarios como parte de un RCL, cree un *wwwroot* carpeta en la biblioteca de clases e incluir los archivos necesarios en esa carpeta.
+Para incluir los recursos complementarios como parte de un RCL, cree una carpeta *wwwroot* en la biblioteca de clases e incluya los archivos necesarios en esa carpeta.
 
-Cuando se empaqueta un RCL, companion en todos los recursos en el *wwwroot* carpeta se incluyen automáticamente en el paquete y se ponen a disposición para hacer referencia al paquete de aplicaciones.
+Al empaquetar un RCL, todos los recursos complementarios de la carpeta *wwwroot* se incluyen automáticamente en el paquete y se ponen a disposición de las aplicaciones que hacen referencia al paquete.
 
-### <a name="consume-content-from-a-referenced-rcl"></a>Consumir contenido de un RCL que se hace referencia
+### <a name="consume-content-from-a-referenced-rcl"></a>Consumo de contenido de una RCL a la que se hace referencia
 
-Los archivos incluidos en el *wwwroot* carpeta de la RCL están expuestas a la aplicación que lo consume en el prefijo `_content/{LIBRARY NAME}/`. `{LIBRARY NAME}` es el nombre del proyecto de biblioteca que se convierte en minúsculas con períodos (`.`) eliminado. Por ejemplo, una biblioteca denominada *Razor.Class.Lib* da como resultado una ruta de acceso a contenido estático en `_content/razorclasslib/`.
+Los archivos incluidos en la carpeta *wwwroot* del RCL se exponen a la aplicación que lo consume `_content/{LIBRARY NAME}/`bajo el prefijo. Por ejemplo, una biblioteca denominada *Razor. class. lib* da como resultado una ruta de acceso al `_content/Razor.Class.Lib/`contenido estático en.
 
-La aplicación que hace referencia a recursos estáticos proporcionados por la biblioteca con `<script>`, `<style>`, `<img>`y otras etiquetas HTML. Debe tener la aplicación consumidora [compatibilidad con archivos estáticos](xref:fundamentals/static-files) habilitado.
+La aplicación de consumo hace referencia a los recursos estáticos proporcionados `<style>`por `<img>`la biblioteca con `<script>`,, y otras etiquetas HTML. La aplicación de consumo debe tener habilitada la [compatibilidad con archivos estáticos](xref:fundamentals/static-files) .
 
 ### <a name="multi-project-development-flow"></a>Flujo de desarrollo de varios proyectos
 
 Cuando se ejecuta la aplicación de consumo:
 
-* Los activos de la estancia RCL en sus carpetas originales. Los recursos no se mueven a la aplicación que lo consume.
-* Cualquier cambio en el RCL *wwwroot* carpeta se refleja en la aplicación consumidora después de que se vuelve a generar el RCL y sin volver a generar la aplicación que lo consume.
+* Los recursos de RCL permanecen en sus carpetas originales. Los recursos no se mueven a la aplicación de consumo.
+* Cualquier cambio dentro de la carpeta *wwwroot* de RCL se refleja en la aplicación de consumo después de que se vuelva a generar RCL y sin volver a generar la aplicación de consumo.
 
-Cuando se compila el RCL, se genera un manifiesto que describe las ubicaciones de recurso web estático. La aplicación que lee el manifiesto en tiempo de ejecución para consumir los recursos de los paquetes y proyectos que se hace referencia. Cuando se agrega un nuevo recurso a un RCL, se debe regenerar el RCL para actualizar su manifiesto antes de una aplicación que pueda acceder el nuevo recurso.
+Cuando se compila el RCL, se genera un manifiesto que describe las ubicaciones de los recursos web estáticos. La aplicación consumidora lee el manifiesto en tiempo de ejecución para consumir los recursos de los proyectos y paquetes a los que se hace referencia. Cuando se agrega un nuevo recurso a un RCL, se debe volver a generar el RCL para actualizar el manifiesto antes de que una aplicación de consumo pueda acceder al nuevo recurso.
 
 ### <a name="publish"></a>Publicar
 
-Cuando se publica la aplicación, los recursos complementarios de paquetes y proyectos de todos los que se hace referencia se copian en el *wwwroot* carpeta de la aplicación publicada en `_content/{LIBRARY NAME}/`.
+Cuando se publica la aplicación, los recursos complementarios de todos los proyectos y paquetes a los que se  hace referencia se copian en la `_content/{LIBRARY NAME}/`carpeta wwwroot de la aplicación publicada en.
 
 ::: moniker-end
