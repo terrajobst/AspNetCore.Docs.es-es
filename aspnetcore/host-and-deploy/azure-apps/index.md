@@ -5,14 +5,14 @@ description: Este artículo contiene vínculos a recursos de implementación y h
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/16/2019
+ms.date: 07/28/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: bbdb3e92b6b8afb44d9c0c95c240002c7b7c17db
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: 5035a31526e0290964e0fdee05753aeaf6cb3790
+ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308156"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602441"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -42,7 +42,10 @@ Configure una compilación de integración continua para una aplicación de ASP.
 [Espacio aislado de Azure Web App](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
 Detecte limitaciones de ejecución en tiempo de ejecución de Azure App Service aplicadas por la plataforma de aplicaciones de Azure.
 
-## <a name="application-configuration"></a>Configuración de aplicaciones
+<xref:test/troubleshoot>  
+Conozca y solucione advertencias y errores en proyectos de ASP.NET Core.
+
+## <a name="application-configuration"></a>Configuración de aplicación
 
 ### <a name="platform"></a>Plataforma
 
@@ -257,7 +260,7 @@ Use Visual Studio o las herramientas de la interfaz de la línea de comandos (CL
 1. En el cuadro de diálogo **Publicar**:
    * Confirme que está seleccionada la configuración de **Versión**.
    * Abra la lista desplegable **Modo de implementación** y seleccione **Independiente**.
-   * Seleccione el entorno de ejecución de destino en la lista desplegable **Tiempo de ejecución de destino**. El valor predeterminado es `win-x86`.
+   * Seleccione el entorno de ejecución de destino en la lista desplegable **Tiempo de ejecución de destino**. De manera predeterminada, es `win-x86`.
    * Si necesita quitar archivos adicionales tras la implementación, abra **Opciones de publicación de archivos** y active la casilla de verificación para quitar archivos adicionales en el destino.
    * Seleccione **Guardar**.
 1. Cree un sitio nuevo o actualice un sitio existente siguiendo las instrucciones restantes del asistente para publicación.
@@ -285,7 +288,7 @@ Use Visual Studio o las herramientas de la interfaz de la línea de comandos (CL
 
 ## <a name="protocol-settings-https"></a>Configuración del protocolo (HTTPS)
 
-Los enlaces de protocolo seguro permiten especificar un certificado para usarlo al responder a solicitudes a través de HTTPS. Los enlaces requieren un certificado privado válido ( *.pfx*) que se haya emitido para el nombre de host en cuestión. Para más información, consulte [Tutorial: Enlazar un certificado SSL personalizado existente a Azure App Service](/azure/app-service/app-service-web-tutorial-custom-ssl).
+Los enlaces de protocolo seguro permiten especificar un certificado para usarlo al responder a solicitudes a través de HTTPS. Los enlaces requieren un certificado privado válido ( *.pfx*) que se haya emitido para el nombre de host en cuestión. Para obtener más información, consulte [Tutorial: Enlazar un certificado SSL personalizado existente a Azure App Service](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ## <a name="transform-webconfig"></a>Transformación de web.config
 

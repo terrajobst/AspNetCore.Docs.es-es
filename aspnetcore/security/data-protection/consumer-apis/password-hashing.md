@@ -1,29 +1,29 @@
 ---
-title: Hash de contraseñas en ASP.NET Core
+title: Contraseñas de hash en ASP.NET Core
 author: rick-anderson
-description: Obtenga información sobre cómo realizar un hash de contraseñas mediante las API de protección de datos de ASP.NET Core.
+description: Obtenga información sobre cómo aplicar un algoritmo hash a las contraseñas mediante las API de protección de datos de ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/consumer-apis/password-hashing
-ms.openlocfilehash: 70301ffffbaaf3c5ff0642b19b80e40be83aa438
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bd4b8fcf6a5a16a86ada97bbd3519f872d1417b7
+ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64896652"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602455"
 ---
-# <a name="hash-passwords-in-aspnet-core"></a>Hash de contraseñas en ASP.NET Core
+# <a name="hash-passwords-in-aspnet-core"></a>Contraseñas de hash en ASP.NET Core
 
-La base de código de protección de datos incluye un paquete *Microsoft.AspNetCore.Cryptography.KeyDerivation* que contiene funciones de derivación de claves criptográficas. Este paquete es un componente independiente y no tiene dependencias en el resto del sistema de protección de datos. Se pueden usar completamente por separado. El origen existe junto con el código de protección de datos base para su comodidad.
+La base de código de protección de datos incluye un paquete *Microsoft. AspNetCore. Cryptography. derivación* que contiene las funciones de derivación de claves de cifrado. Este paquete es un componente independiente y no tiene dependencias en el resto del sistema de protección de datos. Se puede usar de forma totalmente independiente. El origen existe junto con el código base de protección de datos como una comodidad.
 
-Actualmente, el paquete ofrece un método `KeyDerivation.Pbkdf2` que permite el hash de una contraseña mediante la [PBKDF2 algoritmo](https://tools.ietf.org/html/rfc2898#section-5.2). Esta API es muy similar a .NET Framework existente [Rfc2898DeriveBytes tipo](/dotnet/api/system.security.cryptography.rfc2898derivebytes), pero hay tres diferencias importantes:
+El paquete ofrece actualmente un método `KeyDerivation.Pbkdf2` que permite aplicar un algoritmo hash a una contraseña mediante el [algoritmo PBKDF2](https://tools.ietf.org/html/rfc2898#section-5.2). Esta API es muy similar al [tipo Rfc2898DeriveBytes](/dotnet/api/system.security.cryptography.rfc2898derivebytes)existente del .NET Framework, pero hay tres diferencias importantes:
 
-1. El `KeyDerivation.Pbkdf2` método admite el consumo de varias PRFs (actualmente `HMACSHA1`, `HMACSHA256`, y `HMACSHA512`), mientras que el `Rfc2898DeriveBytes` escriba sólo admite `HMACSHA1`.
+1. El `KeyDerivation.Pbkdf2` método admite el consumo de varias PRFS ( `HMACSHA1`actualmente `HMACSHA256`, y `HMACSHA512`), mientras que `Rfc2898DeriveBytes` el tipo solo `HMACSHA1`admite.
 
-2. El `KeyDerivation.Pbkdf2` método detecta el sistema operativo actual e intenta elegir la implementación de la rutina, proporcionando un rendimiento mucho mejor en ciertos casos más optimizada. (En Windows 8, ofrece aproximadamente 10 veces el rendimiento de `Rfc2898DeriveBytes`.)
+2. El `KeyDerivation.Pbkdf2` método detecta el sistema operativo actual e intenta elegir la implementación más optimizada de la rutina, lo que proporciona un rendimiento mucho mejor en ciertos casos. (En Windows 8, ofrece aproximadamente 10 veces el rendimiento de `Rfc2898DeriveBytes`).
 
-3. El `KeyDerivation.Pbkdf2` método requiere que el llamador especificar todos los parámetros (sal, PRF y número de iteraciones). El `Rfc2898DeriveBytes` tipo proporciona valores predeterminados para estos.
+3. El `KeyDerivation.Pbkdf2` método requiere que el llamador especifique todos los parámetros (sal, PRF y recuento de iteraciones). El `Rfc2898DeriveBytes` tipo proporciona los valores predeterminados para estos.
 
 [!code-csharp[](password-hashing/samples/passwordhasher.cs)]
 
-Consulte la [código fuente](https://github.com/aspnet/Identity/blob/master/src/Core/PasswordHasher.cs) para ASP.NET Core Identity `PasswordHasher` caso de uso de tipo para un mundo real.
+Vea el [código fuente](https://github.com/aspnet/AspNetCore/blob/master/src/Identity/Extensions.Core/src/PasswordHasher.cs) de ASP.net Core `PasswordHasher` tipo de identidad para un caso de uso real.
