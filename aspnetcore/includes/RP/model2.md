@@ -14,7 +14,43 @@ El código anterior crea una propiedad `DbSet` para el conjunto de entidades. En
 
 Agregue una cadena de conexión al archivo *appsettings.json*, tal como se muestra en el código resaltado siguiente:
 
-[!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/appsettings_SQLite.json?highlight=10-12)]
+
+### <a name="add-required-nuget-packages"></a>Adición de los paquetes NuGet necesarios
+
+Ejecute los comandos siguientes de la CLI de .NET Core para agregar SQLite, Entity Framework Core y CodeGeneration.Design al proyecto:
+
+```console
+dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
+```
+
+El paquete `Microsoft.VisualStudio.Web.CodeGeneration.Design` es necesario para realizar scaffolding.
+
+<a name="reg"></a>
+
+### <a name="register-the-database-context"></a>Registro del contexto de base de datos
+
+Agregue las instrucciones `using` siguientes en la parte superior de *Startup.cs*:
+
+```csharp
+using RazorPagesMovie.Models;
+using Microsoft.EntityFrameworkCore;
+```
+
+Registre el contexto de base de datos con el contenedor de [inserción de dependencias](xref:fundamentals/dependency-injection) en `Startup.ConfigureServices`.
+
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-9)]
 
 ### <a name="add-required-nuget-packages"></a>Adición de los paquetes NuGet necesarios
 
@@ -45,3 +81,4 @@ Registre el contexto de base de datos con el contenedor de [inserción de depend
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
 Compile el proyecto para comprobar si hay errores.
+::: moniker-end
