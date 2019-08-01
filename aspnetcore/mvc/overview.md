@@ -3,14 +3,14 @@ title: Información general de ASP.NET Core MVC
 author: ardalis
 description: Conozca ASP.NET Core MVC, un marco completo para crear aplicaciones web y varias API mediante el patrón de diseño del controlador de vista de modelos.
 ms.author: riande
-ms.date: 01/08/2018
+ms.date: 08/01/2019
 uid: mvc/overview
-ms.openlocfilehash: 819bc93a7580626bf586b984b0ce169306df56d9
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 7f09751850cbfa7bb3dc79656d4530445a9767b1
+ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815352"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707819"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Información general de ASP.NET Core MVC
 
@@ -88,11 +88,11 @@ El *enrutamiento de atributos* permite especificar información de enrutamiento 
 [Route("api/[controller]")]
 public class ProductsController : Controller
 {
-  [HttpGet("{id}")]
-  public IActionResult GetProduct(int id)
-  {
-    ...
-  }
+    [HttpGet("{id}")]
+    public IActionResult GetProduct(int id)
+    {
+      ...
+    }
 }
 ```
 
@@ -102,7 +102,7 @@ El [enlace de modelo](models/model-binding.md) de ASP.NET Core MVC convierte los
 
 ```csharp
 public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null) { ... }
-   ```
+```
 
 ### <a name="model-validation"></a>Validación de modelos
 
@@ -149,6 +149,7 @@ La aplicación también puede usar la [inserción de dependencias en archivos de
 
 ```cshtml
 @inject SomeService ServiceName
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -189,11 +190,11 @@ Al usar interfaces e inserción de dependencias, el marco es adecuado para reali
 
 Las [vistas de ASP.NET Core MVC](views/overview.md) usan el [motor de vistas de Razor](views/razor.md) para representar vistas. Razor es un lenguaje de marcado de plantillas compacto, expresivo y fluido para definir vistas que usan código incrustado de C#. Razor se usa para generar dinámicamente contenido web en el servidor. Permite combinar de manera limpia el código del servidor con el código y el contenido del lado cliente.
 
-```text
+```cshtml
 <ul>
-  @for (int i = 0; i < 5; i++) {
-    <li>List item @i</li>
-  }
+    @for (int i = 0; i < 5; i++) {
+        <li>List item @i</li>
+    }
 </ul>
 ```
 
