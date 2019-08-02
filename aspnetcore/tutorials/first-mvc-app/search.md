@@ -5,12 +5,12 @@ description: Se muestra cómo agregar la búsqueda a una aplicación ASP.NET Cor
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: fbec03d71e247c58fb5968290c4baf6b28120e1c
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: ed6c7a095143670b7d06e43db3a428dec9bf97ad
+ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815067"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707841"
 ---
 # <a name="add-search-to-an-aspnet-core-mvc-app"></a>Agregar búsqueda a una aplicación de ASP.NET Core MVC
 
@@ -18,7 +18,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 En esta sección agregará capacidad de búsqueda para el método de acción `Index` que permite buscar películas por *género* o *nombre*.
 
-Actualice el método `Index` con el código siguiente:
+Actualice el método `Index`, que está en *Controllers/MoviesController.cs*, con el código siguiente:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_1stSearch)]
 
@@ -39,7 +39,7 @@ El código `s => s.Title.Contains()` anterior es una [expresión Lambda](/dotnet
 
 Nota: El método [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) se ejecuta en la base de datos, no en el código de c# que se muestra arriba. La distinción entre mayúsculas y minúsculas en la consulta depende de la base de datos y la intercalación. En SQL Server, [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) se asigna a [SQL LIKE](/sql/t-sql/language-elements/like-transact-sql), que distingue entre mayúsculas y minúsculas. En SQLite, con la intercalación predeterminada, se distingue entre mayúsculas y minúsculas.
 
-Vaya a `/Movies/Index`. Anexe una cadena de consulta como `?searchString=Ghost` a la dirección URL. Se muestran las películas filtradas.
+Navegue a `/Movies/Index`. Anexe una cadena de consulta como `?searchString=Ghost` a la dirección URL. Se muestran las películas filtradas.
 
 ![Vista de índice](~/tutorials/first-mvc-app/search/_static/ghost.png)
 
@@ -91,7 +91,7 @@ Sin embargo, aunque agregue esta versión de `[HttpPost]` al método `Index`, ha
 
 Puede ver el parámetro de búsqueda y el token [XSRF](xref:security/anti-request-forgery) en el cuerpo de la solicitud. Tenga en cuenta, como se mencionó en el tutorial anterior, que el [asistente de etiquetas de formulario](xref:mvc/views/working-with-forms) genera un token [XSRF](xref:security/anti-request-forgery) antifalsificación. Como no se van a modificar datos, no es necesario validar el token con el método del controlador.
 
-El parámetro de búsqueda se encuentra en el cuerpo de solicitud y no en la dirección URL. Por eso no se puede capturar dicha información para marcarla o compartirla con otros usuarios. Para solucionar este problema, se especifica que la solicitud sea `HTTP GET`:
+El parámetro de búsqueda se encuentra en el cuerpo de solicitud y no en la dirección URL. Por eso no se puede capturar dicha información para marcarla o compartirla con otros usuarios. Para corregir este problema, especifique que la solicitud debe ser `HTTP GET`, que está en el archivo *Views/Movies/Index.cshtml*.
 
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexGet.cshtml?highlight=12&range=1-23)]
 
@@ -132,7 +132,7 @@ Cuando el usuario busca el elemento, se conserva el valor de búsqueda en el cua
 
 ## <a name="add-search-by-genre-to-the-index-view"></a>Adición de búsqueda por género a la vista de índice
 
-Actualice `Index.cshtml` de la siguiente manera:
+Actualice `Index.cshtml`, que está en *Views/Movies/* , siguiendo estos pasos:
 
 [!code-cshtml[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexFormGenreNoRating.cshtml?highlight=1,15,16,17,19,28,31,34,37,43)]
 
