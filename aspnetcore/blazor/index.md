@@ -28,12 +28,12 @@ Blazor es un marco de trabajo para la creación de interfaces de usuario web int
 
 El uso de .NET para el desarrollo web en el lado cliente ofrece las siguientes ventajas:
 
-* escriba código en C# en lugar de JavaScript.
+* Escriba código en C# en lugar de JavaScript.
 * Aprovechamiento del ecosistema y las bibliotecas .NET existentes.
 * Uso compartido de la lógica de aplicación en el servidor y el cliente.
 * Beneficios de rendimiento, confiabilidad y seguridad de .NET.
-* mantenga la productividad con Visual Studio en Windows, Linux y macOS.
-* compile sobre un conjunto común de lenguajes, marcos y herramientas que son estables, completos y fáciles de usar.
+* Mantenga la productividad con Visual Studio en Windows, Linux y macOS.
+* Compile sobre un conjunto común de lenguajes, marcos y herramientas que son estables, completos y fáciles de usar.
 
 ## <a name="components"></a>Componentes
 
@@ -41,10 +41,10 @@ Las aplicaciones de Blazor se basan en *componentes*. Un componente en Blazor es
 
 Los componentes son clases de .NET compiladas en ensamblados de .NET que:
 
-* definen la lógica de representación de la interfaz de usuario flexible;
-* controlan acciones del usuario;
-* se pueden anidar y reutilizar;
-* se pueden compartir y distribuir como [bibliotecas de clases de Razor](xref:razor-pages/ui-class) o [paquetes de NuGet](/nuget/what-is-nuget).
+* Definen la lógica de representación de la interfaz de usuario flexible.
+* Controlan acciones del usuario.
+* Se pueden anidar y reutilizar.
+* Se pueden compartir y distribuir como [bibliotecas de clases de Razor](xref:razor-pages/ui-class) o [paquetes de NuGet](/nuget/what-is-nuget).
 
 La clase del componente se escribe normalmente en forma de una página de marcado de [Razor](xref:mvc/views/razor) con una extensión de archivo *.razor*. Se hace referencia a los componentes de Blazor como *componentes de Razor*. Razor es una sintaxis para combinar marcado HTML con código de C# diseñada para aumentar la productividad del desarrollador. Razor le permite cambiar entre marcado HTML y C# en el mismo archivo gracias a la compatibilidad con [IntelliSense](/visualstudio/ide/using-intellisense). Razor Pages y MVC también usan Razor. A diferencia de Razor Pages y MVC, que se compilan en torno a un modelo de solicitud y respuesta, los componentes se usan específicamente en la composición y la lógica de la interfaz de usuario del lado cliente.
 
@@ -119,7 +119,7 @@ Cuando se compila y ejecuta una aplicación del lado cliente de Blazor en un exp
 
 El tamaño de la aplicación publicada, su *tamaño de carga*, es un factor de rendimiento crítico para la facilidad de uso de una aplicación. Una aplicación grande tarda un tiempo relativamente largo en descargarse en un explorador, lo que repercute en la experiencia del usuario. El lado cliente de Blazor optimiza el tamaño de carga para reducir los tiempos de descarga:
 
-* se ha quitado el código sin usar de la aplicación cuando se publica mediante el [enlazador del lenguaje intermedio (IL)](xref:host-and-deploy/blazor/configure-linker).
+* Se ha quitado el código sin usar de la aplicación cuando se publica mediante el [enlazador del lenguaje intermedio (IL)](xref:host-and-deploy/blazor/configure-linker).
 * Las respuestas HTTP se comprimen.
 * El entorno de ejecución .NET y los ensamblados se almacenan en caché en el explorador.
 
