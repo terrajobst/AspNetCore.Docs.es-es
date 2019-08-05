@@ -3,14 +3,14 @@ title: Diseño en ASP.NET Core
 author: ardalis
 description: Obtenga información sobre cómo usar diseños comunes, compartir directivas y ejecutar código común antes de representar vistas en una aplicación ASP.NET Core.
 ms.author: riande
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 uid: mvc/views/layout
-ms.openlocfilehash: 7a60ee15e688d6f0e531302457604fa759213758
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6bd9dfc65c026ee524277aaaa21333d299c8981e
+ms.sourcegitcommit: 7001657c00358b082734ba4273693b9b3ed35d2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899247"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68670013"
 ---
 # <a name="layout-in-aspnet-core"></a>Diseño en ASP.NET Core
 
@@ -35,15 +35,15 @@ La mayoría de las aplicaciones web tienen un diseño común que ofrece al usuar
 
 Las estructuras HTML comunes, como los scripts y las hojas de estilos también se usan con frecuencia en muchas páginas dentro de una aplicación. Todos estos elementos compartidos se pueden definir en un archivo de *diseño*, al que se puede hacer referencia por cualquier vista que se use en la aplicación. Los diseños reducen el código duplicado en las vistas.
 
-Por convención, el diseño predeterminado para una aplicación ASP.NET Core se denomina *_Layout.cshtml*. El archivo de diseño para los nuevos proyectos de ASP.NET Core creados con las plantillas:
+Por convención, el diseño predeterminado para una aplicación ASP.NET Core se denomina *_Layout.cshtml*. Los archivos de diseño para los nuevos proyectos de ASP.NET Core creados con las plantillas son:
 
 * Razor Pages: *Pages/Shared/_Layout.cshtml*
 
-  ![carpeta de páginas en el Explorador de soluciones](layout/_static/rp-web-project-views.png)
+  ![Carpeta Pages del Explorador de soluciones](layout/_static/rp-web-project-views.png)
 
 * Controlador con vistas: *Views/Shared/_Layout.cshtml*
 
- ![carpeta de vistas en el Explorador de soluciones](layout/_static/mvc-web-project-views.png)
+  ![Carpeta Views del Explorador de soluciones](layout/_static/mvc-web-project-views.png)
 
 Este diseño define una plantilla de nivel superior para las vistas en la aplicación. Las aplicaciones no necesitan un diseño. Las aplicaciones pueden definir más de un diseño con distintas vistas que especifiquen diseños diferentes.
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 07/04/2019
 uid: fundamentals/tools/dotnet-aspnet-codegenerator
-ms.openlocfilehash: c96362f320efd84c35dc07294a2968a2c687ee94
-ms.sourcegitcommit: b9e914ef274b5ec359582f299724af6234dce135
+ms.openlocfilehash: c2c815735ad1b4dcec761b26ea3992a4effebe62
+ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67596138"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682687"
 ---
 # <a name="dotnet-aspnet-codegenerator"></a>dotnet aspnet-codegenerator
 
@@ -55,8 +55,8 @@ El generador de código que se va a ejecutar. Estos generadores están disponibl
 | Generator | Operación |
 | ----------------- | ------------ | 
 | área      | [Aplica scaffolding a un área](/aspnet/core/mvc/controllers/areas) |
-  controlador| [Aplica scaffolding a un controlador](/aspnet/core/tutorials/first-mvc-app/adding-model) |
-  identidad  | [Aplica scaffolding a una identidad](/aspnet/core/security/authentication/scaffold-identity) |
+  controller| [Aplica scaffolding a un controlador](/aspnet/core/tutorials/first-mvc-app/adding-model) |
+  identity  | [Aplica scaffolding a una identidad](/aspnet/core/security/authentication/scaffold-identity) |
   razorpage | [Aplica scaffolding a Razor Pages](/aspnet/core/tutorials/razor-pages/model) |
   view      | [Aplica scaffolding a una vista](/aspnet/core/mvc/views/overview) |
 
@@ -72,7 +72,7 @@ Define la configuración de compilación. El valor predeterminado es `Debug`.
 
 `-tfm|--target-framework`
 
-Establece como destino el [marco](/dotnet/standard/frameworks) que se va a usar. Por ejemplo: `net46`.
+Establece como destino el [marco](/dotnet/standard/frameworks) que se va a usar. Por ejemplo, `net46`.
 
 `-b|--build-base-path`
 
@@ -94,9 +94,9 @@ Especifica la ruta de acceso del archivo del proyecto que se va a ejecutar (nomb
 
 En las secciones siguientes se detallan las opciones disponibles para los generadores compatibles:
 
-* Área
-* Controlador
-* identidad  
+* Ámbito
+* Controller
+* Identidad  
 * Razorpage
 * Ver
 
@@ -113,7 +113,7 @@ El comando anterior genera estas carpetas:
 * *Áreas*
   * *AreaNameToGenerate*
     * *Controladores*
-    * *Data*
+    * *Datos*
     * *Models*
     * *Vistas*
 
@@ -190,6 +190,6 @@ dotnet aspnet-codegenerator razorpage -h
 
 Consulte [Aplicar scaffolding al modelo de película](/aspnet/core/tutorials/razor-pages/model) para ver un ejemplo de `dotnet aspnet-codegenerator razorpage`.
 
-### <a name="identity"></a>identidad
+### <a name="identity"></a>Identidad
 
 Consulte [Identidad de scaffolding](/aspnet/core/security/authentication/scaffold-identity)

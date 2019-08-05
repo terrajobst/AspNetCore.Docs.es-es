@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la herramienta global HTTP RE
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/23/2019
+ms.date: 07/25/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 1ceda6182c62bb1be06cd95f14e6a46a1809253e
-ms.sourcegitcommit: 059ab380744fa3be3b69aa90d431b563c57092cf
+ms.openlocfilehash: e719d599545810d723840b0800cd6a2b4f96b123
+ms.sourcegitcommit: fbc66827e319d28bebed678ea5fd42f582fe3c34
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68410890"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493570"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Prueba de las API web HTTP REPL
 
@@ -21,7 +21,8 @@ Por [Scott Addie](https://twitter.com/Scott_Addie)
 El bucle HTTP read-eval-print (REPL):
 
 * Es una herramienta de línea de comandos ligera y multiplataforma con la misma compatibilidad que .NET Core.
-* Se usa para realizar solicitudes HTTP con el fin de probar API web de ASP.NET Core y ver los resultados.
+* Se usa para realizar solicitudes HTTP con el fin de probar las API web de ASP.NET Core (así como otras API) y ver los resultados.
+* Capaz de probar las API web hospedadas en cualquier entorno, incluidos localhost y Azure App Service.
 
 Se admiten los siguientes [verbos HTTP](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods):
 
@@ -44,7 +45,7 @@ Para continuar, [vea o descargue la API web de muestra de ASP.NET Core ](https:/
 Ejecute el siguiente comando para instalar HTTP REPL:
 
 ```console
-dotnet tool install -g Microsoft.dotnet-httprepl --version 3.0.0-*
+dotnet tool install -g Microsoft.dotnet-httprepl --version "3.0.0-*"
 ```
 
 Se instala una [herramienta global de .NET Core](/dotnet/core/tools/global-tools#install-a-global-tool) desde el paquete NuGet [Microsoft.dotnet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl).
@@ -915,7 +916,7 @@ Si ejecuta con frecuencia el mismo conjunto de comandos de HTTP REPL, considere 
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt
     ```
 
-    Aparece el siguiente resultado:
+    Se mostrará lo siguiente:
 
     ```console
     https://localhost:5001/~ set base https://localhost:5001

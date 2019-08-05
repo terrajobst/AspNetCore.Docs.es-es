@@ -5,12 +5,12 @@ description: Esta serie de tutoriales muestra cómo usar Razor Pages en ASP.NET 
 ms.author: riande
 ms.date: 07/25/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 1605197188d97f27a884739a72400da2d5818b1a
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: 57a10895c718c539ece280afcb27cb4033c7fb45
+ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372006"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682793"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Tutorial: Introducción a Razor Pages en ASP.NET Core
 
@@ -25,11 +25,11 @@ Al final de la serie, tendrá una aplicación que puede administrar una base de 
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
-En este tutorial ha:
+En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
 > * Crear una aplicación web de Razor Pages.
-> * Ejecutar la aplicación.
+> * Ejecute la aplicación.
 > * Examinar los archivos de proyecto.
 
 Al final de este tutorial, tendrá una aplicación web de Razor Pages que compilará en los tutoriales posteriores.
@@ -110,7 +110,7 @@ En Visual Studio, seleccione **Archivo > Abrir** y elija el archivo *RazorPagesM
 
 ---
 
-## <a name="run-the-app"></a>Ejecutar la aplicación
+## <a name="run-the-app"></a>Ejecución de la aplicación
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -133,7 +133,7 @@ En Visual Studio, seleccione **Archivo > Abrir** y elija el archivo *RazorPagesM
 
   [!INCLUDE[](~/includes/trustCertMac.md)]
 
-* Presione **Cmd-Opt-F5** para realizar la ejecución sin el depurador.
+* Presione **Alt-Cmd-Entrar** para realizar la ejecución sin el depurador. O bien, en la barra de menús, vaya a Ejecutar > Iniciar sin depurar.
 
   Visual Studio iniciará [Kestrel](xref:fundamentals/servers/kestrel) y un explorador, y se desplazará a `http://localhost:5001`.
 
@@ -191,11 +191,11 @@ Al final de la serie, tendrá una aplicación que puede administrar una base de 
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
-En este tutorial ha:
+En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
 > * Crear una aplicación web de Razor Pages.
-> * Ejecutar la aplicación.
+> * Ejecute la aplicación.
 > * Examinar los archivos de proyecto.
 
 Al final de este tutorial, tendrá una aplicación web de Razor Pages que compilará en los tutoriales posteriores.
@@ -280,7 +280,7 @@ En Visual Studio, seleccione **Archivo > Abrir** y elija el archivo *RazorPagesM
 
 ---
 
-## <a name="run-the-app"></a>Ejecutar la aplicación
+## <a name="run-the-app"></a>Ejecución de la aplicación
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
