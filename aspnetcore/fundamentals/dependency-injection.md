@@ -5,14 +5,14 @@ description: Obtenga información sobre la manera en que ASP.NET Core implementa
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/24/2019
+ms.date: 08/06/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 100eab0bdee12a6e61ac26538c83aa997f8eaee3
-ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
+ms.openlocfilehash: 27ae8ac979c267c666d6d63f4d1dd862ff20edba
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68483202"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819860"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -175,7 +175,7 @@ Los servicios de duración con ámbito (<xref:Microsoft.Extensions.DependencyInj
 
 ### <a name="singleton"></a>Singleton
 
-Los servicios con duración Singleton (<xref:Microsoft.AspNet.OData.Builder.ODataModelBuilder.AddSingleton*>) se crean la primera vez que se solicitan, o bien al ejecutar `Startup.ConfigureServices` y especificar una instancia con el registro del servicio. Cada solicitud posterior usa la misma instancia. Si la aplicación requiere un comportamiento de singleton, se recomienda permitir que el contenedor de servicios administre la duración del servicio. No implemente el patrón de diseño de singleton y proporcione el código de usuario para administrar la duración del objeto en la clase.
+Los servicios con duración Singleton (<xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*>) se crean la primera vez que se solicitan, o bien al ejecutar `Startup.ConfigureServices` y especificar una instancia con el registro del servicio. Cada solicitud posterior usa la misma instancia. Si la aplicación requiere un comportamiento de singleton, se recomienda permitir que el contenedor de servicios administre la duración del servicio. No implemente el patrón de diseño de singleton y proporcione el código de usuario para administrar la duración del objeto en la clase.
 
 > [!WARNING]
 > Es peligroso resolver un servicio con ámbito desde un singleton. Puede dar lugar a que el servicio adopte un estado incorrecto al procesar solicitudes posteriores.

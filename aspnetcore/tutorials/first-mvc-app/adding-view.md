@@ -3,14 +3,14 @@ title: Agregar una vista a una aplicación de ASP.NET Core MVC
 author: rick-anderson
 description: Agregar una vista a una aplicación sencilla de ASP.NET Core MVC
 ms.author: riande
-ms.date: 03/04/2017
+ms.date: 8/04/2019
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: b6a3b1e673b8b67530b82c7d850e810a6c11e555
-ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
+ms.openlocfilehash: 1c29b59f9306774316ff37eeb57cc441fe5c7370
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707862"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68820081"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Agregar una vista a una aplicación de ASP.NET Core MVC
 
@@ -66,7 +66,7 @@ Agregue una vista `Index` para el `HelloWorldController`.
   * Escriba *Index.cshtml* en el cuadro **Nombre**.
   * Seleccione **Nuevo**.
 
-![Cuadro de diálogo Agregar nuevo elemento](adding-view/_static/add_view.png)
+![Cuadro de diálogo Agregar nuevo elemento](adding-view/_static/add_view_mac.png)
 
 ---
 
@@ -74,7 +74,7 @@ Reemplace el contenido del archivo de vista de Razor *Views/HelloWorld/Index.csh
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/HelloWorld/Index1.cshtml?highlight=7)]
 
-Navegue a `https://localhost:xxxx/HelloWorld`. El método `Index` en `HelloWorldController` no hizo mucho; ejecutó la instrucción `return View();`, que especificaba que el método debe usar un archivo de plantilla de vista para representar una respuesta al explorador. Dado que no se especificó un nombre de archivo de plantilla de vista, MVC usa el archivo de vista predeterminado. Este archivo tiene el mismo nombre que el método (`Index`), por lo que se usa en */Views/HelloWorld/Index.cshtml*. La imagen siguiente muestra la cadena "Hello from our View Template!" (Hola desde nuestra plantilla de vista) codificada de forma rígida en la vista.
+Navegue a `https://localhost:{PORT}/HelloWorld`. El método `Index` en `HelloWorldController` no hizo mucho; ejecutó la instrucción `return View();`, que especificaba que el método debe usar un archivo de plantilla de vista para representar una respuesta al explorador. Dado que no se especificó un nombre de archivo de plantilla de vista, MVC usa el archivo de vista predeterminado. Este archivo tiene el mismo nombre que el método (`Index`), por lo que se usa en */Views/HelloWorld/Index.cshtml*. La imagen siguiente muestra la cadena "Hello from our View Template!" (Hola desde nuestra plantilla de vista) codificada de forma rígida en la vista.
 
 ![Ventana del explorador](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
@@ -127,7 +127,7 @@ En el código anterior, `ViewData["Title"] = "Movie List";` establece la propied
 <title>@ViewData["Title"] - Movie App</title>
    ```
 
-Guarde el cambio y navegue a `https://localhost:xxxx/HelloWorld`. Tenga en cuenta que el título del explorador, el encabezado principal y los encabezados secundarios han cambiado. (Si no ve los cambios en el explorador, es posible que esté viendo contenido almacenado en caché. Presione Ctrl+F5 en el explorador para forzar que se cargue la respuesta del servidor). El título del explorador se crea con `ViewData["Title"]`, que se definió en la plantilla de vista *Index.cshtml* y el texto "- Movie App" (-Aplicación de película) que se agregó en el archivo de diseño.
+Guarde el cambio y navegue a `https://localhost:{PORT}/HelloWorld`. Tenga en cuenta que el título del explorador, el encabezado principal y los encabezados secundarios han cambiado. (Si no ve los cambios en el explorador, es posible que esté viendo contenido almacenado en caché. Presione Ctrl+F5 en el explorador para forzar que se cargue la respuesta del servidor). El título del explorador se crea con `ViewData["Title"]`, que se definió en la plantilla de vista *Index.cshtml* y el texto "- Movie App" (-Aplicación de película) que se agregó en el archivo de diseño.
 
 El contenido de la plantilla de vista *Index.cshtml* se combina con la plantilla de vista *Views/Shared/_Layout.cshtml*. Se envía una única respuesta HTML al explorador. Con las plantillas de diseño es fácil hacer cambios que se apliquen en todas las páginas de una aplicación. Para obtener más información, vea [Diseño](xref:mvc/views/layout).
 
@@ -157,7 +157,7 @@ Se creará un bucle en la vista *Welcome.cshtml* que muestra "Hello" (Hola) `Num
 
 Guarde los cambios y vaya a esta dirección URL:
 
-`https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+`https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
 Los datos se toman de la dirección URL y se pasan al controlador mediante el [enlazador de modelos MVC](xref:mvc/models/model-binding). El controlador empaqueta los datos en un diccionario `ViewData` y pasa ese objeto a la vista. Después, la vista representa los datos como HTML en el explorador.
 
@@ -231,7 +231,7 @@ Reemplace el contenido del archivo de vista de Razor *Views/HelloWorld/Index.csh
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/HelloWorld/Index1.cshtml?highlight=7)]
 
-Navegue a `https://localhost:xxxx/HelloWorld`. El método `Index` en `HelloWorldController` no hizo mucho; ejecutó la instrucción `return View();`, que especificaba que el método debe usar un archivo de plantilla de vista para representar una respuesta al explorador. Dado que no se especificó un nombre de archivo de plantilla de vista, MVC usa el archivo de vista predeterminado. Este archivo tiene el mismo nombre que el método (`Index`), por lo que se usa en */Views/HelloWorld/Index.cshtml*. La imagen siguiente muestra la cadena "Hello from our View Template!" (Hola desde nuestra plantilla de vista) codificada de forma rígida en la vista.
+Navegue a `https://localhost:{PORT}/HelloWorld`. El método `Index` en `HelloWorldController` no hizo mucho; ejecutó la instrucción `return View();`, que especificaba que el método debe usar un archivo de plantilla de vista para representar una respuesta al explorador. Dado que no se especificó un nombre de archivo de plantilla de vista, MVC usa el archivo de vista predeterminado. Este archivo tiene el mismo nombre que el método (`Index`), por lo que se usa en */Views/HelloWorld/Index.cshtml*. La imagen siguiente muestra la cadena "Hello from our View Template!" (Hola desde nuestra plantilla de vista) codificada de forma rígida en la vista.
 
 ![Ventana del explorador](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
@@ -287,7 +287,7 @@ En el código anterior, `ViewData["Title"] = "Movie List";` establece la propied
 <title>@ViewData["Title"] - Movie App</title>
    ```
 
-Guarde el cambio y navegue a `https://localhost:xxxx/HelloWorld`. Tenga en cuenta que el título del explorador, el encabezado principal y los encabezados secundarios han cambiado. (Si no ve los cambios en el explorador, es posible que esté viendo contenido almacenado en caché. Presione Ctrl+F5 en el explorador para forzar que se cargue la respuesta del servidor). El título del explorador se crea con `ViewData["Title"]`, que se definió en la plantilla de vista *Index.cshtml* y el texto "- Movie App" (-Aplicación de película) que se agregó en el archivo de diseño.
+Guarde el cambio y navegue a `https://localhost:{PORT}/HelloWorld`. Tenga en cuenta que el título del explorador, el encabezado principal y los encabezados secundarios han cambiado. (Si no ve los cambios en el explorador, es posible que esté viendo contenido almacenado en caché. Presione Ctrl+F5 en el explorador para forzar que se cargue la respuesta del servidor). El título del explorador se crea con `ViewData["Title"]`, que se definió en la plantilla de vista *Index.cshtml* y el texto "- Movie App" (-Aplicación de película) que se agregó en el archivo de diseño.
 
 Observe también cómo el contenido de la plantilla de vista *Index.cshtml* se fusionó con la plantilla de vista *Views/Shared/_Layout.cshtml* y se envió una única respuesta HTML al explorador. Con las plantillas de diseño es realmente fácil hacer cambios para que se apliquen en todas las páginas de la aplicación. Para saber más, vea [Layout](xref:mvc/views/layout) (Diseño).
 
@@ -317,7 +317,7 @@ Se creará un bucle en la vista *Welcome.cshtml* que muestra "Hello" (Hola) `Num
 
 Guarde los cambios y vaya a esta dirección URL:
 
-`https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+`https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
 Los datos se toman de la dirección URL y se pasan al controlador mediante el [enlazador de modelos MVC](xref:mvc/models/model-binding). El controlador empaqueta los datos en un diccionario `ViewData` y pasa ese objeto a la vista. Después, la vista representa los datos como HTML en el explorador.
 

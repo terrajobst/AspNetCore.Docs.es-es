@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo agregar clases para administrar pe
 ms.author: riande
 ms.date: 07/22/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: b7f77cfa51f8d86504939e31eade0dfda8a6b1c9
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: 6132f7b907014b4f57bb9ae0300e00b6ecb23f1a
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371908"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68820068"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core
 
@@ -99,7 +99,7 @@ El archivo *appsettings.json* se actualiza con la cadena de conexión que se usa
 * Instale la herramienta de scaffolding:
 
   ```console
-   dotnet tool install --global dotnet-aspnet-codegenerator
+   dotnet tool install --global dotnet-aspnet-codegenerator --version 3.0.0-*
    ```
 
 * **En Windows**: Ejecute el siguiente comando:
@@ -122,7 +122,7 @@ El archivo *appsettings.json* se actualiza con la cadena de conexión que se usa
 * Instale la herramienta de scaffolding:
 
   ```console
-   dotnet tool install --global dotnet-aspnet-codegenerator
+   dotnet tool install --global dotnet-aspnet-codegenerator --version 3.0.0-*
    ```
 
 * Ejecute el siguiente comando:
@@ -166,7 +166,7 @@ En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** > *
 En PCM, escriba los siguientes comandos:
 
 ```PMC
-Add-Migration Initial
+Add-Migration InitialCreate
 Update-Database
 ```
 

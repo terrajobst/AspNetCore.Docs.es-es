@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: a07bb4f539c8bd38b08402c598924e14c748921d
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 43a1c408ff1a03468989e5bb0839ca2cd245082b
+ms.sourcegitcommit: b5e63714afc26e94be49a92619586df5189ed93a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815230"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68739496"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Asistentes de etiquetas en formularios de ASP.NET Core
 
@@ -35,7 +35,7 @@ El asistente de etiquetas [Form](https://www.w3.org/TR/html401/interact/forms.ht
 
 * Tiene `Html.BeginForm` y `Html.BeginRouteForm` como alternativa del asistente de HTML.
 
-Sample:
+Ejemplo:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Demo/RegisterFormOnly.cshtml)]
 
@@ -81,7 +81,7 @@ Atributos [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-hel
 |[asp-page](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|El nombre de la página de Razor.|
 |[asp-page-handler](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|El nombre del controlador de páginas de Razor.|
 |[asp-route](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|El nombre de la ruta.|
-|[asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Un valor único de ruta de dirección URL. Por ejemplo, `asp-route-id="1234"`.|
+|[asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Un valor único de ruta de dirección URL. Por ejemplo: `asp-route-id="1234"`.|
 |[asp-all-route-data](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|Todos los valores de ruta.|
 |[asp-fragment](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|El fragmento de dirección URL.|
 
@@ -171,7 +171,7 @@ Sintaxis:
 
 El asistente de etiquetas Input hace lo siguiente:
 
-* Genera los atributos HTML `id` y `name` del nombre de expresión especificado en el atributo `asp-for`. `asp-for="Property1.Property2"` equivale a `m => m.Property1.Property2`. El nombre de una expresión es lo que se usa para el valor de atributo `asp-for`. Vea la sección [Nombres de expresión](#expression-names) para obtener más información.
+* Genera los atributos HTML `id` y `name` del nombre de expresión especificado en el atributo `asp-for`. `asp-for="Property1.Property2"` es equivalente a `m => m.Property1.Property2`. El nombre de una expresión es lo que se usa para el valor de atributo `asp-for`. Vea la sección [Nombres de expresión](#expression-names) para obtener más información.
 
 * Establece el valor de atributo HTML `type` según los atributos de tipo de modelo y de [anotación de datos](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) aplicados a la propiedad de modelo.
 
@@ -196,13 +196,13 @@ Type expected
 
 El asistente de etiquetas `Input` establece el atributo HTML `type` en función del tipo .NET. En la siguiente tabla se enumeran algunos tipos .NET habituales y el tipo HTML generado correspondiente (no incluimos aquí todos los tipos .NET).
 
-|Tipo .NET|Tipo de entrada|
+|Tipo de .NET|Tipo de entrada|
 |---|---|
 |Bool|type="checkbox"|
-|Cadena|type="text"|
-|Datetime|type=["datetime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
+|String|type="text"|
+|DateTime|type=["datetime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
 |Byte|type="number"|
-|Int|type="number"|
+|Valor int.|type="number"|
 |Single, Double|type="number"|
 
 En la siguiente tabla se muestran algunos atributos de [anotación de datos](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) comunes que el asistente de etiquetas Input asignará a tipos de entrada concretos (no incluimos aquí todos los atributo de validación):
@@ -217,7 +217,7 @@ En la siguiente tabla se muestran algunos atributos de [anotación de datos](/do
 |[DataType(DataType.Date)]|type="date"|
 |[DataType(DataType.Time)]|type="time"|
 
-Sample:
+Ejemplo:
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
@@ -351,7 +351,7 @@ El asistente de etiquetas `Textarea Tag Helper` es similar al asistente de etiqu
 
 * Alternativa del asistente de HTML: `Html.TextAreaFor`
 
-Sample:
+Ejemplo:
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/DescriptionViewModel.cs)]
 
@@ -387,7 +387,7 @@ Se genera el siguiente código HTML:
 
 * Permite establecer tipado fuerte con la propiedad de modelo.
 
-Sample:
+Ejemplo:
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/SimpleViewModel.cs)]
 
@@ -455,7 +455,7 @@ Cuando se produce un error de validación del lado servidor (por ejemplo, porque
 |ValidationSummary.ModelOnly|Modelo|
 |ValidationSummary.None|None|
 
-### <a name="sample"></a>Muestra
+### <a name="sample"></a>Ejemplo
 
 En el siguiente ejemplo, el modelo de datos se complementa con atributos `DataAnnotation`, lo que genera mensajes de error de validación sobre el elemento `<input>`.  Cuando se produce un error de validación, el asistente de etiquetas de validación muestra el mensaje de error:
 
@@ -494,7 +494,7 @@ El elemento `asp-for` de `Select Tag Helper` especifica el nombre de la propieda
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
-Sample:
+Ejemplo:
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryViewModel.cs)]
 
@@ -535,7 +535,7 @@ El valor de atributo `asp-for` es un caso especial y no necesita un prefijo `Mod
 
 A menudo, conviene usar `<select>` con una propiedad `enum` y generar los elementos `SelectListItem` a partir de valores `enum`.
 
-Sample:
+Ejemplo:
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnumViewModel.cs?range=3-7)]
 
@@ -640,11 +640,13 @@ La plantilla *Views/Shared/EditorTemplates/CountryViewModel.cshtml*:
 
 La posibilidad de agregar elementos HTML [\<option>](https://www.w3.org/wiki/HTML/Elements/option) no se limita exclusivamente a los casos en los que no se *seleccionada nada*. Por ejemplo, el método de acción y vista siguientes generarán un código HTML similar al código anterior:
 
-[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?name=snippetNone)]
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/IndexOption.cshtml)]
 
 Se seleccionará el elemento `<option>` correcto (que contenga el atributo `selected="selected"`) en función del valor real de `Country`.
+
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
 ```HTML
  <form method="post" action="/Home/IndexEmpty">
