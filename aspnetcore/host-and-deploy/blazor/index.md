@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2019
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 8a5ac5c58e7ceab07e55da8b61ebb01f7ac984bc
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: d18abbf33c71dca5130bfc6b503b46c1d5bce537
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67153199"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913922"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor"></a>Hospedaje e implementación de ASP.NET Core Blazor
 
@@ -28,7 +28,7 @@ Las aplicaciones se publican para implementación en la configuración de versi�
 1. Seleccione el *destino de publicación*. Para publicar localmente, seleccione **Carpeta**.
 1. Acepte la ubicación predeterminada del campo **Elegir una carpeta** o especifique una ubicación diferente. Seleccione el botón **Publicar**.
 
-# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code y CLI de .NET Core](#tab/visual-studio-code+netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
 Use el comando [dotnet publish](/dotnet/core/tools/dotnet-publish) para publicar la aplicación con una configuración de versión:
 
