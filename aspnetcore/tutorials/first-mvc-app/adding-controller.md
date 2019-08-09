@@ -3,16 +3,16 @@ title: Agregar un controlador a una aplicación de ASP.NET Core MVC
 author: rick-anderson
 description: Obtenga información sobre cómo agregar un controlador a una sencilla aplicación de ASP.NET Core MVC.
 ms.author: riande
-ms.date: 02/28/2017
+ms.date: 08/05/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: ab97b875956ec262623ed9862ace6a930331d80d
-ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
+ms.openlocfilehash: 1c54959130f3a9959d4d4fdb8dcaa0d37ee2f046
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682324"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68820054"
 ---
-# <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Adición de un controlador a una aplicación de ASP.NET MVC
+# <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Agregar un controlador a una aplicación de ASP.NET Core MVC
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -30,7 +30,7 @@ El patrón de MVC ayuda a crear aplicaciones que separan los diferentes aspectos
 
 En esta serie de tutoriales se tratarán estos conceptos y se mostrará cómo usarlos para crear una aplicación de película. El proyecto de MVC contiene carpetas para *controladores* y *vistas*.
 
-## <a name="add-a-controller"></a>Adición de un controlador
+## <a name="add-a-controller"></a>Incorporación de un controlador
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -86,13 +86,13 @@ El formato de enrutamiento se establece en el método `Configure` del archivo *S
 
 Cuando se navega a la aplicación y no se suministra ningún segmento de dirección URL, de manera predeterminada se usan el controlador "Home" y el método "Index" especificados en la línea de plantilla resaltada arriba.
 
-El primer segmento de dirección URL determina la clase de controlador que se va a ejecutar. Por tanto, `localhost:xxxx/HelloWorld` se asigna a la clase **HelloWorld**Controller. La segunda parte del segmento de dirección URL determina el método de acción en la clase. De modo que `localhost:xxxx/HelloWorld/Index` podría provocar que se ejecute el método `Index` de la clase `HelloWorldController`. Tenga en cuenta que solo es necesario navegar a `localhost:xxxx/HelloWorld` para que se llame al método `Index` de manera predeterminada. Esto es porque `Index` es el método predeterminado al que se llamará en un controlador si no se especifica explícitamente un nombre de método. La tercera parte del segmento de dirección URL (`id`) es para los datos de ruta. Los datos de ruta se explican más adelante en el tutorial.
+El primer segmento de dirección URL determina la clase de controlador que se va a ejecutar. Por tanto, `localhost:{PORT}/HelloWorld` se asigna a la clase **HelloWorld**Controller. La segunda parte del segmento de dirección URL determina el método de acción en la clase. De modo que `localhost:{PORT}/HelloWorld/Index` podría provocar que se ejecute el método `Index` de la clase `HelloWorldController`. Tenga en cuenta que solo es necesario navegar a `localhost:{PORT}/HelloWorld` para que se llame al método `Index` de manera predeterminada. Esto es porque `Index` es el método predeterminado al que se llamará en un controlador si no se especifica explícitamente un nombre de método. La tercera parte del segmento de dirección URL (`id`) es para los datos de ruta. Los datos de ruta se explican más adelante en el tutorial.
 
-Vaya a `https://localhost:xxxx/HelloWorld/Welcome`. El método `Welcome` se ejecuta y devuelve la cadena `This is the Welcome action method...`. Para esta dirección URL, el controlador es `HelloWorld` y `Welcome` es el método de acción. Todavía no ha usado el elemento `[Parameters]` de la dirección URL.
+Vaya a `https://localhost:{PORT}/HelloWorld/Welcome`. El método `Welcome` se ejecuta y devuelve la cadena `This is the Welcome action method...`. Para esta dirección URL, el controlador es `HelloWorld` y `Welcome` es el método de acción. Todavía no ha usado el elemento `[Parameters]` de la dirección URL.
 
 ![Ventana del explorador que muestra la respuesta de la aplicación "This is the Welcome action method" (Este es el método de acción predeterminado)](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
-Modifique el código para pasar cierta información del parámetro desde la dirección URL al controlador. Por ejemplo, `/HelloWorld/Welcome?name=Rick&numtimes=4`. Cambie el método `Welcome` para que incluya dos parámetros, como se muestra en el código siguiente.
+Modifique el código para pasar cierta información del parámetro desde la dirección URL al controlador. Por ejemplo: `/HelloWorld/Welcome?name=Rick&numtimes=4`. Cambie el método `Welcome` para que incluya dos parámetros, como se muestra en el código siguiente.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 
@@ -104,19 +104,19 @@ El código anterior:
 
 Ejecute la aplicación y navegue a:
 
-   `https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+   `https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-(Reemplace xxxx con el número de puerto). Puede probar distintos valores para `name` y `numtimes` en la dirección URL. El sistema de [enlace de modelos](xref:mvc/models/model-binding) de MVC asigna automáticamente los parámetros con nombre de la cadena de consulta en la barra de direcciones a los parámetros del método. Vea [Model Binding](xref:mvc/models/model-binding) (Enlace de modelos) para más información.
+Reemplace `{PORT}` por el número de puerto. Puede probar distintos valores para `name` y `numtimes` en la dirección URL. El sistema de [enlace de modelos](xref:mvc/models/model-binding) de MVC asigna automáticamente los parámetros con nombre de la cadena de consulta en la barra de direcciones a los parámetros del método. Vea [Model Binding](xref:mvc/models/model-binding) (Enlace de modelos) para más información.
 
 ![Ventana del explorador que muestra una respuesta de la aplicación de Hello Rick, NumTimes is: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
 En la ilustración anterior, el segmento de dirección URL (`Parameters`) no se usa, y los parámetros `name` y `numTimes` se pasan como [cadenas de consulta](https://wikipedia.org/wiki/Query_string). El `?` (signo de interrogación) en la dirección URL anterior es un separador y le siguen las cadenas de consulta. El carácter `&` separa las cadenas de consulta.
 
-Reemplace el método `Welcome` por el código siguiente:
+Reemplace el método `Welcome` con el código siguiente:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
-Ejecute la aplicación y escriba la siguiente dirección URL: `https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+Ejecute la aplicación y escriba la siguiente dirección URL: `https://localhost:{PORT}/HelloWorld/Welcome/3?name=Rick`
 
 Esta vez el tercer segmento de dirección URL coincide con el parámetro de ruta `id`. El método `Welcome` contiene un parámetro `id` que coincide con la plantilla de dirección URL en el método `MapControllerRoute`. El elemento `?` final (en `id?`) indica que el parámetro `id` es opcional.
 
@@ -144,7 +144,7 @@ El patrón de MVC ayuda a crear aplicaciones que separan los diferentes aspectos
 
 En esta serie de tutoriales se tratarán estos conceptos y se mostrará cómo usarlos para crear una aplicación de película. El proyecto de MVC contiene carpetas para *controladores* y *vistas*.
 
-## <a name="add-a-controller"></a>Adición de un controlador
+## <a name="add-a-controller"></a>Incorporación de un controlador
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -205,13 +205,13 @@ Remove link for simplified tutorial.
 
 Cuando se navega a la aplicación y no se suministra ningún segmento de dirección URL, de manera predeterminada se usan el controlador "Home" y el método "Index" especificados en la línea de plantilla resaltada arriba.
 
-El primer segmento de dirección URL determina la clase de controlador que se va a ejecutar. De modo que `localhost:xxxx/HelloWorld` se asigna a la clase `HelloWorldController`. La segunda parte del segmento de dirección URL determina el método de acción en la clase. De modo que `localhost:xxxx/HelloWorld/Index` podría provocar que se ejecute el método `Index` de la clase `HelloWorldController`. Tenga en cuenta que solo es necesario navegar a `localhost:xxxx/HelloWorld` para que se llame al método `Index` de manera predeterminada. Esto es porque `Index` es el método predeterminado al que se llamará en un controlador si no se especifica explícitamente un nombre de método. La tercera parte del segmento de dirección URL (`id`) es para los datos de ruta. Los datos de ruta se explican más adelante en el tutorial.
+El primer segmento de dirección URL determina la clase de controlador que se va a ejecutar. De modo que `localhost:{PORT}/HelloWorld` se asigna a la clase `HelloWorldController`. La segunda parte del segmento de dirección URL determina el método de acción en la clase. De modo que `localhost:{PORT}/HelloWorld/Index` podría provocar que se ejecute el método `Index` de la clase `HelloWorldController`. Tenga en cuenta que solo es necesario navegar a `localhost:{PORT}/HelloWorld` para que se llame al método `Index` de manera predeterminada. Esto es porque `Index` es el método predeterminado al que se llamará en un controlador si no se especifica explícitamente un nombre de método. La tercera parte del segmento de dirección URL (`id`) es para los datos de ruta. Los datos de ruta se explican más adelante en el tutorial.
 
-Vaya a `https://localhost:xxxx/HelloWorld/Welcome`. El método `Welcome` se ejecuta y devuelve la cadena `This is the Welcome action method...`. Para esta dirección URL, el controlador es `HelloWorld` y `Welcome` es el método de acción. Todavía no ha usado el elemento `[Parameters]` de la dirección URL.
+Vaya a `https://localhost:{PORT}/HelloWorld/Welcome`. El método `Welcome` se ejecuta y devuelve la cadena `This is the Welcome action method...`. Para esta dirección URL, el controlador es `HelloWorld` y `Welcome` es el método de acción. Todavía no ha usado el elemento `[Parameters]` de la dirección URL.
 
 ![Ventana del explorador que muestra la respuesta de la aplicación "This is the Welcome action method" (Este es el método de acción predeterminado)](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
-Modifique el código para pasar cierta información del parámetro desde la dirección URL al controlador. Por ejemplo, `/HelloWorld/Welcome?name=Rick&numtimes=4`. Cambie el método `Welcome` para que incluya dos parámetros, como se muestra en el código siguiente.
+Modifique el código para pasar cierta información del parámetro desde la dirección URL al controlador. Por ejemplo: `/HelloWorld/Welcome?name=Rick&numtimes=4`. Cambie el método `Welcome` para que incluya dos parámetros, como se muestra en el código siguiente.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 
@@ -223,19 +223,19 @@ El código anterior:
 
 Ejecute la aplicación y navegue a:
 
-   `https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+   `https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-(Reemplace xxxx con el número de puerto). Puede probar distintos valores para `name` y `numtimes` en la dirección URL. El sistema de [enlace de modelos](xref:mvc/models/model-binding) de MVC asigna automáticamente los parámetros con nombre de la cadena de consulta en la barra de direcciones a los parámetros del método. Vea [Model Binding](xref:mvc/models/model-binding) (Enlace de modelos) para más información.
+Reemplace `{PORT}` por el número de puerto. Puede probar distintos valores para `name` y `numtimes` en la dirección URL. El sistema de [enlace de modelos](xref:mvc/models/model-binding) de MVC asigna automáticamente los parámetros con nombre de la cadena de consulta en la barra de direcciones a los parámetros del método. Vea [Model Binding](xref:mvc/models/model-binding) (Enlace de modelos) para más información.
 
 ![Ventana del explorador que muestra una respuesta de la aplicación de Hello Rick, NumTimes is: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
 En la ilustración anterior, el segmento de dirección URL (`Parameters`) no se usa, y los parámetros `name` y `numTimes` se pasan como [cadenas de consulta](https://wikipedia.org/wiki/Query_string). El `?` (signo de interrogación) en la dirección URL anterior es un separador y le siguen las cadenas de consulta. El carácter `&` separa las cadenas de consulta.
 
-Reemplace el método `Welcome` por el código siguiente:
+Reemplace el método `Welcome` con el código siguiente:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
-Ejecute la aplicación y escriba la siguiente dirección URL: `https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+Ejecute la aplicación y escriba la siguiente dirección URL: `https://localhost:{PORT}/HelloWorld/Welcome/3?name=Rick`
 
 Esta vez el tercer segmento de dirección URL coincide con el parámetro de ruta `id`. El método `Welcome` contiene un parámetro `id` que coincide con la plantilla de dirección URL en el método `MapRoute`. El elemento `?` final (en `id?`) indica que el parámetro `id` es opcional.
 

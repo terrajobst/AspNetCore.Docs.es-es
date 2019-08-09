@@ -4,14 +4,14 @@ author: rick-anderson
 description: Aprenda a crear de una API web con ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/11/2019
+ms.date: 08/05/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 60235af56077127093ac1d77338bc228a6edf073
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
+ms.openlocfilehash: 855d05fa2b9c1a7572212c40adbe61bb396f4bac
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602530"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819838"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Tutorial: Creación de una API web con ASP.NET Core
 
@@ -21,7 +21,7 @@ En este tutorial se enseñan los conceptos básicos de la compilación de una AP
 
 ::: moniker range=">= aspnetcore-3.0"
 
-En este tutorial, aprenderá a:
+En este tutorial aprenderá a:
 
 > [!div class="checklist"]
 > * Crear un proyecto de API web.
@@ -36,7 +36,7 @@ Al final, tendrá una API web que pueda administrar los elementos "to-do" almace
 
 En este tutorial se crea la siguiente API:
 
-|API | DESCRIPCIÓN | Cuerpo de la solicitud | Response body |
+|API | DESCRIPCIÓN | Cuerpo de la solicitud | Cuerpo de la respuesta |
 |--- | ---- | ---- | ---- |
 |GET /api/TodoItems | Obtener todas las tareas pendientes | Ninguna | Matriz de tareas pendientes|
 |GET /api/TodoItems/{id} | Obtener un elemento por identificador | None | Tarea pendiente|
@@ -379,7 +379,7 @@ La llamada a `GetTodoItems` genera una respuesta similar a la siguiente:
 
 * Cree una nueva solicitud.
 * Establezca el método HTTP en **GET**.
-* Establezca la dirección URL de la solicitud en `https://localhost:<port>/api/TodoItems`. Por ejemplo, `https://localhost:5001/api/TodoItems`.
+* Establezca la dirección URL de la solicitud en `https://localhost:<port>/api/TodoItems`. Por ejemplo: `https://localhost:5001/api/TodoItems`.
 * Establezca **Vista de dos paneles** en Postman.
 * Seleccione **Enviar**.
 
@@ -461,7 +461,7 @@ Vea [Tutorial: Llamada a una API web de ASP.NET Core con jQuery](xref:tutorials/
 
 ::: moniker range="< aspnetcore-3.0"
 
-En este tutorial, aprenderá a:
+En este tutorial aprenderá a:
 
 > [!div class="checklist"]
 > * Crear un proyecto de API web.
@@ -478,7 +478,7 @@ Al final, tendrá una API web que pueda administrar las tareas "pendientes" alma
 
 En este tutorial se crea la siguiente API:
 
-|API | DESCRIPCIÓN | Cuerpo de la solicitud | Response body |
+|API | DESCRIPCIÓN | Cuerpo de la solicitud | Cuerpo de la respuesta |
 |--- | ---- | ---- | ---- |
 |GET /api/TodoItems | Obtener todas las tareas pendientes | Ninguna | Matriz de tareas pendientes|
 |GET /api/TodoItems/{id} | Obtener un elemento por identificador | None | Tarea pendiente|
@@ -728,6 +728,7 @@ Los tipos de valores devueltos `ActionResult` pueden representar una gama amplia
 * Si no hay ningún elemento que coincida con el identificador solicitado, el método devolverá un código de error 404 [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound).
 * En caso contrario, el método devuelve 200 con un cuerpo de respuesta JSON. Devolver `item` genera una respuesta HTTP 200.
 
+
 ## <a name="test-the-gettodoitems-method"></a>Prueba del método GetTodoItems
 
 En este tutorial se usa Postman para probar la API web.
@@ -736,14 +737,23 @@ En este tutorial se usa Postman para probar la API web.
 * Inicie la aplicación web.
 * Inicie Postman.
 * Deshabilite **Comprobación del certificado SSL**.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* En **Archivo** > **Configuración** (pestaña **General**), deshabilite **Comprobación del certificado SSL**.
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
+
+* En **Postman** > **Preferencias** (pestaña **General**), deshabilite **Comprobación del certificado SSL**. También puede seleccionar la llave inglesa, hacer clic en **Configuración** y deshabilitar la comprobación del certificado SSL.
+
+---
   
-  * En **Archivo > Configuración** (pestaña **General*), deshabilite **Comprobación del certificado SSL**.
-    > [!WARNING]
-    > Vuelva a habilitar la comprobación del certificado SSL tras probar el controlador.
+> [!WARNING]
+> Vuelva a habilitar la comprobación del certificado SSL tras probar el controlador.
 
 * Cree una nueva solicitud.
   * Establezca el método HTTP en **GET**.
-  * Establezca la dirección URL de la solicitud en `https://localhost:<port>/api/todo`. Por ejemplo, `https://localhost:5001/api/todo`.
+  * Establezca la dirección URL de la solicitud en `https://localhost:<port>/api/todo`. Por ejemplo: `https://localhost:5001/api/todo`.
 * Establezca **Vista de dos paneles** en Postman.
 * Seleccione **Enviar**.
 
@@ -751,7 +761,7 @@ En este tutorial se usa Postman para probar la API web.
 
 ## <a name="add-a-create-method"></a>Incorporación de un método Create
 
-Agregue el siguiente método `PostTodoItem`:
+Agregue el siguiente método `PostTodoItem` en *Controllers/TodoController.cs*: 
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
@@ -901,7 +911,7 @@ Para eliminar una tarea pendiente, hay que establecer el valor `type` de la llam
 
 [Vea o descargue el código de ejemplo para este tutorial](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-web-api/samples). Vea [cómo descargarlo](xref:index#how-to-download-a-sample).
 
-Para obtener más información, consulte los siguientes recursos:
+Para obtener más información, vea los siguientes recursos:
 
 * <xref:web-api/index>
 * <xref:tutorials/web-api-help-pages-using-swagger>

@@ -2,7 +2,7 @@
 
 ### <a name="add-a-database-context-class"></a>Agregar una clase de contexto de base de datos
 
-Agregue la clase `RazorPagesMovieContext` siguiente a la carpeta *Data*:
+En el proyecto RazorPagesMovie, cree una carpeta denominada *Data*. Agregue la clase `RazorPagesMovieContext` siguiente a la carpeta *Data*:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 
@@ -18,18 +18,19 @@ Agregue una cadena de conexión al archivo *appsettings.json*, tal como se muest
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/appsettings_SQLite.json?highlight=10-12)]
 
-### <a name="add-required-nuget-packages"></a>Adición de los paquetes NuGet necesarios
+### <a name="add-nuget-packages-and-ef-tools"></a>Agregue los paquetes NuGet y las herramientas EF.
 
-Ejecute los comandos siguientes de la CLI de .NET Core para agregar SQLite, Entity Framework Core y CodeGeneration.Design al proyecto:
+Abra un terminal para el proyecto RazorPagesMovie.  Haga clic con el botón derecho en el nombre del proyecto en la barra de diseño o disposición y vaya a **Herramientas > Abrir** en el terminal. Ejecute los siguientes comandos CLI de .NET Core en el terminal:
 
 ```console
+dotnet tool install --global dotnet-ef --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
 ```
 
-El paquete `Microsoft.VisualStudio.Web.CodeGeneration.Design` es necesario para realizar scaffolding.
+Los comandos anteriores agregan las herramientas de Entity Framework Core para la CLI de .NET y varios paquetes al proyecto. El paquete `Microsoft.VisualStudio.Web.CodeGeneration.Design` es necesario para realizar scaffolding.
 
 <a name="reg"></a>
 
