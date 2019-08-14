@@ -4,14 +4,14 @@ author: jamesnk
 description: Obtenga información sobre cómo usar la autenticación y la autorización en gRPC para ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 07/26/2019
+ms.date: 08/13/2019
 uid: grpc/authn-and-authz
-ms.openlocfilehash: 34f7f8a5a22159329b3d6c4524943434c460c7fb
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
+ms.openlocfilehash: 19018c4ffae1228055a4858b496f135d015625b4
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602430"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68993283"
 ---
 # <a name="authentication-and-authorization-in-grpc-for-aspnet-core"></a>Autenticación y autorización en gRPC para ASP.NET Core
 
@@ -42,6 +42,8 @@ public void Configure(IApplicationBuilder app)
 
 > [!NOTE]
 > El orden en el que se registra el middleware de autenticación ASP.NET Core es importante. Llame `UseAuthentication` siempre a `UseAuthorization` y `UseRouting` después de `UseEndpoints`y antes de.
+
+El mecanismo de autenticación que usa la aplicación durante una llamada debe configurarse. La configuración de autenticación se `Startup.ConfigureServices` agrega en y será diferente en función del mecanismo de autenticación que use la aplicación. Para ver ejemplos de cómo proteger ASP.NET Core aplicaciones, consulte [ejemplos de autenticación](xref:security/authentication/samples).
 
 Una vez que se ha configurado la autenticación, se puede tener acceso al usuario en un método de `ServerCallContext`servicio gRPC a través de.
 
@@ -146,7 +148,7 @@ public class TicketerService : Ticketer.TicketerBase
 }
 ```
 
-Los métodos de servicio individuales también `[Authorize]` pueden tener el atributo aplicado. Si el usuario actual no coincide con las directivas que se aplican **al método** y a la clase, se devuelve un error al autor de la llamada:
+Los métodos de servicio individuales también `[Authorize]` pueden tener el atributo aplicado. Si el usuario actual no coincide con las directivas que se aplican al método y a la clase, se devuelve un error al autor de la llamada:
 
 ```csharp
 [Authorize]

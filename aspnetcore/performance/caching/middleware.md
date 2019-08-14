@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar y usar Middleware de al
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/08/2019
+ms.date: 08/09/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: 6371f42b100f70c6042064a6372c7b9e41fd5c73
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: 838a08c12316d218501f26d5905f9e31ab93dfc9
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914987"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68994228"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Middleware de almacenamiento en caché de respuesta en ASP.NET Core
 
@@ -24,57 +24,57 @@ En este artículo se explica cómo configurar middleware de almacenamiento en ca
 
 ## <a name="configuration"></a>Configuración
 
-Use el [metapaquete Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app) o agregue una referencia de paquete al paquete [Microsoft. AspNetCore. ResponseCaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) .
+::: moniker range=">= aspnetcore-3.0"
+
+El middleware de almacenamiento en caché de respuestas se hace disponible mediante el paquete [Microsoft. AspNetCore. ResponseCaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) , que se agrega implícitamente a ASP.net Core aplicaciones.
 
 En `Startup.ConfigureServices`, agregue el middleware de almacenamiento en caché de respuesta a la colección de servicios:
 
-::: moniker range=">= aspnetcore-3.0"
-
 [!code-csharp[](middleware/samples/3.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=3)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=3)]
-
-::: moniker-end
 
 Configure la aplicación para usar el middleware con <xref:Microsoft.AspNetCore.Builder.ResponseCachingExtensions.UseResponseCaching*> el método de extensión, que agrega el middleware a la canalización `Startup.Configure`de procesamiento de solicitudes en:
 
-::: moniker range=">= aspnetcore-3.0"
-
 [!code-csharp[](middleware/samples/3.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=16)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=14)]
-
-::: moniker-end
 
 La aplicación de ejemplo agrega encabezados para controlar el almacenamiento en caché en solicitudes posteriores:
 
 * [Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) &ndash; Almacena en caché las respuestas almacenables en caché durante 10 segundos como máximo.
 * [Variar](https://tools.ietf.org/html/rfc7231#section-7.1.4) Configura el middleware para dar servicio a una respuesta almacenada en caché solo [`Accept-Encoding`](https://tools.ietf.org/html/rfc7231#section-5.3.4) si el encabezado de las solicitudes posteriores coincide con el de la solicitud original. &ndash;
 
-::: moniker range=">= aspnetcore-3.0"
-
 [!code-csharp[](middleware/samples_snippets/3.x/AddHeaders.cs)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-[!code-csharp[](middleware/samples_snippets/2.x/AddHeaders.cs)]
-
-::: moniker-end
 
 El middleware de almacenamiento en caché de respuestas solo almacena en caché las respuestas del servidor que dan como resultado un código de estado 200 (correcto). El middleware omite cualquier otra respuesta, incluidas [las páginas de error](xref:fundamentals/error-handling).
 
 > [!WARNING]
 > Las respuestas que contienen contenido para clientes autenticados deben marcarse como no almacenables en caché para evitar que el middleware almacene y proporcione dichas respuestas. Consulte [condiciones para el almacenamiento en caché](#conditions-for-caching) para obtener más información sobre cómo el middleware determina si una respuesta se almacena en caché.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Use el [metapaquete Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app) o agregue una referencia de paquete al paquete [Microsoft. AspNetCore. ResponseCaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) .
+
+En `Startup.ConfigureServices`, agregue el middleware de almacenamiento en caché de respuesta a la colección de servicios:
+
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=3)]
+
+Configure la aplicación para usar el middleware con <xref:Microsoft.AspNetCore.Builder.ResponseCachingExtensions.UseResponseCaching*> el método de extensión, que agrega el middleware a la canalización `Startup.Configure`de procesamiento de solicitudes en:
+
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=14)]
+
+La aplicación de ejemplo agrega encabezados para controlar el almacenamiento en caché en solicitudes posteriores:
+
+* [Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) &ndash; Almacena en caché las respuestas almacenables en caché durante 10 segundos como máximo.
+* [Variar](https://tools.ietf.org/html/rfc7231#section-7.1.4) Configura el middleware para dar servicio a una respuesta almacenada en caché solo [`Accept-Encoding`](https://tools.ietf.org/html/rfc7231#section-5.3.4) si el encabezado de las solicitudes posteriores coincide con el de la solicitud original. &ndash;
+
+[!code-csharp[](middleware/samples_snippets/2.x/AddHeaders.cs)]
+
+El middleware de almacenamiento en caché de respuestas solo almacena en caché las respuestas del servidor que dan como resultado un código de estado 200 (correcto). El middleware omite cualquier otra respuesta, incluidas [las páginas de error](xref:fundamentals/error-handling).
+
+> [!WARNING]
+> Las respuestas que contienen contenido para clientes autenticados deben marcarse como no almacenables en caché para evitar que el middleware almacene y proporcione dichas respuestas. Consulte [condiciones para el almacenamiento en caché](#conditions-for-caching) para obtener más información sobre cómo el middleware determina si una respuesta se almacena en caché.
+
+::: moniker-end
 
 ## <a name="options"></a>Opciones
 

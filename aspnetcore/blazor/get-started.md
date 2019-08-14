@@ -5,14 +5,14 @@ description: Para empezar a trabajar con más increíble, cree una aplicación i
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/23/2019
+ms.date: 08/13/2019
 uid: blazor/get-started
-ms.openlocfilehash: b4609858be43acf9d1b2d8be5eff4879fd56f49f
-ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
+ms.openlocfilehash: 1358a2e92af9d9104e565718692b1ca1940b9d9e
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68948335"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68993400"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Introducción a ASP.NET Core extraordinarias
 
@@ -25,7 +25,7 @@ Introducción a más increíble:
 1. Instale las plantillas extraordinarias ejecutando el comando siguiente en un shell de comandos:
 
    ```console
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview7.19365.7
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview8.19405.7
    ```
 
 1. Siga las instrucciones para su elección de herramientas:
@@ -40,12 +40,12 @@ Introducción a más increíble:
 
    4 \. Proporcione un nombre para el proyecto en el campo **Nombre del proyecto** o acepte el predeterminado. Confirme que la entrada de **Ubicación** es correcta o proporcione una ubicación para el proyecto. Seleccione **Crear**.
 
-   5 \. Para disfrutar de una experiencia del lado del cliente, elija la plantilla del **lado** del cliente. Para disfrutar de una experiencia de servidor increíblemente brillante, elija la plantilla **aplicación de servidor increíblemente** alta. Seleccione **Crear**. Para obtener información sobre los dos modelos de hospedaje más increíbles, en el lado servidor y en el <xref:blazor/hosting-models>lado cliente, vea.
+   5 \. En el caso de una experiencia del lado del cliente, elija la plantilla de aplicación de webassemble más **brillante** . Para disfrutar de una experiencia de servidor increíblemente brillante, elija la plantilla **aplicación de servidor increíblemente** alta. Seleccione **Crear**. Para obtener información sobre los dos modelos de hospedaje más increíbles, en el lado servidor y en el <xref:blazor/hosting-models>lado cliente, vea.
 
    6 \. Presione **F5** para ejecutar la aplicación.
 
    > [!NOTE]
-   > Si ha instalado la extensión de Visual Studio de extraordinarias para una versión preliminar anterior de ASP.NET Core extraordinaria (versión preliminar 6 o anterior), puede desinstalar la extensión en Preview 7. Instalar las plantillas de extraordinarias en un shell de comandos ahora es suficiente para mostrar las plantillas en Visual Studio.
+   > Si ha instalado la extensión de Visual Studio de extraordinarias para una versión preliminar anterior de ASP.NET Core extraordinaria (versión preliminar 6 o anterior), puede desinstalar la extensión. Instalar las plantillas de extraordinarias en un shell de comandos ahora es suficiente para mostrar las plantillas en Visual Studio.
 
    # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -56,13 +56,13 @@ Introducción a más increíble:
    3 \. Para disfrutar de una experiencia del lado del cliente, ejecute el siguiente comando en un shell de comandos:
 
       ```console
-      dotnet new blazor -o WebApplication1
+      dotnet new blazorwasm -o WebApplication1
       ```
 
       Para disfrutar de una experiencia del lado del servidor, ejecute el siguiente comando en un shell de comandos:
 
       ```console
-      dotnet new blazorserverside -o WebApplication1
+      dotnet new blazorserver -o WebApplication1
       ```
 
       Para obtener información sobre los dos modelos de hospedaje más increíbles, en el lado servidor y en el <xref:blazor/hosting-models>lado cliente, vea.
@@ -85,7 +85,7 @@ Introducción a más increíble:
 
    3\. In the sidebar, select **.NET Core** > **App**.
 
-   4\. For a Blazor server-side experience, select the **ASP.NET Core Blazor Server App** template. For a Blazor client-side experience, select the **ASP.NET Core Blazor WebAssembly App** template. Select **Next**. For information on the two Blazor hosting models, server-side and client-side, see <xref:blazor/hosting-models>.
+   4\. For a Blazor server-side experience, select the **Blazor Server App** template. For a Blazor client-side experience, select the **Blazor WebAssembly App** template. Select **Next**. For information on the two Blazor hosting models, server-side and client-side, see <xref:blazor/hosting-models>.
 
    5\. The **Target Framework** defaults to **.NET Core 3.0**. Select **Next**.
 
@@ -100,7 +100,7 @@ Introducción a más increíble:
    Para disfrutar de una experiencia del lado del cliente, ejecute los siguientes comandos en un shell de comandos:
 
    ```console
-   dotnet new blazor -o WebApplication1
+   dotnet new blazorwasm -o WebApplication1
    cd WebApplication1
    dotnet run
    ```
@@ -108,7 +108,7 @@ Introducción a más increíble:
    Para disfrutar de una experiencia del lado del servidor, ejecute los siguientes comandos en un shell de comandos:
 
    ```console
-   dotnet new blazorserverside -o WebApplication1
+   dotnet new blazorserver -o WebApplication1
    cd WebApplication1
    dotnet run
    ```
@@ -152,7 +152,7 @@ Ejecutar la aplicación. La Página principal tiene su propio contador proporcio
 
 Los parámetros de componente se especifican mediante atributos o [contenido secundario](xref:blazor/components#child-content), que permiten establecer propiedades en el componente secundario. Para agregar un parámetro al `Counter` componente, actualice el bloque del `@code` componente:
 
-* Agregue una propiedad para `IncrementAmount` con un `[Parameter]` atributo.
+* Agregue una propiedad pública para `IncrementAmount` con un `[Parameter]` atributo.
 * Cambie el método `IncrementCount` para usar `IncrementAmount` al aumentar el valor de `currentCount`.
 
 *Pages/Counter.razor*:
