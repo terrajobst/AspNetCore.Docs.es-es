@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/26/2019
 uid: security/blazor/index
-ms.openlocfilehash: 097a747f68729109922af5c68dfd918024ee6146
-ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
+ms.openlocfilehash: 87d61a7ccda209243a62bc54467b8f02dad92c24
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67893623"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68994183"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>Autenticación y autorización de ASP.NET Core Blazor
 
@@ -57,7 +57,7 @@ Se abre un cuadro de diálogo para ofrecer el mismo conjunto de mecanismos de au
 Siga las instrucciones de Visual Studio Code en el artículo <xref:blazor/get-started> para crear un nuevo proyecto en el lado servidor de Blazor con un mecanismo de autenticación:
 
 ```console
-dotnet new blazorserverside -o {APP NAME} -au {AUTHENTICATION}
+dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
 ```
 
 En la tabla siguiente se muestran los valores de autenticación permitidos (`{AUTHENTICATION}`).
@@ -91,7 +91,7 @@ El comando crea una carpeta con el valor proporcionado para el marcador de posic
 Follow the .NET Core CLI guidance in the <xref:blazor/get-started> article to create a new Blazor server-side project with an authentication mechanism:
 
 ```console
-dotnet new blazorserverside -o {APP NAME} -au {AUTHENTICATION}
+dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
 ```
 
 Permissible authentication values (`{AUTHENTICATION}`) are shown in the following table.
