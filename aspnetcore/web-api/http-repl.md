@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/25/2019
 uid: web-api/http-repl
-ms.openlocfilehash: e719d599545810d723840b0800cd6a2b4f96b123
-ms.sourcegitcommit: fbc66827e319d28bebed678ea5fd42f582fe3c34
+ms.openlocfilehash: 0e80fcd76a4d3efcd35140c52e0f6f0ae0f27932
+ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493570"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68862960"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Prueba de las API web HTTP REPL
 
@@ -532,12 +532,12 @@ Para emitir una solicitud HTTP POST, realice lo siguiente:
 
 1. Modifique la plantilla JSON para cumplir los requisitos de validación de modelos:
 
-  ```json
-  {
-    "id": 0,
-    "name": "Scott Addie"
-  }
-  ```
+    ```json
+    {
+      "id": 0,
+      "name": "Scott Addie"
+    }
+    ```
 
 1. Guarde el archivo *.tmp* y cierre el editor de texto. En el shell del comando aparecerá la salida siguiente:
 
@@ -916,7 +916,7 @@ Si ejecuta con frecuencia el mismo conjunto de comandos de HTTP REPL, considere 
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt
     ```
 
-    Se mostrará lo siguiente:
+    Aparece el siguiente resultado:
 
     ```console
     https://localhost:5001/~ set base https://localhost:5001

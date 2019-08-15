@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo empezar a usar ASP.NET Core MVC.
 ms.author: riande
 ms.date: 08/05/2019
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: f6a92423546ebd9d4c8e1a92fb81b6b72f847f61
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 36f4811f876a6e35440445103a1f86ae06b31b6a
+ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68820098"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69022518"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>Introducción a ASP.NET Core MVC
 
@@ -126,7 +126,6 @@ Presione **Ctrl-F5** para ejecutar la aplicación en modo de no depuración.
 
   ![IIS Express](start-mvc/_static/iis_express.png)
 
-
   En la imagen siguiente se muestra la aplicación:
 
   ![Página Inicio o Índice](start-mvc/_static/home2.2.png)
@@ -140,12 +139,6 @@ Presione Ctrl+F5 para ejecutarla sin el depurador.
   Visual Studio Code inicia [Kestrel](xref:fundamentals/servers/kestrel) y un explorador, y se desplaza hasta `https://localhost:5001`. En la barra de direcciones aparece `localhost:port:5001` (y no algo como `example.com`). Esto es así porque `localhost` es el nombre de host estándar del equipo local. Localhost solo sirve las solicitudes web del equipo local.
 
   El inicio de la aplicación con Ctrl+F5 (modo de no depuración) permite realizar cambios en el código, guardar el archivo, actualizar el explorador y ver los cambios de código. Muchos desarrolladores prefieren usar el modo de no depuración para actualizar la página y ver los cambios.
-
-* Seleccione **Aceptar** para dar su consentimiento al seguimiento. Esta aplicación no lleva un seguimiento de la información personal. El código generado con plantilla incluye activos que sirven para cumplir el [Reglamento general de protección de datos (RGPD)](xref:security/gdpr).
-
-  ![Página Inicio o Índice](start-mvc/_static/privacy.png)
-
-  En la siguiente imagen se muestra la aplicación tras haber aceptado el seguimiento:
 
   ![Página Inicio o Índice](start-mvc/_static/home2.2.png)
 

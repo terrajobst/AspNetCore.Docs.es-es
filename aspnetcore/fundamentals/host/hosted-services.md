@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/03/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 2dbb1a84a380ab06a4be7ecf628799a070afc9e3
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 3d4279a291182da60c0cb2fbb93a3922ed673cde
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692517"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914022"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Tareas en segundo plano con servicios hospedados en ASP.NET Core
 
@@ -45,7 +45,7 @@ La plantilla Worker Service de ASP.NET Core sirve de punto de partida para escri
 1. En el cuadro de diálogo **Crear una aplicación web ASP.NET Core**, confirme que las opciones **.NET Core** y **ASP.NET Core 3.0** estén seleccionadas.
 1. Seleccione la plantilla **Worker Service**. Seleccione **Crear**.
 
-# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code y CLI de .NET Core](#tab/visual-studio-code+netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
 Desde un shell de comandos, use la plantilla Worker Service (`worker`) con el comando [dotnet new](/dotnet/core/tools/dotnet-new). En el ejemplo siguiente, se crea una aplicación Worker Service llamada `ContosoWorkerService`. Al ejecutar el comando, se crea automáticamente una carpeta para la aplicación `ContosoWorkerService`.
 
@@ -80,8 +80,8 @@ Los servicios hospedados implementan la interfaz <xref:Microsoft.Extensions.Host
 
   Para ampliar el tiempo de espera predeterminado de apagado de 5 segundos, establezca:
 
-  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> cuando se usa el host genérico. Para obtener más información, vea <xref:fundamentals/host/generic-host#shutdown-timeout>.
-  * Configuración de los valores de host de tiempo de espera de apagado cuando se usa el host web. Para obtener más información, vea <xref:fundamentals/host/web-host#shutdown-timeout>.
+  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> cuando se usa el host genérico. Para más información, consulte <xref:fundamentals/host/generic-host#shutdown-timeout>.
+  * Configuración de los valores de host de tiempo de espera de apagado cuando se usa el host web. Para más información, consulte <xref:fundamentals/host/web-host#shutdown-timeout>.
 
 El servicio hospedado se activa una vez al inicio de la aplicación y se cierra de manera estable cuando dicha aplicación se cierra. Si se produce un error durante la ejecución de una tarea en segundo plano, hay que llamar a `Dispose`, aun cuando no se haya llamado a `StopAsync`.
 
