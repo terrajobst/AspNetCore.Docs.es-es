@@ -1,1 +1,1 @@
-Al trabajar con claves jerárquicas en variables de entorno, es posible que un separador de dos puntos (`:`) no funcione en todas las plataformas (por ejemplo, Bash). Un guion bajo doble (`__`) es compatible con todas las plataformas y lo reemplaza un separador de dos puntos.
+Al trabajar con claves jerárquicas en variables de entorno, es posible que un separador de dos puntos (`:`) no funcione en todas las plataformas (por ejemplo, Bash). Todas las plataformas admiten un carácter de subrayado doble (`__`), que se reemplaza automáticamente por un signo de dos puntos.
