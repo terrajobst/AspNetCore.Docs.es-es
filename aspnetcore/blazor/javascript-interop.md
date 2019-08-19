@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: ffd25fe0288159681f7fc052fc09e1f6fc425404
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
-ms.translationtype: HT
+ms.openlocfilehash: 00ea14ca95c328b5f8779785a92aa0720a96eb05
+ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030312"
+ms.locfileid: "69487549"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>Interoperabilidad de JavaScript de ASP.NET Core increíblemente
 
@@ -40,7 +40,7 @@ Dentro del `<head>` elemento de *wwwroot/index.html* (el lado del cliente de inc
 
 [!code-html[](javascript-interop/samples_snapshot/index-script.html)]
 
-El código JavaScript, como el código que se muestra en el ejemplo anterior, también se puede cargar desde un archivo JavaScript (*. js*) con una referencia al archivo de script:
+El código JavaScript, como el código que se muestra en el ejemplo anterior, también se puede cargar desde un archivo JavaScript ( *. js*) con una referencia al archivo de script:
 
 ```html
 <script src="exampleJsInterop.js"></script>
@@ -55,11 +55,11 @@ El siguiente componente:
 
 Para usar la `IJSRuntime` abstracción, adopte cualquiera de los métodos siguientes:
 
-* Inyectar `IJSRuntime` la abstracción en el componente de Razor (*. Razor*):
+* Inyectar `IJSRuntime` la abstracción en el componente de Razor ( *. Razor*):
 
   [!code-cshtml[](javascript-interop/samples_snapshot/inject-abstraction.razor?highlight=1)]
 
-* Inyectar `IJSRuntime` la abstracción en una clase (*. CS*):
+* Inyectar `IJSRuntime` la abstracción en una clase ( *. CS*):
 
   [!code-csharp[](javascript-interop/samples_snapshot/inject-abstraction-class.cs?highlight=5)]
 
@@ -125,11 +125,12 @@ Capture las referencias a los elementos HTML de un componente con el siguiente e
 
 * Agregue un `@ref` atributo al elemento HTML.
 * Defina un campo de tipo `ElementReference` cuyo nombre coincida con el valor `@ref` del atributo.
+* Proporcione el `@ref:suppressField` parámetro, que suprime la generación de campos de respaldo. Para obtener más información, vea el apartado sobre [Cómo quitar @ref la compatibilidad automática de campos de respaldo para en 3.0.0-preview9](https://github.com/aspnet/Announcements/issues/381).
 
 En el ejemplo siguiente se muestra la captura de `username` una referencia al `<input>` elemento:
 
 ```cshtml
-<input @ref="username" ... />
+<input @ref="username" @ref:suppressField ... />
 
 @code {
     ElementReference username;
@@ -158,7 +159,7 @@ Use `IJSRuntime.InvokeAsync<T>` y llame `exampleJsFunctions.focusElement` a con 
 ```cshtml
 @inject IJSRuntime JSRuntime
 
-<input @ref="username" />
+<input @ref="username" @ref:suppressField />
 <button @onclick="SetFocus">Set focus on username</button>
 
 @code {
@@ -188,7 +189,7 @@ Se llama al método directamente en el objeto. En el ejemplo siguiente se da por
 @inject IJSRuntime JSRuntime
 @using JsInteropClasses
 
-<input @ref="username" />
+<input @ref="username" @ref:suppressField />
 <button @onclick="SetFocus">Set focus on username</button>
 
 @code {
