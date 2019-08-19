@@ -5,209 +5,209 @@ description: Obtenga información sobre cómo las pruebas de integración garant
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/05/2019
+ms.date: 08/05/2019
 uid: test/integration-tests
-ms.openlocfilehash: a4e22e53b4658a7c6da3c9e15671a355b212f559
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: a86bf2b183a81f0b903a12f9d1660fb32faa6c03
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815367"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819942"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
 
-Por [Halter](https://github.com/guardrex) y [Steve Smith](https://ardalis.com/)
+Por [Luke Latham](https://github.com/guardrex) y [Steve Smith](https://ardalis.com/)
 
-Las pruebas de integración aseguran de que los componentes de una aplicación funcionen correctamente en un nivel que incluye la infraestructura de soporte de la aplicación, como la base de datos, el sistema de archivos y la red. ASP.NET Core es compatible con las pruebas de integración con un marco de pruebas unitarias con un host de prueba web y un servidor de prueba en memoria.
+Las pruebas de integración aseguran que los componentes de una aplicación funcionan correctamente en un nivel que incluye la infraestructura de soporte de la aplicación, como la base de datos, el sistema de archivos y la red. ASP.NET Core admite las pruebas de integración con un marco de pruebas unitarias con un host Web de prueba y un servidor de prueba en memoria.
 
-En este tema se da por supuesto un conocimiento básico de las pruebas unitarias. Si no conoce los conceptos de pruebas, consulte el [Unit Testing en .NET Core y .NET Standard](/dotnet/core/testing/) tema y su contenido vinculado.
+En este tema se da por supuesto un conocimiento básico de las pruebas unitarias. Si no está familiarizado con los conceptos de las pruebas, consulte el tema [pruebas unitarias en .net Core y .net Standard](/dotnet/core/testing/) y su contenido vinculado.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-La aplicación de ejemplo es una aplicación de páginas de Razor y se da por supuesto un conocimiento básico de las páginas de Razor. Si no conoce las páginas de Razor, vea los temas siguientes:
+La aplicación de ejemplo es una aplicación Razor Pages y asume un conocimiento básico de Razor Pages. Si no está familiarizado con Razor Pages, consulte los temas siguientes:
 
 * [Introducción a las páginas de Razor](xref:razor-pages/index)
 * [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Pruebas unitarias de páginas de Razor](xref:test/razor-pages-tests)
 
 > [!NOTE]
-> Para probar las SPA, se recomienda una herramienta como [Selenium](https://www.seleniumhq.org/), que puede automatizar un explorador.
+> Para probar Spa, se recomienda usar una herramienta como [Selenium](https://www.seleniumhq.org/), que puede automatizar un explorador.
 
 ## <a name="introduction-to-integration-tests"></a>Introducción a las pruebas de integración
 
-Las pruebas de integración para evaluar los componentes de una aplicación en un nivel más amplio que [pruebas unitarias](/dotnet/core/testing/). Las pruebas unitarias se utilizan para probar los componentes de software independiente, como los métodos de la clase individual. Confirmación que las pruebas de integración que dos o más componentes de aplicación funcionan conjuntamente para producir un resultado esperado, posiblemente incluidos todos los componentes necesarios para procesar una solicitud.
+Las pruebas de integración evalúan los componentes de una aplicación en un nivel más amplio que las [pruebas unitarias](/dotnet/core/testing/). Las pruebas unitarias se usan para probar componentes de software aislados, como los métodos de clase individuales. Pruebas de integración confirme que dos o más componentes de aplicación funcionan juntos para generar un resultado esperado, lo que podría incluir todos los componentes necesarios para procesar completamente una solicitud.
 
-Estas pruebas más amplias se utilizan para probar la infraestructura de la aplicación y un marco completo, a menudo incluye los siguientes componentes:
+Estas pruebas más amplias se usan para probar la infraestructura de la aplicación y todo el marco de trabajo, que a menudo incluyen los siguientes componentes:
 
 * Base de datos
 * Sistema de archivos
-* Dispositivos de red
-* Canalización de solicitud y respuesta
+* Aplicaciones de red
+* Canalización de solicitud-respuesta
 
-Pruebas unitarias use fabricado componentes, denominados *fakes* o *objetos ficticios*, en lugar de los componentes de infraestructura.
+Las pruebas unitarias usan componentes fabricados, conocidos como falsificaciones o *objetos ficticios*, en lugar de componentes de infraestructura.
 
-A diferencia de las pruebas unitarias, pruebas de integración:
+A diferencia de las pruebas unitarias, las pruebas de integración:
 
-* Utilice los componentes reales que usa la aplicación en producción.
-* Se requieren más código y procesamiento de datos.
-* Tardan más en ejecutarse.
+* Use los componentes reales que usa la aplicación en producción.
+* Requerir más código y procesamiento de datos.
+* Tarda más tiempo en ejecutarse.
 
-Por lo tanto, limite el uso de las pruebas de integración para los escenarios de infraestructura más importantes. Si un comportamiento se puede probar con una prueba unitaria o una prueba de integración, elija la prueba unitaria.
+Por lo tanto, limite el uso de las pruebas de integración a los escenarios de infraestructura más importantes. Si un comportamiento se puede probar mediante una prueba unitaria o una prueba de integración, elija la prueba unitaria.
 
 > [!TIP]
-> No escriba las pruebas de integración para todas las posibles permutaciones de acceso de archivos y datos con las bases de datos y sistemas de archivos. Independientemente de cuántos lugares a través de una aplicación interactuar con las bases de datos y sistemas de archivos, un conjunto con foco de lectura, escritura, actualización y eliminación integración pruebas son normalmente capaces de adecuadamente las pruebas de la base de datos y los componentes del sistema de archivos. Use pruebas unitarias para las pruebas de rutina de la lógica del método que interactúan estos componentes. En las pruebas unitarias, el uso de la infraestructura de fakes/simulacros resultado en ejecución de pruebas más rápida.
+> No escriba pruebas de integración para cada posible permutación de datos y acceso a archivos con bases de datos y sistemas de archivos. Independientemente de cuántos lugares en una aplicación interactúen con las bases de datos y los sistemas de archivos, un conjunto centrado de pruebas de integración de lectura, escritura, actualización y eliminación suele ser capaz de probar adecuadamente los componentes del sistema de archivos y la base de datos. Utilice pruebas unitarias para pruebas rutinarias de la lógica de método que interactúan con estos componentes. En las pruebas unitarias, el uso de simulaciones y simulaciones de infraestructura produce una ejecución de prueba más rápida.
 
 > [!NOTE]
-> En las conversaciones de pruebas de integración, se suele denominar el proyecto probado el *sistema sometido a prueba*, o "SUT" para abreviar.
+> En los debates de las pruebas de integración, el proyecto probado se denomina frecuentemente *sistema en pruebas*o "SUT" para abreviar.
 
 ## <a name="aspnet-core-integration-tests"></a>Pruebas de integración de ASP.NET Core
 
 Las pruebas de integración en ASP.NET Core requieren lo siguiente:
 
-* Un proyecto de prueba se usa para contener y ejecutar las pruebas. El proyecto de prueba tiene una referencia al proyecto de ASP.NET Core probado, denominado el *sistema sometido a prueba* (SUT). _"SUT" se utiliza a lo largo de este tema para hacer referencia a la aplicación probada._
-* El proyecto de prueba crea un host de web de prueba para el SUT y usa a un cliente del servidor de prueba para controlar las solicitudes y respuestas al SUT.
-* Un ejecutor de pruebas se usa para ejecutar las pruebas y el informe los resultados de pruebas.
+* Un proyecto de prueba se usa para contener y ejecutar las pruebas. El proyecto de prueba tiene una referencia al proyecto de ASP.NET Core probado, denominado *sistema sometido a prueba* (SUT). _"SUT" se usa en este tema para hacer referencia a la aplicación probada._
+* El proyecto de prueba crea un host Web de prueba para SUT y utiliza un cliente de servidor de prueba para controlar las solicitudes y respuestas a SUT.
+* Se utiliza un ejecutor de pruebas para ejecutar las pruebas y notificar los resultados de las pruebas.
 
-Las pruebas de integración, siga una secuencia de eventos que incluyen el habitual *organizar*, *Act*, y *Assert* pasos de prueba:
+Las pruebas de integración siguen una secuencia de eventos que incluyen los pasos habituales de *organización*, *acción*y *aserción* :
 
-1. Se configura el host de web del SUT.
+1. El host Web de SUT está configurado.
 1. Se crea un cliente de servidor de prueba para enviar solicitudes a la aplicación.
-1. El *organizar* se ejecuta el paso de prueba: La aplicación de prueba prepara una solicitud.
-1. El *Act* se ejecuta el paso de prueba: El cliente envía la solicitud y recibe la respuesta.
-1. El *Assert* se ejecuta el paso de prueba: El *real* respuesta se valida como un *pasar* o *producirá un error en* según un *espera* respuesta.
-1. El proceso continúa hasta que todas las pruebas se ejecutan.
-1. Se notifican los resultados de pruebas.
+1. Se ejecuta el paso de prueba *organizar* : La aplicación de prueba prepara una solicitud.
+1. Se ejecuta el paso de prueba *Act* : El cliente envía la solicitud y recibe la respuesta.
+1. Se ejecuta el paso de prueba Assert: La respuesta *real* se valida como superada o *no* superada en función de la respuesta *esperada* .
+1. El proceso continúa hasta que se ejecutan todas las pruebas.
+1. Se muestran los resultados de las pruebas.
 
-Por lo general, el host de prueba web está configurado de forma diferente de host de la aplicación web normal para la prueba se ejecuta. Por ejemplo, podría utilizarse para las pruebas de otra base de datos o la configuración de aplicación diferentes.
+Normalmente, el host Web de prueba se configura de manera diferente que el host web normal de la aplicación para las series de pruebas. Por ejemplo, puede usarse una base de datos diferente o una configuración de aplicación diferente para las pruebas.
 
-Componentes de infraestructura, como el host de prueba web y el servidor de prueba en memoria ([TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver)), se proporciona o administrados por el [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing) paquete. Uso de este paquete simplifica la creación de pruebas y la ejecución.
+Los componentes de infraestructura, como el host Web de prueba y el servidor de prueba en memoria ([TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver)), se proporcionan o administran mediante el paquete [Microsoft. AspNetCore. Mvc. Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing) . El uso de este paquete simplifica la creación y ejecución de pruebas.
 
-El `Microsoft.AspNetCore.Mvc.Testing` paquete controla las tareas siguientes:
+El `Microsoft.AspNetCore.Mvc.Testing` paquete controla las siguientes tareas:
 
-* Copia el archivo de dependencias ( *\*.deps*) desde el SUT en el proyecto de prueba *bin* directory.
-* Establece la raíz del contenido en la raíz del proyecto del SUT para que se encuentran los archivos estáticos y páginas o vistas cuando se ejecutan las pruebas.
-* Proporciona el [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) clase para simplificar el arranque del SUT con `TestServer`.
+* Copia el archivo de dependencias ( *\*. deps*) de SUT en el directorio *bin* del proyecto de prueba.
+* Establece la raíz de contenido en la raíz del proyecto de SUT para que se encuentren los archivos estáticos y las páginas o vistas cuando se ejecutan las pruebas.
+* Proporciona la clase [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) para agilizar el arranque de `TestServer`SUT con.
 
-El [pruebas unitarias](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) documentación describe cómo configurar un proyecto y prueba el ejecutor de pruebas, junto con instrucciones detalladas sobre cómo ejecutar pruebas y recomendaciones sobre cómo para comprobaciones de nombres y clases de prueba.
+La documentación de [pruebas unitarias](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) describe cómo configurar un proyecto de prueba y un ejecutor de pruebas, junto con instrucciones detalladas sobre cómo ejecutar pruebas y recomendaciones para asignar nombres a las pruebas y las clases de prueba.
 
 > [!NOTE]
-> Al crear un proyecto de prueba para una aplicación, separe las pruebas unitarias de las pruebas de integración en proyectos diferentes. Esto permite garantizar que los componentes de infraestructura de pruebas accidentalmente no están incluidos en las pruebas unitarias. Separación de las pruebas unitarias y de integración también permite controlar qué conjunto de pruebas se ejecutan.
+> Al crear un proyecto de prueba para una aplicación, separe las pruebas unitarias de las pruebas de integración en proyectos diferentes. Esto ayuda a garantizar que los componentes de prueba de la infraestructura no se incluyan accidentalmente en las pruebas unitarias. La separación de las pruebas unitarias y de integración también permite controlar qué conjunto de pruebas se ejecutan.
 
-No hay prácticamente ninguna diferencia entre la configuración de pruebas de aplicaciones de las páginas de Razor y las aplicaciones MVC. La única diferencia está en cómo se denominan las pruebas. En una aplicación de páginas de Razor, suelen denominarse pruebas de puntos de conexión de página después de la clase de modelo de página (por ejemplo, `IndexPageTests` para probar la integración del componente de la página de índice). En una aplicación MVC, las pruebas normalmente se organizada por las clases de controlador y los controladores que se prueban con el nombre (por ejemplo, `HomeControllerTests` para probar la integración del componente para el controlador Home).
+Prácticamente no hay ninguna diferencia entre la configuración de las pruebas de aplicaciones de Razor Pages y de MVC. La única diferencia radica en cómo se denominan las pruebas. En una aplicación Razor pages, las pruebas de los puntos de conexión de página normalmente se denominan después de la clase `IndexPageTests` de modelo de página (por ejemplo, para probar la integración de componentes para la página de índice). En una aplicación de MVC, las pruebas suelen estar organizadas por clases de controlador y denominadas después de los controladores `HomeControllerTests` que prueban (por ejemplo, para probar la integración de componentes para el controlador de inicio).
 
-## <a name="test-app-prerequisites"></a>Requisitos previos de la aplicación de prueba
+## <a name="test-app-prerequisites"></a>Probar los requisitos previos de la aplicación
 
 El proyecto de prueba debe:
 
-* Hacer referencia a los siguientes paquetes:
+* Haga referencia a los siguientes paquetes:
   * [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
   * [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/)
-* Especifique el SDK de Web en el archivo de proyecto (`<Project Sdk="Microsoft.NET.Sdk.Web">`). El SDK de Web es necesario cuando se hace referencia el [Microsoft.AspNetCore.App metapaquete](xref:fundamentals/metapackage-app).
+* Especifique el SDK Web en el archivo de proyecto`<Project Sdk="Microsoft.NET.Sdk.Web">`(). El SDK web es necesario cuando se hace referencia al [metapaquete Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app).
 
-Estos requisitos previos se pueden ver en el [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/). Inspeccionar el *tests/RazorPagesProject.Tests/RazorPagesProject.Tests.csproj* archivo. La aplicación de ejemplo usa el [xUnit](https://xunit.github.io/) marco de pruebas y la [AngleSharp](https://anglesharp.github.io/) biblioteca analizador, por lo que también hace referencia a la aplicación de ejemplo:
+Estos requisitos previos se pueden consultar en la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/). Inspeccione el archivo *tests/RazorPagesProject. tests/RazorPagesProject. tests. csproj* . La aplicación de ejemplo usa el marco de pruebas de [xUnit](https://xunit.github.io/) y la biblioteca de analizador de [AngleSharp](https://anglesharp.github.io/) , por lo que la aplicación de ejemplo también hace referencia a:
 
 * [xunit](https://www.nuget.org/packages/xunit/)
 * [xunit.runner.visualstudio](https://www.nuget.org/packages/xunit.runner.visualstudio/)
 * [AngleSharp](https://www.nuget.org/packages/AngleSharp/)
 
-## <a name="sut-environment"></a>Entorno SUT
+## <a name="sut-environment"></a>Entorno de SUT
 
-Si el SUT [entorno](xref:fundamentals/environments) no está configurado, los valores predeterminados de entorno para el desarrollo.
+Si no se establece el [entorno](xref:fundamentals/environments) de SUT, el entorno tiene como valor predeterminado el desarrollo.
 
-## <a name="basic-tests-with-the-default-webapplicationfactory"></a>Pruebas básicas con el valor predeterminado WebApplicationFactory
+## <a name="basic-tests-with-the-default-webapplicationfactory"></a>Pruebas básicas con el valor predeterminado de WebApplicationFactory
 
-[WebApplicationFactory&lt;TEntryPoint&gt; ](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) se utiliza para crear un [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) para las pruebas de integración. `TEntryPoint` es la clase de punto de entrada del SUT, normalmente la `Startup` clase.
+[WebApplicationFactory&lt;TEntryPoint&gt; ](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) se usa para crear un [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) para las pruebas de integración. `TEntryPoint`es la clase de punto de entrada de SUT, normalmente `Startup` la clase.
 
-Clases de prueba implementan un *accesorio clase* interfaz ([IClassFixture](https://xunit.github.io/docs/shared-context#class-fixture)) para indicar la clase contiene las pruebas y proporciona instancias de objetos compartidos entre las pruebas de la clase.
+Las clases de prueba implementan una interfaz de *accesorio de clase* ([IClassFixture](https://xunit.github.io/docs/shared-context#class-fixture)) para indicar que la clase contiene pruebas y proporcionan instancias de objetos compartidos en las pruebas de la clase.
 
 ### <a name="basic-test-of-app-endpoints"></a>Prueba básica de los puntos de conexión de la aplicación
 
-La siguiente clase, de prueba `BasicTests`, usa el `WebApplicationFactory` para arrancar el SUT y proporcionar un [HttpClient](/dotnet/api/system.net.http.httpclient) a un método de prueba, `Get_EndpointsReturnSuccessAndCorrectContentType`. El método comprueba si el código de estado de respuesta es correcto (códigos de estado en el intervalo 200-299) y el `Content-Type` encabezado es `text/html; charset=utf-8` de varias páginas de aplicación.
+La siguiente clase de prueba `BasicTests`,, `WebApplicationFactory` utiliza para arrancar el SUT y proporcionar un [HttpClient](/dotnet/api/system.net.http.httpclient) a un método de prueba `Get_EndpointsReturnSuccessAndCorrectContentType`,. El método comprueba si el código de estado de la respuesta es correcto (códigos de estado en el intervalo `Content-Type` 200-299) `text/html; charset=utf-8` y el encabezado es para varias páginas de la aplicación.
 
-[CreateClient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) crea una instancia de `HttpClient` que sigue las redirecciones y controla las cookies automáticamente.
+[CreateClient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) crea una instancia de `HttpClient` que sigue automáticamente las redirecciones y controla las cookies.
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet1)]
 
-De forma predeterminada, no se conservan las cookies no esenciales entre solicitudes cuando el [directiva de consentimiento de RGPD](xref:security/gdpr) está habilitado. Para conservar las cookies no esenciales, tales como las usadas por el proveedor TempData, marcarlos como esenciales en las pruebas. Para obtener instrucciones sobre cómo marcar una cookie como esenciales, consulte [cookies esencial](xref:security/gdpr#essential-cookies).
+De forma predeterminada, las cookies no esenciales no se conservan entre solicitudes cuando la [Directiva de consentimiento de RGPD](xref:security/gdpr) está habilitada. Para conservar las cookies no esenciales, como las usadas por el proveedor TempData, márquela como esenciales en las pruebas. Para obtener instrucciones sobre cómo marcar una cookie como esencial, vea [cookies esenciales](xref:security/gdpr#essential-cookies).
 
 ### <a name="test-a-secure-endpoint"></a>Probar un extremo seguro
 
-Otra prueba en el `BasicTests` clase comprueba que un extremo seguro redirige a un usuario no autenticado a la página de inicio de sesión de la aplicación.
+Otra prueba de la `BasicTests` clase comprueba que un punto de conexión seguro redirige a un usuario no autenticado a la página de inicio de sesión de la aplicación.
 
-En el SUT, el `/SecurePage` página usa un [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) convención para aplicar un [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) a la página. Para obtener más información, consulte [convenciones de autorización de las páginas de Razor](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page).
+En SUT, la `/SecurePage` página usa una Convención [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) para aplicar un [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) a la página. Para obtener más información, vea [Razor pages convenciones de autorización](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page).
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
 
-En el `Get_SecurePageRequiresAnAuthenticatedUser` probar, un [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) está establecido en no permitir redireccionamientos estableciendo [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) a `false`:
+En la `Get_SecurePageRequiresAnAuthenticatedUser` prueba, [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) se establece en Disallow redirects estableciendo [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) en `false`:
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet2)]
 
-Al no permitir el cliente sigue la redirección, se pueden realizar las siguientes comprobaciones:
+Al no permitir que el cliente siga la redirección, se pueden realizar las siguientes comprobaciones:
 
-* El código de estado devuelto por el SUT puede comprobarse con el esperado [HttpStatusCode.Redirect](/dotnet/api/system.net.httpstatuscode) resultado, no el código de estado final después de la redirección a la página de inicio de sesión, que sería [HttpStatusCode.OK](/dotnet/api/system.net.httpstatuscode).
-* El `Location` se comprueba el valor del encabezado de los encabezados de respuesta para confirmar que se inicia con `http://localhost/Identity/Account/Login`, no el inicio de sesión página respuesta final, donde el `Location` encabezado no estar presente.
+* El código de estado devuelto por SUT puede comprobarse con el resultado esperado de [HttpStatusCode. Redirect](/dotnet/api/system.net.httpstatuscode) , no con el código de estado final después de la redirección a la página de inicio de sesión, que sería [HttpStatusCode. OK](/dotnet/api/system.net.httpstatuscode).
+* Se `Location` comprueba el valor de encabezado de los encabezados de respuesta para confirmar que empieza por `http://localhost/Identity/Account/Login`, no la respuesta de la página de inicio de `Location` sesión final, donde el encabezado no estaría presente.
 
-Para obtener más información sobre `WebApplicationFactoryClientOptions`, consulte el [opciones de cliente](#client-options) sección.
+Para obtener más información `WebApplicationFactoryClientOptions`sobre, vea la sección [Opciones de cliente](#client-options) .
 
-## <a name="customize-webapplicationfactory"></a>Personalizar WebApplicationFactory
+## <a name="customize-webapplicationfactory"></a>Personalización de WebApplicationFactory
 
-Configuración del host Web puede crearse independientemente de las clases de prueba mediante la herencia de `WebApplicationFactory` para crear uno o varios de los generadores personalizados:
+La configuración del host Web se puede crear independientemente de las clases de prueba heredando de `WebApplicationFactory` para crear uno o varios generadores personalizados:
 
-1. Heredar de `WebApplicationFactory` e invalidar [ConfigureWebHost](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.configurewebhost). El [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) permite la configuración de la colección de servicios con [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.istartup.configureservices):
+1. Heredar `WebApplicationFactory` de e invalidar [ConfigureWebHost](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.configurewebhost). [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) permite la configuración de la colección de servicios con [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.istartup.configureservices):
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/CustomWebApplicationFactory.cs?name=snippet1)]
 
-   En la propagación de la base de datos la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) se realiza mediante el `InitializeDbForTests` método. El método se describe en el [ejemplo de pruebas de integración: Organización de la aplicación de prueba](#test-app-organization) sección.
+   El método realiza la `InitializeDbForTests` propagación de la base de datos en la aplicación de [ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) . El método se describe en el [ejemplo de pruebas de integración: Sección de la](#test-app-organization) organización de la aplicación de prueba.
 
-2. Usar personalizado `CustomWebApplicationFactory` en las clases de prueba. En el ejemplo siguiente se usa el generador en el `IndexPageTests` clase:
+2. Utilice las clases `CustomWebApplicationFactory` de prueba personalizadas. En el ejemplo siguiente se usa el generador `IndexPageTests` en la clase:
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet1)]
 
-   Cliente de la aplicación de ejemplo está configurada para evitar el `HttpClient` de redireccionamientos siguientes. Como se explica en el [probar un extremo seguro](#test-a-secure-endpoint) sección, esto permite que las pruebas para comprobar el resultado de la primera respuesta de la aplicación. La primera respuesta es un redireccionamiento en muchas de estas pruebas con un `Location` encabezado.
+   El cliente de la aplicación de ejemplo está configurado para `HttpClient` evitar que el siguiente redireccionamientos. Como se explica en la sección [probar un punto de conexión seguro](#test-a-secure-endpoint) , esto permite que las pruebas comprueben el resultado de la primera respuesta de la aplicación. La primera respuesta es una redirección en muchas de estas pruebas con un `Location` encabezado.
 
-3. Una prueba normal se usa el `HttpClient` y métodos auxiliares para procesar la solicitud y la respuesta:
+3. Una prueba típica usa los `HttpClient` métodos auxiliares y para procesar la solicitud y la respuesta:
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet2)]
 
-Cualquier solicitud POST al SUT debe cumplir la comprobación de antifalsificación se convierte automáticamente en la aplicación [sistema antifalsificación de protección de datos](xref:security/data-protection/introduction). Para organizar de la solicitud POST de una prueba, la prueba de la aplicación debe:
+Cualquier solicitud POST a SUT debe cumplir la comprobación antifalsificación realizada automáticamente por el sistema antifalsificación de [protección de datos](xref:security/data-protection/introduction)de la aplicación. Para organizar la solicitud POST de una prueba, la aplicación de prueba debe:
 
 1. Realice una solicitud para la página.
-1. Analizar la cookie antifalsificación y el token de solicitud de validación de la respuesta.
-1. Realizar la solicitud POST con la validación de solicitud y la cookie antifalsificación token en su lugar.
+1. Analice la cookie antifalsificación y solicite el token de validación de la respuesta.
+1. Realice la solicitud POST con la cookie antifalsificación y el token de validación de solicitudes en su lugar.
 
-El `SendAsync` métodos de extensión de aplicación auxiliar (*Helpers/HttpClientExtensions.cs*) y el `GetDocumentAsync` método auxiliar (*Helpers/HtmlHelpers.cs*) en el [deaplicacióndeejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/) utilizar el [AngleSharp](https://anglesharp.github.io/) analizador para controlar la comprobación de antifalsificación con los métodos siguientes:
+Los `SendAsync` métodos de extensión auxiliares (*helpers/HttpClientExtensions. CS*) y el `GetDocumentAsync` método auxiliar (*helpers/HtmlHelpers. CS*) en la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/) usan el analizador de [AngleSharp](https://anglesharp.github.io/) para controlar la antifalsificación. Compruebe con los métodos siguientes:
 
-* `GetDocumentAsync` &ndash; Recibe el [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage) y devuelve un `IHtmlDocument`. `GetDocumentAsync` utiliza un generador que prepara un *respuesta virtual* basado en el original `HttpResponseMessage`. Para obtener más información, consulte el [AngleSharp documentación](https://github.com/AngleSharp/AngleSharp#documentation).
-* `SendAsync` métodos de extensión para el `HttpClient` redactar una [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) y llamar a [SendAsync(HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) para enviar solicitudes al SUT. Sobrecargas para `SendAsync` acepte el formulario HTML (`IHtmlFormElement`) y lo siguiente:
-  * Botón del formulario de envío (`IHtmlElement`)
-  * Colección de valores de formulario (`IEnumerable<KeyValuePair<string, string>>`)
-  * Botón de envío (`IHtmlElement`) y valores de formulario (`IEnumerable<KeyValuePair<string, string>>`)
+* `GetDocumentAsync`Recibe el [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage) y devuelve un `IHtmlDocument`. &ndash; `GetDocumentAsync`utiliza un generador que prepara una *respuesta virtual* basada en el original `HttpResponseMessage`. Para obtener más información, vea la [documentación de AngleSharp](https://github.com/AngleSharp/AngleSharp#documentation).
+* `SendAsync`los métodos de extensión `HttpClient` para componen un [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) y llaman a [SendAsync (HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) para enviar solicitudes a SUT. Las sobrecargas `SendAsync` de aceptan el formulario HTML`IHtmlFormElement`() y lo siguiente:
+  * Botón Enviar del formulario (`IHtmlElement`)
+  * Colección de valores de`IEnumerable<KeyValuePair<string, string>>`formulario ()
+  * Botón de envío`IHtmlElement`() y valores de`IEnumerable<KeyValuePair<string, string>>`formulario ()
 
 > [!NOTE]
-> [AngleSharp](https://anglesharp.github.io/) es biblioteca que se usa para fines de demostración en este tema y la aplicación de ejemplo de análisis de un tercero. AngleSharp no es compatible o necesarias para las pruebas de integración de aplicaciones de ASP.NET Core. Se pueden usar otros analizadores, como el [Html agilidad Pack (GRACIA)](https://html-agility-pack.net/). Otro enfoque consiste en escribir código para controlar el token de comprobación de solicitud y la cookie antifalsificación el sistema antifalsificación directamente.
+> [AngleSharp](https://anglesharp.github.io/) es una biblioteca de análisis de terceros que se usa con fines de demostración en este tema y la aplicación de ejemplo. AngleSharp no es compatible o es necesario para la prueba de integración de aplicaciones ASP.NET Core. Se pueden usar otros analizadores, como el [paquete de agilidad HTML (HAP)](https://html-agility-pack.net/). Otro enfoque consiste en escribir código para controlar el token de comprobación de solicitudes y la cookie antifalsificación del sistema antifalsificación directamente.
 
 ## <a name="customize-the-client-with-withwebhostbuilder"></a>Personalización del cliente con WithWebHostBuilder
 
-Cuando se necesita dentro de un método de prueba, configuración adicional [WithWebHostBuilder](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.withwebhostbuilder) crea un nuevo `WebApplicationFactory` con un [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) que se personaliza más aún mediante configuración.
+Cuando se requiere una configuración adicional dentro de un método de prueba, [WithWebHostBuilder](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.withwebhostbuilder) crea un nuevo `WebApplicationFactory` con un [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) que se ha personalizado aún más mediante la configuración.
 
-El `Post_DeleteMessageHandler_ReturnsRedirectToRoot` probar el método de la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) muestra el uso de `WithWebHostBuilder`. Esta prueba realiza una eliminación de registro en la base de datos mediante la activación de un envío de formulario en el SUT.
+El `Post_DeleteMessageHandler_ReturnsRedirectToRoot` método de prueba de la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) muestra el `WithWebHostBuilder`uso de. Esta prueba realiza una eliminación de registros en la base de datos desencadenando un envío de formulario en el SUT.
 
-Porque otra prueba en el `IndexPageTests` clase realiza una operación que elimina todos los registros en la base de datos y puede ejecutar antes la `Post_DeleteMessageHandler_ReturnsRedirectToRoot` método, la base de datos es visible en este método de prueba para asegurarse de que está presente para el SUT eliminar un registro. Seleccionar el `deleteBtn1` botón de la `messages` se simula el formulario en el SUT en la solicitud al SUT:
+Dado que otra prueba de `IndexPageTests` la clase realiza una operación que elimina todos los registros de la base de datos y puede ejecutarse `Post_DeleteMessageHandler_ReturnsRedirectToRoot` antes que el método, la base de datos se propaga en este método de prueba para asegurarse de que un registro está presente para que se elimine el SUT. La selección del `messages`botóndel formulario en el SUT se simula en la solicitud a SUT: `deleteBtn1`
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet3)]
 
 ## <a name="client-options"></a>Opciones de cliente
 
-En la tabla siguiente se muestra el valor predeterminado [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) disponibles al crear `HttpClient` instancias.
+En la tabla siguiente se muestra el [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) predeterminado disponible `HttpClient` al crear instancias de.
 
 | Opción | DESCRIPCIÓN | Valor predeterminado |
 | ------ | ----------- | ------- |
-| [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) | Obtiene o establece si `HttpClient` instancias deben seguir automáticamente las respuestas de redirección. | `true` |
-| [BaseAddress](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.baseaddress) | Obtiene o establece la dirección base del `HttpClient` instancias. | `http://localhost` |
-| [HandleCookies](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.handlecookies) | Obtiene o establece si `HttpClient` instancias deben controlar las cookies. | `true` |
-| [MaxAutomaticRedirections](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.maxautomaticredirections) | Obtiene o establece el número máximo de respuestas de redirección que `HttpClient` deben seguir las instancias. | 7 |
+| [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) | Obtiene o establece si `HttpClient` las instancias de deben seguir automáticamente las respuestas de redirección. | `true` |
+| [BaseAddress](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.baseaddress) | Obtiene o establece la dirección base de `HttpClient` las instancias de. | `http://localhost` |
+| [HandleCookies](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.handlecookies) | Obtiene o establece si `HttpClient` las instancias de deben controlar las cookies. | `true` |
+| [MaxAutomaticRedirections](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.maxautomaticredirections) | Obtiene o establece el número máximo de respuestas de redirección `HttpClient` que deben seguir las instancias. | 7 |
 
-Crear el `WebApplicationFactoryClientOptions` clase y páselo a la [CreateClient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) (método) (valor predeterminado, los valores se muestran en el ejemplo de código):
+Cree la `WebApplicationFactoryClientOptions` clase y pásela al método [CreateClient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) (los valores predeterminados se muestran en el ejemplo de código):
 
 ```csharp
 // Default client option values are shown
@@ -220,11 +220,11 @@ clientOptions.MaxAutomaticRedirections = 7;
 _client = _factory.CreateClient(clientOptions);
 ```
 
-## <a name="inject-mock-services"></a>Insertar servicios ficticios
+## <a name="inject-mock-services"></a>Inyectar servicios ficticios
 
-Los servicios se pueden invalidar en una prueba con una llamada a [ConfigureTestServices](/dotnet/api/microsoft.aspnetcore.testhost.webhostbuilderextensions.configuretestservices) en el generador de host. **Para insertar servicios ficticios, debe tener el SUT un `Startup` clase con un `Startup.ConfigureServices` método.**
+Los servicios se pueden invalidar en una prueba con una llamada a [ConfigureTestServices](/dotnet/api/microsoft.aspnetcore.testhost.webhostbuilderextensions.configuretestservices) en el generador de hosts. **Para inyectar servicios ficticios, SUT debe tener `Startup` una clase con `Startup.ConfigureServices` un método.**
 
-El ejemplo SUT incluye un servicio con ámbito que devuelve una cita. La oferta se incrusta en un campo oculto en la página de índice cuando se solicita la página de índice.
+El SUT de ejemplo incluye un servicio de ámbito que devuelve una comilla. La oferta se incrusta en un campo oculto en la página de índice cuando se solicita la página de índice.
 
 *Services/IQuoteService.cs*:
 
@@ -242,80 +242,43 @@ El ejemplo SUT incluye un servicio con ámbito que devuelve una cita. La oferta 
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Pages/Index.cshtml.cs?name=snippet1&highlight=4,9,20,26)]
 
-*Pages/Index.cs*:
+*Pages/index. CS*:
 
 [!code-cshtml[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Pages/Index.cshtml?name=snippet_Quote)]
 
-Cuando se ejecuta la aplicación SUT, se genera el marcado siguiente:
+Cuando se ejecuta la aplicación SUT, se genera el siguiente marcado:
 
 ```html
 <input id="quote" type="hidden" value="Come on, Sarah. We&#x27;ve an appointment in 
     London, and we&#x27;re already 30,000 years late.">
 ```
 
-Para probar la inserción de la oferta y de servicio en una prueba de integración, un servicio de simulacro se inserta en el SUT por la prueba. El servicio ficticio reemplaza la aplicación `QuoteService` con un servicio proporcionado por la aplicación de prueba, llamado `TestQuoteService`:
+Para probar la inyección de servicio y de Comillas en una prueba de integración, la prueba inserta un servicio ficticio en el SUT. El servicio ficticio reemplaza la aplicación `QuoteService` por un servicio proporcionado por la aplicación de prueba, llamado: `TestQuoteService`
 
 *IntegrationTests.IndexPageTests.cs*:
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet4)]
 
-`ConfigureTestServices` se llama a, y se registra el servicio con ámbito:
+`ConfigureTestServices`se llama a y se registra el servicio de ámbito:
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet5&highlight=7-10,17,20-21)]
 
-El marcado generado durante la ejecución de la prueba refleja el texto de oferta proporcionado por `TestQuoteService`, por lo tanto las fases de aserción:
+El marcado producido durante la ejecución de la prueba refleja el texto de la `TestQuoteService`cita proporcionado por, por lo que la aserción pasa:
 
 ```html
 <input id="quote" type="hidden" value="Something&#x27;s interfering with time, 
     Mr. Scarman, and time is my business.">
 ```
 
-## <a name="how-the-test-infrastructure-infers-the-app-content-root-path"></a>Cómo la infraestructura de pruebas deduce la ruta de acceso de contenido raíz de aplicación
+## <a name="how-the-test-infrastructure-infers-the-app-content-root-path"></a>Cómo la infraestructura de prueba deduce la ruta de acceso raíz del contenido de la aplicación
 
-El `WebApplicationFactory` constructor infiere la ruta de acceso de contenido raíz de aplicación mediante la búsqueda de un [WebApplicationFactoryContentRootAttribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) en el ensamblado que contiene las pruebas de integración con una clave igual a la `TEntryPoint` ensamblado `System.Reflection.Assembly.FullName`. En caso de que no se encuentra un atributo con la clave correcta, `WebApplicationFactory` recurre a la búsqueda de un archivo de solución ( *\*.sln*) y anexa el `TEntryPoint` nombre del ensamblado en el directorio de la solución. El directorio raíz de aplicación (la ruta de acceso raíz del contenido) se usa para detectar las vistas y los archivos de contenido.
+El `WebApplicationFactory` constructor deduce la ruta de acceso raíz del contenido de la aplicación buscando un [WebApplicationFactoryContentRootAttribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) en el ensamblado que contiene las pruebas de integración `TEntryPoint` con `System.Reflection.Assembly.FullName`una clave igual al ensamblado. En caso de que no se encuentre un atributo con la `WebApplicationFactory` clave correcta, recurre a la búsqueda de un archivo de solución ( *\*. sln*) y anexa el nombre del `TEntryPoint` ensamblado al directorio de la solución. El directorio raíz de la aplicación (la ruta de acceso raíz del contenido) se usa para detectar los archivos de contenido y las vistas.
 
-En la mayoría de los casos, no es necesario establecer explícitamente la raíz de contenido de la aplicación, como la lógica de búsqueda busca normalmente la raíz de contenido correcta en tiempo de ejecución. En escenarios especiales donde no se encuentra la raíz de contenido mediante el algoritmo de búsqueda integradas, la aplicación de contenido raíz se puede especificar explícitamente o mediante el uso de lógica personalizada. Para establecer la raíz de contenido de la aplicación en esos escenarios, llame a la `UseSolutionRelativeContentRoot` método de extensión de la [Microsoft.AspNetCore.TestHost](https://www.nuget.org/packages/Microsoft.AspNetCore.TestHost) paquete. Proporcione la ruta de acceso relativa de la solución y el patrón de nombre o glob del archivo de solución opcional (valor predeterminado = `*.sln`).
+## <a name="disable-shadow-copying"></a>Deshabilitar la copia sombra
 
-Llame a la [UseSolutionRelativeContentRoot](/dotnet/api/microsoft.aspnetcore.testhost.webhostbuilderextensions.usesolutionrelativecontentroot) método de extensión mediante *una* de los métodos siguientes:
+La copia sombra hace que las pruebas se ejecuten en un directorio diferente que el directorio de salida. Para que las pruebas funcionen correctamente, se debe deshabilitar la copia sombra. La [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) usa xUnit y deshabilita la copia sombra de xUnit mediante la inclusión de un archivo *xUnit. Runner. JSON* con la opción de configuración correcta. Para obtener más información, consulte [configuración de xUnit con JSON](https://xunit.github.io/docs/configuring-with-json.html).
 
-* Al configurar las clases de prueba con `WebApplicationFactory`, proporcionar una configuración personalizada con el [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder):
-
-   ```csharp
-   public IndexPageTests(
-       WebApplicationFactory<RazorPagesProject.Startup> factory)
-   {
-       var _factory = factory.WithWebHostBuilder(builder =>
-       {
-           builder.UseSolutionRelativeContentRoot("<SOLUTION-RELATIVE-PATH>");
-
-           ...
-       });
-   }
-   ```
-
-* Al configurar las clases de prueba con una personalizada `WebApplicationFactory`, heredan de `WebApplicationFactory` e invalidar [ConfigureWebHost](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.configurewebhost):
-
-   ```csharp
-   public class CustomWebApplicationFactory<TStartup>
-       : WebApplicationFactory<RazorPagesProject.Startup>
-   {
-       protected override void ConfigureWebHost(IWebHostBuilder builder)
-       {
-           builder.ConfigureServices(services =>
-           {
-               builder.UseSolutionRelativeContentRoot("<SOLUTION-RELATIVE-PATH>");
-
-               ...
-           });
-       }
-   }
-   ```
-
-## <a name="disable-shadow-copying"></a>Deshabilitar las instantáneas
-
-Las instantáneas, hace que las pruebas se ejecutan en un directorio diferente que el directorio de salida. Para que las pruebas para que funcione correctamente, deben deshabilitar las instantáneas. El [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) usa xUnit y deshabilita la copia sombra de xUnit mediante la inclusión de un *xunit.runner.json* archivo con la opción de configuración correcto. Para obtener más información, consulte [configuración xUnit con JSON](https://xunit.github.io/docs/configuring-with-json.html).
-
-Agregar el *xunit.runner.json* archivo a la raíz del proyecto de prueba con el siguiente contenido:
+Agregue el archivo *xUnit. Runner. JSON* a la raíz del proyecto de prueba con el siguiente contenido:
 
 ```json
 {
@@ -325,55 +288,55 @@ Agregar el *xunit.runner.json* archivo a la raíz del proyecto de prueba con el 
 
 ## <a name="disposal-of-objects"></a>Eliminación de objetos
 
-Después de las pruebas de la `IClassFixture` implementación se ejecutan, [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) y [HttpClient](/dotnet/api/system.net.http.httpclient) se eliminan cuando se desecha xUnit el [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) . Si crea una instancia por el desarrollador de objetos requieren la eliminación, deshacerse de ellos en el `IClassFixture` implementación. Para obtener más información, consulte [implementar un método Dispose](/dotnet/standard/garbage-collection/implementing-dispose).
+Una vez ejecutadas las `IClassFixture` pruebas de la implementación, [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) y [HttpClient](/dotnet/api/system.net.http.httpclient) se eliminan cuando xUnit desecha [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1). Si los objetos a los que se ha creado una instancia del desarrollador requieren su `IClassFixture` eliminación, desechen en la implementación. Para obtener más información, vea [implementar un método Dispose](/dotnet/standard/garbage-collection/implementing-dispose).
 
 ## <a name="integration-tests-sample"></a>Ejemplo de pruebas de integración
 
-El [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) se compone de dos aplicaciones:
+La [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) se compone de dos aplicaciones:
 
 | Aplicación | Directorio del proyecto | DESCRIPCIÓN |
 | --- | ----------------- | ----------- |
-| Mensaje de aplicación (SUT) | *src/RazorPagesProject* | Permite al usuario agregar, eliminar uno, elimine todo y analizar los mensajes. |
-| Aplicación de prueba | *tests/RazorPagesProject.Tests* | Utilizado para la prueba de integración del SUT. |
+| Aplicación de mensajes (SUT) | *src/RazorPagesProject* | Permite al usuario agregar, eliminar y analizar todos los mensajes. |
+| Aplicación de prueba | *tests/RazorPagesProject.Tests* | Se usa para probar la integración de SUT. |
 
-Se pueden ejecutar las pruebas con las características integradas de prueba de un IDE, como [Visual Studio](https://visualstudio.microsoft.com). Si usa [Visual Studio Code](https://code.visualstudio.com/) o la línea de comandos, ejecute el siguiente comando en un símbolo del sistema en el *tests/RazorPagesProject.Tests* directorio:
+Las pruebas se pueden ejecutar con las características de prueba integradas de un IDE, como [Visual Studio](https://visualstudio.microsoft.com). Si usa [Visual Studio Code](https://code.visualstudio.com/) o la línea de comandos, ejecute el siguiente comando en un símbolo del sistema en el directorio *tests/RazorPagesProject. tests* :
 
 ```console
 dotnet test
 ```
 
-### <a name="message-app-sut-organization"></a>Organización de la aplicación (SUT) del mensaje
+### <a name="message-app-sut-organization"></a>Organización de mensajes (SUT)
 
-El SUT es un sistema de mensajes de las páginas de Razor con las siguientes características:
+SUT es un sistema de mensajes Razor Pages con las siguientes características:
 
-* La página de índice de la aplicación (*Pages/index.cshtml* y *Pages/Index.cshtml.cs*) proporciona una interfaz de usuario y la página de métodos de modelo para controlar la adición, eliminación y análisis de mensajes (palabras medios por mensaje) .
-* Se describe un mensaje mediante la `Message` clase (*Data/Message.cs*) con dos propiedades: `Id` (clave) y `Text` (mensaje). El `Text` propiedad es necesaria y limitada a 200 caracteres.
-* Los mensajes se almacenan mediante [base de datos de Entity Framework en memoria](/ef/core/providers/in-memory/)&#8224;.
-* La aplicación contiene una capa de acceso a datos (DAL) en su clase de contexto de base de datos, `AppDbContext` (*Data/AppDbContext.cs*).
-* Si la base de datos está vacía en el inicio de la aplicación, el almacén de mensajes se inicializa con tres mensajes.
-* La aplicación incluye un `/SecurePage` que solo sean accesibles para un usuario autenticado.
+* La página de índice de la aplicación (*pages/index. cshtml* y *pages/index. cshtml. CS*) proporciona un método de interfaz de usuario y un modelo de página para controlar la adición, eliminación y análisis de mensajes (promedio de palabras por mensaje).
+* La `Message` clase (*Data/Message. CS*) describe un mensaje con dos propiedades: `Id` (Key) y `Text` (Message). La `Text` propiedad es necesaria y está limitada a 200 caracteres.
+* Los mensajes se almacenan mediante&#8224; [Entity Framework base de datos en memoria](/ef/core/providers/in-memory/).
+* La aplicación contiene una capa de acceso a datos (dal) en su clase de `AppDbContext` contexto de base de datos, (*Data/AppDbContext. CS*).
+* Si la base de datos está vacía al iniciarse la aplicación, el almacén de mensajes se inicializa con tres mensajes.
+* La aplicación incluye un `/SecurePage` al que solo puede tener acceso un usuario autenticado.
 
-&#8224;El tema EF, [pruebas con InMemory](/ef/core/miscellaneous/testing/in-memory), se explica cómo usar una base de datos en memoria para las pruebas con MSTest. Este tema se usa el [xUnit](https://xunit.github.io/) marco de pruebas. Los conceptos de pruebas e implementaciones de prueba a través de diferentes marcos son similares pero no idénticos.
+&#8224;En el tema EF, [Test with inmemory](/ef/core/miscellaneous/testing/in-memory), se explica cómo usar una base de datos en memoria para las pruebas con MSTest. En este tema se usa el marco de pruebas de [xUnit](https://xunit.github.io/) . Los conceptos de prueba y las implementaciones de prueba en diferentes marcos de pruebas son similares, pero no idénticos.
 
-Aunque la aplicación no usa el modelo de repositorio y no es un ejemplo eficaz de la [patrón de unidades de trabajo (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages admite estos patrones de desarrollo. Para obtener más información, consulte [diseñar la capa de persistencia de infraestructura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) y [lógica del controlador de pruebas](/aspnet/core/mvc/controllers/testing) (el ejemplo implementa el modelo de repositorio).
+Aunque la aplicación no usa el patrón de repositorio y no es un ejemplo eficaz del [patrón de unidad de trabajo (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor pages admite estos patrones de desarrollo. Para obtener más información, consulte [diseño de la capa de persistencia de la infraestructura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) y la [lógica del controlador de pruebas](/aspnet/core/mvc/controllers/testing) (el ejemplo implementa el patrón del repositorio).
 
-### <a name="test-app-organization"></a>Organización de la aplicación de prueba
+### <a name="test-app-organization"></a>Probar la organización de la aplicación
 
-La aplicación de prueba es una aplicación de consola en el *tests/RazorPagesProject.Tests* directory.
+La aplicación de prueba es una aplicación de consola dentro del directorio *tests/RazorPagesProject. tests* .
 
-| Directorio de aplicación de prueba | DESCRIPCIÓN |
+| Directorio de la aplicación de prueba | DESCRIPCIÓN |
 | ------------------ | ----------- |
-| *BasicTests* | *BasicTests.cs* contiene métodos de prueba para el enrutamiento, obtener acceso a una página segura por un usuario no autenticado y obtener un perfil de usuario de GitHub y comprobación de inicio de sesión de usuario del perfil. |
-| *IntegrationTests* | *IndexPageTests.cs* contiene las pruebas de integración de la página de índice mediante custom `WebApplicationFactory` clase. |
-| *Las aplicaciones auxiliares y utilidades* | <ul><li>*Utilities.cs* contiene el `InitializeDbForTests` método utilizado para inicializar la base de datos con datos de prueba.</li><li>*HtmlHelpers.cs* proporciona un método para devolver un AngleSharp `IHtmlDocument` para su uso por los métodos de prueba.</li><li>*HttpClientExtensions.cs* proporcionan sobrecargas para `SendAsync` para enviar solicitudes al SUT.</li></ul> |
+| *BasicTests* | *BasicTests.CS* contiene métodos de prueba para el enrutamiento, el acceso a una página segura por parte de un usuario no autenticado y la obtención de un perfil de usuario de Github y la comprobación del inicio de sesión del usuario del perfil. |
+| *IntegrationTests* | *IndexPageTests.CS* contiene las pruebas de integración para la página de índice `WebApplicationFactory` mediante la clase personalizada. |
+| *Aplicaciones auxiliares y utilidades* | <ul><li>*Utilities.CS* contiene el `InitializeDbForTests` método que se usa para inicializar la base de datos con datos de prueba.</li><li>*HtmlHelpers.CS* proporciona un método para devolver un AngleSharp `IHtmlDocument` para que lo usen los métodos de prueba.</li><li>*HttpClientExtensions.CS* proporcionan sobrecargas para `SendAsync` que envíen solicitudes a SUT.</li></ul> |
 
-El marco de pruebas es [xUnit](https://xunit.github.io/). Las pruebas de integración se llevan a cabo mediante el [Microsoft.AspNetCore.TestHost](/dotnet/api/microsoft.aspnetcore.testhost), que incluye el [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver). Dado que el [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing) paquete se usa para configurar el servidor host y pruebas de prueba, el `TestHost` y `TestServer` paquetes no necesitan referencias de paquete directa en el archivo de proyecto de la aplicación de prueba o configuración de desarrollador de la aplicación de prueba.
+El marco de pruebas es [xUnit](https://xunit.github.io/). Las pruebas de integración se realizan mediante [Microsoft. AspNetCore. TestHost](/dotnet/api/microsoft.aspnetcore.testhost), que incluye [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver). Dado que el paquete [Microsoft. AspNetCore. Mvc. Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing) se usa para configurar el host de prueba y el servidor `TestHost` de `TestServer` prueba, los paquetes y no requieren referencias de paquete directas en el archivo de proyecto o desarrollador de la aplicación de prueba. configuración en la aplicación de prueba.
 
-**La propagación de la base de datos de prueba**
+**Propagación de la base de datos para pruebas**
 
-Las pruebas de integración suelen requieran un pequeño conjunto de datos en la base de datos antes de la ejecución de pruebas. Por ejemplo, una eliminación probar las llamadas para la eliminación de registros de base de datos, por lo que la base de datos debe tener al menos un registro para la solicitud de eliminación se realice correctamente.
+Las pruebas de integración suelen requerir un conjunto de datos pequeño en la base de datos antes de la ejecución de la prueba. Por ejemplo, una prueba de eliminación llama a para la eliminación de un registro de base de datos, por lo que la base de datos debe tener al menos un registro para que la solicitud de eliminación se realice correctamente.
 
-La aplicación de ejemplo inicializa la base de datos con tres mensajes en *Utilities.cs* que las pruebas se pueden usar cuando ejecuta:
+La aplicación de ejemplo inicializa la base de datos con tres mensajes en *Utilities.CS* que las pruebas pueden usar cuando se ejecutan:
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/Helpers/Utilities.cs?name=snippet1)]
 

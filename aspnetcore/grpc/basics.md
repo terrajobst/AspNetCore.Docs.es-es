@@ -6,16 +6,16 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 07/03/2019
 uid: grpc/basics
-ms.openlocfilehash: 700fe9463317f9ee30dfe4ebf5201c7b9c0c5ad6
-ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
+ms.openlocfilehash: b236fe6914cf7b780a9d02398ec9c92660dc1063
+ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68412472"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68862859"
 ---
 # <a name="grpc-services-with-c"></a>gRPC Services con C\#
 
-En este documento se describen los conceptos necesarios para escribir [](https://grpc.io/docs/guides/) aplicaciones de gRPC C#en. Los temas que se tratan aquí se aplican a las aplicaciones gRPC basadas en [C-Core](https://grpc.io/blog/grpc-stacks)y en ASP.net Core.
+En este documento se describen los conceptos necesarios para escribir aplicaciones de [gRPC](https://grpc.io/docs/guides/) en C#. Los temas que se tratan aquí se aplican a las aplicaciones gRPC basadas en [C-Core](https://grpc.io/blog/grpc-stacks)y en ASP.net Core.
 
 ## <a name="proto-file"></a>archivo proto
 
@@ -52,9 +52,9 @@ Este paquete es necesario para los proyectos de servidor y de cliente. El `Grpc.
 
 [!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=1&range=12)]
 
-Los proyectos de cliente `Grpc.Tools` deben hacer referencia directamente. El paquete de herramientas no es necesario en tiempo de ejecución, por lo que `PrivateAssets="All"`la dependencia se marca con:
+Los proyectos de cliente deben `Grpc.Tools` hacer referencia directamente junto con los demás paquetes necesarios para usar el cliente de gRPC. El paquete de herramientas no es necesario en tiempo de ejecución, por lo que `PrivateAssets="All"`la dependencia se marca con:
 
-[!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/GrpcGreeterClient.csproj?highlight=1&range=11)]
+[!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/GrpcGreeterClient.csproj?highlight=3&range=9-11)]
 
 ## <a name="generated-c-assets"></a>Activos C# generados
 
@@ -64,7 +64,7 @@ En el caso de los recursos del lado servidor, se genera un tipo base de servicio
 
 [!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Services/GreeterService.cs?name=snippet)]
 
-En el caso de los recursos del lado cliente, se genera un tipo de cliente concreto. Las llamadas a gRPC en el archivo *. proto* se traducen en métodos en el tipo concreto, al que se puede llamar. En el ejemplo descrito anteriormente, se genera un tipo `GreeterClient`concreto. `greet.proto` Llame `GreeterClient.SayHello` a para iniciar una llamada de gRPC al servidor.
+En el caso de los recursos del lado cliente, se genera un tipo de cliente concreto. Las llamadas a gRPC en el archivo *. proto* se traducen en métodos en el tipo concreto, al que se puede llamar. En el ejemplo descrito anteriormente, se genera un tipo `GreeterClient`concreto. `greet.proto` Llame `GreeterClient.SayHelloAsync` a para iniciar una llamada de gRPC al servidor.
 
 [!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?highlight=3-6&name=snippet)]
 
