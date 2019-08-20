@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/05/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: 6b8818cc89a87e66ecec445ff8071348aacde64a
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: cb51df0267a5eabd4a2694727e9c896d0554265e
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819922"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583599"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Autenticación y autorización para spa
 
@@ -93,9 +93,9 @@ Este método auxiliar configura IdentityServer para usar la configuración admit
 
 Este método auxiliar configura un esquema de directiva para la aplicación como el controlador de autenticación predeterminado. La Directiva está configurada para permitir que la identidad controle todas las solicitudes enrutadas a cualquier subruta en el espacio de la dirección URL de identidad "/Identity". `JwtBearerHandler` Controla todas las demás solicitudes. Además, este método registra un `<<ApplicationName>>API` recurso de API con IdentityServer con un ámbito predeterminado de y configura el middleware de token de `<<ApplicationName>>API` portador de JWT para validar los tokens emitidos por IdentityServer para la aplicación.
 
-### <a name="sampledatacontroller"></a>SampleDataController
+### <a name="weatherforecastcontroller"></a>WeatherForecastController
 
-En el archivo *Controllers\SampleDataController.CS* , observe el `[Authorize]` atributo que se aplica a la clase, que indica que el usuario debe ser autorizado en función de la directiva predeterminada para tener acceso al recurso. La Directiva de autorización predeterminada está configurada para usar el esquema de autenticación predeterminado, que se configura `AddIdentityServerJwt` por el esquema de directivas mencionado anteriormente, convirtiendo el `JwtBearerHandler` método configurado por este método auxiliar en el controlador predeterminado para solicitudes a la aplicación.
+En el archivo *Controllers\WeatherForecastController.CS* , observe el `[Authorize]` atributo que se aplica a la clase, que indica que el usuario debe ser autorizado en función de la directiva predeterminada para tener acceso al recurso. La Directiva de autorización predeterminada está configurada para usar el esquema de autenticación predeterminado, que se configura `AddIdentityServerJwt` por el esquema de directivas mencionado anteriormente, convirtiendo el `JwtBearerHandler` método configurado por este método auxiliar en el controlador predeterminado para solicitudes a la aplicación.
 
 ### <a name="applicationdbcontext"></a>ApplicationDbContext
 
