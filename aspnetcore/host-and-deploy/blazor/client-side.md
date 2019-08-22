@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: be6b6c245440cb085a1a6b115f4f087306f7cc83
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: e9a42bd4e8511d426761746047fed2d4f7dfc6dd
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308088"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68994089"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Hospedaje e implementación de ASP.NET Core Blazor del lado cliente
 
@@ -69,7 +69,7 @@ El argumento `--pathbase` establece la ruta de acceso base de la aplicación par
   --pathbase=/virtual-path
   ```
 
-### <a name="urls"></a>URLs
+### <a name="urls"></a>Direcciones URL
 
 El argumento `--urls` establece las direcciones IP o las direcciones de host con los puertos y protocolos en los que escuchar las solicitudes.
 
@@ -148,7 +148,7 @@ La aplicación responde de forma local en `http://localhost:port/CoolApp`.
 
 Para más información, vea la sección sobre el [valor de configuración de host de la ruta de acceso base](#path-base).
 
-Si una aplicación usa el [modelo de hospedaje del lado cliente](xref:blazor/hosting-models#client-side) (basado en la plantilla de proyecto de **Blazor** (lado cliente); la plantilla `blazor` al usar el comando [dotnet new](/dotnet/core/tools/dotnet-new)) y se hospeda como una subaplicación de IIS en una aplicación ASP.NET Core, es importante deshabilitar el controlador del módulo de ASP.NET Core heredado o asegurarse de que la subaplicación no hereda la sección `<handlers>` de la aplicación raíz (principal) en el archivo *web.config*.
+Si una aplicación usa el [modelo de hospedaje del lado cliente](xref:blazor/hosting-models#client-side) (basado en la plantilla de proyecto **Blazor WebAssembly App**, la plantilla `blazorwasm` al usar el comando [dotnet new](/dotnet/core/tools/dotnet-new)) y se hospeda como una subaplicación de IIS en una aplicación ASP.NET Core, es importante deshabilitar el controlador del módulo de ASP.NET Core heredado o asegurarse de que la subaplicación no hereda la sección `<handlers>` de la aplicación raíz (principal) en el archivo *web.config*.
 
 Para quitar el controlador del archivo *web.config* publicado de la aplicación, agregue una sección `<handlers>` al archivo:
 
@@ -180,7 +180,7 @@ Además de configurarse la ruta de acceso base de la aplicación, se quita el co
 
 Una *implementación hospedada* proporciona la aplicación Blazor del lado cliente a los exploradores desde una [aplicación ASP.NET Core](xref:index) que se ejecuta en un servidor web.
 
-La aplicación Blazor se incluye con la aplicación ASP.NET Core en la salida publicada para que ambas se implementen juntas. Se requiere un servidor web que pueda hospedar una aplicación ASP.NET Core. En el caso de una implementación hospedada, Visual Studio incluye la plantilla de proyecto de **Blazor (hospedada en ASP.NET Core)** (la plantilla `blazorhosted` al usar el comando [dotnet new](/dotnet/core/tools/dotnet-new)).
+La aplicación Blazor se incluye con la aplicación ASP.NET Core en la salida publicada para que ambas se implementen juntas. Se requiere un servidor web que pueda hospedar una aplicación ASP.NET Core. En el caso de una implementación hospedada, Visual Studio incluye la plantilla de proyecto **Blazor WebAssembly App** (la plantilla `blazorwasm` al usar el comando [dotnet new](/dotnet/core/tools/dotnet-new)) con la opción **Hosted** (Hospedada) seleccionada.
 
 Para obtener más información sobre la implementación y el hospedaje de aplicaciones de ASP.NET Core, consulte <xref:host-and-deploy/index>.
 
@@ -220,7 +220,7 @@ Cuando se publica un proyecto de Blazor, se crea un archivo *web.config* con la 
 El [módulo URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite) es necesario para reescribir las URL. El módulo no se instala de forma predeterminada y no está disponible para instalar como una característica de servicio de rol del servidor web (IIS). El módulo se debe descargar desde el sitio web de IIS. Use el instalador de plataforma web para instalar el módulo:
 
 1. De forma local, vaya a la [página de descargas del módulo URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite#additionalDownloads). En el caso de la versión en inglés, seleccione **WebPI** para descargar el instalador de WebPI. En el caso de otros idiomas, seleccione la arquitectura adecuada del servidor (x86/x64) para descargar el instalador.
-1. Copie el instalador en el servidor. Ejecute al programa de instalación. Haga clic en el botón **Instalar** y acepte los términos de licencia. No es necesario reiniciar el servidor al finalizar la instalación.
+1. Copie el instalador en el servidor. Ejecute el instalador. Haga clic en el botón **Instalar** y acepte los términos de licencia. No es necesario reiniciar el servidor al finalizar la instalación.
 
 #### <a name="configure-the-website"></a>Configuración del sitio web
 
@@ -229,13 +229,13 @@ Configure la **ruta de acceso física** del sitio web a la carpeta de la aplicac
 * El archivo *web.config* que usa IIS para configurar el sitio web, incluidas las reglas de redireccionamiento y los tipos de contenido de archivos necesarios.
 * La carpeta de recursos estáticos de la aplicación.
 
-#### <a name="troubleshooting"></a>solución de problemas
+#### <a name="troubleshooting"></a>Solución de problemas
 
 Si se recibe un error *500 Error interno del servidor* y el administrador de IIS produce errores al intentar acceder a la configuración del sitio web, confirme que el módulo URL Rewrite está instalado. Si no lo está, IIS no puede analizar el archivo *web.config*. Esto impide que el Administrador de IIS cargue la configuración del sitio web y que el sitio web proporcione los archivos estáticos de Blazor.
 
 Para obtener más información sobre cómo solucionar problemas de las implementaciones en IIS, vea <xref:test/troubleshoot-azure-iis>.
 
-### <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Almacenamiento de Azure
 
 El hospedaje de archivos estáticos de Azure Storage permite el hospedaje de aplicaciones Blazor sin servidor. Se admiten nombres de dominio personalizados, Azure Content Delivery Network (CDN) y HTTPS.
 

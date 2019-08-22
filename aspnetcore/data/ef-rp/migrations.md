@@ -3,20 +3,159 @@ title: 'Páginas de Razor con EF Core en ASP.NET Core: Migraciones (4 de 8)'
 author: rick-anderson
 description: En este tutorial, empezará a usar la característica de EF Core de migraciones para administrar los cambios de modelos de datos en una aplicación de ASP.NET Core MVC.
 ms.author: riande
-ms.date: 06/30/2017
+ms.date: 07/22/2019
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 54225a8126e04eb4ff3a6a0cde9d305249299887
-ms.sourcegitcommit: 1bf80f4acd62151ff8cce517f03f6fa891136409
+ms.openlocfilehash: 73624f515e8089b5852864b60ec66ad79c7475c3
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68223866"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914063"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Migraciones (4 de 8)
 
 Por [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [about the series](~/includes/RP-EF/intro.md)]
+
+::: moniker range=">= aspnetcore-3.0"
+
+En este tutorial se presenta la característica de migraciones de EF Core para administrar cambios en el modelo de datos.
+
+Cuando se desarrolla una aplicación nueva, el modelo de datos cambia con frecuencia. Cada vez que el modelo cambia, este deja de estar sincronizado con la base de datos. Esta serie de tutoriales se ha iniciado con la configuración de Entity Framework para crear la base de datos si no existe. Cada vez que cambia el modelo de datos, tiene que quitar la base de datos. La próxima vez que se ejecute la aplicación, la llamada a `EnsureCreated` vuelve a crear la base de datos para que coincida con el nuevo modelo de datos. Después, se ejecuta la clase `DbInitializer` para inicializar la nueva base de datos.
+
+Este enfoque para mantener la base de datos sincronizada con el modelo de datos funciona bien hasta que la aplicación se implemente en producción. Cuando se ejecuta la aplicación en producción, normalmente está almacenando datos que hay que mantener. No se puede iniciar la aplicación con una base de datos de prueba cada vez que se realiza un cambio (por ejemplo, agregar una columna nueva). La característica Migraciones de EF Core soluciona este problema permitiendo a EF Core actualizar el esquema de la base de datos en lugar de crear una.
+
+En lugar de quitar y volver a crear la base de datos cuando cambian los datos del modelo, las migraciones actualizan el esquema y conservan los datos existentes.
+
+[!INCLUDE[](~/includes/sqlite-warn.md)]
+
+## <a name="drop-the-database"></a>Eliminación de la base de datos
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Use **Explorador de objetos de SQL Server** (SSOX) para eliminar la base de datos, o bien ejecute el comando siguiente en la **Consola del administrador de paquetes** (PMC):
+
+```powershell
+Drop-Database
+```
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* Ejecute el comando siguiente en un símbolo del sistema para instalar las herramientas de la CLI de EF:
+
+  ```console
+  dotnet tool install --global dotnet-ef --version 3.0.0-*
+  ```
+
+* En el símbolo del sistema, vaya a la carpeta del proyecto. La carpeta del proyecto contiene el archivo *ContosoUniversity.csproj*.
+
+* Elimine el archivo *CU.db*, o bien ejecute el comando siguiente:
+
+  ```console
+  dotnet ef database drop --force
+  ```
+
+---
+
+## <a name="create-an-initial-migration"></a>Crear una migración inicial
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Ejecute los comandos siguientes en la Consola del administrador de paquetes:
+
+```powershell
+Add-Migration InitialCreate
+Update-Database
+```
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+Asegúrese de que el símbolo del sistema está en la carpeta del proyecto y ejecute los comandos siguientes:
+
+```console
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
+
+---
+
+## <a name="up-and-down-methods"></a>Métodos Up y Down
+
+El comando `migrations add` de EF Core ha generado código para crear la base de datos. Este código de migraciones se encuentra en el archivo *Migrations\<marca_de_tiempo>_InitialCreate.cs*. El método `Up` de la clase `InitialCreate` crea las tablas de base de datos que se corresponden a los conjuntos de entidades del modelo de datos. El método `Down` las elimina, tal como se muestra en el ejemplo siguiente:
+
+[!code-csharp[](intro/samples/cu30/Migrations/20190731193522_InitialCreate.cs)]
+
+El código anterior es para la migración inicial. El código:
+
+* Lo ha generado el comando `migrations add InitialCreate`. 
+* Lo ejecuta el comando `database update`.
+* Crea una base de datos para el modelo de datos especificado por la clase de contexto de base de datos.
+
+El parámetro de nombre de la migración ("InitialCreate" en el ejemplo) se usa para el nombre de archivo. El nombre de la migración puede ser cualquier nombre de archivo válido. Es más recomendable elegir una palabra o frase que resuma lo que se hace en la migración. Por ejemplo, una migración que ha agregado una tabla de departamento podría denominarse "AddDepartmentTable".
+
+## <a name="the-migrations-history-table"></a>La tabla de historial de migraciones
+
+* Use SSOX o la herramienta SQLite para inspeccionar la base de datos.
+* Observe la adición de una tabla `__EFMigrationsHistory`. En la tabla `__EFMigrationsHistory` se realiza el seguimiento de las migraciones que se han aplicado a la base de datos.
+* Vea los datos de la tabla `__EFMigrationsHistory`. Muestra una fila para la primera migración.
+
+## <a name="the-data-model-snapshot"></a>La instantánea del modelo de datos
+
+Las migraciones crean una *instantánea* del modelo de datos actual en *Migrations/SchoolContextModelSnapshot.cs*. Cuando se agrega una migración, EF determina qué ha cambiado mediante la comparación del modelo de datos actual con el archivo de instantánea.
+
+Como el archivo de instantánea realiza el seguimiento del estado del modelo de datos, no se puede eliminar una migración mediante la eliminación del archivo `<timestamp>_<migrationname>.cs`. Para quitar la migración más reciente, tiene que usar el comando `migrations remove`. Ese comando elimina la migración y garantiza que la instantánea se restablezca de forma correcta. Para obtener más información, vea [dotnet ef migrations remove](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove).
+
+## <a name="remove-ensurecreated"></a>Quitar EnsureCreated
+
+Esta serie de tutoriales se ha iniciado con `EnsureCreated`. `EnsureCreated` no crea una tabla de historial de migraciones y, por tanto, no se puede usar con las migraciones. Está diseñado para crear prototipos rápidos o de prueba donde la base de datos se quita y se vuelve a crear con frecuencia.
+
+A partir de este punto, en los tutoriales se usarán las migraciones.
+
+En *Data/DBInitializer.cs*, comente la línea siguiente:
+
+```csharp
+context.Database.EnsureCreated();
+```
+Ejecute la aplicación y compruebe que la base de datos se ha inicializado.
+
+## <a name="applying-migrations-in-production"></a>Aplicar las migraciones en producción
+
+Se recomienda que las aplicaciones de producción **no** llamen a [Database.Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) al iniciar la aplicación. `Migrate` no se debe llamar desde una aplicación que se implementa en una granja de servidores. Si la aplicación se escala horizontalmente en varias instancias de servidor, es difícil garantizar que las actualizaciones del esquema de la base de datos no se realicen en varios servidores o que estén en conflicto con el acceso de lectura y escritura.
+
+La migración de bases de datos debe realizarse como parte de la implementación y de un modo controlado. Entre los métodos de migración de base de datos de producción se incluyen:
+
+* Uso de las migraciones para crear scripts SQL y uso de scripts SQL en la implementación.
+* Ejecución de `dotnet ef database update` desde un entorno controlado.
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+Si en la aplicación se usa SQL Server LocalDB y se muestra la excepción siguiente:
+
+```text
+SqlException: Cannot open database "ContosoUniversity" requested by the login.
+The login failed.
+Login failed for user 'user name'.
+```
+
+La solución puede ser ejecutar `dotnet ef database update` en un símbolo del sistema.
+
+### <a name="additional-resources"></a>Recursos adicionales
+
+* [CLI de EF Core](/ef/core/miscellaneous/cli/dotnet).
+* [Consola del administrador de paquetes (Visual Studio)](/ef/core/miscellaneous/cli/powershell)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+En el tutorial siguiente se crea el modelo de datos y se agregan propiedades de entidad y entidades nuevas.
+
+> [!div class="step-by-step"]
+> [Tutorial anterior](xref:data/ef-rp/sort-filter-page)
+> [Tutorial siguiente](xref:data/ef-rp/complex-data-model)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 En este tutorial, se usa la característica de migraciones de EF Core para administrar cambios en el modelo de datos.
 
@@ -47,7 +186,7 @@ Drop-Database
 
 Ejecute `Get-Help about_EntityFrameworkCore` desde PMC para obtener información de ayuda.
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Abra una ventana de comandos y desplácese hasta la carpeta del proyecto. La carpeta del proyecto contiene el archivo *Startup.cs*.
 
@@ -70,7 +209,7 @@ Add-Migration InitialCreate
 Update-Database
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```console
 dotnet ef migrations add InitialCreate
@@ -108,7 +247,7 @@ Para eliminar una migración, use el comando siguiente:
 
 Remove-Migration
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```console
 dotnet ef migrations remove
@@ -154,10 +293,10 @@ La migración de bases de datos debe realizarse como parte de la implementación
 
 EF Core usa la tabla `__MigrationsHistory` para ver si es necesario ejecutar las migraciones. Si la base de datos está actualizada, no se ejecuta ninguna migración.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Descargue la [aplicación completada](
-https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations).
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu21snapshots/cu-part4-migrations).
 
 La aplicación genera la siguiente excepción:
 
@@ -167,7 +306,7 @@ The login failed.
 Login failed for user 'user name'.
 ```
 
-Solución: Ejecute `dotnet ef database update`
+Solución: Ejecute `dotnet ef database update`.
 
 ### <a name="additional-resources"></a>Recursos adicionales
 
@@ -180,3 +319,6 @@ Solución: Ejecute `dotnet ef database update`
 > [!div class="step-by-step"]
 > [Anterior](xref:data/ef-rp/sort-filter-page)
 > [Siguiente](xref:data/ef-rp/complex-data-model)
+
+::: moniker-end
+

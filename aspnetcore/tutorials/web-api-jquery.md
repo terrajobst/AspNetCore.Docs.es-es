@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/20/2019
 uid: tutorials/web-api-jquery
-ms.openlocfilehash: eb8b2453fd037170a49f531fea4c3ef1c056292d
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
+ms.openlocfilehash: a319e4b4ce09e9b09afeaff065d5740276deb115
+ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602574"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69022558"
 ---
 # <a name="tutorial-call-an-aspnet-core-web-api-with-jquery"></a>Tutorial: Llamada a una API web de ASP.NET Core con jQuery
 
@@ -29,7 +29,8 @@ Para ASP.net Core 2.2, consulte la versión 2.2 de [Llamada a la API web con jQu
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Finalización del [Tutorial: Creación de una API web](xref:tutorials/first-web-api)
+* Finalización del [Tutorial: Creación de una API web](xref:tutorials/first-web-api)
+* Familiaridad con CSS, HTML, JavaScript y jQuery
 
 ## <a name="call-the-api-with-jquery"></a>Llamada a la API con jQuery
 
