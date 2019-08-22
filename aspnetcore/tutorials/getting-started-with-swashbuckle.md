@@ -6,68 +6,68 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 06/21/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 0ffd437bbb48ef1c7a9159fbf3ac41441613f434
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: 606be317318eafa170d926aaace1f752d3a25510
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372059"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68994290"
 ---
-# <a name="get-started-with-swashbuckle-and-aspnet-core"></a><span data-ttu-id="4332d-103">Introducción a Swashbuckle y ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="4332d-103">Get started with Swashbuckle and ASP.NET Core</span></span>
+# <a name="get-started-with-swashbuckle-and-aspnet-core"></a><span data-ttu-id="f273d-103">Introducción a Swashbuckle y ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="f273d-103">Get started with Swashbuckle and ASP.NET Core</span></span>
 
-<span data-ttu-id="4332d-104">Por [Shayne Boyer](https://twitter.com/spboyer) y [Scott Addie](https://twitter.com/Scott_Addie)</span><span class="sxs-lookup"><span data-stu-id="4332d-104">By [Shayne Boyer](https://twitter.com/spboyer) and [Scott Addie](https://twitter.com/Scott_Addie)</span></span>
+<span data-ttu-id="f273d-104">Por [Shayne Boyer](https://twitter.com/spboyer) y [Scott Addie](https://twitter.com/Scott_Addie)</span><span class="sxs-lookup"><span data-stu-id="f273d-104">By [Shayne Boyer](https://twitter.com/spboyer) and [Scott Addie](https://twitter.com/Scott_Addie)</span></span>
 
-<span data-ttu-id="4332d-105">[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="4332d-105">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([how to download](xref:index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="f273d-105">[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="f273d-105">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([how to download](xref:index#how-to-download-a-sample))</span></span>
 
-<span data-ttu-id="4332d-106">Hay tres componentes principales de Swashbuckle:</span><span class="sxs-lookup"><span data-stu-id="4332d-106">There are three main components to Swashbuckle:</span></span>
+<span data-ttu-id="f273d-106">Hay tres componentes principales de Swashbuckle:</span><span class="sxs-lookup"><span data-stu-id="f273d-106">There are three main components to Swashbuckle:</span></span>
 
-* <span data-ttu-id="4332d-107">[Swashbuckle.AspNetCore.Swagger](https://www.nuget.org/packages/Swashbuckle.AspNetCore.Swagger/): modelo de objetos de Swagger y middleware para exponer objetos `SwaggerDocument` como puntos de conexión JSON.</span><span class="sxs-lookup"><span data-stu-id="4332d-107">[Swashbuckle.AspNetCore.Swagger](https://www.nuget.org/packages/Swashbuckle.AspNetCore.Swagger/): a Swagger object model and middleware to expose `SwaggerDocument` objects as JSON endpoints.</span></span>
+* <span data-ttu-id="f273d-107">[Swashbuckle.AspNetCore.Swagger](https://www.nuget.org/packages/Swashbuckle.AspNetCore.Swagger/): modelo de objetos de Swagger y middleware para exponer objetos `SwaggerDocument` como puntos de conexión JSON.</span><span class="sxs-lookup"><span data-stu-id="f273d-107">[Swashbuckle.AspNetCore.Swagger](https://www.nuget.org/packages/Swashbuckle.AspNetCore.Swagger/): a Swagger object model and middleware to expose `SwaggerDocument` objects as JSON endpoints.</span></span>
 
-* <span data-ttu-id="4332d-108">[Swashbuckle.AspNetCore.SwaggerGen](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerGen/): generador de Swagger que genera objetos `SwaggerDocument` directamente desde las rutas, controladores y modelos.</span><span class="sxs-lookup"><span data-stu-id="4332d-108">[Swashbuckle.AspNetCore.SwaggerGen](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerGen/): a Swagger generator that builds `SwaggerDocument` objects directly from your routes, controllers, and models.</span></span> <span data-ttu-id="4332d-109">Se suele combinar con el middleware de punto de conexión de Swagger para exponer automáticamente el JSON de Swagger.</span><span class="sxs-lookup"><span data-stu-id="4332d-109">It's typically combined with the Swagger endpoint middleware to automatically expose Swagger JSON.</span></span>
+* <span data-ttu-id="f273d-108">[Swashbuckle.AspNetCore.SwaggerGen](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerGen/): generador de Swagger que genera objetos `SwaggerDocument` directamente desde las rutas, controladores y modelos.</span><span class="sxs-lookup"><span data-stu-id="f273d-108">[Swashbuckle.AspNetCore.SwaggerGen](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerGen/): a Swagger generator that builds `SwaggerDocument` objects directly from your routes, controllers, and models.</span></span> <span data-ttu-id="f273d-109">Se suele combinar con el middleware de punto de conexión de Swagger para exponer automáticamente el JSON de Swagger.</span><span class="sxs-lookup"><span data-stu-id="f273d-109">It's typically combined with the Swagger endpoint middleware to automatically expose Swagger JSON.</span></span>
 
-* <span data-ttu-id="4332d-110">[Swashbuckle.AspNetCore.SwaggerUI](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerUI/): versión insertada de la herramienta de interfaz de usuario de Swagger.</span><span class="sxs-lookup"><span data-stu-id="4332d-110">[Swashbuckle.AspNetCore.SwaggerUI](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerUI/): an embedded version of the Swagger UI tool.</span></span> <span data-ttu-id="4332d-111">Interpreta el JSON de Swagger para crear una experiencia enriquecida y personalizable para describir la funcionalidad de la API web.</span><span class="sxs-lookup"><span data-stu-id="4332d-111">It interprets Swagger JSON to build a rich, customizable experience for describing the web API functionality.</span></span> <span data-ttu-id="4332d-112">Incluye herramientas de ejecución de pruebas integradas para los métodos públicos.</span><span class="sxs-lookup"><span data-stu-id="4332d-112">It includes built-in test harnesses for the public methods.</span></span>
+* <span data-ttu-id="f273d-110">[Swashbuckle.AspNetCore.SwaggerUI](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerUI/): versión insertada de la herramienta de interfaz de usuario de Swagger.</span><span class="sxs-lookup"><span data-stu-id="f273d-110">[Swashbuckle.AspNetCore.SwaggerUI](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerUI/): an embedded version of the Swagger UI tool.</span></span> <span data-ttu-id="f273d-111">Interpreta el JSON de Swagger para crear una experiencia enriquecida y personalizable para describir la funcionalidad de la API web.</span><span class="sxs-lookup"><span data-stu-id="f273d-111">It interprets Swagger JSON to build a rich, customizable experience for describing the web API functionality.</span></span> <span data-ttu-id="f273d-112">Incluye herramientas de ejecución de pruebas integradas para los métodos públicos.</span><span class="sxs-lookup"><span data-stu-id="f273d-112">It includes built-in test harnesses for the public methods.</span></span>
 
-## <a name="package-installation"></a><span data-ttu-id="4332d-113">Instalación del paquete</span><span class="sxs-lookup"><span data-stu-id="4332d-113">Package installation</span></span>
+## <a name="package-installation"></a><span data-ttu-id="f273d-113">Instalación del paquete</span><span class="sxs-lookup"><span data-stu-id="f273d-113">Package installation</span></span>
 
-<span data-ttu-id="4332d-114">Se puede agregar Swashbuckle con los métodos siguientes:</span><span class="sxs-lookup"><span data-stu-id="4332d-114">Swashbuckle can be added with the following approaches:</span></span>
+<span data-ttu-id="f273d-114">Se puede agregar Swashbuckle con los métodos siguientes:</span><span class="sxs-lookup"><span data-stu-id="f273d-114">Swashbuckle can be added with the following approaches:</span></span>
 
-### <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="4332d-115">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="4332d-115">Visual Studio</span></span>](#tab/visual-studio)
+### <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="f273d-115">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="f273d-115">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="4332d-116">En la ventana **Consola del Administrador de paquetes**:</span><span class="sxs-lookup"><span data-stu-id="4332d-116">From the **Package Manager Console** window:</span></span>
-  * <span data-ttu-id="4332d-117">Vaya a **Vista** > **Otras ventanas** > **Consola del Administrador de paquetes**.</span><span class="sxs-lookup"><span data-stu-id="4332d-117">Go to **View** > **Other Windows** > **Package Manager Console**</span></span>
-  * <span data-ttu-id="4332d-118">Vaya al directorio en el que está *TodoApi.csproj*.</span><span class="sxs-lookup"><span data-stu-id="4332d-118">Navigate to the directory in which the *TodoApi.csproj* file exists</span></span>
-  * <span data-ttu-id="4332d-119">Ejecute el siguiente comando:</span><span class="sxs-lookup"><span data-stu-id="4332d-119">Execute the following command:</span></span>
+* <span data-ttu-id="f273d-116">En la ventana **Consola del Administrador de paquetes**:</span><span class="sxs-lookup"><span data-stu-id="f273d-116">From the **Package Manager Console** window:</span></span>
+  * <span data-ttu-id="f273d-117">Vaya a **Vista** > **Otras ventanas** > **Consola del Administrador de paquetes**.</span><span class="sxs-lookup"><span data-stu-id="f273d-117">Go to **View** > **Other Windows** > **Package Manager Console**</span></span>
+  * <span data-ttu-id="f273d-118">Vaya al directorio en el que está *TodoApi.csproj*.</span><span class="sxs-lookup"><span data-stu-id="f273d-118">Navigate to the directory in which the *TodoApi.csproj* file exists</span></span>
+  * <span data-ttu-id="f273d-119">Ejecute el siguiente comando:</span><span class="sxs-lookup"><span data-stu-id="f273d-119">Execute the following command:</span></span>
 
     ```powershell
     Install-Package Swashbuckle.AspNetCore -Version 5.0.0-rc2
     ```
 
-* <span data-ttu-id="4332d-120">En el cuadro de diálogo **Administrar paquetes NuGet**:</span><span class="sxs-lookup"><span data-stu-id="4332d-120">From the **Manage NuGet Packages** dialog:</span></span>
-  * <span data-ttu-id="4332d-121">Haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** > **Administrar paquetes NuGet**.</span><span class="sxs-lookup"><span data-stu-id="4332d-121">Right-click the project in **Solution Explorer** > **Manage NuGet Packages**</span></span>
-  * <span data-ttu-id="4332d-122">Establezca el **origen del paquete** en "nuget.org".</span><span class="sxs-lookup"><span data-stu-id="4332d-122">Set the **Package source** to "nuget.org"</span></span>
-  * <span data-ttu-id="4332d-123">Asegúrese de que la opción "Incluir versión preliminar" está habilitada.</span><span class="sxs-lookup"><span data-stu-id="4332d-123">Ensure the "Include prerelease" option is enabled</span></span>
-  * <span data-ttu-id="4332d-124">Escriba "Swashbuckle.AspNetCore" en el cuadro de búsqueda.</span><span class="sxs-lookup"><span data-stu-id="4332d-124">Enter "Swashbuckle.AspNetCore" in the search box</span></span>
-  * <span data-ttu-id="4332d-125">Seleccione el paquete "Swashbuckle.AspNetCore" más reciente en la pestaña **Examinar** y haga clic en **Instalar**.</span><span class="sxs-lookup"><span data-stu-id="4332d-125">Select the latest "Swashbuckle.AspNetCore" package from the **Browse** tab and click **Install**</span></span>
+* <span data-ttu-id="f273d-120">En el cuadro de diálogo **Administrar paquetes NuGet**:</span><span class="sxs-lookup"><span data-stu-id="f273d-120">From the **Manage NuGet Packages** dialog:</span></span>
+  * <span data-ttu-id="f273d-121">Haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** > **Administrar paquetes NuGet**.</span><span class="sxs-lookup"><span data-stu-id="f273d-121">Right-click the project in **Solution Explorer** > **Manage NuGet Packages**</span></span>
+  * <span data-ttu-id="f273d-122">Establezca el **origen del paquete** en "nuget.org".</span><span class="sxs-lookup"><span data-stu-id="f273d-122">Set the **Package source** to "nuget.org"</span></span>
+  * <span data-ttu-id="f273d-123">Asegúrese de que la opción "Incluir versión preliminar" está habilitada.</span><span class="sxs-lookup"><span data-stu-id="f273d-123">Ensure the "Include prerelease" option is enabled</span></span>
+  * <span data-ttu-id="f273d-124">Escriba "Swashbuckle.AspNetCore" en el cuadro de búsqueda.</span><span class="sxs-lookup"><span data-stu-id="f273d-124">Enter "Swashbuckle.AspNetCore" in the search box</span></span>
+  * <span data-ttu-id="f273d-125">Seleccione el paquete "Swashbuckle.AspNetCore" más reciente en la pestaña **Examinar** y haga clic en **Instalar**.</span><span class="sxs-lookup"><span data-stu-id="f273d-125">Select the latest "Swashbuckle.AspNetCore" package from the **Browse** tab and click **Install**</span></span>
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="4332d-126">Visual Studio para Mac</span><span class="sxs-lookup"><span data-stu-id="4332d-126">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="f273d-126">Visual Studio para Mac</span><span class="sxs-lookup"><span data-stu-id="f273d-126">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-* <span data-ttu-id="4332d-127">Haga clic con el botón derecho en la carpeta *Paquetes* en **Panel de solución** > **Agregar paquetes...**</span><span class="sxs-lookup"><span data-stu-id="4332d-127">Right-click the *Packages* folder in **Solution Pad** > **Add Packages...**</span></span>
-* <span data-ttu-id="4332d-128">Establezca el menú desplegable **Origen** de la ventana **Agregar paquetes** en "nuget.org".</span><span class="sxs-lookup"><span data-stu-id="4332d-128">Set the **Add Packages** window's **Source** drop-down to "nuget.org"</span></span>
-* <span data-ttu-id="4332d-129">Asegúrese de que la opción "Show pre-release packages" (Mostrar paquetes de versión preliminar) está habilitada.</span><span class="sxs-lookup"><span data-stu-id="4332d-129">Ensure the "Show pre-release packages" option is enabled</span></span>
-* <span data-ttu-id="4332d-130">Escriba "Swashbuckle.AspNetCore" en el cuadro de búsqueda.</span><span class="sxs-lookup"><span data-stu-id="4332d-130">Enter "Swashbuckle.AspNetCore" in the search box</span></span>
-* <span data-ttu-id="4332d-131">Seleccione el paquete "Swashbuckle.AspNetCore" más reciente en el panel de resultados y haga clic en **Agregar paquete**.</span><span class="sxs-lookup"><span data-stu-id="4332d-131">Select the latest "Swashbuckle.AspNetCore" package from the results pane and click **Add Package**</span></span>
+* <span data-ttu-id="f273d-127">Haga clic con el botón derecho en la carpeta *Paquetes* en **Panel de solución** > **Agregar paquetes...**</span><span class="sxs-lookup"><span data-stu-id="f273d-127">Right-click the *Packages* folder in **Solution Pad** > **Add Packages...**</span></span>
+* <span data-ttu-id="f273d-128">Establezca el menú desplegable **Origen** de la ventana **Agregar paquetes** en "nuget.org".</span><span class="sxs-lookup"><span data-stu-id="f273d-128">Set the **Add Packages** window's **Source** drop-down to "nuget.org"</span></span>
+* <span data-ttu-id="f273d-129">Asegúrese de que la opción "Show pre-release packages" (Mostrar paquetes de versión preliminar) está habilitada.</span><span class="sxs-lookup"><span data-stu-id="f273d-129">Ensure the "Show pre-release packages" option is enabled</span></span>
+* <span data-ttu-id="f273d-130">Escriba "Swashbuckle.AspNetCore" en el cuadro de búsqueda.</span><span class="sxs-lookup"><span data-stu-id="f273d-130">Enter "Swashbuckle.AspNetCore" in the search box</span></span>
+* <span data-ttu-id="f273d-131">Seleccione el paquete "Swashbuckle.AspNetCore" más reciente en el panel de resultados y haga clic en **Agregar paquete**.</span><span class="sxs-lookup"><span data-stu-id="f273d-131">Select the latest "Swashbuckle.AspNetCore" package from the results pane and click **Add Package**</span></span>
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="4332d-132">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="4332d-132">Visual Studio Code</span></span>](#tab/visual-studio-code)
+### <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="f273d-132">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="f273d-132">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-<span data-ttu-id="4332d-133">Ejecute el siguiente comando en el **terminal integrado**:</span><span class="sxs-lookup"><span data-stu-id="4332d-133">Run the following command from the **Integrated Terminal**:</span></span>
+<span data-ttu-id="f273d-133">Ejecute el siguiente comando en el **terminal integrado**:</span><span class="sxs-lookup"><span data-stu-id="f273d-133">Run the following command from the **Integrated Terminal**:</span></span>
 
 ```console
 dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 ```
 
-### <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="4332d-134">CLI de .NET Core</span><span class="sxs-lookup"><span data-stu-id="4332d-134">.NET Core CLI</span></span>](#tab/netcore-cli)
+### <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="f273d-134">CLI de .NET Core</span><span class="sxs-lookup"><span data-stu-id="f273d-134">.NET Core CLI</span></span>](#tab/netcore-cli)
 
-<span data-ttu-id="4332d-135">Ejecute el siguiente comando:</span><span class="sxs-lookup"><span data-stu-id="4332d-135">Run the following command:</span></span>
+<span data-ttu-id="f273d-135">Ejecute el siguiente comando:</span><span class="sxs-lookup"><span data-stu-id="f273d-135">Run the following command:</span></span>
 
 ```console
 dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
@@ -75,13 +75,13 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 
 ---
 
-## <a name="add-and-configure-swagger-middleware"></a><span data-ttu-id="4332d-136">Agregar y configurar el middleware de Swagger</span><span class="sxs-lookup"><span data-stu-id="4332d-136">Add and configure Swagger middleware</span></span>
+## <a name="add-and-configure-swagger-middleware"></a><span data-ttu-id="f273d-136">Agregar y configurar el middleware de Swagger</span><span class="sxs-lookup"><span data-stu-id="f273d-136">Add and configure Swagger middleware</span></span>
 
-<span data-ttu-id="4332d-137">En la clase `Startup`, importe el siguiente espacio de nombres para que use la clase `OpenApiInfo`:</span><span class="sxs-lookup"><span data-stu-id="4332d-137">In the `Startup` class, import the following namespace to use the `OpenApiInfo` class:</span></span>
+<span data-ttu-id="f273d-137">En la clase `Startup`, importe el siguiente espacio de nombres para que use la clase `OpenApiInfo`:</span><span class="sxs-lookup"><span data-stu-id="f273d-137">In the `Startup` class, import the following namespace to use the `OpenApiInfo` class:</span></span>
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_InfoClassNamespace)]
 
-<span data-ttu-id="4332d-138">Agregue el generador de Swagger a la colección de servicios en el método `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="4332d-138">Add the Swagger generator to the services collection in the `Startup.ConfigureServices` method:</span></span>
+<span data-ttu-id="f273d-138">Agregue el generador de Swagger a la colección de servicios en el método `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="f273d-138">Add the Swagger generator to the services collection in the `Startup.ConfigureServices` method:</span></span>
 
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -95,47 +95,49 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 
 ::: moniker-end
 
-<span data-ttu-id="4332d-139">En el método `Startup.Configure`, habilite el middleware para servir el documento JSON generado y la interfaz de usuario de Swagger:</span><span class="sxs-lookup"><span data-stu-id="4332d-139">In the `Startup.Configure` method, enable the middleware for serving the generated JSON document and the Swagger UI:</span></span>
+<span data-ttu-id="f273d-139">En el método `Startup.Configure`, habilite el middleware para servir el documento JSON generado y la interfaz de usuario de Swagger:</span><span class="sxs-lookup"><span data-stu-id="f273d-139">In the `Startup.Configure` method, enable the middleware for serving the generated JSON document and the Swagger UI:</span></span>
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_Configure&highlight=4,8-11)]
 
-<span data-ttu-id="4332d-140">La llamada de método `UseSwaggerUI` anterior habilita el [middleware de archivos estáticos](xref:fundamentals/static-files).</span><span class="sxs-lookup"><span data-stu-id="4332d-140">The preceding `UseSwaggerUI` method call enables the [Static File Middleware](xref:fundamentals/static-files).</span></span> <span data-ttu-id="4332d-141">Si el destino es .NET Framework o .NET Core 1.x, agregue el paquete NuGet [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) al proyecto.</span><span class="sxs-lookup"><span data-stu-id="4332d-141">If targeting .NET Framework or .NET Core 1.x, add the [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) NuGet package to the project.</span></span>
+<span data-ttu-id="f273d-140">La llamada de método `UseSwaggerUI` anterior habilita el [middleware de archivos estáticos](xref:fundamentals/static-files).</span><span class="sxs-lookup"><span data-stu-id="f273d-140">The preceding `UseSwaggerUI` method call enables the [Static File Middleware](xref:fundamentals/static-files).</span></span> <span data-ttu-id="f273d-141">Si el destino es .NET Framework o .NET Core 1.x, agregue el paquete NuGet [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) al proyecto.</span><span class="sxs-lookup"><span data-stu-id="f273d-141">If targeting .NET Framework or .NET Core 1.x, add the [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) NuGet package to the project.</span></span>
 
-<span data-ttu-id="4332d-142">Inicie la aplicación y vaya a `http://localhost:<port>/swagger/v1/swagger.json`.</span><span class="sxs-lookup"><span data-stu-id="4332d-142">Launch the app, and navigate to `http://localhost:<port>/swagger/v1/swagger.json`.</span></span> <span data-ttu-id="4332d-143">El documento generado en el que se describen los puntos de conexión aparecerá según se muestra en la [especificación de Swagger (swagger.json)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson).</span><span class="sxs-lookup"><span data-stu-id="4332d-143">The generated document describing the endpoints appears as shown in [Swagger specification (swagger.json)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson).</span></span>
+<span data-ttu-id="f273d-142">Inicie la aplicación y vaya a `http://localhost:<port>/swagger/v1/swagger.json`.</span><span class="sxs-lookup"><span data-stu-id="f273d-142">Launch the app, and navigate to `http://localhost:<port>/swagger/v1/swagger.json`.</span></span> <span data-ttu-id="f273d-143">El documento generado en el que se describen los puntos de conexión aparecerá según se muestra en la [especificación de Swagger (swagger.json)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson).</span><span class="sxs-lookup"><span data-stu-id="f273d-143">The generated document describing the endpoints appears as shown in [Swagger specification (swagger.json)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson).</span></span>
 
-<span data-ttu-id="4332d-144">La interfaz de usuario de Swagger se encuentra en `http://localhost:<port>/swagger`.</span><span class="sxs-lookup"><span data-stu-id="4332d-144">The Swagger UI can be found at `http://localhost:<port>/swagger`.</span></span> <span data-ttu-id="4332d-145">Explore la API a través de la interfaz de usuario de Swagger e incorpórela a otros programas.</span><span class="sxs-lookup"><span data-stu-id="4332d-145">Explore the API via Swagger UI and incorporate it in other programs.</span></span>
+<span data-ttu-id="f273d-144">La interfaz de usuario de Swagger se encuentra en `http://localhost:<port>/swagger`.</span><span class="sxs-lookup"><span data-stu-id="f273d-144">The Swagger UI can be found at `http://localhost:<port>/swagger`.</span></span> <span data-ttu-id="f273d-145">Explore la API a través de la interfaz de usuario de Swagger e incorpórela a otros programas.</span><span class="sxs-lookup"><span data-stu-id="f273d-145">Explore the API via Swagger UI and incorporate it in other programs.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="4332d-146">Para servir la interfaz de usuario de Swagger en la raíz de la aplicación (`http://localhost:<port>/`), establezca la propiedad `RoutePrefix` en una cadena vacía:</span><span class="sxs-lookup"><span data-stu-id="4332d-146">To serve the Swagger UI at the app's root (`http://localhost:<port>/`), set the `RoutePrefix` property to an empty string:</span></span>
+> <span data-ttu-id="f273d-146">Para servir la interfaz de usuario de Swagger en la raíz de la aplicación (`http://localhost:<port>/`), establezca la propiedad `RoutePrefix` en una cadena vacía:</span><span class="sxs-lookup"><span data-stu-id="f273d-146">To serve the Swagger UI at the app's root (`http://localhost:<port>/`), set the `RoutePrefix` property to an empty string:</span></span>
 >
 > [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup3.cs?name=snippet_UseSwaggerUI&highlight=4)]
 
-<span data-ttu-id="4332d-147">Si usa directorios con IIS o un proxy inverso, establezca el punto de conexión de Swagger en una ruta de acceso relativa mediante el prefijo `./`.</span><span class="sxs-lookup"><span data-stu-id="4332d-147">If using directories with IIS or a reverse proxy, set the Swagger endpoint to a relative path using the `./` prefix.</span></span> <span data-ttu-id="4332d-148">Por ejemplo: `./swagger/v1/swagger.json`.</span><span class="sxs-lookup"><span data-stu-id="4332d-148">For example, `./swagger/v1/swagger.json`.</span></span> <span data-ttu-id="4332d-149">El uso de `/swagger/v1/swagger.json` indica a la aplicación que debe buscar el archivo JSON en la verdadera raíz de la dirección URL (junto con el prefijo de ruta, si se usa).</span><span class="sxs-lookup"><span data-stu-id="4332d-149">Using `/swagger/v1/swagger.json` instructs the app to look for the JSON file at the true root of the URL (plus the route prefix, if used).</span></span> <span data-ttu-id="4332d-150">Por ejemplo, use `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` en lugar de `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.</span><span class="sxs-lookup"><span data-stu-id="4332d-150">For example, use `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` instead of `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.</span></span>
+<span data-ttu-id="f273d-147">Si usa directorios con IIS o un proxy inverso, establezca el punto de conexión de Swagger en una ruta de acceso relativa mediante el prefijo `./`.</span><span class="sxs-lookup"><span data-stu-id="f273d-147">If using directories with IIS or a reverse proxy, set the Swagger endpoint to a relative path using the `./` prefix.</span></span> <span data-ttu-id="f273d-148">Por ejemplo: `./swagger/v1/swagger.json`.</span><span class="sxs-lookup"><span data-stu-id="f273d-148">For example, `./swagger/v1/swagger.json`.</span></span> <span data-ttu-id="f273d-149">El uso de `/swagger/v1/swagger.json` indica a la aplicación que debe buscar el archivo JSON en la verdadera raíz de la dirección URL (junto con el prefijo de ruta, si se usa).</span><span class="sxs-lookup"><span data-stu-id="f273d-149">Using `/swagger/v1/swagger.json` instructs the app to look for the JSON file at the true root of the URL (plus the route prefix, if used).</span></span> <span data-ttu-id="f273d-150">Por ejemplo, use `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` en lugar de `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.</span><span class="sxs-lookup"><span data-stu-id="f273d-150">For example, use `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` instead of `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.</span></span>
 
-## <a name="customize-and-extend"></a><span data-ttu-id="4332d-151">Personalizar y ampliar</span><span class="sxs-lookup"><span data-stu-id="4332d-151">Customize and extend</span></span>
+## <a name="customize-and-extend"></a><span data-ttu-id="f273d-151">Personalizar y ampliar</span><span class="sxs-lookup"><span data-stu-id="f273d-151">Customize and extend</span></span>
 
-<span data-ttu-id="4332d-152">Swagger proporciona opciones para documentar el modelo de objetos y personalizar la interfaz de usuario para que coincida con el tema.</span><span class="sxs-lookup"><span data-stu-id="4332d-152">Swagger provides options for documenting the object model and customizing the UI to match your theme.</span></span>
+<span data-ttu-id="f273d-152">Swagger proporciona opciones para documentar el modelo de objetos y personalizar la interfaz de usuario para que coincida con el tema.</span><span class="sxs-lookup"><span data-stu-id="f273d-152">Swagger provides options for documenting the object model and customizing the UI to match your theme.</span></span>
 
-### <a name="api-info-and-description"></a><span data-ttu-id="4332d-153">Información y descripción de la API</span><span class="sxs-lookup"><span data-stu-id="4332d-153">API info and description</span></span>
+<span data-ttu-id="f273d-153">En la clase de inicio, agregue los espacios de nombres siguientes: [!code-csharp[](~/tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_PreReqNamespaces)]</span><span class="sxs-lookup"><span data-stu-id="f273d-153">In the Startup class, add the following namespaces: [!code-csharp[](~/tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_PreReqNamespaces)]</span></span>
 
-<span data-ttu-id="4332d-154">La acción de configuración que se pasa al método `AddSwaggerGen` agrega información, como el autor, la licencia y la descripción:</span><span class="sxs-lookup"><span data-stu-id="4332d-154">The configuration action passed to the `AddSwaggerGen` method adds information such as the author, license, and description:</span></span>
+### <a name="api-info-and-description"></a><span data-ttu-id="f273d-154">Información y descripción de la API</span><span class="sxs-lookup"><span data-stu-id="f273d-154">API info and description</span></span>
+
+<span data-ttu-id="f273d-155">La acción de configuración que se pasa al método `AddSwaggerGen` agrega información, como el autor, la licencia y la descripción:</span><span class="sxs-lookup"><span data-stu-id="f273d-155">The configuration action passed to the `AddSwaggerGen` method adds information such as the author, license, and description:</span></span>
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup4.cs?name=snippet_AddSwaggerGen)]
 
-<span data-ttu-id="4332d-155">La interfaz de usuario de Swagger muestra información de la versión:</span><span class="sxs-lookup"><span data-stu-id="4332d-155">The Swagger UI displays the version's information:</span></span>
+<span data-ttu-id="f273d-156">La interfaz de usuario de Swagger muestra información de la versión:</span><span class="sxs-lookup"><span data-stu-id="f273d-156">The Swagger UI displays the version's information:</span></span>
 
 ![Interfaz de usuario de Swagger con información de la versión: descripción, autor y el vínculo See more (Ver más)](web-api-help-pages-using-swagger/_static/custom-info.png)
 
-### <a name="xml-comments"></a><span data-ttu-id="4332d-157">comentarios XML</span><span class="sxs-lookup"><span data-stu-id="4332d-157">XML comments</span></span>
+### <a name="xml-comments"></a><span data-ttu-id="f273d-158">comentarios XML</span><span class="sxs-lookup"><span data-stu-id="f273d-158">XML comments</span></span>
 
-<span data-ttu-id="4332d-158">Los comentarios XML se pueden habilitar con los métodos siguientes:</span><span class="sxs-lookup"><span data-stu-id="4332d-158">XML comments can be enabled with the following approaches:</span></span>
+<span data-ttu-id="f273d-159">Los comentarios XML se pueden habilitar con los métodos siguientes:</span><span class="sxs-lookup"><span data-stu-id="f273d-159">XML comments can be enabled with the following approaches:</span></span>
 
-#### <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="4332d-159">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="4332d-159">Visual Studio</span></span>](#tab/visual-studio)
+#### <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="f273d-160">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="f273d-160">Visual Studio</span></span>](#tab/visual-studio)
 
 ::: moniker range=">= aspnetcore-2.0"
 
-* <span data-ttu-id="4332d-160">Haga clic con el botón derecho en el **Explorador de soluciones** y seleccione **Editar <nombre_de_proyecto>.csproj**.</span><span class="sxs-lookup"><span data-stu-id="4332d-160">Right-click the project in **Solution Explorer** and select **Edit <project_name>.csproj**.</span></span>
-* <span data-ttu-id="4332d-161">Agregue manualmente las líneas resaltadas al archivo *.csproj*:</span><span class="sxs-lookup"><span data-stu-id="4332d-161">Manually add the highlighted lines to the *.csproj* file:</span></span>
+* <span data-ttu-id="f273d-161">Haga clic con el botón derecho en el **Explorador de soluciones** y seleccione **Editar <nombre_de_proyecto>.csproj**.</span><span class="sxs-lookup"><span data-stu-id="f273d-161">Right-click the project in **Solution Explorer** and select **Edit <project_name>.csproj**.</span></span>
+* <span data-ttu-id="f273d-162">Agregue manualmente las líneas resaltadas al archivo *.csproj*:</span><span class="sxs-lookup"><span data-stu-id="f273d-162">Manually add the highlighted lines to the *.csproj* file:</span></span>
 
 [!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=1-2,4)]
 
@@ -143,17 +145,17 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 
 ::: moniker range="<= aspnetcore-1.1"
 
-* <span data-ttu-id="4332d-162">Haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y seleccione **Propiedades**.</span><span class="sxs-lookup"><span data-stu-id="4332d-162">Right-click the project in **Solution Explorer** and select **Properties**.</span></span>
-* <span data-ttu-id="4332d-163">Active la casilla **Archivo de documentación XML** en la sección **Salida** de la pestaña **Compilar**.</span><span class="sxs-lookup"><span data-stu-id="4332d-163">Check the **XML documentation file** box under the **Output** section of the **Build** tab.</span></span>
+* <span data-ttu-id="f273d-163">Haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y seleccione **Propiedades**.</span><span class="sxs-lookup"><span data-stu-id="f273d-163">Right-click the project in **Solution Explorer** and select **Properties**.</span></span>
+* <span data-ttu-id="f273d-164">Active la casilla **Archivo de documentación XML** en la sección **Salida** de la pestaña **Compilar**.</span><span class="sxs-lookup"><span data-stu-id="f273d-164">Check the **XML documentation file** box under the **Output** section of the **Build** tab.</span></span>
 
 ::: moniker-end
 
-#### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="4332d-164">Visual Studio para Mac</span><span class="sxs-lookup"><span data-stu-id="4332d-164">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+#### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="f273d-165">Visual Studio para Mac</span><span class="sxs-lookup"><span data-stu-id="f273d-165">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.0"
 
-* <span data-ttu-id="4332d-165">Desde el *Panel de solución*, presione **Control** y haga clic en el nombre del proyecto.</span><span class="sxs-lookup"><span data-stu-id="4332d-165">From the *Solution Pad*, press **control** and click the project name.</span></span> <span data-ttu-id="4332d-166">Vaya a **Herramientas** > **Editar archivo**.</span><span class="sxs-lookup"><span data-stu-id="4332d-166">Navigate to **Tools** > **Edit File**.</span></span>
-* <span data-ttu-id="4332d-167">Agregue manualmente las líneas resaltadas al archivo *.csproj*:</span><span class="sxs-lookup"><span data-stu-id="4332d-167">Manually add the highlighted lines to the *.csproj* file:</span></span>
+* <span data-ttu-id="f273d-166">Desde el *Panel de solución*, presione **Control** y haga clic en el nombre del proyecto.</span><span class="sxs-lookup"><span data-stu-id="f273d-166">From the *Solution Pad*, press **control** and click the project name.</span></span> <span data-ttu-id="f273d-167">Vaya a **Herramientas** > **Editar archivo**.</span><span class="sxs-lookup"><span data-stu-id="f273d-167">Navigate to **Tools** > **Edit File**.</span></span>
+* <span data-ttu-id="f273d-168">Agregue manualmente las líneas resaltadas al archivo *.csproj*:</span><span class="sxs-lookup"><span data-stu-id="f273d-168">Manually add the highlighted lines to the *.csproj* file:</span></span>
 
 [!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=1-2,4)]
 
@@ -161,14 +163,14 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 
 ::: moniker range="<= aspnetcore-1.1"
 
-* <span data-ttu-id="4332d-168">Abra el cuadro de diálogo **Opciones del proyecto** > **Compilar** > **Compilador**.</span><span class="sxs-lookup"><span data-stu-id="4332d-168">Open the **Project Options** dialog > **Build** > **Compiler**</span></span>
-* <span data-ttu-id="4332d-169">Active la casilla **Generar documentación XML** en la sección **Opciones generales**.</span><span class="sxs-lookup"><span data-stu-id="4332d-169">Check the **Generate xml documentation** box under the **General Options** section</span></span>
+* <span data-ttu-id="f273d-169">Abra el cuadro de diálogo **Opciones del proyecto** > **Compilar** > **Compilador**.</span><span class="sxs-lookup"><span data-stu-id="f273d-169">Open the **Project Options** dialog > **Build** > **Compiler**</span></span>
+* <span data-ttu-id="f273d-170">Active la casilla **Generar documentación XML** en la sección **Opciones generales**.</span><span class="sxs-lookup"><span data-stu-id="f273d-170">Check the **Generate xml documentation** box under the **General Options** section</span></span>
 
 ::: moniker-end
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="4332d-170">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="4332d-170">Visual Studio Code</span></span>](#tab/visual-studio-code)
+#### <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="f273d-171">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="f273d-171">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-<span data-ttu-id="4332d-171">Agregue manualmente las líneas resaltadas al archivo *.csproj*:</span><span class="sxs-lookup"><span data-stu-id="4332d-171">Manually add the highlighted lines to the *.csproj* file:</span></span>
+<span data-ttu-id="f273d-172">Agregue manualmente las líneas resaltadas al archivo *.csproj*:</span><span class="sxs-lookup"><span data-stu-id="f273d-172">Manually add the highlighted lines to the *.csproj* file:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -182,9 +184,9 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 
 ::: moniker-end
 
-#### <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="4332d-172">CLI de .NET Core</span><span class="sxs-lookup"><span data-stu-id="4332d-172">.NET Core CLI</span></span>](#tab/netcore-cli)
+#### <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="f273d-173">CLI de .NET Core</span><span class="sxs-lookup"><span data-stu-id="f273d-173">.NET Core CLI</span></span>](#tab/netcore-cli)
 
-<span data-ttu-id="4332d-173">Agregue manualmente las líneas resaltadas al archivo *.csproj*:</span><span class="sxs-lookup"><span data-stu-id="4332d-173">Manually add the highlighted lines to the *.csproj* file:</span></span>
+<span data-ttu-id="f273d-174">Agregue manualmente las líneas resaltadas al archivo *.csproj*:</span><span class="sxs-lookup"><span data-stu-id="f273d-174">Manually add the highlighted lines to the *.csproj* file:</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -200,13 +202,13 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 
 ---
 
-<span data-ttu-id="4332d-174">Puede habilitar los comentarios XML para proporcionar información de depuración para miembros y tipos públicos sin documentación.</span><span class="sxs-lookup"><span data-stu-id="4332d-174">Enabling XML comments provides debug information for undocumented public types and members.</span></span> <span data-ttu-id="4332d-175">Los miembros y tipos que no estén documentados se indican por medio del mensaje de advertencia.</span><span class="sxs-lookup"><span data-stu-id="4332d-175">Undocumented types and members are indicated by the warning message.</span></span> <span data-ttu-id="4332d-176">Por ejemplo, el siguiente mensaje señala una infracción con el código de advertencia 1591:</span><span class="sxs-lookup"><span data-stu-id="4332d-176">For example, the following message indicates a violation of warning code 1591:</span></span>
+<span data-ttu-id="f273d-175">Puede habilitar los comentarios XML para proporcionar información de depuración para miembros y tipos públicos sin documentación.</span><span class="sxs-lookup"><span data-stu-id="f273d-175">Enabling XML comments provides debug information for undocumented public types and members.</span></span> <span data-ttu-id="f273d-176">Los miembros y tipos que no estén documentados se indican por medio del mensaje de advertencia.</span><span class="sxs-lookup"><span data-stu-id="f273d-176">Undocumented types and members are indicated by the warning message.</span></span> <span data-ttu-id="f273d-177">Por ejemplo, el siguiente mensaje señala una infracción con el código de advertencia 1591:</span><span class="sxs-lookup"><span data-stu-id="f273d-177">For example, the following message indicates a violation of warning code 1591:</span></span>
 
 ```text
 warning CS1591: Missing XML comment for publicly visible type or member 'TodoController.GetAll()'
 ```
 
-<span data-ttu-id="4332d-177">Para eliminar las advertencias a nivel de proyecto, defina una lista delimitada por punto y coma de códigos de advertencia que se deban omitir en el archivo de proyecto.</span><span class="sxs-lookup"><span data-stu-id="4332d-177">To suppress warnings project-wide, define a semicolon-delimited list of warning codes to ignore in the project file.</span></span> <span data-ttu-id="4332d-178">Al anexar los códigos de advertencia a `$(NoWarn);`, se aplican también los [valores predeterminados de C#](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16).</span><span class="sxs-lookup"><span data-stu-id="4332d-178">Appending the warning codes to `$(NoWarn);` applies the [C# default values](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16) too.</span></span>
+<span data-ttu-id="f273d-178">Para eliminar las advertencias a nivel de proyecto, defina una lista delimitada por punto y coma de códigos de advertencia que se deban omitir en el archivo de proyecto.</span><span class="sxs-lookup"><span data-stu-id="f273d-178">To suppress warnings project-wide, define a semicolon-delimited list of warning codes to ignore in the project file.</span></span> <span data-ttu-id="f273d-179">Al anexar los códigos de advertencia a `$(NoWarn);`, se aplican también los [valores predeterminados de C#](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16).</span><span class="sxs-lookup"><span data-stu-id="f273d-179">Appending the warning codes to `$(NoWarn);` applies the [C# default values](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16) too.</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -220,7 +222,7 @@ warning CS1591: Missing XML comment for publicly visible type or member 'TodoCon
 
 ::: moniker-end
 
-<span data-ttu-id="4332d-179">Para suprimir las advertencias solo para miembros específicos, incluya el código en directivas de preprocesador de [advertencias #pragma](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning).</span><span class="sxs-lookup"><span data-stu-id="4332d-179">To suppress warnings only for specific members, enclose the code in [#pragma warning](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning) preprocessor directives.</span></span> <span data-ttu-id="4332d-180">Este enfoque es útil para el código que no debe exponerse mediante los documentos de API. En el ejemplo siguiente, se omite el código de advertencia CS1591 para toda la clase `Program`.</span><span class="sxs-lookup"><span data-stu-id="4332d-180">This approach is useful for code that shouldn't be exposed via the API docs. In the following example, warning code CS1591 is ignored for the entire `Program` class.</span></span> <span data-ttu-id="4332d-181">La ejecución del código de advertencia se restaura al cerrar la definición de clase.</span><span class="sxs-lookup"><span data-stu-id="4332d-181">Enforcement of the warning code is restored at the close of the class definition.</span></span> <span data-ttu-id="4332d-182">Especifique varios códigos de advertencia con una lista delimitada por comas.</span><span class="sxs-lookup"><span data-stu-id="4332d-182">Specify multiple warning codes with a comma-delimited list.</span></span>
+<span data-ttu-id="f273d-180">Para suprimir las advertencias solo para miembros específicos, incluya el código en directivas de preprocesador de [advertencias #pragma](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning).</span><span class="sxs-lookup"><span data-stu-id="f273d-180">To suppress warnings only for specific members, enclose the code in [#pragma warning](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning) preprocessor directives.</span></span> <span data-ttu-id="f273d-181">Este enfoque es útil para el código que no debe exponerse mediante los documentos de API. En el ejemplo siguiente, se omite el código de advertencia CS1591 para toda la clase `Program`.</span><span class="sxs-lookup"><span data-stu-id="f273d-181">This approach is useful for code that shouldn't be exposed via the API docs. In the following example, warning code CS1591 is ignored for the entire `Program` class.</span></span> <span data-ttu-id="f273d-182">La ejecución del código de advertencia se restaura al cerrar la definición de clase.</span><span class="sxs-lookup"><span data-stu-id="f273d-182">Enforcement of the warning code is restored at the close of the class definition.</span></span> <span data-ttu-id="f273d-183">Especifique varios códigos de advertencia con una lista delimitada por comas.</span><span class="sxs-lookup"><span data-stu-id="f273d-183">Specify multiple warning codes with a comma-delimited list.</span></span>
 
 ```csharp
 namespace TodoApi
@@ -240,7 +242,7 @@ namespace TodoApi
 }
 ```
 
-<span data-ttu-id="4332d-183">Configure Swagger para usar el archivo XML que se generó con las instrucciones anteriores.</span><span class="sxs-lookup"><span data-stu-id="4332d-183">Configure Swagger to use the XML file that's generated with the preceding instructions.</span></span> <span data-ttu-id="4332d-184">En Linux o sistemas operativos que no sean Windows, las rutas de acceso y los nombres de archivo pueden distinguir entre mayúsculas y minúsculas.</span><span class="sxs-lookup"><span data-stu-id="4332d-184">For Linux or non-Windows operating systems, file names and paths can be case-sensitive.</span></span> <span data-ttu-id="4332d-185">Por ejemplo, un archivo *TodoApi.XML* es válido en Windows, pero no en CentOS.</span><span class="sxs-lookup"><span data-stu-id="4332d-185">For example, a *TodoApi.XML* file is valid on Windows but not CentOS.</span></span>
+<span data-ttu-id="f273d-184">Configure Swagger para usar el archivo XML que se generó con las instrucciones anteriores.</span><span class="sxs-lookup"><span data-stu-id="f273d-184">Configure Swagger to use the XML file that's generated with the preceding instructions.</span></span> <span data-ttu-id="f273d-185">En Linux o sistemas operativos que no sean Windows, las rutas de acceso y los nombres de archivo pueden distinguir entre mayúsculas y minúsculas.</span><span class="sxs-lookup"><span data-stu-id="f273d-185">For Linux or non-Windows operating systems, file names and paths can be case-sensitive.</span></span> <span data-ttu-id="f273d-186">Por ejemplo, un archivo *TodoApi.XML* es válido en Windows, pero no en CentOS.</span><span class="sxs-lookup"><span data-stu-id="f273d-186">For example, a *TodoApi.XML* file is valid on Windows but not CentOS.</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -260,17 +262,17 @@ namespace TodoApi
 
 ::: moniker-end
 
-<span data-ttu-id="4332d-186">En el código anterior, [Reflection](/dotnet/csharp/programming-guide/concepts/reflection) se usa para crear un nombre de archivo XML que coincida con el proyecto de API web.</span><span class="sxs-lookup"><span data-stu-id="4332d-186">In the preceding code, [Reflection](/dotnet/csharp/programming-guide/concepts/reflection) is used to build an XML file name matching that of the web API project.</span></span> <span data-ttu-id="4332d-187">La propiedad [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) sirve para crear una ruta de acceso al archivo XML.</span><span class="sxs-lookup"><span data-stu-id="4332d-187">The [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) property is used to construct a path to the XML file.</span></span> <span data-ttu-id="4332d-188">Algunas características de Swagger (por ejemplo, esquemas de parámetros de entrada o métodos HTTP y códigos de respuesta de los atributos respectivos) funcionan sin el uso de un archivo de documentación XML.</span><span class="sxs-lookup"><span data-stu-id="4332d-188">Some Swagger features (for example, schemata of input parameters or HTTP methods and response codes from the respective attributes) work without the use of an XML documentation file.</span></span> <span data-ttu-id="4332d-189">Para la mayoría de las características, es decir, los resúmenes de los métodos y las descripciones de los parámetros y los códigos de respuesta, el uso de un archivo XML es obligatorio.</span><span class="sxs-lookup"><span data-stu-id="4332d-189">For most features, namely method summaries and the descriptions of parameters and response codes, the use of an XML file is mandatory.</span></span>
+<span data-ttu-id="f273d-187">En el código anterior, [Reflection](/dotnet/csharp/programming-guide/concepts/reflection) se usa para crear un nombre de archivo XML que coincida con el proyecto de API web.</span><span class="sxs-lookup"><span data-stu-id="f273d-187">In the preceding code, [Reflection](/dotnet/csharp/programming-guide/concepts/reflection) is used to build an XML file name matching that of the web API project.</span></span> <span data-ttu-id="f273d-188">La propiedad [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) sirve para crear una ruta de acceso al archivo XML.</span><span class="sxs-lookup"><span data-stu-id="f273d-188">The [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) property is used to construct a path to the XML file.</span></span> <span data-ttu-id="f273d-189">Algunas características de Swagger (por ejemplo, esquemas de parámetros de entrada o métodos HTTP y códigos de respuesta de los atributos respectivos) funcionan sin el uso de un archivo de documentación XML.</span><span class="sxs-lookup"><span data-stu-id="f273d-189">Some Swagger features (for example, schemata of input parameters or HTTP methods and response codes from the respective attributes) work without the use of an XML documentation file.</span></span> <span data-ttu-id="f273d-190">Para la mayoría de las características, es decir, los resúmenes de los métodos y las descripciones de los parámetros y los códigos de respuesta, el uso de un archivo XML es obligatorio.</span><span class="sxs-lookup"><span data-stu-id="f273d-190">For most features, namely method summaries and the descriptions of parameters and response codes, the use of an XML file is mandatory.</span></span>
 
-<span data-ttu-id="4332d-190">Agregar comentarios con la triple barra diagonal a una acción mejora la interfaz de usuario de Swagger en tanto agrega una descripción de la acción al encabezado de la sección.</span><span class="sxs-lookup"><span data-stu-id="4332d-190">Adding triple-slash comments to an action enhances the Swagger UI by adding the description to the section header.</span></span> <span data-ttu-id="4332d-191">Agregue un elemento [\<summary>](/dotnet/csharp/programming-guide/xmldoc/summary) antes de la acción `Delete`:</span><span class="sxs-lookup"><span data-stu-id="4332d-191">Add a [\<summary>](/dotnet/csharp/programming-guide/xmldoc/summary) element above the `Delete` action:</span></span>
+<span data-ttu-id="f273d-191">Agregar comentarios con la triple barra diagonal a una acción mejora la interfaz de usuario de Swagger en tanto agrega una descripción de la acción al encabezado de la sección.</span><span class="sxs-lookup"><span data-stu-id="f273d-191">Adding triple-slash comments to an action enhances the Swagger UI by adding the description to the section header.</span></span> <span data-ttu-id="f273d-192">Agregue un elemento [\<summary>](/dotnet/csharp/programming-guide/xmldoc/summary) antes de la acción `Delete`:</span><span class="sxs-lookup"><span data-stu-id="f273d-192">Add a [\<summary>](/dotnet/csharp/programming-guide/xmldoc/summary) element above the `Delete` action:</span></span>
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Delete&highlight=1-3)]
 
-<span data-ttu-id="4332d-192">La interfaz de usuario de Swagger muestra el texto interno del elemento `<summary>` del código anterior:</span><span class="sxs-lookup"><span data-stu-id="4332d-192">The Swagger UI displays the inner text of the preceding code's `<summary>` element:</span></span>
+<span data-ttu-id="f273d-193">La interfaz de usuario de Swagger muestra el texto interno del elemento `<summary>` del código anterior:</span><span class="sxs-lookup"><span data-stu-id="f273d-193">The Swagger UI displays the inner text of the preceding code's `<summary>` element:</span></span>
 
 ![Interfaz de usuario de Swagger en la que se muestra el comentario XML "Deletes a specific TodoItem" (Elimina una tarea pendiente específica)](web-api-help-pages-using-swagger/_static/triple-slash-comments.png)
 
-<span data-ttu-id="4332d-195">La interfaz de usuario se controla por medio del esquema JSON generado:</span><span class="sxs-lookup"><span data-stu-id="4332d-195">The UI is driven by the generated JSON schema:</span></span>
+<span data-ttu-id="f273d-196">La interfaz de usuario se controla por medio del esquema JSON generado:</span><span class="sxs-lookup"><span data-stu-id="f273d-196">The UI is driven by the generated JSON schema:</span></span>
 
 ```json
 "delete": {
@@ -299,7 +301,7 @@ namespace TodoApi
 }
 ```
 
-<span data-ttu-id="4332d-196">Agregue un elemento [\<remarks>](/dotnet/csharp/programming-guide/xmldoc/remarks) a la documentación del método de acción `Create`.</span><span class="sxs-lookup"><span data-stu-id="4332d-196">Add a [\<remarks>](/dotnet/csharp/programming-guide/xmldoc/remarks) element to the `Create` action method documentation.</span></span> <span data-ttu-id="4332d-197">Este elemento complementa la información especificada en el elemento `<summary>` y proporciona una interfaz de usuario de Swagger más sólida.</span><span class="sxs-lookup"><span data-stu-id="4332d-197">It supplements information specified in the `<summary>` element and provides a more robust Swagger UI.</span></span> <span data-ttu-id="4332d-198">El contenido del elemento `<remarks>` puede estar formado por texto, JSON o XML.</span><span class="sxs-lookup"><span data-stu-id="4332d-198">The `<remarks>` element content can consist of text, JSON, or XML.</span></span>
+<span data-ttu-id="f273d-197">Agregue un elemento [\<remarks>](/dotnet/csharp/programming-guide/xmldoc/remarks) a la documentación del método de acción `Create`.</span><span class="sxs-lookup"><span data-stu-id="f273d-197">Add a [\<remarks>](/dotnet/csharp/programming-guide/xmldoc/remarks) element to the `Create` action method documentation.</span></span> <span data-ttu-id="f273d-198">Este elemento complementa la información especificada en el elemento `<summary>` y proporciona una interfaz de usuario de Swagger más sólida.</span><span class="sxs-lookup"><span data-stu-id="f273d-198">It supplements information specified in the `<summary>` element and provides a more robust Swagger UI.</span></span> <span data-ttu-id="f273d-199">El contenido del elemento `<remarks>` puede estar formado por texto, JSON o XML.</span><span class="sxs-lookup"><span data-stu-id="f273d-199">The `<remarks>` element content can consist of text, JSON, or XML.</span></span>
 
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -313,19 +315,19 @@ namespace TodoApi
 
 ::: moniker-end
 
-<span data-ttu-id="4332d-199">Fíjese en las mejoras de la interfaz de usuario con estos comentarios extra:</span><span class="sxs-lookup"><span data-stu-id="4332d-199">Notice the UI enhancements with these additional comments:</span></span>
+<span data-ttu-id="f273d-200">Fíjese en las mejoras de la interfaz de usuario con estos comentarios extra:</span><span class="sxs-lookup"><span data-stu-id="f273d-200">Notice the UI enhancements with these additional comments:</span></span>
 
 ![Interfaz de usuario de Swagger con comentarios adicionales](web-api-help-pages-using-swagger/_static/xml-comments-extended.png)
 
-### <a name="data-annotations"></a><span data-ttu-id="4332d-201">Anotaciones de datos</span><span class="sxs-lookup"><span data-stu-id="4332d-201">Data annotations</span></span>
+### <a name="data-annotations"></a><span data-ttu-id="f273d-202">Anotaciones de datos</span><span class="sxs-lookup"><span data-stu-id="f273d-202">Data annotations</span></span>
 
-<span data-ttu-id="4332d-202">Incorpore al modelo atributos que se encuentren en [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) para controlar los componentes de la interfaz de usuario de Swagger.</span><span class="sxs-lookup"><span data-stu-id="4332d-202">Decorate the model with attributes, found in the [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) namespace, to help drive the Swagger UI components.</span></span>
+<span data-ttu-id="f273d-203">Incorpore al modelo atributos que se encuentren en [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) para controlar los componentes de la interfaz de usuario de Swagger.</span><span class="sxs-lookup"><span data-stu-id="f273d-203">Decorate the model with attributes, found in the [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) namespace, to help drive the Swagger UI components.</span></span>
 
-<span data-ttu-id="4332d-203">Agregue el atributo `[Required]` a la propiedad `Name` de la clase `TodoItem`:</span><span class="sxs-lookup"><span data-stu-id="4332d-203">Add the `[Required]` attribute to the `Name` property of the `TodoItem` class:</span></span>
+<span data-ttu-id="f273d-204">Agregue el atributo `[Required]` a la propiedad `Name` de la clase `TodoItem`:</span><span class="sxs-lookup"><span data-stu-id="f273d-204">Add the `[Required]` attribute to the `Name` property of the `TodoItem` class:</span></span>
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Models/TodoItem.cs?highlight=10)]
 
-<span data-ttu-id="4332d-204">La presencia de este atributo cambia el comportamiento de la interfaz de usuario y modifica el esquema JSON subyacente:</span><span class="sxs-lookup"><span data-stu-id="4332d-204">The presence of this attribute changes the UI behavior and alters the underlying JSON schema:</span></span>
+<span data-ttu-id="f273d-205">La presencia de este atributo cambia el comportamiento de la interfaz de usuario y modifica el esquema JSON subyacente:</span><span class="sxs-lookup"><span data-stu-id="f273d-205">The presence of this attribute changes the UI behavior and alters the underlying JSON schema:</span></span>
 
 ```json
 "definitions": {
@@ -351,7 +353,7 @@ namespace TodoApi
 },
 ```
 
-<span data-ttu-id="4332d-205">Agregue el atributo `[Produces("application/json")]` al controlador de API.</span><span class="sxs-lookup"><span data-stu-id="4332d-205">Add the `[Produces("application/json")]` attribute to the API controller.</span></span> <span data-ttu-id="4332d-206">Su propósito consiste en declarar que las acciones del controlador admiten un contenido de respuesta de tipo *application/json*:</span><span class="sxs-lookup"><span data-stu-id="4332d-206">Its purpose is to declare that the controller's actions support a response content type of *application/json*:</span></span>
+<span data-ttu-id="f273d-206">Agregue el atributo `[Produces("application/json")]` al controlador de API.</span><span class="sxs-lookup"><span data-stu-id="f273d-206">Add the `[Produces("application/json")]` attribute to the API controller.</span></span> <span data-ttu-id="f273d-207">Su propósito consiste en declarar que las acciones del controlador admiten un contenido de respuesta de tipo *application/json*:</span><span class="sxs-lookup"><span data-stu-id="f273d-207">Its purpose is to declare that the controller's actions support a response content type of *application/json*:</span></span>
 
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -365,17 +367,17 @@ namespace TodoApi
 
 ::: moniker-end
 
-<span data-ttu-id="4332d-207">En el menú desplegable **Response Content Type** (Tipo de contenido de respuesta) se selecciona este tipo de contenido como el valor predeterminado para las acciones GET del controlador:</span><span class="sxs-lookup"><span data-stu-id="4332d-207">The **Response Content Type** drop-down selects this content type as the default for the controller's GET actions:</span></span>
+<span data-ttu-id="f273d-208">En el menú desplegable **Response Content Type** (Tipo de contenido de respuesta) se selecciona este tipo de contenido como el valor predeterminado para las acciones GET del controlador:</span><span class="sxs-lookup"><span data-stu-id="f273d-208">The **Response Content Type** drop-down selects this content type as the default for the controller's GET actions:</span></span>
 
 ![Interfaz de usuario de Swagger con el tipo de contenido de respuesta predeterminado](web-api-help-pages-using-swagger/_static/json-response-content-type.png)
 
-<span data-ttu-id="4332d-209">A medida que aumenta el uso de anotaciones de datos en la API web, la interfaz de usuario y las páginas de ayuda de la API pasan a ser más descriptivas y útiles.</span><span class="sxs-lookup"><span data-stu-id="4332d-209">As the usage of data annotations in the web API increases, the UI and API help pages become more descriptive and useful.</span></span>
+<span data-ttu-id="f273d-210">A medida que aumenta el uso de anotaciones de datos en la API web, la interfaz de usuario y las páginas de ayuda de la API pasan a ser más descriptivas y útiles.</span><span class="sxs-lookup"><span data-stu-id="f273d-210">As the usage of data annotations in the web API increases, the UI and API help pages become more descriptive and useful.</span></span>
 
-### <a name="describe-response-types"></a><span data-ttu-id="4332d-210">Describir los tipos de respuesta</span><span class="sxs-lookup"><span data-stu-id="4332d-210">Describe response types</span></span>
+### <a name="describe-response-types"></a><span data-ttu-id="f273d-211">Describir los tipos de respuesta</span><span class="sxs-lookup"><span data-stu-id="f273d-211">Describe response types</span></span>
 
-<span data-ttu-id="4332d-211">Lo que más preocupa a los desarrolladores que consumen una API web es lo que se devuelve; sobre todo, los tipos de respuesta y los códigos de error (si no son los habituales).</span><span class="sxs-lookup"><span data-stu-id="4332d-211">Developers consuming a web API are most concerned with what's returned&mdash;specifically response types and error codes (if not standard).</span></span> <span data-ttu-id="4332d-212">Los tipos de respuesta y los códigos de error se indican en las anotaciones de datos y los comentarios XML.</span><span class="sxs-lookup"><span data-stu-id="4332d-212">The response types and error codes are denoted in the XML comments and data annotations.</span></span>
+<span data-ttu-id="f273d-212">Lo que más preocupa a los desarrolladores que consumen una API web es lo que se devuelve; sobre todo, los tipos de respuesta y los códigos de error (si no son los habituales).</span><span class="sxs-lookup"><span data-stu-id="f273d-212">Developers consuming a web API are most concerned with what's returned&mdash;specifically response types and error codes (if not standard).</span></span> <span data-ttu-id="f273d-213">Los tipos de respuesta y los códigos de error se indican en las anotaciones de datos y los comentarios XML.</span><span class="sxs-lookup"><span data-stu-id="f273d-213">The response types and error codes are denoted in the XML comments and data annotations.</span></span>
 
-<span data-ttu-id="4332d-213">La acción `Create` devuelve un código de estado HTTP 201 cuando se ha ejecutado correctamente.</span><span class="sxs-lookup"><span data-stu-id="4332d-213">The `Create` action returns an HTTP 201 status code on success.</span></span> <span data-ttu-id="4332d-214">Cuando el cuerpo de solicitud enviado es null, se devuelve un código de estado HTTP 400.</span><span class="sxs-lookup"><span data-stu-id="4332d-214">An HTTP 400 status code is returned when the posted request body is null.</span></span> <span data-ttu-id="4332d-215">Sin la documentación correcta en la interfaz de usuario de Swagger, el consumidor no dispone de la información necesaria de estos resultados esperados.</span><span class="sxs-lookup"><span data-stu-id="4332d-215">Without proper documentation in the Swagger UI, the consumer lacks knowledge of these expected outcomes.</span></span> <span data-ttu-id="4332d-216">Corrija este problema agregando las líneas resaltadas en el siguiente ejemplo:</span><span class="sxs-lookup"><span data-stu-id="4332d-216">Fix that problem by adding the highlighted lines in the following example:</span></span>
+<span data-ttu-id="f273d-214">La acción `Create` devuelve un código de estado HTTP 201 cuando se ha ejecutado correctamente.</span><span class="sxs-lookup"><span data-stu-id="f273d-214">The `Create` action returns an HTTP 201 status code on success.</span></span> <span data-ttu-id="f273d-215">Cuando el cuerpo de solicitud enviado es null, se devuelve un código de estado HTTP 400.</span><span class="sxs-lookup"><span data-stu-id="f273d-215">An HTTP 400 status code is returned when the posted request body is null.</span></span> <span data-ttu-id="f273d-216">Sin la documentación correcta en la interfaz de usuario de Swagger, el consumidor no dispone de la información necesaria de estos resultados esperados.</span><span class="sxs-lookup"><span data-stu-id="f273d-216">Without proper documentation in the Swagger UI, the consumer lacks knowledge of these expected outcomes.</span></span> <span data-ttu-id="f273d-217">Corrija este problema agregando las líneas resaltadas en el siguiente ejemplo:</span><span class="sxs-lookup"><span data-stu-id="f273d-217">Fix that problem by adding the highlighted lines in the following example:</span></span>
 
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -389,46 +391,46 @@ namespace TodoApi
 
 ::: moniker-end
 
-<span data-ttu-id="4332d-217">Ahora, la interfaz de usuario de Swagger documenta de forma clara los códigos de respuesta HTTP esperados:</span><span class="sxs-lookup"><span data-stu-id="4332d-217">The Swagger UI now clearly documents the expected HTTP response codes:</span></span>
+<span data-ttu-id="f273d-218">Ahora, la interfaz de usuario de Swagger documenta de forma clara los códigos de respuesta HTTP esperados:</span><span class="sxs-lookup"><span data-stu-id="f273d-218">The Swagger UI now clearly documents the expected HTTP response codes:</span></span>
 
 ![Interfaz de usuario de Swagger, donde se muestra la descripción de la clase de respuesta POST "Returns the newly created item" (Devuelve el elemento recién creado) y "400 - If the item is null" (400 - Si el elemento es nulo) para el código de estado y el motivo en Response Messages (Mensajes de respuesta)](web-api-help-pages-using-swagger/_static/data-annotations-response-types.png)
 
 ::: moniker range=">= aspnetcore-2.2"
 
-<span data-ttu-id="4332d-219">En ASP.NET Core 2.2 o versiones posteriores, las convenciones se pueden usar como alternativa a la representación explícita de acciones individuales con `[ProducesResponseType]`.</span><span class="sxs-lookup"><span data-stu-id="4332d-219">In ASP.NET Core 2.2 or later, conventions can be used as an alternative to explicitly decorating individual actions with `[ProducesResponseType]`.</span></span> <span data-ttu-id="4332d-220">Para más información, consulte <xref:web-api/advanced/conventions>.</span><span class="sxs-lookup"><span data-stu-id="4332d-220">For more information, see <xref:web-api/advanced/conventions>.</span></span>
+<span data-ttu-id="f273d-220">En ASP.NET Core 2.2 o versiones posteriores, las convenciones se pueden usar como alternativa a la representación explícita de acciones individuales con `[ProducesResponseType]`.</span><span class="sxs-lookup"><span data-stu-id="f273d-220">In ASP.NET Core 2.2 or later, conventions can be used as an alternative to explicitly decorating individual actions with `[ProducesResponseType]`.</span></span> <span data-ttu-id="f273d-221">Para más información, consulte <xref:web-api/advanced/conventions>.</span><span class="sxs-lookup"><span data-stu-id="f273d-221">For more information, see <xref:web-api/advanced/conventions>.</span></span>
 
 ::: moniker-end
 
-### <a name="customize-the-ui"></a><span data-ttu-id="4332d-221">Personalizar la interfaz de usuario</span><span class="sxs-lookup"><span data-stu-id="4332d-221">Customize the UI</span></span>
+### <a name="customize-the-ui"></a><span data-ttu-id="f273d-222">Personalizar la interfaz de usuario</span><span class="sxs-lookup"><span data-stu-id="f273d-222">Customize the UI</span></span>
 
-<span data-ttu-id="4332d-222">La interfaz de usuario es funcional y tiene un aspecto adecuado.</span><span class="sxs-lookup"><span data-stu-id="4332d-222">The stock UI is both functional and presentable.</span></span> <span data-ttu-id="4332d-223">Pero las páginas de documentación de la API deben ostentar su marca o tema.</span><span class="sxs-lookup"><span data-stu-id="4332d-223">However, API documentation pages should represent your brand or theme.</span></span> <span data-ttu-id="4332d-224">Para incluir la personalización de marca en los componentes de Swashbuckle, se deben agregar los recursos para servir archivos estáticos y generar la estructura de carpetas que hospedará estos archivos.</span><span class="sxs-lookup"><span data-stu-id="4332d-224">Branding the Swashbuckle components requires adding the resources to serve static files and building the folder structure to host those files.</span></span>
+<span data-ttu-id="f273d-223">La interfaz de usuario es funcional y tiene un aspecto adecuado.</span><span class="sxs-lookup"><span data-stu-id="f273d-223">The stock UI is both functional and presentable.</span></span> <span data-ttu-id="f273d-224">Pero las páginas de documentación de la API deben ostentar su marca o tema.</span><span class="sxs-lookup"><span data-stu-id="f273d-224">However, API documentation pages should represent your brand or theme.</span></span> <span data-ttu-id="f273d-225">Para incluir la personalización de marca en los componentes de Swashbuckle, se deben agregar los recursos para servir archivos estáticos y generar la estructura de carpetas que hospedará estos archivos.</span><span class="sxs-lookup"><span data-stu-id="f273d-225">Branding the Swashbuckle components requires adding the resources to serve static files and building the folder structure to host those files.</span></span>
 
-<span data-ttu-id="4332d-225">Si el destino es .NET Framework o .NET Core 1.x, agregue el paquete NuGet [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles) al proyecto:</span><span class="sxs-lookup"><span data-stu-id="4332d-225">If targeting .NET Framework or .NET Core 1.x, add the [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles) NuGet package to the project:</span></span>
+<span data-ttu-id="f273d-226">Si el destino es .NET Framework o .NET Core 1.x, agregue el paquete NuGet [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles) al proyecto:</span><span class="sxs-lookup"><span data-stu-id="f273d-226">If targeting .NET Framework or .NET Core 1.x, add the [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles) NuGet package to the project:</span></span>
 
 ```xml
 <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.0" />
 ```
 
-<span data-ttu-id="4332d-226">El paquete NuGet anterior ya estará instalado si el destino es .NET Core 2.x y se usa el [metapaquete](xref:fundamentals/metapackage).</span><span class="sxs-lookup"><span data-stu-id="4332d-226">The preceding NuGet package is already installed if targeting .NET Core 2.x and using the [metapackage](xref:fundamentals/metapackage).</span></span>
+<span data-ttu-id="f273d-227">El paquete NuGet anterior ya estará instalado si el destino es .NET Core 2.x y se usa el [metapaquete](xref:fundamentals/metapackage).</span><span class="sxs-lookup"><span data-stu-id="f273d-227">The preceding NuGet package is already installed if targeting .NET Core 2.x and using the [metapackage](xref:fundamentals/metapackage).</span></span>
 
-<span data-ttu-id="4332d-227">Habilitar middleware de archivos estáticos:</span><span class="sxs-lookup"><span data-stu-id="4332d-227">Enable Static File Middleware:</span></span>
+<span data-ttu-id="f273d-228">Habilitar middleware de archivos estáticos:</span><span class="sxs-lookup"><span data-stu-id="f273d-228">Enable Static File Middleware:</span></span>
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup.cs?name=snippet_Configure&highlight=3)]
 
-<span data-ttu-id="4332d-228">Obtenga el contenido de la carpeta *dist* en el [repositorio de GitHub de la interfaz de usuario de Swagger](https://github.com/swagger-api/swagger-ui/tree/master/dist).</span><span class="sxs-lookup"><span data-stu-id="4332d-228">Acquire the contents of the *dist* folder from the [Swagger UI GitHub repository](https://github.com/swagger-api/swagger-ui/tree/master/dist).</span></span> <span data-ttu-id="4332d-229">Esta carpeta contiene los recursos necesarios para la página de interfaz de usuario de Swagger.</span><span class="sxs-lookup"><span data-stu-id="4332d-229">This folder contains the necessary assets for the Swagger UI page.</span></span>
+<span data-ttu-id="f273d-229">Obtenga el contenido de la carpeta *dist* en el [repositorio de GitHub de la interfaz de usuario de Swagger](https://github.com/swagger-api/swagger-ui/tree/master/dist).</span><span class="sxs-lookup"><span data-stu-id="f273d-229">Acquire the contents of the *dist* folder from the [Swagger UI GitHub repository](https://github.com/swagger-api/swagger-ui/tree/master/dist).</span></span> <span data-ttu-id="f273d-230">Esta carpeta contiene los recursos necesarios para la página de interfaz de usuario de Swagger.</span><span class="sxs-lookup"><span data-stu-id="f273d-230">This folder contains the necessary assets for the Swagger UI page.</span></span>
 
-<span data-ttu-id="4332d-230">Cree una carpeta *wwwroot/swagger/ui* y copie en ella el contenido de la carpeta *dist*.</span><span class="sxs-lookup"><span data-stu-id="4332d-230">Create a *wwwroot/swagger/ui* folder, and copy into it the contents of the *dist* folder.</span></span>
+<span data-ttu-id="f273d-231">Cree una carpeta *wwwroot/swagger/ui* y copie en ella el contenido de la carpeta *dist*.</span><span class="sxs-lookup"><span data-stu-id="f273d-231">Create a *wwwroot/swagger/ui* folder, and copy into it the contents of the *dist* folder.</span></span>
 
-<span data-ttu-id="4332d-231">Cree un archivo *custom.css* en *wwwroot/swagger/ui* con el siguiente código CSS para personalizar el encabezado de página:</span><span class="sxs-lookup"><span data-stu-id="4332d-231">Create a *custom.css* file, in *wwwroot/swagger/ui*, with the following CSS to customize the page header:</span></span>
+<span data-ttu-id="f273d-232">Cree un archivo *custom.css* en *wwwroot/swagger/ui* con el siguiente código CSS para personalizar el encabezado de página:</span><span class="sxs-lookup"><span data-stu-id="f273d-232">Create a *custom.css* file, in *wwwroot/swagger/ui*, with the following CSS to customize the page header:</span></span>
 
 [!code-css[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/wwwroot/swagger/ui/custom.css)]
 
-<span data-ttu-id="4332d-232">Cree una referencia a *custom.css* en el archivo *index.html* después de cualquier otro archivo CSS:</span><span class="sxs-lookup"><span data-stu-id="4332d-232">Reference *custom.css* in the *index.html* file, after any other CSS files:</span></span>
+<span data-ttu-id="f273d-233">Cree una referencia a *custom.css* en el archivo *index.html* dentro de la carpeta ui, después de otros archivos CSS:</span><span class="sxs-lookup"><span data-stu-id="f273d-233">Reference *custom.css* in the *index.html* file inside ui folder, after any other CSS files:</span></span>
 
 [!code-html[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/wwwroot/swagger/ui/index.html?name=snippet_SwaggerUiCss&highlight=3)]
 
-<span data-ttu-id="4332d-233">Vaya a la página *index.html* en `http://localhost:<port>/swagger/ui/index.html`.</span><span class="sxs-lookup"><span data-stu-id="4332d-233">Browse to the *index.html* page at `http://localhost:<port>/swagger/ui/index.html`.</span></span> <span data-ttu-id="4332d-234">Escriba `http://localhost:<port>/swagger/v1/swagger.json` en el cuadro de texto del encabezado y haga clic en el botón **Explorar**.</span><span class="sxs-lookup"><span data-stu-id="4332d-234">Enter `http://localhost:<port>/swagger/v1/swagger.json` in the header's textbox, and click the **Explore** button.</span></span> <span data-ttu-id="4332d-235">La página resultante tiene el siguiente aspecto:</span><span class="sxs-lookup"><span data-stu-id="4332d-235">The resulting page looks as follows:</span></span>
+<span data-ttu-id="f273d-234">Vaya a la página *index.html* en `http://localhost:<port>/swagger/ui/index.html`.</span><span class="sxs-lookup"><span data-stu-id="f273d-234">Browse to the *index.html* page at `http://localhost:<port>/swagger/ui/index.html`.</span></span> <span data-ttu-id="f273d-235">Escriba `https://localhost:<port>/swagger/v1/swagger.json` en el cuadro de texto del encabezado y haga clic en el botón **Explorar**.</span><span class="sxs-lookup"><span data-stu-id="f273d-235">Enter `https://localhost:<port>/swagger/v1/swagger.json` in the header's textbox, and click the **Explore** button.</span></span> <span data-ttu-id="f273d-236">La página resultante tiene el siguiente aspecto:</span><span class="sxs-lookup"><span data-stu-id="f273d-236">The resulting page looks as follows:</span></span>
 
 ![Interfaz de usuario de Swagger con el título de encabezado personalizado](web-api-help-pages-using-swagger/_static/custom-header.png)
 
-<span data-ttu-id="4332d-237">Puede hacer muchas más cosas con la página.</span><span class="sxs-lookup"><span data-stu-id="4332d-237">There's much more you can do with the page.</span></span> <span data-ttu-id="4332d-238">Vea todas las capacidades de los recursos de la interfaz de usuario en el [repositorio de GitHub de la interfaz de usuario de Swagger](https://github.com/swagger-api/swagger-ui).</span><span class="sxs-lookup"><span data-stu-id="4332d-238">See the full capabilities for the UI resources at the [Swagger UI GitHub repository](https://github.com/swagger-api/swagger-ui).</span></span>
+<span data-ttu-id="f273d-238">Puede hacer muchas más cosas con la página.</span><span class="sxs-lookup"><span data-stu-id="f273d-238">There's much more you can do with the page.</span></span> <span data-ttu-id="f273d-239">Vea todas las capacidades de los recursos de la interfaz de usuario en el [repositorio de GitHub de la interfaz de usuario de Swagger](https://github.com/swagger-api/swagger-ui).</span><span class="sxs-lookup"><span data-stu-id="f273d-239">See the full capabilities for the UI resources at the [Swagger UI GitHub repository](https://github.com/swagger-api/swagger-ui).</span></span>
