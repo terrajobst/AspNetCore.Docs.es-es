@@ -5,14 +5,14 @@ description: Solución de problemas de errores al usar gRPC en .NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.custom: mvc
-ms.date: 08/12/2019
+ms.date: 08/17/2019
 uid: grpc/troubleshoot
-ms.openlocfilehash: ad74bfa57d2dde316734d55d86075f463e78ee56
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: 7621266dfe26b7126d1607e195dd5dcaab4efa55
+ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69029038"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69886489"
 ---
 # <a name="troubleshoot-grpc-on-net-core"></a>Solución de problemas de gRPC en .NET Core
 
@@ -84,6 +84,8 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
             webBuilder.UseStartup<Startup>();
         });
 ```
+
+Cuando un punto de conexión HTTP/2 se configura sin TLS, el [ListenOptions. Protocols](xref:fundamentals/servers/kestrel#listenoptionsprotocols) del punto de `HttpProtocols.Http2`conexión debe establecerse en. `HttpProtocols.Http1AndHttp2`no se puede usar porque se requiere TLS para negociar HTTP/2. Sin TLS, se produce un error en todas las conexiones con el punto de conexión de forma predeterminada a HTTP/1.1 y las llamadas a gRPC.
 
 El cliente de gRPC también debe estar configurado para no usar TLS. Para obtener más información, consulte [Call unsecure gRPC Services with .net Core Client](#call-insecure-grpc-services-with-net-core-client).
 

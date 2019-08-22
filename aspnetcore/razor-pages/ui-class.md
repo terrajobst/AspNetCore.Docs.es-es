@@ -4,15 +4,15 @@ author: Rick-Anderson
 description: Explica cómo crear la interfaz de usuario Razor reutilizable con las vistas parciales en una biblioteca de clases en ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 06/28/2019
+ms.date: 08/20/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: 77c7d4a318610fcd424da0485abd41d11e3fad6a
-ms.sourcegitcommit: fbc66827e319d28bebed678ea5fd42f582fe3c34
+ms.openlocfilehash: 468d961c291810ca4dfbe615acd972cfd6e7572a
+ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493563"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69886402"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Crear una interfaz de usuario reutilizable mediante el proyecto de biblioteca de clases de Razor en ASP.NET Core
 
@@ -236,13 +236,49 @@ Una RCL puede requerir recursos estáticos complementarios a los que puede hacer
 
 Para incluir los recursos complementarios como parte de un RCL, cree una carpeta *wwwroot* en la biblioteca de clases e incluya los archivos necesarios en esa carpeta.
 
-Al empaquetar un RCL, todos los recursos complementarios de la carpeta *wwwroot* se incluyen automáticamente en el paquete y se ponen a disposición de las aplicaciones que hacen referencia al paquete.
+Al empaquetar un RCL, todos los recursos complementarios de la carpeta *wwwroot* se incluyen automáticamente en el paquete.
 
 ### <a name="consume-content-from-a-referenced-rcl"></a>Consumo de contenido de una RCL a la que se hace referencia
 
 Los archivos incluidos en la carpeta *wwwroot* del RCL se exponen a la aplicación que lo consume `_content/{LIBRARY NAME}/`bajo el prefijo. Por ejemplo, una biblioteca denominada *Razor. class. lib* da como resultado una ruta de acceso al `_content/Razor.Class.Lib/`contenido estático en.
 
-La aplicación de consumo hace referencia a los recursos estáticos proporcionados `<style>`por `<img>`la biblioteca con `<script>`,, y otras etiquetas HTML. La aplicación de consumo debe tener habilitada la [compatibilidad con archivos estáticos](xref:fundamentals/static-files) .
+La aplicación de consumo hace referencia a los recursos estáticos proporcionados `<style>`por `<img>`la biblioteca con `<script>`,, y otras etiquetas HTML. La aplicación de consumo debe tener la [compatibilidad con archivos estáticos](xref:fundamentals/static-files) habilitada en `Startup.Configure`:
+
+```csharp
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    ...
+
+    app.UseStaticFiles();
+
+    ...
+}
+```
+
+Al ejecutar la aplicación de consumo desde la salida de`dotnet run`la compilación (), los activos web estáticos están habilitados de forma predeterminada en el entorno de desarrollo. Para admitir recursos en otros entornos cuando se ejecutan desde la salida `UseStaticWebAssets` de la compilación, llame a en el compilador host en *Program.CS*:
+
+```csharp
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStaticWebAssets();
+                webBuilder.UseStartup<Startup>();
+            });
+}
+```
+
+No `UseStaticWebAssets` es necesario llamar a cuando se ejecuta una aplicación desde`dotnet publish`la salida publicada ().
 
 ### <a name="multi-project-development-flow"></a>Flujo de desarrollo de varios proyectos
 
@@ -255,6 +291,6 @@ Cuando se compila el RCL, se genera un manifiesto que describe las ubicaciones d
 
 ### <a name="publish"></a>Publicar
 
-Cuando se publica la aplicación, los recursos complementarios de todos los proyectos y paquetes a los que se  hace referencia se copian en la `_content/{LIBRARY NAME}/`carpeta wwwroot de la aplicación publicada en.
+Cuando se publica la aplicación, los recursos complementarios de todos los proyectos y paquetes a los que se hace referencia se copian en la `_content/{LIBRARY NAME}/`carpeta wwwroot de la aplicación publicada en.
 
 ::: moniker-end
