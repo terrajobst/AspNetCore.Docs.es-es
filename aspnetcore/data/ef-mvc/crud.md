@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Implementación de la funcionalidad CRUD: ASP.NET MVC con EF Core'
 description: En este tutorial, podrá revisar y personalizar el código CRUD (crear, leer, actualizar y eliminar) que el scaffolding de MVC crea automáticamente para usted en controladores y vistas.
-author: rick-anderson
+author: tdykstra
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 442570cdc79fe7c496392ffbcbc527cf841aefa9
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: 975738200f9ea621c38b395be123b1d05c78298e
+ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750080"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69886305"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Tutorial: Implementación de la funcionalidad CRUD: ASP.NET MVC con EF Core
 
@@ -58,7 +58,7 @@ En la dirección URL siguiente, la ruta predeterminada asigna Instructor como el
 http://localhost:1230/Instructor/Index/1?courseID=2021
 ```
 
-La última parte de la dirección URL ("?courseID=2021") es un valor de cadena de consulta. El enlazador de modelos también pasará el valor ID al parámetro `id` del método `Details` si se pasa como un valor de cadena de consulta:
+La última parte de la dirección URL ("?courseID=2021") es un valor de cadena de consulta. El enlazador de modelos también pasará el valor ID al parámetro `id` del método `Index` si se pasa como un valor de cadena de consulta:
 
 ```
 http://localhost:1230/Instructor/Index?id=1&CourseID=2021

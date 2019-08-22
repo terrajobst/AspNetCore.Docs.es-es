@@ -1,17 +1,17 @@
 ---
 title: 'Páginas de Razor con EF Core en ASP.NET Core: Ordenación, filtrado y paginación (3 de 8)'
-author: rick-anderson
+author: tdykstra
 description: En este tutorial se agregará funcionalidad de ordenación, filtrado y paginación a una página de Razor mediante ASP.NET Core y Entity Framework Core.
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 70f4220674502265963410b928b9340aa20e0cea
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: b4cef98f3ad4973878c5fa65a47c0b86cdfc8686
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914108"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583523"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Ordenación, filtrado y paginación (3 de 8)
 

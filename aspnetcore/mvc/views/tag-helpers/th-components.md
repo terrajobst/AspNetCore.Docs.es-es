@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.date: 06/12/2019
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: 23e244649350b41e4112d10df63139864e5b4381
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: de053dd0138224a9bece218010eaaedcf7e084cb
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022216"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583538"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Componentes del asistente de etiquetas en ASP.NET Core
 
@@ -124,7 +124,7 @@ Use el componente de asistente de etiquetas `address` personalizado para inserta
 public class AddressTagHelperComponent : TagHelperComponent
 {
     private readonly string _printableButton =
-        "<button type='button' class='btn btn-info' onclick=\"window.open("
+        "<button type='button' class='btn btn-info' onclick=\"window.open(" +
         "'https://binged.it/2AXRRYw')\">" +
         "<span class='glyphicon glyphicon-road' aria-hidden='true'></span>" +
         "</button>";

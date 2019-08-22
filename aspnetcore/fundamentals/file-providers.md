@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/30/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: 93eb48d81a853061a874641e84b4875849690a93
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b93b2df7fad7c173f43ad69aec865f09de6c9c34
+ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886620"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69487576"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Proveedores de archivo en ASP.NET Core
 
@@ -51,7 +51,7 @@ La aplicación de ejemplo muestra cómo configurar un proveedor de archivos en `
 
 Hay tres implementaciones de `IFileProvider` disponibles.
 
-| Implementación | Descripción |
+| Implementación | DESCRIPCIÓN |
 | -------------- | ----------- |
 | [PhysicalFileProvider](#physicalfileprovider) | El proveedor físico se utiliza para acceder a los archivos físicos del sistema. |
 | [ManifestEmbeddedFileProvider](#manifestembeddedfileprovider) | El proveedor insertado de manifiestos se utiliza para tener acceder a archivos insertados en ensamblados. |
@@ -107,7 +107,7 @@ En la aplicación de ejemplo, la clase `IndexModel` recibe una instancia `IFileP
 
 Para generar un manifiesto de los archivos incrustados, establezca la propiedad `<GenerateEmbeddedFilesManifest>` en `true`. Especifique los archivos que desea incrustar con [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects):
 
-[!code-csharp[](file-providers/samples/2.x/FileProviderSample/FileProviderSample.csproj?highlight=5,13)]
+[!code-csharp[](file-providers/samples/2.x/FileProviderSample/FileProviderSample.csproj?highlight=6,14)]
 
 Use [patrones globales](#glob-patterns) para especificar uno o varios archivos para incrustar en el ensamblado.
 
@@ -126,7 +126,7 @@ Las sobrecargas adicionales le permiten:
 * Definir el ámbito de archivos a la fecha de la última modificación.
 * Asignar nombre al recurso incrustado que contiene el manifiesto del archivo incrustado.
 
-| Sobrecarga | Descripción |
+| Sobrecarga | DESCRIPCIÓN |
 | -------- | ----------- |
 | [ManifestEmbeddedFileProvider(Assembly, String)](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_) | Acepta parámetro de ruta de acceso relativa `root` opcional. Especifique `root` para definir el ámbito de las llamadas en [GetDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.getdirectorycontents) en aquellos recursos que se encuentran bajo las rutas de acceso proporcionadas. |
 | [ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_System_DateTimeOffset_) | Acepta un parámetro de ruta de acceso relativa `root` opcional y un parámetro de fecha `lastModified` ([DateTimeOffset](/dotnet/api/system.datetimeoffset)). La fecha `lastModified` define el ámbito de la última fecha de modificación para las instancias de [IFileInfo](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo) que [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider) devuelve. |

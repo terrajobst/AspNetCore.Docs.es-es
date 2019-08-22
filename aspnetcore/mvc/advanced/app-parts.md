@@ -5,13 +5,15 @@ description: Obtenga información sobre cómo usar elementos de aplicación (que
 ms.author: riande
 ms.date: 01/04/2017
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 9d0b4b5fadcc287172f23fa36c421f04ca2ade4a
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 4900ccf5589500db076f8cecd9da198c6a7ceea4
+ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815478"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69886463"
 ---
+<!-- DO NOT MAKE CHANGES BEFORE https://github.com/aspnet/AspNetCore.Docs/pull/12376 Merges -->
+
 # <a name="application-parts-in-aspnet-core"></a>Elementos de aplicación en ASP.NET Core
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
@@ -68,7 +70,7 @@ Los proveedores de características de la aplicación examinan los elementos de 
 
 Los proveedores de características heredan de `IApplicationFeatureProvider<T>`, donde `T` es el tipo de la característica. Puede implementar sus propios proveedores de características para cualquiera de los tipos de características de MVC mencionados anteriormente. El orden de los proveedores de características en la colección `ApplicationPartManager.FeatureProviders` puede ser importante, puesto que los proveedores posteriores pueden reaccionar ante las acciones realizadas por los proveedores anteriores.
 
-### <a name="sample-generic-controller-feature"></a>Sample: característica de controlador genérico
+### <a name="sample-generic-controller-feature"></a>Ejemplo: característica de controlador genérico
 
 De forma predeterminada, ASP.NET Core MVC omite los controladores genéricos (por ejemplo, `SomeController<T>`). En este ejemplo se usa un proveedor de características de controlador que se ejecuta después del proveedor predeterminado y agrega instancias de controlador genérico para una lista especificada de tipos (definida en `EntityTypes.Types`):
 
@@ -98,7 +100,7 @@ Este es el resultado cuando se solicita una ruta coincidente:
 
 ![En la salida de la aplicación de ejemplo se lee "Hello from a generic Sprocket controller".](app-parts/_static/generic-controller.png)
 
-### <a name="sample-display-available-features"></a>Sample: muestra de las características disponibles
+### <a name="sample-display-available-features"></a>Ejemplo: muestra de las características disponibles
 
 Para iterar a través de las características rellenadas disponibles para la aplicación, puede solicitar un administrador `ApplicationPartManager` mediante [inserción de dependencias](../../fundamentals/dependency-injection.md) y usarlo para rellenar las instancias de las características adecuadas:
 

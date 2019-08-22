@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Control de simultaneidad: ASP.NET MVC con EF Core'
 description: Este tutorial muestra cómo tratar los conflictos cuando varios usuarios actualizan la misma entidad al mismo tiempo.
-author: rick-anderson
+author: tdykstra
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: bfe417a6153f74cf0ca2d9bcde4db1bba8453b3b
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: d4b83bd269b067ab6fa9e8666109bacc602589bd
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152891"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583247"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Tutorial: Control de simultaneidad: ASP.NET MVC con EF Core
 

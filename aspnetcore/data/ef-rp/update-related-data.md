@@ -1,16 +1,16 @@
 ---
 title: 'Páginas de Razor con EF Core en ASP.NET Core: Actualización de datos relacionados (7 de 8)'
-author: rick-anderson
+author: tdykstra
 description: En este tutorial, se actualizan datos relacionados mediante la actualización de campos de clave externa y propiedades de navegación.
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 4f41ad5fa17cd6ee56f14cd87fb62a47f3a4a9df
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: bc237cf928d852b92c5c1984527129404f88018d
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68993359"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583496"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Actualización de datos relacionados (7 de 8)
 

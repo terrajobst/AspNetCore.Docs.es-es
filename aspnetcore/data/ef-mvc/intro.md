@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Introducción a EF Core en una aplicación web de ASP.NET Core MVC'
 description: Este es el primero de una serie de tutoriales en los que se explica cómo crear la aplicación de ejemplo Contoso University desde el principio.
-author: rick-anderson
+author: tdykstra
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: a93d5af314f1ff679a8df636297a0d5849ebdb8d
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: 1b68c20ba206a5afe36f307525879f91d03d95d1
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610213"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583343"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Tutorial: Introducción a EF Core en una aplicación web de ASP.NET Core MVC
 
@@ -75,7 +75,7 @@ Los usuarios pueden ver y actualizar la información de estudiantes, cursos e in
 
 * Espere que aparezca el cuadro de diálogo **Nueva aplicación web ASP.NET Core**.
 
-* Seleccione **.NET Core**, **ASP.NET Core 2.2** y la plantilla **Aplicación web (controlador de vista de modelos)**.
+* Seleccione **.NET Core**, **ASP.NET Core 2.2** y la plantilla **Aplicación web (controlador de vista de modelos)** .
 
 * Asegúrese de que **Autenticación** esté establecida en **Sin autenticación**.
 
@@ -305,7 +305,7 @@ Haga clic con el botón derecho en la tabla **Student** y haga clic en **Ver dat
 
 ![Tabla de estudiantes en SSOX](intro/_static/ssox-student-table.png)
 
-Los archivos de base de datos *.mdf* y *.ldf* se encuentran en la carpeta *C:\Usuarios\\\<su_nombre_de_usuario>*.
+Los archivos de base de datos *.mdf* y *.ldf* se encuentran en la carpeta *C:\Usuarios\\\<su_nombre_de_usuario>* .
 
 Como se está llamando a `EnsureCreated` en el método de inicializador que se ejecuta al iniciar la aplicación, ahora podría realizar un cambio en la clase `Student`, eliminar la base de datos, volver a ejecutar la aplicación y la base de datos se volvería a crear de forma automática para que coincida con el cambio. Por ejemplo, si agrega una propiedad `EmailAddress` a la clase `Student`, verá una columna `EmailAddress` nueva en la tabla que se ha vuelto a crear.
 

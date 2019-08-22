@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Creación de un modelo de datos complejo: ASP.NET MVC con EF Core'
 description: En este tutorial agregará más entidades y relaciones, y personalizará el modelo de datos especificando reglas de formato, validación y asignación.
-author: rick-anderson
+author: tdykstra
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 8ef458108e60850d0d54e7b1e6472c5b92984ccc
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 3563bf279f2ed9c9d79b5a9da2709e18511620d2
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813540"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583271"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Tutorial: Creación de un modelo de datos complejo: ASP.NET MVC con EF Core
 
@@ -22,7 +22,7 @@ Cuando haya terminado, las clases de entidad conformarán el modelo de datos com
 
 ![Diagrama de entidades](complex-data-model/_static/diagram.png)
 
-En este tutorial, hizo lo siguiente:
+En este tutorial ha:
 
 > [!div class="checklist"]
 > * Personaliza el modelo de datos
@@ -285,7 +285,7 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 ## <a name="create-department-entity"></a>Crea la entidad Department
 
-![Entidad de departamento](complex-data-model/_static/department-entity.png)
+![La entidad Department](complex-data-model/_static/department-entity.png)
 
 Cree *Models/Department.cs* con el código siguiente:
 
@@ -513,7 +513,7 @@ Haga clic con el botón derecho en la tabla **CourseAssignment** y seleccione **
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, hizo lo siguiente:
+En este tutorial ha:
 
 > [!div class="checklist"]
 > * Personalizado el modelo de datos
