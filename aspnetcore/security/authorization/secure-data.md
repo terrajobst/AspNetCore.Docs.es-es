@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 4b94cc53777308deb26521a079d8a1c2742744db
-ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
+ms.openlocfilehash: 225d0e3aa51745253d03e614b1c8568b3a6ba731
+ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2019
-ms.locfileid: "68776742"
+ms.lasthandoff: 08/24/2019
+ms.locfileid: "70017492"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crear una aplicación ASP.NET Core con datos de usuario protegidos por autorización
 
