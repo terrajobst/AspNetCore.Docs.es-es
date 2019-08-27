@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 8/22/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 3005adec9ffe41859d05a3f61c7c45b8e7bfeefc
-ms.sourcegitcommit: bdaee0e8c657fe7546fd6b7990db9c03c2af04df
+ms.openlocfilehash: 1519abbca6430063f037372a4927f5818f160457
+ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69908372"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70024784"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Almacenar en memoria caché en ASP.NET Core
 
@@ -85,15 +85,15 @@ El código siguiente obtiene o crea un elemento almacenado en caché con una exp
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet99)]
 
-Un conjunto de elementos almacenados en caché con una expiración variable solo está en riesgo de ser obsoleto porque no hay ningún límite enlazado a su expiración. Use una expiración absoluta con una expiración variable para garantizar que el elemento almacenado en caché no sea más obsoleto que la expiración absoluta. Cuando se combina la expiración absoluta con la variable, la expiración absoluta establece un límite superior para el tiempo que se puede almacenar en caché el elemento. A diferencia de la hora de expiración absoluta solo, si el elemento no se solicita desde la memoria caché dentro del intervalo de expiración variable, el elemento se expulsa de la memoria caché. Cuando se especifica una expiración absoluta y variable, las expiraciones son lógicamente ORed.
+Un conjunto de elementos almacenados en caché con una expiración variable solo está en riesgo de ser obsoleto. Si se tiene acceso con más frecuencia que el intervalo de expiración variable, el elemento nunca expirará. Combine una expiración variable con una expiración absoluta para garantizar que el elemento expira una vez que se supera su hora de expiración absoluta. La expiración absoluta establece un límite superior para el tiempo que se puede almacenar en caché el elemento y, al mismo tiempo, permite que el elemento expire antes si no se solicita dentro del intervalo de expiración variable. Cuando se especifica la expiración absoluta y la variable, las expiraciones se establecen lógicamente. Si el intervalo de expiración variable *o* el tiempo de expiración absoluto se superan, el elemento se expulsa de la memoria caché.
 
-En el código siguiente se obtiene o se crea un elemento en caché con una expiración variable y absoluta:
+El código siguiente obtiene o crea un elemento en caché con una expiración variable *y* absoluta:
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet9)]
 
 El código anterior garantiza que los datos no se almacenarán en caché durante más tiempo que el tiempo absoluto.
 
-<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreate*>, <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreateAsync*> <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions> <xref:Microsoft.Extensions.Caching.Memory.IMemoryCache>y <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.Get*> son métodos de extensión que forman parte de la clase que extiende la capacidad de. Vea métodos [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache) y [métodos CacheExtensions](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) para obtener una descripción de otros métodos de caché.
+<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreate*>, <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreateAsync*> <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions> y <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.Get*> son métodos de extensión de la clase. Estos métodos amplían la capacidad <xref:Microsoft.Extensions.Caching.Memory.IMemoryCache>de.
 
 ## <a name="memorycacheentryoptions"></a>MemoryCacheEntryOptions
 
