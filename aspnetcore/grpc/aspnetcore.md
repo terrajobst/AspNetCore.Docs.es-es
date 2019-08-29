@@ -4,14 +4,14 @@ author: juntaoluo
 description: Conozca los conceptos básicos al escribir servicios de gRPC con ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 08/07/2019
+ms.date: 08/28/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 38111c152c581c50767f9cd4e5fa257bd3fd804e
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: 128f5b36eac9112460c33693db5537134a077476
+ms.sourcegitcommit: 23f79bd71d49c4efddb56377c1f553cc993d781b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022317"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70130701"
 ---
 # <a name="grpc-services-with-aspnet-core"></a>Servicios gRPC con ASP.NET Core
 
@@ -53,15 +53,76 @@ gRPC requiere el paquete [gRPC. AspNetCore](https://www.nuget.org/packages/Grpc.
 
 ### <a name="configure-grpc"></a>Configuración de gRPC
 
-gRPC se habilita con el `AddGrpc` método:
+En *Startup.cs*:
 
-[!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=7)]
+* gRPC se habilita con el `AddGrpc` método.
+* Cada servicio gRPC se agrega a la canalización de enrutamiento `MapGrpcService` a través del método.
 
-Cada servicio gRPC se agrega a la canalización de enrutamiento `MapGrpcService` a través del método:
-
-[!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=24)]
+[!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=7,24)]
 
 ASP.NET Core los middleware y las características comparten la canalización de enrutamiento, por lo que se puede configurar una aplicación para que atienda a los controladores de solicitud adicionales. Los controladores de solicitud adicionales, como los controladores MVC, funcionan en paralelo con los servicios gRPC configurados.
+
+### <a name="configure-kestrel"></a>Configuración de Kestrel
+
+Puntos de conexión de Kestrel gRPC:
+
+* Requiere HTTP/2.
+* Debe protegerse con HTTPS.
+
+#### <a name="http2"></a>HTTP/2
+
+Kestrel [admite http/2](xref:fundamentals/servers/kestrel#http2-support) en la mayoría de los sistemas operativos modernos. Los puntos de conexión de Kestrel se configuran para admitir conexiones HTTP/1.1 y HTTP/2 de forma predeterminada.
+
+> [!NOTE]
+> macOS no admite ASP.NET Core gRPC con [seguridad de la capa de transporte (TLS)](https://tools.ietf.org/html/rfc5246). Se requiere configuración adicional para ejecutar correctamente servicios gRPC en macOS. Para obtener más información, vea [No se puede iniciar la aplicación gRPC de ASP.NET Core en macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
+
+#### <a name="https"></a>HTTPS
+
+Los puntos de conexión de Kestrel usados para gRPC deben estar protegidos con HTTPS. En el desarrollo, se crea `https://localhost:5001` automáticamente un punto de conexión HTTPS cuando el certificado de desarrollo de ASP.net Core está presente. No se requiere ninguna configuración.
+
+En un entorno de producción, HTTPS se debe configurar explícitamente. En el siguiente ejemplo de *appSettings. JSON* , se proporciona un punto de conexión http/2 protegido con https:
+
+```json
+{
+  "Kestrel": {
+    "Endpoints": {
+      "HttpsDefaultCert": {
+        "Url": "https://localhost:5001",
+        "Protocols": "Http2"
+      }
+    },
+    "Certificates": {
+      "Default": {
+        "Path": "<path to .pfx file>",
+        "Password": "<certificate password>"
+      }
+    }
+  }
+}
+```
+
+También se puede configurar Kestrel endspoints en *Program.CS*:
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.ConfigureKestrel(options =>
+            {
+                // This endpoint will use HTTP/2 and HTTPS on port 5001.
+                options.Listen(IPAddress.Any, 5001, listenOptions =>
+                {
+                    listenOptions.Protocols = HttpProtocols.Http2;
+                    listenOptions.UseHttps("<path to .pfx file>", 
+                        "<certificate password>");
+                });
+            });
+            webBuilder.UseStartup<Startup>();
+        });
+```
+
+Para obtener más información sobre cómo habilitar HTTP/2 y HTTPS con Kestrel, consulte [configuración del punto de conexión de Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
 ## <a name="integration-with-aspnet-core-apis"></a>Integración con API de ASP.NET Core
 
@@ -93,4 +154,4 @@ La API gRPC proporciona acceso a algunos datos de mensajes HTTP/2, como el méto
 * <xref:tutorials/grpc/grpc-start>
 * <xref:grpc/index>
 * <xref:grpc/basics>
-* <xref:grpc/migration>
+* <xref:fundamentals/servers/kestrel>
