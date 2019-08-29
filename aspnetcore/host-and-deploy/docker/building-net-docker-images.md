@@ -1,17 +1,17 @@
 ---
 title: Imágenes de Docker para ASP.NET Core
-author: tdykstra
+author: rick-anderson
 description: Obtenga información sobre cómo usar las imágenes de Docker de .NET Core publicadas desde el registro de Docker. Extraiga imágenes y cree las suyas propias.
-ms.author: tdykstra
+ms.author: riande
 ms.custom: mvc
 ms.date: 06/18/2019
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: 578f6f8cd54597fe0a6186d182cccc3955331e49
-ms.sourcegitcommit: 2fa0ffe82a47c7317efc9ea908365881cbcb8ed7
+ms.openlocfilehash: 38bdad7110a45538be01cf432aab773c4205980e
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69572867"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975424"
 ---
 # <a name="docker-images-for-aspnet-core"></a>Imágenes de Docker para ASP.NET Core
 

@@ -1,18 +1,18 @@
 ---
 title: Validación de modelos en ASP.NET Core MVC
-author: tdykstra
+author: rick-anderson
 description: Obtenga información sobre la validación de modelos en ASP.NET Core MVC y Razor Pages.
 ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: 43b69e9b7588ad575f203200c5bc59a4272d0066
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: eb18d3a701a4d1937ac6eb9f61916f348b95882a
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "67814112"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975255"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Validación de modelos en ASP.NET Core MVC y Razor Pages
 

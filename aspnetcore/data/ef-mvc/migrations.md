@@ -2,17 +2,17 @@
 title: 'Tutorial: Uso de la característica de migraciones: ASP.NET MVC con EF Core'
 description: En este tutorial, empezará usando la característica de migraciones de EF Core para administrar cambios en el modelo de datos en una aplicación ASP.NET Core MVC.
 author: tdykstra
-ms.author: tdykstra
+ms.author: riande
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 7ee383ff5fcd9dd79503321aaa188fd85ef18d7a
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: fcb238c132a774200e9f54f1141f5ba79fa2f802
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583453"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975164"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Tutorial: Uso de la característica de migraciones: ASP.NET MVC con EF Core
 

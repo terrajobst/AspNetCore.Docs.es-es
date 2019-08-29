@@ -5,14 +5,14 @@ description: Cree una aplicación Blazor paso a paso.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/26/2019
+ms.date: 08/23/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 88999350b9c7631e15ba9d0242da5880c8ae71ff
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 2f0410eb75a6ef3f3d361c75bce7e79ae6d42a61
+ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994209"
+ms.lasthandoff: 08/24/2019
+ms.locfileid: "70017501"
 ---
 # <a name="build-your-first-blazor-app"></a>Creación de la primera aplicación Blazor
 
@@ -178,7 +178,7 @@ Agregue un nuevo componente a la aplicación que implemente una simple lista de 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
 
    ```cshtml
-   <input placeholder="Something todo" @bind="@newTodo" />
+   <input placeholder="Something todo" @bind="newTodo" />
    ```
 
 1. Actualice el método `AddTodo` para agregar el `TodoItem` con el título especificado a la lista. Borre el valor de la entrada de texto mediante el establecimiento de `newTodo` en una cadena vacía:

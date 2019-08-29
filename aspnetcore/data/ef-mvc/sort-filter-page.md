@@ -2,16 +2,16 @@
 title: 'Tutorial: Adición de ordenación, filtrado y paginación: ASP.NET MVC con EF Core'
 description: En este tutorial agregaremos la funcionalidad de ordenación, filtrado y paginación a la página de índice de Students. También crearemos una página que realice agrupaciones sencillas.
 author: tdykstra
-ms.author: tdykstra
+ms.author: riande
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 4e52a3d3f56c4cf6f396ee9ff1c18061a2364c77
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 7a5f617b00cceb007f37ca1e585c4c7ff1831b56
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583394"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975220"
 ---
 # <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>Tutorial: Adición de ordenación, filtrado y paginación: ASP.NET MVC con EF Core
 

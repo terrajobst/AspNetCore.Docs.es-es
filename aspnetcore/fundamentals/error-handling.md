@@ -1,18 +1,18 @@
 ---
 title: Controlar errores en ASP.NET Core
-author: tdykstra
+author: rick-anderson
 description: Descubra cómo controlar errores en aplicaciones ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: riande
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: f9f91455b273b99608ca6f1524df6cb748a26669
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: 652a97a6b7fbe4c8cc678b86a92eea59937e809c
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308206"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975580"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Controlar errores en ASP.NET Core
 
@@ -38,7 +38,7 @@ La página incluye la siguiente información sobre la excepción y la solicitud:
 * Seguimiento de la pila
 * Parámetros de cadena de consulta (si existen)
 * Cookies (si existen)
-* encabezados
+* Encabezados
 
 Para ver la Página de excepciones para el desarrollador en la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), use la directiva de preprocesador `DevEnvironment` y seleccione **Trigger an exception** (Desencadenar una excepción) en la página principal.
 

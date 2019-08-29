@@ -3,16 +3,16 @@ title: Implementación del servidor web HTTP.sys en ASP.NET Core
 author: guardrex
 description: Obtenga información sobre HTTP.sys, un servidor web para ASP.NET Core en Windows. Basado en el controlador de modo kernel de HTTP.sys, HTTP.sys es una alternativa a Kestrel que se puede usar para conectarse directamente a Internet sin IIS.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: riande
 ms.custom: mvc
 ms.date: 06/20/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 3f48cda8f89d3f3dcce220cad4e405472b510df4
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 5ee866c862f16c2c22539bf880b5a93415504fb1
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814878"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975515"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web HTTP.sys en ASP.NET Core
 
@@ -30,13 +30,13 @@ HTTP.sys admite las siguientes características:
 * HTTPS con SNI
 * HTTP/2 a través de TLS (Windows 10 o posterior)
 * Transmisión directa de archivos
-* Almacenamiento en caché de respuesta
+* Almacenamiento en caché de respuestas
 * WebSockets (Windows 8 o posterior)
 
-Versiones compatibles de Windows:
+Versiones de Windows compatibles:
 
 * Windows 7 o posterior
-* Windows Server 2008 R2 o versiones posteriores
+* Windows Server 2008 R2 o posterior
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
@@ -119,7 +119,7 @@ HTTP.sys delega en la autenticación de modo kernel con el protocolo de autentic
 
 ::: moniker range=">= aspnetcore-3.0"
 
-   | Propiedad | DESCRIPCIÓN | Valor predeterminado |
+   | Propiedad. | DESCRIPCIÓN | Default |
    | -------- | ----------- | :-----: |
    | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Controlar si se permite la entrada/salida sincrónica de los objetos `HttpContext.Request.Body` y `HttpContext.Response.Body`. | `false` |
    | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Permitir solicitudes anónimas. | `true` |
@@ -137,7 +137,7 @@ HTTP.sys delega en la autenticación de modo kernel con el protocolo de autentic
 
 ::: moniker range="< aspnetcore-3.0"
 
-   | Propiedad | DESCRIPCIÓN | Valor predeterminado |
+   | Propiedad. | DESCRIPCIÓN | Default |
    | -------- | ----------- | :-----: |
    | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Controlar si se permite la entrada/salida sincrónica de los objetos `HttpContext.Request.Body` y `HttpContext.Response.Body`. | `true` |
    | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Permitir solicitudes anónimas. | `true` |
@@ -300,7 +300,7 @@ HTTP.sys delega en la autenticación de modo kernel con el protocolo de autentic
    * [Comandos Netsh para protocolo de transferencia de hipertexto (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
    * [Cadenas de UrlPrefix](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
 
-1. Ejecute la aplicación.
+1. Ejecutar la aplicación.
 
    No se necesitan privilegios de administrador para ejecutar la aplicación al enlazar a localhost mediante HTTP (no HTTPS) con un número de puerto mayor que 1024. Para otras configuraciones (por ejemplo, usar una dirección IP local o enlazar al puerto 443), ejecute la aplicación con privilegios de administrador.
 
