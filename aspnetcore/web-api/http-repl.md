@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/25/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 0e80fcd76a4d3efcd35140c52e0f6f0ae0f27932
-ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
+ms.openlocfilehash: d2c5f774595e7a2223e84cc76eecdb9baa04adfe
+ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68862960"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70024803"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Prueba de las API web HTTP REPL
 
@@ -82,6 +82,12 @@ Options:
 
 Once the REPL starts, these commands are valid:
 
+Setup Commands:
+Use these commands to configure the tool for your API server
+
+connect        Configures the directory structure and base address of the api server
+set header     Sets or clears a header for all requests. e.g. `set header content-type application/json`
+
 HTTP Commands:
 Use these commands to execute requests against your application.
 
@@ -93,13 +99,10 @@ PATCH          patch - Issues a PATCH request
 HEAD           head - Issues a HEAD request
 OPTIONS        options - Issues a OPTIONS request
 
-set header     Sets or clears a header for all requests. e.g. `set header content-type application/json`
-
 Navigation Commands:
 The REPL allows you to navigate your URL space and focus on specific APIs that you are working on.
 
 set base       Set the base URI. e.g. `set base http://locahost:5000`
-set swagger    Sets the swagger document to use for information about the current server
 ls             Show all endpoints for the current path
 cd             Append the given directory to the currently selected path, or move up a path when using `cd ..`
 
@@ -128,10 +131,10 @@ HTTP REPL ofrece la finalización del comando. Al presionar la tecla <kbd>Tabula
 Conéctese a la API web ejecutando el comando siguiente:
 
 ```console
-dotnet httprepl <BASE URI>
+dotnet httprepl <ROOT URI>
 ```
 
-`<BASE URI>` es el URI base de la API web. Por ejemplo:
+`<ROOT URI>` es el URI base de la API web. Por ejemplo:
 
 ```console
 dotnet httprepl https://localhost:5001
@@ -140,27 +143,27 @@ dotnet httprepl https://localhost:5001
 También puede ejecutar el comando siguiente en cualquier momento mientras se ejecuta HTTP REPL:
 
 ```console
-set base <BASE URI>
+connect <ROOT URI>
 ```
 
 Por ejemplo:
 
 ```console
-(Disconnected)~ set base https://localhost:5001
+(Disconnected)~ connect https://localhost:5001
 ```
 
-## <a name="point-to-the-swagger-document-for-the-web-api"></a>Establecimiento como destino del documento de Swagger de la API web
+## <a name="manually-point-to-the-swagger-document-for-the-web-api"></a>Establecimiento manualmente del documento de Swagger de la API web como destino
 
-Para inspeccionar correctamente la API web, establezca el URI relativo en el documento de Swagger para la API web. Ejecute el siguiente comando:
+El comando de conexión anterior intentará buscar el documento de Swagger automáticamente. Si por alguna razón no puede hacerlo, puede especificar el URI del documento de Swagger para la API web mediante la opción `--swagger`:
 
 ```console
-set swagger <RELATIVE URI>
+connect <ROOT URI> --swagger <SWAGGER URI>
 ```
 
 Por ejemplo:
 
 ```console
-https://localhost:5001/~ set swagger /swagger/v1/swagger.json
+(Disconnected)~ connect https://localhost:5001 --swagger /swagger/v1/swagger.json
 ```
 
 ## <a name="navigate-the-web-api"></a>Navegación de la API web
@@ -402,6 +405,21 @@ Para iniciar el editor de texto predeterminado con argumentos específicos de la
 
 ```console
 pref set editor.command.default.arguments "--disable-extensions --new-window"
+```
+
+### <a name="set-the-swagger-search-paths"></a>Establecer las rutas de acceso de búsqueda de Swagger
+
+De forma predeterminada, HTTP REPL tiene un conjunto de rutas de acceso relativas que usa para buscar el documento de Swagger al ejecutar el comando `connect` sin la opción `--swagger`. Estas rutas de acceso relativas se combinan con las rutas de acceso raíz y base especificadas en el comando `connect`. Las rutas de acceso relativas predeterminadas son:
+
+- *swagger.json*
+- *swagger/v1/swagger.json*
+- */swagger.json*
+- */swagger/v1/swagger.json*
+
+Para usar un conjunto diferente de rutas de acceso de búsqueda en el entorno, establezca la preferencia `swagger.searchPaths`. El valor debe ser una lista delimitada por canalizaciones de rutas de acceso relativas. Por ejemplo:
+
+```console
+pref set swagger.searchPaths "swagger/v2/swagger.json|swagger/v3/swagger.json
 ```
 
 ## <a name="test-http-get-requests"></a>Prueba de solicitudes HTTP GET

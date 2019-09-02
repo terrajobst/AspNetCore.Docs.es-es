@@ -4,14 +4,14 @@ author: rick-anderson
 description: Aprenda a crear de una API web con ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/14/2019
+ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 99985e9fb1134c2ba808434f8d24c4a768773268
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: 25bfccb136d875b454034bd011828c9f3b6cd3d8
+ms.sourcegitcommit: de17150e5ec7507d7114dde0e5dbc2e45a66ef53
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022595"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113283"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Tutorial: Creación de una API web con ASP.NET Core
 
@@ -462,9 +462,9 @@ Use Postman para eliminar una tarea pendiente:
 * Establezca el URI del objeto que quiera eliminar, por ejemplo, `https://localhost:5001/api/TodoItems/1`.
 * Seleccione **Enviar**.
 
-## <a name="call-the-api-from-jquery"></a>Llamada a la API desde jQuery
+## <a name="call-the-web-api-with-javascript"></a>Llamar a la API web con JavaScript
 
-Vea [Tutorial: Llamada a una API web de ASP.NET Core con jQuery](xref:tutorials/web-api-jquery).
+Vea [Tutorial: Llamada a una API web de ASP.NET Core con JavaScript](xref:tutorials/web-api-javascript).
 
 ::: moniker-end
 
@@ -480,9 +480,10 @@ En este tutorial aprenderá a:
 > * Configurar el enrutamiento y las rutas de dirección URL.
 > * Especificar los valores devueltos.
 > * Llamar a la API web con Postman.
-> * Llamar a la API web con jQuery.
+> * Llamar a la API web con JavaScript.
 
 Al final, tendrá una API web que pueda administrar las tareas "pendientes" almacenadas en una base de datos relacional.
+
 ## <a name="overview"></a>Información general
 
 En este tutorial se crea la siguiente API:
@@ -737,7 +738,6 @@ Los tipos de valores devueltos `ActionResult` pueden representar una gama amplia
 * Si no hay ningún elemento que coincida con el identificador solicitado, el método devolverá un código de error 404 [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound).
 * En caso contrario, el método devuelve 200 con un cuerpo de respuesta JSON. Devolver `item` genera una respuesta HTTP 200.
 
-
 ## <a name="test-the-gettodoitems-method"></a>Prueba del método GetTodoItems
 
 En este tutorial se usa Postman para probar la API web.
@@ -863,9 +863,9 @@ Use Postman para eliminar una tarea pendiente:
 
 La aplicación de ejemplo permite eliminar todos los elementos. Sin embargo, al eliminar el último elemento, se creará uno nuevo en el constructor de clase de modelo la próxima vez que se llame a la API.
 
-## <a name="call-the-api-with-jquery"></a>Llamada a la API con jQuery
+## <a name="call-the-web-api-with-javascript"></a>Llamar a la API web con JavaScript
 
-En esta sección, se agrega una página HTML que usa jQuery para llamar a la API web. jQuery inicia la solicitud y actualiza la página con los detalles de la respuesta de la API.
+En esta sección, se agrega una página HTML que usa JavaScript para llamar a la API web. La API Fetch inicia la solicitud. JavaScript actualiza la página con los detalles de la respuesta de la API web.
 
 Configure la aplicación para [atender archivos estáticos](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) y [habilitar la asignación de archivos predeterminada](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) mediante la actualización de *Startup.cs* con el siguiente código resaltado:
 
@@ -886,19 +886,17 @@ Puede que sea necesario realizar un cambio en la configuración de inicio del pr
 * Abra *Properties\launchSettings.json*.
 * Quite la propiedad `launchUrl` para forzar a la aplicación a abrirse en *index.html*, esto es, el archivo predeterminado del proyecto.
 
-Existen varias formas de obtener jQuery. En el fragmento de código anterior, la biblioteca se carga desde una red CDN.
-
-En este ejemplo se llama a todos los métodos CRUD de la API. A continuación, encontrará algunas explicaciones de las llamadas a la API.
+En este ejemplo se llama a todos los métodos CRUD de la API web. A continuación, encontrará algunas explicaciones de las llamadas a la API.
 
 ### <a name="get-a-list-of-to-do-items"></a>Obtención de una lista de tareas pendientes
 
-La función de JQuery [ajax](https://api.jquery.com/jquery.ajax/) envía una solicitud `GET` a la API, que devuelve código JSON que representa una matriz de tareas pendientes. La función de devolución de llamada `success` se invoca si la solicitud se realiza correctamente. En la devolución de llamada, el DOM se actualiza con la información de la tarea pendiente.
+Fetch envía una solicitud HTTP GET a la API web, que devuelve código JSON que representa una matriz de tareas pendientes. La función de devolución de llamada `success` se invoca si la solicitud se realiza correctamente. En la devolución de llamada, el DOM se actualiza con la información de la tarea pendiente.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_GetData)]
 
 ### <a name="add-a-to-do-item"></a>Incorporación de una tarea pendiente
 
-La función [ajax](https://api.jquery.com/jquery.ajax/) envía una solicitud `POST` con la tarea pendiente en su cuerpo. Las opciones `accepts` y `contentType` se establecen en `application/json` para especificar el tipo de medio que se va a recibir y a enviar. La tarea pendiente se convierte en JSON mediante [JSON.stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). Cuando la API devuelve un código de estado correcto, se invoca la función `getData` para actualizar la tabla HTML.
+Fetch envía una solicitud HTTP POST con la tarea pendiente en el cuerpo de dicha solicitud. Las opciones `accepts` y `contentType` se establecen en `application/json` para especificar el tipo de medio que se va a recibir y a enviar. La tarea pendiente se convierte en JSON mediante [JSON.stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). Cuando la API devuelve un código de estado correcto, se invoca la función `getData` para actualizar la tabla HTML.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_AddItem)]
 

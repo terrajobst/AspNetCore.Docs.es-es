@@ -2,16 +2,16 @@
 title: 'Tutorial: Lectura de datos relacionados: ASP.NET MVC con EF Core'
 description: En este tutorial podrá leer y mostrar datos relacionados, es decir, los datos que Entity Framework carga en propiedades de navegación.
 author: tdykstra
-ms.author: tdykstra
+ms.author: riande
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 43d05d0a5f938e60cdb54a0025d8bc277059c2e3
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 2bf556dae5d30819c54ecc3f0dadfbd3316db1cc
+ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583433"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70059103"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Tutorial: Lectura de datos relacionados: ASP.NET MVC con EF Core
 
@@ -239,7 +239,7 @@ Suponga que esperaba que los usuarios rara vez quisieran ver las inscripciones e
 
 [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
 
-El nuevo código quita las llamadas al método *ThenInclude* para los datos de inscripción del código que recupera las entidades Instructor. Si se seleccionan un instructor y un curso, el código resaltado recupera las entidades Enrollment para el curso seleccionado y las entidades Student de cada inscripción.
+El nuevo código quita las llamadas al método *ThenInclude* para los datos de inscripción del código que recupera las entidades Instructor. También quita `AsNoTracking`.  Si se seleccionan un instructor y un curso, el código resaltado recupera las entidades Enrollment para el curso seleccionado y las entidades Student de cada inscripción.
 
 Ejecute la aplicación, vaya a la página de índice de instructores ahora y no verá ninguna diferencia en lo que se muestra en la página, aunque haya cambiado la forma en que se recuperan los datos.
 

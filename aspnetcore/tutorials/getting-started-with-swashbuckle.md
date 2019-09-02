@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Obtenga información sobre cómo agregar Swashbuckle a un proyecto de ASP.NET Core Web API para integrar la interfaz de usuario de Swagger.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 06/21/2019
+ms.date: 08/21/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 606be317318eafa170d926aaace1f752d3a25510
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 989d10d0423075fb4812c79cd69b3e362e54e802
+ms.sourcegitcommit: 6189b0ced9c115248c6ede02efcd0b29d31f2115
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994290"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69985450"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introducción a Swashbuckle y ASP.NET Core
 
@@ -89,15 +89,31 @@ Agregue el generador de Swagger a la colección de servicios en el método `Star
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Startup2.cs?name=snippet_ConfigureServices&highlight=9-12)]
 
 ::: moniker-end
 
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/3.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_ConfigureServices&highlight=8-11)]
+
+::: moniker-end
+
 En el método `Startup.Configure`, habilite el middleware para servir el documento JSON generado y la interfaz de usuario de Swagger:
 
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_Configure&highlight=4,8-11)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/3.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_Configure&highlight=4,8-11)]
+
+::: moniker-end
 
 La llamada de método `UseSwaggerUI` anterior habilita el [middleware de archivos estáticos](xref:fundamentals/static-files). Si el destino es .NET Framework o .NET Core 1.x, agregue el paquete NuGet [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) al proyecto.
 
@@ -116,7 +132,13 @@ Si usa directorios con IIS o un proxy inverso, establezca el punto de conexión 
 
 Swagger proporciona opciones para documentar el modelo de objetos y personalizar la interfaz de usuario para que coincida con el tema.
 
-En la clase de inicio, agregue los espacios de nombres siguientes: [!code-csharp[](~/tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_PreReqNamespaces)]
+En la clase `Startup`, agregue los siguientes espacios de nombres:
+
+```csharp
+using System;
+using System.Reflection;
+using System.IO;
+```
 
 ### <a name="api-info-and-description"></a>Información y descripción de la API
 
@@ -244,7 +266,13 @@ namespace TodoApi
 
 Configure Swagger para usar el archivo XML que se generó con las instrucciones anteriores. En Linux o sistemas operativos que no sean Windows, las rutas de acceso y los nombres de archivo pueden distinguir entre mayúsculas y minúsculas. Por ejemplo, un archivo *TodoApi.XML* es válido en Windows, pero no en CentOS.
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/3.0/TodoApi.Swashbuckle/Startup.cs?name=snippet_ConfigureServices&highlight=30-32)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Startup.cs?name=snippet_ConfigureServices&highlight=31-33)]
 
@@ -309,9 +337,15 @@ Agregue un elemento [\<remarks>](/dotnet/csharp/programming-guide/xmldoc/remarks
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=4-14)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/3.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=4-14)]
 
 ::: moniker-end
 
@@ -361,9 +395,15 @@ Agregue el atributo `[Produces("application/json")]` al controlador de API. Su p
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_TodoController&highlight=1)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/3.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_TodoController&highlight=1)]
 
 ::: moniker-end
 
@@ -385,9 +425,15 @@ La acción `Create` devuelve un código de estado HTTP 201 cuando se ha ejecutad
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=17,18,20,21)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/3.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=17,18,20,21)]
 
 ::: moniker-end
 
@@ -415,7 +461,17 @@ El paquete NuGet anterior ya estará instalado si el destino es .NET Core 2.x y 
 
 Habilitar middleware de archivos estáticos:
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup.cs?name=snippet_Configure&highlight=3)]
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Startup.cs?name=snippet_Configure&highlight=3)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/3.0/TodoApi.Swashbuckle/Startup.cs?name=snippet_Configure&highlight=3)]
+
+::: moniker-end
 
 Obtenga el contenido de la carpeta *dist* en el [repositorio de GitHub de la interfaz de usuario de Swagger](https://github.com/swagger-api/swagger-ui/tree/master/dist). Esta carpeta contiene los recursos necesarios para la página de interfaz de usuario de Swagger.
 

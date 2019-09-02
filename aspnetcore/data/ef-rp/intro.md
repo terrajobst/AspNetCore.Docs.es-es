@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 07/22/2019
 uid: data/ef-rp/intro
-ms.openlocfilehash: 5e81b58ebec2d9a50784facd5425f0e7c3524e10
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: c5347049151aed90f453f0ead2fc06649d9cf949
+ms.sourcegitcommit: bdaee0e8c657fe7546fd6b7990db9c03c2af04df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583442"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69908397"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Páginas de Razor con Entity Framework Core en ASP.NET Core: Tutorial 1 de 8
 
@@ -378,7 +378,11 @@ Cree *Data/DbInitializer.cs* con el código siguiente:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Ejecute la aplicación, elimine los registros de alumnos que ha creado antes y detenga la aplicación.
+Detenga la aplciación si se está ejecutando y ejecute el comando siguiente en la **Consola del Administrador de paquetes** (PMC):
+
+```powershell
+Drop-Database
+```
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -700,7 +704,19 @@ En *Program.cs*, modifique el método `Main` para que llame a `Initialize`:
 
 [!code-csharp[](intro/samples/cu21/Program.cs?name=snippet2&highlight=14-15)]
 
-Elimine los registros de los alumnos y reinicie la aplicación. Si la base de datos no se ha inicializado, establezca un punto de interrupción en `Initialize` para diagnosticar el problema.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Detenga la aplciación si se está ejecutando y ejecute el comando siguiente en la **Consola del Administrador de paquetes** (PMC):
+
+```powershell
+Drop-Database
+```
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* Detenga la aplicación si se está ejecutando y elimine el archivo *CU.db*.
+
+---
 
 ## <a name="view-the-db"></a>Ver la base de datos
 
