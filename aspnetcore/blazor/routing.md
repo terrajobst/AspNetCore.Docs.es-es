@@ -5,14 +5,14 @@ description: Aprenda a enrutar las solicitudes en aplicaciones y el componente N
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2019
+ms.date: 08/23/2019
 uid: blazor/routing
-ms.openlocfilehash: 197b1a91b3540d21639c3ee775b2c490da7b23fe
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 067dad657c1e89a31fac45fdfa095cce4b10798d
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030402"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238066"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core el enrutamiento más brillante
 
@@ -103,6 +103,21 @@ Están disponibles las restricciones de ruta que se muestran en la tabla siguien
 > [!WARNING]
 > Las restricciones de ruta que comprueban la dirección URL y que se convierten en un tipo CLR (como `int` o `DateTime`) usan siempre la referencia cultural invariable. Estas restricciones dan por supuesto que la dirección URL no es localizable.
 
+### <a name="routing-with-urls-that-contain-dots"></a>Enrutamiento con direcciones URL que contienen puntos
+
+En las aplicaciones de servidor increíbles, la ruta predeterminada en *_Host. cshtml* es `/` (`@page "/"`). Una dirección URL de solicitud que contiene un`.`punto () no coincide con la ruta predeterminada porque la dirección URL parece solicitar un archivo. Una aplicación increíblemente alta devuelve una respuesta *404 no encontrada* para un archivo estático que no existe. Para usar rutas que contienen un punto, configure *_Host. cshtml* con la siguiente plantilla de ruta:
+
+```cshtml
+@page "/{**path}"
+```
+
+La `"/{**path}"` plantilla incluye:
+
+* Sintaxis *catch-all de* doble asterisco (`**`) para capturar la ruta de acceso en varios límites de carpeta sin codificar barras`/`diagonales ().
+* Nombre `path` del parámetro de ruta.
+
+Para obtener más información, consulta <xref:fundamentals/routing>.
+
 ## <a name="navlink-component"></a>Componente NavLink
 
 Use un `NavLink` componente en lugar de los elementos de hipervínculo HTML (`<a>`) al crear vínculos de navegación. Un `NavLink` componente se comporta como un `<a>` elemento, salvo que alterna una `active` clase CSS en función de si `href` coincide con la dirección URL actual. La `active` clase ayuda a un usuario a entender qué página es la página activa entre los vínculos de navegación mostrados.
@@ -163,3 +178,4 @@ El siguiente componente navega al componente de `Counter` la aplicación cuando 
     }
 }
 ```
+

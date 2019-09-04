@@ -4,14 +4,14 @@ author: juntaoluo
 description: Conozca los conceptos básicos al escribir servicios de gRPC con ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 08/28/2019
+ms.date: 09/03/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 128f5b36eac9112460c33693db5537134a077476
-ms.sourcegitcommit: 23f79bd71d49c4efddb56377c1f553cc993d781b
+ms.openlocfilehash: 28e6b8589bbe0b6a3723b64736c723c883302571
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70130701"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238166"
 ---
 # <a name="grpc-services-with-aspnet-core"></a>Servicios gRPC con ASP.NET Core
 
@@ -71,10 +71,9 @@ Puntos de conexión de Kestrel gRPC:
 
 #### <a name="http2"></a>HTTP/2
 
-Kestrel [admite http/2](xref:fundamentals/servers/kestrel#http2-support) en la mayoría de los sistemas operativos modernos. Los puntos de conexión de Kestrel se configuran para admitir conexiones HTTP/1.1 y HTTP/2 de forma predeterminada.
+gRPC requiere HTTP/2. gRPC for ASP.NET Core valida [HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) es `HTTP/2`.
 
-> [!NOTE]
-> macOS no admite ASP.NET Core gRPC con [seguridad de la capa de transporte (TLS)](https://tools.ietf.org/html/rfc5246). Se requiere configuración adicional para ejecutar correctamente servicios gRPC en macOS. Para obtener más información, vea [No se puede iniciar la aplicación gRPC de ASP.NET Core en macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
+Kestrel [admite http/2](xref:fundamentals/servers/kestrel#http2-support) en la mayoría de los sistemas operativos modernos. Los puntos de conexión de Kestrel se configuran para admitir conexiones HTTP/1.1 y HTTP/2 de forma predeterminada.
 
 #### <a name="https"></a>HTTPS
 
@@ -101,7 +100,7 @@ En un entorno de producción, HTTPS se debe configurar explícitamente. En el si
 }
 ```
 
-También se puede configurar Kestrel endspoints en *Program.CS*:
+Como alternativa, se pueden configurar puntos de conexión de Kestrel en *Program.CS*:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -122,11 +121,16 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         });
 ```
 
+Cuando se configura un punto de conexión HTTP/2 sin HTTPS, los [protocolos ListenOptions. Protocol](xref:fundamentals/servers/kestrel#listenoptionsprotocols) del punto de `HttpProtocols.Http2`conexión deben establecerse en. `HttpProtocols.Http1AndHttp2`no se puede usar porque se requiere HTTPS para negociar HTTP/2. Sin HTTPS, se produce un error en todas las conexiones con el punto de conexión de forma predeterminada a HTTP/1.1 y las llamadas a gRPC.
+
 Para obtener más información sobre cómo habilitar HTTP/2 y HTTPS con Kestrel, consulte [configuración del punto de conexión de Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration).
+
+> [!NOTE]
+> macOS no admite ASP.NET Core gRPC con [seguridad de la capa de transporte (TLS)](https://tools.ietf.org/html/rfc5246). Se requiere configuración adicional para ejecutar correctamente servicios gRPC en macOS. Para obtener más información, vea [No se puede iniciar la aplicación gRPC de ASP.NET Core en macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
 
 ## <a name="integration-with-aspnet-core-apis"></a>Integración con API de ASP.NET Core
 
-los servicios de gRPC tienen acceso completo a las características de ASP.NET Core, como la [inserción](xref:fundamentals/dependency-injection) de dependencias (di) y el [registro](xref:fundamentals/logging/index). Por ejemplo, la implementación del servicio puede resolver un servicio del registrador a partir del contenedor de DI mediante el constructor:
+los servicios de gRPC tienen acceso completo a las características de ASP.NET Core, como la [inserción de dependencias](xref:fundamentals/dependency-injection) (di) y el [registro](xref:fundamentals/logging/index). Por ejemplo, la implementación del servicio puede resolver un servicio del registrador a partir del contenedor de DI mediante el constructor:
 
 ```csharp
 public class GreeterService : Greeter.GreeterBase
