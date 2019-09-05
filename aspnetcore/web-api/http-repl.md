@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la herramienta global HTTP RE
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/25/2019
+ms.date: 08/29/2019
 uid: web-api/http-repl
-ms.openlocfilehash: d2c5f774595e7a2223e84cc76eecdb9baa04adfe
-ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
+ms.openlocfilehash: 7121670856da4b123b1c3e780a7952da0fb696a1
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70024803"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238049"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Prueba de las API web HTTP REPL
 
@@ -325,52 +325,6 @@ Las respuestas posteriores respetan el valor de cuatro espacios:
 ]
 ```
 
-### <a name="set-indentation-size"></a>Establecimiento del tamaño de sangría
-
-Actualmente, la personalización del tamaño de sangría de respuesta solo se admite para JSON. El tamaño predeterminado es de dos espacios. Por ejemplo:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Apple"
-  },
-  {
-    "id": 2,
-    "name": "Orange"
-  },
-  {
-    "id": 3,
-    "name": "Strawberry"
-  }
-]
-```
-
-Para cambiar el tamaño predeterminado, establezca la clave `formatting.json.indentSize`. Por ejemplo, para usar siempre cuatro espacios:
-
-```console
-pref set formatting.json.indentSize 4
-```
-
-Las respuestas posteriores respetan el valor de cuatro espacios:
-
-```json
-[
-    {
-        "id": 1,
-        "name": "Apple"
-    },
-    {
-        "id": 2,
-        "name": "Orange"
-    },
-    {
-        "id": 3,
-        "name": "Strawberry"
-    }
-]
-```
-
 ### <a name="set-the-default-text-editor"></a>Establecimiento del editor de texto predeterminado
 
 De manera predeterminada, HTTP REPL no tiene ningún editor de texto configurado para su uso. Para probar los métodos de la API web que requieren un cuerpo de la solicitud HTTP, se debe establecer un editor de texto predeterminado. La herramienta HTTP REPL inicia el editor de texto configurado con el único fin de redactar el cuerpo de la solicitud. Ejecute el comando siguiente para establecer el editor de texto preferido como predeterminado:
@@ -419,7 +373,7 @@ De forma predeterminada, HTTP REPL tiene un conjunto de rutas de acceso relativa
 Para usar un conjunto diferente de rutas de acceso de búsqueda en el entorno, establezca la preferencia `swagger.searchPaths`. El valor debe ser una lista delimitada por canalizaciones de rutas de acceso relativas. Por ejemplo:
 
 ```console
-pref set swagger.searchPaths "swagger/v2/swagger.json|swagger/v3/swagger.json
+pref set swagger.searchPaths "swagger/v2/swagger.json|swagger/v3/swagger.json"
 ```
 
 ## <a name="test-http-get-requests"></a>Prueba de solicitudes HTTP GET
