@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/get-started
-ms.openlocfilehash: 1358a2e92af9d9104e565718692b1ca1940b9d9e
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 030c289e072efad43d4f6cdd63cba07cc623a090
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68993400"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310431"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Introducción a ASP.NET Core extraordinarias
 
@@ -25,7 +25,7 @@ Introducción a más increíble:
 1. Instale las plantillas extraordinarias ejecutando el comando siguiente en un shell de comandos:
 
    ```console
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview8.19405.7
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview9.19424.4
    ```
 
 1. Siga las instrucciones para su elección de herramientas:
@@ -40,7 +40,7 @@ Introducción a más increíble:
 
    4 \. Proporcione un nombre para el proyecto en el campo **Nombre del proyecto** o acepte el predeterminado. Confirme que la entrada de **Ubicación** es correcta o proporcione una ubicación para el proyecto. Seleccione **Crear**.
 
-   5 \. En el caso de una experiencia del lado del cliente, elija la plantilla de aplicación de webassemble más **brillante** . Para disfrutar de una experiencia de servidor increíblemente brillante, elija la plantilla **aplicación de servidor increíblemente** alta. Seleccione **Crear**. Para obtener información sobre los dos modelos de hospedaje más increíbles, en el lado servidor y en el <xref:blazor/hosting-models>lado cliente, vea.
+   5 \. En el caso de una experiencia del lado del cliente, elija la plantilla de **aplicación de Webassemble más brillante** . Para disfrutar de una experiencia de servidor increíblemente brillante, elija la plantilla **aplicación de servidor increíblemente** alta. Seleccione **Crear**. Para obtener información sobre los dos modelos de hospedaje más increíbles, en el lado servidor y en el <xref:blazor/hosting-models>lado cliente, vea.
 
    6 \. Presione **F5** para ejecutar la aplicación.
 

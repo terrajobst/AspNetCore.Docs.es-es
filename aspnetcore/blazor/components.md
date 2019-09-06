@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo crear y usar componentes de Razor,
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2019
+ms.date: 09/04/2019
 uid: blazor/components
-ms.openlocfilehash: 07e9153ccfdc78d1da57b815d33220f7fa597cc7
-ms.sourcegitcommit: 4b00e77f9984ce76356e829cfe7f75f0f61a7a8f
+ms.openlocfilehash: ce9da14bbe19cbee960d215f6167a0e760bd607a
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70145735"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310380"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -28,7 +28,7 @@ Los componentes se implementan en archivos de componentes de [Razor](xref:mvc/vi
 
 El nombre de un componente debe empezar con un carácter en mayúsculas. Por ejemplo, *MyCoolComponent. Razor* es válido y *MyCoolComponent. Razor* no es válido.
 
-Los componentes se pueden crear con la extensión de archivo *. cshtml* siempre que los archivos se identifiquen como archivos de componentes de `_RazorComponentInclude` Razor mediante la propiedad de MSBuild. Por ejemplo, una aplicación que especifica que todos los archivos *. cshtml* de la carpeta pages se deben tratar como archivos de componentes de Razor:
+Los componentes se pueden crear con la extensión de archivo *. cshtml* siempre que los archivos se identifiquen como archivos de componentes de `_RazorComponentInclude` Razor mediante la propiedad de MSBuild. Por ejemplo, una aplicación que especifica que todos los archivos *. cshtml* de la carpeta *pages* se deben tratar como archivos de componentes de Razor:
 
 ```xml
 <PropertyGroup>
@@ -59,7 +59,7 @@ Los miembros de componente se pueden usar como parte de la lógica de representa
 
 Una vez que el componente se representa inicialmente, el componente regenera su árbol de representación en respuesta a los eventos. Después compara el nuevo árbol de representación con el anterior y aplica las modificaciones realizadas en el Document Object Model del explorador (DOM).
 
-Los componentes son C# clases normales y se pueden colocar en cualquier parte dentro de un proyecto. Los componentes que generan páginas web normalmente residen en la carpeta pages. Los componentes que no son de página se colocan con frecuencia en la carpeta *compartida* o en una carpeta personalizada agregada al proyecto. Para usar una carpeta personalizada, agregue el espacio de nombres de la carpeta personalizada al componente primario o al archivo *_Imports. Razor* de la aplicación. Por ejemplo, el siguiente espacio de nombres hace que los componentes de una carpeta Components estén disponibles cuando `WebApplication`el espacio de nombres raíz de la aplicación es:
+Los componentes son C# clases normales y se pueden colocar en cualquier parte dentro de un proyecto. Los componentes que generan páginas web normalmente residen en la carpeta *pages* . Los componentes que no son de página se colocan con frecuencia en la carpeta *compartida* o en una carpeta personalizada agregada al proyecto. Para usar una carpeta personalizada, agregue el espacio de nombres de la carpeta personalizada al componente primario o al archivo *_Imports. Razor* de la aplicación. Por ejemplo, el siguiente espacio de nombres hace que los componentes de una carpeta *Components* estén disponibles cuando `WebApplication`el espacio de nombres raíz de la aplicación es:
 
 ```cshtml
 @using WebApplication.Components
@@ -72,8 +72,8 @@ Usar componentes con las aplicaciones de Razor Pages y MVC existentes. No es nec
 Para representar un componente de una página o vista, use el `RenderComponentAsync<TComponent>` método auxiliar HTML:
 
 ```cshtml
-<div id="Counter">
-    @(await Html.RenderComponentAsync<Counter>(new { IncrementAmount = 10 }))
+<div id="MyComponent">
+    @(await Html.RenderComponentAsync<MyComponent>(RenderMode.ServerPrerendered))
 </div>
 ```
 
@@ -420,23 +420,23 @@ En el ejemplo siguiente, `UpdateHeading` se llama a de forma asincrónica cuando
 
 En algunos eventos, se permiten los tipos de argumento de evento. Si no es necesario el acceso a uno de estos tipos de evento, no es necesario en la llamada al método.
 
-Los [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/release/3.0-preview8/src/Components/Components/src/UIEventArgs.cs) admitidos se muestran en la tabla siguiente.
+Los [EventArgs](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src/Web) admitidos se muestran en la tabla siguiente.
 
 | Evento | Clase |
 | ----- | ----- |
-| Portapapeles | `UIClipboardEventArgs` |
-| Arrastre  | `UIDragEventArgs`se usa para mantener los datos arrastrados durante una operación de arrastrar y colocar y puede contener uno o `UIDataTransferItem`más. &ndash; `DataTransfer` `UIDataTransferItem`representa un elemento de datos de arrastre. |
-| Error | `UIErrorEventArgs` |
-| Foco | `UIFocusEventArgs`&ndash; No incluye compatibilidad con `relatedTarget`. |
-| Cambio de`<input>` | `UIChangeEventArgs` |
-| Teclado | `UIKeyboardEventArgs` |
-| Mouse | `UIMouseEventArgs` |
-| Puntero del mouse | `UIPointerEventArgs` |
-| Rueda del mouse | `UIWheelEventArgs` |
-| Progreso | `UIProgressEventArgs` |
-| Entrada táctil | `UITouchEventArgs`&ndash; representaunúnicopuntodecontactoenundispositivo`UITouchPoint` con distinción de toque. |
+| Portapapeles        | `ClipboardEventArgs` |
+| Arrastre             | `DragEventArgs`y contienen datos de`DataTransferItem` elementos arrastrados. &ndash; `DataTransfer` |
+| Error            | `ErrorEventArgs` |
+| Foco            | `FocusEventArgs`&ndash; No incluye compatibilidad con `relatedTarget`. |
+| Cambio de`<input>` | `ChangeEventArgs` |
+| Teclado         | `KeyboardEventArgs` |
+| Mouse            | `MouseEventArgs` |
+| Puntero del mouse    | `PointerEventArgs` |
+| Rueda del mouse      | `WheelEventArgs` |
+| Progreso         | `ProgressEventArgs` |
+| Entrada táctil            | `TouchEventArgs`&ndash; representaunúnicopuntodecontactoenundispositivo`TouchPoint` con distinción de toque. |
 
-Para obtener más información sobre las propiedades y el comportamiento de control de eventos de los eventos de la tabla anterior, vea [clases EventArgs en el origen de referencia (versión ASPNET/AspNetCore/3.0-preview9)](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src).
+Para obtener más información sobre las propiedades y el comportamiento de control de eventos de los eventos de la tabla anterior, vea [clases EventArgs en el origen de referencia (versión ASPNET/AspNetCore/3.0-preview9)](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src/Web).
 
 ### <a name="lambda-expressions"></a>Expresiones lambda
 
@@ -523,10 +523,9 @@ Las referencias de componente proporcionan una manera de hacer referencia a una 
 
 * Agregue un [@ref](xref:mvc/views/razor#ref) atributo al componente secundario.
 * Defina un campo con el mismo tipo que el componente secundario.
-* Proporcione el `@ref:suppressField` parámetro, que suprime la generación de campos de respaldo. Para obtener más información, vea el apartado sobre [Cómo quitar @ref la compatibilidad automática de campos de respaldo para en 3.0.0-preview9](https://github.com/aspnet/Announcements/issues/381).
 
 ```cshtml
-<MyLoginDialog @ref="loginDialog" @ref:suppressField ... />
+<MyLoginDialog @ref="loginDialog" ... />
 
 @code {
     private MyLoginDialog loginDialog;
@@ -543,34 +542,67 @@ Cuando se representa el componente, el `loginDialog` campo se rellena con la ins
 > [!IMPORTANT]
 > La `loginDialog` variable solo se rellena después de que el componente se represente y su salida `MyLoginDialog` incluye el elemento. Hasta ese momento, no hay nada que hacer referencia. Para manipular las referencias de componentes una vez finalizada la representación del componente, `OnAfterRenderAsync` use `OnAfterRender` los métodos o.
 
-<!-- HOLD https://github.com/aspnet/AspNetCore.Docs/pull/13818
-Component references provide a way to reference a component instance so that you can issue commands to that instance, such as `Show` or `Reset`.
+Al capturar referencias de componentes, use una sintaxis similar para [capturar referencias de elemento](xref:blazor/javascript-interop#capture-references-to-elements), no es una característica de [interoperabilidad de JavaScript](xref:blazor/javascript-interop) . Las referencias de componente no se pasan&mdash;al código JavaScript solo se usan en código .net.
 
-The Razor compiler automatically generates a backing field for element and component references when using [@ref](xref:mvc/views/razor#ref). In the following example, there's no need to create a `myLoginDialog` field for the `LoginDialog` component:
+> [!NOTE]
+> **No** utilice referencias de componentes para mutar el estado de los componentes secundarios. En su lugar, use parámetros declarativos normales para pasar datos a componentes secundarios. El uso de parámetros declarativos normales da como resultado componentes secundarios que se representarán automáticamente en las horas correctas.
+
+## <a name="invoke-component-methods-externally-to-update-state"></a>Invocar métodos de componentes externamente para actualizar el estado
+
+Increíble utiliza `SynchronizationContext` para exigir un único subproceso lógico de ejecución. Los métodos de ciclo de vida de un componente y todas las devoluciones de llamada de eventos que `SynchronizationContext`se producen con el método increíblemente se ejecutan en este. En el caso de que un componente deba actualizarse en función de un evento externo, como un temporizador u otras notificaciones, `InvokeAsync` use el método, que se enviará a `SynchronizationContext`la más extraordinaria.
+
+Por ejemplo, considere un *servicio de notificador* que puede notificar a cualquier componente de escucha del estado actualizado:
+
+```csharp
+public class NotifierService
+{
+    // Can be called from anywhere
+    public async Task Update(string key, int value)
+    {
+        if (Notify != null)
+        {
+            await Notify.Invoke(key, value);
+        }
+    }
+
+    public event Action<string, int, Task> Notify;
+}
+```
+
+Uso de `NotifierService` para actualizar un componente:
 
 ```cshtml
-<LoginDialog @ref="myLoginDialog" ... />
+@page "/"
+@inject NotifierService Notifier
+@implements IDisposable
+
+<p>Last update: @lastNotification.key = @lastNotification.value</p>
 
 @code {
-    private void OnSomething()
+    private (string key, int value) lastNotification;
+
+    protected override void OnInitialized()
     {
-        myLoginDialog.Show();
+        Notifier.Notify += OnNotify;
+    }
+
+    public async Task OnNotify(string key, int value)
+    {
+        await InvokeAsync(() =>
+        {
+            lastNotification = (key, value);
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        Notifier.Notify -= OnNotify;
     }
 }
 ```
 
-When the component is rendered, the generated `myLoginDialog` field is populated with the `LoginDialog` component instance. You can then invoke .NET methods on the component instance.
-
-In some cases, a backing field is required. For example, declare a backing field when referencing generic components. To suppress backing field generation, specify the `@ref:suppressField` parameter.
-
-> [!IMPORTANT]
-> The generated `myLoginDialog` variable is only populated after the component is rendered and its output includes the `LoginDialog` element. Until that point, there's nothing to reference. To manipulate components references after the component has finished rendering, use the `OnAfterRenderAsync` or `OnAfterRender` methods.
--->
-
-Al capturar referencias de componentes, use una sintaxis similar para [capturar referencias de elemento](xref:blazor/javascript-interop#capture-references-to-elements), no es una característica de interoperabilidad de [JavaScript](xref:blazor/javascript-interop) . Las referencias de componente no se pasan&mdash;al código JavaScript solo se usan en código .net.
-
-> [!NOTE]
-> **No** utilice referencias de componentes para mutar el estado de los componentes secundarios. En su lugar, use parámetros declarativos normales para pasar datos a componentes secundarios. El uso de parámetros declarativos normales da como resultado componentes secundarios que se representarán automáticamente en las horas correctas.
+En el ejemplo anterior, `NotifierService` invoca el método del `OnNotify` componente `SynchronizationContext`fuera de la extraordinaria. `InvokeAsync`se utiliza para cambiar al contexto correcto y poner en cola una representación.
 
 ## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Usar \@la clave para controlar la preservación de elementos y componentes
 
@@ -1006,18 +1038,7 @@ Por ejemplo, la aplicación de ejemplo especifica información de`ThemeInfo`tema
 }
 ```
 
-Para usar valores en cascada, los componentes declaran parámetros en cascada mediante `[CascadingParameter]` el atributo o basándose en un valor de nombre de cadena:
-
-```cshtml
-<CascadingValue Value=@PermInfo Name="UserPermissions">...</CascadingValue>
-
-[CascadingParameter(Name = "UserPermissions")]
-private PermInfo Permissions { get; set; }
-```
-
-El enlace con un valor de nombre de cadena es relevante si tiene varios valores en cascada del mismo tipo y necesita diferenciarlos en el mismo subárbol.
-
-Los valores en cascada se enlazan a los parámetros en cascada por tipo.
+Para usar valores en cascada, los componentes declaran parámetros en cascada mediante `[CascadingParameter]` el atributo. Los valores en cascada se enlazan a los parámetros en cascada por tipo.
 
 En la aplicación de ejemplo, `CascadingValuesParametersTheme` el componente enlaza el `ThemeInfo` valor en cascada a un parámetro en cascada. El parámetro se usa para establecer la clase CSS para uno de los botones mostrados por el componente.
 
@@ -1057,13 +1078,46 @@ En la aplicación de ejemplo, `CascadingValuesParametersTheme` el componente enl
 }
 ```
 
+Para poner en cascada varios valores del mismo tipo en el mismo subárbol, proporcione una cadena `Name` única para cada `CascadingValue` componente y su correspondiente `CascadingParameter`. En el ejemplo siguiente, dos `CascadingValue` componentes colocan en cascada `MyCascadingType` diferentes instancias de por nombre:
+
+```cshtml
+<CascadingValue Value=@ParentCascadeParameter1 Name="CascadeParam1">
+    <CascadingValue Value=@ParentCascadeParameter2 Name="CascadeParam2">
+        ...
+    </CascadingValue>
+</CascadingValue>
+
+@code {
+    private MyCascadingType ParentCascadeParameter1;
+
+    [Parameter]
+    public MyCascadingType ParentCascadeParameter2 { get; set; }
+
+    ...
+}
+```
+
+En un componente descendiente, los parámetros en cascada reciben sus valores de los valores en cascada correspondientes del componente antecesor por nombre:
+
+```cshtml
+...
+
+@code {
+    [CascadingParameter(Name = "CascadeParam1")]
+    protected MyCascadingType ChildCascadeParameter1 { get; set; }
+    
+    [CascadingParameter(Name = "CascadeParam2")]
+    protected MyCascadingType ChildCascadeParameter2 { get; set; }
+}
+```
+
 ### <a name="tabset-example"></a>Ejemplo de TabSet
 
 Los parámetros en cascada también permiten que los componentes colaboren en la jerarquía de componentes. Por ejemplo, considere el siguiente ejemplo de *TabSet* en la aplicación de ejemplo.
 
 La aplicación de ejemplo tiene `ITab` una interfaz que las pestañas implementan:
 
-[!code-cs[](common/samples/3.x/BlazorSample/UIInterfaces/ITab.cs)]
+[!code-csharp[](common/samples/3.x/BlazorSample/UIInterfaces/ITab.cs)]
 
 El `CascadingValuesParametersTabSet` componente usa el `TabSet` componente, que contiene varios `Tab` componentes:
 
@@ -1340,7 +1394,7 @@ public class CultureController : Controller
 El siguiente componente muestra un ejemplo de cómo realizar la redirección inicial cuando el usuario selecciona una referencia cultural:
 
 ```cshtml
-@inject IUriHelper UriHelper
+@inject NavigationManager NavigationManager
 
 <h3>Select your language</h3>
 
@@ -1356,12 +1410,12 @@ El siguiente componente muestra un ejemplo de cómo realizar la redirección ini
     private void OnSelected(UIChangeEventArgs e)
     {
         var culture = (string)e.Value;
-        var uri = new Uri(UriHelper.GetAbsoluteUri())
+        var uri = new Uri(NavigationManager.Uri())
             .GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
         var query = $"?culture={Uri.EscapeDataString(culture)}&" +
             $"redirectUri={Uri.EscapeDataString(uri)}";
 
-        UriHelper.NavigateTo("/Culture/SetCulture" + query, forceLoad: true);
+        NavigationManager.NavigateTo("/Culture/SetCulture" + query, forceLoad: true);
     }
 }
 ```
@@ -1378,6 +1432,24 @@ La funcionalidad de `@bind` extraordinarias realiza la globalización en funció
 Actualmente se admite un conjunto limitado de escenarios de localización de ASP.NET Core:
 
 * `IStringLocalizer<>`*es compatible* con aplicaciones increíbles.
-* `IHtmlLocalizer<>`, `IViewLocalizer<>`y la localización de anotaciones de datos son ASP.net Core escenarios MVC y **no** se admiten en aplicaciones increíbles.
+* `IHtmlLocalizer<>`, `IViewLocalizer<>`y la localización de anotaciones de datos son ASP.net Core escenarios MVC y **no se admiten** en aplicaciones increíbles.
 
 Para obtener más información, consulta <xref:fundamentals/localization>.
+
+## <a name="scalable-vector-graphics-svg-images"></a>Imágenes de gráficos vectoriales escalables (SVG)
+
+Dado que el increíble procesador representa imágenes HTML, compatibles con el explorador, incluidas las imágenes SVG (Scalable Vector Graphics) ( *. svg*) `<img>` , se admiten a través de la etiqueta:
+
+```html
+<img alt="Example image" src="some-image.svg" />
+```
+
+Del mismo modo, las imágenes SVG se admiten en las reglas CSS de un archivo de hoja de estilos ( *. CSS*):
+
+```css
+.my-element {
+    background-image: url("some-image.svg");
+}
+```
+
+Sin embargo, el marcado SVG en línea no se admite en todos los escenarios. Si coloca una `<svg>` etiqueta directamente en un archivo de componente ( *. Razor*), se admite la representación de imagen básica, pero aún no se admiten muchos escenarios avanzados. Por ejemplo, `<use>` las etiquetas no se respetan `@bind` actualmente y no se pueden usar con algunas etiquetas SVG. Esperamos abordar estas limitaciones en una versión futura.

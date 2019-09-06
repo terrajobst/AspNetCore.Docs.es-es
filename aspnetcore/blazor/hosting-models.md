@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 64393e826cb17550085f468f5916fca55973908f
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: bf2bce4f89e8bfe6e5aeeb4860c85a60c5eb4b7c
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68993386"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310396"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Modelos de hospedaje increíblemente ASP.NET Core
 
@@ -28,9 +28,9 @@ El modelo de hospedaje principal de increíbles se está ejecutando en el lado c
 
 ![Impresionante cliente: La aplicación extraordinaria se ejecuta en un subproceso de interfaz de usuario dentro del explorador.](hosting-models/_static/client-side.png)
 
-Para crear una aplicación increíblemente alta con el modelo de hospedaje de cliente, use la plantilla de **aplicación** de webassemble de extraordinarias ([dotnet New blazorwasm](/dotnet/core/tools/dotnet-new)).
+Para crear una aplicación increíblemente alta con el modelo de hospedaje de cliente, use la plantilla de **aplicación de Webassemble de extraordinarias** ([dotnet New blazorwasm](/dotnet/core/tools/dotnet-new)).
 
-Después de seleccionar la plantilla de **aplicación** webassembly de increíble, tiene la opción de configurar la aplicación para usar un back-end de ASP.net Core activando la casilla **ASP.net Core hospedado** ([dotnet New blazorwasm--Hosted](/dotnet/core/tools/dotnet-new)). La aplicación ASP.NET Core envía la aplicación increíblemente a los clientes. La aplicación del lado cliente más increíble puede interactuar con el servidor a través de la red mediante llamadas API web o [SignalR](xref:signalr/introduction).
+Después de seleccionar la plantilla de **aplicación Webassembly** de increíble, tiene la opción de configurar la aplicación para usar un back-end de ASP.net Core activando la casilla **ASP.net Core hospedado** ([dotnet New blazorwasm--Hosted](/dotnet/core/tools/dotnet-new)). La aplicación ASP.NET Core envía la aplicación increíblemente a los clientes. La aplicación del lado cliente más increíble puede interactuar con el servidor a través de la red mediante llamadas API web o [SignalR](xref:signalr/introduction).
 
 Las plantillas incluyen el script *increíblemente. webassembly. js* que controla:
 
@@ -99,35 +99,67 @@ Las aplicaciones de servidor increíbles se configuran de forma predeterminada p
  
 ```cshtml
 <body>
-    <app>@(await Html.RenderComponentAsync<App>())</app>
+    <app>@(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))</app>
  
     <script src="_framework/blazor.server.js"></script>
 </body>
 ```
+
+`RenderMode`configura si el componente:
+
+* Se representa en la página.
+* Se representa como HTML estático en la página o si incluye la información necesaria para iniciar una aplicación extraordinaria desde el agente de usuario.
+
+| `RenderMode`        | DESCRIPCIÓN |
+| ------------------- | ----------- |
+| `ServerPrerendered` | Representa el componente en código HTML estático e incluye un marcador para una aplicación del lado servidor increíblemente alta. Cuando se inicia el agente de usuario, este marcador se usa para arrancar una aplicación increíblemente alta. No se admiten los parámetros. |
+| `Server`            | Representa un marcador para una aplicación del lado servidor increíblemente alta. La salida del componente no está incluida. Cuando se inicia el agente de usuario, este marcador se usa para arrancar una aplicación increíblemente alta. No se admiten los parámetros. |
+| `Static`            | Representa el componente en HTML estático. Se admiten los parámetros. |
+
+No se admite la representación de componentes de servidor desde una página HTML estática.
  
 El cliente se vuelve a conectar al servidor con el mismo estado que se usó para representarla. Si el estado de la aplicación todavía está en la memoria, el estado del componente no se representará una vez establecida la conexión de Signalr.
 
 ### <a name="render-stateful-interactive-components-from-razor-pages-and-views"></a>Representación de componentes interactivos con estado desde vistas y páginas de Razor
  
-Los componentes interactivos con estado se pueden agregar a una página o vista de Razor. Cuando se representa la página o la vista, el componente se representará con él. A continuación, la aplicación se vuelve a conectar al estado del componente una vez que se establece la conexión de cliente siempre que el estado todavía esté en la memoria.
+Los componentes interactivos con estado se pueden agregar a una página o vista de Razor.
+
+Cuando se representa la página o la vista:
+
+* El componente se representará con la página o la vista.
+* Se pierde el estado inicial del componente usado para la representación previa.
+* El nuevo estado del componente se crea cuando se establece la conexión de Signalr.
  
-Por ejemplo, la siguiente página de Razor representa un `Counter` componente con un recuento inicial que se especifica mediante un formulario:
+La siguiente página de Razor representa un `Counter` componente:
+
+```cshtml
+<h1>My Razor Page</h1>
+ 
+@(await Html.RenderComponentAsync<Counter>(RenderMode.ServerPrerendered))
+```
+
+### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Representación de componentes no interactivos desde páginas y vistas de Razor
+
+En la siguiente página de Razor, `MyComponent` el componente se representa estáticamente con un valor inicial que se especifica mediante un formulario:
  
 ```cshtml
 <h1>My Razor Page</h1>
 
 <form>
-    <input type="number" asp-for="InitialCount" />
-    <button type="submit">Set initial count</button>
+    <input type="number" asp-for="InitialValue" />
+    <button type="submit">Set initial value</button>
 </form>
  
-@(await Html.RenderComponentAsync<Counter>(new { InitialCount = InitialCount }))
+@(await Html.RenderComponentAsync<MyComponent>(RenderMode.Static, 
+    new { InitialValue = InitialValue }))
  
 @code {
     [BindProperty(SupportsGet=true)]
-    public int InitialCount { get; set; }
+    public int InitialValue { get; set; }
 }
 ```
+
+Dado `MyComponent` que se representa estáticamente, el componente no puede ser interactivo.
 
 ### <a name="detect-when-the-app-is-prerendering"></a>Detectar cuándo se está preprocesando la aplicación
  
