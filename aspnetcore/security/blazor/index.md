@@ -5,14 +5,14 @@ description: Obtenga información sobre los escenarios de autenticación y autor
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/26/2019
+ms.date: 08/29/2019
 uid: security/blazor/index
-ms.openlocfilehash: 87d61a7ccda209243a62bc54467b8f02dad92c24
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 8714acbeb6e8a00992a601030811b24f53426b82
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994183"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310523"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>Autenticación y autorización de ASP.NET Core Blazor
 
@@ -219,17 +219,21 @@ Si se requieren los datos de estado de autenticación para la lógica de procedi
 
 Si `user.Identity.IsAuthenticated` es `true`, se pueden enumerar las notificaciones y evaluar la pertenencia a roles.
 
-Configure el parámetro `Task<AuthenticationState>` en cascada mediante el componente `CascadingAuthenticationState`:
+Configure el parámetro `Task<AuthenticationState>` en cascada mediante los componentes `AuthorizeRouteView` y `CascadingAuthenticationState`:
 
 ```cshtml
-<CascadingAuthenticationState>
-    <Router AppAssembly="typeof(Startup).Assembly">
-        <NotFoundContent>
-            <h1>Sorry</h1>
-            <p>Sorry, there's nothing at this address.</p>
-        </NotFoundContent>
-    </Router>
-</CascadingAuthenticationState>
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+    </Found>
+    <NotFound>
+        <CascadingAuthenticationState>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p>Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </CascadingAuthenticationState>
+    </NotFound>
+</Router>
 ```
 
 ## <a name="authorization"></a>Autorización
@@ -372,7 +376,7 @@ Si no se especifica `Roles` ni `Policy`, `[Authorize]` usa la directiva predeter
 
 ## <a name="customize-unauthorized-content-with-the-router-component"></a>Personalización del contenido no autorizado con el componente de enrutador
 
-El componente `Router` permite que la aplicación para especificar el contenido personalizado si:
+El componente `Router`, junto con el componente `AuthorizeRouteView`, permite que la aplicación especifique el contenido personalizado si:
 
 * No se encuentra el contenido.
 * El usuario produce un error en la condición `[Authorize]` aplicada al componente. El atributo `[Authorize]` se trata en la sección [Atributo [Authorize]](#authorize-attribute).
@@ -381,28 +385,34 @@ El componente `Router` permite que la aplicación para especificar el contenido 
 En la plantilla de proyecto predeterminada del lado servidor de Blazor, el archivo *App.razor* muestra cómo configurar el contenido personalizado:
 
 ```cshtml
-<CascadingAuthenticationState>
-    <Router AppAssembly="typeof(Startup).Assembly">
-        <NotFoundContent>
-            <h1>Sorry</h1>
-            <p>Sorry, there's nothing at this address.</p>
-        </NotFoundContent>
-        <NotAuthorizedContent>
-            <h1>Sorry</h1>
-            <p>You're not authorized to reach this page.</p>
-            <p>You may need to log in as a different user.</p>
-        </NotAuthorizedContent>
-        <AuthorizingContent>
-            <h1>Authentication in progress</h1>
-            <p>Only visible while authentication is in progress.</p>
-        </AuthorizingContent>
-    </Router>
-</CascadingAuthenticationState>
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+            <NotAuthorized>
+                <h1>Sorry</h1>
+                <p>You're not authorized to reach this page.</p>
+                <p>You may need to log in as a different user.</p>
+            </NotAuthorized>
+            <Authorizing>
+                <h1>Authentication in progress</h1>
+                <p>Only visible while authentication is in progress.</p>
+            </Authorizing>
+        </AuthorizeRouteView>
+    </Found>
+    <NotFound>
+        <CascadingAuthenticationState>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <h1>Sorry</h1>
+                <p>Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </CascadingAuthenticationState>
+    </NotFound>
+</Router>
 ```
 
-El contenido de `<NotFoundContent>`, `<NotAuthorizedContent>` y `<AuthorizingContent>` puede incluir elementos arbitrarios, como otros componentes interactivos.
+El contenido de `<NotFound>`, `<NotAuthorized>` y `<Authorizing>` puede incluir elementos arbitrarios, como otros componentes interactivos.
 
-Si `<NotAuthorizedContent>` no se especifica, el enrutador utiliza el siguiente mensaje de reserva:
+Si `<NotAuthorized>` no se especifica, `<AuthorizeRouteView>` utiliza el siguiente mensaje de reserva:
 
 ```html
 Not authorized.
@@ -478,4 +488,5 @@ El `CascadingAuthenticationState` proporciona el parámetro en cascada `Task<Aut
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * <xref:security/index>
+* <xref:security/blazor/server-side>
 * <xref:security/authentication/windowsauth>

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 43b6c3b55170eaf3a989d0f2779edac5290df823
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: cc2ee50cd887a14fba2141bee13d65e777c16232
+ms.sourcegitcommit: 4b00e77f9984ce76356e829cfe7f75f0f61a7a8f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67855913"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70145758"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Comprobaciones de estado en ASP.NET Core
 
@@ -444,7 +444,7 @@ spec:
 
 La aplicación de ejemplo muestra una comprobación de estado de memoria con un escritor de respuesta personalizada.
 
-`MemoryHealthCheck` notifica un estado degradado si la aplicación usa más de un umbral de memoria determinado (1 GB en la aplicación de ejemplo). El elemento <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult> incluye información del recolector de elementos no utilizados (GC) de la aplicación (*MemoryHealthCheck.cs*):
+`MemoryHealthCheck` notifica un estado incorrecto si la aplicación usa más de un umbral de memoria determinado (1 GB en la aplicación de ejemplo). El elemento <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult> incluye información del recolector de elementos no utilizados (GC) de la aplicación (*MemoryHealthCheck.cs*):
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/MemoryHealthCheck.cs?name=snippet1)]
 
@@ -603,7 +603,7 @@ Para distribuir una comprobación de estado como una biblioteca, haga lo siguien
    * nombre de la comprobación de estado (`name`). En el caso de `null`, se utiliza `example_health_check`.
    * punto de datos de cadena para la comprobación de estado (`data1`).
    * punto de datos enteros para la comprobación de estado (`data2`). En el caso de `null`, se utiliza `1`.
-   * estado de error (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>). El valor predeterminado es `null`. Si `null`, [HealthStatus.Unhealthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) se notifica para un estado de error.
+   * estado de error (<xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus>). De manera predeterminada, es `null`. Si `null`, [HealthStatus.Unhealthy](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus) se notifica para un estado de error.
    * etiquetas (`IEnumerable<string>`).
 
    ```csharp
