@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 34b977f70f3e7e58e4ab6fcf3d8f69800896a65d
-ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
+ms.openlocfilehash: ab29cf687c80551d275cae69f28b7576016bfff6
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70059119"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238124"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Modelo de datos (5 de 8)
 
@@ -390,7 +390,7 @@ public ICollection<Course> Courses { get; set; }
 
 Por convención, EF Core permite la eliminación en cascada de las claves externas que no acepten valores NULL ni relaciones de varios a varios. Este comportamiento predeterminado puede dar lugar a reglas de eliminación en cascada circular. Las reglas de eliminación en cascada circular inician una excepción cuando se agrega una migración.
 
-Por ejemplo, si la propiedad `Department.InstructorID` se ha definido como que no acepta valores NULL, EF Core configurará una regla de eliminación en cascada. En ese caso, el departamento se eliminará cuando se elimine el instructor asignado como administrador. En este escenario, una regla de restricción tendría más sentido. La API fluida siguiente establecería una regla de restricción y deshabilitaría la eliminación en cascada.
+Por ejemplo, si la propiedad `Department.InstructorID` se ha definido como que no acepta valores NULL, EF Core configurará una regla de eliminación en cascada. En ese caso, el departamento se eliminará cuando se elimine el instructor asignado como administrador. En este escenario, una regla de restricción tendría más sentido. La [API fluida](#fluent-api-alternative-to-attributes) siguiente establecería una regla de restricción y deshabilitaría la eliminación en cascada.
 
   ```csharp
   modelBuilder.Entity<Department>()
@@ -1091,7 +1091,7 @@ Por ejemplo, si la propiedad `Department.InstructorID` no se ha definido como qu
 
 * EF Core configura una regla de eliminación en cascada para eliminar el departamento cuando se elimina el instructor.
 * Eliminar el departamento cuando se elimine el instructor no es el comportamiento previsto.
-* La API fluida siguiente establecería una regla de restricción en lugar de en cascada.
+* La [API fluida](#fluent-api-alternative-to-attributes) siguiente establecería una regla de restricción en lugar de en cascada.
 
    ```csharp
    modelBuilder.Entity<Department>()
