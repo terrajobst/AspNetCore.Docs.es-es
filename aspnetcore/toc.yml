@@ -301,7 +301,11 @@
         - name: Interoperabilidad de JavaScript
           uid: blazor/javascript-interop
         - name: Seguridad e identidad
-          uid: security/blazor/index
+          items:
+            - name: Información general
+              uid: security/blazor/index
+            - name: Lado servidor
+              uid: security/blazor/server-side
         - name: Administración de estado
           uid: blazor/state-management
         - name: Control de errores
@@ -540,13 +544,17 @@
       uid: grpc/basics
     - name: Servicios gRPC con ASP.NET Core
       uid: grpc/aspnetcore
+    - name: Llamada a servicios gRPC con el cliente .NET
+      uid: grpc/client
+    - name: Integración de fábrica de cliente de gRPC
+      uid: grpc/clientfactory
     - name: Configuración
       uid: grpc/configuration
     - name: Autenticación y autorización
       uid: grpc/authn-and-authz
     - name: Consideraciones de seguridad
       uid: grpc/security
-    - name: Migración de servicios gRPC de CCore a ASP.NET Core
+    - name: Migración de servicios gRPC desde C Core
       uid: grpc/migration
     - name: Comparación entre los servicios gRPC y las API HTTP
       uid: grpc/comparison
@@ -988,7 +996,11 @@
     - name: 'Seguridad de aplicaciones: OWASP'
       href: 'https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/DotNet_Security_Cheat_Sheet.md'
     - name: Blazor
-      uid: security/blazor/index
+      items:
+        - name: Información general
+          uid: security/blazor/index
+        - name: Lado servidor
+          uid: security/blazor/server-side
 - name: Rendimiento
   items:
     - name: Información general
