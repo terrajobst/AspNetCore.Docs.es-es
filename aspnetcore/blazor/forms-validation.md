@@ -5,20 +5,20 @@ description: Obtenga información sobre cómo usar los escenarios de validación
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2019
+ms.date: 09/04/2019
 uid: blazor/forms-validation
-ms.openlocfilehash: 0b2e38cdbd974a28960b917fb6b5ce370f8c4659
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 4531ef44a7df3951f3bebdf88e597165fa75f06e
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030329"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310328"
 ---
 # <a name="aspnet-core-blazor-forms-and-validation"></a>Formularios y validación de ASP.NET Core increíbles
 
 Por [Daniel Roth](https://github.com/danroth27) y [Luke Latham](https://github.com/guardrex)
 
-Los formularios y la validación se admiten en el uso de anotaciones de [datos](xref:mvc/models/validation).
+Los formularios y la validación se admiten en el uso de [anotaciones de datos](xref:mvc/models/validation).
 
 > [!NOTE]
 > Es probable que los escenarios de validación y formularios cambien con cada versión preliminar.
@@ -175,6 +175,25 @@ En el siguiente formulario se validan los datos proporcionados por el `Starship`
 
 Crea como un [valor en cascada](xref:blazor/components#cascading-values-and-parameters) que realiza un seguimiento de los metadatos sobre el proceso de edición, incluidos los campos modificados y los mensajes de validación actuales. `EditContext` `EditForm` También proporciona eventos útiles para envíos válidos y no válidos `OnInvalidSubmit`(`OnValidSubmit`,). `EditForm` También puede usar `OnSubmit` para desencadenar la validación y comprobar los valores de los campos con código de validación personalizado.
 
+## <a name="inputtext-based-on-the-input-event"></a>InputText basado en el evento de entrada
+
+Utilice el `InputText` componente para crear un componente personalizado que use el `input` `change` evento en lugar del evento.
+
+Cree un componente con el marcado siguiente y use el componente tal y como `InputText` se usa:
+
+```cshtml
+@inherits InputText
+
+<input 
+    @attributes="AdditionalAttributes" 
+    class="@CssClass" 
+    value="@CurrentValue" 
+    @oninput="EventCallback.Factory.CreateBinder<string>(
+        this, __value => CurrentValueAsString = __value, CurrentValueAsString)" />
+```
+
+## <a name="validation-support"></a>Compatibilidad con la validación
+
 El `DataAnnotationsValidator` componente adjunta la compatibilidad con la validación mediante anotaciones de datos en `EditContext`cascada. La habilitación de la compatibilidad para la validación con anotaciones de datos actualmente requiere este gesto explícito, pero estamos considerando la posibilidad de hacer que este sea el comportamiento predeterminado que se puede reemplazar. Para usar un sistema de validación distinto al de las `DataAnnotationsValidator` anotaciones de datos, reemplace con una implementación personalizada. La implementación de ASP.NET Core está disponible para su inspección en el origen de referencia: [DataAnnotationsValidator](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/Forms/DataAnnotationsValidator.cs)/[AddDataAnnotationsValidation](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/Forms/EditContextDataAnnotationsExtensions.cs). *La implementación de ASP.NET Core está sujeta a actualizaciones rápidas durante el período de versión preliminar.*
 
 El `ValidationSummary` componente resume todos los mensajes de validación, que es similar a la [aplicación auxiliar de etiquetas de Resumen de validación](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper).
@@ -186,3 +205,7 @@ El `ValidationMessage` componente muestra los mensajes de validación de un camp
 ```
 
 Los `ValidationMessage` componentes `ValidationSummary` y admiten atributos arbitrarios. Cualquier atributo que no coincida con un parámetro de componente se agrega al `<div>` elemento `<ul>` o generado.
+
+### <a name="validation-of-complex-or-collection-type-properties"></a>Validación de propiedades de tipo complejo o de colección
+
+Los atributos de validación que se aplican a las propiedades de un modelo se validan cuando se envía el formulario. Sin embargo, las propiedades de las colecciones o los tipos de datos complejos de un modelo no se validan en el envío del formulario. Para respetar los atributos de validación anidados en este escenario, utilice un componente de validación personalizado. Para obtener un ejemplo, consulte el [ejemplo de validación de increíble información en el repositorio de github de ASPNET/samples](https://github.com/aspnet/samples/tree/master/samples/aspnetcore/blazor/Validation).

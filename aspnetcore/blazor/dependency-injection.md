@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2019
 uid: blazor/dependency-injection
-ms.openlocfilehash: a9330caa81eec0910206312283b3424c70cd1289
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: a2bfa0cbe951e817ed6264f1a151d5a716cd795c
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68948395"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310348"
 ---
 # <a name="aspnet-core-blazor-dependency-injection"></a>Inyección de dependencia de ASP.NET Core extraordinaria
 
@@ -33,7 +33,7 @@ Los servicios predeterminados se agregan automáticamente a la colección de ser
 | ------- | -------- | ----------- |
 | <xref:System.Net.Http.HttpClient> | Singleton | Proporciona métodos para enviar solicitudes HTTP y recibir respuestas HTTP de un recurso identificado por un URI. Tenga en cuenta que esta `HttpClient` instancia de usa el explorador para controlar el tráfico http en segundo plano. [HttpClient. BaseAddress](xref:System.Net.Http.HttpClient.BaseAddress) se establece automáticamente en el prefijo de URI base de la aplicación. Para obtener más información, consulta <xref:blazor/call-web-api>. |
 | `IJSRuntime` | Singleton | Representa una instancia de un Runtime de JavaScript en la que se envían las llamadas de JavaScript. Para obtener más información, consulta <xref:blazor/javascript-interop>. |
-| `IUriHelper` | Singleton | Contiene aplicaciones auxiliares para trabajar con URI y el estado de navegación. Para obtener más información, vea [aplicaciones auxiliares de URI y de estado de navegación](xref:blazor/routing#uri-and-navigation-state-helpers). |
+| `NavigationManager` | Singleton | Contiene aplicaciones auxiliares para trabajar con URI y el estado de navegación. Para obtener más información, vea [aplicaciones auxiliares de URI y de estado de navegación](xref:blazor/routing#uri-and-navigation-state-helpers). |
 
 Un proveedor de servicios personalizado no proporciona automáticamente los servicios predeterminados que aparecen en la tabla. Si utiliza un proveedor de servicios personalizado y requiere cualquiera de los servicios que se muestran en la tabla, agregue los servicios necesarios al nuevo proveedor de servicios.
 
@@ -105,7 +105,7 @@ En los componentes derivados de la clase base, `@inject` no se requiere la Direc
 
 ## <a name="use-di-in-services"></a>Usar DI en servicios
 
-Los servicios complejos pueden requerir servicios adicionales. En el ejemplo anterior, `DataAccess` podría requerir el `HttpClient` servicio predeterminado. `@inject`(o) `InjectAttribute`no está disponible para su uso en los servicios de. En su lugar, se debe usar la *inserción* de constructores. Los servicios necesarios se agregan agregando parámetros al constructor del servicio. Cuando DI crea el servicio, reconoce los servicios que requiere en el constructor y los proporciona en consecuencia.
+Los servicios complejos pueden requerir servicios adicionales. En el ejemplo anterior, `DataAccess` podría requerir el `HttpClient` servicio predeterminado. `@inject`(o) `InjectAttribute`no está disponible para su uso en los servicios de. En su lugar, se debe usar la *inserción de constructores* . Los servicios necesarios se agregan agregando parámetros al constructor del servicio. Cuando DI crea el servicio, reconoce los servicios que requiere en el constructor y los proporciona en consecuencia.
 
 ```csharp
 public class DataAccess : IDataAccess

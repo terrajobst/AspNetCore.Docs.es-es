@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2019
 uid: blazor/routing
-ms.openlocfilehash: 067dad657c1e89a31fac45fdfa095cce4b10798d
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: ae3d7ab01185dd6f2e8e0f59b78c2e693fe464b0
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238066"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310342"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core el enrutamiento más brillante
 
@@ -30,16 +30,17 @@ El lado servidor increíblemente integrado se integra en [ASP.net Core enrutamie
 
 El `Router` componente habilita el enrutamiento y se proporciona una plantilla de ruta a cada componente accesible. El `Router` componente aparece en el archivo *app. Razor* :
 
-En una aplicación del lado servidor increíblemente alta:
+En una aplicación del lado servidor o en el lado cliente:
 
 ```cshtml
-<Router AppAssembly="typeof(Startup).Assembly" />
-```
-
-En una aplicación de cliente increíblemente alta:
-
-```cshtml
-<Router AppAssembly="typeof(Program).Assembly" />
+<Router AppAssembly="typeof(Startup).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+    </Found>
+    <NotFound>
+        <p>Sorry, there's nothing at this address.</p>
+    </NotFound>
+</Router>
 ```
 
 Cuando se compila un archivo *. Razor* con una `@page` Directiva, se proporciona la <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> clase generada que especifica la plantilla de ruta. En tiempo de ejecución, el enrutador busca clases `RouteAttribute` de componentes con y representa el componente con una plantilla de ruta que coincide con la dirección URL solicitada.
@@ -49,24 +50,27 @@ Se pueden aplicar varias plantillas de ruta a un componente. El siguiente compon
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 > [!IMPORTANT]
-> Para generar rutas correctamente, la aplicación debe incluir una `<base>` etiqueta en su archivo *wwwroot/index.html* (lado cliente) o el archivo *pages/_Host. cshtml* (lado servidor) con la ruta de acceso base de la aplicación especificada en el `href` atributo ( `<base href="/">`). Para obtener más información, consulta <xref:host-and-deploy/blazor/client-side#app-base-path>.
+> Para que las direcciones URL se resuelvan correctamente, la `<base>` aplicación debe incluir una etiqueta en su archivo *wwwroot/index.html* (lado cliente) o en el archivo *pages/_Host. cshtml* (servidor increíble) con la ruta de acceso base de `href` la aplicación especificada en el atributo ( `<base href="/">`). Para obtener más información, consulta <xref:host-and-deploy/blazor/client-side#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>Proporcionar contenido personalizado cuando no se encuentra el contenido
 
 El `Router` componente permite que la aplicación especifique el contenido personalizado si no se encuentra el contenido para la ruta solicitada.
 
-En el archivo *app. Razor* , establezca el contenido personalizado en `<NotFoundContent>` el elemento del `Router` componente:
+En el archivo *app. Razor* , establezca el contenido personalizado en `<NotFound>` el parámetro de `Router` plantilla del componente:
 
 ```cshtml
 <Router AppAssembly="typeof(Startup).Assembly">
-    <NotFoundContent>
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+    </Found>
+    <NotFound>
         <h1>Sorry</h1>
         <p>Sorry, there's nothing at this address.</p> b
-    </NotFoundContent>
+    </NotFound>
 </Router>
 ```
 
-El contenido de `<NotFoundContent>` puede incluir elementos arbitrarios, como otros componentes interactivos.
+El contenido de `<NotFound>` puede incluir elementos arbitrarios, como otros componentes interactivos.
 
 ## <a name="route-parameters"></a>Parámetros de ruta
 
@@ -147,14 +151,14 @@ Se representa el siguiente marcado HTML:
 
 ## <a name="uri-and-navigation-state-helpers"></a>Aplicaciones auxiliares de estado de navegación y URI
 
-Use `Microsoft.AspNetCore.Components.IUriHelper` para trabajar con los URI y la C# navegación en el código. `IUriHelper`proporciona el evento y los métodos que se muestran en la tabla siguiente.
+Use `Microsoft.AspNetCore.Components.NavigationManager` para trabajar con los URI y la C# navegación en el código. `NavigationManager`proporciona el evento y los métodos que se muestran en la tabla siguiente.
 
 | Member | DESCRIPCIÓN |
 | ------ | ----------- |
-| `GetAbsoluteUri` | Obtiene el URI absoluto actual. |
-| `GetBaseUri` | Obtiene el URI base (con una barra diagonal final) que se puede anteponer a las rutas de acceso del URI relativo para generar un URI absoluto. Normalmente, `GetBaseUri` se corresponde con `href` el atributo en el elemento `<base>` del documento en *wwwroot/index.html* (cliente de increíble parte) o *pages/_Host. cshtml* (servidor más increíble). |
+| `Uri` | Obtiene el URI absoluto actual. |
+| `BaseUri` | Obtiene el URI base (con una barra diagonal final) que se puede anteponer a las rutas de acceso del URI relativo para generar un URI absoluto. Normalmente, `BaseUri` se corresponde con `href` el atributo en el elemento `<base>` del documento en *wwwroot/index.html* (cliente de increíble parte) o *pages/_Host. cshtml* (servidor más increíble). |
 | `NavigateTo` | Navega al URI especificado. Si `forceLoad` es `true`:<ul><li>Se omite el enrutamiento del lado cliente.</li><li>El explorador se ve obligado a cargar la nueva página del servidor, tanto si el identificador URI está controlado normalmente por el enrutador del lado cliente como si no.</li></ul> |
-| `OnLocationChanged` | Evento que se desencadena cuando ha cambiado la ubicación de navegación. |
+| `LocationChanged` | Evento que se desencadena cuando ha cambiado la ubicación de navegación. |
 | `ToAbsoluteUri` | Convierte un URI relativo en un URI absoluto. |
 | `ToBaseRelativePath` | Dado un URI base (por ejemplo, un URI previamente devuelto `GetBaseUri`por), convierte un URI absoluto en un URI relativo al prefijo de URI base. |
 
@@ -162,8 +166,7 @@ El siguiente componente navega al componente de `Counter` la aplicación cuando 
 
 ```cshtml
 @page "/navigate"
-@using Microsoft.AspNetCore.Components
-@inject IUriHelper UriHelper
+@inject NavigationManager NavigationManager
 
 <h1>Navigate in Code Example</h1>
 
@@ -174,7 +177,7 @@ El siguiente componente navega al componente de `Counter` la aplicación cuando 
 @code {
     private void NavigateToCounterComponent()
     {
-        UriHelper.NavigateTo("counter");
+        NavigationManager.NavigateTo("counter");
     }
 }
 ```

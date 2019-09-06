@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/state-management
-ms.openlocfilehash: af040635302fbf2dae8192dcf37d55bfcfedfcec
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 01f32130e43b7235cb438ad71321256882f53573
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030365"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310300"
 ---
 # <a name="aspnet-core-blazor-state-management"></a>Administración de Estados de ASP.NET Core increíblemente
 
@@ -197,7 +197,7 @@ Si los parámetros del componente incluyen el estado de navegación `ProtectedSe
 >
 > > No se pueden emitir llamadas de interoperabilidad de JavaScript en este momento. Esto se debe a que el componente se está preprocesando.
 >
-> Deshabilite la representación previa o agregue código adicional para trabajar con la representación previa. Para obtener más información sobre cómo escribir código que funcione con la representación previa, consulte la sección [Handle](#handle-prerendering) prerendering.
+> Deshabilite la representación previa o agregue código adicional para trabajar con la representación previa. Para obtener más información sobre cómo escribir código que funcione con la representación previa, consulte la sección [Handle prerendering](#handle-prerendering) .
 
 ### <a name="handle-the-loading-state"></a>Controlar el estado de carga
 
@@ -237,10 +237,7 @@ Durante la representación previa:
 
 Una manera de resolver el error es deshabilitar la representación previa. Esta suele ser la mejor opción si la aplicación hace un uso intensivo del almacenamiento basado en explorador. La representación previa agrega complejidad y no beneficia a la aplicación porque la aplicación no puede representar un contenido útil `localStorage` hasta `sessionStorage` que no esté disponible.
 
-Para deshabilitar la representación previa:
-
-1. Abra el archivo *pages/_Host. cshtml* y quite la llamada `Html.RenderComponentAsync`a.
-1. Abra el `Startup.cs` archivo y reemplace la llamada a `endpoints.MapBlazorHub()` por `endpoints.MapBlazorHub<App>("app")`. `App`es el tipo del componente raíz. `"app"`es un selector de CSS que especifica la ubicación del componente raíz.
+Para deshabilitar la representación previa, abra el archivo *pages/_Host. cshtml* y cambie la `Html.RenderComponentAsync<App>(RenderMode.Server)`llamada a.
 
 La representación previa puede ser útil para otras páginas que no utilizan `localStorage` o `sessionStorage`. Para mantener habilitada la pregeneración, postergue la operación de carga hasta que el explorador esté conectado al circuito. El siguiente es un ejemplo para almacenar un valor de contador:
 
@@ -374,7 +371,7 @@ Los componentes encapsulados reciben y pueden modificar el estado del contador g
 
 No es necesario que el componente anterior interactúe `ProtectedBrowserStorage`con, ni se trata de una fase de "carga".
 
-Para tratar con la representación previa tal y como se `CounterStateProvider` ha descrito anteriormente, se puede modificar para que todos los componentes que consumen los datos del contador funcionen automáticamente con la representación previa. Para obtener más información, consulte la sección [Handle](#handle-prerendering) prerendering.
+Para tratar con la representación previa tal y como se `CounterStateProvider` ha descrito anteriormente, se puede modificar para que todos los componentes que consumen los datos del contador funcionen automáticamente con la representación previa. Para obtener más información, consulte la sección [Handle prerendering](#handle-prerendering) .
 
 En general, se recomienda el patrón de *componente primario del proveedor de estado* :
 
