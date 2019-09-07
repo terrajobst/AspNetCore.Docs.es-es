@@ -5,14 +5,14 @@ description: Obtenga información acerca de cómo mitigar las amenazas de seguri
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/04/2019
+ms.date: 09/05/2019
 uid: security/blazor/server-side
-ms.openlocfilehash: eb8068354182f9e05411bf48232878911bae6af8
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: 13bb4475b4beac78cf489d83fb59a3e0d6d8f2d9
+ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310635"
+ms.lasthandoff: 09/07/2019
+ms.locfileid: "70800495"
 ---
 # <a name="secure-aspnet-core-blazor-server-side-apps"></a>Protección de aplicaciones del lado servidor de ASP.NET Core increíbles
 
@@ -222,7 +222,7 @@ El error del lado cliente no incluye la pila de llamadas y no proporciona detall
 
 Habilitar errores detallados con:
 
-* `CircuitOptions.DetailedErrors`
+* `CircuitOptions.DetailedErrors`.
 * `DetailedErrors`clave de configuración. Por ejemplo, establezca la `ASPNETCORE_DETAILEDERRORS` variable de entorno en un valor `true`de.
 
 > [!WARNING]

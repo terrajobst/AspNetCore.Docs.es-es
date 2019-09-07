@@ -5,14 +5,14 @@ description: Vea cómo las aplicaciones más extraordinarias pueden insertar ser
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/02/2019
+ms.date: 09/06/2019
 uid: blazor/dependency-injection
-ms.openlocfilehash: a2bfa0cbe951e817ed6264f1a151d5a716cd795c
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: 0b48cd0cbe14d2b07627f56ab78611bbd3209fa1
+ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310348"
+ms.lasthandoff: 09/07/2019
+ms.locfileid: "70800393"
 ---
 # <a name="aspnet-core-blazor-dependency-injection"></a>Inyección de dependencia de ASP.NET Core extraordinaria
 
@@ -61,7 +61,7 @@ Los servicios se pueden configurar con las duraciones que se muestran en la tabl
 
 | Período de duración | DESCRIPCIÓN |
 | -------- | ----------- |
-| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | En la actualidad, el lado cliente no tiene un concepto de ámbito de DI. `Scoped`: los servicios registrados se `Singleton` comportan como servicios. Sin embargo, el modelo de hospedaje del lado servidor `Scoped` admite la duración. En un componente de Razor, el ámbito de un registro de servicio de ámbito es la conexión. Por esta razón, se prefiere el uso de servicios con ámbito para los servicios que deben tener el ámbito del usuario actual, aunque la intención actual sea ejecutar el lado cliente en el explorador. |
+| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Las aplicaciones de webassembly increíbles no tienen actualmente un concepto de ámbito de DI. `Scoped`: los servicios registrados se `Singleton` comportan como servicios. Sin embargo, el modelo de hospedaje del lado servidor `Scoped` admite la duración. En las aplicaciones de servidor increíbles, el ámbito de un registro de servicio de ámbito es la *conexión*. Por esta razón, se prefiere el uso de servicios con ámbito para los servicios que deben tener el ámbito del usuario actual, aunque la intención actual sea ejecutar el lado cliente en el explorador. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Singleton*> | DI crea una *única instancia* del servicio. Todos los componentes que requieren `Singleton` un servicio reciben una instancia del mismo servicio. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Transient*> | Cada vez que un componente obtiene una instancia de `Transient` un servicio del contenedor de servicios, recibe una *nueva instancia* del servicio. |
 
@@ -124,6 +124,29 @@ Requisitos previos para la inserción de constructores:
 * Debe existir un constructor cuyos argumentos se puedan cumplir con DI. Los parámetros adicionales que no están incluidos en DI se permiten si especifican valores predeterminados.
 * El constructor aplicable debe ser *público*.
 * Debe existir un constructor aplicable. En caso de ambigüedad, DI produce una excepción.
+
+## <a name="utility-base-component-classes-to-manage-a-di-scope"></a>Clases de componentes base de la utilidad para administrar un ámbito de DI
+
+En ASP.NET Core aplicaciones, el ámbito de los servicios de ámbito suele ser la solicitud actual. Una vez completada la solicitud, el sistema DI elimina todos los servicios de ámbito o transitorios. En las aplicaciones de servidor increíbles, el ámbito de la solicitud se mantiene durante la conexión del cliente, lo que puede dar lugar a que los servicios transitorios y de ámbito duren mucho más tiempo del esperado.
+
+Para limitar los servicios a la duración de un componente, puede usar `OwningComponentBase` las `OwningComponentBase<TService>` clases base y. Estas clases base exponen una `ScopedServices` propiedad de tipo `IServiceProvider` que resuelve los servicios cuyo ámbito es la duración del componente. Para crear un componente que herede de una clase base en Razor, use la `@inherits` Directiva.
+
+```cshtml
+@page "/users"
+@attribute [Authorize]
+@inherits OwningComponentBase<Data.ApplicationDbContext>
+
+<h1>Users (@Service.Users.Count())</h1>
+<ul>
+    @foreach (var user in Service.Users)
+    {
+        <li>@user.UserName</li>
+    }
+</ul>
+```
+
+> [!NOTE]
+> Los servicios insertados en el componente `@inject` con `InjectAttribute` o no se crean en el ámbito del componente y están vinculados al ámbito de la solicitud.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
