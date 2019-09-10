@@ -5,14 +5,14 @@ description: Obtenga información sobre los escenarios de autenticación y autor
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/29/2019
+ms.date: 09/05/2019
 uid: security/blazor/index
-ms.openlocfilehash: 8714acbeb6e8a00992a601030811b24f53426b82
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: 2ba7b0612c2be50ae0797c50dc3cb0d63c0f0c2d
+ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310523"
+ms.lasthandoff: 09/07/2019
+ms.locfileid: "70800508"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>Autenticación y autorización de ASP.NET Core Blazor
 
@@ -62,7 +62,7 @@ dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
 
 En la tabla siguiente se muestran los valores de autenticación permitidos (`{AUTHENTICATION}`).
 
-| Mecanismo de autenticación                                                                 | Valor de`{AUTHENTICATION}` |
+| Mecanismo de autenticación                                                                 | Valor de`{AUTHENTICATION}`  |
 | ---------------------------------------------------------------------------------------- | :----------------------: |
 | Sin autenticación                                                                        | `None`                   |
 | Individual<br>Usuarios almacenados en la aplicación con la identidad de ASP.NET Core.                        | `Individual`             |
@@ -277,7 +277,7 @@ También puede proporcionar contenido diferente para mostrar si el usuario no es
 </AuthorizeView>
 ```
 
-El contenido de `<Authorized>` y `<NotAuthorized>` puede incluir elementos arbitrarios, como otros componentes interactivos.
+El contenido de las etiquetas `<Authorized>` y `<NotAuthorized>` puede incluir elementos arbitrarios, como otros componentes interactivos.
 
 Las condiciones de autorización, como los roles o directivas que controlan las opciones o el acceso a la interfaz de usuario, se tratan en la sección [Autorización](#authorization).
 
@@ -410,9 +410,9 @@ En la plantilla de proyecto predeterminada del lado servidor de Blazor, el archi
 </Router>
 ```
 
-El contenido de `<NotFound>`, `<NotAuthorized>` y `<Authorizing>` puede incluir elementos arbitrarios, como otros componentes interactivos.
+El contenido de las etiquetas `<NotFound>`, `<NotAuthorized>` y `<Authorizing>` puede incluir elementos arbitrarios, como otros componentes interactivos.
 
-Si `<NotAuthorized>` no se especifica, `<AuthorizeRouteView>` utiliza el siguiente mensaje de reserva:
+Si el elemento `<NotAuthorized>` no se especifica, `AuthorizeRouteView` utiliza el siguiente mensaje de reserva:
 
 ```html
 Not authorized.

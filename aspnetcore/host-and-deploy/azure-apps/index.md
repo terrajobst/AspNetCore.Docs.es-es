@@ -5,14 +5,14 @@ description: Este artículo contiene vínculos a recursos de implementación y h
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/28/2019
+ms.date: 09/07/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 5035a31526e0290964e0fdee05753aeaf6cb3790
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
+ms.openlocfilehash: 5da32b5fd1026263f721db442b2676d45b239b8d
+ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602441"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815603"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -97,17 +97,7 @@ El [middleware de integración con IIS](xref:host-and-deploy/iis/index#enable-th
 
 ## <a name="monitoring-and-logging"></a>Supervisión y registro
 
-::: moniker range=">= aspnetcore-3.0"
-
-Las aplicaciones ASP.NET Core implementadas de forma automática en App Service reciben una extensión de App Service, **Integración de registro de ASP.NET Core**. La extensión habilita la integración de registro para las aplicaciones ASP.NET Core en Azure App Service.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-Las aplicaciones de ASP.NET Core implementadas automáticamente en App Service reciben una extensión de App Service, **Extensiones de registro de ASP.NET Core**. La extensión habilita la integración de registro para las aplicaciones ASP.NET Core en Azure App Service.
-
-::: moniker-end
+Azure App Service ofrece las **Extensiones de registro de ASP.NET Core**, que habilitan la integración de registros para aplicaciones ASP.NET Core. Para agregar automáticamente la extensión a una instancia de App Service, use el proceso **Publicar** de Visual Studio con un perfil de publicación de **App Service**. Cuando no use Visual Studio para implementar una aplicación, instale manualmente la extensión en Azure Portal mediante el cuadro de diálogo **Herramientas de desarrollo** > **Extensiones**.
 
 Para obtener información sobre supervisión, registro y solución de problemas, consulte los artículos siguientes:
 
@@ -189,7 +179,7 @@ Cuando se complete la operación, se instalará la versión preliminar de .NET C
 
 **Uso de la extensión de sitio de versión preliminar con una plantilla de ARM**
 
-Si usa una plantilla de ARM para crear e implementar aplicaciones, puede usar el tipo de recurso `siteextensions` para agregar la extensión de sitio a una aplicación web. Por ejemplo:
+Si usa una plantilla de ARM para crear e implementar aplicaciones, puede usar el tipo de recurso `siteextensions` para agregar la extensión de sitio a una aplicación web. Por ejemplo: 
 
 [!code-json[](index/sample/arm.json?highlight=2)]
 
@@ -288,7 +278,7 @@ Use Visual Studio o las herramientas de la interfaz de la línea de comandos (CL
 
 ## <a name="protocol-settings-https"></a>Configuración del protocolo (HTTPS)
 
-Los enlaces de protocolo seguro permiten especificar un certificado para usarlo al responder a solicitudes a través de HTTPS. Los enlaces requieren un certificado privado válido ( *.pfx*) que se haya emitido para el nombre de host en cuestión. Para obtener más información, consulte [Tutorial: Enlazar un certificado SSL personalizado existente a Azure App Service](/azure/app-service/app-service-web-tutorial-custom-ssl).
+Los enlaces de protocolo seguro permiten especificar un certificado para usarlo al responder a solicitudes a través de HTTPS. Los enlaces requieren un certificado privado válido (*.pfx*) que se haya emitido para el nombre de host en cuestión. Para obtener más información, consulte [Tutorial: Enlazar un certificado SSL personalizado existente a Azure App Service](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ## <a name="transform-webconfig"></a>Transformación de web.config
 
