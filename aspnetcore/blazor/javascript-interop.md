@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo invocar funciones de JavaScript de
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/05/2019
+ms.date: 09/07/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: 4e2c979971f8f550af4aa9653880bfd1e5fae731
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: fa485420c01e6a6d4181f733d6848de08ffca730
+ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800286"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878356"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>Interoperabilidad de JavaScript de ASP.NET Core increíblemente
 
@@ -249,3 +249,23 @@ La biblioteca de clases controla la incrustación de recursos de JavaScript en e
 Se hace referencia al paquete de NuGet compilado en el archivo de proyecto de la aplicación de la misma manera que se hace referencia a cualquier paquete NuGet. Una vez restaurado el paquete, el código de la aplicación puede llamar a JavaScript C#como si fuera.
 
 Para obtener más información, consulta <xref:blazor/class-libraries>.
+
+## <a name="harden-js-interop-calls"></a>Reprotección de llamadas de interoperabilidad de JS
+
+La interoperabilidad de JS puede producir un error debido a errores de red y debe tratarse como no confiable. De forma predeterminada, una aplicación de servidor increíblemente agota el tiempo de espera de las llamadas de interoperabilidad de JS en el servidor después de un minuto. Si una aplicación puede tolerar un tiempo de espera más agresivo, como 10 segundos, establezca el tiempo de espera con uno de los siguientes métodos:
+
+* Globalmente en `Startup.ConfigureServices`, especifique el tiempo de espera:
+
+  ```csharp
+  services.AddServerSideBlazor(
+      options => options.JSInteropDefaultCallTimeout = TimeSpan.FromSeconds({SECONDS}));
+  ```
+
+* Por cada invocación en el código de componente, una sola llamada puede especificar el tiempo de espera:
+
+  ```csharp
+  var result = await JSRuntime.InvokeAsync<string>("MyJSOperation", 
+      TimeSpan.FromSeconds({SECONDS}), new[] { "Arg1" });
+  ```
+
+Para obtener más información sobre el agotamiento de recursos <xref:security/blazor/server-side>, vea.
