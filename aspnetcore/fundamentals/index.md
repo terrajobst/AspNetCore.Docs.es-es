@@ -5,14 +5,14 @@ description: Obtenga información sobre los conceptos básicos para crear aplica
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/02/2019
+ms.date: 09/06/2019
 uid: fundamentals/index
-ms.openlocfilehash: 7e2901919c8b0165d0f169abf74fe5bc0edd8be4
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: cff2afd62ed60648dc689d408dde56ecda18c261
+ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773755"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815656"
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
@@ -272,7 +272,7 @@ La raíz web (también conocida como *webroot*) es la ruta de acceso base a los 
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Para obtener más información, vea [ContentRootPath](/aspnet/core/fundamentals/host/generic-host?view=aspnetcore-3.0#contentrootpath)
+Para más información, consulte [WebRoot](/aspnet/core/fundamentals/host/generic-host?view=aspnetcore-3.0#webroot)
 
 ::: moniker-end
 
@@ -282,6 +282,6 @@ Para obtener más información, vea [Raíz web](/aspnet/core/fundamentals/host/w
 
 ::: moniker-end
 
-En los archivos de Razor (*.cshtml*), la virgulilla `~/` apunta a la raíz web. Las rutas de acceso que empiezan por `~/` se conocen como rutas de acceso virtuales.
+En los archivos de Razor ( *.cshtml*), la virgulilla `~/` apunta a la raíz web. Las rutas de acceso que empiezan por `~/` se conocen como rutas de acceso virtuales.
 
 Para más información, consulte <xref:fundamentals/static-files>.
