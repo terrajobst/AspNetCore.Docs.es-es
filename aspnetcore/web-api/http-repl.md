@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/29/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 7121670856da4b123b1c3e780a7952da0fb696a1
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: b93641c96ad093b40aaa887f19409d4c2e1490df
+ms.sourcegitcommit: efb9c16321b34f8ede802822b26eb983de16479b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238049"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70842266"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Prueba de las API web HTTP REPL
 
@@ -55,24 +55,24 @@ Se instala una [herramienta global de .NET Core](/dotnet/core/tools/global-tool
 Tras la correcta instalación de la herramienta, ejecute el siguiente comando para iniciar HTTP REPL:
 
 ```console
-dotnet httprepl
+httprepl
 ```
 
 Para ver los comandos de HTTP REPL disponibles, ejecute uno de los siguientes comandos:
 
 ```console
-dotnet httprepl -h
+httprepl -h
 ```
 
 ```console
-dotnet httprepl --help
+httprepl --help
 ```
 
 Se muestra el siguiente resultado:
 
 ```console
 Usage:
-  dotnet httprepl [<BASE_ADDRESS>] [options]
+  httprepl [<BASE_ADDRESS>] [options]
 
 Arguments:
   <BASE_ADDRESS> - The initial base address for the REPL.
@@ -131,13 +131,13 @@ HTTP REPL ofrece la finalización del comando. Al presionar la tecla <kbd>Tabula
 Conéctese a la API web ejecutando el comando siguiente:
 
 ```console
-dotnet httprepl <ROOT URI>
+httprepl <ROOT URI>
 ```
 
-`<ROOT URI>` es el URI base de la API web. Por ejemplo:
+`<ROOT URI>` es el URI base de la API web. Por ejemplo: 
 
 ```console
-dotnet httprepl https://localhost:5001
+httprepl https://localhost:5001
 ```
 
 También puede ejecutar el comando siguiente en cualquier momento mientras se ejecuta HTTP REPL:
@@ -146,7 +146,7 @@ También puede ejecutar el comando siguiente en cualquier momento mientras se ej
 connect <ROOT URI>
 ```
 
-Por ejemplo:
+Por ejemplo: 
 
 ```console
 (Disconnected)~ connect https://localhost:5001
@@ -160,7 +160,7 @@ El comando de conexión anterior intentará buscar el documento de Swagger autom
 connect <ROOT URI> --swagger <SWAGGER URI>
 ```
 
-Por ejemplo:
+Por ejemplo: 
 
 ```console
 (Disconnected)~ connect https://localhost:5001 --swagger /swagger/v1/swagger.json
@@ -199,7 +199,7 @@ https://localhost:5001/fruits~ ls
 https://localhost:5001/fruits~
 ```
 
-También puede ejecutar el comando `ui` para abrir la página de la interfaz de usuario de Swagger de la API web en un explorador. Por ejemplo:
+También puede ejecutar el comando `ui` para abrir la página de la interfaz de usuario de Swagger de la API web en un explorador. Por ejemplo: 
 
 ```console
 https://localhost:5001/~ ui
@@ -243,7 +243,7 @@ El archivo *.httpreplprefs* se carga al inicio; los cambios no se supervisan dur
 
 ### <a name="view-the-settings"></a>Visualización de la configuración
 
-Para ver la configuración disponible, ejecute el comando `pref get`. Por ejemplo:
+Para ver la configuración disponible, ejecute el comando `pref get`. Por ejemplo: 
 
 ```console
 https://localhost:5001/~ pref get
@@ -281,7 +281,7 @@ Si no se establecen claves de color específicas, se consideran las más genéri
 
 ### <a name="set-indentation-size"></a>Establecimiento del tamaño de sangría
 
-Actualmente, la personalización del tamaño de sangría de respuesta solo se admite para JSON. El tamaño predeterminado es de dos espacios. Por ejemplo:
+Actualmente, la personalización del tamaño de sangría de respuesta solo se admite para JSON. El tamaño predeterminado es de dos espacios. Por ejemplo: 
 
 ```json
 [
@@ -370,7 +370,7 @@ De forma predeterminada, HTTP REPL tiene un conjunto de rutas de acceso relativa
 - */swagger.json*
 - */swagger/v1/swagger.json*
 
-Para usar un conjunto diferente de rutas de acceso de búsqueda en el entorno, establezca la preferencia `swagger.searchPaths`. El valor debe ser una lista delimitada por canalizaciones de rutas de acceso relativas. Por ejemplo:
+Para usar un conjunto diferente de rutas de acceso de búsqueda en el entorno, establezca la preferencia `swagger.searchPaths`. El valor debe ser una lista delimitada por canalizaciones de rutas de acceso relativas. Por ejemplo: 
 
 ```console
 pref set swagger.searchPaths "swagger/v2/swagger.json|swagger/v3/swagger.json"
@@ -490,7 +490,7 @@ Para emitir una solicitud HTTP POST, realice lo siguiente:
     https://localhost:5001/people~ post -h Content-Type=application/json
     ```
 
-    En el comando anterior, el encabezado de solicitud HTTP `Content-Type` se establece para indicar un tipo de medios de cuerpo de la solicitud de JSON. El editor de texto predeterminado abre un archivo *.tmp* con una plantilla JSON que representa el cuerpo de la solicitud HTTP. Por ejemplo:
+    En el comando anterior, el encabezado de solicitud HTTP `Content-Type` se establece para indicar un tipo de medios de cuerpo de la solicitud de JSON. El editor de texto predeterminado abre un archivo *.tmp* con una plantilla JSON que representa el cuerpo de la solicitud HTTP. Por ejemplo: 
 
     ```json
     {
@@ -585,7 +585,7 @@ Para emitir una solicitud HTTP PUT, realice lo siguiente:
     https://localhost:5001/fruits~ put 2 -h Content-Type=application/json
     ```
 
-    En el comando anterior, el encabezado de solicitud HTTP `Content-Type` se establece para indicar un tipo de medios de cuerpo de la solicitud de JSON. El editor de texto predeterminado abre un archivo *.tmp* con una plantilla JSON que representa el cuerpo de la solicitud HTTP. Por ejemplo:
+    En el comando anterior, el encabezado de solicitud HTTP `Content-Type` se establece para indicar un tipo de medios de cuerpo de la solicitud de JSON. El editor de texto predeterminado abre un archivo *.tmp* con una plantilla JSON que representa el cuerpo de la solicitud HTTP. Por ejemplo: 
 
     ```json
     {
@@ -790,7 +790,7 @@ Se trata del parámetro de ruta, si existe, que espera el método de acción del
 
 Para establecer un encabezado de solicitud HTTP, use uno de los métodos siguientes:
 
-1. Establézcalo insertado con la solicitud HTTP. Por ejemplo:
+1. Establézcalo insertado con la solicitud HTTP. Por ejemplo: 
 
   ```console
   https://localhost:5001/people~ post -h Content-Type=application/json
@@ -798,13 +798,13 @@ Para establecer un encabezado de solicitud HTTP, use uno de los métodos siguien
 
   Con el método anterior, cada encabezado de solicitud HTTP distinto requiere su propia opción `-h`.
 
-1. Establézcalo antes de enviar la solicitud HTTP. Por ejemplo:
+1. Establézcalo antes de enviar la solicitud HTTP. Por ejemplo: 
 
   ```console
   https://localhost:5001/people~ set header Content-Type application/json
   ```
 
-  Al establecer el encabezado antes de enviar una solicitud, este permanece establecido mientras dure la sesión de shell de comandos. Para borrar el encabezado, proporcione un valor vacío. Por ejemplo:
+  Al establecer el encabezado antes de enviar una solicitud, este permanece establecido mientras dure la sesión de shell de comandos. Para borrar el encabezado, proporcione un valor vacío. Por ejemplo: 
 
   ```console
   https://localhost:5001/people~ set header Content-Type
@@ -816,14 +816,14 @@ De manera predeterminada, se suprime la pantalla de solicitud HTTP que se está 
 
 ### <a name="enable-request-display"></a>Habilitación de la pantalla de solicitudes
 
-Vea la solicitud HTTP que se envía mediante la ejecución del comando `echo on`. Por ejemplo:
+Vea la solicitud HTTP que se envía mediante la ejecución del comando `echo on`. Por ejemplo: 
 
 ```console
 https://localhost:5001/people~ echo on
 Request echoing is on
 ```
 
-Las solicitudes HTTP posteriores de la sesión actual muestran los encabezados de la solicitud. Por ejemplo:
+Las solicitudes HTTP posteriores de la sesión actual muestran los encabezados de la solicitud. Por ejemplo: 
 
 ```console
 https://localhost:5001/people~ post
@@ -861,7 +861,7 @@ https://localhost:5001/people~
 
 ### <a name="disable-request-display"></a>Deshabilitación de la pantalla de solicitudes
 
-Suprima la pantalla de solicitud HTTP que se envía mediante la ejecución del comando `echo off`. Por ejemplo:
+Suprima la pantalla de solicitud HTTP que se envía mediante la ejecución del comando `echo off`. Por ejemplo: 
 
 ```console
 https://localhost:5001/people~ echo off
@@ -870,7 +870,7 @@ Request echoing is off
 
 ## <a name="run-a-script"></a>Ejecución de un script
 
-Si ejecuta con frecuencia el mismo conjunto de comandos de HTTP REPL, considere la posibilidad de almacenarlos en un archivo de texto. Los comandos del archivo toman el mismo formulario que los ejecutados manualmente en la línea de comandos. Los comandos se pueden ejecutar en un modo por lotes mediante el comando `run`. Por ejemplo:
+Si ejecuta con frecuencia el mismo conjunto de comandos de HTTP REPL, considere la posibilidad de almacenarlos en un archivo de texto. Los comandos del archivo toman el mismo formulario que los ejecutados manualmente en la línea de comandos. Los comandos se pueden ejecutar en un modo por lotes mediante el comando `run`. Por ejemplo: 
 
 1. Cree un archivo de texto que contenga un conjunto de comandos delimitados por línea nueva. Para ilustrarlo, considere la posibilidad de usar un archivo *people-script.txt* que contenga los comandos siguientes:
 
@@ -882,7 +882,7 @@ Si ejecuta con frecuencia el mismo conjunto de comandos de HTTP REPL, considere 
     get 1
     ```
 
-1. Ejecute el comando `run`, pasando la ruta de acceso del archivo de texto. Por ejemplo:
+1. Ejecute el comando `run`, pasando la ruta de acceso del archivo de texto. Por ejemplo: 
 
     ```console
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt
@@ -928,7 +928,7 @@ Si ejecuta con frecuencia el mismo conjunto de comandos de HTTP REPL, considere 
 Para quitar todas las salidas escritas en el shell de comandos mediante la herramienta REPL HTTP, ejecute el comando `clear` o `cls`. Para ilustrarlo, imagine que el shell de comandos contiene la salida siguiente:
 
 ```console
-dotnet httprepl https://localhost:5001
+httprepl https://localhost:5001
 (Disconnected)~ set base "https://localhost:5001"
 Using swagger metadata from https://localhost:5001/swagger/v1/swagger.json
 
