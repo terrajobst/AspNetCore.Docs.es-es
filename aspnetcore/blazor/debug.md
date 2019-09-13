@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/22/2019
 uid: blazor/debug
-ms.openlocfilehash: c3188a1fe1b699b787f7a95630f3918d295d0f68
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: e9477e504d32fd1dd5d6c87392386d1131f46e9f
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69974908"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963998"
 ---
 # <a name="debug-aspnet-core-blazor"></a>Depuración ASP.NET Core extraordinaria
 
 [Daniel Roth](https://github.com/danroth27)
 
-Existe compatibilidad *temprana* con la depuración de aplicaciones de cliente increíblemente que se ejecutan en webassembly en Chrome.
+Existe compatibilidad *temprana* para depurar aplicaciones webassembly increíblemente que se ejecutan en webassembly en Chrome.
 
 Las funcionalidades del depurador están limitadas. Entre los escenarios disponibles se incluyen:
 
@@ -47,7 +47,7 @@ La depuración requiere cualquiera de los siguientes exploradores:
 
 ## <a name="procedure"></a>Procedimiento
 
-1. Ejecute una aplicación de cliente increíblemente alta en `Debug` configuración. Pase la `--configuration Debug` opción al comando [dotnet Run](/dotnet/core/tools/dotnet-run) : `dotnet run --configuration Debug`.
+1. Ejecutar una aplicación de `Debug` webassembly increíblemente bajo configuración. Pase la `--configuration Debug` opción al comando [dotnet Run](/dotnet/core/tools/dotnet-run) : `dotnet run --configuration Debug`.
 1. Acceda a la aplicación en el explorador.
 1. Coloque el foco de teclado en la aplicación, no en el panel herramientas de desarrollo. Se puede cerrar el panel herramientas de desarrollo cuando se inicia la depuración.
 1. Seleccione el siguiente método abreviado de teclado:
@@ -60,7 +60,7 @@ La depuración requiere cualquiera de los siguientes exploradores:
 
 ## <a name="enable-remote-debugging"></a>Habilitar depuración remota
 
-Si la depuración remota está deshabilitada, Chrome genera una página de error **no se puede encontrar la pestaña del explorador** depurable. La página de error contiene instrucciones para ejecutar Chrome con el puerto de depuración abierto para que el proxy de depuración increíblemente rápido pueda conectarse a la aplicación. *Cierre todas las instancias de Chrome* y reinicie Chrome tal y como se indica.
+Si la depuración remota está deshabilitada, Chrome genera una página de error **no se puede encontrar la pestaña del explorador depurable** . La página de error contiene instrucciones para ejecutar Chrome con el puerto de depuración abierto para que el proxy de depuración increíblemente rápido pueda conectarse a la aplicación. *Cierre todas las instancias de Chrome* y reinicie Chrome tal y como se indica.
 
 ## <a name="debug-the-app"></a>Depurar la aplicación
 
@@ -76,4 +76,4 @@ Los mapas de origen del explorador permiten al explorador volver a asignar los a
 
 Si se encuentra con errores, la sugerencia siguiente puede ser útil:
 
-En la pestaña depurador, abra las herramientas de desarrollo en el explorador. En la consola de, `localStorage.clear()` ejecute para quitar los puntos de interrupción.
+En la pestaña **depurador** , abra las herramientas de desarrollo en el explorador. En la consola de, `localStorage.clear()` ejecute para quitar los puntos de interrupción.

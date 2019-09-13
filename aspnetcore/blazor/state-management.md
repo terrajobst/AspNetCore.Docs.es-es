@@ -1,24 +1,24 @@
 ---
 title: Administración de Estados de ASP.NET Core increíblemente
 author: guardrex
-description: Obtenga información sobre cómo conservar el estado en las aplicaciones de servidor más increíbles.
+description: Obtenga información sobre cómo conservar el estado en las aplicaciones de servidor increíbles.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: blazor/state-management
-ms.openlocfilehash: 000736dde53670d1df76f41cc7cf4f95ef48800a
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: e1c3b030f466a820d49c36839d7ee26bb7cea4d3
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800350"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963853"
 ---
 # <a name="aspnet-core-blazor-state-management"></a>Administración de Estados de ASP.NET Core increíblemente
 
 Por [Steve Sanderson](https://github.com/SteveSandersonMS)
 
-El lado servidor es un marco de trabajo de aplicación con estado. La mayoría de las veces, la aplicación mantiene una conexión continua con el servidor. El estado del usuario se guarda en la memoria del servidor en un *circuito*. 
+El servidor increíble es un marco de trabajo de aplicaciones con estado. La mayoría de las veces, la aplicación mantiene una conexión continua con el servidor. El estado del usuario se guarda en la memoria del servidor en un *circuito*. 
 
 Entre los ejemplos de estado que se mantiene para el circuito de un usuario se incluyen:
 
@@ -27,7 +27,7 @@ Entre los ejemplos de estado que se mantiene para el circuito de un usuario se i
 * Datos contenidos en las instancias de servicio de [inserción de dependencias (di)](xref:fundamentals/dependency-injection) que están en el ámbito del circuito.
 
 > [!NOTE]
-> En este artículo se trata la persistencia de estado en las aplicaciones de servidor más increíbles. Las aplicaciones de cliente increíbles pueden aprovechar la persistencia de [Estado de cliente en el explorador](#client-side-in-the-browser) , pero requieren soluciones personalizadas o paquetes de terceros más allá del ámbito de este artículo.
+> En este artículo se trata la persistencia de estado en las aplicaciones de servidor increíbles. Las aplicaciones de webassembly increíbles pueden aprovechar la [persistencia de estado de cliente en el explorador](#client-side-in-the-browser) , pero requieren soluciones personalizadas o paquetes de terceros más allá del ámbito de este artículo.
 
 ## <a name="blazor-circuits"></a>Circuitos increíbles
 
@@ -62,7 +62,7 @@ Normalmente no es necesario conservar el estado de fácil creación, como el nom
 
 ## <a name="where-to-persist-state"></a>Dónde conservar el estado
 
-Existen tres ubicaciones comunes para el estado persistente en una aplicación del lado servidor increíblemente alta. Cada enfoque es más adecuado para distintos escenarios y tiene advertencias diferentes:
+Existen tres ubicaciones comunes para el estado persistente en una aplicación de servidor más brillante. Cada enfoque es más adecuado para distintos escenarios y tiene advertencias diferentes:
 
 * [Lado servidor en una base de datos](#server-side-in-a-database)
 * [URL](#url)
@@ -100,7 +100,7 @@ Para obtener información sobre cómo definir patrones de `@page` direcciones UR
 En el caso de los datos transitorios que el usuario está creando activamente, una memoria auxiliar `localStorage` común `sessionStorage` son las colecciones y del explorador. No es necesario que la aplicación administre o borre el estado almacenado si se abandona el circuito, lo que supone una ventaja sobre el almacenamiento del lado servidor.
 
 > [!NOTE]
-> En esta sección, "cliente" hace referencia a los escenarios del lado cliente en el explorador, no al [modelo de hospedaje del lado cliente](xref:blazor/hosting-models#client-side). `localStorage`y `sessionStorage` se pueden usar en aplicaciones del lado cliente increíblemente, pero solo escribiendo código personalizado o usando un paquete de terceros.
+> "Lado cliente" en esta sección se refiere a los escenarios del lado cliente en el explorador, no al [modelo de hospedaje de Webassembly](xref:blazor/hosting-models#blazor-webassembly)de increíble. `localStorage`y `sessionStorage` se pueden usar en aplicaciones de webassembly increíbles, pero solo escribiendo código personalizado o usando un paquete de terceros.
 
 `localStorage`y `sessionStorage` difieren como se indica a continuación:
 
@@ -118,7 +118,7 @@ Advertencias sobre el uso del almacenamiento del explorador:
 
 * De forma similar al uso de una base de datos del lado servidor, la carga y el almacenamiento de datos son asíncronos.
 * A diferencia de las bases de datos del lado servidor, el almacenamiento no está disponible durante la representación previa porque la página solicitada no existe en el explorador durante la fase de representación previa.
-* El almacenamiento de unos pocos kilobytes de datos es razonable para que se conserven para las aplicaciones de servidor increíbles. Más allá de unos pocos kilobytes, debe tener en cuenta las implicaciones de rendimiento porque los datos se cargan y se guardan en la red.
+* Es razonable almacenar unos pocos kilobytes de datos para las aplicaciones de servidor increíbles. Más allá de unos pocos kilobytes, debe tener en cuenta las implicaciones de rendimiento porque los datos se cargan y se guardan en la red.
 * Los usuarios pueden ver o alterar los datos. ASP.NET Core [protección de datos](xref:security/data-protection/introduction) puede mitigar el riesgo.
 
 ## <a name="third-party-browser-storage-solutions"></a>Soluciones de almacenamiento de explorador de terceros
@@ -138,7 +138,7 @@ Un ejemplo de un paquete NuGet que proporciona [protección](xref:security/data-
 
 Para instalar el `Microsoft.AspNetCore.ProtectedBrowserStorage` paquete:
 
-1. En el proyecto de aplicación del lado servidor, agregue una referencia de paquete a [Microsoft. AspNetCore. ProtectedBrowserStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.ProtectedBrowserStorage).
+1. En el proyecto de aplicación de servidor de extraordinarias, agregue una referencia de paquete a [Microsoft. AspNetCore. ProtectedBrowserStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.ProtectedBrowserStorage).
 1. En el código HTML de nivel superior (por ejemplo, en el archivo *pages/_Host. cshtml* en la plantilla de proyecto predeterminada), `<script>` agregue la siguiente etiqueta:
 
    ```html

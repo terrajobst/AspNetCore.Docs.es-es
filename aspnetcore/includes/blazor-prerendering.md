@@ -1,4 +1,4 @@
-Aunque una aplicación del lado servidor es más extraordinaria, algunas acciones, como llamar a JavaScript, no son posibles porque no se ha establecido una conexión con el explorador. Es posible que los componentes tengan que representarse de forma diferente cuando se representen.
+Aunque se está preprocesando una aplicación de servidor increíbles, algunas acciones, como llamar a JavaScript, no son posibles porque no se ha establecido una conexión con el explorador. Es posible que los componentes tengan que representarse de forma diferente cuando se representen.
 
 Para retrasar las llamadas de interoperabilidad de JavaScript hasta que se establezca la conexión con `OnAfterRenderAsync` el explorador, puede usar el evento del ciclo de vida del componente. Solo se llama a este evento después de que la aplicación se represente por completo y se establezca la conexión del cliente.
 
@@ -62,7 +62,7 @@ Donde `JSRuntime.InvokeAsync` se llama a `ElementRef` , solo se usa `OnAfterRend
 }
 ```
 
-Para representar condicionalmente contenido diferente en función de si la aplicación está representando actualmente el contenido, `IsConnected` use la propiedad `IComponentContext` en el servicio. Cuando se ejecuta el lado servidor `IsConnected` , solo `true` devuelve si hay una conexión activa con el cliente. Siempre devuelve `true` cuando se ejecuta el lado cliente.
+Para representar condicionalmente contenido diferente en función de si la aplicación está representando actualmente el contenido, `IsConnected` use la propiedad `IComponentContext` en el servicio. En el caso de las aplicaciones `IsConnected` de servidor `true` increíbles, solo devuelve si hay una conexión activa con el cliente. Siempre devuelve `true` en aplicaciones de webassembly increíblemente.
 
 ```cshtml
 @page "/isconnected-example"

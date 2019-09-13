@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/06/2019
 uid: blazor/handle-errors
-ms.openlocfilehash: 52f55af99881b09c84d9cf88f5845efcb1ea76a1
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: d3e261e83f375574339a8ce3428e8bfb73df4307
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68948455"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963989"
 ---
 # <a name="handle-errors-in-aspnet-core-blazor-apps"></a>Control de errores en ASP.NET Core aplicaciones increíbles
 
@@ -22,7 +22,7 @@ En este artículo se describe el modo en que el increíble grado de administraci
 
 ## <a name="how-the-blazor-framework-reacts-to-unhandled-exceptions"></a>Cómo reacciona el marco de increíbles a las excepciones no controladas
 
-El lado servidor es un marco con estado. Mientras los usuarios interactúan con una aplicación, mantienen una conexión con el servidor conocido como *circuito*. El circuito contiene instancias de componentes activas, además de muchos otros aspectos del estado, como:
+El servidor es un marco con estado. Mientras los usuarios interactúan con una aplicación, mantienen una conexión con el servidor conocido como *circuito*. El circuito contiene instancias de componentes activas, además de muchos otros aspectos del estado, como:
 
 * La salida representada más reciente de los componentes.
 * Conjunto actual de delegados de control de eventos que pueden ser desencadenados por eventos del cliente.

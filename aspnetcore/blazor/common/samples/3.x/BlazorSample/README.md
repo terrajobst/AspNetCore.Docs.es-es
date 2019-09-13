@@ -1,4 +1,4 @@
-# <a name="blazor-client-side-sample-app"></a>Aplicación de ejemplo increíblemente (cliente)
+# <a name="blazor-webassembly-sample-app"></a>Aplicación de ejemplo de webassembler increíblemente
 
 Este ejemplo muestra el uso de escenarios increíbles descritos en la documentación de extraordinarias.
 
