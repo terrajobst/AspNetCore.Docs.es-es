@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 08/21/2019
 uid: grpc/client
-ms.openlocfilehash: 27e4b3e7307ae49bacb01a46fbc1b55b6967c7a0
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 56f79b303a8d53699e8eb6156d328c0da1259416
+ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773695"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71011145"
 ---
 # <a name="call-grpc-services-with-the-net-client"></a>Llamar a gRPC Services con el cliente de .NET
 
@@ -45,6 +45,9 @@ var counterClient = new Count.CounterClient(channel);
 ```
 
 `GrpcChannel.ForAddress`no es la única opción para crear un cliente de gRPC. Si va a llamar a gRPC Services desde una aplicación ASP.NET Core, considere la [integración de fábrica de cliente de gRPC](xref:grpc/clientfactory). la integración de `HttpClientFactory` gRPC con ofrece una alternativa centralizada a la creación de clientes de gRPC.
+
+> [!NOTE]
+> Se requiere configuración adicional para [llamar a los servicios de gRPC inseguros con el cliente de .net](xref:grpc/troubleshoot#call-insecure-grpc-services-with-net-core-client).
 
 ## <a name="make-grpc-calls"></a>Realizar llamadas gRPC
 
