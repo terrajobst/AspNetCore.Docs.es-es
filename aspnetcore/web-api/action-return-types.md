@@ -1,25 +1,25 @@
 ---
-title: Tipos de valor devuelto de acción del controlador de ASP.NET Core Web API
+title: Tipos de valor devuelto de acción del controlador de la API web de ASP.NET Core
 author: scottaddie
-description: Obtenga información sobre los distintos tipos de valor devuelto de método de acción del controlador de ASP.NET Core Web API.
+description: Obtenga información sobre los distintos tipos de valor devuelto de método de acción del controlador de la API web de ASP.NET Core.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 09/09/2019
 uid: web-api/action-return-types
-ms.openlocfilehash: b89ead55cd46ef62a3bc28b1cfc9077d3ce9aba2
-ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
+ms.openlocfilehash: 79134ab252f309f8b39b8db5f8f3e82035e0eb7f
+ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66470402"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815756"
 ---
-# <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Tipos de valor devuelto de acción del controlador de ASP.NET Core Web API
+# <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Tipos de valor devuelto de acción del controlador de la API web de ASP.NET Core
 
 Por [Scott Addie](https://github.com/scottaddie)
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-ASP.NET Core ofrece las siguientes opciones relativas a los tipos de valor devuelto de acción del controlador de Web API:
+ASP.NET Core ofrece las siguientes opciones relativas a los tipos de valor devuelto de acción del controlador de la API web:
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -42,60 +42,121 @@ En este documento se explica cuándo resulta más adecuado usar cada tipo de val
 
 La acción más sencilla devuelve un tipo de datos primitivo o complejo (por ejemplo, `string` o un tipo de objeto personalizado). Consideremos la siguiente acción, que devuelve una colección de objetos `Product` personalizados:
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_Get)]
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_Get)]
 
 Sin condiciones conocidas de las que haya que protegerse durante la ejecución de la acción, bastaría con que se devolviera un tipo específico. La acción anterior no acepta parámetros, por lo que no se necesita ninguna validación de restricciones de parámetros.
 
-Si existen condiciones conocidas que deban tenerse en cuenta en una acción, se presentan varias rutas de acceso de valor devuelto. En tal caso, lo habitual es mezclar un tipo devuelto [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) con el tipo de valor devuelto primitivo o complejo. Se necesitará [IActionResult](#iactionresult-type) o [ActionResult\<T>](#actionresultt-type) para dar cabida a este tipo de acción.
+Si existen condiciones conocidas que deban tenerse en cuenta en una acción, se presentan varias rutas de acceso de valor devuelto. En tal caso, lo habitual es mezclar un tipo devuelto <xref:Microsoft.AspNetCore.Mvc.ActionResult> con el tipo de valor devuelto primitivo o complejo. Se necesitará [IActionResult](#iactionresult-type) o [ActionResult\<T>](#actionresultt-type) para dar cabida a este tipo de acción.
+
+### <a name="return-ienumerablet-or-iasyncenumerablet"></a>Devuelve IEnumerable\<T> o IAsyncEnumerable\<T>
+
+En ASP.net Core 2.2 y versiones anteriores, la devolución de <xref:System.Collections.Generic.IAsyncEnumerable%601> en una acción da como resultado la iteración de la colección sincrónica por parte del serializador. El resultado es el bloqueo de llamadas y una posibilidad de colapso del grupo de subprocesos. Por poner un ejemplo, imagine que se usa Entity Framework (EF) Core para las necesidades de acceso a los datos de la API Web. El tipo de valor devuelto de la acción siguiente se enumera sincrónicamente durante la serialización:
+
+```csharp
+public IEnumerable<Product> GetOnSaleProducts() =>
+    _context.Products.Where(p => p.IsOnSale);
+```
+
+Para evitar la enumeración sincrónica y las esperas por bloqueo en la base de datos en ASP.NET Core 2.2 y versiones anteriores, invoque `ToListAsync`:
+
+```csharp
+public IEnumerable<Product> GetOnSaleProducts() =>
+    _context.Products.Where(p => p.IsOnSale).ToListAsync();
+```
+
+En ASP.net Core 3,0 y versiones posteriores, que una acción devuelva `IAsyncEnumerable<T>`:
+
+* Ya no da como resultado iteraciones sincrónicas.
+* Es tan eficaz como devolver <xref:System.Collections.Generic.IEnumerable%601>.
+
+Tanto ASP.NET Core 3.0 como las versiones posteriores almacenan en búfer el resultado de la siguiente acción antes de proporcionarlo al serializador:
+
+```csharp
+public IEnumerable<Product> GetOnSaleProducts() =>
+    _context.Products.Where(p => p.IsOnSale);
+```
+
+Considere la posibilidad de declarar el tipo de valor devuelto de la signatura de la acción como `IAsyncEnumerable<T>` para garantizar la iteración asincrónica. En última instancia, el modo de iteración se basa en el tipo concreto subyacente que se va a devolver. MVC almacena en búfer automáticamente cualquier tipo concreto que implemente `IAsyncEnumerable<T>`.
+
+Considere la siguiente acción, que devuelve los registros de producto con precio de venta como `IEnumerable<Product>`:
+
+[!code-csharp[](../web-api/action-return-types/samples/3x/WebApiSample.Api.30/Controllers/ProductsController.cs?name=snippet_GetOnSaleProducts)]
+
+El `IAsyncEnumerable<Product>` equivalente de la acción anterior es:
+
+[!code-csharp[](../web-api/action-return-types/samples/3x/WebApiSample.Api.30/Controllers/ProductsController.cs?name=snippet_GetOnSaleProductsAsync)]
+
+Las dos acciones anteriores no suponen ningún bloqueo a partir de ASP.NET Core 3.0.
 
 ## <a name="iactionresult-type"></a>Tipo IActionResult
 
-El tipo de valor devuelto [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) resulta adecuado cuando existen varios tipos de valor devuelto [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) posibles en una acción. Los tipos `ActionResult` representan varios códigos de estado HTTP. Algunos de los tipos de valor devuelto que suelen entrar en esta categoría son [BadRequestResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestresult) (400), [NotFoundResult](/dotnet/api/microsoft.aspnetcore.mvc.notfoundresult) (404) y [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200).
+El tipo de valor devuelto <xref:Microsoft.AspNetCore.Mvc.IActionResult> resulta adecuado cuando existen varios tipos de valor devuelto `ActionResult` posibles en una acción. Los tipos `ActionResult` representan varios códigos de estado HTTP. Cualquier clase no abstracta derivada de `ActionResult` se considera un tipo de valor devuelto válido. Algunos tipos de valor devueltos comunes en esta categoría son <xref:Microsoft.AspNetCore.Mvc.BadRequestResult> (400), <xref:Microsoft.AspNetCore.Mvc.NotFoundResult> (404) y <xref:Microsoft.AspNetCore.Mvc.OkObjectResult> (200). Como alternativa, se pueden usar métodos de conveniencia en la clase <xref:Microsoft.AspNetCore.Mvc.ControllerBase> para devolver tipos `ActionResult` de una acción. Por ejemplo, `return BadRequest();` es una forma abreviada de `return new BadRequestResult();`.
 
-Dado que hay varios tipos de valor devuelto y rutas de acceso en la acción, es necesario el uso libre del atributo [[ProducesResponseType]](/dotnet/api/microsoft.aspnetcore.mvc.producesresponsetypeattribute.-ctor). Este atributo genera detalles de respuesta más pormenorizados relativos a las páginas de ayuda de API generadas por herramientas como [Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger). `[ProducesResponseType]` indica los tipos conocidos y los códigos de estado HTTP que la acción va a devolver.
+Dado que hay varios tipos de valor devuelto y rutas de acceso en este tipo de acción, es necesario el uso libre del atributo [[ProducesResponseType]](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute). Este atributo genera detalles de respuesta más pormenorizados relativos a las páginas de ayuda de API web generadas por herramientas como [Swagger](xref:tutorials/web-api-help-pages-using-swagger). `[ProducesResponseType]` indica los tipos conocidos y los códigos de estado HTTP que la acción va a devolver.
 
 ### <a name="synchronous-action"></a>Acción sincrónica
 
 Veamos la siguiente acción sincrónica, en la que pueden darse dos tipos de valor devuelto posibles:
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=8,11)]
+::: moniker range=">= aspnetcore-2.1"
 
-En la acción anterior, se devuelve un código de estado 404 cuando el producto representado por `id` no existe en el almacén de datos subyacente. El método del asistente [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) se invoca como una forma abreviada de `return new NotFoundResult();`. Si el producto existe, se devuelve un objeto `Product` que representa la carga con un código de estado 200. El método del asistente [Ok](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.ok) se invoca como una forma abreviada de `return new OkObjectResult(product);`.
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=8,11)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=8,11)]
+
+::: moniker-end
+
+En la acción anterior:
+
+* Se devuelve un código de estado 404 cuando el producto representado por `id` no existe en el almacén de datos subyacente. El método de conveniencia <xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*> se invoca como una abreviatura para `return new NotFoundResult();`.
+* Se devuelve un código de estado 200 con el objeto `Product` cuando existe el producto. El método de conveniencia <xref:Microsoft.AspNetCore.Mvc.ControllerBase.Ok*> se invoca como una abreviatura para `return new OkObjectResult(product);`.
 
 ### <a name="asynchronous-action"></a>Acción asincrónica
 
 Veamos la siguiente acción asincrónica, en la que pueden darse dos tipos de valor devuelto posibles:
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
+::: moniker range=">= aspnetcore-2.1"
 
-En el código anterior:
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-* El entorno de ejecución de ASP.NET Core devuelve un código de estado 400 ([BadRequest](xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*)) cuando la descripción del producto contiene "Widget XYZ".
-* Al crear un producto, el método [CreatedAtAction](xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*) genera un código de estado 201. En esta ruta de acceso de código, se devuelve el objeto `Product`.
+::: moniker-end
 
-Por ejemplo, el siguiente modelo indica que las solicitudes deben incluir las propiedades `Name` y `Description`. Por lo tanto, si no se proporcionan `Name` y `Description` en la solicitud, se producirá un error en la validación de los modelos.
+::: moniker range="<= aspnetcore-2.0"
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6,8-9)]
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
+
+::: moniker-end
+
+En la acción anterior:
+
+* Se devuelve un código de estado 400 cuando la descripción del producto contiene "XYZ Widget". El método de conveniencia <xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*> se invoca como una abreviatura para `return new BadRequestResult();`.
+* Al crear un producto, el método de conveniencia <xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*> genera un código de estado 201. Una alternativa a la llamada a `CreatedAtAction` es `return new CreatedAtActionResult(nameof(GetById), "Products", new { id = product.Id }, product);`. En esta ruta de acceso de código, el objeto `Product` se proporciona en el cuerpo de la respuesta. Se proporciona un encabezado de respuesta `Location` que contiene la dirección URL del producto recién creada.
+
+Por ejemplo, el siguiente modelo indica que las solicitudes deben incluir las propiedades `Name` y `Description`. Si no se proporcionan `Name` y `Description` en la solicitud, se producirá un error en la validación de los modelos.
+
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6,8-9)]
 
 ::: moniker range=">= aspnetcore-2.1"
 
-En ASP.NET Core 2.1 o versiones posteriores, si se aplica el atributo [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute), los errores de validación de los modelos generarán un código de estado 400. Para obtener más información, consulte [Respuestas HTTP 400 automáticas](xref:web-api/index#automatic-http-400-responses).
+En ASP.NET Core 2.1 o versiones posteriores, si se aplica el atributo [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute), los errores de validación de los modelos generarán un código de estado 400. Para obtener más información, consulte [Respuestas HTTP 400 automáticas](xref:web-api/index#automatic-http-400-responses).
 
 ## <a name="actionresultt-type"></a>Tipo ActionResult\<T>
 
-ASP.NET Core 2.1 incorpora el tipo de valor devuelto [ActionResult\<T>](/dotnet/api/microsoft.aspnetcore.mvc.actionresult-1) para las acciones de controlador de Web API. Permite devolver un tipo que se deriva de [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) o bien un [tipo específico](#specific-type). `ActionResult<T>` reporta las siguientes ventajas con frente al [tipo IActionResult](#iactionresult-type):
+ASP.NET Core 2.1 incorpora el tipo de valor devuelto [ActionResult\<T>](xref:Microsoft.AspNetCore.Mvc.ActionResult`1) para las acciones de controlador de la API web. Permite devolver un tipo que se deriva de <xref:Microsoft.AspNetCore.Mvc.ActionResult> o bien un [tipo específico](#specific-type). `ActionResult<T>` reporta las siguientes ventajas con frente al [tipo IActionResult](#iactionresult-type):
 
-* La propiedad `Type` del atributo [[ProducesResponseType]](/dotnet/api/microsoft.aspnetcore.mvc.producesresponsetypeattribute) se puede excluir. Por ejemplo, `[ProducesResponseType(200, Type = typeof(Product))]` se simplifica a `[ProducesResponseType(200)]`. En su lugar, el tipo de valor devuelto esperado de la acción se infiere desde `T` en `ActionResult<T>`.
-* Los [operadores de conversión implícitos](/dotnet/csharp/language-reference/keywords/implicit) admiten la conversión tanto de `T` como de `ActionResult` en `ActionResult<T>`. `T` se convierte en [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult), lo que significa que `return new ObjectResult(T);` se ha simplificado para `return T;`.
+* La propiedad `Type` del atributo [[ProducesResponseType]](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) se puede excluir. Por ejemplo, `[ProducesResponseType(200, Type = typeof(Product))]` se simplifica a `[ProducesResponseType(200)]`. En su lugar, el tipo de valor devuelto esperado de la acción se infiere desde `T` en `ActionResult<T>`.
+* Los [operadores de conversión implícitos](/dotnet/csharp/language-reference/keywords/implicit) admiten la conversión tanto de `T` como de `ActionResult` en `ActionResult<T>`. `T` se convierte en <xref:Microsoft.AspNetCore.Mvc.ObjectResult>, lo que significa que `return new ObjectResult(T);` se ha simplificado para `return T;`.
 
 C# no admite operadores de conversión implícitos en las interfaces. Por consiguiente, la conversión de la interfaz a un tipo concreto es necesaria para usar `ActionResult<T>`. Por ejemplo, el uso de `IEnumerable` en el siguiente ejemplo no funciona:
 
 ```csharp
 [HttpGet]
-public ActionResult<IEnumerable<Product>> Get()
-{
-    return _repository.GetProducts();
-}
+public ActionResult<IEnumerable<Product>> Get() =>
+    _repository.GetProducts();
 ```
 
 Una opción para corregir el código anterior es devolver `_repository.GetProducts().ToList();`.
@@ -106,28 +167,25 @@ La mayoría de las acciones tiene un tipo de valor devuelto específico. Se pued
 
 Veamos una acción sincrónica, en la que pueden darse dos tipos de valor devuelto posibles:
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=7,10)]
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=7,10)]
 
-En el código anterior, se devuelve un código de estado 404 cuando el producto no existe en la base de datos. Si el producto existe, se devuelve el objeto `Product` correspondiente. Antes de ASP.NET Core 2.1, la línea `return product;` habría sido `return Ok(product);`.
+En la acción anterior:
 
-> [!TIP]
-> A partir de ASP.NET Core 2.1, la inferencia del origen de enlace de los parámetros de la acción está habilitada cuando una clase de controlador incluye el atributo `[ApiController]`. Así, un nombre de parámetro que coincida con un nombre de la plantilla de ruta se enlazará automáticamente usando los datos de ruta de la solicitud. Por lo tanto, el parámetro `id` de la acción anterior no está anotado explícitamente con el atributo [[FromRoute]](/dotnet/api/microsoft.aspnetcore.mvc.fromrouteattribute).
+* Se devuelve un código de estado 404 cuando el producto no existe en la base de datos.
+* Se devuelve un código de estado 200 con el objeto `Product` correspondiente cuando existe el producto. Antes de ASP.NET Core 2.1, la línea `return product;` tenía que ser `return Ok(product);`.
 
 ### <a name="asynchronous-action"></a>Acción asincrónica
 
 Veamos una acción asincrónica, en la que pueden darse dos tipos de valor devuelto posibles:
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
+[!code-csharp[](../web-api/action-return-types/samples/2x/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-En el código anterior:
+En la acción anterior:
 
-* El entorno de ejecución de ASP.NET Core devuelve un código de estado 400 ([BadRequest](xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*)) en los casos siguientes:
+* El entorno de ejecución de ASP.NET Core devuelve un código de estado 400 (<xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*>) en los casos siguientes:
   * El atributo [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) se ha aplicado y se produce un error de validación de los modelos.
   * La descripción del producto contiene "Widget XYZ".
-* Al crear un producto, el método [CreatedAtAction](xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*) genera un código de estado 201. En esta ruta de acceso de código, se devuelve el objeto `Product`.
-
-> [!TIP]
-> A partir de ASP.NET Core 2.1, la inferencia del origen de enlace de los parámetros de la acción está habilitada cuando una clase de controlador incluye el atributo `[ApiController]`. Los parámetros de tipo complejo se enlazan automáticamente usando el cuerpo de solicitud. Por lo tanto, el parámetro `product` de la acción anterior no está anotado explícitamente con el atributo [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute).
+* Al crear un producto, el método <xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*> genera un código de estado 201. En esta ruta de acceso de código, el objeto `Product` se proporciona en el cuerpo de la respuesta. Se proporciona un encabezado de respuesta `Location` que contiene la dirección URL del producto recién creada.
 
 ::: moniker-end
 

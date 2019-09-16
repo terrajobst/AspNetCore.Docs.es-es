@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 9f5ecc7840fc7ffd9432a3bb67d0418efb7e8fd6
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 261abae499a0d5f807a14aebd224949881067bc7
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975615"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773810"
 ---
 # <a name="net-generic-host"></a>Host genérico de .NET
 
@@ -170,6 +170,8 @@ Para más información, consulte [Configuración en ASP.NET Core](xref:fundament
 
 En esta sección se enumeran las configuraciones de host que se aplican a las cargas de trabajo HTTP y no HTTP. De forma predeterminada, las variables de entorno que se usan para configurar estas opciones pueden tener un prefijo `DOTNET_` o `ASPNETCORE_`.
 
+<!-- In the following sections, two spaces at end of line are used to force line breaks in the rendered page. -->
+
 ### <a name="applicationname"></a>ApplicationName
 
 La propiedad [IHostEnvironment.ApplicationName](xref:Microsoft.Extensions.Hosting.IHostEnvironment.ApplicationName*) se establece desde la configuración de host durante la construcción de este.
@@ -312,8 +314,9 @@ webBuilder.UseSetting(WebHostDefaults.HostingStartupExcludeAssembliesKey, "assem
 
 Puerto de redireccionamiento HTTPS. Se usa en [Exigir HTTPS](xref:security/enforcing-ssl).
 
-**Clave**: https_port **Tipo**: *cadena*
-**Valor predeterminado**: no se ha establecido ningún valor predeterminado.
+**Clave**: https_port  
+**Tipo**: *cadena*  
+**Predeterminado**: no se ha establecido ningún valor predeterminado.  
 **Variable de entorno**: `<PREFIX_>HTTPS_PORT`
 
 Para establecer este valor, utilice la configuración o llame a `UseSetting`:
@@ -356,8 +359,9 @@ webBuilder.UseSetting(WebHostDefaults.PreventHostingStartupKey, "true");
 
 Ensamblado en el que se va a buscar la clase `Startup`.
 
-**Clave**: startupAssembly **Tipo**: *cadena*  
-**Predeterminado**: el ensamblado de la aplicación  
+**Clave**: startupAssembly  
+**Tipo**: *cadena*  
+**Valor predeterminado**: el ensamblado de la aplicación  
 **Variable de entorno**: `<PREFIX_>STARTUPASSEMBLY`
 
 Para establecer este valor, use la variable de entorno o llame a `UseStartup`. `UseStartup` puede tomar un nombre del ensamblado (`string`) o un tipo (`TStartup`). Si se llama a varios métodos `UseStartup`, la última llamada tiene prioridad.
@@ -376,7 +380,7 @@ Lista delimitada por punto y coma de las direcciones IP o las direcciones de hos
 
 **Clave**: urls  
 **Tipo**: *cadena*  
-**Valor predeterminado**: `http://localhost:5000` y `https://localhost:5001`
+**Predeterminado**: `http://localhost:5000` y `https://localhost:5001`  
 **Variable de entorno**: `<PREFIX_>URLS`
 
 Para establecer este valor, use la variable de entorno o llame a `UseUrls`:

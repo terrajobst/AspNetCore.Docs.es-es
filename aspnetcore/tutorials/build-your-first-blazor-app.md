@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 2f0410eb75a6ef3f3d361c75bce7e79ae6d42a61
-ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
+ms.openlocfilehash: ea1111f43b6b8b4f47061056e8ad8d505f92dba6
+ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2019
-ms.locfileid: "70017501"
+ms.lasthandoff: 09/07/2019
+ms.locfileid: "70800480"
 ---
 # <a name="build-your-first-blazor-app"></a>Creación de la primera aplicación Blazor
 
@@ -67,11 +67,11 @@ Incluya un componente en otro componente mediante una sintaxis HTML.
 
 ## <a name="component-parameters"></a>Parámetros del componente
 
-Los componentes también pueden tener parámetros. Los parámetros de componente se definen mediante propiedades públicas en la clase de componentes decorada con `[Parameter]`. Use atributos para especificar argumentos para un componente en el marcado.
+Los componentes también pueden tener parámetros. Los parámetros de componente se definen mediante propiedades públicas en la clase de componentes con el atributo `[Parameter]`. Use atributos para especificar argumentos para un componente en el marcado.
 
 1. Actualice el código de C# `@code` del componente:
 
-   * Agregue una propiedad `IncrementAmount` decorada con el atributo `[Parameter]`.
+   * Agregue una propiedad `IncrementAmount` pública con el atributo `[Parameter]`.
    * Cambie el método `IncrementCount` para usar `IncrementAmount` al aumentar el valor de `currentCount`.
 
    *Pages/Counter.razor*:

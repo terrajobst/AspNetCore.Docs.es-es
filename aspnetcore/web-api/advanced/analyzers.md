@@ -1,30 +1,53 @@
 ---
 title: Uso de analizadores de API web
 author: pranavkm
-description: Obtenga más información sobre los analizadores de API web en Microsoft.AspNetCore.Mvc.Api.Analyzers.
+description: Obtenga información sobre el paquete de analizadores de la API web de ASP.NET Core MVC.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: prkrishn
 ms.custom: mvc
-ms.date: 12/14/2018
+ms.date: 09/05/2019
 uid: web-api/advanced/analyzers
-ms.openlocfilehash: 2aaef738ab2a64f85cb85708f63d2375c04cacb5
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: 1568eb0304a58758caa5f82249dc42872f5c36b9
+ms.sourcegitcommit: 116bfaeab72122fa7d586cdb2e5b8f456a2dc92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538566"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384866"
 ---
 # <a name="use-web-api-analyzers"></a>Uso de analizadores de API web
 
-ASP.NET Core 2.2 (y versiones posteriores) incluye el paquete NuGet [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers), que contiene analizadores para las API web. Los analizadores funcionan con los controladores anotados con <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> y se compilan con [convenciones de la API](xref:web-api/advanced/conventions).
+ASP.NET Core 2.2 y versiones posteriores proporcionan un paquete de analizadores de MVC diseñado para su uso con proyectos de API web. Los analizadores funcionan con los controladores anotados con <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> y se compilan con [convenciones de la API web](xref:web-api/advanced/conventions).
+
+El paquete de analizadores le informa de cualquier acción de controlador que:
+
+* Devuelve un código de estado no declarado.
+* Devuelve un resultado correcto no declarado.
+* Documenta un código de estado que no se devuelve.
+* Incluye una comprobación de validación del modelo explícita.
+
+::: moniker range=">= aspnetcore-3.0"
+
+## <a name="reference-the-analyzer-package"></a>Referencia al paquete del analizador
+
+En ASP.NET Core 3.0 o versiones posteriores, los analizadores se incluyen en el SDK de .NET Core. Para habilitar el analizador en el proyecto, incluya la propiedad `IncludeOpenAPIAnalyzers` en el archivo de proyecto:
+
+```xml
+<PropertyGroup>
+ <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+</PropertyGroup>
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.2"
 
 ## <a name="package-installation"></a>Instalación del paquete
 
-Se puede agregar `Microsoft.AspNetCore.Mvc.Api.Analyzers` con uno de los métodos siguientes:
+Instale el paquete de NuGet [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers) con uno de los métodos siguientes:
 
 ### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* En la ventana **Consola del Administrador de paquetes**:
+En la ventana **Consola del Administrador de paquetes**:
   * Vaya a **Vista** > **Otras ventanas** > **Consola del Administrador de paquetes**.
   * Vaya al directorio en el que esté el archivo *ApiConventions.csproj*.
   * Ejecute el siguiente comando:
@@ -33,15 +56,9 @@ Se puede agregar `Microsoft.AspNetCore.Mvc.Api.Analyzers` con uno de los método
     Install-Package Microsoft.AspNetCore.Mvc.Api.Analyzers
     ```
 
-* En el cuadro de diálogo **Administrar paquetes NuGet**:
-  * Haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** > **Administrar paquetes NuGet**.
-  * Establezca el **origen del paquete** en "nuget.org".
-  * En el cuadro de búsqueda, escriba "Microsoft.AspNetCore.Mvc.Api.Analyzers".
-  * Seleccione el paquete "Microsoft.AspNetCore.Mvc.Api.Analyzers" en la pestaña **Examinar** y haga clic en **Instalar**.
-
 ### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
-* Haga clic con el botón derecho en la carpeta *Paquetes*, en **Panel de solución** > **Agregar paquetes...** .
+* Haga clic con el botón derecho en la carpeta *Paquetes*, en **Panel de solución** > **Agregar paquetes...**
 * Establezca el menú desplegable **Origen** de la ventana **Agregar paquetes** en "nuget.org".
 * En el cuadro de búsqueda, escriba "Microsoft.AspNetCore.Mvc.Api.Analyzers".
 * Seleccione el paquete "Microsoft.AspNetCore.Mvc.Api.Analyzers" en el panel de resultados y haga clic en **Agregar paquete**.
@@ -64,13 +81,15 @@ dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 
 ---
 
-## <a name="analyzers-for-api-conventions"></a>Analizadores para las convenciones de API
+::: moniker-end
 
-Los documentos de Open API contienen los códigos de estado y los tipos de respuesta que puede devolver una acción. En ASP.NET Core MVC, los atributos como <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> y <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute> se usan para documentar una acción. <xref:tutorials/web-api-help-pages-using-swagger> ofrece información más detallada sobre cómo documentar su API.
+## <a name="analyzers-for-web-api-conventions"></a>Analizadores para las convenciones de API web
+
+Los documentos de Open API contienen los códigos de estado y los tipos de respuesta que puede devolver una acción. En ASP.NET Core MVC, los atributos como <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> y <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute> se usan para documentar una acción. <xref:tutorials/web-api-help-pages-using-swagger> ofrece información más detallada sobre cómo documentar su API web.
 
 Uno de los analizadores del paquete inspecciona los controladores anotados con <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> e identifica las acciones que no documentan completamente sus respuestas. Considere el ejemplo siguiente:
 
-[!code-csharp[](conventions/sample/Controllers/ContactsController.cs?name=missing404docs&highlight=9)]
+[!code-csharp[](conventions/sample/Controllers/ContactsController.cs?name=missing404docs&highlight=10)]
 
 La acción anterior documenta el tipo de valor devuelto correcto HTTP 200, pero no documenta el código de estado de error HTTP 404. El analizador informa de la documentación que falta para el código de estado 404 de HTTP como una advertencia. Se proporciona una opción para corregir el problema.
 

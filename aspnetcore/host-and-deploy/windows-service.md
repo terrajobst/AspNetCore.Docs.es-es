@@ -5,14 +5,14 @@ description: Aprenda a hospedar una aplicación ASP.NET Core en un servicio de W
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/03/2019
+ms.date: 09/09/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 308a8bd10371cc70c431b8858ef7d82c1bb624da
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: c2a2941f2a4e27218c90cf47453c69149da8e766
+ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975411"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815698"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hospedaje de ASP.NET Core en un servicio de Windows
 
@@ -312,15 +312,17 @@ Para controlar los eventos <xref:Microsoft.AspNetCore.Hosting.WindowsServices.We
 
 Los servicios que interactúan con las solicitudes de Internet o de una red corporativa y están detrás de un proxy o de un equilibrador de carga podrían requerir configuración adicional. Para más información, consulte <xref:host-and-deploy/proxy-load-balancer>.
 
-## <a name="configure-https"></a>Configuración de HTTPS
+## <a name="configure-endpoints"></a>Configuración de extremos
 
-Para configurar el servicio con un punto de conexión seguro:
+ASP.NET Core se enlaza a `http://localhost:5000` de forma predeterminada. Configure la dirección URL y el puerto estableciendo la variable de entorno `ASPNETCORE_URLS`.
 
-1. Cree un certificado X.509 para el sistema de hospedaje mediante la adquisición del certificado de la plataforma y con mecanismos de implementación.
+Para obtener más enfoques de configuración de puertos y direcciones URL, incluida la compatibilidad con los puntos de conexión HTTPS, vea los temas siguientes:
 
-1. Especifique una [configuración de punto de conexión HTTPS de servidor Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration) para usar el certificado.
+* <xref:fundamentals/servers/kestrel#endpoint-configuration> (Kestrel)
+* <xref:fundamentals/servers/httpsys#configure-windows-server> (HTTP.sys)
 
-No se admite el uso del certificado de desarrollo HTTPS de ASP.NET Core para proteger un punto de conexión de servicio.
+> [!NOTE]
+> No se admite el uso del certificado de desarrollo HTTPS de ASP.NET Core para proteger un punto de conexión de servicio.
 
 ## <a name="current-directory-and-content-root"></a>Directorio actual y raíz del contenido
 

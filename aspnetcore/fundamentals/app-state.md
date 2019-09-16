@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/12/2019
 uid: fundamentals/app-state
-ms.openlocfilehash: 4b02a9b5867559da493054bb128aabed4d920ace
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 578be568b58dc630e8aabf8cb355266766741b9e
+ms.sourcegitcommit: 116bfaeab72122fa7d586cdb2e5b8f456a2dc92a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813621"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384736"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Estado de sesión y aplicación en ASP.NET Core
 
@@ -22,7 +22,7 @@ HTTP es un protocolo sin estado. Sin realizar pasos adicionales, las solicitudes
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/app-state/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-## <a name="state-management"></a>Administración de estados
+## <a name="state-management"></a>Administración de estado
 
 El estado se puede almacenar mediante varios enfoques. Cada enfoque se describe más adelante en este tema.
 
@@ -47,7 +47,7 @@ Las cookies suelen utilizarse para personalizar el contenido ofrecido a un usuar
 
 Preste atención al [reglamento general de protección de datos (GDPR) de la Unión Europea](https://ec.europa.eu/info/law/law-topic/data-protection) cuando emita cookies y trate con casos de privacidad. Para obtener más información, vea [Compatibilidad con el Reglamento general de protección de datos (RGPD) en ASP.NET Core](xref:security/gdpr).
 
-## <a name="session-state"></a>Estado de la sesión
+## <a name="session-state"></a>Estado de sesión
 
 El estado de sesión es un escenario de ASP.NET Core para el almacenamiento de datos de usuario mientras el usuario examina una aplicación web. El estado de sesión usa un almacén mantenido por la aplicación para conservar los datos en las solicitudes de un cliente. Los datos de sesión están respaldados por una memoria caché y se consideran datos efímeros y el sitio debería continuar funcionando correctamente sin los datos de sesión. Los datos críticos de aplicaciones deben almacenarse en la base de datos de usuario y almacenarse en caché en la sesión solo para optimizar el rendimiento.
 
@@ -163,7 +163,29 @@ En el ejemplo siguiente se muestra cómo establecer y obtener un objeto serializ
 
 ## <a name="tempdata"></a>TempData
 
-ASP.NET Core expone la [propiedad TempData de un modelo de página de Razor Pages](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.tempdata) o [TempData de un controlador de MVC](/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata). Esta propiedad almacena datos hasta que se leen. Los métodos [Keep](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.itempdatadictionary.keep) y [Peek](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.itempdatadictionary.peek) se pueden usar para examinar los datos sin que se eliminen. TempData es particularmente útil para el redireccionamiento cuando se necesitan los datos para más de una única solicitud. Los proveedores de TempData implementan TempData mediante cookies o estado de sesión.
+ASP.NET Core expone [TempData](xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.TempData) de Razor Pages o <xref:Microsoft.AspNetCore.Mvc.Controller.TempData> del controlador. Esta propiedad almacena datos hasta que se leen en otra solicitud. Los métodos [Keep(String)](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Keep*) y [Peek(string)](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Peek*) se pueden usar para examinar los datos sin eliminarlos al final de la solicitud. [Keep()](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Keep*) marca todos los elementos del diccionario para su retención. `TempData` es particularmente útil para el redireccionamiento cuando se necesitan los datos para más de una única solicitud. Los proveedores de `TempData` implementan `TempData` mediante cookies o estado de sesión.
+
+## <a name="tempdata-samples"></a>Ejemplos de TempData
+
+Considere la siguiente página que crea un cliente:
+
+[!code-csharp[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/Create.cshtml.cs?name=snippet&highlight=15-16,30)]
+
+La siguiente página muestra `TempData["Message"]`:
+
+[!code-cshtml[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/IndexPeek.cshtml?range=1-14)]
+
+En el marcado anterior, al final de la solicitud, `TempData["Message"]` **no** se elimina porque se usa `Peek`. Al actualizar la página, aparece `TempData["Message"]`.
+
+El marcado siguiente es similar al código anterior, pero usa `Keep` para conservar los datos al final de la solicitud:
+
+[!code-cshtml[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/IndexKeep.cshtml?range=1-14)]
+
+La navegación entre las páginas *IndexPeek* y *IndexKeep* no eliminará `TempData["Message"]`.
+
+El código siguiente muestra `TempData["Message"]`, pero al final de la solicitud, se elimina `TempData["Message"]`:
+
+[!code-cshtml[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/Index.cshtml?range=1-14)]
 
 ### <a name="tempdata-providers"></a>Proveedores de TempData
 
@@ -239,7 +261,7 @@ Otro código puede tener acceso al valor almacenado en `HttpContext.Items` con l
 
 Este enfoque también tiene la ventaja de eliminar el uso de cadenas de claves en el código.
 
-## <a name="cache"></a>Memoria caché
+## <a name="cache"></a>instancias y claves
 
 El almacenamiento en caché es una manera eficaz de almacenar y recuperar datos. La aplicación puede controlar la duración de los elementos almacenados en caché.
 

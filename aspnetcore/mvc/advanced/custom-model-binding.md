@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo el enlace de modelos permite que l
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 3623a29976a2e2a7b1bdb22d35716b8a3b448958
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 91f42393ffee3249f9167e10eaea7b279a7cb70b
+ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64891230"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878413"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Enlace de modelos personalizado en ASP.NET Core
 
@@ -104,7 +104,7 @@ El atributo `ModelBinder` se puede usar para aplicar `AuthorEntityBinder` a los 
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
-En este ejemplo, como el nombre del argumento no es el `authorId` predeterminado, se especifica en el parámetro por medio del atributo `ModelBinder`. Observe que tanto el controlador como el método de acción se simplifican, en contraste con tener que buscar la entidad en el método de acción. La lógica para capturar el autor a través de Entity Framework Core se traslada al enlazador de modelos. Esto puede reducir enormemente la complejidad cuando existen varios métodos que se enlazan al modelo `Author`.
+En este ejemplo, como el nombre del argumento no es el `authorId` predeterminado, se especifica en el parámetro por medio del atributo `ModelBinder`. Tanto el controlador como el método de acción se simplifican, en contraste con tener que buscar la entidad en el método de acción. La lógica para capturar el autor a través de Entity Framework Core se traslada al enlazador de modelos. Esto puede reducir enormemente la complejidad cuando existen varios métodos que se enlazan al modelo `Author`.
 
 Puede aplicar el atributo `ModelBinder` a propiedades de modelo individuales (como en un modelo de vista) o a parámetros del método de acción para especificar un determinado nombre de modelo o enlazador de modelos que sea exclusivo de ese tipo o acción en particular.
 
@@ -129,6 +129,19 @@ En la siguiente imagen se muestran los enlazadores de modelos predeterminados en
 Si su proveedor se agrega al final de la colección, puede ocurrir que se llame a un enlazador de modelos integrado antes que al suyo. En este ejemplo, el proveedor personalizado se agrega al principio de la colección para procurar que se use en los argumentos de acción de `Author`.
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
+
+### <a name="polymorphic-model-binding"></a>Enlace de modelos polimórfico
+
+El enlace a diferentes modelos de tipos derivados se conoce como enlace de modelos polimórfico. El enlace de modelos personalizado es necesario cuando el valor de la solicitud se debe enlazar al tipo de modelo derivado específico. A menos que se requiera este enfoque, se recomienda evitar el enlace de modelos polimórfico. El enlace de modelos polimórfico dificulta el razonamiento acerca de los modelos enlazados. Sin embargo, si una aplicación requiere el enlace de modelos polimórfico, una implementación podría ser similar al código siguiente:
+
+El enlace a diferentes modelos de tipos derivados se conoce como enlace de modelos polimórfico. El enlace de modelos personalizado es necesario cuando el valor de la solicitud se debe enlazar al tipo de modelo derivado específico. Enlace de modelos polimórfico:
+
+* No es habitual para una API REST diseñada para interoperar con todos los lenguajes.
+* Dificulta el razonamiento sobre los modelos enlazados.
+
+Sin embargo, si una aplicación requiere el enlace de modelos polimórfico, una implementación podría ser similar al código siguiente:
+
+[!code-csharp[](custom-model-binding/3.0sample/PolymorphicModelBinding/ModelBinders/PolymorphicModelBinder.cs?name=snippet)]
 
 ## <a name="recommendations-and-best-practices"></a>Sugerencias y procedimientos recomendados
 
