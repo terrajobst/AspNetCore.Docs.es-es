@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: security/blazor/index
-ms.openlocfilehash: 2ba7b0612c2be50ae0797c50dc3cb0d63c0f0c2d
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: ab8cc547463ef647316b5a4e377c15021debc4b1
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800508"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963964"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>Autenticación y autorización de ASP.NET Core Blazor
 
@@ -20,26 +20,26 @@ Por [Steve Sanderson](https://github.com/SteveSandersonMS)
 
 ASP.NET Core admite la configuración y administración de seguridad en las aplicaciones Blazor.
 
-Los escenarios de seguridad difieren entre las aplicaciones del lado servidor y del lado cliente de Blazor. Debido a que las aplicaciones del lado servidor de Blazor se ejecutan en el servidor, las comprobaciones de autorización pueden determinar:
+Los escenarios de seguridad varían según si las aplicaciones son de servidor Blazor o WebAssembly de Blazor. Debido a que las aplicaciones de servidor Blazor se ejecutan en el servidor, las comprobaciones de autorización pueden determinar:
 
 * Las opciones de la interfaz de usuario presentadas a un usuario (por ejemplo, qué entradas de menú están disponibles para el usuario).
 * Las reglas de acceso para las áreas de la aplicación y los componentes.
 
-Las aplicaciones Blazor del lado cliente que se ejecutan en el cliente. La autorización *solo* se utiliza para determinar qué opciones de la interfaz de usuario se van a mostrar. Dado que las comprobaciones del lado cliente pueden modificarse u omitirse por el usuario, una aplicación Blazor del lado cliente no puede aplicar las reglas de acceso de autorización.
+Las aplicaciones WebAssembly de Blazor se ejecutan en el cliente. La autorización *solo* se utiliza para determinar qué opciones de la interfaz de usuario se van a mostrar. Dado que el usuario puede modificar u omitir las comprobaciones en el cliente, las aplicaciones WebAssembly de Blazor no puede aplicar reglas de acceso de autorización.
 
 ## <a name="authentication"></a>Autenticación
 
-Blazor utiliza los mecanismos de autenticación de ASP.NET Core existentes para establecer la identidad del usuario. El mecanismo exacto depende de cómo esté hospedada la aplicación Blazor, del lado servidor o del lado cliente.
+Blazor utiliza los mecanismos de autenticación de ASP.NET Core existentes para establecer la identidad del usuario. El mecanismo exacto depende de la forma en que se hospeda la aplicación: servidor Blazor o WebAssembly de Blazor.
 
-### <a name="blazor-server-side-authentication"></a>Autenticación del lado servidor de Blazor
+### <a name="blazor-server-authentication"></a>Autenticación del servidor Blazor
 
-Las aplicaciones del lado servidor de Blazor operan sobre una conexión en tiempo real que se crearon con SignalR. [La autenticación en aplicaciones basadas en SignalR](xref:signalr/authn-and-authz) se controla cuando se establece la conexión. La autenticación se puede basar en una cookie o en cualquier otro token de portador.
+Las aplicaciones de servidor Blazor funcionan mediante una conexión en tiempo real que se crea con SignalR. [La autenticación en aplicaciones basadas en SignalR](xref:signalr/authn-and-authz) se controla cuando se establece la conexión. La autenticación se puede basar en una cookie o en cualquier otro token de portador.
 
-La plantilla de proyecto del lado servidor de Blazor puede configurar la autenticación cuando se crea el proyecto.
+La plantilla de proyecto de servidor Blazor puede configurar la autenticación cuando se crea el proyecto.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Siga las instrucciones de Visual Studio en el artículo <xref:blazor/get-started> para crear un nuevo proyecto en el lado servidor de Blazor con un mecanismo de autenticación.
+Siga las instrucciones de Visual Studio que se indican en el artículo <xref:blazor/get-started> para crear un proyecto de servidor Blazor con un mecanismo de autenticación.
 
 Después de elegir la plantilla **Aplicación de servidor Blazor** en el cuadro de diálogo **Crear una aplicación web ASP.NET Core**, seleccione **Cambiar** en **Autenticación**.
 
@@ -54,7 +54,7 @@ Se abre un cuadro de diálogo para ofrecer el mismo conjunto de mecanismos de au
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Siga las instrucciones de Visual Studio Code en el artículo <xref:blazor/get-started> para crear un nuevo proyecto en el lado servidor de Blazor con un mecanismo de autenticación:
+Siga las instrucciones de Visual Studio Code que se indican en el artículo <xref:blazor/get-started> para crear un proyecto de servidor Blazor con un mecanismo de autenticación:
 
 ```console
 dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
@@ -62,7 +62,7 @@ dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
 
 En la tabla siguiente se muestran los valores de autenticación permitidos (`{AUTHENTICATION}`).
 
-| Mecanismo de autenticación                                                                 | Valor de`{AUTHENTICATION}`  |
+| Mecanismo de autenticación                                                                 | Valor de`{AUTHENTICATION}` |
 | ---------------------------------------------------------------------------------------- | :----------------------: |
 | Sin autenticación                                                                        | `None`                   |
 | Individual<br>Usuarios almacenados en la aplicación con la identidad de ASP.NET Core.                        | `Individual`             |
@@ -88,7 +88,7 @@ El comando crea una carpeta con el valor proporcionado para el marcador de posic
 <!--
 # [.NET Core CLI](#tab/netcore-cli/)
 
-Follow the .NET Core CLI guidance in the <xref:blazor/get-started> article to create a new Blazor server-side project with an authentication mechanism:
+Follow the .NET Core CLI guidance in the <xref:blazor/get-started> article to create a new Blazor Server project with an authentication mechanism:
 
 ```console
 dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
@@ -111,15 +111,15 @@ The command creates a folder named with the value provided for the `{APP NAME}` 
 
 ---
 
-### <a name="blazor-client-side-authentication"></a>Autenticación del lado cliente de Blazor
+### <a name="blazor-webassembly-authentication"></a>Autenticación de WebAssembly de Blazor
 
-En las aplicaciones Blazor del lado cliente, las comprobaciones de autenticación pueden omitirse porque los usuarios pueden modificar todos los códigos del lado cliente. Lo mismo se aplica a todas las tecnologías de aplicaciones del lado cliente, incluidas las plataformas JavaScript SPA o las aplicaciones nativas para cualquier sistema operativo.
+En las aplicaciones WebAssembly de Blazor, las comprobaciones de autenticación pueden omitirse porque los usuarios pueden modificar todos los códigos del lado cliente. Lo mismo se aplica a todas las tecnologías de aplicaciones del lado cliente, incluidas las plataformas JavaScript SPA o las aplicaciones nativas para cualquier sistema operativo.
 
-En las secciones siguientes se trata la implementación de un servicio `AuthenticationStateProvider` personalizado para aplicaciones Blazor del lado cliente.
+En las secciones siguientes se trata la implementación de un servicio `AuthenticationStateProvider` personalizado para aplicaciones WebAssembly de Blazor.
 
 ## <a name="authenticationstateprovider-service"></a>Servicio AuthenticationStateProvider
 
-Las aplicaciones Blazor del lado servidor incluyen un servicio `AuthenticationStateProvider` integrado que obtiene los datos de estado de autenticación de `HttpContext.User` de ASP.NET Core. Así es como el estado de autenticación se integra con los mecanismos de autenticación existentes en el lado servidor de ASP.NET Core.
+Las aplicaciones de servidor Blazor incluyen un servicio `AuthenticationStateProvider` integrado que obtiene los datos de estado de autenticación de `HttpContext.User` de ASP.NET Core. Así es como el estado de autenticación se integra con los mecanismos de autenticación existentes en el lado servidor de ASP.NET Core.
 
 `AuthenticationStateProvider` es el servicio subyacente utilizado por el componente `AuthorizeView` y el componente `CascadingAuthenticationState` para obtener el estado de autenticación.
 
@@ -157,7 +157,7 @@ Para más información sobre la inserción de dependencias (DI) y servicios, con
 
 ## <a name="implement-a-custom-authenticationstateprovider"></a>Implementación de un componente AuthenticationStateProvider personalizado
 
-Si está creando una aplicación Blazor del lado cliente o si la especificación de la aplicación requiere absolutamente un proveedor personalizado, implemente un proveedor y reemplace `GetAuthenticationStateAsync`:
+Si va a crear una aplicación WebAssembly de Blazor o si la especificación de la aplicación requiere absolutamente un proveedor personalizado, implemente un proveedor y reemplace `GetAuthenticationStateAsync`:
 
 ```csharp
 class CustomAuthStateProvider : AuthenticationStateProvider
@@ -310,13 +310,13 @@ Para la autorización basada en directivas, utilice el parámetro `Policy`:
 
 La autorización basada en notificaciones es un caso especial de autorización basada en directivas. Por ejemplo, puede definir una directiva que requiere que los usuarios tengan una notificación determinada. Para más información, consulte <xref:security/authorization/policies>.
 
-Estas API se pueden usar en aplicaciones Blazor del lado cliente o del lado servidor.
+Estas API se pueden usar en las aplicaciones de servidor Blazor o en las aplicaciones WebAssembly de Blazor.
 
 Si no se especifica `Roles` ni `Policy`, `AuthorizeView` usa la directiva predeterminada.
 
 ### <a name="content-displayed-during-asynchronous-authentication"></a>Contenido que se muestra durante la autenticación asincrónica
 
-Blazor permite que el estado de autenticación se determine *asincrónicamente*. El escenario principal para este enfoque se encuentra en las aplicaciones Blazor en el lado cliente que realice una solicitud a un punto de conexión externo para la autenticación.
+Blazor permite que el estado de autenticación se determine *asincrónicamente*. El escenario principal de este enfoque se encuentra en las aplicaciones WebAssembly de Blazor que realizan una solicitud de autenticación a un punto de conexión externo.
 
 Mientras la autenticación está en curso, `AuthorizeView` no muestra ningún contenido de forma predeterminada. Para mostrar el contenido mientras tiene lugar la autenticación, use el elemento `<Authorizing>`:
 
@@ -333,7 +333,7 @@ Mientras la autenticación está en curso, `AuthorizeView` no muestra ningún co
 </AuthorizeView>
 ```
 
-Este enfoque no se aplica normalmente a las aplicaciones Blazor del lado servidor. Las aplicaciones Blazor del lado servidor conocen el estado de autenticación tan pronto como se establece dicho estado. El contenido `Authorizing` puede proporcionarse en el componente `AuthorizeView` de una aplicación Blazor del lado servidor, pero el contenido nunca se muestra.
+Este enfoque no se aplica normalmente a las aplicaciones de servidor Blazor. Estas aplicaciones conocen el estado de autenticación tan pronto como se establece dicho estado. El contenido `Authorizing` puede proporcionarse en el componente `AuthorizeView` de una aplicación de servidor Blazor, pero nunca se muestra.
 
 ## <a name="authorize-attribute"></a>Atributo [Authorize]
 
@@ -382,7 +382,7 @@ El componente `Router`, junto con el componente `AuthorizeRouteView`, permite qu
 * El usuario produce un error en la condición `[Authorize]` aplicada al componente. El atributo `[Authorize]` se trata en la sección [Atributo [Authorize]](#authorize-attribute).
 * La autenticación asincrónica está en curso.
 
-En la plantilla de proyecto predeterminada del lado servidor de Blazor, el archivo *App.razor* muestra cómo configurar el contenido personalizado:
+En la plantilla de proyecto predeterminada del servidor Blazor, el archivo *App.razor* muestra cómo configurar el contenido personalizado:
 
 ```cshtml
 <Router AppAssembly="@typeof(Program).Assembly">
@@ -459,9 +459,9 @@ Si se requiere que la aplicación compruebe las reglas de autorización como par
 }
 ```
 
-## <a name="authorization-in-blazor-client-side-apps"></a>Autorización en las aplicaciones Blazor del lado cliente
+## <a name="authorization-in-blazor-webassembly-apps"></a>Autorización en aplicaciones WebAssembly de Blazor
 
-En las aplicaciones Blazor del lado cliente, las comprobaciones de autenticación pueden omitirse porque los usuarios pueden modificar todos los códigos del lado cliente. Lo mismo se aplica a todas las tecnologías de aplicaciones del lado cliente, incluidas las plataformas JavaScript SPA o las aplicaciones nativas para cualquier sistema operativo.
+En aplicaciones WebAssembly de Blazor, las comprobaciones de autorización pueden omitirse porque los usuarios pueden modificar todos los códigos del lado cliente. Lo mismo se aplica a todas las tecnologías de aplicaciones del lado cliente, incluidas las plataformas JavaScript SPA o las aplicaciones nativas para cualquier sistema operativo.
 
 **Realice siempre las comprobaciones de autorización en el servidor dentro de cualquier punto de conexión de la API al que acceda su aplicación del lado cliente.**
 
@@ -473,7 +473,7 @@ Errores comunes:
 
 * **Se recibe el valor `null` para `authenticationStateTask`**
 
-Es probable que el proyecto no se haya creado mediante una plantilla del lado servidor de Blazor con la autenticación habilitada. Encapsule un `<CascadingAuthenticationState>` alrededor de alguna parte del árbol de la interfaz, por ejemplo, en *App.razor* de la siguiente manera:
+Es probable que el proyecto no se haya creado mediante una plantilla de servidor de Blazor con la autenticación habilitada. Encapsule un `<CascadingAuthenticationState>` alrededor de alguna parte del árbol de la interfaz, por ejemplo, en *App.razor* de la siguiente manera:
 
 ```cshtml
 <CascadingAuthenticationState>
@@ -488,5 +488,5 @@ El `CascadingAuthenticationState` proporciona el parámetro en cascada `Task<Aut
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * <xref:security/index>
-* <xref:security/blazor/server-side>
+* <xref:security/blazor/server>
 * <xref:security/authentication/windowsauth>
