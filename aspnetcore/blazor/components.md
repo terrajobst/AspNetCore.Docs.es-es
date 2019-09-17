@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/components
-ms.openlocfilehash: bc9fa06e5acccb773717fe87bf4aabb971b8dee5
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: e51f6745f6e0c748e51d7f8a49193f3d81fd2a06
+ms.sourcegitcommit: 07cd66e367d080acb201c7296809541599c947d1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70963779"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71039180"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -229,6 +229,34 @@ Cuando se representa el componente, el `value` del elemento de entrada procede d
 ```
 
 A diferencia `onchange`de, que se activa cuando el elemento pierde `oninput` el foco, se desencadena cuando cambia el valor del cuadro de texto.
+
+**Valores no analizables**
+
+Cuando un usuario proporciona un valor que no se pueda analizar a un elemento DataBound, el valor no analizable se revierte automáticamente a su valor anterior cuando se desencadena el evento de enlace.
+
+Considere el caso siguiente:
+
+* Un `<input>` elemento se enlaza a un `int` tipo con un valor inicial de `123`:
+
+  ```cshtml
+  <input @bind="MyProperty" />
+
+  @code {
+      [Parameter]
+      public int MyProperty { get; set; } = 123;
+  }
+  ```
+* El usuario actualiza el valor del elemento a `123.45` en la página y cambia el foco del elemento.
+
+En el escenario anterior, el valor del elemento se revierte a `123`. Cuando el valor `123.45` se rechaza en favor del valor original de `123`, el usuario entiende que no se aceptó su valor.
+
+De forma predeterminada, el enlace se aplica al `onchange` evento del`@bind="{PROPERTY OR FIELD}"`elemento (). Use `@bind-value="{PROPERTY OR FIELD}" @bind-value:event={EVENT}` para establecer un evento diferente. En el `oninput` caso del`@bind-value:event="oninput"`evento (), la reversión se produce después de cualquier pulsación de tecla que introduzca un valor no analizable. Cuando el destino es `oninput` el evento con `int`un tipo enlazado a, se impide que un usuario `.` escriba un carácter. Un `.` carácter se quita inmediatamente, por lo que el usuario recibe comentarios inmediatos que solo se permiten números enteros. Hay escenarios en los `oninput` que la reversión del valor del evento no es ideal, por ejemplo, cuando se debe permitir que el usuario borre un `<input>` valor que no se puede analizar. Las alternativas incluyen:
+
+* No utilice el `oninput` evento. Use el evento `onchange` predeterminado (`@bind="{PROPERTY OR FIELD}"`), donde no se revierte un valor no válido hasta que el elemento pierde el foco.
+* Enlazar a un tipo que acepta valores NULL `int?` , `string`como o, y proporcionar una lógica personalizada para controlar las entradas no válidas.
+* Use un [componente de validación de formulario](xref:blazor/forms-validation), `InputNumber` como `InputDate`o. Los componentes de validación de formularios tienen compatibilidad integrada para administrar entradas no válidas. Componentes de validación de formularios:
+  * Permite que el usuario proporcione entradas no válidas y reciba errores de validación `EditContext`en la asociada.
+  * Mostrar errores de validación en la interfaz de usuario sin interferir con el usuario al escribir datos de WebForm adicionales.
 
 **Globalización**
 
