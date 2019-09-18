@@ -1,18 +1,18 @@
 ---
 title: Implementaciones de servidores web en ASP.NET Core
-author: guardrex
+author: tdykstra
 description: Detecte los servidores web Kestrel y HTTP.sys de ASP.NET Core. Obtenga más información sobre cómo elegir un servidor y cuándo se debe usar un servidor proxy inverso.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/01/2019
+ms.date: 08/10/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: 404fec18409a675981fc0c068ee9a99001e06c16
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: cfea559725a644f167aa3afdf88c78bace4b5950
+ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975543"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71011151"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementaciones de servidores web en ASP.NET Core
 
@@ -34,7 +34,7 @@ Use Kestrel:
 
   ![Kestrel se comunica indirectamente con Internet a través de un servidor proxy inverso, como IIS, Nginx o Apache](kestrel/_static/kestrel-to-internet.png)
 
-Se admite cualquiera de las configuraciones de hospedaje, &mdash; con o sin un servidor proxy inverso&mdash; para ASP.NET Core 2.1 o aplicaciones posteriores.
+Se admite cualquiera de las configuraciones de hospedaje &mdash;con o sin un servidor proxy inverso&mdash;.
 
 Si quiere obtener instrucciones e información sobre la configuración de Kestrel y su uso en una configuración de proxy inverso, vea <xref:fundamentals/servers/kestrel>.
 

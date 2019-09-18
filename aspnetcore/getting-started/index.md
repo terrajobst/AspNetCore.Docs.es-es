@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/15/2019
 uid: getting-started
-ms.openlocfilehash: c35251a0e49fbbffee7b8f5ea6905322b9042261
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: d1edf91f1b37ba2b69732471dc6c1f306ac5ad24
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814931"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081123"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Tutorial: Introducción a ASP.NET Core
 
@@ -37,7 +37,7 @@ Al final, tendrá una aplicación web en funcionamiento ejecutándose en el equi
 
 Abra un shell de comandos y escriba el siguiente comando:
 
-```console
+```dotnetcli
 dotnet new webapp -o aspnetcoreapp
 ```
 
@@ -47,7 +47,7 @@ Confíe en el certificado de desarrollo HTTPS:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-```console
+```dotnetcli
 dotnet dev-certs https --trust
 ```
 
@@ -59,7 +59,7 @@ Si acepta confiar en el certificado de desarrollo, seleccione **Sí**.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-```console
+```dotnetcli
 dotnet dev-certs https --trust
 ```
 
@@ -83,7 +83,7 @@ Para más información, consulte [Confiar en el certificado de desarrollo de ASP
 
 Ejecute los comandos siguientes:
 
-```console
+```dotnetcli
 cd aspnetcoreapp
 dotnet run
 ```
