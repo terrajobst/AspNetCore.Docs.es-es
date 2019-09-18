@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: 91a71498574d6d96c2c06e896283fed801e8adb3
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 0e61c5b3e31a0b050d356b8f8e16306dc1e2a7f3
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64893702"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080416"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de React con ASP.NET Core
 
@@ -26,7 +26,7 @@ Si tiene ASP.NET Core 2.1 instalado, no es necesario instalar la plantilla de pr
 
 En un símbolo del sistema, cree un nuevo proyecto con el comando `dotnet new react` en un directorio vacío. Por ejemplo, los siguientes comandos crean la aplicación en un directorio *my-new-app* y cambian a ese directorio:
 
-```console
+```dotnetcli
 dotnet new react -o my-new-app
 cd my-new-app
 ```
@@ -80,13 +80,13 @@ El proyecto está configurado para iniciar su propia instancia del servidor de d
 
 Sin embargo, esta configuración predeterminada tiene un inconveniente. Cada vez que modifica el código de C# y la aplicación ASP.NET Core debe reiniciarse, el servidor de CRA se reinicia. Se necesitan unos segundos para iniciar la copia de seguridad. Sin realiza frecuentes modificaciones en el código de C# y no quiere esperar a que se reinicie el servidor de CRA, ejecute el servidor de CRA externamente, con independencia del proceso de ASP.NET Core. Para ello:
 
-1. Agregar un *.env* del archivo a la *ClientApp* subdirectorio con la siguiente configuración:
+1. Agregue un archivo *. env* al subdirectorio *ClientApp* con la siguiente configuración:
 
     ```
     BROWSER=none
     ```
 
-    Esto impedirá que el explorador web al abrir al iniciar el servidor CRA externamente.
+    Esto impedirá que el explorador Web se abra al iniciar el servidor de la CRA externamente.
 
 2. En un símbolo del sistema, cambie al subdirectorio *ClientApp* e inicie el servidor de desarrollo de CRA:
 
@@ -104,7 +104,7 @@ Sin embargo, esta configuración predeterminada tiene un inconveniente. Cada vez
 Cuando inicie la aplicación ASP.NET Core, no se iniciará un servidor de CRA. En su lugar, se usa la instancia que inició manualmente. Esto le permite iniciar y reiniciar con mayor rapidez. Ya no tiene que esperar a que la aplicación de React se recompile de una vez a otra.
 
 > [!IMPORTANT]
-> "Representación del lado servidor" no es una característica compatible con esta plantilla. Nuestro objetivo con esta plantilla es satisfacer la paridad con "create de react-app". Por lo tanto, escenarios y características no incluidas en un proyecto de "creación de react-app" (por ejemplo, el SSR) no se admiten y se dejan como un ejercicio para el usuario.
+> La representación del lado servidor no es una característica admitida de esta plantilla. Nuestro objetivo con esta plantilla es cumplir la paridad con "Create-reAct-app". Por lo tanto, los escenarios y características que no se incluyen en un proyecto "Create-reAct-app" (como SSR) no se admiten y se dejan como un ejercicio para el usuario.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

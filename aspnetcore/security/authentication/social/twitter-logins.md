@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/11/2019
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 6b6fa3e50f602a92fec9112ac3ba43583de33a70
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 5182f1647acb664bf35f086fcddbe909559a62f7
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994279"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082304"
 ---
 # <a name="twitter-external-sign-in-setup-with-aspnet-core"></a>Configuración de inicio de sesión externo de Twitter con ASP.NET Core
 
@@ -25,7 +25,7 @@ Este ejemplo muestra cómo permitir a los usuarios [iniciar sesión con su cuent
 
 * Pulse en **crear nueva aplicación** y rellene el **nombre**de la aplicación, la **Descripción** y el URI del **sitio web** público (esto puede ser temporal hasta que registre el nombre de dominio):
 
-* Escriba el URI de desarrollo `/signin-twitter` con anexado en el campo URI de redirección de **OAuth válido** ( `https://webapp128.azurewebsites.net/signin-twitter`por ejemplo:). El esquema de autenticación de Twitter configurado más adelante en este ejemplo administrará `/signin-twitter` automáticamente las solicitudes de la ruta para implementar el flujo de OAuth.
+* Escriba el URI de desarrollo `/signin-twitter` con anexado en el campo **URI de redirección de OAuth válido** ( `https://webapp128.azurewebsites.net/signin-twitter`por ejemplo:). El esquema de autenticación de Twitter configurado más adelante en este ejemplo administrará `/signin-twitter` automáticamente las solicitudes de la ruta para implementar el flujo de OAuth.
 
   > [!NOTE]
   > El segmento `/signin-twitter` URI se establece como la devolución de llamada predeterminada del proveedor de autenticación de Twitter. Puede cambiar el URI de devolución de llamada predeterminado mientras configura el middleware de autenticación de Twitter a través de la propiedad heredada [RemoteAuthenticationOptions. CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) de la clase [TwitterOptions](/dotnet/api/microsoft.aspnetcore.authentication.twitter.twitteroptions) .
@@ -36,7 +36,7 @@ Este ejemplo muestra cómo permitir a los usuarios [iniciar sesión con su cuent
 
 Ejecute los siguientes comandos para almacenar `ClientId` y `ClientSecret` usar el administrador de [secretos](xref:security/app-secrets)de forma segura:
 
-```console
+```dotnetcli
 dotnet user-secrets set Authentication:Twitter:ConsumerAPIKey <Key>
 dotnet user-secrets set Authentication:Twitter:ConsumerSecret <Secret>
 ```
@@ -69,7 +69,7 @@ Ya ha iniciado sesión con sus credenciales de Twitter:
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 * **Solo ASP.NET Core 2. x:** Si la identidad no se configura `services.AddIdentity` mediante `ConfigureServices`una llamada a en, si se intenta realizar *la autenticación, se producirá una excepción ArgumentException: Se debe proporcionar*la opción ' SignInScheme '. La plantilla de proyecto utilizada en este ejemplo garantiza que esto se realiza.
 * Si la base de datos de sitio no se ha creado aplicando a la migración inicial, obtendrá *error en una operación de base de datos al procesar la solicitud* error. Pulse **aplicar migraciones** para crear la base de datos y actualizar para continuar más allá del error.

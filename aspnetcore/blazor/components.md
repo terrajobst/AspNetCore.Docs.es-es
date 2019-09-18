@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/components
-ms.openlocfilehash: e51f6745f6e0c748e51d7f8a49193f3d81fd2a06
-ms.sourcegitcommit: 07cd66e367d080acb201c7296809541599c947d1
+ms.openlocfilehash: 521421ac413218c1f04dd9feade2a49dc1f7b918
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71039180"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080528"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -1473,7 +1473,7 @@ Este es un ejemplo trivial. En casos más realistas con estructuras complejas y 
 
 * El rendimiento de la aplicación se ve afectado si los números de secuencia se generan dinámicamente.
 * El marco no puede crear sus propios números de secuencia automáticamente en tiempo de ejecución porque la información necesaria no existe a menos que se Capture en tiempo de compilación.
-* No escriba grandes bloques de lógica implementada `RenderTreeBuilder` manualmente. Prefiere `.razor` archivos y permite al compilador tratar con los números de secuencia.
+* No escriba grandes bloques de lógica implementada `RenderTreeBuilder` manualmente. Prefiere `.razor` archivos y permite al compilador tratar con los números de secuencia. Si no puede evitar la lógica manual `RenderTreeBuilder` , divida bloques largos de código en partes más pequeñas encapsuladas `OpenRegion` en / `CloseRegion` llamadas. Cada región tiene su propio espacio independiente de números de secuencia, por lo que puede reiniciar desde cero (o cualquier otro número arbitrario) dentro de cada región.
 * Si los números de secuencia están codificados, el algoritmo de comparación solo requiere que los números de secuencia aumenten en valor. El valor inicial y los huecos son irrelevantes. Una opción legítima es usar el número de línea de código como el número de secuencia, o comenzar a partir de cero y aumentar por unos o cientos (o cualquier intervalo preferido). 
 * El uso de los números de secuencia es más rápido, mientras que otros marcos de interfaz de usuario de comparación de árboles no los utilizan. La diferenciación es mucho más rápida cuando se utilizan números de secuencia y increíble tiene la ventaja de un paso de compilación que trata los números de secuencia automáticamente para `.razor` los programadores que crean archivos.
 

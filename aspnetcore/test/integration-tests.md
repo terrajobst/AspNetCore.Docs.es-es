@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2019
 uid: test/integration-tests
-ms.openlocfilehash: 195acd3e03f3de63ebd61767f2c86d1c0f38fca5
-ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
+ms.openlocfilehash: 272f0f2140647dd31319f8feada0ec04c7ab4e44
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2019
-ms.locfileid: "70017432"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082499"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
 
@@ -44,7 +44,7 @@ Estas pruebas más amplias se usan para probar la infraestructura de la aplicaci
 * Aplicaciones de red
 * Canalización de solicitud-respuesta
 
-Las pruebas unitarias usan componentes fabricados, conocidos como falsificaciones o *objetos ficticios*, en lugar de componentes de infraestructura.
+Las pruebas unitarias usan componentes fabricados, conocidos como *falsificaciones* o *objetos ficticios*, en lugar de componentes de infraestructura.
 
 A diferencia de las pruebas unitarias, las pruebas de integración:
 
@@ -74,7 +74,7 @@ Las pruebas de integración siguen una secuencia de eventos que incluyen los pas
 1. Se crea un cliente de servidor de prueba para enviar solicitudes a la aplicación.
 1. Se ejecuta el paso de prueba *organizar* : La aplicación de prueba prepara una solicitud.
 1. Se ejecuta el paso de prueba *Act* : El cliente envía la solicitud y recibe la respuesta.
-1. Se ejecuta el paso de prueba Assert: La respuesta *real* se valida como superada o *no* superada en función de la respuesta *esperada* .
+1. Se ejecuta el paso de prueba *Assert* : La respuesta *real* se valida como *superada* o *no* superada en función de la respuesta *esperada* .
 1. El proceso continúa hasta que se ejecutan todas las pruebas.
 1. Se muestran los resultados de las pruebas.
 
@@ -169,7 +169,7 @@ La configuración del host Web se puede crear independientemente de las clases d
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet2)]
 
-Cualquier solicitud POST a SUT debe cumplir la comprobación antifalsificación realizada automáticamente por el sistema antifalsificación de [protección de datos](xref:security/data-protection/introduction)de la aplicación. Para organizar la solicitud POST de una prueba, la aplicación de prueba debe:
+Cualquier solicitud POST a SUT debe cumplir la comprobación antifalsificación realizada automáticamente por el [sistema antifalsificación de protección de datos](xref:security/data-protection/introduction)de la aplicación. Para organizar la solicitud POST de una prueba, la aplicación de prueba debe:
 
 1. Realice una solicitud para la página.
 1. Analice la cookie antifalsificación y solicite el token de validación de la respuesta.
@@ -311,7 +311,7 @@ La [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/maste
 
 Las pruebas se pueden ejecutar con las características de prueba integradas de un IDE, como [Visual Studio](https://visualstudio.microsoft.com). Si usa [Visual Studio Code](https://code.visualstudio.com/) o la línea de comandos, ejecute el siguiente comando en un símbolo del sistema en el directorio *tests/RazorPagesProject. tests* :
 
-```console
+```dotnetcli
 dotnet test
 ```
 

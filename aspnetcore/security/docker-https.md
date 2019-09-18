@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/05/2019
 uid: security/docker-https
-ms.openlocfilehash: f17a3abe1b00b39b7b6787be5b20ce65771190b8
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: c13ba02845eef5c53a939feec2be8a01bc4ca128
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619700"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082529"
 ---
 # <a name="hosting-aspnet-core-images-with-docker-over-https"></a>Hospedaje de imágenes de ASP.NET Core con Docker a través de HTTPS
 
@@ -24,7 +24,7 @@ En este documento se explica cómo ejecutar imágenes de contenedor creadas prev
 
 Consulte [desarrollo de aplicaciones ASP.net Core con Docker a través de https](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/aspnetcore-docker-https-development.md) para escenarios de desarrollo.
 
-Este ejemplo requiere [docker 17,06](https://docs.docker.com/release-notes/docker-ce) o posterior del [cliente](https://www.docker.com/products/docker)de Docker.
+Este ejemplo requiere [docker 17,06](https://docs.docker.com/release-notes/docker-ce) o posterior del [cliente de Docker](https://www.docker.com/products/docker).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -32,9 +32,9 @@ El [SDK de .net Core 2,2](https://www.microsoft.com/net/download) o posterior es
 
 ## <a name="certificates"></a>Certificados
 
-Se requiere un certificado de una [entidad de certificación](https://en.wikipedia.org/wiki/Certificate_authority) para el [hospedaje de producción](https://blogs.msdn.microsoft.com/webdev/2017/11/29/configuring-https-in-asp-net-core-across-different-platforms/) en un dominio.  [Vamos](https://letsencrypt.org/) a cifrar es una entidad de certificación que ofrece certificados gratuitos.
+Se requiere un certificado de una [entidad de certificación](https://en.wikipedia.org/wiki/Certificate_authority) para el [hospedaje de producción](https://blogs.msdn.microsoft.com/webdev/2017/11/29/configuring-https-in-asp-net-core-across-different-platforms/) en un dominio.  [Vamos a cifrar](https://letsencrypt.org/) es una entidad de certificación que ofrece certificados gratuitos.
 
-En este documento se usan [certificados de desarrollo](https://en.wikipedia.org/wiki/Self-signed_certificate) autofirmados para hospedar imágenes `localhost`pregeneradas en. Las instrucciones son similares a usar certificados de producción.
+En este documento se usan [certificados de desarrollo autofirmados](https://en.wikipedia.org/wiki/Self-signed_certificate) para hospedar imágenes `localhost`pregeneradas en. Las instrucciones son similares a usar certificados de producción.
 
 Para los certificados de producción:
 
@@ -55,7 +55,7 @@ Utilice las siguientes instrucciones para la configuración del sistema operativ
 
 Generar certificado y configurar equipo local:
 
-```console
+```dotnetcli
 dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\aspnetapp.pfx -p { password here }
 dotnet dev-certs https --trust
 ```
@@ -75,7 +75,7 @@ La contraseña debe coincidir con la contraseña usada para el certificado.
 
 Generar certificado y configurar equipo local:
 
-```console
+```dotnetcli
 dotnet dev-certs https -ep ${HOME}/.aspnet/https/aspnetapp.pfx -p { password here }
 dotnet dev-certs https --trust
 ```
@@ -97,7 +97,7 @@ La contraseña debe coincidir con la contraseña usada para el certificado.
 
 Generar certificado y configurar equipo local:
 
-```console
+```dotnetcli
 dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\aspnetapp.pfx -p { password here }
 dotnet dev-certs https --trust
 ```

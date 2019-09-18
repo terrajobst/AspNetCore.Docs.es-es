@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/27/2019
 uid: performance/caching/distributed
-ms.openlocfilehash: 8417463038bcdc0f77852bec3c3bb8a618153009
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: dbcdfcd07877fabfe6d18cd4d840b5597afa1afd
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773847"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081546"
 ---
 # <a name="distributed-caching-in-aspnet-core"></a>Almacenamiento en caché distribuido en ASP.NET Core
 
@@ -104,7 +104,7 @@ La implementación de la memoria caché<xref:Microsoft.Extensions.DependencyInje
 
 Cree una tabla en SQL Server ejecutando el `sql-cache create` comando. Proporcione la SQL Server instancia (`Data Source`), la base`Initial Catalog`de datos (), el esquema `dbo`(por ejemplo,) y el nombre de `TestCache`la tabla (por ejemplo,):
 
-```console
+```dotnetcli
 dotnet sql-cache create "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DistCache;Integrated Security=True;" dbo TestCache
 ```
 

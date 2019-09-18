@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 0d0b6e20a1901d4a2630ce263b5fd0cd7bcca8fe
-ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
+ms.openlocfilehash: fe6cdca1f7180f9da26fe2838e529becb26ccd45
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2019
-ms.locfileid: "68776652"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081099"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault proveedor de configuración en ASP.NET Core
 
@@ -34,7 +34,7 @@ Para usar el proveedor de configuración de Azure Key Vault, agregue una referen
 Para adoptar el escenario [identidades administradas para los recursos de Azure](/azure/active-directory/managed-identities-azure-resources/overview) , agregue una referencia de paquete al paquete [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .
 
 > [!NOTE]
-> En el momento de escribir este documento, la versión estable `Microsoft.Azure.Services.AppAuthentication`más reciente `1.0.3`de, la versión, proporciona compatibilidad con identidades administradas asignadas por [el sistema](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-work). La compatibilidad con identidades administradas asignadas por el *usuario* está disponible en el `1.2.0-preview2` paquete. En este tema se muestra el uso de identidades administradas por el sistema y la aplicación de `1.0.3` ejemplo proporcionada `Microsoft.Azure.Services.AppAuthentication` usa la versión del paquete.
+> En el momento de escribir este documento, la versión estable `Microsoft.Azure.Services.AppAuthentication`más reciente `1.0.3`de, la versión, proporciona compatibilidad con [identidades administradas asignadas por el sistema](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-work). La compatibilidad con *identidades administradas asignadas* por el usuario `1.2.0-preview2` está disponible en el paquete. En este tema se muestra el uso de identidades administradas por el sistema y la aplicación de `1.0.3` ejemplo proporcionada `Microsoft.Azure.Services.AppAuthentication` usa la versión del paquete.
 
 ## <a name="sample-app"></a>Aplicación de ejemplo
 
@@ -61,13 +61,13 @@ Los secretos se crean como pares de nombre y valor. Los valores jerárquicos (se
 
 El administrador de secretos se usa desde un shell de comandos abierto a la raíz del contenido del `{SECRET NAME}` proyecto, donde es `{SECRET VALUE}` el nombre y es el valor:
 
-```console
+```dotnetcli
 dotnet user-secrets set "{SECRET NAME}" "{SECRET VALUE}"
 ```
 
 Ejecute los siguientes comandos en un shell de comandos desde la raíz del contenido del proyecto para establecer los secretos de la aplicación de ejemplo:
 
-```console
+```dotnetcli
 dotnet user-secrets set "SecretName" "secret_value_1_dev"
 dotnet user-secrets set "Section:SecretName" "secret_value_2_dev"
 ```
@@ -84,7 +84,7 @@ Las instrucciones que se proporcionan [en la guía de inicio rápido: Establecer
    * Abra Cloud Shell en el explorador con el botón **iniciar Cloud Shell** .
    * Seleccione el botón **Cloud Shell** en el menú de la esquina superior derecha del Azure portal.
 
-   Para obtener más información, consulte [la interfaz de la línea de comandos (CLI) de Azure](/cli/azure/) y la [información general de Azure Cloud Shell](/azure/cloud-shell/overview).
+   Para obtener más información, consulte [interfaz de la línea de comandos de Azure (CLI)](/cli/azure/) e [información general de Azure Cloud Shell](/azure/cloud-shell/overview).
 
 1. Si aún no está autenticado, inicie sesión con el `az login` comando.
 
@@ -233,7 +233,7 @@ Cuando se implementa este enfoque:
 
    Guarde los siguientes secretos localmente con la [herramienta de administración de secretos](xref:security/app-secrets):
 
-   ```console
+   ```dotnetcli
    dotnet user-secrets set "5000-AppSecret" "5.0.0.0_secret_value_dev"
    dotnet user-secrets set "5100-AppSecret" "5.1.0.0_secret_value_dev"
    ```

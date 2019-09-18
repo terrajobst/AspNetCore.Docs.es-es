@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: e09d03f1d30f128b1db1588aa92b28ec3e4ae626
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: df41f296e9c4e1eff6e31d45b29ec30ee1e20cf4
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64892642"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080437"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Implementar una aplicación en App Service
 
@@ -35,7 +35,7 @@ No dude en revisar el código, pero es importante entender que no hay nada espec
 
 Desde un shell de comandos, descargar el código, compile el proyecto y ejecútelo como se indica a continuación.
 
-> *Nota: Los usuarios de Linux/macOS deben realizar cambios correspondientes de las rutas de acceso, por ejemplo, con barra diagonal (`/`) en lugar de barra diagonal inversa (`\`).*
+> *Nota: Los usuarios de Linux/MacOS deben realizar los cambios adecuados en las rutas de acceso, por`/`ejemplo, mediante una barra diagonal`\`() en lugar de la barra diagonal inversa ().*
 
 1. Clone el código en una carpeta en el equipo local.
 
@@ -51,13 +51,13 @@ Desde un shell de comandos, descargar el código, compile el proyecto y ejecúte
 
 3. Restaure los paquetes y compile la solución.
 
-    ```console
+    ```dotnetcli
     dotnet build
     ```
 
 4. Ejecute la aplicación.
 
-    ```console
+    ```dotnetcli
     dotnet run
     ```
 
@@ -73,7 +73,7 @@ Desde un shell de comandos, descargar el código, compile el proyecto y ejecúte
 
 Para implementar la aplicación, debe crear un servicio de aplicaciones [Web App](/azure/app-service/app-service-web-overview). Tras la creación de la aplicación Web, deberá implementar en él desde el equipo local mediante Git.
 
-1. Inicie sesión en el [Azure Cloud Shell](https://shell.azure.com/bash). Nota: Al iniciar sesión por primera vez, Cloud Shell le insta a crear una cuenta de almacenamiento para archivos de configuración. Acepte los valores predeterminados o proporcione un nombre único.
+1. Inicie sesión en el [Azure Cloud Shell](https://shell.azure.com/bash). Nota: Cuando inicie sesión por primera vez, Cloud Shell le pedirá que cree una cuenta de almacenamiento para los archivos de configuración. Acepte los valores predeterminados o proporcione un nombre único.
 
 2. Usar Cloud Shell para conocer los pasos siguientes.
 
@@ -141,7 +141,7 @@ Para implementar la aplicación, debe crear un servicio de aplicaciones [Web App
 
 ## <a name="deployment-with-visual-studio"></a>Implementación con Visual Studio
 
-> *Nota: En esta sección solo se aplica a Windows. Los usuarios de Linux y macOS deben realizar el cambio que se describe en el paso 2 a continuación. Guarde el archivo y confirme el cambio en el repositorio local con `git commit`. Por último, inserte el cambio con `git push`, como en la primera sección.*
+> *Nota: Esta sección se aplica solo a Windows. Los usuarios de Linux y macOS deben realizar el cambio que se describe en el paso 2 a continuación. Guarde el archivo y confirme el cambio en el repositorio local con `git commit`. Por último, inserte el cambio con `git push`, como en la primera sección.*
 
 La aplicación ya se ha implementado desde el shell de comandos. Vamos a usar herramientas integradas de Visual Studio para implementar una actualización en la aplicación. En segundo plano, Visual Studio realiza la misma tarea, como las herramientas de línea de comandos, pero dentro de la interfaz de usuario familiar de Visual Studio.
 
