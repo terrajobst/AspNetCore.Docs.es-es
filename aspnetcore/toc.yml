@@ -97,7 +97,7 @@
           uid: tutorials/signalr-typescript-webpack
     - name: Aplicaciones de llamada a procedimiento remoto
       items:
-        - name: Introducción al servicio gRPC
+        - name: Introducción a un servicio gRPC
           uid: tutorials/grpc/grpc-start
     - name: Acceso a datos
       items:
@@ -545,6 +545,10 @@
   items:
     - name: Introducción a los servicios gRPC
       uid: grpc/index
+    - name: Tutoriales
+      items:
+        - name: Introducción a un servicio gRPC
+          uid: tutorials/grpc/grpc-start
     - name: 'Servicios gRPC con C#'
       uid: grpc/basics
     - name: Servicios gRPC con ASP.NET Core
@@ -563,6 +567,8 @@
       uid: grpc/migration
     - name: Comparación entre los servicios gRPC y las API HTTP
       uid: grpc/comparison
+    - name: Muestras
+      href: 'https://github.com/grpc/grpc-dotnet/tree/master/examples'
     - name: Solucionar problemas
       uid: grpc/troubleshoot
 - name: 'Probar, depurar y solucionar problemas'
