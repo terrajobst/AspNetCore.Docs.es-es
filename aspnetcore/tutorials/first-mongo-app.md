@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc, seodec18
 ms.date: 08/17/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 2f7202945b3de03709b5f2e192a03549e55a04f7
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: acf2ded8b92a8f77678af7b772ac2a69264a642c
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583608"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082367"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Creación de una API Web con ASP.NET Core y MongoDB
 
@@ -163,7 +163,7 @@ La base de datos está lista. Puede empezar a crear la API web de ASP.NET Core.
 
 1. Ejecute los siguientes comandos en un shell de comandos:
 
-   ```console
+   ```dotnetcli
    dotnet new webapi -o BooksApi
    code BooksApi
    ```
@@ -173,7 +173,7 @@ La base de datos está lista. Puede empezar a crear la API web de ASP.NET Core.
 1. Cuando el icono de llama de OmniSharp de la barra de estado se ponga verde, aparecerá un cuadro de diálogo en el que se le indicará que **faltan los activos necesarios para compilar y depurar en "RazonPagesMovie" y, luego, si quiere agregarlos**. Seleccione **Sí**.
 1. Visite la [galería de NuGet: MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) para determinar la última versión estable del controlador .NET para MongoDB. Abra **Terminal integrado** y navegue hasta la raíz del proyecto. Ejecute el siguiente comando para instalar el controlador .NET para MongoDB:
 
-   ```console
+   ```dotnetcli
    dotnet add BooksApi.csproj package MongoDB.Driver -v {VERSION}
    ```
 
@@ -513,7 +513,7 @@ La base de datos está lista. Puede empezar a crear la API web de ASP.NET Core.
 
 1. Ejecute los siguientes comandos en un shell de comandos:
 
-   ```console
+   ```dotnetcli
    dotnet new webapi -o BooksApi
    code BooksApi
    ```
@@ -523,7 +523,7 @@ La base de datos está lista. Puede empezar a crear la API web de ASP.NET Core.
 1. Cuando el icono de llama de OmniSharp de la barra de estado se ponga verde, aparecerá un cuadro de diálogo en el que se le indicará que **faltan los activos necesarios para compilar y depurar en "RazonPagesMovie" y, luego, si quiere agregarlos**. Seleccione **Sí**.
 1. Visite la [galería de NuGet: MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) para determinar la última versión estable del controlador .NET para MongoDB. Abra **Terminal integrado** y navegue hasta la raíz del proyecto. Ejecute el siguiente comando para instalar el controlador .NET para MongoDB:
 
-   ```console
+   ```dotnetcli
    dotnet add BooksApi.csproj package MongoDB.Driver -v {VERSION}
    ```
 

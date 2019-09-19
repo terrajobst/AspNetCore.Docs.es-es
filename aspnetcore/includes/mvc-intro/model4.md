@@ -11,7 +11,7 @@ En la tabla siguiente se incluyen los detalles de los parámetros del generador 
 
 Active o desactive `h` para obtener ayuda con el comando `aspnet-codegenerator controller`:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator controller -h
 ```
 

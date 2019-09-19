@@ -6,12 +6,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 07/08/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 53d3763a93cc72b6bcf85b64a706500299b3597f
-ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
+ms.openlocfilehash: 2dfa994b9763a0139cb70cbf9847ac3b02b568e4
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67893737"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081965"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Tutorial: Introducción a SignalR de ASP.NET Core
 
@@ -46,7 +46,7 @@ Al final, tendrá una aplicación de chat funcional:
 
 ---
 
-## <a name="create-a-web-app-project"></a>Creación de un proyecto de aplicación web
+## <a name="create-a-web-app-project"></a>Crear un proyecto de aplicación web
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
@@ -68,7 +68,7 @@ Al final, tendrá una aplicación de chat funcional:
 
 * Ejecute los comandos siguientes:
 
-   ```console
+   ```dotnetcli
    dotnet new webapp -o SignalRChat
    code -r SignalRChat
    ```
@@ -110,7 +110,7 @@ La biblioteca de servidor de SignalR se incluye en la plataforma de trabajo comp
 
 * En el terminal integrado, ejecute el comando siguiente para instalar LibMan.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
@@ -125,7 +125,7 @@ La biblioteca de servidor de SignalR se incluye en la plataforma de trabajo comp
   * Copie los archivos en el destino *wwwroot/lib/signalr*.
   * Copie solo los archivos especificados.
 
-  La salida tendrá un aspecto similar al siguiente:
+  La salida se parece al ejemplo siguiente:
 
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
@@ -137,7 +137,7 @@ La biblioteca de servidor de SignalR se incluye en la plataforma de trabajo comp
 
 * En el **terminal**, ejecute el siguiente comando para instalar LibMan.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
@@ -154,7 +154,7 @@ La biblioteca de servidor de SignalR se incluye en la plataforma de trabajo comp
   * Copie los archivos en el destino *wwwroot/lib/signalr*.
   * Copie solo los archivos especificados.
 
-  La salida tendrá un aspecto similar al siguiente:
+  La salida se parece al ejemplo siguiente:
 
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
@@ -210,7 +210,7 @@ El servidor de SignalR se debe configurar para que pase las solicitudes de Signa
   * Agrega al botón de envío un controlador que envía mensajes al concentrador.
   * Agrega al objeto de conexión un controlador que recibe mensajes desde el concentrador y los agrega a la lista.
 
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecutar la aplicación
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -220,7 +220,7 @@ El servidor de SignalR se debe configurar para que pase las solicitudes de Signa
 
 * En el terminal integrado, ejecute el comando siguiente:
 
-  ```console
+  ```dotnetcli
   dotnet run -p SignalRChat.csproj
   ```
 
@@ -242,7 +242,8 @@ El servidor de SignalR se debe configurar para que pase las solicitudes de Signa
 > * Si la aplicación no funciona, abra las herramientas para desarrolladores del explorador (F12) y vaya a la consola. Es posible que vea errores relacionados con el código HTML y JavaScript. Por ejemplo, suponga que coloca *signalr.js* en una carpeta distinta a la indicada. En ese caso, la referencia a ese archivo no funcionará y verá un error 404 en la consola.
 >   ![Error: signalr.js no encontrado](signalr/_static/3.x/f12-console.png)
 > * Si se produce el error ERR_SPDY_INADEQUATE_TRANSPORT_SECURITY en Chrome o NS_ERROR_NET_INADEQUATE_SECURITY en Firefox, ejecute estos comandos para actualizar el certificado de desarrollo:
->   ```
+>
+>   ```dotnetcli
 >   dotnet dev-certs https --clean
 >   dotnet dev-certs https --trust
 >   ```
@@ -309,7 +310,7 @@ Al final, tendrá una aplicación de chat funcional:
 
 * Ejecute los comandos siguientes:
 
-   ```console
+   ```dotnetcli
    dotnet new webapp -o SignalRChat
    code -r SignalRChat
    ```
@@ -320,7 +321,7 @@ Al final, tendrá una aplicación de chat funcional:
 
 * Seleccione **.NET Core > Aplicación > Aplicación web ASP.NET Core** (no seleccione **Aplicación web de ASP.NET Core (MVC)** ).
 
-* Seleccione **Next** (Siguiente).
+* Seleccione **Siguiente**.
 
 * Asigne el nombre *SignalRChat* al proyecto y, después, haga clic en **Crear**.
 
@@ -352,7 +353,7 @@ La biblioteca de servidor de SignalR se incluye en el metapaquete `Microsoft.Asp
 
 * En el terminal integrado, ejecute el comando siguiente para instalar LibMan.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
@@ -367,7 +368,7 @@ La biblioteca de servidor de SignalR se incluye en el metapaquete `Microsoft.Asp
   * Copie los archivos en el destino *wwwroot/lib/signalr*.
   * Copie solo los archivos especificados.
 
-  La salida tendrá un aspecto similar al siguiente:
+  La salida se parece al ejemplo siguiente:
 
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
@@ -379,7 +380,7 @@ La biblioteca de servidor de SignalR se incluye en el metapaquete `Microsoft.Asp
 
 * En el **terminal**, ejecute el siguiente comando para instalar LibMan.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
@@ -396,7 +397,7 @@ La biblioteca de servidor de SignalR se incluye en el metapaquete `Microsoft.Asp
   * Copie los archivos en el destino *wwwroot/lib/signalr*.
   * Copie solo los archivos especificados.
 
-  La salida tendrá un aspecto similar al siguiente:
+  La salida se parece al ejemplo siguiente:
 
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
@@ -452,7 +453,7 @@ El servidor de SignalR se debe configurar para que pase las solicitudes de Signa
   * Agrega al botón de envío un controlador que envía mensajes al concentrador.
   * Agrega al objeto de conexión un controlador que recibe mensajes desde el concentrador y los agrega a la lista.
 
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecutar la aplicación
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -462,7 +463,7 @@ El servidor de SignalR se debe configurar para que pase las solicitudes de Signa
 
 * En el terminal integrado, ejecute el comando siguiente:
 
-  ```console
+  ```dotnetcli
   dotnet run -p SignalRChat.csproj
   ```
 
@@ -486,7 +487,7 @@ El servidor de SignalR se debe configurar para que pase las solicitudes de Signa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial ha aprendido a:
 
 > [!div class="checklist"]
 > * Crear un proyecto de aplicación web.

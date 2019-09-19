@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 07/04/2019
 uid: fundamentals/tools/dotnet-aspnet-codegenerator
-ms.openlocfilehash: c2c815735ad1b4dcec761b26ea3992a4effebe62
-ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
+ms.openlocfilehash: 1043a578f66d5bb57f4a81e9fe21afa5e3c37cb8
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682687"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081509"
 ---
 # <a name="dotnet-aspnet-codegenerator"></a>dotnet aspnet-codegenerator
 
@@ -25,13 +25,13 @@ Este artículo se aplica al [SDK de .NET Core 2.1](https://dotnet.microsoft.com/
 
 `dotnet-aspnet-codegenerator` es una [herramienta global](/dotnet/core/tools/global-tools) que debe estar instalada. El comando siguiente instala la versión estable más reciente de la herramienta `dotnet-aspnet-codegenerator`:
 
-```console
+```dotnetcli
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
 El comando siguiente actualiza `dotnet-aspnet-codegenerator` a la versión estable más reciente disponible desde los SDK instalados de .NET Core:
 
-```console
+```dotnetcli
 dotnet tool update -g dotnet-aspnet-codegenerator
 ```
 
@@ -55,10 +55,10 @@ El generador de código que se va a ejecutar. Estos generadores están disponibl
 | Generator | Operación |
 | ----------------- | ------------ | 
 | área      | [Aplica scaffolding a un área](/aspnet/core/mvc/controllers/areas) |
-  controller| [Aplica scaffolding a un controlador](/aspnet/core/tutorials/first-mvc-app/adding-model) |
-  identity  | [Aplica scaffolding a una identidad](/aspnet/core/security/authentication/scaffold-identity) |
+  controlador| [Aplica scaffolding a un controlador](/aspnet/core/tutorials/first-mvc-app/adding-model) |
+  identidad  | [Aplica scaffolding a una identidad](/aspnet/core/security/authentication/scaffold-identity) |
   razorpage | [Aplica scaffolding a Razor Pages](/aspnet/core/tutorials/razor-pages/model) |
-  view      | [Aplica scaffolding a una vista](/aspnet/core/mvc/views/overview) |
+  vista      | [Aplica scaffolding a una vista](/aspnet/core/mvc/views/overview) |
 
 ## <a name="options"></a>Opciones
 
@@ -72,7 +72,7 @@ Define la configuración de compilación. El valor predeterminado es `Debug`.
 
 `-tfm|--target-framework`
 
-Establece como destino el [marco](/dotnet/standard/frameworks) que se va a usar. Por ejemplo, `net46`.
+Establece como destino el [marco](/dotnet/standard/frameworks) que se va a usar. Por ejemplo: `net46`.
 
 `-b|--build-base-path`
 
@@ -94,9 +94,9 @@ Especifica la ruta de acceso del archivo del proyecto que se va a ejecutar (nomb
 
 En las secciones siguientes se detallan las opciones disponibles para los generadores compatibles:
 
-* Ámbito
-* Controller
-* Identidad  
+* Área
+* Controlador
+* identidad  
 * Razorpage
 * Ver
 
@@ -113,7 +113,7 @@ El comando anterior genera estas carpetas:
 * *Áreas*
   * *AreaNameToGenerate*
     * *Controladores*
-    * *Datos*
+    * *Data*
     * *Models*
     * *Vistas*
 
@@ -137,7 +137,7 @@ En la tabla siguiente se muestran las opciones únicas para `aspnet-codegenerato
 
 Use el modificador `-h` para obtener ayuda sobre el comando `aspnet-codegenerator controller`:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator controller -h
 ```
 
@@ -158,7 +158,7 @@ Es posible aplicar scaffolding a Razor Pages de manera individual si se especifi
 
 Por ejemplo, el comando siguiente usa la plantilla de edición para generar *MyEdit.cshtml* y *MyEdit.cshtml.cs*:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator razorpage MyEdit Edit -m Movie -dc RazorPagesMovieContext -outDir Pages/Movies
 ```
 
@@ -184,12 +184,12 @@ En la tabla siguiente se muestran las opciones únicas para `aspnet-codegenerato
 
 Use el modificador `-h` para obtener ayuda sobre el comando `aspnet-codegenerator razorpage`:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator razorpage -h
 ```
 
 Consulte [Aplicar scaffolding al modelo de película](/aspnet/core/tutorials/razor-pages/model) para ver un ejemplo de `dotnet aspnet-codegenerator razorpage`.
 
-### <a name="identity"></a>Identidad
+### <a name="identity"></a>identidad
 
 Consulte [Identidad de scaffolding](/aspnet/core/security/authentication/scaffold-identity)

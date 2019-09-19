@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2019
 uid: host-and-deploy/iis/transform-webconfig
-ms.openlocfilehash: 58dee024f5b032d1ef13df02648727b6a07eac1f
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 32e66007d527f7f7b7cfd88d3bebc9b808251941
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813360"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081460"
 ---
 # <a name="transform-webconfig"></a>Transformación de web.config
 
@@ -21,9 +21,9 @@ Por [Vijay Ramakrishnan](https://github.com/vijayrkn) y [Luke Latham](https://gi
 Las transformaciones en el archivo *web.config* se pueden aplicar automáticamente al publicarse una aplicación en función de:
 
 * [Configuración de compilación](#build-configuration)
-* [Perfil](#profile)
+* [Profile](#profile)
 * [Entorno](#environment)
-* [Personalizada](#custom)
+* [Custom](#custom)
 
 Estas transformaciones se producen en cualquiera de los escenarios de generación *web.config* siguientes:
 
@@ -58,7 +58,7 @@ En el siguiente ejemplo, una variable de entorno específica de la configuració
 
 La transformación se aplica cuando la configuración se establece en *Release*:
 
-```console
+```dotnetcli
 dotnet publish --configuration Release
 ```
 
@@ -92,7 +92,7 @@ En el siguiente ejemplo, una variable de entorno específica del perfil se estab
 
 La transformación se aplica cuando el perfil es *FolderProfile*:
 
-```console
+```dotnetcli
 dotnet publish --configuration Release /p:PublishProfile=FolderProfile
 ```
 
@@ -128,7 +128,7 @@ En el siguiente ejemplo, una variable de entorno específica del entorno se esta
 
 La transformación se aplica cuando el entorno es *Production*:
 
-```console
+```dotnetcli
 dotnet publish --configuration Release /p:EnvironmentName=Production
 ```
 
@@ -138,7 +138,7 @@ Al publicar desde Visual Studio y usar un perfil de publicación, consulte <xref
 
 La variable de entorno `ASPNETCORE_ENVIRONMENT` se agrega automáticamente al archivo *web.config* al especificarse el nombre del entorno.
 
-## <a name="custom"></a>Personalizado
+## <a name="custom"></a>Personalizados
 
 Las transformaciones personalizadas se ejecutan en último lugar, una vez transformados la [configuración de compilación](#build-configuration), el [perfil](#profile) y el [entorno](#environment).
 
@@ -166,7 +166,7 @@ En el siguiente ejemplo, una variable de entorno de transformación personalizad
 
 La transformación se aplica cuando la propiedad `CustomTransformFileName` se pasa al comando [dotnet publish](/dotnet/core/tools/dotnet-publish):
 
-```console
+```dotnetcli
 dotnet publish --configuration Release /p:CustomTransformFileName=custom.transform
 ```
 
@@ -176,7 +176,7 @@ La propiedad MSBuild del nombre de perfil es `$(CustomTransformFileName)`.
 
 Para evitar las transformaciones del archivo *web.config*, establezca la propiedad MSBuild `$(IsWebConfigTransformDisabled)`:
 
-```console
+```dotnetcli
 dotnet publish /p:IsWebConfigTransformDisabled=true
 ```
 

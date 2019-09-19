@@ -7,12 +7,12 @@ ms.author: shboyer
 ms.custom: mvc
 ms.date: 03/31/2019
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 1a092a302bbffa74fa7a861901046ebda1998989
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: ec14bce5d8ada9a56ccc44d1159373dc73a09c1b
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813387"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081880"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hospedar ASP.NET Core en Linux con Apache
 
@@ -40,7 +40,7 @@ Si la aplicación se ejecuta localmente y no está configurada para realizar con
 
 Ejecute [dotnet publish](/dotnet/core/tools/dotnet-publish) desde el entorno de desarrollo para empaquetar una aplicación en un directorio (por ejemplo, *bin/Release/&lt;target_framework_moniker&gt;/publish*) que se pueda ejecutar en el servidor:
 
-```console
+```dotnetcli
 dotnet publish --configuration Release
 ```
 
@@ -247,7 +247,7 @@ Connection: Keep-Alive
 Transfer-Encoding: chunked
 ```
 
-### <a name="view-logs"></a>Ver registros
+### <a name="view-logs"></a>Visualización de registros
 
 Dado que la aplicación web que usa Kestrel se administra mediante *systemd*, los procesos y eventos se registran en un diario centralizado. Sin embargo, este diario incluye todas las entradas de todos los servicios y procesos administrados por *systemd*. Para ver los elementos específicos de `kestrel-helloapp.service`, use el siguiente comando:
 
@@ -278,7 +278,7 @@ Para configurar la protección de datos de modo que sea persistente y permita ci
 
 ## <a name="secure-the-app"></a>Protección de la nube
 
-### <a name="configure-firewall"></a>Configuración del firewall
+### <a name="configure-firewall"></a>Configurar el firewall
 
 *Firewalld* es un demonio dinámico para administrar el firewall con compatibilidad con zonas de red. Los puertos y el filtrado de paquetes se pueden seguir administrando mediante iptables. *Firewalld* debe instalarse de forma predeterminada. `yum` puede usarse para instalar el paquete o comprobar que está instalado.
 

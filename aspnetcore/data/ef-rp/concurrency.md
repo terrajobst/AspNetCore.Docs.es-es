@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: da57633c345ec087b1a4f24ddc7771e7a2d04720
-ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
+ms.openlocfilehash: c9cbf8fd3ed85f32b3c166bf2df702fd26df4fc3
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70059081"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080990"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Simultaneidad (8 de 8)
 
@@ -156,7 +156,7 @@ Compile el proyecto.
 
 * Ejecute el comando siguiente en un terminal:
 
-  ```console
+  ```dotnetcli
   dotnet ef migrations add RowVersion
   ```
 
@@ -190,7 +190,7 @@ Este comando:
 
 * Ejecute el comando siguiente en un terminal:
 
-  ```console
+  ```dotnetcli
   dotnet ef database update
   ```
 
@@ -216,13 +216,13 @@ Este comando:
 
   **En Windows:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
   ```
 
   **En Linux o macOS:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages/Departments --referenceScriptLibraries
   ```
 
@@ -494,7 +494,7 @@ Agregar la propiedad `RowVersion` cambia el modelo de base de datos, lo que requ
 
 Compile el proyecto. Escriba lo siguiente en una ventana de comandos:
 
-```console
+```dotnetcli
 dotnet ef migrations add RowVersion
 dotnet ef database update
 ```
@@ -520,7 +520,7 @@ Siga las instrucciones que encontrará en [Aplicación de scaffolding al modelo 
 
  Ejecute el siguiente comando:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
   ```
 

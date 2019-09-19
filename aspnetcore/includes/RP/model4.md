@@ -10,7 +10,7 @@
 
 Active o desactive `h` para obtener ayuda con el comando `aspnet-codegenerator razorpage`:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator razorpage -h
 ```
 

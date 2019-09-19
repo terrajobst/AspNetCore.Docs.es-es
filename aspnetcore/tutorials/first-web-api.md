@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 25bfccb136d875b454034bd011828c9f3b6cd3d8
-ms.sourcegitcommit: de17150e5ec7507d7114dde0e5dbc2e45a66ef53
+ms.openlocfilehash: 1cc4fffc50978a3a958a96e1eb250cb85a8d2879
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113283"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082064"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Tutorial: Creación de una API web con ASP.NET Core
 
@@ -81,7 +81,7 @@ En el diagrama siguiente, se muestra el diseño de la aplicación.
 * Cambie los directorios (`cd`) a la carpeta que va a contener la carpeta del proyecto.
 * Ejecute los comandos siguientes:
 
-   ```console
+   ```dotnetcli
    dotnet new webapi -o TodoApi
    cd TodoAPI
    dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
@@ -116,7 +116,7 @@ En el diagrama siguiente, se muestra el diseño de la aplicación.
 
 Abra un terminal de comandos en la carpeta del proyecto y ejecute los comandos siguientes:
 
-   ```console
+   ```dotnetcli
    dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
    dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 3.0.0-*
    ```
@@ -280,7 +280,7 @@ El código anterior:
 
 Ejecute los comandos siguientes:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
 dotnet tool install --global dotnet-aspnet-codegenerator
@@ -533,7 +533,7 @@ En el diagrama siguiente, se muestra el diseño de la aplicación.
 * Cambie los directorios (`cd`) a la carpeta que va a contener la carpeta del proyecto.
 * Ejecute los comandos siguientes:
 
-   ```console
+   ```dotnetcli
    dotnet new webapi -o TodoApi
    code -r TodoApi
    ```

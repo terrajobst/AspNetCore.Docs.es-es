@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/08/2019
 uid: tutorials/publish-to-iis
-ms.openlocfilehash: c31beae16f46153daac188ab1638e5530584ac88
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: 4ac7b3a2f738e443263dd888f556e0aff7c8099b
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927095"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082369"
 ---
 # <a name="publish-an-aspnet-core-app-to-iis"></a>Publicación de una aplicación ASP.NET Core en IIS
 
@@ -84,7 +84,7 @@ Siga el tutorial <xref:getting-started> para crear una aplicación Razor Pages.
 
 1. En un shell de comandos, publique la aplicación en Configuración de versión con el comando [dotnet publish](/dotnet/core/tools/dotnet-publish):
 
-   ```console
+   ```dotnetcli
    dotnet publish --configuration Release
    ```
 

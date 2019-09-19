@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: 538af8469cf28b145d466a869ca3ca689d637ac6
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 6a2a2ca45f793ab95d45281ebb23180ac64761ec
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773917"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082317"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Agregar un campo nuevo a una aplicación de ASP.NET Core MVC
 
@@ -41,7 +41,9 @@ Compilar la aplicación
 
 ### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-`dotnet build`
+```dotnetcli
+dotnet build
+```
 
 ### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
@@ -122,7 +124,7 @@ Si se eliminan todos los registros de la base de datos, el método de inicializa
 
 Elimine la base de datos y use las migraciones para volver a crear la base de datos. Para eliminar la base de datos, elimine el archivo de base de datos (*MvcMovie.db*). Luego, ejecute el comando `ef database update`:
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 
