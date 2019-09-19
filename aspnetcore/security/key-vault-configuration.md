@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: fe6cdca1f7180f9da26fe2838e529becb26ccd45
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: f16891182d274333ddc05eea401c06468e0717b1
+ms.sourcegitcommit: b1e480e1736b0fe0e4d8dce4a4cf5c8e47fc2101
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081099"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71108087"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault proveedor de configuración en ASP.NET Core
 
@@ -90,13 +90,13 @@ Las instrucciones que se proporcionan [en la guía de inicio rápido: Establecer
 
 1. Cree un grupo de recursos con el siguiente comando, `{RESOURCE GROUP NAME}` donde es el nombre del grupo de recursos para el nuevo `{LOCATION}` grupo de recursos y es la región de Azure (Datacenter):
 
-   ```console
+   ```azure-cli
    az group create --name "{RESOURCE GROUP NAME}" --location {LOCATION}
    ```
 
 1. Cree un almacén de claves en el grupo de recursos con el siguiente comando `{KEY VAULT NAME}` , donde es el nombre del nuevo almacén de `{LOCATION}` claves y es la región de Azure (Datacenter):
 
-   ```console
+   ```azure-cli
    az keyvault create --name "{KEY VAULT NAME}" --resource-group "{RESOURCE GROUP NAME}" --location {LOCATION}
    ```
 
@@ -106,7 +106,7 @@ Las instrucciones que se proporcionan [en la guía de inicio rápido: Establecer
 
    Los siguientes secretos son para su uso con la aplicación de ejemplo. Los valores incluyen un `_prod` sufijo para distinguirlos de los `_dev` valores de sufijo cargados en el entorno de desarrollo de los secretos de usuario. Reemplace `{KEY VAULT NAME}` por el nombre del almacén de claves que creó en el paso anterior:
 
-   ```console
+   ```azure-cli
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "SecretName" --value "secret_value_1_prod"
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "Section--SecretName" --value "secret_value_2_prod"
    ```
@@ -176,7 +176,7 @@ Una aplicación implementada en Azure App Service se registra automáticamente c
 
 Con CLI de Azure y el identificador de objeto de la aplicación, proporcione la `list` aplicación `get` con los permisos y para acceder al almacén de claves:
 
-```console
+```azure-cli
 az keyvault set-policy --name '{KEY VAULT NAME}' --object-id {OBJECT ID} --secret-permissions get list
 ```
 
@@ -240,7 +240,7 @@ Cuando se implementa este enfoque:
 
 1. Los secretos se guardan en Azure Key Vault mediante los siguientes comandos de CLI de Azure:
 
-   ```console
+   ```azure-cli
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5000-AppSecret" --value "5.0.0.0_secret_value_prod"
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5100-AppSecret" --value "5.1.0.0_secret_value_prod"
    ```
