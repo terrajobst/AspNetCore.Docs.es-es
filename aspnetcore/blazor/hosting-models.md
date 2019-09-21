@@ -7,22 +7,24 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/07/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 6e225e490e54e44877fa27573ff9b513c8dcd9a3
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 47c546a086588919e4458d6aeeb39453cbc754e0
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70964024"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168142"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Modelos de hospedaje increíblemente ASP.NET Core
 
 Por [Daniel Roth](https://github.com/danroth27)
 
+[!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
+
 Increíble es un marco de trabajo web diseñado para ejecutar el lado cliente en el explorador en un entorno de tiempo de ejecución .NET basado en [Webassembly](https://webassembly.org/)(*webassembly*) o en el servidor en ASP.net Core (*servidor*increíble). Independientemente del modelo de hospedaje, los modelos de aplicación y de componente *son los mismos*.
 
 Para crear un proyecto para los modelos de hospedaje descritos en este artículo <xref:blazor/get-started>, vea.
 
-## <a name="blazor-webassembly"></a>Webassembly increíblemente
+## <a name="blazor-webassembly"></a>WebAssembly de Blazor
 
 El modelo de hospedaje principal de increíbles se está ejecutando en el lado cliente en el explorador de webassembly. La aplicación Blazor, sus dependencias y el entorno de ejecución de .NET se descargan en el explorador. La aplicación se ejecuta directamente en el subproceso de interfaz de usuario del explorador. Las actualizaciones de la interfaz de usuario y el control de eventos se producen dentro del mismo proceso. Los recursos de la aplicación se implementan como archivos estáticos en un servidor web o servicio capaz de servir contenido estático a los clientes.
 
@@ -51,7 +53,7 @@ Hay inconvenientes para el hospedaje de webassembly increíblemente:
 * El tamaño de descarga es mayor y las aplicaciones tardan más tiempo en cargarse.
 * La compatibilidad con las herramientas y el tiempo de ejecución de .NET es menos madura. Por ejemplo, existen limitaciones en [.net Standard](/dotnet/standard/net-standard) la compatibilidad y la depuración.
 
-## <a name="blazor-server"></a>Servidor increíble
+## <a name="blazor-server"></a>Servidor Blazor
 
 Con el modelo de hospedaje de servidor de extraordinarias, la aplicación se ejecuta en el servidor desde una aplicación ASP.NET Core. Las actualizaciones de la interfaz de usuario, el control de eventos y las llamadas de JavaScript se controlan mediante una conexión de [SignalR](xref:signalr/introduction).
 
@@ -154,7 +156,7 @@ Las aplicaciones de servidor increíbles se configuran de forma predeterminada p
 * Se representa en la página.
 * Se representa como HTML estático en la página o si incluye la información necesaria para iniciar una aplicación extraordinaria desde el agente de usuario.
 
-| `RenderMode`        | DESCRIPCIÓN |
+| `RenderMode`        | Descripción |
 | ------------------- | ----------- |
 | `ServerPrerendered` | Representa el componente en código HTML estático e incluye un marcador para una aplicación de servidor extraordinaria. Cuando se inicia el agente de usuario, este marcador se usa para arrancar una aplicación increíblemente alta. No se admiten los parámetros. |
 | `Server`            | Representa un marcador para una aplicación de servidor extraordinaria. La salida del componente no está incluida. Cuando se inicia el agente de usuario, este marcador se usa para arrancar una aplicación increíblemente alta. No se admiten los parámetros. |

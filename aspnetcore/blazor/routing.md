@@ -7,16 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/routing
-ms.openlocfilehash: 1c61eedf7dbf0bbc8796eaa11360783b9d7aba6c
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 6d9d1614b6e0cc9f4711de0db4513ada4841809f
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70963867"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168176"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core el enrutamiento más brillante
 
 Por [Luke Latham](https://github.com/guardrex)
+
+[!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
 Obtenga información acerca de cómo enrutar las solicitudes `NavLink` y cómo usar el componente para crear vínculos de navegación en aplicaciones increíbles.
 
@@ -104,14 +106,14 @@ En el ejemplo siguiente, la ruta al `Users` componente solo coincide con si:
 
 Están disponibles las restricciones de ruta que se muestran en la tabla siguiente. Para obtener más información sobre las restricciones de ruta que coinciden con la referencia cultural de todos los idiomas, vea la advertencia que se encuentra debajo de la tabla.
 
-| Restricción | Ejemplo           | Coincidencias de ejemplo                                                                  | Invariable<br>culture<br>coincidencia |
+| Restricción | Ejemplo           | Coincidencias de ejemplo                                                                  | Invariable<br>referencia cultural<br>coincidencia |
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
-| `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | Sin                               |
+| `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | No                               |
 | `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Sí                              |
 | `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Sí                              |
 | `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Sí                              |
 | `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Sí                              |
-| `guid`     | `{id:guid}`       | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | Sin                               |
+| `guid`     | `{id:guid}`       | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | No                               |
 | `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Sí                              |
 | `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Sí                              |
 
@@ -164,7 +166,7 @@ Se representa el siguiente marcado HTML:
 
 Use `Microsoft.AspNetCore.Components.NavigationManager` para trabajar con los URI y la C# navegación en el código. `NavigationManager`proporciona el evento y los métodos que se muestran en la tabla siguiente.
 
-| Member | DESCRIPCIÓN |
+| Miembro | Descripción |
 | ------ | ----------- |
 | `Uri` | Obtiene el URI absoluto actual. |
 | `BaseUri` | Obtiene el URI base (con una barra diagonal final) que se puede anteponer a las rutas de acceso del URI relativo para generar un URI absoluto. Normalmente, `BaseUri` se corresponde con `href` el atributo del elemento del `<base>` documento en *wwwroot/index.html* (webassembler más rápido) o *pages/_Host. cshtml* (servidor increíble). |

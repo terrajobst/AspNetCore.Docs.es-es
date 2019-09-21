@@ -7,16 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: blazor/state-management
-ms.openlocfilehash: e1c3b030f466a820d49c36839d7ee26bb7cea4d3
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 2acb91785e8c5fc34070d5428b89119667945753
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70963853"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168206"
 ---
 # <a name="aspnet-core-blazor-state-management"></a>Administración de Estados de ASP.NET Core increíblemente
 
 Por [Steve Sanderson](https://github.com/SteveSandersonMS)
+
+[!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
 El servidor increíble es un marco de trabajo de aplicaciones con estado. La mayoría de las veces, la aplicación mantiene una conexión continua con el servidor. El estado del usuario se guarda en la memoria del servidor en un *circuito*. 
 
@@ -81,7 +83,7 @@ Una vez guardados los datos en la base de datos, un usuario puede iniciar un nue
 
 Para más información sobre las opciones de almacenamiento de datos de Azure, consulte la [documentación de Azure Storage](/azure/storage/) y [las bases](https://azure.microsoft.com/product-categories/databases/)de datos de Azure.
 
-### <a name="url"></a>URL
+### <a name="url"></a>Resolución
 
 Para los datos transitorios que representan el estado de navegación, modelo de los datos como parte de la dirección URL. Entre los ejemplos de estado modelado en la dirección URL se incluyen:
 

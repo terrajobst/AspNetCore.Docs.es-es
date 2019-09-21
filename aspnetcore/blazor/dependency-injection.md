@@ -7,16 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/dependency-injection
-ms.openlocfilehash: 6c01fdc390cc9150cf81673c717b73c4b10c31f1
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 074d7a669c900eb242c8329147b28d1c50652915
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70963979"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168094"
 ---
 # <a name="aspnet-core-blazor-dependency-injection"></a>Inyección de dependencia de ASP.NET Core extraordinaria
 
 Por [Rainer Stropek](https://www.timecockpit.com)
+
+[!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
 El increíble es compatible con la [inserción de dependencias (di)](xref:fundamentals/dependency-injection). Las aplicaciones pueden usar servicios integrados mediante su inserción en componentes. Las aplicaciones también pueden definir y registrar servicios personalizados y hacer que estén disponibles en toda la aplicación a través de DI.
 
@@ -29,7 +31,7 @@ DI es una técnica para tener acceso a los servicios configurados en una ubicaci
 
 Los servicios predeterminados se agregan automáticamente a la colección de servicios de la aplicación.
 
-| Servicio | Período de duración | DESCRIPCIÓN |
+| web de Office | Período de duración | Descripción |
 | ------- | -------- | ----------- |
 | <xref:System.Net.Http.HttpClient> | Singleton | Proporciona métodos para enviar solicitudes HTTP y recibir respuestas HTTP de un recurso identificado por un URI. Tenga en cuenta que esta `HttpClient` instancia de usa el explorador para controlar el tráfico http en segundo plano. [HttpClient. BaseAddress](xref:System.Net.Http.HttpClient.BaseAddress) se establece automáticamente en el prefijo de URI base de la aplicación. Para obtener más información, consulta <xref:blazor/call-web-api>. |
 | `IJSRuntime` | Singleton | Representa una instancia de un Runtime de JavaScript en la que se envían las llamadas de JavaScript. Para obtener más información, consulta <xref:blazor/javascript-interop>. |
@@ -59,7 +61,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Los servicios se pueden configurar con las duraciones que se muestran en la tabla siguiente.
 
-| Período de duración | DESCRIPCIÓN |
+| Período de duración | Descripción |
 | -------- | ----------- |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Las aplicaciones de webassembly increíbles no tienen actualmente un concepto de ámbito de DI. `Scoped`: los servicios registrados se `Singleton` comportan como servicios. Sin embargo, el modelo de hospedaje del servidor más `Scoped` rápido admite la duración. En las aplicaciones de servidor increíbles, el ámbito de un registro de servicio de ámbito es la *conexión*. Por esta razón, se prefiere el uso de servicios con ámbito para los servicios que deben tener el ámbito del usuario actual, aunque la intención actual sea ejecutar el lado cliente en el explorador. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Singleton*> | DI crea una *única instancia* del servicio. Todos los componentes que requieren `Singleton` un servicio reciben una instancia del mismo servicio. |

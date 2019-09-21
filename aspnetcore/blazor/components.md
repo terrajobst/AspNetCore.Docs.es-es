@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo crear y usar componentes de Razor,
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/06/2019
+ms.date: 09/19/2019
 uid: blazor/components
-ms.openlocfilehash: 521421ac413218c1f04dd9feade2a49dc1f7b918
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 55b40bc640715bf4052fa99ed68f63250b67e8d1
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080528"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168223"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -450,7 +450,7 @@ En algunos eventos, se permiten los tipos de argumento de evento. Si no es neces
 
 Los [EventArgs](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src/Web) admitidos se muestran en la tabla siguiente.
 
-| Evento | Clase |
+| evento | Clase |
 | ----- | ----- |
 | Portapapeles        | `ClipboardEventArgs` |
 | Arrastre             | `DragEventArgs`y contienen datos de`DataTransferItem` elementos arrastrados. &ndash; `DataTransfer` |
@@ -1128,7 +1128,7 @@ También puede especificar el `Context` atributo en el elemento de componente. E
 
 ### <a name="generic-typed-components"></a>Componentes de tipo genérico
 
-Los componentes con plantilla suelen tener tipos genéricos. Por ejemplo, se puede `ListViewTemplate` usar un componente genérico para representar `IEnumerable<T>` valores. Para definir un componente genérico, utilice la `@typeparam` Directiva para especificar parámetros de tipo:
+Los componentes con plantilla suelen tener tipos genéricos. Por ejemplo, se puede `ListViewTemplate` usar un componente genérico para representar `IEnumerable<T>` valores. Para definir un componente genérico, utilice la [@typeparam](xref:mvc/views/razor#typeparam) Directiva para especificar parámetros de tipo:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/ListViewTemplate.razor)]
 
@@ -1417,14 +1417,14 @@ builder.AddContent(1, "Second");
 
 Cuando el código se ejecuta por primera vez, si `someFlag` es `true`, el generador recibe:
 
-| Secuencia | Type      | Datos   |
+| Secuencia | Tipo      | Datos   |
 | :------: | --------- | :----: |
-| 0        | Nodo de texto | Primero  |
+| 0        | Nodo de texto | First  |
 | 1        | Nodo de texto | Second |
 
 Imagine que `someFlag` se `false`convierte en y que el marcado se representará de nuevo. Esta vez, el generador recibe:
 
-| Secuencia | Type       | Datos   |
+| Secuencia | Tipo       | Datos   |
 | :------: | ---------- | :----: |
 | 1        | Nodo de texto  | Second |
 
@@ -1449,14 +1449,14 @@ builder.AddContent(seq++, "Second");
 
 Ahora, el primer resultado es:
 
-| Secuencia | Type      | Datos   |
+| Secuencia | Tipo      | Datos   |
 | :------: | --------- | :----: |
-| 0        | Nodo de texto | Primero  |
+| 0        | Nodo de texto | First  |
 | 1        | Nodo de texto | Second |
 
 Este resultado es idéntico al caso anterior, por lo que no existe ningún problema negativo. `someFlag`está `false` en la segunda representación y el resultado es:
 
-| Secuencia | Type      | Datos   |
+| Secuencia | Tipo      | Datos   |
 | :------: | --------- | ------ |
 | 0        | Nodo de texto | Second |
 

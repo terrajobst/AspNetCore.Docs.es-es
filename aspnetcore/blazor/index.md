@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seoapril2019
 ms.date: 09/05/2019
 uid: blazor/index
-ms.openlocfilehash: 767ec8f106bebb92cf13a10eb63fab4905715d3d
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 378892efafa6b979d7f92a5e559b2dc8bb12295d
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70964103"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168259"
 ---
 # <a name="introduction-to-blazor"></a>Introducción a Blazor
 
@@ -102,6 +102,8 @@ Cuando este componente se usa en la aplicación, IntelliSense en [Visual Studio]
 Los componentes se representan en una representación en memoria de la especificación Document Object Model (DOM) del explorador llamada *árbol de representación*, que se usa para actualizar la interfaz de usuario de una manera eficaz y flexible.
 
 ## <a name="blazor-webassembly"></a>WebAssembly de Blazor
+
+[!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
 WebAssembly de Blazor es un marco de trabajo de aplicaciones de página única para la creación de aplicaciones web interactivas en el lado cliente con. NET. WebAssembly de Blazor usa estándares web abiertos sin complementos ni transpilación de código y funciona en todos los exploradores web modernos, incluidos los exploradores para dispositivos móviles.
 
