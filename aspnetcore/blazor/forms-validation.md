@@ -7,21 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/15/2019
 uid: blazor/forms-validation
-ms.openlocfilehash: 2fd76db90a53e328cd2ac8f452fba58365db0384
-ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
+ms.openlocfilehash: c68ebf7f7bf07b6c243ab16307716cea13870446
+ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71011057"
+ms.lasthandoff: 09/21/2019
+ms.locfileid: "71176345"
 ---
 # <a name="aspnet-core-blazor-forms-and-validation"></a>Formularios y validación de ASP.NET Core increíbles
 
 Por [Daniel Roth](https://github.com/danroth27) y [Luke Latham](https://github.com/guardrex)
 
 Los formularios y la validación se admiten en el uso de [anotaciones de datos](xref:mvc/models/validation).
-
-> [!NOTE]
-> Es probable que los escenarios de validación y formularios cambien con cada versión preliminar.
 
 El tipo `ExampleModel` siguiente define la lógica de validación mediante anotaciones de datos:
 

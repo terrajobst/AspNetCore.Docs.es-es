@@ -5,14 +5,14 @@ description: Aprenda a crear componentes de diseño reutilizables para aplicacio
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/06/2019
+ms.date: 09/21/2019
 uid: blazor/layouts
-ms.openlocfilehash: 05a38c10e18407d50422192ab1ddf3ff4b0f3a5b
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: 6ae795f720cd2cc1010ebec46bcee877b31d20c6
+ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800362"
+ms.lasthandoff: 09/21/2019
+ms.locfileid: "71176426"
 ---
 # <a name="aspnet-core-blazor-layouts"></a>ASP.NET Core diseños increíbles
 
@@ -45,6 +45,8 @@ Para proporcionar un diseño predeterminado para `NotFound` el contenido, especi
 
 Para obtener más información sobre `Router` el componente, <xref:blazor/routing>vea.
 
+Especificar el diseño como un diseño predeterminado en el enrutador es una práctica útil porque se puede reemplazar por componente o por carpeta. Prefiere usar el enrutador para establecer el diseño predeterminado de la aplicación, ya que es la técnica más general.
+
 ## <a name="specify-a-layout-in-a-component"></a>Especificar un diseño en un componente
 
 Use la directiva `@layout` Razor para aplicar un diseño a un componente. El compilador `@layout` convierte `LayoutAttribute`en, que se aplica a la clase de componente.
@@ -53,19 +55,23 @@ El contenido del componente siguiente `MasterList` se inserta en la `MasterLayou
 
 [!code-cshtml[](layouts/sample_snapshot/3.x/MasterList.razor?highlight=1)]
 
+Al especificar el diseño directamente en un componente, se invalida un *diseño predeterminado* establecido en el enrutador `@layout` o una directiva importada desde *_Imports. Razor*.
+
 ## <a name="centralized-layout-selection"></a>Selección de diseño centralizado
 
 Cada carpeta de una aplicación puede contener opcionalmente un archivo de plantilla denominado *_Imports. Razor*. El compilador incluye las directivas especificadas en el archivo de importaciones en todas las plantillas de Razor de la misma carpeta y de forma recursiva en todas sus subcarpetas. Por lo tanto, un archivo *_Imports. Razor* que contenga `@layout MyCoolLayout` garantiza que todos los componentes de `MyCoolLayout`una carpeta usan. No es necesario agregar `@layout MyCoolLayout` varias veces a todos los archivos *. Razor* dentro de la carpeta y las subcarpetas. `@using`las directivas también se aplican a los componentes de la misma manera.
 
 El siguiente archivo *_Imports. Razor* importa:
 
-* `MyCoolLayout`
+* `MyCoolLayout`.
 * Todos los componentes de Razor en la misma carpeta y en todas las subcarpetas.
 * El espacio de nombres `BlazorApp1.Data` .
  
 [!code-cshtml[](layouts/sample_snapshot/3.x/_Imports.razor)]
 
 El archivo *_Imports. Razor* es similar al [archivo _ViewImports. cshtml para las vistas y páginas de Razor,](xref:mvc/views/layout#importing-shared-directives) pero se aplica específicamente a los archivos de componentes de Razor.
+
+Al especificar un diseño en *_Imports. Razor* , se invalida un diseño especificado como el *diseño predeterminado*del enrutador.
 
 ## <a name="nested-layouts"></a>Diseños anidados
 

@@ -32,7 +32,6 @@ Donde `JSRuntime.InvokeAsync` se llama a `ElementRef` , solo se usa `OnAfterRend
 @page "/prerendered-interop"
 @using Microsoft.AspNetCore.Components
 @using Microsoft.JSInterop
-@inject IComponentContext ComponentContext
 @inject IJSRuntime JSRuntime
 
 <p>
@@ -59,32 +58,5 @@ Donde `JSRuntime.InvokeAsync` se llama a `ElementRef` , solo se usa `OnAfterRend
             StateHasChanged();
         }
     }
-}
-```
-
-Para representar condicionalmente contenido diferente en función de si la aplicación está representando actualmente el contenido, `IsConnected` use la propiedad `IComponentContext` en el servicio. En el caso de las aplicaciones `IsConnected` de servidor `true` increíbles, solo devuelve si hay una conexión activa con el cliente. Siempre devuelve `true` en aplicaciones de webassembly increíblemente.
-
-```cshtml
-@page "/isconnected-example"
-@using Microsoft.AspNetCore.Components.Services
-@inject IComponentContext ComponentContext
-
-<h1>IsConnected Example</h1>
-
-<p>
-    Current state:
-    <strong id="connected-state">
-        @(ComponentContext.IsConnected ? "connected" : "not connected")
-    </strong>
-</p>
-
-<p>
-    Clicks:
-    <strong id="count">@count</strong>
-    <button id="increment-count" @onclick="@(() => count++)">Click me</button>
-</p>
-
-@code {
-    private int count;
 }
 ```
