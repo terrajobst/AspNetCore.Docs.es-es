@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/07/2019
 uid: security/cors
-ms.openlocfilehash: a34b77ad799a00707048c923b82b48774ce91682
-ms.sourcegitcommit: b1e480e1736b0fe0e4d8dce4a4cf5c8e47fc2101
+ms.openlocfilehash: a02b3497684979c1a9e792437f9f1a4c467600f0
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71108075"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187256"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Habilitación de solicitudes entre orígenes (CORS) en ASP.NET Core
 
@@ -161,7 +161,7 @@ Se `[EnableCors]` usa para especificar la directiva predeterminada `[EnableCors(
 El `[EnableCors]` atributo se puede aplicar a:
 
 * Página de Razor`PageModel`
-* Responsable del tratamiento de datos
+* Controlador
 * Método de acción del controlador
 
 Puede aplicar diferentes directivas al controlador/página-modelo o acción con el `[EnableCors]` atributo. Cuando el `[EnableCors]` atributo se aplica a un método Controllers/Page-Model/Action y CORS está habilitado en middleware, se aplican ambas directivas. Se recomienda no combinar directivas. Use el `[EnableCors]` atributo o middleware, no ambos en la misma aplicación.
@@ -217,7 +217,7 @@ En esta sección se describen las distintas opciones que se pueden establecer en
 
 <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetIsOriginAllowedToAllowWildcardSubdomains*>&ndash; Establece la<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy.IsOriginAllowed*> propiedad de la Directiva para que sea una función que permita que los orígenes coincidan con un dominio comodín configurado al evaluar si se permite el origen.
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=100-104&highlight=4)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=100-105&highlight=4-5)]
 
 ::: moniker-end
 
