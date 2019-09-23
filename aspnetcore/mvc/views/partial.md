@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/12/2019
 uid: mvc/views/partial
-ms.openlocfilehash: 901fd52f89969141713e443890781a77308bd901
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 50c4f41d5d3099184aa3992ed7e176b74c488d2a
+ms.sourcegitcommit: 805f625d16d74e77f02f5f37326e5aceafcb78e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034916"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70985573"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Vistas parciales en ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/), [Luke Latham](https://github.com/guardrex), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT) y [Scott Sauber](https://twitter.com/scottsauber)
 
-Una vista parcial es un archivo de marcado [Razor](xref:mvc/views/razor) (*.cshtml*) que representa una salida HTML *dentro* de otra salida representada del archivo de marcado.
+Una vista parcial es un archivo de marcado [Razor](xref:mvc/views/razor) ( *.cshtml*) que representa una salida HTML *dentro* de otra salida representada del archivo de marcado.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -157,7 +157,7 @@ En el ejemplo siguiente se hace referencia a una vista parcial con una ruta de a
 <partial name="../Account/_PartialName.cshtml" />
 ```
 
-Para obtener más información, vea <xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper>.
+Para más información, consulte <xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper>.
 
 ::: moniker-end
 
@@ -308,7 +308,7 @@ El marcado siguiente de la aplicación de ejemplo muestra la vista *Views/Articl
 
 [!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_ReadPartialView&highlight=5,15-20)]
 
-*Views/Shared/_AuthorPartial.cshtml* es la primera vista parcial a la que hace referencia el archivo de marcado *ReadRP.cshtml*:
+*Views/Shared/_AuthorPartial.cshtml* es la primera vista parcial a la que hace referencia el archivo de marcado *Read.cshtml*:
 
 [!code-cshtml[](partial/sample/PartialViewsSample/Views/Shared/_AuthorPartial.cshtml)]
 

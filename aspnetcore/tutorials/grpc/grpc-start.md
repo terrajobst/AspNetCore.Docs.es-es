@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 8/26/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 7f80ead06f00037ae51b35d40dff9bc7f99bc5d8
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: 924aa3880fc7f2aa777d4ab2e5ea3bed38e227d4
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310579"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081181"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Tutorial: Crear un servidor y un cliente gRPC en ASP.NET Core
 
@@ -51,7 +51,7 @@ En este tutorial ha:
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Inicie Visual Studio y seleccione **Crear un proyecto**. Alternativamente, en el menú **Archivo** de Visual Studio, seleccione **Nuevo** > **Proyecto**.
-* En el cuadro de diálogo **Crear un proyecto**, seleccione **Servicio gRPC** y seleccione **Siguiente**:
+* En el cuadro de diálogo **Crear un proyecto**, seleccione **Servicio gRPC** y elija **Siguiente**:
 
   ![Cuadro de diálogo **Crear un proyecto**](~/tutorials/grpc/grpc-start/static/cnp.png)
 
@@ -67,7 +67,7 @@ En este tutorial ha:
 * Cambie los directorios (`cd`) a una carpeta que contenga el proyecto.
 * Ejecute los comandos siguientes:
 
-  ```console
+  ```dotnetcli
   dotnet new grpc -o GrpcGreeter
   code -r GrpcGreeter
   ```
@@ -82,9 +82,9 @@ En este tutorial ha:
 
 Desde un terminal, ejecute estos comandos:
 
-```console
-  dotnet new grpc -o GrpcGreeter
-  cd GrpcGreeter
+```dotnetcli
+dotnet new grpc -o GrpcGreeter
+cd GrpcGreeter
 ```
 
 Los comandos anteriores utilizan la [CLI de .NET Core](/dotnet/core/tools/dotnet) para crear un servicio gRPC.
@@ -153,7 +153,7 @@ Archivos de proyecto de *GrpcGreeter*:
 * Cambie los directorios (`cd`) a una carpeta que contenga el proyecto.
 * Ejecute los comandos siguientes:
 
-  ```console
+  ```dotnetcli
   dotnet new console -o GrpcGreeterClient
   code -r GrpcGreeterClient
   ```
@@ -200,7 +200,7 @@ Instale los paquetes con la Consola del Administrador de paquetes (PMC) o median
 
 Ejecute los siguientes comandos en el **terminal integrado**:
 
-```console
+```dotnetcli
 dotnet add GrpcGreeterClient.csproj package Grpc.Net.Client
 dotnet add GrpcGreeterClient.csproj package Google.Protobuf
 dotnet add GrpcGreeterClient.csproj package Grpc.Tools

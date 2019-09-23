@@ -5,20 +5,22 @@ description: Obtenga información sobre cómo solucionar errores comunes al hosp
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/10/2019
+ms.date: 09/11/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 3030bc57be113d9034123c96403742442b9240bb
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: f6afd6491181830f4d79486fa26a64423cd4a0ac
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308097"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963676"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Referencia de errores comunes de Azure App Service e IIS con ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex)
 
-En este tema, se ofrece información sobre cómo solucionar errores comunes al hospedar aplicaciones ASP.NET Core en Azure App Service e IIS.
+En este tema se describen los errores comunes y se proporcionan consejos de solución de problemas para errores específicos al hospedar aplicaciones ASP.NET Core en Azure Apps Service e IIS.
+
+Para obtener instrucciones de solución de problemas, vea <xref:test/troubleshoot-azure-iis>.
 
 Recopile la siguiente información:
 
@@ -46,7 +48,7 @@ La lista de errores en este tema no es exhaustiva. Si se produce algún error qu
 
   &#8224;El registro se encuentra en *C:\Users\{USER}\AppData\Local\Temp\dd_DotNetCoreWinSvrHosting__{TIMESTAMP}.log*.
 
-Solución de problemas:
+Solución del problema:
 
 Si el sistema no tiene acceso a Internet al [instalar la agrupación de hospedaje .NET Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle), se produce esta excepción cuando se evita que el instalador obtenga *Microsoft Visual C++ 2015 Redistributable*. Obtenga un instalador en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=53840). Si se produce un error en el instalador, es posible que el servidor no reciba el entorno de tiempo de ejecución de .NET Core necesario para hospedar una [implementación dependiente del marco (FDD)](/dotnet/core/deploying/#framework-dependent-deployments-fdd). Si va a hospedar una FDD, confirme que el tiempo de ejecución está instalado en **Programas y características** o en **Aplicaciones y características**. Si se requiere un tiempo de ejecución específico, descargue el tiempo de ejecución de [Archivos de descarga de .NET](https://dotnet.microsoft.com/download/archives) e instálelo en el sistema. Después de instalar el runtime, reinicie el sistema o IIS al ejecutar **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema.
 
@@ -54,7 +56,7 @@ Si el sistema no tiene acceso a Internet al [instalar la agrupación de hospedaj
 
 **Registro de aplicación:** el archivo DLL del módulo **C:\WINDOWS\system32\inetsrv\aspnetcore.dll** no se ha podido cargar. Los datos son el error.
 
-Solución de problemas:
+Solución del problema:
 
 Los archivos que no son de SO del directorio **C:\Windows\SysWOW64\inetsrv** no se conservan durante una actualización del sistema operativo. Este problema se produce si ha instalado el módulo ASP.NET Core antes de una actualización del sistema operativo y, a continuación, ejecuta cualquier grupo de aplicaciones en modo de 32 bits después de una actualización del sistema operativo. Después de actualizar el sistema operativo, repare el módulo ASP.NET Core. Consulte [Instalación de la agrupación de hospedaje de .NET Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Seleccione **Reparar** cuando se ejecute el instalador.
 
@@ -74,7 +76,7 @@ Los archivos que no son de SO del directorio **C:\Windows\SysWOW64\inetsrv** no 
 
 ::: moniker-end
 
-Solución de problemas:
+Solución del problema:
 
 * Si ejecuta la aplicación en un entorno de ejecución en versión preliminar, instale la extensión de sitio de 32 bits (x86) **o** de 64 bits (x64) que coincida con el valor de bits de la aplicación y la versión del entorno de ejecución de la aplicación. **No instale al mismo tiempo ambas extensiones o varias versiones del entorno de ejecución de la extensión.**
 
@@ -107,7 +109,7 @@ Para más información, consulte <xref:host-and-deploy/azure-apps/index#install-
 
 El SDK intercepta este escenario al publicar una aplicación independiente. El SDK genera un error si el RID no coincide con el destino de plataforma (por ejemplo, RID de `win10-x64` con `<PlatformTarget>x86</PlatformTarget>` en el archivo del proyecto).
 
-Solución de problemas:
+Solución del problema:
 
 En el caso de una implementación dependiente del marco x86 (`<PlatformTarget>x86</PlatformTarget>`), habilite el grupo de aplicaciones de IIS para aplicaciones de 32 bits. En el Administrador de IIS, abra la **Configuración avanzada** del grupo de aplicaciones y establezca **Habilitar aplicaciones de 32 bits** en **True**.
 
@@ -119,7 +121,7 @@ En el caso de una implementación dependiente del marco x86 (`<PlatformTarget>x8
 
 * **Registro de stdout del módulo ASP.NET Core:** Excepción no controlada: System.BadImageFormatException: No se ha podido cargar el archivo ni el ensamblado '{ASSEMBLY}.dll'. Se ha intentado cargar un programa con un formato incorrecto.
 
-Solución de problemas:
+Solución del problema:
 
 * Confirme que la aplicación se ejecuta localmente en Kestrel. Un error de proceso puede ser el resultado de un problema en la aplicación. Para más información, consulte <xref:test/troubleshoot-azure-iis>.
 
@@ -139,7 +141,7 @@ Solución de problemas:
 
 ::: moniker-end
 
-Solución de problemas:
+Solución del problema:
 
 * Confirme que se usa el punto de conexión de URI correcto para la aplicación. Compruebe los enlaces.
 
@@ -149,7 +151,7 @@ Solución de problemas:
 
 **Excepción de sistema operativo:** Para usar el módulo ASP.NET Core, se deben instalar las características de IIS 7.0 CoreWebEngine y W3SVC.
 
-Solución de problemas:
+Solución del problema:
 
 Confirme que están habilitados el rol y las características correctos. Vea [Configuración de IIS](xref:host-and-deploy/iis/index#iis-configuration).
 
@@ -167,7 +169,7 @@ Confirme que están habilitados el rol y las características correctos. Vea [Co
 
 ::: moniker-end
 
-Solución de problemas:
+Solución del problema:
 
 Consulte la opción **Configuración básica** del sitio web de IIS y la carpeta de la aplicación física. Confirme que la aplicación está en la carpeta en la **ruta de acceso física** del sitio web de IIS.
 
@@ -185,7 +187,7 @@ Consulte la opción **Configuración básica** del sitio web de IIS y la carpeta
 
 ::: moniker-end
 
-Solución de problemas:
+Solución del problema:
 
 * Confirme que está habilitado el rol adecuado. Vea [Configuración de IIS](xref:host-and-deploy/iis/index#iis-configuration).
 
@@ -229,7 +231,7 @@ Solución de problemas:
 
 ::: moniker-end
 
-Solución de problemas:
+Solución del problema:
 
 * Confirme que la aplicación se ejecuta localmente en Kestrel. Un error de proceso puede ser el resultado de un problema en la aplicación. Para más información, consulte <xref:test/troubleshoot-azure-iis>.
 
@@ -275,7 +277,7 @@ Solución de problemas:
 
 ::: moniker-end
 
-Solución de problemas:
+Solución del problema:
 
 * Confirme que la aplicación se ejecuta localmente en Kestrel. Un error de proceso puede ser el resultado de un problema en la aplicación. Para más información, consulte <xref:test/troubleshoot-azure-iis>.
 
@@ -297,7 +299,7 @@ No se ha podido iniciar la aplicación '/LM/W3SVC/5/ROOT', código de error '0x8
 
 ::: moniker-end
 
-Solución de problemas:
+Solución del problema:
 
 En el caso de una implementación dependiente del marco (FDD), confirme que tiene instalado el entorno de tiempo de ejecución correcto en el sistema.
 
@@ -315,7 +317,7 @@ En el caso de una implementación dependiente del marco (FDD), confirme que tien
 
 ::: moniker-end
 
-Solución de problemas:
+Solución del problema:
 
 Confirme que el grupo de aplicaciones no está en estado *Detenido*.
 
@@ -333,7 +335,7 @@ Confirme que el grupo de aplicaciones no está en estado *Detenido*.
 
 ::: moniker-end
 
-Solución de problemas:
+Solución del problema:
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -371,7 +373,7 @@ Confirme que el archivo *web.config* de la aplicación secundaria no incluye una
 
 ::: moniker-end
 
-Solución de problemas:
+Solución del problema:
 
 * La ruta de acceso `stdoutLogFile` especificada en el elemento `<aspNetCore>` de *web.config* no existe. Para obtener más información, consulte [ASP.NET Core Module: Log creation and redirection](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection) (Creación y redireccionamiento de registros: módulo de ASP.NET Core).
 
@@ -401,11 +403,11 @@ Solución de problemas:
 
 ::: moniker-end
 
-Solución de problemas:
+Solución del problema:
 
 El proceso no se ha iniciado, probablemente debido a un problema de configuración o programación de la aplicación.
 
-Para obtener más información, consulte los temas siguientes:
+Para obtener más información, vea los temas siguientes:
 
 * <xref:test/troubleshoot-azure-iis>
 * <xref:test/troubleshoot>

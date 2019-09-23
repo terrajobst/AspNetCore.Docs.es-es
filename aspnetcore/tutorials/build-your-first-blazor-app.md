@@ -5,14 +5,14 @@ description: Cree una aplicación Blazor paso a paso.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/23/2019
+ms.date: 09/15/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: ea1111f43b6b8b4f47061056e8ad8d505f92dba6
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: b433d793ae615bc4ece7c63bebd72d349adf43ee
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800480"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081264"
 ---
 # <a name="build-your-first-blazor-app"></a>Creación de la primera aplicación Blazor
 
@@ -57,7 +57,7 @@ Incluya un componente en otro componente mediante una sintaxis HTML.
 
 1. Agregue el componente `Counter` al componente `Index` de la aplicación al agregar un elemento `<Counter />` al componente `Index` (*Index.razor*).
 
-   Si para esta experiencia usa el lado cliente de Blazor, el componente `Index` usa un componente `SurveyPrompt`. Reemplace el elemento `<SurveyPrompt>` por un elemento `<Counter />`. Si para esta experiencia usa una aplicación de servidor de Blazor, agregue el elemento `<Counter />` al elemento `Index`:
+   Si va a usar Blazor WebAssembly para esta experiencia, el componente `Index` usa un componente `SurveyPrompt`. Reemplace el elemento `<SurveyPrompt>` por un elemento `<Counter />`. Si va a usar la aplicación Blazor Server para esta experiencia, agregue el elemento `<Counter />` al componente `Index`:
 
    *Pages/Index.razor*:
 
@@ -97,11 +97,11 @@ La directiva `@page` en la parte superior del archivo *Counter.razor* especifica
 
 ## <a name="dependency-injection"></a>Inserción de dependencias
 
-Los servicios registrados en el contenedor de servicios de la aplicación están disponibles para los componentes mediante una [inserción de dependencia (DI)](xref:fundamentals/dependency-injection). Inserte servicios en un componente mediante la directiva `@inject`.
+Si va a trabajar con una aplicación Blazor Server, el servicio `WeatherForecastService` se registra como [singleton](xref:fundamentals/dependency-injection#service-lifetimes) en `Startup.ConfigureServices`. Una instancia del servicio está disponible en toda la aplicación a través de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection):
 
-Examine las directivas del componente `FetchData`.
+[!code-csharp[](build-your-first-blazor-app/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
-Si trabaja con la aplicación de servidor de Blazor, el servicio `WeatherForecastService` se registra como [singleton](xref:fundamentals/dependency-injection#service-lifetimes), de modo que una instancia del servicio está disponible en toda la aplicación. La directiva `@inject` se usa para insertar la instancia del servicio `WeatherForecastService` en el componente.
+La directiva `@inject` se usa para insertar la instancia del servicio `WeatherForecastService` en el componente `FetchData`.
 
 *Pages/FetchData.razor*:
 
@@ -111,7 +111,7 @@ El componente `FetchData` usa el servicio insertado, como `ForecastService`, par
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-Si trabaja con la aplicación cliente de Blazor, se inserta `HttpClient` para obtener datos de previsión del tiempo del archivo *weather.json* de la carpeta *wwwroot/sample-data*:
+Si trabaja con una aplicación Blazor WebAssembly, se inserta `HttpClient` para obtener datos de previsión del tiempo del archivo *weather.json* de la carpeta *wwwroot/sample-data*.
 
 *Pages/FetchData.razor*:
 
@@ -120,7 +120,6 @@ Si trabaja con la aplicación cliente de Blazor, se inserta `HttpClient` para ob
 Se usa un bucle [\@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) para representar cada instancia de previsión como una fila de la tabla de datos meteorológicos:
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
-
 
 ## <a name="build-a-todo-list"></a>Creación de una lista de tareas pendientes
 

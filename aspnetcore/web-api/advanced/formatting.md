@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 05/29/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: e3417c9bfd3824133b86de2fe74f5f71367e1560
-ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
+ms.openlocfilehash: 8bee4efdae5341ddab5bd3aec278ecfef37f0c08
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69886534"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082355"
 ---
 <!-- DO NOT EDIT BEFORE https://github.com/aspnet/AspNetCore.Docs/pull/12077 MERGES -->
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Aplicación de formato a datos de respuesta en ASP.NET Core Web API
@@ -106,13 +106,29 @@ Si la aplicación necesita admitir formatos adicionales además del formato JSON
 
 ### <a name="configure-systemtextjson-based-formatters"></a>Configuración de formateadores basados en System.Text.Json
 
-Las características para los formateadores basados en `System.Text.Json` pueden configurarse mediante `Microsoft.AspNetCore.Mvc.MvcOptions.SerializerOptions`.
+Las características para los formateadores basados en `System.Text.Json` pueden configurarse mediante `Microsoft.AspNetCore.Mvc.JsonOptions.SerializerOptions`.
 
 ```csharp
-services.AddMvc(options =>
+services.AddControllers().AddJsonOptions(options =>
 {
-    options.SerializerOptions.WriterSettings.Indented = true;
+    // Use the default property (Pascal) casing.
+    options.SerializerOptions.PropertyNamingPolicy = null;
+
+    // Configure a custom converter.
+    options.SerializerOptions.Converters.Add(new MyCustomJsonConverter());
 });
+```
+
+Las opciones de serialización de salida se pueden configurar para cada acción mediante `JsonResult`. Por ejemplo:
+
+```csharp
+public IActionResult Get()
+{
+    return Json(model, new JsonSerializerOptions
+    {
+        options.WriteIndented = true,
+    });
+}
 ```
 
 ### <a name="add-newtonsoftjson-based-json-format-support"></a>Adición de compatibilidad con el formato JSON basado en Newtonsoft.Json
@@ -120,7 +136,7 @@ services.AddMvc(options =>
 Antes de ASP.NET Core 3.0, MVC usa de forma predeterminada formateadores JSON que se implementan mediante el paquete `Newtonsoft.Json`. En ASP.NET Core 3.0 o posterior, los formateadores JSON predeterminados se basan en `System.Text.Json`. La compatibilidad con los formateadores basados en `Newtonsoft.Json` y con las características está disponible al instalar el paquete NuGet [Microsoft.AspNetCore.Mvc.NewtonsoftJson](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson/) y configurarlo en `Startup.ConfigureServices`.
 
 ```csharp
-services.AddMvc()
+services.AddControllers()
     .AddNewtonsoftJson();
 ```
 
@@ -129,6 +145,31 @@ Es posible que algunas características no funcionen bien con formateadores basa
 * Usa atributos `Newtonsoft.Json` (por ejemplo, `[JsonProperty]` o `[JsonIgnore]`), personaliza la configuración de serialización o se basa en características que `Newtonsoft.Json` proporciona.
 * Configura `Microsoft.AspNetCore.Mvc.JsonResult.SerializerSettings`. Antes de ASP.NET Core 3.0, `JsonResult.SerializerSettings` acepta una instancia de `JsonSerializerSettings` específica de `Newtonsoft.Json`.
 * Genera la documentación de [OpenAPI](<xref:tutorials/web-api-help-pages-using-swagger>).
+
+Las características para los formateadores basados en `Newtonsoft.Json` pueden configurarse mediante `Microsoft.AspNetCore.Mvc.MvcNewtonsoftJsonOptions.SerializerSettings`:
+
+```csharp
+services.AddControllers().AddNewtonsoftJson(options =>
+{
+    // Use the default property (Pascal) casing
+    options.SerializerSettings.ContractResolver = new DefautlContractResolver();
+
+    // Configure a custom converter
+    options.SerializerOptions.Converters.Add(new MyCustomJsonConverter());
+});
+```
+
+Las opciones de serialización de salida se pueden configurar para cada acción mediante `JsonResult`. Por ejemplo:
+
+```csharp
+public IActionResult Get()
+{
+    return Json(model, new JsonSerializerSettings
+    {
+        options.Formatting = Formatting.Indented,
+    });
+}
+```
 
 ::: moniker-end
 

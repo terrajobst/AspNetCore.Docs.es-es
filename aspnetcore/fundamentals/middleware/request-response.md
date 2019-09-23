@@ -7,12 +7,12 @@ ms.author: jukotali
 ms.custom: mvc
 ms.date: 08/29/2019
 uid: fundamentals/middleware/request-response
-ms.openlocfilehash: e992401da2d194b178afbe51a293d103def0f940
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: 5e531c0ce0ed48097054fd81ddc3655a66cc7c5f
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238156"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081679"
 ---
 # <a name="request-and-response-operations-in-aspnet-core"></a>Operaciones de solicitud y respuesta en ASP.NET Core
 
@@ -20,7 +20,7 @@ Por [Justin Kotalik](https://github.com/jkotalik)
 
 En este artículo se explica cómo leer el cuerpo de la solicitud y escribir el cuerpo de respuesta. El código para estas operaciones podría ser necesario al escribir middleware. Fuera de la escritura de middleware, el código personalizado no suele ser necesario porque MVC y Razor Pages controlan las operaciones.
 
-Hay dos abstracciones para los cuerpos de solicitud y respuesta: <xref:System.IO.Stream> y <xref:System.IO.Pipelines.Pipe>. Para leer la solicitud, [HttpRequest.Body](xref:Microsoft.AspNetCore.Http.HttpRequest.Body) es un objeto <xref:System.IO.Stream> y `HttpRequest.BodyReader` es un objeto <xref:System.IO.Pipelines.PipeReader>. Para escribir la respuesta, [HttpResponse.Body](xref:Microsoft.AspNetCore.Http.HttpResponse.Body) es un objeto `HttpResponse.BodyWriter` y es un objeto <xref:System.IO.Pipelines.PipeWriter>.
+Hay dos abstracciones para los cuerpos de solicitud y respuesta: <xref:System.IO.Stream> y <xref:System.IO.Pipelines.Pipe>. Para leer la solicitud, [HttpRequest.Body](xref:Microsoft.AspNetCore.Http.HttpRequest.Body) es un objeto <xref:System.IO.Stream> y `HttpRequest.BodyReader` es un objeto <xref:System.IO.Pipelines.PipeReader>. Para escribir la respuesta, [HttpResponse.Body](xref:Microsoft.AspNetCore.Http.HttpResponse.Body) es un objeto <xref:System.IO.Stream> y <xref:System.IO.Pipelines.PipeWriter> es un objeto `HttpResponse.BodyWriter`.
 
 Se recomienda el uso de canalizaciones por encima del uso de secuencias. Las secuencias pueden ser más fáciles de usar en el caso de algunas operaciones sencillas, pero las canalizaciones son más ventajosas para el rendimiento y son más fáciles de usar en la mayoría de los casos. ASP.NET Core está empezando a usar internamente canalizaciones en lugar de secuencias. Ejemplos:
 
