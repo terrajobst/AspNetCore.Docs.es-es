@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 8/22/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 1519abbca6430063f037372a4927f5818f160457
-ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
+ms.openlocfilehash: 0479df14dd5d757710e361fce43782a8137588cb
+ms.sourcegitcommit: 0365af91518004c4a44a30dc3a8ac324558a399b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70024784"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71198895"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Almacenar en memoria caché en ASP.NET Core
 
@@ -39,7 +39,7 @@ La caché en memoria puede almacenar cualquier objeto. La interfaz de caché dis
 * Cualquier [implementación de .net](/dotnet/standard/net-standard#net-implementation-support) que tenga como destino .net Standard 2,0 o posterior. Por ejemplo, ASP.NET Core 2,0 o posterior.
 * .NET Framework 4,5 o posterior.
 
-[Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (que se describe en este artículo `System.Runtime.Caching` ) se recomienda en lugar / `MemoryCache` de que se integre mejor en ASP.net Core. Por ejemplo, `IMemoryCache` funciona de forma nativa con la [inserción](xref:fundamentals/dependency-injection)de dependencias ASP.net Core.
+[Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (que se describe en este artículo `System.Runtime.Caching` ) se recomienda en lugar / `MemoryCache` de que se integre mejor en ASP.net Core. Por ejemplo, `IMemoryCache` funciona de forma nativa con la [inserción de dependencias](xref:fundamentals/dependency-injection)ASP.net Core.
 
 Use `System.Runtime.Caching` comopuentede`MemoryCache` compatibilidad al trasladar código de ASP.net 4. x a ASP.net Core. /
 
@@ -49,7 +49,7 @@ Use `System.Runtime.Caching` comopuentede`MemoryCache` compatibilidad al traslad
 * La memoria caché utiliza un recurso y una memoria insuficientes. Limitar el crecimiento de la caché:
   * **No** utilice la entrada externa como claves de caché.
   * Use las expiraciones para limitar el crecimiento de la memoria caché.
-  * [Use setSize, size y SizeLimit para limitar el tamaño de la memoria caché](#use-setsize-size-and-sizelimit-to-limit-cache-size). El tiempo de ejecución de ASP.net Core no limita el tamaño de la memoria caché en función de la presión de memoria. Depende del desarrollador limitar el tamaño de la memoria caché.
+  * [Use setSize, size y SizeLimit para limitar el tamaño de la memoria caché](#use-setsize-size-and-sizelimit-to-limit-cache-size). El tiempo de ejecución de ASP.NET Core **no limita el** tamaño de la memoria caché en función de la presión de memoria. Depende del desarrollador limitar el tamaño de la memoria caché.
 
 ## <a name="use-imemorycache"></a>Usar IMemoryCache
 
@@ -57,13 +57,13 @@ Use `System.Runtime.Caching` comopuentede`MemoryCache` compatibilidad al traslad
 > El uso de una caché de memoria *compartida* de la `SetSize`inserción `Size`de [dependencias](xref:fundamentals/dependency-injection) y la llamada a, o `SizeLimit` para limitar el tamaño de la memoria caché puede provocar un error en la aplicación. Cuando se establece un límite de tamaño en una memoria caché, todas las entradas deben especificar un tamaño al agregarse. Esto puede dar lugar a problemas, ya que es posible que los desarrolladores no tengan control total sobre lo que utiliza la memoria caché compartida. Por ejemplo, Entity Framework Core usa la memoria caché compartida y no especifica un tamaño. Si una aplicación establece un límite de tamaño de caché y usa EF Core, la aplicación produce `InvalidOperationException`una excepción.
 > Al usar `SetSize`, `Size`o `SizeLimit` para limitar la memoria caché, cree un singleton de caché para el almacenamiento en caché. Para obtener más información y un ejemplo, vea [uso de setSize, size y SizeLimit para limitar el tamaño de la memoria caché](#use-setsize-size-and-sizelimit-to-limit-cache-size).
 
-El almacenamiento en caché en memoria es un *servicio* al que se hace referencia desde una aplicación mediante la [inserción](xref:fundamentals/dependency-injection)de dependencias. Solicite la `IMemoryCache` instancia en el constructor:
+El almacenamiento en caché en memoria es un *servicio* al que se hace referencia desde una aplicación mediante la [inserción de dependencias](xref:fundamentals/dependency-injection). Solicite la `IMemoryCache` instancia en el constructor:
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet_ctor)]
 
 En el código siguiente se usa [TryGetValue](/dotnet/api/microsoft.extensions.caching.memory.imemorycache.trygetvalue?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__) para comprobar si una hora está en la memoria caché. Si una hora no está almacenada en caché, se crea una nueva entrada y se agrega a la memoria caché con [set](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.set?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_Microsoft_Extensions_Caching_Memory_MemoryCacheEntryOptions_). La `CacheKeys` clase forma parte del ejemplo de descarga.
 
-[! code-CSharp [] (Memory/3.0 Sample/WebCacheSample/CacheKeys. CS) [](memory/3.0sample/WebCacheSample/CacheKeys.cs)]
+[!code-csharp[](memory/3.0sample/WebCacheSample/CacheKeys.cs)]
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet1)]
 
@@ -125,7 +125,7 @@ En el código siguiente se crea un tamaño <xref:Microsoft.Extensions.Caching.Me
 
 `SizeLimit`no tiene unidades. Las entradas almacenadas en caché deben especificar el tamaño en las unidades que consideren más adecuadas si se ha establecido el tamaño de la memoria caché. Todos los usuarios de una instancia de caché deben usar el mismo sistema de unidad. Una entrada no se almacenará en caché si la suma de los tamaños de las entradas almacenadas en caché `SizeLimit`supera el valor especificado por. Si no se establece ningún límite de tamaño de caché, se omitirá el tamaño de la memoria caché establecido en la entrada.
 
-El código siguiente se registra `MyMemoryCache` con el contenedor de [inserción](xref:fundamentals/dependency-injection) de dependencias.
+El código siguiente se registra `MyMemoryCache` con el contenedor de [inserción de dependencias](xref:fundamentals/dependency-injection) .
 
 [!code-csharp[](memory/3.0sample/RPcache/Startup.cs?name=snippet)]
 
@@ -212,7 +212,7 @@ La caché en memoria puede almacenar cualquier objeto. La interfaz de caché dis
 * Cualquier [implementación de .net](/dotnet/standard/net-standard#net-implementation-support) que tenga como destino .net Standard 2,0 o posterior. Por ejemplo, ASP.NET Core 2,0 o posterior.
 * .NET Framework 4,5 o posterior.
 
-[Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (que se describe en este artículo `System.Runtime.Caching` ) se recomienda en lugar / `MemoryCache` de que se integre mejor en ASP.net Core. Por ejemplo, `IMemoryCache` funciona de forma nativa con la [inserción](xref:fundamentals/dependency-injection)de dependencias ASP.net Core.
+[Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (que se describe en este artículo `System.Runtime.Caching` ) se recomienda en lugar / `MemoryCache` de que se integre mejor en ASP.net Core. Por ejemplo, `IMemoryCache` funciona de forma nativa con la [inserción de dependencias](xref:fundamentals/dependency-injection)ASP.net Core.
 
 Use `System.Runtime.Caching` comopuentede`MemoryCache` compatibilidad al trasladar código de ASP.net 4. x a ASP.net Core. /
 
@@ -230,7 +230,7 @@ Use `System.Runtime.Caching` comopuentede`MemoryCache` compatibilidad al traslad
 > El uso de una caché de memoria *compartida* de la `SetSize`inserción `Size`de [dependencias](xref:fundamentals/dependency-injection) y la llamada a, o `SizeLimit` para limitar el tamaño de la memoria caché puede provocar un error en la aplicación. Cuando se establece un límite de tamaño en una memoria caché, todas las entradas deben especificar un tamaño al agregarse. Esto puede dar lugar a problemas, ya que es posible que los desarrolladores no tengan control total sobre lo que utiliza la memoria caché compartida. Por ejemplo, Entity Framework Core usa la memoria caché compartida y no especifica un tamaño. Si una aplicación establece un límite de tamaño de caché y usa EF Core, la aplicación produce `InvalidOperationException`una excepción.
 > Al usar `SetSize`, `Size`o `SizeLimit` para limitar la memoria caché, cree un singleton de caché para el almacenamiento en caché. Para obtener más información y un ejemplo, vea [uso de setSize, size y SizeLimit para limitar el tamaño de la memoria caché](#use-setsize-size-and-sizelimit-to-limit-cache-size).
 
-El almacenamiento en caché en memoria es un *servicio* al que se hace referencia desde la aplicación mediante la [inserción](../../fundamentals/dependency-injection.md)de dependencias. Llamar `AddMemoryCache` a `ConfigureServices`en:
+El almacenamiento en caché en memoria es un *servicio* al que se hace referencia desde la aplicación mediante la [inserción de dependencias](../../fundamentals/dependency-injection.md). Llamar `AddMemoryCache` a `ConfigureServices`en:
 
 [!code-csharp[](memory/sample/WebCache/Startup.cs?highlight=9)]
 
@@ -238,7 +238,7 @@ Solicite la `IMemoryCache` instancia en el constructor:
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ctor)]
 
-`IMemoryCache`requiere el paquete NuGet [Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/), que está disponible en el metapaquete [Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app).
+`IMemoryCache`requiere el paquete NuGet [Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/), que está disponible en el [metapaquete Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app).
 
 En el código siguiente se usa [TryGetValue](/dotnet/api/microsoft.extensions.caching.memory.imemorycache.trygetvalue?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_IMemoryCache_TryGetValue_System_Object_System_Object__) para comprobar si una hora está en la memoria caché. Si una hora no está almacenada en caché, se crea una nueva entrada y se agrega a la memoria caché con [set](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions.set?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_CacheExtensions_Set__1_Microsoft_Extensions_Caching_Memory_IMemoryCache_System_Object___0_Microsoft_Extensions_Caching_Memory_MemoryCacheEntryOptions_).
 
@@ -294,7 +294,7 @@ En el código siguiente se crea un tamaño <xref:Microsoft.Extensions.Caching.Me
 
 `SizeLimit`no tiene unidades. Las entradas almacenadas en caché deben especificar el tamaño en las unidades que consideren más adecuadas si se ha establecido el tamaño de la memoria caché. Todos los usuarios de una instancia de caché deben usar el mismo sistema de unidad. Una entrada no se almacenará en caché si la suma de los tamaños de las entradas almacenadas en caché `SizeLimit`supera el valor especificado por. Si no se establece ningún límite de tamaño de caché, se omitirá el tamaño de la memoria caché establecido en la entrada.
 
-El código siguiente se registra `MyMemoryCache` con el contenedor de [inserción](xref:fundamentals/dependency-injection) de dependencias.
+El código siguiente se registra `MyMemoryCache` con el contenedor de [inserción de dependencias](xref:fundamentals/dependency-injection) .
 
 [!code-csharp[](memory/sample/RPcache/Startup.cs?name=snippet&highlight=5)]
 
