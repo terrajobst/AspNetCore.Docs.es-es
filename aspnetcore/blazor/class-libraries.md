@@ -5,14 +5,14 @@ description: Descubra cómo se pueden incluir los componentes en aplicaciones in
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2019
+ms.date: 09/23/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: 91c4ffb29649c162fc15e5cb70dc60144b53afea
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: d9ef276357e95d97b7d89427c5e237aceea7a0d3
+ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080664"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71207101"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>Bibliotecas de clases de componentes de ASP.NET Core Razor
 
@@ -33,7 +33,7 @@ Siga las instrucciones <xref:blazor/get-started> del artículo para configurar e
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Cree un nuevo proyecto.
-1. Seleccione **biblioteca de clases de Razor**. Seleccione **Next** (Siguiente).
+1. Seleccione **biblioteca de clases de Razor**. Seleccione **Siguiente**.
 1. En el cuadro de diálogo **crear una nueva biblioteca de clases de Razor** , seleccione **crear**.
 1. Proporcione un nombre para el proyecto en el campo **Nombre del proyecto** o acepte el predeterminado. En los ejemplos de este tema se usa el `MyComponentLib1`nombre del proyecto. Seleccione **Crear**.
 1. Agregue RCL a una solución:

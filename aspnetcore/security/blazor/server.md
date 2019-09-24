@@ -5,14 +5,14 @@ description: Obtenga información acerca de cómo mitigar las amenazas de seguri
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/07/2019
+ms.date: 09/23/2019
 uid: security/blazor/server
-ms.openlocfilehash: 72788980ff7c7bd56f55e4e84d820a3684f7275e
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 706f504738d9c6e5af3c368c382424f2e206bcbf
+ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70964243"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211707"
 ---
 # <a name="secure-aspnet-core-blazor-server-apps"></a>Protección de aplicaciones de servidor de ASP.NET Core increíblemente
 
@@ -91,7 +91,7 @@ De forma predeterminada, no hay ningún límite en cuanto al número de conexion
 
 Los ataques por denegación de servicio (DoS) implican a un cliente que hace que el servidor agote uno o más de sus recursos, lo que hace que la aplicación no esté disponible. Las aplicaciones de servidor increíbles incluyen algunos límites predeterminados y se basan en otros límites de ASP.NET Core y Signalr para protegerse frente a ataques de DoS:
 
-| Límite de aplicación de servidor de extraordinarias                            | DESCRIPCIÓN | Valor predeterminado |
+| Límite de aplicación de servidor de extraordinarias                            | Descripción | Default |
 | ------------------------------------------------------- | ----------- | ------- |
 | `CircuitOptions.DisconnectedCircuitMaxRetained`         | Número máximo de circuitos desconectados que un servidor determinado contiene en la memoria a la vez. | 100 |
 | `CircuitOptions.DisconnectedCircuitRetentionPeriod`     | Cantidad máxima de tiempo que un circuito desconectado se mantiene en la memoria antes de que se detenga. | 3 minutos |
@@ -99,7 +99,7 @@ Los ataques por denegación de servicio (DoS) implican a un cliente que hace que
 | `CircuitOptions.MaxBufferedUnacknowledgedRenderBatches` | Número máximo de lotes de representación no confirmados el servidor mantiene en memoria por circuito en un momento dado para admitir una reconexión sólida. Después de alcanzar el límite, el servidor deja de generar nuevos lotes de representación hasta que el cliente ha confirmado uno o varios lotes. | 10 |
 
 
-| Límite de signalr y ASP.NET Core             | DESCRIPCIÓN | Valor predeterminado |
+| Límite de signalr y ASP.NET Core             | Descripción | Default |
 | ------------------------------------------ | ----------- | ------- |
 | `CircuitOptions.MaximumReceiveMessageSize` | Tamaño del mensaje para un mensaje individual. | 32 KB |
 
@@ -141,7 +141,7 @@ No confíe en llamadas de JavaScript a métodos de .NET. Cuando un método .NET 
   * Evite pasar datos proporcionados por el usuario en parámetros a llamadas de JavaScript. Si pasar datos en parámetros es absolutamente necesario, asegúrese de que el código de JavaScript controla el paso de los datos sin introducir vulnerabilidades de [scripting entre sitios (XSS)](#cross-site-scripting-xss) . Por ejemplo, no escriba los datos proporcionados por el usuario en el Document Object Model (dom) `innerHTML` estableciendo la propiedad de un elemento. Considere la posibilidad de usar la Directiva de seguridad de `eval` [contenido (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP) para deshabilitar y otras primitivas de JavaScript no seguras.
 * Evite implementar la distribución personalizada de las invocaciones de .NET sobre la implementación de distribución del marco. Exponer los métodos de .NET en el explorador es un escenario avanzado, no recomendado para el desarrollo general de increíbles.
 
-### <a name="events"></a>Events
+### <a name="events"></a>Eventos
 
 Los eventos proporcionan un punto de entrada a una aplicación de servidor más brillante. Las mismas reglas para proteger los puntos de conexión de las aplicaciones web se aplican al control de eventos en las aplicaciones de servidor increíbles. Un cliente malintencionado puede enviar cualquier dato que desee enviar como carga para un evento.
 
@@ -288,7 +288,7 @@ El error del lado cliente no incluye la pila de llamadas y no proporciona detall
 
 Habilitar errores detallados con:
 
-* `CircuitOptions.DetailedErrors`
+* `CircuitOptions.DetailedErrors`.
 * `DetailedErrors`clave de configuración. Por ejemplo, establezca la `ASPNETCORE_DETAILEDERRORS` variable de entorno en un valor `true`de.
 
 > [!WARNING]
