@@ -1,36 +1,38 @@
 ---
-title: Comparación entre los servicios gRPC y las API HTTP
+title: Comparación de los servicios de gRPC con las API de HTTP
 author: jamesnk
 description: Obtenga información sobre cómo se compara gRPC con las API de HTTP y cuáles son los escenarios recomendados.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 03/31/2019
+ms.date: 09/25/2019
 uid: grpc/comparison
-ms.openlocfilehash: c34c7ecb668e478e2be3271928a2439979a746d9
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: 935078d890998fe6af366e3f6a7bf21f53c20cf7
+ms.sourcegitcommit: a7813a776809a5029c94aa503ee71994f156231f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310469"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267713"
 ---
-# <a name="comparing-grpc-services-with-http-apis"></a>Comparación entre los servicios gRPC y las API HTTP
+# <a name="compare-grpc-services-with-http-apis"></a>Comparación de los servicios de gRPC con las API de HTTP
 
 Por [James Newton-King](https://twitter.com/jamesnk)
 
 En este artículo se explica cómo se comparan los [servicios de gRPC](https://grpc.io/docs/guides/) con las API de http (incluidas ASP.net Core [API Web](xref:web-api/index)). La tecnología que se usa para proporcionar una API para la aplicación es una opción importante, y gRPC ofrece ventajas exclusivas en comparación con las API HTTP. En este artículo se describen los puntos fuertes y débiles de gRPC y se recomiendan escenarios para usar gRPC sobre otras tecnologías.
 
-#### <a name="overview"></a>Información general
+## <a name="high-level-comparison"></a>Comparación de alto nivel
+
+En la tabla siguiente se ofrece una comparación de alto nivel de las características entre las API de gRPC y HTTP con JSON.
 
 | Característica          | gRPC                                               | API HTTP con JSON           |
 | ---------------- | -------------------------------------------------- | ----------------------------- |
 | Contrato         | Requerido ( *. proto*)                                | Opcional (OpenAPI)            |
 | Transporte        | HTTP/2                                             | HTTP                          |
 | Payload          | [Protobuf (pequeño, binario)](#performance)           | JSON (grande, legible para usuarios)  |
-| Preceptivo | [Especificación estricta](#strict-specification)      | Combinados. Cualquier HTTP es válido      |
+| Preceptivo | [Especificación estricta](#strict-specification)      | Combinados. Cualquier HTTP es válido.      |
 | Streaming        | [Cliente, servidor, bidireccional](#streaming)       | Cliente, servidor                |
 | Compatibilidad con exploradores  | [No (requiere GRPC-Web)](#limited-browser-support) | Sí                           |
 | Seguridad         | Transporte (HTTPS)                                  | Transporte (HTTPS)             |
-| Código de cliente-gen  | [Sí](#code-generation)                            | OpenAPI + herramientas de terceros |
+| Generación de código de cliente | [Sí](#code-generation)                      | OpenAPI + herramientas de terceros |
 
 ## <a name="grpc-strengths"></a>gRPC fortalezas
 
@@ -47,7 +49,7 @@ gRPC está diseñado para HTTP/2, una revisión principal de HTTP que proporcion
 
 Todos los marcos de trabajo de gRPC proporcionan compatibilidad de primera clase para la generación de código. Un archivo principal para el desarrollo de gRPC es el [archivo *. proto* ](https://developers.google.com/protocol-buffers/docs/proto3), que define el contrato de servicios y mensajes de gRPC. En este archivo, gRPC frameworks generará una clase base de servicio, mensajes y un cliente completo.
 
-Al compartir el `*.proto` archivo entre el servidor y el cliente, se pueden generar mensajes y el código de cliente de un extremo a otro. La generación de código del cliente elimina la duplicación de mensajes en el cliente y el servidor, y crea un cliente fuertemente tipado. No tener que escribir un cliente ahorra tiempo de desarrollo significativo en aplicaciones con muchos servicios.
+Al compartir el archivo *. proto* entre el servidor y el cliente, los mensajes y el código de cliente se pueden generar de extremo a extremo. La generación de código del cliente elimina la duplicación de mensajes en el cliente y el servidor, y crea un cliente fuertemente tipado. No tener que escribir un cliente ahorra tiempo de desarrollo significativo en aplicaciones con muchos servicios.
 
 ### <a name="strict-specification"></a>Especificación estricta
 
@@ -95,7 +97,7 @@ No todas las características de gRPC son compatibles con gRPC-Web. No se admite
 
 Las solicitudes de la API HTTP se envían como texto y se pueden leer y crear por parte de los usuarios.
 
-de forma predeterminada, los mensajes gRPC se codifican con protobuf. Aunque protobuf es eficaz para el envío y la recepción, su formato binario no es legible. Protobuf requiere la descripción de la interfaz del mensaje especificada `*.proto` en el archivo para deserializar correctamente. Se requieren herramientas adicionales para analizar las cargas de protobuf en la conexión y componer las solicitudes a mano.
+de forma predeterminada, los mensajes gRPC se codifican con protobuf. Aunque protobuf es eficaz para el envío y la recepción, su formato binario no es legible. Protobuf requiere la descripción de la interfaz del mensaje especificada en el archivo *. proto* para deserializar correctamente. Se requieren herramientas adicionales para analizar las cargas de protobuf en la conexión y componer las solicitudes a mano.
 
 Existen características como la [reflexión del servidor](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md) y la herramienta de línea de [comandos gRPC](https://github.com/grpc/grpc/blob/master/doc/command_line_tool.md) para ayudar con los mensajes protobuf binarios. Además, los mensajes protobuf admiten la [conversión a y desde JSON](https://developers.google.com/protocol-buffers/docs/proto3#json). La conversión de JSON integrada proporciona una manera eficaz de convertir los mensajes protobuf a y desde el formato legible durante la depuración.
 
