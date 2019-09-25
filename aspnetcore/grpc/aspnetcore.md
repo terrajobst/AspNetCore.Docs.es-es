@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/03/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 28e6b8589bbe0b6a3723b64736c723c883302571
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: 18a6dd2ddd4f3c3c4466e3b96dd1748fd0972e39
+ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238166"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71250799"
 ---
 # <a name="grpc-services-with-aspnet-core"></a>Servicios gRPC con ASP.NET Core
 
@@ -67,7 +67,7 @@ ASP.NET Core los middleware y las características comparten la canalización de
 Puntos de conexión de Kestrel gRPC:
 
 * Requiere HTTP/2.
-* Debe protegerse con HTTPS.
+* Debe protegerse con la seguridad de la [capa de transporte (TLS)](https://tools.ietf.org/html/rfc5246).
 
 #### <a name="http2"></a>HTTP/2
 
@@ -75,62 +75,32 @@ gRPC requiere HTTP/2. gRPC for ASP.NET Core valida [HttpRequest. Protocol](xref:
 
 Kestrel [admite http/2](xref:fundamentals/servers/kestrel#http2-support) en la mayoría de los sistemas operativos modernos. Los puntos de conexión de Kestrel se configuran para admitir conexiones HTTP/1.1 y HTTP/2 de forma predeterminada.
 
-#### <a name="https"></a>HTTPS
+#### <a name="tls"></a>TLS
 
-Los puntos de conexión de Kestrel usados para gRPC deben estar protegidos con HTTPS. En el desarrollo, se crea `https://localhost:5001` automáticamente un punto de conexión HTTPS cuando el certificado de desarrollo de ASP.net Core está presente. No se requiere ninguna configuración.
+Los puntos de conexión de Kestrel usados para gRPC deben protegerse con TLS. En el desarrollo, se crea `https://localhost:5001` automáticamente un punto de conexión protegido con TLS cuando el certificado de desarrollo de ASP.net Core está presente. No se requiere ninguna configuración. Un `https` prefijo comprueba que el punto de conexión Kestrel usa TLS.
 
-En un entorno de producción, HTTPS se debe configurar explícitamente. En el siguiente ejemplo de *appSettings. JSON* , se proporciona un punto de conexión http/2 protegido con https:
+En producción, se debe configurar explícitamente TLS. En el siguiente ejemplo de *appSettings. JSON* , se proporciona un punto de conexión http/2 protegido con TLS:
 
-```json
-{
-  "Kestrel": {
-    "Endpoints": {
-      "HttpsDefaultCert": {
-        "Url": "https://localhost:5001",
-        "Protocols": "Http2"
-      }
-    },
-    "Certificates": {
-      "Default": {
-        "Path": "<path to .pfx file>",
-        "Password": "<certificate password>"
-      }
-    }
-  }
-}
-```
+[!code-json[](~/grpc/aspnetcore/sample/appsettings.json?highlight=4)]
 
 Como alternativa, se pueden configurar puntos de conexión de Kestrel en *Program.CS*:
 
-```csharp
-public static IHostBuilder CreateHostBuilder(string[] args) =>
-    Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        {
-            webBuilder.ConfigureKestrel(options =>
-            {
-                // This endpoint will use HTTP/2 and HTTPS on port 5001.
-                options.Listen(IPAddress.Any, 5001, listenOptions =>
-                {
-                    listenOptions.Protocols = HttpProtocols.Http2;
-                    listenOptions.UseHttps("<path to .pfx file>", 
-                        "<certificate password>");
-                });
-            });
-            webBuilder.UseStartup<Startup>();
-        });
-```
+[!code-csharp[](~/grpc/aspnetcore/sample/Program.cs?highlight=7&name=snippet)]
 
-Cuando se configura un punto de conexión HTTP/2 sin HTTPS, los [protocolos ListenOptions. Protocol](xref:fundamentals/servers/kestrel#listenoptionsprotocols) del punto de `HttpProtocols.Http2`conexión deben establecerse en. `HttpProtocols.Http1AndHttp2`no se puede usar porque se requiere HTTPS para negociar HTTP/2. Sin HTTPS, se produce un error en todas las conexiones con el punto de conexión de forma predeterminada a HTTP/1.1 y las llamadas a gRPC.
+#### <a name="protocol-negotiation"></a>Negociación de protocolo
 
-Para obtener más información sobre cómo habilitar HTTP/2 y HTTPS con Kestrel, consulte [configuración del punto de conexión de Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration).
+TLS se usa para más que proteger la comunicación. El protocolo [de enlace de negociación del Protocolo de capa de aplicación (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) de TLS se usa para negociar el protocolo de conexión entre el cliente y el servidor cuando un extremo admite varios protocolos. Esta negociación determina si la conexión utiliza HTTP/1.1 o HTTP/2.
+
+Si un punto de conexión HTTP/2 se configura sin TLS, el [ListenOptions. Protocols](xref:fundamentals/servers/kestrel#listenoptionsprotocols) del punto de `HttpProtocols.Http2`conexión debe establecerse en. No se puede usar un punto de conexión con `HttpProtocols.Http1AndHttp2`varios protocolos (por ejemplo,) sin TLS porque no hay ninguna negociación. Se produce un error en todas las conexiones al extremo no seguro de forma predeterminada a HTTP/1.1 y a las llamadas a gRPC.
+
+Para obtener más información sobre cómo habilitar HTTP/2 y TLS con Kestrel, consulte [configuración del punto de conexión de Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
 > [!NOTE]
-> macOS no admite ASP.NET Core gRPC con [seguridad de la capa de transporte (TLS)](https://tools.ietf.org/html/rfc5246). Se requiere configuración adicional para ejecutar correctamente servicios gRPC en macOS. Para obtener más información, vea [No se puede iniciar la aplicación gRPC de ASP.NET Core en macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
+> macOS no admite gRPC de ASP.NET Core con TLS. Se requiere configuración adicional para ejecutar correctamente servicios gRPC en macOS. Para obtener más información, vea [No se puede iniciar la aplicación gRPC de ASP.NET Core en macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
 
 ## <a name="integration-with-aspnet-core-apis"></a>Integración con API de ASP.NET Core
 
-los servicios de gRPC tienen acceso completo a las características de ASP.NET Core, como la [inserción de dependencias](xref:fundamentals/dependency-injection) (di) y el [registro](xref:fundamentals/logging/index). Por ejemplo, la implementación del servicio puede resolver un servicio del registrador a partir del contenedor de DI mediante el constructor:
+los servicios de gRPC tienen acceso completo a las características de ASP.NET Core, como la [inserción](xref:fundamentals/dependency-injection) de dependencias (di) y el [registro](xref:fundamentals/logging/index). Por ejemplo, la implementación del servicio puede resolver un servicio del registrador a partir del contenedor de DI mediante el constructor:
 
 ```csharp
 public class GreeterService : Greeter.GreeterBase
