@@ -5,14 +5,14 @@ description: Este artículo contiene vínculos a recursos de implementación y h
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/07/2019
+ms.date: 07/28/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 7736888c43aafd2f64e3d7b079f2099fe548a825
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 4dc150ff4534e42e1995a185f650cea9df70ccc4
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081076"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187055"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -97,7 +97,17 @@ El [middleware de integración con IIS](xref:host-and-deploy/iis/index#enable-th
 
 ## <a name="monitoring-and-logging"></a>Supervisión y registro
 
-Azure App Service ofrece las **Extensiones de registro de ASP.NET Core**, que habilitan la integración de registros para aplicaciones ASP.NET Core. Para agregar automáticamente la extensión a una instancia de App Service, use el proceso **Publicar** de Visual Studio con un perfil de publicación de **App Service**. Cuando no use Visual Studio para implementar una aplicación, instale manualmente la extensión en Azure Portal mediante el cuadro de diálogo **Herramientas de desarrollo** > **Extensiones**.
+::: moniker range=">= aspnetcore-3.0"
+
+Las aplicaciones ASP.NET Core implementadas de forma automática en App Service reciben una extensión de App Service, **Integración de registro de ASP.NET Core**. La extensión habilita la integración de registro para las aplicaciones ASP.NET Core en Azure App Service.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Las aplicaciones de ASP.NET Core implementadas automáticamente en App Service reciben una extensión de App Service, **Extensiones de registro de ASP.NET Core**. La extensión habilita la integración de registro para las aplicaciones ASP.NET Core en Azure App Service.
+
+::: moniker-end
 
 Para obtener información sobre supervisión, registro y solución de problemas, consulte los artículos siguientes:
 
@@ -128,10 +138,21 @@ Al realizar un intercambio entre ranuras de implementación, cualquier sistema q
 * Redis Cache
 
 Para más información, consulte <xref:security/data-protection/implementation/key-storage-providers>.
+<a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>
+<!-- revert this after 3.0 supported
+## Deploy ASP.NET Core preview release to Azure App Service
 
-## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Implementar una versión preliminar de ASP.NET Core en Azure App Service
+Use one of the following approaches if the app relies on a preview release of .NET Core:
 
-Si la aplicación se basa en una versión preliminar de .NET Core, use uno de los métodos siguientes:
+* [Install the preview site extension](#install-the-preview-site-extension).
+* [Deploy a self-contained preview app](#deploy-a-self-contained-preview-app).
+* [Use Docker with Web Apps for containers](#use-docker-with-web-apps-for-containers).
+-->
+## <a name="deploy-aspnet-core-30-to-azure-app-service"></a>Implementar ASP.NET Core 3.0 en Azure App Service
+
+Esperamos tener ASP.NET Core 3.0 disponible en Azure App Service pronto.
+
+Si la aplicación se basa en .NET Core 3.0, use uno de los enfoques siguientes:
 
 * [Instalación de la extensión de sitio de versión preliminar](#install-the-preview-site-extension).
 * [Implementación de la versión preliminar de una aplicación independiente](#deploy-a-self-contained-preview-app).
@@ -230,7 +251,7 @@ Para una [implementación dependiente de marco de trabajo](/dotnet/core/deployin
 
 1. Desde un shell de comandos, publique la aplicación en Configuración de versión con el comando [dotnet publish](/dotnet/core/tools/dotnet-publish). En el ejemplo siguiente, la aplicación está publicada como aplicación dependiente de marco de trabajo:
 
-   ```dotnetcli
+   ```console
    dotnet publish --configuration Release
    ```
 
@@ -268,7 +289,7 @@ Use Visual Studio o las herramientas de la interfaz de la línea de comandos (CL
 
 1. Desde un shell de comandos, publique la aplicación en la configuración de la versión para el entorno de ejecución del host con el comando [dotnet publish](/dotnet/core/tools/dotnet-publish). En el ejemplo siguiente, la aplicación está publicada para el RID `win-x86`. El RID proporcionado para la opción `--runtime` debe indicarse en la propiedad `<RuntimeIdentifier>` (o `<RuntimeIdentifiers>`) del archivo de proyecto.
 
-   ```dotnetcli
+   ```console
    dotnet publish --configuration Release --runtime win-x86
    ```
 
