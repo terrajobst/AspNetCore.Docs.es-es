@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 90b439603dd51ff02e40045b9420876d7200bef1
-ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
+ms.openlocfilehash: 2d517a89c6002b5c85e98128605f95585354f8db
+ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219162"
+ms.locfileid: "71248261"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registros en .NET Core y ASP.NET Core
 
@@ -392,7 +392,7 @@ ASP.NET Core define los niveles de registro siguientes, que aquí se ordenan de 
 
   Para los errores que requieren atención inmediata. Ejemplos: escenarios de pérdida de datos, espacio en disco insuficiente.
 
-Use el nivel de registro para controlar la cantidad de salida del registro que se escribe en un medio de almacenamiento determinado o ventana de presentación. Por ejemplo: 
+Use el nivel de registro para controlar la cantidad de salida del registro que se escribe en un medio de almacenamiento determinado o ventana de presentación. Por ejemplo:
 
 * En producción, envíe `Trace` a través del nivel `Information` a un almacén de datos de volumen. Envíe `Warning` a través de `Critical` a un almacén de datos de valor.
 * Durante el desarrollo, envíe `Warning` a través de `Critical` a la consola y agregue `Trace` a través de `Information` cuando solucione problemas.
@@ -679,7 +679,7 @@ Si no establece explícitamente el nivel mínimo, el valor predeterminado es `In
 
 ### <a name="filter-functions"></a>Funciones de filtro
 
-Se invoca una función de filtro para todos los proveedores y categorías que no tienen reglas asignadas mediante configuración o código. El código de la función tiene acceso al tipo de proveedor, la categoría y el nivel de registro. Por ejemplo: 
+Se invoca una función de filtro para todos los proveedores y categorías que no tienen reglas asignadas mediante configuración o código. El código de la función tiene acceso al tipo de proveedor, la categoría y el nivel de registro. Por ejemplo:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -936,7 +936,7 @@ Algunas plataformas de terceros pueden realizar [registro semántico, también c
 El uso de una plataforma de terceros es similar al uso de uno de los proveedores integrados:
 
 1. Agregue un paquete NuGet al proyecto.
-1. Llame a `ILoggerFactory`.
+1. Llame a un método de extensión `ILoggerFactory` proporcionado por el marco de registro.
 
 Para más información, vea la documentación de cada proveedor. Microsoft no admite los proveedores de registro de terceros.
 

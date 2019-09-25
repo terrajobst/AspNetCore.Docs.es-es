@@ -20,11 +20,11 @@
 
 **[Asistente de etiquetas de elementos de etiqueta](xref:mvc/views/working-with-forms#the-label-tag-helper)**
 
-[comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/link-tag-helper)**
+**[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/link-tag-helper)**
 
 [comment]: **[OptionTagHelper](xref:mvc/views/tag-helpers/builtin-th/option-tag-helper)**
 
-[comment]: **[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/script-tag-helper)**
+**[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/script-tag-helper)**
 
 **[Asistente de etiquetas parciales](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)**
 
