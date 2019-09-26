@@ -5,12 +5,12 @@ description: Agregue un modelo a una aplicación sencilla de ASP.NET Core.
 ms.author: riande
 ms.date: 8/15/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: b0efaf76cb2172f5b7568e42065b99b1259949de
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 5ad31a2536ad70590eaa767cf20068512241f36b
+ms.sourcegitcommit: 14b25156e34c82ed0495b4aff5776ac5b1950b5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082013"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71295475"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Agregar un modelo a una aplicación de ASP.NET Core MVC
 
@@ -62,28 +62,14 @@ En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** > *
 En la Consola del administrador de paquetes, ejecute el comando siguiente:
 
 ```powershell
-Install-Package Microsoft.EntityFrameworkCore.SqlServer -IncludePrerelease
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
 ```
 
 El comando anterior agrega el proveedor de SQL Server de EF Core. El paquete de proveedor instala el paquete de EF Core como una dependencia. Los paquetes adicionales se instalan de forma automática en el paso de scaffolding más adelante en el tutorial.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
 
-Ejecute los siguientes comandos CLI de .NET Core:
-
-```dotnetcli
-dotnet tool install --global dotnet-ef --version 3.0.0-*
-dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
-```
-
-Los comandos anteriores agregan:
-
-* Las herramientas de Entity Framework Core para la CLI de .NET.
-* El proveedor SQLite de EF Core, que instala el paquete de EF Core como una dependencia.
-* Los paquetes necesarios para scaffolding: `Microsoft.VisualStudio.Web.CodeGeneration.Design` y `Microsoft.EntityFrameworkCore.SqlServer`.
+[!INCLUDE[](~/includes/add-EF-NuGet-SQLite-CLI.md)]
 
 ---
 

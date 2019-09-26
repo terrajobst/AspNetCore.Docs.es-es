@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/29/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 8ef49797fed3379e33810f311bfc474e524122e0
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 086ac141a04ab4a560f2c26fb049ef8a5493dc97
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082583"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187240"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Prueba de las API web HTTP REPL
 
@@ -45,7 +45,7 @@ Para continuar, [vea o descargue la API web de muestra de ASP.NET Core ](https:/
 Ejecute el siguiente comando para instalar HTTP REPL:
 
 ```dotnetcli
-dotnet tool install -g Microsoft.dotnet-httprepl --version "3.0.0-*"
+dotnet tool install -g Microsoft.dotnet-httprepl
 ```
 
 Se instala una [herramienta global de .NET Core](/dotnet/core/tools/global-tools#install-a-global-tool) desde el paquete NuGet [Microsoft.dotnet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl).

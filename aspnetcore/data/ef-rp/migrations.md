@@ -5,12 +5,12 @@ description: En este tutorial, empezará a usar la característica de EF Core de
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 8a4929a905c6a488231d7d29e1101f6fd887477f
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: efcf62d56a7b4cee4780d5f0475b4ef363fe1897
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082076"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187077"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Migraciones (4 de 8)
 
@@ -45,7 +45,7 @@ Drop-Database
 * Ejecute el comando siguiente en un símbolo del sistema para instalar las herramientas de la CLI de EF:
 
   ```dotnetcli
-  dotnet tool install --global dotnet-ef --version 3.0.0-*
+  dotnet tool install --global dotnet-ef
   ```
 
 * En el símbolo del sistema, vaya a la carpeta del proyecto. La carpeta del proyecto contiene el archivo *ContosoUniversity.csproj*.
