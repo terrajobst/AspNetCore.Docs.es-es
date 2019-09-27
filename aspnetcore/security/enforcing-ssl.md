@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/14/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: aa42b1c7199e951714be809de9c9c5f857473485
-ms.sourcegitcommit: 994da92edb0abf856b1655c18880028b15a28897
+ms.openlocfilehash: 1d1bba6a1f1da2af959bc69b31f79bac53bf48b9
+ms.sourcegitcommit: fe3e556bf438fc4136fcf0bac61cf96e3e91caf5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71278749"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71341466"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Aplicación de HTTPS en ASP.NET Core
 
@@ -284,9 +284,9 @@ El código siguiente:
 
 `UseHsts`excluye los siguientes hosts de bucle invertido:
 
-* `localhost`: Dirección de bucle invertido IPv4.
-* `127.0.0.1`: Dirección de bucle invertido IPv4.
-* `[::1]`: Dirección de bucle invertido IPv6.
+* `localhost` : Dirección de bucle invertido IPv4.
+* `127.0.0.1` : Dirección de bucle invertido IPv4.
+* `[::1]` : Dirección de bucle invertido IPv6.
 
 ## <a name="opt-out-of-httpshsts-on-project-creation"></a>No participar en HTTPS/HSTS en la creación de proyectos
 
@@ -393,8 +393,8 @@ Los comandos anteriores solucionan la mayoría de los problemas de confianza del
 * Ejecute los comandos siguientes:
 
 ```dotnetcli
-dotnet devcerts https --clean
-dotnet devcerts https --trust
+dotnet dev-certs https --clean
+dotnet dev-certs https --trust
 ```
 
 Cierre todas las instancias del explorador abiertas. Abra una nueva ventana del explorador en la aplicación.
