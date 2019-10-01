@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo crear y usar componentes de Razor,
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 09/30/2019
 uid: blazor/components
-ms.openlocfilehash: 28e908968bd77c61da72d1bcc6032e580d15541b
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: ea216e405e5be52b578e99a529d8c6a726ea9cdd
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71207274"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71688024"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -440,7 +440,7 @@ En el ejemplo siguiente, `UpdateHeading` se llama a de forma asincrónica cuando
 
 En algunos eventos, se permiten los tipos de argumento de evento. Si no es necesario el acceso a uno de estos tipos de evento, no es necesario en la llamada al método.
 
-Los [EventArgs](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src/Web) admitidos se muestran en la tabla siguiente.
+En la tabla siguiente se muestran @no__t admitidas: 0.
 
 | evento | Clase |
 | ----- | ----- |
@@ -456,7 +456,7 @@ Los [EventArgs](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/s
 | Progreso         | `ProgressEventArgs` |
 | Entrada táctil            | `TouchEventArgs`&ndash; representaunúnicopuntodecontactoenundispositivo`TouchPoint` con distinción de toque. |
 
-Para obtener más información sobre las propiedades y el comportamiento de control de eventos de los eventos de la tabla anterior, vea [clases EventArgs en el origen de referencia (versión ASPNET/AspNetCore/3.0-preview9)](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src/Web).
+Para obtener información sobre las propiedades y el comportamiento de control de eventos de los eventos de la tabla anterior, vea [clases EventArgs en el origen de referencia (rama ASPNET/AspNetCore Release/3.0)](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Components/Web/src/Web).
 
 ### <a name="lambda-expressions"></a>Expresiones lambda
 
@@ -1416,7 +1416,7 @@ Cuando el código se ejecuta por primera vez, si `someFlag` es `true`, el genera
 
 | Secuencia | Tipo      | Datos   |
 | :------: | --------- | :----: |
-| 0        | Nodo de texto | First  |
+| 0        | Nodo de texto | Primero  |
 | 1        | Nodo de texto | Second |
 
 Imagine que `someFlag` se `false`convierte en y que el marcado se representará de nuevo. Esta vez, el generador recibe:
@@ -1448,7 +1448,7 @@ Ahora, el primer resultado es:
 
 | Secuencia | Tipo      | Datos   |
 | :------: | --------- | :----: |
-| 0        | Nodo de texto | First  |
+| 0        | Nodo de texto | Primero  |
 | 1        | Nodo de texto | Second |
 
 Este resultado es idéntico al caso anterior, por lo que no existe ningún problema negativo. `someFlag`está `false` en la segunda representación y el resultado es:
@@ -1514,7 +1514,7 @@ La localización se controla en la aplicación:
 
 1. El explorador envía una solicitud HTTP inicial a la aplicación.
 1. El middleware de localización asigna la referencia cultural.
-1. El `OnGet` método en *_Host. cshtml. CS* conserva la referencia cultural en una cookie como parte de la respuesta.
+1. El método `OnGet` de *_Host. cshtml. CS* conserva la referencia cultural en una cookie como parte de la respuesta.
 1. El explorador abre una conexión WebSocket para crear una sesión de servidor increíblemente interactiva.
 1. El middleware de localización lee la cookie y asigna la referencia cultural.
 1. La sesión de servidor extraordinaria se inicia con la referencia cultural correcta.
