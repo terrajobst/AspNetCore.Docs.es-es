@@ -5,33 +5,47 @@ description: Descubra cómo la clase Startup de ASP.NET Core configura los servi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/15/2019
+ms.date: 9/25/2019
 uid: mvc/compatibility-version
-ms.openlocfilehash: b360da105799a1dccb1902e167e50e78864b76a9
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 35e3b6acba2bc9a0b863bd6d1e96365328b5f169
+ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085884"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71256162"
 ---
 # <a name="compatibility-version-for-aspnet-core-mvc"></a>Versión de compatibilidad para ASP.NET Core MVC
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-El método <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> permite a una aplicación participar o no en los cambios de comportamiento importantes incorporados en ASP.NET Core MVC 2.1 o una versión posterior. Estos cambios de comportamiento importantes suelen estar relacionados con cómo se comporta el subsistema de MVC y cómo el tiempo de ejecución llama al **código**. Si la aplicación participa, obtendrá el comportamiento más reciente y a largo plazo de ASP.NET Core.
+::: moniker range="= aspnetcore-3.0"
+
+El método <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> es una operación inefectiva para las aplicaciones ASP.NET Core 3.0. Es decir, llamar a `SetCompatibilityVersion` con cualquier valor de <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion> no tiene ningún impacto en la aplicación.
+
+* La siguiente versión secundaria ASP.NET Core puede proporcionar un nuevo valor de `CompatibilityVersion`.
+* Los valores `Version_2_0` a `Version_2_2` de `CompatibilityVersion` están marcados como `[Obsolete(...)]`.
+* Consulte [Cambios importantes en la API en Antiforgery, CORS, Diagnostics, Mvc y Routing](https://github.com/aspnet/Announcements/issues/387). Esta lista incluye cambios importantes para los modificadores de compatibilidad.
+
+Para ver cómo funciona `SetCompatibilityVersion` con las aplicaciones ASP.NET Core 2.x, seleccione la [versión ASP.NET Core 2.2 de este artículo](https://docs.microsoft.com/aspnet/core/mvc/compatibility-version?view=aspnetcore-2.2).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+El método <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> permite a una aplicación ASP.NET Core 2.x participar o no en los cambios de comportamiento importantes incorporados en ASP.NET Core MVC 2.1 o 2.2. Estos cambios de comportamiento importantes suelen estar relacionados con cómo se comporta el subsistema de MVC y cómo el tiempo de ejecución llama al **código**. Si la aplicación participa, obtendrá el comportamiento más reciente y a largo plazo de ASP.NET Core.
 
 El siguiente código establece el modo de compatibilidad en ASP.NET Core 2.2:
 
 [!code-csharp[Main](compatibility-version/samples/2.x/CompatibilityVersionSample/Startup.cs?name=snippet1)]
 
-Le recomendamos que pruebe la aplicación con la versión más reciente (`CompatibilityVersion.Version_2_2`). Prevemos que la mayoría de las aplicaciones no tendrán cambios de comportamiento importantes usando la versión más reciente.
+Le recomendamos que pruebe la aplicación con la versión más reciente (`CompatibilityVersion.Latest`). Prevemos que la mayoría de las aplicaciones no tendrán cambios de comportamiento importantes usando la versión más reciente.
 
-Las aplicaciones que llaman a `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)` están protegidas frente a los cambios de comportamiento importantes incorporados en ASP.NET Core 2.1 MVC y versiones 2.x posteriores. Esta protección:
+Las aplicaciones que llaman a `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)` están protegidas frente a los cambios de comportamiento importantes incorporados en ASP.NET Core 2.1/2.2 MVC. Esta protección:
 
 * No es aplicable a todos los cambios de 2.1 y versiones posteriores, sino que tiene como destino los cambios importantes de comportamiento en tiempo de ejecución de ASP.NET Core en el subsistema de MVC.
-* No se extiende a la siguiente versión principal.
+* No se extiende a ASP.NET Core 3.0.
 
-La compatibilidad predeterminada de las aplicaciones ASP.NET Core 2.1 y versiones 2.x posteriores que **no** llaman a `SetCompatibilityVersion` es la compatibilidad 2.0. Es decir, no llamar a `SetCompatibilityVersion` es igual que llamar a `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)`.
+La compatibilidad predeterminada de las aplicaciones ASP.NET Core 2.1 y 2.2 que **no** llaman a `SetCompatibilityVersion` es la compatibilidad 2.0. Es decir, no llamar a `SetCompatibilityVersion` es igual que llamar a `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)`.
 
 El siguiente código establece el modo de compatibilidad en ASP.NET Core 2.2, salvo en los siguientes comportamientos:
 
@@ -47,4 +61,5 @@ En el caso de las aplicaciones que encuentran cambios de comportamiento importan
 
 En la documentación de <xref:Microsoft.AspNetCore.Mvc.MvcOptions> se incluye una completa explicación de los cambios y por qué son una mejora para la mayoría de los usuarios.
 
-Próximamente habrá una [versión ASP.NET Core 3.0](https://github.com/aspnet/Home/wiki/Roadmap). Los comportamientos anteriores admitidos por los modificadores de compatibilidad se quitarán en esta versión 3.0. Estamos convencidos de que estos son cambios positivos que beneficiarán a prácticamente todos los usuarios. Al presentarlos ahora, la mayoría de las aplicaciones podrán empezar a sacar partido de ellos ya y los demás tendrán tiempo suficiente para actualizar sus aplicaciones.
+Con ASP.NET Core 3.0, los comportamientos anteriores admitidos por los modificadores de compatibilidad se han quitado. Estamos convencidos de que estos son cambios positivos que beneficiarán a prácticamente todos los usuarios. Al introducir estos cambios en 2.1 y 2.2, la mayoría de las aplicaciones pueden beneficiarse, mientras que otras tienen tiempo para actualizarse.
+::: moniker-end

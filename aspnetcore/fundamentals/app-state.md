@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/12/2019
 uid: fundamentals/app-state
-ms.openlocfilehash: 578be568b58dc630e8aabf8cb355266766741b9e
-ms.sourcegitcommit: 116bfaeab72122fa7d586cdb2e5b8f456a2dc92a
+ms.openlocfilehash: ccb37a422d972ab9113bb4115473d054282dac87
+ms.sourcegitcommit: 994da92edb0abf856b1655c18880028b15a28897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384736"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71278693"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Estado de sesión y aplicación en ASP.NET Core
 
@@ -315,6 +315,10 @@ Use [inserción de dependencias](xref:fundamentals/dependency-injection) para qu
   Por ejemplo, un usuario almacena un carro de la compra en la sesión. El usuario agrega un elemento al carro, pero se produce un error en la confirmación. La aplicación no se percata del error y notifica al usuario que el elemento se ha agregado al carro, lo cual no es cierto.
 
   El enfoque recomendado para comprobar los errores es llamar a `await feature.Session.CommitAsync();` desde el código de la aplicación cuando esta haya terminado de escribir en la sesión. `CommitAsync` produce una excepción si la memoria auxiliar no está disponible. Si `CommitAsync` produce un error, la aplicación puede procesar la excepción. `LoadAsync` se produce en las mismas condiciones donde el almacén de datos no está disponible.
+  
+## <a name="signalr-and-session-state"></a>SignalR y estado de sesión
+
+Las aplicaciones de SignalR no deben usar el estado de sesión para almacenar información. Las aplicaciones de SignalR pueden almacenar por estado de conexión en `Context.Items` en el concentrador. <!-- https://github.com/aspnet/SignalR/issues/2139 -->
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

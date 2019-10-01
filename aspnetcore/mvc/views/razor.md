@@ -3,14 +3,14 @@ title: Referencia de sintaxis de Razor para ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre la sintaxis de marcado de Razor para insertar código basado en servidor en páginas web.
 ms.author: riande
-ms.date: 08/05/2019
+ms.date: 09/19/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 75bf0e792ff7975f03e0f7c2fa6a71ed74d813e1
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 9a319f7efb6d879559afd9faca6955aba719fa2f
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819797"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168292"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Referencia de sintaxis de Razor para ASP.NET Core
 
@@ -739,6 +739,12 @@ El atributo de directiva `@key` hace que el algoritmo de comparación de compone
 
 Las referencias de componentes (`@ref`) proporcionan una forma de hacer referencia a la instancia de un componente para poder emitir comandos a dicha instancia. Para más información, consulte <xref:blazor/components#capture-references-to-components>.
 
+### <a name="typeparam"></a>\@typeparam
+
+*Este escenario solo se aplica a los componentes de Razor (.razor).*
+
+La directiva `@typeparam` declara un parámetro de tipo genérico para la clase de componente generada. Para más información, consulte <xref:blazor/components#generic-typed-components>.
+
 ::: moniker-end
 
 ## <a name="templated-razor-delegates"></a>Delegados con plantillas de Razor
@@ -858,9 +864,9 @@ Hay tres directivas que pertenecen a los [asistentes de etiquetas](xref:mvc/view
 
 * page (requiere ASP.NET Core 2.1 o una versión posterior)
 * namespace
-* functions
-* inherits
-* model
+* funciones
+* hereda
+* modelo
 * section
 * helper (no admitida en ASP.NET Core actualmente)
 
@@ -875,12 +881,12 @@ Para hacer escape en una palabra clave de Razor, se usa `@(Razor Keyword)` (por 
 * foreach
 * if
 * else
-* lock
+* bloquear
 * switch
 * try
 * catch
 * finally
-* using
+* utilizar
 * while
 
 Las palabras clave C# de Razor deben tener doble escape con `@(@C# Razor Keyword)` (por ejemplo, `@(@case)`). El primer carácter `@` hace escape en el analizador Razor y el segundo `@`, en el analizador de C#.

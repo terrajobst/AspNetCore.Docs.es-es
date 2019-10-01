@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 1cc4fffc50978a3a958a96e1eb250cb85a8d2879
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 5e5215f246c6c7a805a4c99f485d51a2fb3c712d
+ms.sourcegitcommit: cf9ffcce4fe0b69fe795aae9ae06e99fdb18bdfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082064"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71306666"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Tutorial: Creación de una API web con ASP.NET Core
 
@@ -71,7 +71,7 @@ En el diagrama siguiente, se muestra el diseño de la aplicación.
 * En el menú **Archivo**, seleccione **Nuevo** > **Proyecto**.
 * Seleccione la plantilla **Aplicación web ASP.NET Core** y haga clic en **Siguiente**.
 * Asigne al proyecto el nombre *TodoApi* y haga clic en **Crear**.
-* En el cuadro de diálogo **Crear una aplicación web ASP.NET Core**, confirme que las opciones **.NET Core** y **ASP.NET Core 3.0** estén seleccionadas. Seleccione la plantilla **API** y haga clic en **Crear**. **No** seleccione **Habilitar compatibilidad con Docker**.
+* En el cuadro de diálogo **Crear una aplicación web ASP.NET Core**, confirme que las opciones **.NET Core** y **ASP.NET Core 3.0** estén seleccionadas. Seleccione la plantilla **API** y haga clic en **Crear**.
 
 ![Cuadro de diálogo de nuevo proyecto de VS](first-web-api/_static/vs3.png)
 
@@ -84,8 +84,8 @@ En el diagrama siguiente, se muestra el diseño de la aplicación.
    ```dotnetcli
    dotnet new webapi -o TodoApi
    cd TodoAPI
-   dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
-   dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 3.0.0-*
+   dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+   dotnet add package Microsoft.EntityFrameworkCore.InMemory
    code -r ../TodoApi
    ```
 
@@ -117,8 +117,8 @@ En el diagrama siguiente, se muestra el diseño de la aplicación.
 Abra un terminal de comandos en la carpeta del proyecto y ejecute los comandos siguientes:
 
    ```dotnetcli
-   dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
-   dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 3.0.0-*
+   dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+   dotnet add package Microsoft.EntityFrameworkCore.InMemory
    ```
 
 ---
@@ -227,9 +227,8 @@ El *contexto de base de datos* es la clase principal que coordina la funcionalid
 ### <a name="add-microsoftentityframeworkcoresqlserver"></a>Adición de Microsoft.EntityFrameworkCore.SqlServer
 
 * En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet > Administrar paquetes NuGet para la solución**.
-* Active la casilla **Incluir versión preliminar**.
 * Seleccione la pestaña **Examinar** y escriba **Microsoft.EntityFrameworkCore.SqlServer** en el cuadro de búsqueda.
-* Seleccione **Microsoft.EntityFrameworkCore.SqlServer V3.0.0-preview** en el panel izquierdo.
+* Seleccione **Microsoft.EntityFrameworkCore.SqlServer** en el panel izquierdo.
 * Active la casilla **Proyecto** en el panel derecho y, después, seleccione **Instalar**.
 * Siga las instrucciones anteriores para agregar el paquete NuGet `Microsoft.EntityFrameworkCore.InMemory`.
 
@@ -281,8 +280,8 @@ El código anterior:
 Ejecute los comandos siguientes:
 
 ```dotnetcli
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet tool install --global dotnet-aspnet-codegenerator
 dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext  -outDir Controllers
 ```
@@ -913,6 +912,12 @@ Para eliminar una tarea pendiente, hay que establecer el valor `type` de la llam
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_AjaxDelete)]
 
 ::: moniker-end
+
+<a name="auth"></a>
+
+## <a name="add-authentication-support-to-a-web-api"></a>Agregar compatibilidad con la autenticación a una API web
+
+Consulte el tutorial de [IdentityServer4](https://identityserver4.readthedocs.io/en/latest/quickstarts/0_overview.html).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

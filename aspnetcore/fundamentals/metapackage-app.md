@@ -1,21 +1,47 @@
 ---
-title: Metapaquete Microsoft.AspNetCore.App para ASP.NET Core 2.1 o versiones posteriores
+title: Metapaquete Microsoft.AspNetCore.App para ASP.NET Core
 author: Rick-Anderson
-description: El metapaquete Microsoft.AspNetCore.App incluye todos los paquetes de ASP.NET Core y Entity Framework Core.
+description: El marco compartido de Microsoft.AspNetCore.App
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 04/21/2019
+ms.date: 09/24/2019
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: 913e3d83fbf1af7ea995a88202f86c60b359a7e2
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 8435445890ce00f33ab9a8692f5442b1609192da
+ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085651"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219115"
 ---
-# <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21-or-later"></a>Metapaquete Microsoft.AspNetCore.App para ASP.NET Core 2.1 o versiones posteriores
+# <a name="microsoftaspnetcoreapp-for-aspnet-core"></a>Microsoft.AspNetCore.App para ASP.NET Core
 
-Esta característica requiere que ASP.NET Core 2.1 y versiones posteriores tengan como destino .NET Core 2.1 o versiones posteriores.
+::: moniker range=">= aspnetcore-3.0"
+
+ El marco compartido de ASP.NET Core (`Microsoft.AspNetCore.App`) contiene ensamblados desarrollados y admitidos por Microsoft. `Microsoft.AspNetCore.App` se instala cuando se instala el [SDK de .NET Core 3.0 o posterior](https://dotnet.microsoft.com/download/dotnet-core/3.0). El *marco compartido* es el conjunto de ensamblados (archivos *.dll*) que se instalan en la máquina e incluye un componente de entorno de ejecución y un paquete de destino. Para más información, consulte este artículo sobre el [marco de trabajo compartido](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/).
+
+* Los proyectos que tienen como destino el SDK de `Microsoft.NET.Sdk.Web` hacen referencia implícitamente al marco `Microsoft.AspNetCore.App`.
+
+No se requieren referencias adicionales para estos proyectos:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+    ...
+</Project>
+```
+
+El marco compartido de ASP.NET Core:
+
+* No incluye dependencias de terceros.
+* Incluye todos los paquetes admitidos por el equipo de ASP.NET Core.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Esta característica requiere ASP.NET Core 2.x con .NET Core 2.x como destino.
 
 El [metapaquete](/dotnet/core/packages#metapackages) [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) para ASP.NET Core:
 
@@ -23,7 +49,7 @@ El [metapaquete](/dotnet/core/packages#metapackages) [Microsoft.AspNetCore.App](
 * Incluye todos los paquetes admitidos por el equipo de ASP.NET Core, excepto aquellos que contienen dependencias de terceros (distintos de los mencionados anteriormente).
 * Incluye todos los paquetes admitidos por el equipo de Entity Framework Core, excepto aquellos que contienen dependencias de terceros (distintos de los mencionados anteriormente).
 
-Todas las características de ASP.NET Core 2.1 y versiones posteriores, así como de Entity Framework Core 2.1 y versiones posteriores, están incluidas en el paquete `Microsoft.AspNetCore.App`. Las plantillas de proyecto predeterminada destinadas a ASP.NET 2.1 y versiones posteriores usan este paquete. Se recomienda que las aplicaciones que tengan como destino ASP.NET Core 2.1 y versiones posteriores, así como Entity Framework Core 2.1 y versiones posteriores, usen el paquete `Microsoft.AspNetCore.App`.
+Todas las características de ASP.NET Core 2.x y Entity Framework Core 2.x están incluidas en el paquete `Microsoft.AspNetCore.App`. Las plantillas de proyecto predeterminadas que tienen ASP.NET 2 como destino usan este paquete. Se recomienda que las aplicaciones que tengan como destino ASP.NET Core 2.x y Entity Framework Core 2.x usen el paquete `Microsoft.AspNetCore.App`.
 
 El número de versión del metapaquete `Microsoft.AspNetCore.App` representa las versiones mínimas de ASP.NET Core y Entity Framework Core.
 
@@ -35,13 +61,13 @@ Mediante el metapaquete `Microsoft.AspNetCore.App` se proporcionan restricciones
 
 Las aplicaciones que usan el metapaquete `Microsoft.AspNetCore.App` pueden aprovechar automáticamente el marco de uso compartido de ASP.NET Core. Al usar el metapaquete `Microsoft.AspNetCore.App`, **ningún** recurso de los paquetes NuGet de ASP.NET Core a los que se hace referencia se implementa con la aplicación: el marco compartido de ASP.NET Core contiene esos recursos. Los recursos del marco de uso compartido se precompilan para mejorar el tiempo de inicio de la aplicación. Para más información, consulte este artículo sobre el [marco de trabajo compartido](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/).
 
-El archivo de proyecto siguiente hace referencia al metapaquete `Microsoft.AspNetCore.App` de ASP.NET Core y representa una típica plantilla de ASP.NET Core 2.1:
+El archivo de proyecto siguiente hace referencia al metapaquete `Microsoft.AspNetCore.App` de ASP.NET Core y representa una típica plantilla de ASP.NET Core 2.2:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -51,11 +77,13 @@ El archivo de proyecto siguiente hace referencia al metapaquete `Microsoft.AspNe
 </Project>
 ```
 
-El marcado anterior representa una plantilla típica de ASP.NET Core 2.1 y versiones posteriores. No especifica ningún número de versión para la referencia del paquete `Microsoft.AspNetCore.App`. Si no se especifica la versión, el SDK define una versión [implícita](https://github.com/dotnet/core/blob/master/release-notes/1.0/sdk/1.0-rc3-implicit-package-refs.md), es decir, `Microsoft.NET.Sdk.Web`. Es recomendable confiar en la versión implícita especificada por el SDK y no establecer de forma explícita el número de versión en la referencia del paquete. Si tiene alguna pregunta sobre este enfoque, deje un comentario de GitHub en [Discussion for the Microsoft.AspNetCore.App implicit version](https://github.com/aspnet/AspNetCore.Docs/issues/6430) (Debate sobre la versión implícita Microsoft.AspNetCore.App).
+El marcado anterior representa una plantilla típica de ASP.NET Core 2.x. No especifica ningún número de versión para la referencia del paquete `Microsoft.AspNetCore.App`. Si no se especifica la versión, el SDK define una versión [implícita](https://github.com/dotnet/core/blob/master/release-notes/1.0/sdk/1.0-rc3-implicit-package-refs.md), es decir, `Microsoft.NET.Sdk.Web`. Es recomendable confiar en la versión implícita especificada por el SDK y no establecer de forma explícita el número de versión en la referencia del paquete. Si tiene alguna pregunta sobre este enfoque, deje un comentario de GitHub en [Discussion for the Microsoft.AspNetCore.App implicit version](https://github.com/aspnet/AspNetCore.Docs/issues/6430) (Debate sobre la versión implícita Microsoft.AspNetCore.App).
 
 La versión implícita se establece en `major.minor.0` para las aplicaciones portátiles. El mecanismo de puesta al día del marco de uso compartido ejecutará la aplicación en la versión más reciente compatible entre los marcos de uso compartidos instalados. Para garantizar que se use la misma versión en el desarrollo, las pruebas y la producción, asegúrese de que en todos los entornos esté instalada la misma versión del marco de uso compartido. Para las aplicaciones autocontenidas, el número de versión implícita se establece en el valor `major.minor.patch` del marco de uso compartido incluido en el SDK instalado.
 
-El hecho de especificar un número de versión en la referencia de `Microsoft.AspNetCore.App` **no** garantiza que se vaya a elegir la versión del marco de uso compartido. Por ejemplo, suponga que se especifica la versión "2.1.1", pero está instalada la "2.1.3". En ese caso, la aplicación usará el valor "2.1.3". Aunque no se recomienda, puede deshabilitar la puesta al día (revisión o secundaria). Para obtener más información sobre la puesta al día del host de dotnet y cómo configurar su comportamiento, vea [Dotnet host roll forward](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md) (Puesta al día del host de dotnet).
+El hecho de especificar un número de versión en la referencia de `Microsoft.AspNetCore.App` **no** garantiza que se vaya a elegir la versión del marco de uso compartido. Por ejemplo, suponga que se especifica la versión "2.2.1", pero está instalada la "2.2.3". En ese caso, la aplicación usará el valor "2.2.3". Aunque no se recomienda, puede deshabilitar la puesta al día (revisión o secundaria). Para obtener más información sobre la puesta al día del host de dotnet y cómo configurar su comportamiento, vea [Dotnet host roll forward](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md) (Puesta al día del host de dotnet).
+
+::: moniker-end
 
 ::: moniker range="= aspnetcore-2.1"
 
@@ -68,6 +96,8 @@ El hecho de especificar un número de versión en la referencia de `Microsoft.As
 * Se trata de un problema conocido en el SDK de .NET Core 2.1.
 
 ::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 <a name="update"></a>
 
@@ -83,3 +113,5 @@ Para actualizar ASP.NET Core:
  Las aplicaciones se pondrán al día con la última versión instalada al reiniciar la aplicación. No es necesario actualizar el número de versión de `Microsoft.AspNetCore.App` en el archivo de proyecto. Para obtener más información, vea [Puesta al día de las aplicaciones dependientes de la plataforma](/dotnet/core/versions/selection#framework-dependent-apps-roll-forward).
 
 Si la aplicación ha usado `Microsoft.AspNetCore.All` anteriormente, consulte [Migración desde Microsoft.AspNetCore.All a Microsoft.AspNetCore.App](xref:fundamentals/metapackage#migrate).
+
+::: moniker-end

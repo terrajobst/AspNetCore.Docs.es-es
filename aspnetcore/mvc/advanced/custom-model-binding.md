@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo el enlace de modelos permite que l
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 91f42393ffee3249f9167e10eaea7b279a7cb70b
-ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
+ms.openlocfilehash: b2fbe6a9f11315d1fb8863fbf62e8929c7ff3fc2
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878413"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71186885"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Enlace de modelos personalizado en ASP.NET Core
 
@@ -132,9 +132,7 @@ Si su proveedor se agrega al final de la colección, puede ocurrir que se llame 
 
 ### <a name="polymorphic-model-binding"></a>Enlace de modelos polimórfico
 
-El enlace a diferentes modelos de tipos derivados se conoce como enlace de modelos polimórfico. El enlace de modelos personalizado es necesario cuando el valor de la solicitud se debe enlazar al tipo de modelo derivado específico. A menos que se requiera este enfoque, se recomienda evitar el enlace de modelos polimórfico. El enlace de modelos polimórfico dificulta el razonamiento acerca de los modelos enlazados. Sin embargo, si una aplicación requiere el enlace de modelos polimórfico, una implementación podría ser similar al código siguiente:
-
-El enlace a diferentes modelos de tipos derivados se conoce como enlace de modelos polimórfico. El enlace de modelos personalizado es necesario cuando el valor de la solicitud se debe enlazar al tipo de modelo derivado específico. Enlace de modelos polimórfico:
+El enlace a diferentes modelos de tipos derivados se conoce como enlace de modelos polimórfico. El enlace de modelos personalizado polimórfico es necesario cuando el valor de la solicitud se debe enlazar al tipo de modelo derivado específico. Enlace de modelos polimórfico:
 
 * No es habitual para una API REST diseñada para interoperar con todos los lenguajes.
 * Dificulta el razonamiento sobre los modelos enlazados.
