@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/09/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 995fdd2bbba30ff983bc2055fcb97c14541e2ac6
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 544037a2a1f836e51b4f10551316312ef55c68da
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081478"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71688081"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hospedaje de ASP.NET Core en un servicio de Windows
 
@@ -36,21 +36,7 @@ La plantilla Worker Service de ASP.NET Core sirve de punto de partida para escri
 1. Cree una aplicación Worker Service con la plantilla de .NET Core.
 1. Siga las instrucciones de la sección [Configuración de aplicaciones](#app-configuration) para actualizar la aplicación Worker Service a fin de que se ejecute como un servicio de Windows.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-1. Cree un nuevo proyecto.
-1. Seleccione **Aplicación web de ASP.NET Core**. Seleccione **Siguiente**.
-1. Proporcione un nombre para el proyecto en el campo **Nombre del proyecto** o acepte el predeterminado. Seleccione **Crear**.
-1. En el cuadro de diálogo **Crear una aplicación web ASP.NET Core**, confirme que las opciones **.NET Core** y **ASP.NET Core 3.0** estén seleccionadas.
-1. Seleccione la plantilla **Worker Service**. Seleccione **Crear**.
-
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
-
-Desde un shell de comandos, use la plantilla Worker Service (`worker`) con el comando [dotnet new](/dotnet/core/tools/dotnet-new). En el ejemplo siguiente, se crea una aplicación Worker Service llamada `ContosoWorkerService`. Al ejecutar el comando, se crea automáticamente una carpeta para la aplicación `ContosoWorkerService`.
-
-```dotnetcli
-dotnet new worker -o ContosoWorkerService
-```
+[!INCLUDE[](~/includes/worker-template-instructions.md)]
 
 ---
 

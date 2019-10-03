@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/18/2019
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: 24462b53525a38eb1bac82e8498d2d073b06a10f
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 12665fb2e7a9c75747f5c83129a617aea6adfbbf
+ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081743"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317690"
 ---
 # <a name="docker-images-for-aspnet-core"></a>Imágenes de Docker para ASP.NET Core
 
@@ -42,7 +42,7 @@ El Dockerfile de ejemplo usa la [característica de compilación en varias fases
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [SDK de .NET Core 2.2](https://www.microsoft.com/net/core)
+* [SDK de .NET Core 3.0](https://dotnet.microsoft.com/download)
 
 * Cliente de Docker 18.03 o posterior
 
