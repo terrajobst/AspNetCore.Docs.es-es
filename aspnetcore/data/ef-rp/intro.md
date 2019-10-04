@@ -4,14 +4,14 @@ author: tdykstra
 description: Se muestra cómo crear una aplicación de páginas de Razor mediante Entity Framework Core
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 07/22/2019
+ms.date: 09/26/2019
 uid: data/ef-rp/intro
-ms.openlocfilehash: 6b7d2ca1cea23efd195f1ae0e0a749c6d2d9b622
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: e261ccd30dc9ef0929e74fa44a5ed752d515b707
+ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71186957"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317678"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Páginas de Razor con Entity Framework Core en ASP.NET Core: Tutorial 1 de 8
 
@@ -19,7 +19,7 @@ Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Este es el primero de una serie de tutoriales en los que se muestra cómo usar Entity Framework (EF) Core en una aplicación Razor Pages en ASP.NET Core. En el tutorial se crea un sitio web de una universidad ficticia, Contoso University. El sitio incluye funciones como la admisión de alumnos, la creación de cursos y las asignaciones de instructores.
+Este es el primero de una serie de tutoriales en los que se muestra cómo usar Entity Framework (EF) Core en una aplicación [Razor Pages en ASP.NET Core](xref:razor-pages/index). En el tutorial se crea un sitio web de una universidad ficticia, Contoso University. El sitio incluye funciones como la admisión de alumnos, la creación de cursos y las asignaciones de instructores.
 
 [Descargue o vea la aplicación completa.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Instrucciones de descarga](xref:index#how-to-download-a-sample).
 

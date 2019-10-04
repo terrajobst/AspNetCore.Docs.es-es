@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo implementar tareas en segundo plan
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/18/2019
+ms.date: 09/26/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 8df86b10d7ba853edb3265df0e02eabbf8a2c058
-ms.sourcegitcommit: fa61d882be9d0c48bd681f2efcb97e05522051d0
+ms.openlocfilehash: 0eaa3a62370c1e413840bb65f597dc664adafc38
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71205710"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71688095"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Tareas en segundo plano con servicios hospedados en ASP.NET Core
 
@@ -37,29 +37,7 @@ La aplicación de ejemplo se ofrece en dos versiones:
 
 La plantilla Worker Service de ASP.NET Core sirve de punto de partida para escribir aplicaciones de servicio de larga duración. Para usar la plantilla como base de una aplicación de servicios hospedados:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-1. Cree un nuevo proyecto.
-1. Seleccione **Aplicación web de ASP.NET Core**. Seleccione **Siguiente**.
-1. Proporcione un nombre para el proyecto en el campo **Nombre del proyecto** o acepte el predeterminado. Seleccione **Crear**.
-1. En el cuadro de diálogo **Crear una aplicación web ASP.NET Core**, confirme que las opciones **.NET Core** y **ASP.NET Core 3.0** estén seleccionadas.
-1. Seleccione la plantilla **Worker Service**. Seleccione **Crear**.
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
-
-1. Cree un nuevo proyecto.
-1. Seleccione **Aplicación** en **.NET Core** en la barra lateral.
-1. Seleccione **Trabajador** en **ASP.NET Core**. Seleccione **Siguiente**.
-1. Seleccione **.NET Core 3.0** para **Marco de trabajo de destino**. Seleccione **Siguiente**.
-1. Proporcione un nombre en el campo **Nombre del proyecto**. Seleccione **Crear**.
-
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
-
-Desde un shell de comandos, use la plantilla Worker Service (`worker`) con el comando [dotnet new](/dotnet/core/tools/dotnet-new). En el ejemplo siguiente, se crea una aplicación Worker Service llamada `ContosoWorker`. Al ejecutar el comando, se crea automáticamente una carpeta para la aplicación `ContosoWorker`.
-
-```dotnetcli
-dotnet new worker -o ContosoWorker
-```
+[!INCLUDE[](~/includes/worker-template-instructions.md)]
 
 ---
 
@@ -123,10 +101,12 @@ El servicio hospedado se activa una vez al inicio de la aplicación y se cierra 
 
 ## <a name="backgroundservice"></a>BackgroundService
 
-`BackgroundService` es una clase base para implementar un <xref:Microsoft.Extensions.Hosting.IHostedService> de larga duración. `BackgroundService` define dos métodos para las operaciones en segundo plano:
+`BackgroundService` es una clase base para implementar un <xref:Microsoft.Extensions.Hosting.IHostedService> de larga duración. `BackgroundService` proporciona el método abstracto `ExecuteAsync(CancellationToken stoppingToken)` para contener la lógica del servicio. `stoppingToken` se desencadena cuando se realiza una llamada a [IHostedService.StopAsync](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*). La implementación de este método devuelve `Task`, que representa toda la duración del servicio en segundo plano.
 
-* `ExecuteAsync(CancellationToken stoppingToken)` &ndash; Se llama a `ExecuteAsync` cuando <xref:Microsoft.Extensions.Hosting.IHostedService> se inicia. La implementación debe devolver un `Task` que representa la duración de las operaciones de larga duración realizadas. `stoppingToken` se desencadena cuando se llama a [IHostedService.StopAsync](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*).
-* `StopAsync(CancellationToken stoppingToken)` &ndash; `StopAsync` se activa cuando el host de la aplicación está realizando un cierre estable. `stoppingToken` indica que el proceso de cierre ya no debe ser estable.
+Además, también *puede* invalidar los métodos definidos en `IHostedService` para ejecutar el código de inicio y de apagado para el servicio:
+
+* Se realiza una llamada a `StopAsync(CancellationToken cancellationToken)` &ndash; `StopAsync` cuando el host de la aplicación está realizando un apagado estable. Se envía una señal a `cancellationToken` cuando el host decide finalizar forzosamente el servicio. Si se invalida este método, **debe** realizar una llamada (y `await`) al método de la clase base para asegurarse de que el servicio se apaga correctamente.
+* Se realiza una llamada a `StartAsync(CancellationToken cancellationToken)` &ndash; `StartAsync` para iniciar el servicio en segundo plano. Se envía una señal a `cancellationToken` si se interrumpe el proceso de inicio. La implementación devuelve `Task`, que representa el proceso de inicio del servicio. No se inicia ningún otro servicio hasta que se complete `Task`. Si se invalida este método, **debe** realizar una llamada (y `await`) al método de la clase base para asegurarse de que el servicio se inicia correctamente.
 
 ## <a name="timed-background-tasks"></a>Tareas en segundo plano temporizadas
 

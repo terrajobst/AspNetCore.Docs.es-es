@@ -4,14 +4,14 @@ author: rick-anderson
 description: Aprenda a crear de una API web con ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/27/2019
+ms.date: 09/29/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 5e5215f246c6c7a805a4c99f485d51a2fb3c712d
-ms.sourcegitcommit: cf9ffcce4fe0b69fe795aae9ae06e99fdb18bdfc
+ms.openlocfilehash: 7bb98fe5befa8eea80885d246da31ad87d5cfc2d
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306666"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71691213"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Tutorial: Creación de una API web con ASP.NET Core
 
@@ -83,7 +83,7 @@ En el diagrama siguiente, se muestra el diseño de la aplicación.
 
    ```dotnetcli
    dotnet new webapi -o TodoApi
-   cd TodoAPI
+   cd TodoApi
    dotnet add package Microsoft.EntityFrameworkCore.SqlServer
    dotnet add package Microsoft.EntityFrameworkCore.InMemory
    code -r ../TodoApi
@@ -271,8 +271,8 @@ El código anterior:
 * Seleccione **Controlador de API con acciones mediante Entity Framework** y, después, seleccione **Agregar**.
 * En el cuadro de diálogo **Add API Controller with actions, using Entity Framework** (Agregar controlador de API con acciones mediante Entity Framework):
 
-  * Seleccione **TodoItem (TodoAPI.Models)** en **Clase de modelo**.
-  * Seleccione **TodoContext (TodoAPI.Models)** en **Clase de contexto de datos**.
+  * Seleccione **TodoItem (TodoApi.Models)** en **Clase de modelo**.
+  * Seleccione **TodoContext (TodoApi.Models)** en **Clase de contexto de datos**.
   * Seleccione **Agregar**.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
@@ -283,7 +283,7 @@ Ejecute los comandos siguientes:
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet tool install --global dotnet-aspnet-codegenerator
-dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext  -outDir Controllers
+dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
 ```
 
 Los comandos anteriores:
@@ -322,7 +322,7 @@ En este tutorial se usa Postman para probar la API web.
 * Inicie la aplicación web.
 * Inicie Postman.
 * Deshabilite **Comprobación del certificado SSL**.
-* En **Archivo > Configuración** (pestaña **General*), deshabilite **Comprobación del certificado SSL**.
+* En **Archivo** > **Configuración** (pestaña **General**), deshabilite **Comprobación del certificado SSL**.
     > [!WARNING]
     > Vuelva a habilitar la comprobación del certificado SSL tras probar el controlador.
 
@@ -404,7 +404,7 @@ El atributo [`[HttpGet]`](/dotnet/api/microsoft.aspnetcore.mvc.httpgetattribute)
 * Reemplace `[controller]` por el nombre del controlador, que convencionalmente es el nombre de clase de controlador sin el sufijo "Controller". En este ejemplo, el nombre de clase de controlador es **TodoItems**Controller; por tanto, el nombre del controlador es "TodoItems". El [enrutamiento](xref:mvc/controllers/routing) en ASP.NET Core no distingue entre mayúsculas y minúsculas.
 * Si el atributo `[HttpGet]` tiene una plantilla de ruta (por ejemplo, `[HttpGet("products")]`), anéxela a la ruta de acceso. En este ejemplo no se usa una plantilla. Para más información, vea [Enrutamiento mediante atributos con atributos Http[Verb]](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
 
-En el siguiente método `GetTodoItem`, `"{id}"` es una variable de marcador de posición correspondiente al identificador único de la tarea pendiente. Al invocar a `GetTodoItem`, el valor `"{id}"` de la dirección URL se proporciona al método en su parámetro `id`.
+En el siguiente método `GetTodoItem`, `"{id}"` es una variable de marcador de posición correspondiente al identificador único de la tarea pendiente. Al invocar a `GetTodoItem`, el valor `"{id}"` de la URL se proporciona al método en su parámetro `id`.
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_GetByID&highlight=1-2)]
 
@@ -458,7 +458,7 @@ La respuesta de `DeleteTodoItem` es [204 (Sin contenido)](https://www.w3.org/Pro
 Use Postman para eliminar una tarea pendiente:
 
 * Establezca el método en `DELETE`.
-* Establezca el URI del objeto que quiera eliminar, por ejemplo, `https://localhost:5001/api/TodoItems/1`.
+* Establezca el URI del objeto que quiera eliminar (por ejemplo, `https://localhost:5001/api/TodoItems/1`).
 * Seleccione **Enviar**.
 
 ## <a name="call-the-web-api-with-javascript"></a>Llamar a la API web con JavaScript
@@ -857,7 +857,7 @@ La respuesta de `DeleteTodoItem` es [204 (Sin contenido)](https://www.w3.org/Pro
 Use Postman para eliminar una tarea pendiente:
 
 * Establezca el método en `DELETE`.
-* Establezca el URI del objeto que quiera eliminar, por ejemplo, `https://localhost:5001/api/todo/1`.
+* Establezca el URI del objeto que quiera eliminar (por ejemplo, `https://localhost:5001/api/todo/1`).
 * Seleccione **Enviar**.
 
 La aplicación de ejemplo permite eliminar todos los elementos. Sin embargo, al eliminar el último elemento, se creará uno nuevo en el constructor de clase de modelo la próxima vez que se llame a la API.

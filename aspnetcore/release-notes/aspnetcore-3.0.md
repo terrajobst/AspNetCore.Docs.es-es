@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre las nuevas características de ASP.NET Core 3.0.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 09/26/2019
 uid: aspnetcore-3.0
-ms.openlocfilehash: 490d00da7282e2efe28fcc52e593dd71d7324d3f
-ms.sourcegitcommit: 0365af91518004c4a44a30dc3a8ac324558a399b
+ms.openlocfilehash: ec3de5b35883752b7b3dbefceccec55da3986f39
+ms.sourcegitcommit: dc96d76f6b231de59586fcbb989a7fb5106d26a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71198993"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703677"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Novedades de ASP.NET Core 3.0
 
@@ -319,6 +319,17 @@ La lista siguiente contiene las nuevas directivas de Razor:
 * [@attribute](xref:mvc/views/razor#attribute) &ndash; La directiva `@attribute` aplica el atributo especificado a la clase de la página o vista generada. Por ejemplo: `@attribute [Authorize]`.
 * [@implements](xref:mvc/views/razor#implements) &ndash; La directiva `@implements` implementa una interfaz para la clase generada. Por ejemplo: `@implements IDisposable`.
 
+## <a name="identityserver4-supports-authentication-and-authorization-for-web-apis-and-spas"></a>IdentityServer4 admite la autenticación y la autorización de SPA y API web
+
+[IdentityServer4](https://identityserver.io) es un marco de OpenID Connect y OAuth 2.0 para ASP.NET Core 3.0. IdentityServer4 permite la utilización de las siguientes características de seguridad:
+
+* Autenticación como servicio (AaaS)
+* Inicio de sesión único (SSO) mediante varios tipos de aplicaciones
+* Control de acceso para API
+* Federation Gateway
+
+Para obtener más información, vea [Bienvenida a IdentityServer4](http://docs.identityserver.io/en/latest/index.html).
+
 ## <a name="certificate-and-kerberos-authentication"></a>Autenticación de certificados y Kerberos
 
 La autenticación de certificados requiere:
@@ -412,7 +423,7 @@ Todos los servicios se pueden seguir insertando directamente como argumentos en 
 * Los adaptadores de conexión se han quitado de Kestrel y se han reemplazado por el middleware de conexión, que es similar al middleware HTTP en la canalización de ASP.NET Core, pero para conexiones de nivel inferior.
 * La capa de transporte de Kestrel se ha expuesto como una interfaz pública en `Connections.Abstractions`.
 * La ambigüedad entre encabezados y finalizadores se ha resuelto moviendo los encabezados finales a una nueva colección.
-* Las API de E/S síncronas, como `HttpReqeuest.Body.Read`, son una fuente común de ausencia de subprocesos que provocan bloqueos en la aplicación. En la versión 3.0, `AllowSynchronousIO` se ha deshabilitado de manera predeterminada.
+* Las API de E/S síncronas, como `HttpRequest.Body.Read`, son una fuente común de ausencia de subprocesos que provocan bloqueos en la aplicación. En la versión 3.0, `AllowSynchronousIO` se ha deshabilitado de manera predeterminada.
 
 Para más información, consulte <xref:migration/22-to-30#kestrel>.
 
@@ -420,9 +431,9 @@ Para más información, consulte <xref:migration/22-to-30#kestrel>.
 
 HTTP/2 está habilitado de forma predeterminada en Kestrel para puntos finales HTTPS. La compatibilidad con HTTP/2 para IIS o HTTP.sys está habilitada cuando el sistema operativo la admite.
 
-## <a name="request-counters"></a>Contadores de solicitudes
+## <a name="eventcounters-on-request"></a>EventCounters a petición
 
-El tipo EventSource de hospedaje (Microsoft.AspNetCore.Hosting) emite los siguientes tipos de EventCounter relacionados con las solicitudes entrantes:
+El EventSource de hospedaje, `Microsoft.AspNetCore.Hosting`, emite los siguientes nuevos tipos <xref:System.Diagnostics.Tracing.EventCounter> relacionados con las solicitudes entrantes:
 
 * `requests-per-second`
 * `total-requests`

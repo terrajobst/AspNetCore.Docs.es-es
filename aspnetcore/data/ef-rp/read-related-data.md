@@ -4,14 +4,14 @@ author: tdykstra
 description: En este tutorial, leerá y mostrará datos relacionados, es decir, los datos que Entity Framework carga en las propiedades de navegación.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/22/2019
+ms.date: 09/28/2019
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: f53f8edef7fe8690d0e414bc094d81dc99ad198a
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 02b52dee0b661ad26cd6fa9fea08fcea3d7dd9bd
+ms.sourcegitcommit: f62014bb558ff6f8fdaef2e96cb05986e216aacd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082089"
+ms.lasthandoff: 09/28/2019
+ms.locfileid: "71592296"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Lectura de datos relacionados (6 de 8)
 
@@ -258,7 +258,7 @@ En el código anterior se realizan los cambios siguientes:
   }
   ```
 
-* Se agrega una columna **Courses** en la que se muestran los cursos que imparte cada instructor. Vea [Transición de línea explícita con `@:`](xref:mvc/views/razor#explicit-line-transition-with-) para obtener más información sobre esta sintaxis de Razor.
+* Se agrega una columna **Courses** en la que se muestran los cursos que imparte cada instructor. Para obtener más información sobre esta sintaxis de Razor, vea [Transición de línea explícita](xref:mvc/views/razor#explicit-line-transition).
 
 * Se agrega código que agrega de forma dinámica `class="success"` al elemento `tr` del instructor y curso seleccionados. Esto establece el color de fondo de la fila seleccionada mediante una clase de arranque.
 
@@ -527,7 +527,7 @@ En el marcado anterior se realizan los cambios siguientes:
   }
   ```
 
-* Se ha agregado una columna **Courses** en la que se muestran los cursos que imparte cada instructor. Para obtener más información sobre esta sintaxis de Razor, vea [Transición de línea explícita con `@:`](xref:mvc/views/razor#explicit-line-transition-with-).
+* Se ha agregado una columna **Courses** en la que se muestran los cursos que imparte cada instructor. Para obtener más información sobre esta sintaxis de Razor, vea [Transición de línea explícita](xref:mvc/views/razor#explicit-line-transition).
 
 * Ha agregado código que agrega dinámicamente `class="success"` al elemento `tr` del instructor seleccionado. Esto establece el color de fondo de la fila seleccionada mediante una clase de arranque.
 

@@ -3,15 +3,15 @@ title: 'Tutorial: Lectura de datos relacionados: ASP.NET MVC con EF Core'
 description: En este tutorial podrá leer y mostrar datos relacionados, es decir, los datos que Entity Framework carga en propiedades de navegación.
 author: tdykstra
 ms.author: riande
-ms.date: 03/27/2019
+ms.date: 09/28/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 2bf556dae5d30819c54ecc3f0dadfbd3316db1cc
-ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
+ms.openlocfilehash: cb691dce757a72a01bfd29717710d1be590c4150
+ms.sourcegitcommit: f62014bb558ff6f8fdaef2e96cb05986e216aacd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70059103"
+ms.lasthandoff: 09/28/2019
+ms.locfileid: "71592289"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Tutorial: Lectura de datos relacionados: ASP.NET MVC con EF Core
 
@@ -188,7 +188,7 @@ Ha realizado los cambios siguientes en el código existente:
   }
   ```
 
-* Se ha agregado una columna **Courses** en la que se muestran los cursos que imparte cada instructor. Para obtener más información, vea la sección [Transición de línea explícita con @:](xref:mvc/views/razor#explicit-line-transition-with-) del artículo sobre la sintaxis de Razor.
+* Se ha agregado una columna **Courses** en la que se muestran los cursos que imparte cada instructor. Para obtener más información, vea la sección [Transición de línea explícita](xref:mvc/views/razor#explicit-line-transition) del artículo sobre la sintaxis de Razor.
 
 * Ha agregado código que agrega dinámicamente `class="success"` al elemento `tr` del instructor seleccionado. Esto establece el color de fondo de la fila seleccionada mediante una clase de arranque.
 
