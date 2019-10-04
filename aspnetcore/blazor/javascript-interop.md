@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/23/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: 2b5d1433fce6e09adf3caa58e55e678b00ad98ee
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: b30bce6ef3ebf1cd2f4f3fe8d046e1db9b6929d5
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211647"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71924648"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>Interoperabilidad de JavaScript de ASP.NET Core increíblemente
 
@@ -38,7 +38,7 @@ Para las aplicaciones de servidor increíbles:
 
 El ejemplo siguiente se basa en [TextDecoder](https://developer.mozilla.org/docs/Web/API/TextDecoder), un descodificador basado en JavaScript experimental. En el ejemplo se muestra cómo invocar una función de C# JavaScript desde un método. La función de JavaScript acepta una matriz de bytes de un C# método, descodifica la matriz y devuelve el texto al componente que se va a mostrar.
 
-Dentro del `<head>` elemento de *wwwroot/index.html* (un webassembler más rápido) o *pages/_Host. cshtml* (servidor increíble), proporcione una función `TextDecoder` que use para descodificar una matriz pasada:
+Dentro del elemento `<head>` de *wwwroot/index.html* (webassembler) o *pages/_Host. cshtml* (servidor increíblemente), proporcione una función que use `TextDecoder` para descodificar una matriz pasada:
 
 [!code-html[](javascript-interop/samples_snapshot/index-script.html)]
 
@@ -81,13 +81,13 @@ En la aplicación de ejemplo del lado cliente que acompaña a este tema, hay dos
 
 [!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=2-7)]
 
-Coloque la `<script>` etiqueta que hace referencia al archivo JavaScript en el archivo *wwwroot/index.html* (webassembly) o el archivo *pages/_Host. cshtml* (servidor increíble).
+Coloque la etiqueta `<script>` que hace referencia al archivo JavaScript en el archivo *wwwroot/index.html* (webassembly) o el archivo *pages/_Host. cshtml* (servidor increíble).
 
 *wwwroot/index.html* (Webassembly increíble):
 
 [!code-html[](./common/samples/3.x/BlazorSample/wwwroot/index.html?highlight=15)]
 
-*Pages/_Host. cshtml* (Servidor increíble):
+*Pages/_Host. cshtml* (servidor increíble):
 
 [!code-cshtml[](javascript-interop/samples_snapshot/_Host.cshtml?highlight=29)]
 
@@ -139,7 +139,7 @@ En el ejemplo siguiente se muestra la captura de `username` una referencia al `<
 ```
 
 > [!NOTE]
-> **No** utilice referencias a elementos capturados como una manera de rellenar o manipular el Dom cuando increíble interactúe con los elementos a los que se hace referencia. Si lo hace, puede interferir con el modelo de representación declarativa.
+> **No** utilice referencias a elementos capturados como forma de rellenar el Dom. Si lo hace, puede interferir con el modelo de representación declarativa.
 
 En lo que respecta al código de .net, `ElementReference` es un identificador opaco. Lo *único* que puede hacer con `ElementReference` es pasarlo a código JavaScript a través de la interoperabilidad de JavaScript. Al hacerlo, el código de JavaScript recibe una `HTMLElement` instancia de, que puede usar con las API de Dom normales.
 

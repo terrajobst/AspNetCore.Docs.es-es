@@ -7,12 +7,12 @@ ms.author: jamesnk
 ms.custom: mvc
 ms.date: 09/21/2019
 uid: grpc/troubleshoot
-ms.openlocfilehash: 15377ba4b31ce9319df300b23e5a95c67bca7db4
-ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
+ms.openlocfilehash: c31f499b008cdec9d759e804b18965156ca99f30
+ms.sourcegitcommit: d8b12cc1716ee329d7bd2300e201b61e15d506ac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/21/2019
-ms.locfileid: "71176500"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71942901"
 ---
 # <a name="troubleshoot-grpc-on-net-core"></a>Solución de problemas de gRPC en .NET Core
 
@@ -151,3 +151,21 @@ Una aplicación cliente de gRPC que realiza llamadas a gRPC solo necesita el cli
   <Protobuf Include="Protos\greet.proto" GrpcServices="Client" />
 </ItemGroup>
 ```
+
+## <a name="wpf-projects-unable-to-generated-grpc-c-assets-from-proto-files"></a>Los proyectos de WPF no pueden C# generar recursos gRPC desde *@no__t archivos -2. proto*
+
+Los proyectos de WPF tienen un [problema conocido](https://github.com/dotnet/wpf/issues/810) que evita que la generación de código de gRPC funcione correctamente. Los tipos gRPC generados en un proyecto de WPF haciendo referencia a los archivos `Grpc.Tools` y *. proto* crearán errores de compilación cuando se usen:
+
+> CS0246 de error: No se pudo encontrar el tipo o el nombre de espacio de nombres ' MyGrpcServices ' (¿falta una directiva using o una referencia de ensamblado?)
+
+Para solucionar este problema, puede hacer lo siguiente:
+
+1. Cree un nuevo proyecto de biblioteca de clases de .NET Core.
+2. En el nuevo proyecto, agregue referencias para habilitar [ C# la generación de código desde *@no__t archivos -3. proto* :
+    * Agregue una referencia de paquete al paquete [Grpc.Tools](https://www.nuget.org/packages/Grpc.Tools/).
+    * Agregue los archivos *@no__t -1. proto* al grupo de elementos `<Protobuf>`.
+3. En la aplicación WPF, agregue una referencia al nuevo proyecto.
+
+La aplicación WPF puede usar los tipos generados por gRPC del nuevo proyecto de biblioteca de clases.
+
+[!INCLUDE[](~/includes/gRPCazure.md)]
