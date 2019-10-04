@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/22/2019
 uid: getting-started
-ms.openlocfilehash: c9cd5e05f52c8bdefa931adc654087dac91e2f05
-ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
+ms.openlocfilehash: 798f1ee87c05d886d8991e3f0230c8ebc6341ba8
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71317764"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925099"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Tutorial: Introducción a ASP.NET Core
 
@@ -44,7 +44,7 @@ dotnet new webapp -o aspnetcoreapp
 El comando anterior:
 
 * Crea una nueva aplicación web.  
-* El parámetro `-o` crea un directorio llamado *aspnetcoreapp* con los archivos de código fuente de la aplicación.
+* El parámetro `-o aspnetcoreapp` crea un directorio llamado *aspnetcoreapp* con los archivos de código fuente de la aplicación.
 
 ### <a name="trust-the-development-certificate"></a>Confíe en el certificado de desarrollo
 
@@ -93,7 +93,7 @@ cd aspnetcoreapp
 dotnet watch run
 ```
 
-Después de que el shell de comandos indique que se ha iniciado la aplicación, vaya a [https://localhost:5001](https://localhost:5001). Haga clic en **Aceptar** para aceptar la política de privacidad y de cookies. Esta aplicación no conserva información de carácter personal.
+Después de que el shell de comandos indique que se ha iniciado la aplicación, vaya a [https://localhost:5001](https://localhost:5001).
 
 ## <a name="edit-a-razor-page"></a>Editar una página de Razor
 
