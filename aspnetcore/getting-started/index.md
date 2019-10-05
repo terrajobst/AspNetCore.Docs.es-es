@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/22/2019
 uid: getting-started
-ms.openlocfilehash: 798f1ee87c05d886d8991e3f0230c8ebc6341ba8
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: 116a22bce80257948bfcc02c03a74a4b5568b8b5
+ms.sourcegitcommit: 4649814d1ae32248419da4e8f8242850fd8679a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71925099"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71975690"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Tutorial: Introducción a ASP.NET Core
 
@@ -75,8 +75,6 @@ El comando anterior muestra el siguiente mensaje:
 Este comando podría solicitarle la contraseña para instalar el certificado en la cadena de claves del sistema. Si acepta confiar en el certificado de desarrollo, escriba la contraseña.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-Para el subsistema Windows para Linux, consulte [Confiar en certificado HTTPS del subsistema de Windows para Linux](xref:security/enforcing-ssl#wsl).
 
 Consulte la documentación correspondiente a su distribución Linux sobre cómo confiar en el certificado de desarrollo HTTPS.
 
