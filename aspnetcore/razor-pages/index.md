@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/19/2019
 uid: razor-pages/index
-ms.openlocfilehash: bccdd7e5c1c90dd76ca1b788dbf09000c5cbe14b
-ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
+ms.openlocfilehash: 63938b0347dc698a67f2ba8c083097c55c6c9c66
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256186"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925278"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -185,7 +185,7 @@ La propiedad `Customer` usa el atributo [`[BindProperty]`](xref:Microsoft.AspNet
 
 [!code-cs[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create.cshtml.cs?name=snippet_PageModel&highlight=15-16)]
 
-`[BindProperty]` **no** debe usarse en modelos que contengan propiedades que el cliente no debe cambiar. Para obtener más información, vea [Publicación excesiva](xref:data/ef-rp/crud#overposting).
+`[BindProperty]` **no** debe usarse en modelos que contengan propiedades que el cliente no debe cambiar. Para más información, consulte [Publicación excesiva](xref:data/ef-rp/crud#overposting).
 
 De forma predeterminada, Razor Pages enlaza propiedades solo con verbos que no sean `GET`. El enlace a propiedades elimina la necesidad de escribir código para convertir los datos HTTP en el tipo de modelo. Enlazar reduce el código al usar la misma propiedad para representar los campos de formulario (`<input asp-for="Customer.Name">`) y aceptar la entrada.
 
@@ -212,7 +212,7 @@ El archivo *Index.cshtml* contiene el siguiente marcado:
 
 [!code-cshtml[](index/3.0sample/RazorPagesContacts/Pages/Customers/Index.cshtml?range=21)]
 
-El `<a /a>`[asistente de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usado el atributo `asp-route-{value}` para generar un vínculo a la página de edición. El vínculo contiene datos de ruta con el identificador del contacto. Por ejemplo: `https://localhost:5001/Edit/1`. Los [asistentes de etiquetas](xref:mvc/views/tag-helpers/intro) permiten que el código de servidor participe en la creación y la representación de elementos HTML en archivos de Razor.
+El `<a /a>` [asistente de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usado el atributo `asp-route-{value}` para generar un vínculo a la página de edición. El vínculo contiene datos de ruta con el identificador del contacto. Por ejemplo: `https://localhost:5001/Edit/1`. Los [asistentes de etiquetas](xref:mvc/views/tag-helpers/intro) permiten que el código de servidor participe en la creación y la representación de elementos HTML en archivos de Razor.
 
 El archivo *index.cshtml* contiene marcado para crear un botón de eliminar para cada contacto de cliente:
 
@@ -342,7 +342,7 @@ Razor Pages está protegido mediante [validación antifalsificación](xref:secur
 
 ## <a name="using-layouts-partials-templates-and-tag-helpers-with-razor-pages"></a>Usar diseños, parciales, plantillas y asistentes de etiquetas con las páginas de Razor
 
-Las páginas funcionan con todas las características del motor de vista de Razor. Los diseños, parciales, plantillas, asistentes de etiquetas, *_ViewStart.cshtml*, *_ViewImports.cshtml* funcionan de la misma manera que lo hacen con las vistas de Razor convencionales.
+Las páginas funcionan con todas las características del motor de vista de Razor. Los diseños, parciales, plantillas, asistentes de etiquetas, *_ViewStart.cshtml* y *_ViewImports.cshtml* funcionan de la misma manera que lo hacen con las vistas de Razor convencionales.
 
 Para simplificar esta página, aprovecharemos algunas de esas características.
 
@@ -356,7 +356,7 @@ El [diseño](xref:mvc/views/layout):
 * Importa las estructuras HTML como JavaScript y hojas de estilos.
 * El contenido de la página de Razor se representa donde se llama a `@RenderBody()`.
 
-Para obtener más información, vea [Página de diseño](xref:mvc/views/layout).
+Para más información, consulte la [página de diseño](xref:mvc/views/layout).
 
 La propiedad [Layout](xref:mvc/views/layout#specifying-a-layout) se establece en *Pages/_ViewStart.cshtml*:
 
@@ -432,13 +432,13 @@ La aplicación tiene la siguiente estructura de archivos o carpetas:
     * *Edit.cshtml*
     * *Index.cshtml*
 
-Las páginas *Pages/Customers/Create.cshtml* y *Pages/Customers/Edit.cshtml* redirigen a *Pages/Customers/Index.cshtml* si la operación se realiza correctamente. La cadena `./Index` es un nombre de página relativo que se usa para acceder a la página anterior. Se usa para generar direcciones URL a la página *Pages/Customers/Index.cshtml*. Por ejemplo: 
+Las páginas *Pages/Customers/Create.cshtml* y *Pages/Customers/Edit.cshtml* redirigen a *Pages/Customers/Index.cshtml* si la operación se realiza correctamente. La cadena `./Index` es un nombre de página relativo que se usa para acceder a la página anterior. Se usa para generar direcciones URL a la página *Pages/Customers/Index.cshtml*. Por ejemplo:
 
 * `Url.Page("./Index", ...)`
 * `<a asp-page="./Index">Customers Index Page</a>`
 * `RedirectToPage("./Index")`
 
-El nombre de página absoluto `/Index` se usa para generar direcciones URL a la página *Pages/Index.cshtml*. Por ejemplo: 
+El nombre de página absoluto `/Index` se usa para generar direcciones URL a la página *Pages/Index.cshtml*. Por ejemplo:
 
 * `Url.Page("/Index", ...)`
 * `<a asp-page="/Index">Home Index Page</a>`
@@ -474,7 +474,7 @@ Para obtener más información, vea <xref:mvc/controllers/areas> y <xref:razor-p
 
 ## <a name="viewdata-attribute"></a>Atributo ViewData
 
-Se pueden pasar datos a una página con <xref:Microsoft.AspNetCore.Mvc.ViewDataAttribute>. Las propiedades con el atributo [ViewData] tienen sus valores almacenados y cargados desde el elemento <xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary>.
+Se pueden pasar datos a una página con <xref:Microsoft.AspNetCore.Mvc.ViewDataAttribute>. Las propiedades con el atributo `[ViewData]` tienen sus valores almacenados y cargados desde el elemento <xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary>.
 
 En el ejemplo siguiente, el elemento `AboutModel` aplica el atributo `[ViewData]` a la propiedad `Title`:
 
@@ -527,7 +527,7 @@ El modelo de página *Pages/Customers/Index.cshtml.cs* aplica el atributo `[Temp
 public string Message { get; set; }
 ```
 
-Para obtener más información, vea [TempData](xref:fundamentals/app-state#tempdata).
+Para más información, consulte [TempData](xref:fundamentals/app-state#tempdata).
 
 <a name="mhpp"></a>
 
@@ -579,7 +579,7 @@ Para configurar opciones avanzadas, use el método de extensión <xref:Microsoft
 
 Use el elemento <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions> para establecer el directorio raíz de páginas o agregar convenciones de modelo de aplicación para las páginas. Para obtener más información sobre las convenciones, vea [Convenciones de autorización de Razor Pages](xref:security/authorization/razor-pages-authorization).
 
-Para precompilar vistas, vea [Razor view compilation](xref:mvc/views/view-compilation) (Compilación de vistas de Razor).
+Para precompilar vistas, consulte la sección sobre la [compilación de vistas de Razor](xref:mvc/views/view-compilation).
 
 ### <a name="specify-that-razor-pages-are-at-the-content-root"></a>Especificar que las páginas de Razor se encuentran en la raíz de contenido
 
@@ -595,7 +595,7 @@ Agregue <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuild
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* Vea [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start), que se basa en esta introducción.
+* Consulte [Introducción a Razor Pages](xref:tutorials/razor-pages/razor-pages-start), que se basa en esta introducción.
 * [Descargue o vea el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/index/3.0sample).
 * <xref:index>
 * <xref:mvc/views/razor>
@@ -731,7 +731,7 @@ El sufijo de nombre `Async` es opcional, pero se usa a menudo por convención pa
 Si está familiarizado con las aplicaciones de ASP.NET con controladores y vistas:
 
 * El código `OnPostAsync` del ejemplo anterior es similar al típico código de controlador.
-* La mayoría de los primitivos MVC como el [enlace de modelos](xref:mvc/models/model-binding), la [validación](xref:mvc/models/validation) y los resultados de acciones se comparten.
+* La mayoría de los primitivos MVC como el [enlace de modelos](xref:mvc/models/model-binding), la [validación](xref:mvc/models/validation), la [validación](xref:mvc/models/validation) y los resultados de acciones se comparten.
 
 El método `OnPostAsync` anterior:
 
@@ -948,7 +948,7 @@ La aplicación tiene la siguiente estructura de archivos o carpetas:
     * *Edit.cshtml*
     * *Index.cshtml*
 
-Las páginas *Pages/Customers/Create.cshtml* y *Pages/Customers/Edit.cshtml* redirigen a *Pages/Index.cshtml* si se realiza correctamente. La cadena `/Index` forma parte del URI para tener acceso a la página anterior. La cadena `/Index` puede usarse para generar los URI para la página *Pages/Index.cshtml*. Por ejemplo: 
+Las páginas *Pages/Customers/Create.cshtml* y *Pages/Customers/Edit.cshtml* redirigen a *Pages/Index.cshtml* si se realiza correctamente. La cadena `/Index` forma parte del URI para tener acceso a la página anterior. La cadena `/Index` puede usarse para generar los URI para la página *Pages/Index.cshtml*. Por ejemplo:
 
 * `Url.Page("/Index", ...)`
 * `<a asp-page="/Index">My Index Page</a>`
