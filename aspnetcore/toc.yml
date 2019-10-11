@@ -507,7 +507,7 @@
         - name: Referencia de API de JavaScript
           href: /javascript/api/?view=signalr-js-latest
           displayName: signalr
-    - name: Hospedaje y ajuste de la escala
+    - name: Host y escala
       displayName: signalr
       items:
         - name: Información general
@@ -667,7 +667,7 @@
     - name: Información general
       displayName: 'azure, deploy, publish'
       uid: host-and-deploy/index
-    - name: Hospedaje en Azure App Service
+    - name: Azure App Service
       displayName: 'deploy, publish'
       items:
         - name: Información general
@@ -717,7 +717,7 @@
         - name: Pasos siguientes
           displayName: 'azure, deploy, publish'
           uid: azure/devops/next-steps
-    - name: Hospedaje en Windows con IIS
+    - name: IIS
       displayName: 'deploy, publish'
       items:
         - name: Información general
@@ -749,16 +749,16 @@
     - name: HTTP.sys
       displayName: 'deploy, publish, server'
       uid: fundamentals/servers/httpsys
-    - name: Hospedaje en un servicio de Windows
+    - name: Servicio de Windows
       displayName: 'deploy, publish'
       uid: host-and-deploy/windows-service
-    - name: Hospedaje en Linux con Nginx
+    - name: Linux con Nginx
       displayName: 'deploy, publish'
       uid: host-and-deploy/linux-nginx
-    - name: Hospedaje en Linux con Apache
+    - name: Linux con Apache
       displayName: 'deploy, publish'
       uid: host-and-deploy/linux-apache
-    - name: Hospedaje en Docker
+    - name: Docker
       displayName: 'deploy, publish'
       items:
         - name: Información general
@@ -779,7 +779,7 @@
     - name: Configuración del proxy y del equilibrador de carga
       displayName: 'deploy, publish'
       uid: host-and-deploy/proxy-load-balancer
-    - name: Hospedaje en una granja de servidores web
+    - name: Granja de servidores web
       displayName: 'deploy, publish'
       uid: host-and-deploy/web-farm
     - name: Perfiles de publicación de Visual Studio
