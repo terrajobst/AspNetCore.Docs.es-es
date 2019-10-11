@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo llamar a una API Web desde una apl
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 10/05/2019
 uid: blazor/call-web-api
-ms.openlocfilehash: ea819da57c382b724098c55f2f799d7deea363f2
-ms.sourcegitcommit: 4649814d1ae32248419da4e8f8242850fd8679a5
+ms.openlocfilehash: 3d70af2226eb29870458a5fd3c2bbbc3ee5c14ce
+ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71975641"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037436"
 ---
 # <a name="call-a-web-api-from-aspnet-core-blazor"></a>Llamada a una API Web desde ASP.NET Core extraordinarias
 

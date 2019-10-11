@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la plataforma de registro pro
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/11/2019
+ms.date: 10/07/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: bb38ebca3c7b9bb4c28a52c0dad80be9669e1b40
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: 9f7b39cc1c557356b75608817db4e8d6f61af794
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71924875"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007025"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registros en .NET Core y ASP.NET Core
 
@@ -392,7 +392,7 @@ ASP.NET Core define los niveles de registro siguientes, que aquí se ordenan de 
 
   Para los errores que requieren atención inmediata. Ejemplos: escenarios de pérdida de datos, espacio en disco insuficiente.
 
-Use el nivel de registro para controlar la cantidad de salida del registro que se escribe en un medio de almacenamiento determinado o ventana de presentación. Por ejemplo:
+Use el nivel de registro para controlar la cantidad de salida del registro que se escribe en un medio de almacenamiento determinado o ventana de presentación. Por ejemplo: 
 
 * En producción, envíe `Trace` a través del nivel `Information` a un almacén de datos de volumen. Envíe `Warning` a través de `Critical` a un almacén de datos de valor.
 * Durante el desarrollo, envíe `Warning` a través de `Critical` a la consola y agregue `Trace` a través de `Information` cuando solucione problemas.
@@ -679,7 +679,7 @@ Si no establece explícitamente el nivel mínimo, el valor predeterminado es `In
 
 ### <a name="filter-functions"></a>Funciones de filtro
 
-Se invoca una función de filtro para todos los proveedores y categorías que no tienen reglas asignadas mediante configuración o código. El código de la función tiene acceso al tipo de proveedor, la categoría y el nivel de registro. Por ejemplo:
+Se invoca una función de filtro para todos los proveedores y categorías que no tienen reglas asignadas mediante configuración o código. El código de la función tiene acceso al tipo de proveedor, la categoría y el nivel de registro. Por ejemplo: 
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -925,6 +925,7 @@ Plataformas de registro de terceros que funcionan con ASP.NET Core:
 * [Gelf](https://docs.graylog.org/en/2.3/pages/gelf.html) ([repositorio de GitHub](https://github.com/mattwcole/gelf-extensions-logging))
 * [JSNLog](https://jsnlog.com/) ([repositorio de GitHub](https://github.com/mperdeck/jsnlog))
 * [KissLog.net](https://kisslog.net/) ([repositorio de GitHub](https://github.com/catalingavan/KissLog-net))
+* [Log4Net](https://logging.apache.org/log4net/) ([repositorio de GitHub](https://github.com/huorswords/Microsoft.Extensions.Logging.Log4Net.AspNetCore))
 * [Loggr](https://loggr.net/) ([repositorio de GitHub](https://github.com/imobile3/Loggr.Extensions.Logging))
 * [NLog](https://nlog-project.org/) ([repositorio de GitHub](https://github.com/NLog/NLog.Extensions.Logging))
 * [Sentry](https://sentry.io/welcome/) ([repositorio de GitHub](https://github.com/getsentry/sentry-dotnet))

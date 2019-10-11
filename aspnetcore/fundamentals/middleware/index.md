@@ -5,14 +5,14 @@ description: Obtenga información sobre el middleware de ASP.NET Core y la canal
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/22/2019
+ms.date: 10/08/2019
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 674e89cd22ce113474dfbba44b57d9255446fc3e
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 5d02e1eb37693881d5b1855e1ed163590d8a44d3
+ms.sourcegitcommit: fcdf9aaa6c45c1a926bd870ed8f893bdb4935152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773782"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165312"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware de ASP.NET Core
 
@@ -68,7 +68,7 @@ El siguiente método `Startup.Configure` agrega los componentes de middleware pa
 1. Control de errores y excepciones
    * Cuando la aplicación se ejecuta en el entorno de desarrollo:
      * El middleware de la página de excepciones para el desarrollador (<xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*>) informa los errores en tiempo de ejecución de la aplicación.
-     * El middleware de la página de errores de la base de datos (<xref:Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage*>) informa los errores en tiempo de ejecución de la base de datos.
+     * El middleware de la página de errores de la base de datos informa de los errores en tiempo de ejecución de la base de datos.
    * Cuando la aplicación se ejecuta en el entorno de producción:
      * El middleware del controlador de excepciones (<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>) detecta las excepciones generadas en los middlewares siguientes.
      * El middleware del protocolo de seguridad de transporte estricta de HTTP (HSTS) (<xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*>) agrega el encabezado `Strict-Transport-Security`.
@@ -80,6 +80,18 @@ El siguiente método `Startup.Configure` agrega los componentes de middleware pa
 1. El middleware de autorización (`UseAuthorization`) autoriza a los usuarios a acceder a los recursos seguros.
 1. El middleware de sesiones (<xref:Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions.UseSession*>) establece y mantiene el estado de sesión. Si la aplicación usa el estado de sesión, llame al middleware de sesiones después del middleware de directivas de cookies y antes del middleware de MVC.
 1. Middleware de enrutamiento de punto de conexión (`UseEndpoints` con `MapRazorPages`) para agregar puntos de conexión de Razor Pages a la canalización de solicitudes.
+
+<!--
+
+FUTURE UPDATE
+
+On the next topic overhaul/release update, add API crosslink to "Database Error Page Middleware" in Item 1 of the list ...
+
+Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage*
+
+... when available via the API docs.
+
+-->
 
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

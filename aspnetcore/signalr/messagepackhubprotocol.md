@@ -1,42 +1,42 @@
 ---
-title: Usar el protocolo de MessagePack concentrador de SignalR para ASP.NET Core
+title: Usar el protocolo MessagePack Hub en Signalr para ASP.NET Core
 author: bradygaster
-description: Agregar concentrador MessagePack protocolo a ASP.NET Core SignalR.
+description: Agregue el protocolo MessagePack Hub a ASP.NET Core Signalr.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 02/27/2019
+ms.date: 10/08/2019
 uid: signalr/messagepackhubprotocol
-ms.openlocfilehash: 7742f6f8bb53fb3c299ff98ae52a0da519ff396c
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: fe09b646eba5ae15cbd9e568b276aaf7763e4b1b
+ms.sourcegitcommit: fcdf9aaa6c45c1a926bd870ed8f893bdb4935152
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64896522"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165402"
 ---
-# <a name="use-messagepack-hub-protocol-in-signalr-for-aspnet-core"></a>Usar el protocolo de MessagePack concentrador de SignalR para ASP.NET Core
+# <a name="use-messagepack-hub-protocol-in-signalr-for-aspnet-core"></a>Usar el protocolo MessagePack Hub en Signalr para ASP.NET Core
 
 Por [Brennan Conroy](https://github.com/BrennanConroy)
 
-En este artículo se da por supuesto que el lector está familiarizado con los temas tratados en [comenzar](xref:tutorials/signalr).
+En este artículo se [da por supuesto](xref:tutorials/signalr)que el lector está familiarizado con los temas descritos en introducción.
 
 ## <a name="what-is-messagepack"></a>¿Qué es MessagePack?
 
-[MessagePack](https://msgpack.org/index.html) es un formato de serialización binaria es rápido y compacto. Es útil cuando constituyen un problema de rendimiento y ancho de banda porque crea mensajes más pequeños en comparación con [JSON](https://www.json.org/). Dado que es un formato binario, los mensajes son ilegibles al examinar los registros y seguimientos de red a menos que los bytes se pasan a través de un analizador MessagePack. Tiene compatibilidad integrada con el formato MessagePack SignalR y proporciona las API para el cliente y servidor usar.
+[MessagePack](https://msgpack.org/index.html) es un formato de serialización binaria rápido y compacto. Resulta útil cuando el rendimiento y el ancho de banda son un problema porque crea mensajes más pequeños en comparación con [JSON](https://www.json.org/). Dado que se trata de un formato binario, los mensajes no se pueden leer al mirar los seguimientos de red y los registros a menos que los bytes se pasen a través de un analizador de MessagePack. Signalr tiene compatibilidad integrada con el formato MessagePack y proporciona las API para que las use el cliente y el servidor.
 
-## <a name="configure-messagepack-on-the-server"></a>Configurar MessagePack en el servidor
+## <a name="configure-messagepack-on-the-server"></a>Configuración de MessagePack en el servidor
 
-Para habilitar el protocolo de Hub MessagePack en el servidor, instale el `Microsoft.AspNetCore.SignalR.Protocols.MessagePack` paquete en la aplicación. En el archivo Startup.cs agregue `AddMessagePackProtocol` a la `AddSignalR` llamada a habilitar la compatibilidad con MessagePack en el servidor.
+Para habilitar el protocolo MessagePack Hub en el servidor, instale el paquete `Microsoft.AspNetCore.SignalR.Protocols.MessagePack` en la aplicación. En el archivo Startup.cs, agregue `AddMessagePackProtocol` a la llamada `AddSignalR` para habilitar la compatibilidad con MessagePack en el servidor.
 
 > [!NOTE]
-> JSON está habilitado de forma predeterminada. Agregar MessagePack habilita la compatibilidad con clientes MessagePack y JSON.
+> JSON está habilitado de forma predeterminada. Agregar MessagePack habilita la compatibilidad con los clientes JSON y MessagePack.
 
 ```csharp
 services.AddSignalR()
     .AddMessagePackProtocol();
 ```
 
-Para personalizar cómo MessagePack dará formato a los datos, `AddMessagePackProtocol` toma un delegado para configurar las opciones. En ese delegado, el `FormatterResolvers` propiedad puede usarse para configurar las opciones de serialización MessagePack. Para obtener más información sobre cómo funcionan las resoluciones, visite la biblioteca MessagePack en [MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp). Atributos se pueden usar en los objetos que desea serializar para definir cómo debe controlarse.
+Para personalizar la forma en que MessagePack dará formato a los datos, `AddMessagePackProtocol` toma un delegado para configurar las opciones. En ese delegado, se puede usar la propiedad `FormatterResolvers` para configurar las opciones de serialización de MessagePack. Para obtener más información sobre cómo funcionan los solucionadores, visite la biblioteca MessagePack en [MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp). Los atributos se pueden usar en los objetos que se van a serializar para definir cómo deben administrarse.
 
 ```csharp
 services.AddSignalR()
@@ -49,14 +49,14 @@ services.AddSignalR()
     });
 ```
 
-## <a name="configure-messagepack-on-the-client"></a>Configurar MessagePack en el cliente
+## <a name="configure-messagepack-on-the-client"></a>Configuración de MessagePack en el cliente
 
 > [!NOTE]
-> JSON está habilitada de forma predeterminada para los clientes compatibles. Los clientes pueden admitir solo un único protocolo. Agregar compatibilidad con MessagePack reemplazará cualquier previamente los protocolos configurados.
+> JSON está habilitado de forma predeterminada para los clientes compatibles. Los clientes solo pueden admitir un único protocolo. Al agregar compatibilidad con MessagePack se reemplazarán todos los protocolos configurados previamente.
 
 ### <a name="net-client"></a>Cliente .NET
 
-Para habilitar MessagePack en el cliente. NET, instale el `Microsoft.AspNetCore.SignalR.Protocols.MessagePack` paquetes y llame a `AddMessagePackProtocol` en `HubConnectionBuilder`.
+Para habilitar MessagePack en el cliente de .NET, instale el paquete `Microsoft.AspNetCore.SignalR.Protocols.MessagePack` y llame a `AddMessagePackProtocol` en `HubConnectionBuilder`.
 
 ```csharp
 var hubConnection = new HubConnectionBuilder()
@@ -66,20 +66,48 @@ var hubConnection = new HubConnectionBuilder()
 ```
 
 > [!NOTE]
-> Esto `AddMessagePackProtocol` llamada toma un delegado para configurar las opciones al igual que el servidor.
+> Esta llamada `AddMessagePackProtocol` toma un delegado para configurar opciones como el servidor.
 
 ### <a name="javascript-client"></a>Cliente de JavaScript
 
-MessagePack compatibilidad con el cliente de JavaScript proporciona el `@aspnet/signalr-protocol-msgpack` paquete npm.
+::: moniker range=">= aspnetcore-3.0"
+
+El paquete NPM `@microsoft/signalr-protocol-msgpack` proporciona compatibilidad con MessagePack para el cliente JavaScript. Instale el paquete ejecutando el siguiente comando en un shell de comandos:
+
+```console
+npm install @microsoft/signalr-protocol-msgpack
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+El paquete NPM `@aspnet/signalr-protocol-msgpack` proporciona compatibilidad con MessagePack para el cliente JavaScript. Instale el paquete ejecutando el siguiente comando en un shell de comandos:
 
 ```console
 npm install @aspnet/signalr-protocol-msgpack
 ```
 
-Después de instalar el paquete de npm, el módulo se puede utilizar directamente a través de un cargador de módulos de JavaScript o importado en el explorador haciendo referencia a la *node_modules\\@aspnet\signalr-protocol-msgpack\dist\browser\signalr-protocol-msgpack.js* archivo. En un explorador, el `msgpack5` también se debe hacer referencia a la biblioteca. Use un `<script>` etiqueta para crear una referencia. La biblioteca puede encontrarse en *node_modules\msgpack5\dist\msgpack5.js*.
+::: moniker-end
+
+Después de instalar el paquete NPM, el módulo se puede usar directamente a través de un cargador de módulos de JavaScript o importarse en el explorador haciendo referencia al archivo siguiente:
+
+::: moniker range=">= aspnetcore-3.0"
+
+*node_modules @ no__t-1 @ no__t-2* 
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+*node_modules @ no__t-1 @ no__t-2* 
+
+::: moniker-end
+
+En un explorador, también se debe hacer referencia a la biblioteca `msgpack5`. Use una etiqueta `<script>` para crear una referencia. La biblioteca se puede encontrar en *node_modules\msgpack5\dist\msgpack5.js*.
 
 > [!NOTE]
-> Cuando se usa el `<script>` elemento, el orden es importante. Si *signalr-protocol-msgpack.js* se hace referencia antes de *msgpack5.js*, se produce un error al intentar conectarse con MessagePack. *signalr.js* también es necesaria antes de *signalr-protocol-msgpack.js*.
+> Al utilizar el elemento `<script>`, el orden es importante. Si se hace referencia a *signalr-Protocol-msgpack. js* antes de *msgpack5. js*, se produce un error al intentar conectarse con MessagePack. *signalr. js* también es necesario antes de *signalr-Protocol-msgpack. js*.
 
 ```html
 <script src="~/lib/signalr/signalr.js"></script>
@@ -87,7 +115,7 @@ Después de instalar el paquete de npm, el módulo se puede utilizar directament
 <script src="~/lib/signalr/signalr-protocol-msgpack.js"></script>
 ```
 
-Agregar `.withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())` a la `HubConnectionBuilder` va a configurar el cliente para utilizar el protocolo MessagePack al conectarse a un servidor.
+Al agregar `.withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())` al `HubConnectionBuilder`, se configurará el cliente para que use el protocolo MessagePack al conectarse a un servidor.
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -99,11 +127,11 @@ const connection = new signalR.HubConnectionBuilder()
 > [!NOTE]
 > En este momento, no hay ninguna opción de configuración para el protocolo MessagePack en el cliente de JavaScript.
 
-## <a name="messagepack-quirks"></a>MessagePack peculiaridades
+## <a name="messagepack-quirks"></a>Peculiaridades de MessagePack
 
-Hay algunos problemas que tenga en cuenta cuando se usa el protocolo de concentrador MessagePack.
+Hay algunos problemas que se deben tener en cuenta al usar el protocolo MessagePack Hub.
 
-### <a name="messagepack-is-case-sensitive"></a>MessagePack distingue mayúsculas de minúsculas
+### <a name="messagepack-is-case-sensitive"></a>MessagePack distingue entre mayúsculas y minúsculas
 
 El protocolo MessagePack distingue mayúsculas de minúsculas. Por ejemplo, considere la siguiente C# clase:
 
@@ -115,35 +143,35 @@ public class ChatMessage
 }
 ```
 
-Cuando se envían desde el cliente de JavaScript, debe usar `PascalCased` nombres de propiedad, ya que deben coincidir con las mayúsculas y minúsculas del C# clase exactamente. Por ejemplo:
+Al enviar desde el cliente JavaScript, debe utilizar nombres de propiedad `PascalCased`, ya que las mayúsculas y C# minúsculas deben coincidir exactamente con la clase. Por ejemplo:
 
 ```javascript
 connection.invoke("SomeMethod", { Sender: "Sally", Message: "Hello!" });
 ```
 
-Uso de `camelCased` nombres correctamente no se enlazará a la C# clase. Puede solucionar esto mediante el uso de la `Key` atributo para especificar un nombre diferente para la propiedad MessagePack. Para obtener más información, consulte [la documentación de MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp#object-serialization).
+El uso de los nombres `camelCased` no se C# enlaza correctamente a la clase. Puede solucionar este fin mediante el uso del atributo `Key` para especificar un nombre diferente para la propiedad MessagePack. Para obtener más información, consulte [la documentación de MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp#object-serialization).
 
-### <a name="datetimekind-is-not-preserved-when-serializingdeserializing"></a>DateTime.Kind no se conserva al serializar o deserializar
+### <a name="datetimekind-is-not-preserved-when-serializingdeserializing"></a>DateTime. Kind no se conserva al serializar o deserializar
 
-El protocolo MessagePack no proporciona una manera de codificar el `Kind` valor de un `DateTime`. Como resultado, al deserializar una fecha, el protocolo de Hub MessagePack supone que la fecha de entrada está en formato UTC. Si está trabajando con `DateTime` valores de hora local, se recomienda convertir a UTC antes de enviarlos. Convertirlos a la hora UTC a la hora local cuando los recibe.
+El protocolo MessagePack no proporciona una manera de codificar el valor `Kind` de un `DateTime`. Como resultado, al deserializar una fecha, el protocolo MessagePack Hub supone que la fecha de entrada está en formato UTC. Si está trabajando con valores `DateTime` en la hora local, se recomienda convertir a UTC antes de enviarlos. Conviértalos de la hora UTC a la hora local cuando los reciba.
 
-Para obtener más información sobre esta limitación, vea GitHub problema [aspnet/SignalR #2632](https://github.com/aspnet/SignalR/issues/2632).
+Para obtener más información sobre esta limitación, vea el problema de GitHub [ASPNET/signalr # 2632](https://github.com/aspnet/SignalR/issues/2632).
 
-### <a name="datetimeminvalue-is-not-supported-by-messagepack-in-javascript"></a>DateTime.MinValue no es compatible con MessagePack en JavaScript
+### <a name="datetimeminvalue-is-not-supported-by-messagepack-in-javascript"></a>No se admite DateTime. MinValue en MessagePack en JavaScript
 
-El [msgpack5](https://github.com/mcollina/msgpack5) biblioteca usada por el cliente de JavaScript de SignalR no es compatible con la `timestamp96` tipo en MessagePack. Este tipo se usa para codificar los valores de fecha muy grande (ya sea muy pronto en el pasado o en el futuro muy lejano). El valor de `DateTime.MinValue` es `January 1, 0001` que debe estar codificado en un `timestamp96` valor. Debido a esto, enviar `DateTime.MinValue` un JavaScript no se admite el cliente. Cuando `DateTime.MinValue` es recibido por el cliente de JavaScript, se produce el error siguiente:
+La biblioteca [msgpack5](https://github.com/mcollina/msgpack5) que usa el cliente de signalr JavaScript no admite el tipo `timestamp96` en MessagePack. Este tipo se usa para codificar valores de fecha muy grandes (ya sea muy temprano en el pasado o muy lejos en el futuro). El valor de `DateTime.MinValue` es `January 1, 0001`, que se debe codificar en un valor de @no__t 2. Por este motivo, no se admite el envío de `DateTime.MinValue` a un cliente de JavaScript. Cuando el cliente JavaScript recibe `DateTime.MinValue`, se produce el siguiente error:
 
 ```
 Uncaught Error: unable to find ext type 255 at decoder.js:427
 ```
 
-Por lo general, `DateTime.MinValue` se usa para codificar un "Falta" o `null` valor. Si tiene que codificar ese valor en MessagePack, usar una que acepta valores NULL `DateTime` valor (`DateTime?`) o codificar un independiente `bool` valor que indica si la fecha está presente.
+Normalmente, `DateTime.MinValue` se usa para codificar un valor "Missing" o `null`. Si necesita codificar ese valor en MessagePack, use un valor `DateTime` que acepte valores NULL (`DateTime?`) o codifique un valor `bool` independiente que indique si la fecha está presente.
 
-Para obtener más información sobre esta limitación, vea GitHub problema [aspnet/SignalR #2228](https://github.com/aspnet/SignalR/issues/2228).
+Para obtener más información sobre esta limitación, vea el problema de GitHub [ASPNET/signalr # 2228](https://github.com/aspnet/SignalR/issues/2228).
 
-### <a name="messagepack-support-in-ahead-of-time-compilation-environment"></a>Compatibilidad con MessagePack en el entorno de compilación "ahead-of-time"
+### <a name="messagepack-support-in-ahead-of-time-compilation-environment"></a>Compatibilidad con MessagePack en el entorno de compilación "anterior a la hora"
 
-El [MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp) biblioteca usada por el cliente de .NET y el servidor usa la generación de código para optimizar la serialización. Como resultado, no se admite de forma predeterminada en entornos que usan las compilación "ahead-of-time" (por ejemplo, Xamarin iOS o Unity). Es posible usar MessagePack en estos entornos "generando previamente" el código del serializador/deserializador. Para obtener más información, consulte [la documentación de MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp#pre-code-generationunityxamarin-supports). Una vez que los serializadores generados previamente, puede registrarlos mediante el delegado de configuración pasando a `AddMessagePackProtocol`:
+La biblioteca [MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp) utilizada por el cliente y el servidor .net utiliza la generación de código para optimizar la serialización. Como resultado, no se admite de forma predeterminada en los entornos que usan la compilación "anterior a la hora" (como Xamarin iOS o Unity). Es posible usar MessagePack en estos entornos mediante la "generación previa" del código del serializador/deserializador. Para obtener más información, consulte [la documentación de MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp#pre-code-generationunityxamarin-supports). Una vez que haya generado los serializadores previamente, puede registrarlos mediante el delegado de configuración que se pasa a `AddMessagePackProtocol`:
 
 ```csharp
 services.AddSignalR()
@@ -157,15 +185,15 @@ services.AddSignalR()
     });
 ```
 
-### <a name="type-checks-are-more-strict-in-messagepack"></a>Comprobaciones de tipo sean más estrictas en MessagePack
+### <a name="type-checks-are-more-strict-in-messagepack"></a>Las comprobaciones de tipo son más estrictas en MessagePack
 
-El protocolo de Hub JSON llevará a cabo las conversiones de tipos durante la deserialización. Por ejemplo, si el objeto entrante tiene un valor de propiedad que es un número (`{ foo: 42 }`), pero la propiedad en la clase de .NET es de tipo `string`, se convertirá el valor. Sin embargo, MessagePack no realiza esta conversión y producirá una excepción que se puede ver en los registros del lado servidor (y en la consola):
+El protocolo del concentrador de JSON realizará las conversiones de tipos durante la deserialización. Por ejemplo, si el objeto entrante tiene un valor de propiedad que es un número (`{ foo: 42 }`) pero la propiedad de la clase .NET es de tipo `string`, el valor se convertirá. Sin embargo, MessagePack no realiza esta conversión y producirá una excepción que se puede observar en los registros del lado servidor (y en la consola):
 
 ```
 InvalidDataException: Error binding arguments. Make sure that the types of the provided values match the types of the hub method being invoked.
 ```
 
-Para obtener más información sobre esta limitación, vea GitHub problema [aspnet/SignalR #2937](https://github.com/aspnet/SignalR/issues/2937).
+Para obtener más información sobre esta limitación, vea el problema de GitHub [ASPNET/signalr # 2937](https://github.com/aspnet/SignalR/issues/2937).
 
 ## <a name="related-resources"></a>Recursos relacionados
 

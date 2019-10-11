@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET C
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/31/2019
+ms.date: 10/07/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 4cc25cba95b476f1d14aad87564f9777a0530f86
-ms.sourcegitcommit: 4649814d1ae32248419da4e8f8242850fd8679a5
+ms.openlocfilehash: 8131e9b8e6a3bb3643f41a9be57c5bd2e511476c
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71975666"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007361"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -239,7 +239,7 @@ Al deshabilitar el SDK web para la transformación del archivo, el desarrollador
 
 ### <a name="webconfig-file-location"></a>Ubicación del archivo web.config
 
-Para configurar el [módulo ASP.NET](xref:host-and-deploy/aspnet-core-module) correctamente, el archivo *web.config* debe estar presente en la ruta de acceso raíz del contenido (normalmente la ruta de acceso base de la aplicación) de la aplicación implementada. Se trata de la misma ubicación que la ruta de acceso física del sitio web proporcionada a IIS. El archivo *web.config* debe estar en la raíz de la aplicación para habilitar la publicación de varias aplicaciones mediante Web Deploy.
+Para configurar el [módulo ASP.NET](xref:host-and-deploy/aspnet-core-module) correctamente, el archivo *web.config* debe estar presente en la ruta [raíz de contenido](xref:fundamentals/index#content-root) (normalmente la ruta de acceso base de la aplicación) de la aplicación implementada. Se trata de la misma ubicación que la ruta de acceso física del sitio web proporcionada a IIS. El archivo *web.config* debe estar en la raíz de la aplicación para habilitar la publicación de varias aplicaciones mediante Web Deploy.
 
 Los archivos confidenciales están en la ruta de acceso física de la aplicación, como *\<ensamblado>.runtimeconfig.json*, *\<ensamblado>.xml* (comentarios de documentación XML) y *\<ensamblado>.deps.json*. Si el archivo *web.config* está presente y el sitio se inicia normalmente, IIS no facilita estos archivos confidenciales, en el caso de que se soliciten. Si el archivo *web.config* no está presente, se le asignó un nombre incorrecto o no se puede configurar el sitio para un inicio normal, IIS puede servir archivos confidenciales públicamente.
 

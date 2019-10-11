@@ -5,14 +5,14 @@ description: Obtenga información sobre los conceptos básicos para crear aplica
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/06/2019
+ms.date: 10/07/2019
 uid: fundamentals/index
-ms.openlocfilehash: cff2afd62ed60648dc689d408dde56ecda18c261
-ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
+ms.openlocfilehash: a70d6aa05a2c92d19076b8d6e4ea24d7554368b6
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815656"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007118"
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
@@ -252,36 +252,57 @@ Para más información, consulte <xref:fundamentals/http-requests>.
 
 ## <a name="content-root"></a>Raíz del contenido
 
-La raíz del contenido es la ruta de acceso base a cualquier contenido privado que usa la aplicación, como sus archivos de Razor. De forma predeterminada, la raíz del contenido es la ruta de acceso base para el archivo ejecutable que hospeda la aplicación. Se puede especificar una ubicación alternativa al [crear el host](#host).
+La raíz del contenido es la ruta de acceso base a:
+
+* El archivo ejecutable que hospeda la aplicación (*.exe*).
+* Los ensamblados compilados que componen la aplicación (*.dll*).
+* Los archivos de contenido que no son de código usados por la aplicación, como:
+  * Archivos de Razor (*.cshtml*, *.razor*)
+  * Archivos de configuración (*.json*, *.xml*)
+  * Archivos de datos (*.db*)
+* [Raíz web](#web-root), normalmente la carpeta *wwwroot* publicada.
+
+Durante el desarrollo:
+
+* La raíz del contenido tiene como valor predeterminado el directorio raíz del proyecto.
+* El directorio raíz del proyecto se usa para crear:
+  * La ruta de acceso a los archivos de contenido que no son de código de la aplicación en el directorio raíz del proyecto.
+  * La [raíz web](#web-root), normalmente la carpeta *wwwroot* en el directorio raíz del proyecto.
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Para obtener más información, vea [Raíz del contenido](xref:fundamentals/host/generic-host#content-root).
+Se puede especificar una ruta raíz de contenido alternativa al [crear el host](#host). Para más información, consulte <xref:fundamentals/host/generic-host#contentrootpath>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Para obtener más información, vea [Raíz del contenido](xref:fundamentals/host/web-host#content-root).
+Se puede especificar una ruta raíz de contenido alternativa al [crear el host](#host). Para más información, consulte <xref:fundamentals/host/web-host#content-root>.
 
 ::: moniker-end
 
 ## <a name="web-root"></a>Raíz web
 
-La raíz web (también conocida como *webroot*) es la ruta de acceso base a los recursos públicos y estáticos, como archivos de imágenes, CSS y JavaScript. De forma predeterminada, el software intermedio de archivos estáticos solo ofrecerá archivos desde el directorio raíz web (y subdirectorios). El valor predeterminado de la ruta de acceso web es *{raíz del contenido}/wwwroot*, pero se puede especificar una ubicación diferente [al crear el host](#host).
+La raíz web es la ruta de acceso base a archivos de recursos públicos, que no son de código y estáticos, como:
+
+* Hojas de estilo (*.css*)
+* JavaScript (*.js*)
+* Imágenes (*.png*, *.jpg*)
+
+De forma predeterminada, los archivos estáticos se atienden solo desde el directorio raíz web (y los subdirectorios).
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Para más información, consulte [WebRoot](/aspnet/core/fundamentals/host/generic-host?view=aspnetcore-3.0#webroot)
+El valor predeterminado de la ruta de acceso de la raíz web es *{raíz del contenido}/wwwroot*, pero se puede especificar una raíz web diferente [al crear el host](#host). Para más información, consulte <xref:fundamentals/host/generic-host#webroot>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Para obtener más información, vea [Raíz web](/aspnet/core/fundamentals/host/web-host#webroot).
+El valor predeterminado de la ruta de acceso de la raíz web es *{raíz del contenido}/wwwroot*, pero se puede especificar una raíz web diferente [al crear el host](#host). Para obtener más información, vea [Raíz web](xref:fundamentals/host/web-host#web-root).
 
 ::: moniker-end
 
-En los archivos de Razor ( *.cshtml*), la virgulilla `~/` apunta a la raíz web. Las rutas de acceso que empiezan por `~/` se conocen como rutas de acceso virtuales.
+En los archivos de Razor (*.cshtml*), la virgulilla `~/` apunta a la raíz web. Una ruta de acceso que empieza por `~/` se conoce como *ruta de acceso virtual*.
 
 Para más información, consulte <xref:fundamentals/static-files>.

@@ -4,14 +4,14 @@ author: ssougnez
 description: En este tutorial, se configura Webpack para agrupar y compilar una aplicación web de SignalR de ASP.NET Core cuyo cliente está escrito en TypeScript.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 04/23/2019
+ms.date: 10/04/2019
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: 99628b4f52980e6d32c70d11bb0d8a770dac7f86
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 630e8cb5efe9c313479960626d3d864c4923cbd1
+ms.sourcegitcommit: 3ffcd8cbff8b49128733842f72270bc58279de70
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081566"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71955934"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Uso de SignalR de ASP.NET Core con TypeScript y Webpack
 
@@ -267,7 +267,7 @@ Confirme que la aplicación funciona con los pasos siguientes.
 
 ::: moniker-end
 
-::: moniker range="<= aspnetcore-2.2"
+::: moniker range="< aspnetcore-3.0"
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -413,8 +413,6 @@ Los pasos siguientes permiten configurar la conversión de TypeScript a JavaScri
 1. Asigne una ruta */hub* al concentrador `ChatHub`. Agregue las líneas siguientes al final del método `Startup.Configure`:
 
     [!code-csharp[Startup](signalr-typescript-webpack/sample/2.x/Startup.cs?name=snippet_UseSignalR)]
-
-::: moniker-end
 
 1. Cree un directorio denominado *Hubs* en la raíz del proyecto. Su objetivo es almacenar el concentrador de SignalR, que se crea en el paso siguiente.
 

@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Obtenga información sobre cómo las páginas de Razor de ASP.NET Core facilitan la programación de escenarios centrados en páginas y hacen que resulte más productiva que con MVC.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/19/2019
+ms.date: 10/07/2019
 uid: razor-pages/index
-ms.openlocfilehash: 63938b0347dc698a67f2ba8c083097c55c6c9c66
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: 61b1c3a17b378524c8fea9004b615c2d3d480135
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71925278"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007471"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -432,13 +432,13 @@ La aplicación tiene la siguiente estructura de archivos o carpetas:
     * *Edit.cshtml*
     * *Index.cshtml*
 
-Las páginas *Pages/Customers/Create.cshtml* y *Pages/Customers/Edit.cshtml* redirigen a *Pages/Customers/Index.cshtml* si la operación se realiza correctamente. La cadena `./Index` es un nombre de página relativo que se usa para acceder a la página anterior. Se usa para generar direcciones URL a la página *Pages/Customers/Index.cshtml*. Por ejemplo:
+Las páginas *Pages/Customers/Create.cshtml* y *Pages/Customers/Edit.cshtml* redirigen a *Pages/Customers/Index.cshtml* si la operación se realiza correctamente. La cadena `./Index` es un nombre de página relativo que se usa para acceder a la página anterior. Se usa para generar direcciones URL a la página *Pages/Customers/Index.cshtml*. Por ejemplo: 
 
 * `Url.Page("./Index", ...)`
 * `<a asp-page="./Index">Customers Index Page</a>`
 * `RedirectToPage("./Index")`
 
-El nombre de página absoluto `/Index` se usa para generar direcciones URL a la página *Pages/Index.cshtml*. Por ejemplo:
+El nombre de página absoluto `/Index` se usa para generar direcciones URL a la página *Pages/Index.cshtml*. Por ejemplo: 
 
 * `Url.Page("/Index", ...)`
 * `<a asp-page="/Index">Home Index Page</a>`
@@ -583,7 +583,7 @@ Para precompilar vistas, consulte la sección sobre la [compilación de vistas d
 
 ### <a name="specify-that-razor-pages-are-at-the-content-root"></a>Especificar que las páginas de Razor se encuentran en la raíz de contenido
 
-De forma predeterminada, la ruta raíz de las páginas de Razor es el directorio */Pages*. Agregue <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.WithRazorPagesAtContentRoot*> para especificar que sus Razor Pages se encuentran en la raíz de contenido (<xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.ContentRootPath>) de la aplicación:
+De forma predeterminada, la ruta raíz de las páginas de Razor es el directorio */Pages*. Agregue <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.WithRazorPagesAtContentRoot*> para especificar que sus Razor Pages se encuentran en la [raíz de contenido](xref:fundamentals/index#content-root) (<xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.ContentRootPath>) de la aplicación:
 
 [!code-cs[](index/3.0sample/RazorPagesContacts/StartupWithRazorPagesAtContentRoot.cs?name=snippet)]
 
@@ -948,7 +948,7 @@ La aplicación tiene la siguiente estructura de archivos o carpetas:
     * *Edit.cshtml*
     * *Index.cshtml*
 
-Las páginas *Pages/Customers/Create.cshtml* y *Pages/Customers/Edit.cshtml* redirigen a *Pages/Index.cshtml* si se realiza correctamente. La cadena `/Index` forma parte del URI para tener acceso a la página anterior. La cadena `/Index` puede usarse para generar los URI para la página *Pages/Index.cshtml*. Por ejemplo:
+Las páginas *Pages/Customers/Create.cshtml* y *Pages/Customers/Edit.cshtml* redirigen a *Pages/Index.cshtml* si se realiza correctamente. La cadena `/Index` forma parte del URI para tener acceso a la página anterior. La cadena `/Index` puede usarse para generar los URI para la página *Pages/Index.cshtml*. Por ejemplo: 
 
 * `Url.Page("/Index", ...)`
 * `<a asp-page="/Index">My Index Page</a>`
@@ -1092,7 +1092,7 @@ Vea [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pag
 
 ### <a name="specify-that-razor-pages-are-at-the-content-root"></a>Especificar que las páginas de Razor se encuentran en la raíz de contenido
 
-De forma predeterminada, la ruta raíz de las páginas de Razor es el directorio */Pages*. Agregue [WithRazorPagesAtContentRoot](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.withrazorpagesatcontentroot) a [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_) para especificar que las páginas de Razor están en la ruta raíz de contenido ([ContentRootPath](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.contentrootpath)) de la aplicación:
+De forma predeterminada, la ruta raíz de las páginas de Razor es el directorio */Pages*. Agregue [WithRazorPagesAtContentRoot](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.withrazorpagesatcontentroot) a [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_) para especificar que sus Razor Pages están en la ruta [raíz de contenido](xref:fundamentals/index#content-root) ([ContentRootPath](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.contentrootpath)) de la aplicación:
 
 ```csharp
 services.AddMvc()

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre las nuevas características de ASP.NET Core 3.0.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/26/2019
+ms.date: 10/08/2019
 uid: aspnetcore-3.0
-ms.openlocfilehash: ec3de5b35883752b7b3dbefceccec55da3986f39
-ms.sourcegitcommit: dc96d76f6b231de59586fcbb989a7fb5106d26a8
+ms.openlocfilehash: 90433773bec2efc5a2bc39d71ce7ae324b922046
+ms.sourcegitcommit: fcdf9aaa6c45c1a926bd870ed8f893bdb4935152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703677"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165366"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Novedades de ASP.NET Core 3.0
 
@@ -302,7 +302,7 @@ subject.complete();
 
 Mediante el uso de código como los dos fragmentos de código anteriores, se pueden crear experiencias de streaming en tiempo real.
 
-### <a name="new-json-serialization"></a>Nueva serialización de JSON
+## <a name="new-json-serialization"></a>Nueva serialización de JSON
 
 ASP.NET Core 3.0 ahora usa <xref:System.Text.Json> de forma predeterminada para la serialización de JSON:
 
@@ -397,7 +397,7 @@ Se ha eliminado lo siguiente de las plantillas de la interfaz de usuario web (Ra
 
 La plantilla de Angular se ha actualizado para usar Angular 8.
 
-De forma predeterminada, la plantilla de la biblioteca de clases de Razor (RCL) utiliza el desarrollo de componentes de Razor. Una nueva opción de plantilla en Visual Studio proporciona compatibilidad con plantillas para páginas y vistas. Al crear una biblioteca de clases de Razor a partir de la plantilla en un shell de comandos, pase la opción `-support-pages-and-views` (`dotnet new razorclasslib -support-pages-and-views`).
+De forma predeterminada, la plantilla de la biblioteca de clases de Razor (RCL) utiliza el desarrollo de componentes de Razor. Una nueva opción de plantilla en Visual Studio proporciona compatibilidad con plantillas para páginas y vistas. Al crear una biblioteca de clases de Razor a partir de la plantilla en un shell de comandos, pase la opción `--support-pages-and-views` (`dotnet new razorclasslib --support-pages-and-views`).
 
 ## <a name="generic-host"></a>Host genérico
 

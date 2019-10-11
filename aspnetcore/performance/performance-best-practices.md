@@ -1,156 +1,346 @@
 ---
-title: Prácticas recomendadas de rendimiento de ASP.NET Core
+title: Procedimientos recomendados de ASP.NET Core rendimiento
 author: mjrousos
-description: Sugerencias para aumentar el rendimiento en aplicaciones ASP.NET Core y evitar problemas de rendimiento comunes.
+description: Sugerencias para aumentar el rendimiento en ASP.NET Core aplicaciones y evitar problemas de rendimiento comunes.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 05/10/2019
+ms.date: 09/26/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: 7651dff18f98c60057660c8946c3daa66d272f6a
-ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
+ms.openlocfilehash: a2952f5234cdef7f749a1af8dd4adcb887290629
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65536083"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259775"
 ---
-# <a name="aspnet-core-performance-best-practices"></a>Prácticas recomendadas de rendimiento de ASP.NET Core
+# <a name="aspnet-core-performance-best-practices"></a>Procedimientos recomendados de ASP.NET Core rendimiento
 
 Por [Mike Rousos](https://github.com/mjrousos)
 
-Este tema proporciona instrucciones para el rendimiento de los procedimientos recomendados con ASP.NET Core.
+En este artículo se proporcionan instrucciones para las prácticas recomendadas de rendimiento con ASP.NET Core.
 
-<a name="hot"></a>
+## <a name="cache-aggressively"></a>Caché agresiva
 
-En este documento, un *ruta de acceso del código de acceso frecuente* se define como una ruta de acceso del código que se llama con frecuencia y donde ocurre gran parte del tiempo de ejecución. Las rutas de acceso frecuente de código normalmente limitan la escalabilidad horizontal de la aplicación y el rendimiento.
+El almacenamiento en caché se describe en varias partes de este documento. Para obtener más información, consulta <xref:performance/caching/response>.
 
-## <a name="cache-aggressively"></a>Caché de forma agresiva
+## <a name="understand-hot-code-paths"></a>Comprender las rutas de acceso de código activas
 
-Almacenamiento en caché se analiza en varias partes de este documento. Para obtener más información, consulta <xref:performance/caching/response>.
+En este documento, una ruta de acceso de *Código activo* se define como una ruta de código a la que se llama con frecuencia y en la que se produce la mayor parte del tiempo de ejecución. Las rutas de acceso de código activo normalmente limitan el escalado horizontal y el rendimiento de la aplicación y se describen en varias partes de este documento.
 
 ## <a name="avoid-blocking-calls"></a>Evitar llamadas de bloqueo
 
-Aplicaciones de ASP.NET Core deben diseñarse para procesar muchas solicitudes simultáneamente. Las API asincrónicas permiten un pequeño grupo de subprocesos para controlar miles de solicitudes simultáneas por no Esperando llamadas de bloqueo. En lugar de esperar en una tarea de larga ejecución sincrónica para completar, el subproceso puede trabajar en otra solicitud.
+ASP.NET Core aplicaciones deben diseñarse para procesar muchas solicitudes simultáneamente. Las API asincrónicas permiten que un pequeño grupo de subprocesos controle miles de solicitudes simultáneas sin esperar a que se bloqueen las llamadas. En lugar de esperar a que se complete una tarea sincrónica de ejecución prolongada, el subproceso puede funcionar en otra solicitud.
 
-Un problema de rendimiento comunes en aplicaciones ASP.NET Core está bloqueando las llamadas que podrían ser asincrónicas. Provocar muchas llamadas bloqueos sincrónicas [privación de grupos de subprocesos](https://blogs.msdn.microsoft.com/vancem/2018/10/16/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall/) y tiempos de respuesta de degradado.
+Un problema de rendimiento común en ASP.NET Core aplicaciones es el bloqueo de llamadas que podrían ser asincrónicas. Muchas llamadas de bloqueo sincrónicas conducen a la [colapso de grupos de subprocesos](https://blogs.msdn.microsoft.com/vancem/2018/10/16/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall/) y a tiempos de respuesta degradados.
 
 **No**:
 
-* Bloquear la ejecución asincrónica mediante una llamada a [Task.Wait](/dotnet/api/system.threading.tasks.task.wait) o [Task.Result](/dotnet/api/system.threading.tasks.task-1.result).
-* Adquirir bloqueos en las rutas de código común. Las aplicaciones de ASP.NET Core son de mayor rendimiento cuando se ha diseñado como para ejecutar código en paralelo.
+* Bloquee la ejecución asincrónica mediante una llamada a [Task. Wait](/dotnet/api/system.threading.tasks.task.wait) o [Task. Result](/dotnet/api/system.threading.tasks.task-1.result).
+* Adquirir bloqueos en rutas de acceso de código comunes. ASP.NET Core aplicaciones tienen más rendimiento cuando se diseña para ejecutar código en paralelo.
 
-**Hacer**:
+**Haga**lo siguiente:
 
-* Asegúrese de ["hot" las rutas de código](#hot) asincrónica.
-* Llamar de forma asincrónica el acceso a datos y las API de operaciones de larga ejecución.
-* Asegúrese de controlador/Razor acciones de la página asincrónica. Es asincrónica con el fin de beneficiarse de la pila de llamadas completa [async y await](/dotnet/csharp/programming-guide/concepts/async/) patrones.
+* Establecer [rutas de acceso de código activas](#understand-hot-code-paths) de forma asincrónica.
+* Llame a las API de acceso a datos y operaciones de ejecución prolongada de forma asincrónica.
+* Hacer que las acciones del controlador o de la página de Razor sean asincrónicas. Toda la pila de llamadas es asincrónica para beneficiarse de los patrones [Async/Await](/dotnet/csharp/programming-guide/concepts/async/) .
 
-Un generador de perfiles, como [PerfView](https://github.com/Microsoft/perfview), se puede usar para buscar subprocesos con frecuencia se agregan a la [grupos de subprocesos de](/windows/desktop/procthread/thread-pools). El `Microsoft-Windows-DotNETRuntime/ThreadPoolWorkerThread/Start` evento indica un subproceso que se agregan al grupo de subprocesos. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc  -->
+Se puede usar un generador de perfiles, como [PerfView](https://github.com/Microsoft/perfview), para buscar subprocesos que se agregan con frecuencia al [grupo de subprocesos](/windows/desktop/procthread/thread-pools). El evento `Microsoft-Windows-DotNETRuntime/ThreadPoolWorkerThread/Start` indica que un subproceso se ha agregado al grupo de subprocesos. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc)  -->
 
 ## <a name="minimize-large-object-allocations"></a>Minimizar las asignaciones de objetos grandes
 
-<!-- TODO review Bill - replaced original .NET language below with .NET Core since this targets .NET Core -->
-El [recolector de elementos no utilizados de .NET Core](/dotnet/standard/garbage-collection/) administra la asignación y liberación de memoria automáticamente en aplicaciones ASP.NET Core. Colección de elementos no utilizados automática generalmente significa que los desarrolladores no tienen que preocuparse por cómo y cuándo se libera memoria. Sin embargo, limpiar los objetos sin referencia necesita tiempo de CPU, por lo que los desarrolladores deben minimizar la asignación de objetos en ["hot" las rutas de código](#hot). Colección de elementos no utilizados es especialmente costosa en objetos grandes (bytes > 85 KB). Los objetos grandes se almacenan en el [montón de objetos grandes](/dotnet/standard/garbage-collection/large-object-heap) y requieren un completo (generación 2) recolección de elementos para limpiar. A diferencia de la generación 0 y recolecciones de generación 1, una recolección de generación 2 requiere una suspensión temporal de la ejecución de la aplicación. Frecuente asignación y desasignación de objetos grandes pueden provocar un rendimiento incoherente.
+El [recolector de elementos no utilizados de .net Core](/dotnet/standard/garbage-collection/) administra la asignación y liberación de memoria automáticamente en ASP.net Core aplicaciones. La recolección automática de elementos no utilizados normalmente significa que los desarrolladores no tienen que preocuparse de cómo o Cuándo se libera la memoria. No obstante, la limpieza de los objetos sin referencia supone tiempo de CPU, por lo que los desarrolladores deben minimizar la asignación de objetos en [rutas de acceso de código activas](#understand-hot-code-paths). La recolección de elementos no utilizados es especialmente costosa en objetos grandes (> 85 K bytes). Los objetos grandes se almacenan en el [montón de objetos grandes](/dotnet/standard/garbage-collection/large-object-heap) y requieren una recolección completa de elementos no utilizados (generación 2) para la limpieza. A diferencia de las colecciones de generación 0 y generación 1, una colección de generación 2 requiere una suspensión temporal de la ejecución de la aplicación. La asignación y cancelación de asignación frecuentes de objetos grandes pueden provocar un rendimiento incoherente.
 
-Recomendaciones:
+Tenida
 
-* **Hacer** considere la posibilidad de almacenamiento en caché de objetos grandes que se utilizan con frecuencia. Almacenamiento en caché de objetos grandes evita que las asignaciones de costosas.
-* **Hacer** grupo de búferes mediante el uso de un [ `ArrayPool<T>` ](/dotnet/api/system.buffers.arraypool-1) para almacenar matrices de gran tamaño.
-* **No** asignar muchos y de corta duración de objetos grandes en ["hot" las rutas de código](#hot).
+* **Considere la** posibilidad de almacenar en caché objetos grandes que se usan con frecuencia. Almacenar en caché objetos grandes evita asignaciones costosas.
+* Los búferes de **grupo se** usan con un [@no__t 2](/dotnet/api/system.buffers.arraypool-1) para almacenar matrices de gran tamaño.
+* **No** asigne muchos objetos grandes de corta duración en rutas de [acceso de código activas](#understand-hot-code-paths).
 
-Se pueden diagnosticar problemas de memoria, como los anteriores, revisando las estadísticas de elementos no utilizados (GC) de la colección en [PerfView](https://github.com/Microsoft/perfview) y examinar:
+Los problemas de memoria, como el anterior, se pueden diagnosticar revisando las estadísticas de la recolección de elementos no utilizados (GC) en [PerfView](https://github.com/Microsoft/perfview) y examinando:
 
-* Tiempo de pausa de la colección de elementos no utilizados.
-* ¿Qué porcentaje de tiempo del procesador se invierte en la recolección de elementos.
-* ¿Cuántas colecciones de elementos no utilizados son la generación 0, 1 y 2.
+* Tiempo de pausa de recolección de elementos no utilizados.
+* El porcentaje de tiempo del procesador se emplea en la recolección de elementos no utilizados.
+* Número de recolecciones de elementos no utilizados de la generación 0, 1 y 2.
 
-Para obtener más información, consulte [colección de elementos no utilizados y rendimiento](/dotnet/standard/garbage-collection/performance).
+Para obtener más información, consulte recolección [de elementos no utilizados y rendimiento](/dotnet/standard/garbage-collection/performance).
 
 ## <a name="optimize-data-access"></a>Optimizar el acceso a datos
 
-A menudo, las interacciones con un almacén de datos y otros servicios remotos son las partes más lentas de una aplicación ASP.NET Core. Leer y escribir datos de forma eficaz son fundamental para un buen rendimiento.
+Las interacciones con un almacén de datos y otros servicios remotos suelen ser las partes más lentas de una aplicación ASP.NET Core. Leer y escribir datos de forma eficaz es fundamental para lograr un buen rendimiento.
 
-Recomendaciones:
+Tenida
 
-* **Hacer** llamar a todas las API de acceso de datos de forma asincrónica.
-* **No** recuperar más datos que es necesario. Escribir consultas para devolver solamente los datos que es necesarios para la solicitud HTTP actual.
-* **Hacer** considere la posibilidad de almacenamiento en caché con frecuencia tiene acceso a los datos recuperados de una base de datos o servicio remoto si los datos obsoletos ligeramente están aceptables. Según el escenario, utilice un [MemoryCache](xref:performance/caching/memory) o un [DistributedCache](xref:performance/caching/distributed). Para obtener más información, consulta <xref:performance/caching/response>.
-* **Hacer** minimizar ida y vuelta de red. El objetivo es recuperar los datos necesarios en una sola llamada, en lugar de varias llamadas.
-* **Hacer** usar [consultas de no seguimiento](/ef/core/querying/tracking#no-tracking-queries) en Entity Framework Core al obtener acceso a datos de solo lectura. EF Core puede devolver los resultados de consultas no realizar un seguimiento de forma más eficaz.
-* **Hacer** agregadas consultas LINQ y filtro (con `.Where`, `.Select`, o `.Sum` las instrucciones, por ejemplo) para que el filtrado se realiza mediante la base de datos.
-* **Hacer** considere la posibilidad de que EF Core resuelve algunos operadores de consulta en el cliente, lo que puede provocar la ejecución de consultas ineficaces. Para obtener más información, consulte [problemas de rendimiento de evaluación de cliente](/ef/core/querying/client-eval#client-evaluation-performance-issues).
-* **No** utilizar consultas de proyección en colecciones, que pueden dar lugar a ejecución de "N + 1" consultas SQL. Para obtener más información, consulte [optimización de subconsultas correlacionadas](/ef/core/what-is-new/ef-core-2.1#optimization-of-correlated-subqueries).
+* **Llame a** todas las API de acceso a datos de forma asincrónica.
+* **No** recupere más datos de los necesarios. Escribir consultas para devolver solo los datos necesarios para la solicitud HTTP actual.
+* **Considere la** posibilidad de almacenar en caché los datos a los que se accede con frecuencia recuperados de una base de datos o servicio remoto si se aceptan ligeramente datos desactualizados. En función del escenario, use [MemoryCache](xref:performance/caching/memory) o [DistributedCache](xref:performance/caching/distributed). Para obtener más información, consulta <xref:performance/caching/response>.
+* **Minimice los** recorridos de ida y vuelta de red. El objetivo es recuperar los datos necesarios en una sola llamada en lugar de varias llamadas.
+* **Use** [consultas sin seguimiento](/ef/core/querying/tracking#no-tracking-queries) en Entity Framework Core al obtener acceso a los datos con fines de solo lectura. EF Core puede devolver los resultados de las consultas sin seguimiento de forma más eficaz.
+* **Filtre y** agregue consultas LINQ (con `.Where`, `.Select` o `.Sum`, por ejemplo) para que la base de datos realice el filtrado.
+* **Tenga en** cuenta que EF Core resuelve algunos operadores de consulta en el cliente, lo que puede provocar una ejecución de consulta ineficaz. Para obtener más información, vea [problemas de rendimiento de evaluación de cliente](/ef/core/querying/client-eval#client-evaluation-performance-issues).
+* **No** use consultas de proyección en colecciones, lo que puede dar como resultado la ejecución de consultas SQL "N + 1". Para obtener más información, vea [optimización de subconsultas correlacionadas](/ef/core/what-is-new/ef-core-2.1#optimization-of-correlated-subqueries).
 
-Consulte [EF de alto rendimiento](/ef/core/what-is-new/ef-core-2.0#explicitly-compiled-queries) enfoques que puede mejorar el rendimiento de aplicaciones a gran escala:
+Consulte [EF alto rendimiento](/ef/core/what-is-new/ef-core-2.0#explicitly-compiled-queries) para ver los enfoques que pueden mejorar el rendimiento en aplicaciones a gran escala:
 
 * [Agrupación de DbContext](/ef/core/what-is-new/ef-core-2.0#dbcontext-pooling)
-* [Consultas compiladas de manera explícita](/ef/core/what-is-new/ef-core-2.0#explicitly-compiled-queries)
+* [Consultas compiladas explícitamente](/ef/core/what-is-new/ef-core-2.0#explicitly-compiled-queries)
 
-Se recomienda medir el impacto de los enfoques de alto rendimiento anteriores antes de confirmar el código base. Es posible que la complejidad adicional de las consultas compiladas no justifiquen la mejora del rendimiento.
+Se recomienda medir el impacto de los enfoques de alto rendimiento anteriores antes de confirmar el código base. Es posible que la complejidad adicional de las consultas compiladas no justifique la mejora del rendimiento.
 
-Consulta se pueden detectar problemas revisando el tiempo dedicado a obtener acceso a datos con [Application Insights](/azure/application-insights/app-insights-overview) o con herramientas de generación de perfiles. La mayoría de las bases de datos también disponen de las estadísticas relativas a las consultas ejecutadas con frecuencia.
+Los problemas de consulta se pueden detectar revisando el tiempo empleado en acceder a los datos con [Application Insights](/azure/application-insights/app-insights-overview) o con las herramientas de generación de perfiles. La mayoría de las bases de datos también hacen que las estadísticas estén disponibles en relación con las consultas ejecutadas con frecuencia.
 
-## <a name="pool-http-connections-with-httpclientfactory"></a>Conexiones de grupo HTTP con HttpClientFactory
+## <a name="pool-http-connections-with-httpclientfactory"></a>Agrupar conexiones HTTP con HttpClientFactory
 
-Aunque [HttpClient](/dotnet/api/system.net.http.httpclient) implementa el `IDisposable` interfaz, está diseñado para su reutilización. Cerrado `HttpClient` instancias deje sockets abiertos en el `TIME_WAIT` estado durante un breve período de tiempo. Si una ruta de acceso del código que crea y se desecha `HttpClient` objetos se usa con frecuencia, la aplicación puede agotar sockets disponibles. [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) se introdujo en ASP.NET Core 2.1 como una solución a este problema. Controla la agrupación de conexiones de HTTP para optimizar el rendimiento y confiabilidad.
+Aunque [HttpClient](/dotnet/api/system.net.http.httpclient) implementa la interfaz `IDisposable`, se ha diseñado para su reutilización. Las instancias cerradas `HttpClient` dejan los sockets abiertos en el estado `TIME_WAIT` durante un breve período de tiempo. Si se usa con frecuencia una ruta de código que crea y desecha objetos `HttpClient`, la aplicación puede agotar los sockets disponibles. [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) se presentó en ASP.net Core 2,1 como solución para este problema. Controla las conexiones HTTP de agrupación para optimizar el rendimiento y la confiabilidad.
 
-Recomendaciones:
+Tenida
 
-* **No** crear y eliminar `HttpClient` instancias directamente.
-* **Hacer** usar [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) para recuperar `HttpClient` instancias. Para obtener más información, consulte [HttpClientFactory de uso para implementar las solicitudes HTTP resistentes](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
+* **No** cree ni elimine instancias de `HttpClient` directamente.
+* **Use** [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) para recuperar instancias de `HttpClient`. Para obtener más información, consulte [uso de HttpClientFactory para implementar solicitudes HTTP resistentes](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
-## <a name="keep-common-code-paths-fast"></a>Mantener las rutas de código comunes rápidas
+## <a name="keep-common-code-paths-fast"></a>Mantenga las rutas de acceso de código comunes con rapidez
 
-Desea que todo el código que se llame rápidas, con frecuencia las rutas de código son los más importantes para optimizar:
+Desea que todo el código sea rápido, a menudo denominado rutas de acceso de código, lo más importante es optimizar:
 
-* Componentes de middleware en la canalización de procesamiento de solicitudes de la aplicación, especialmente middleware que se ejecute al principio de la canalización. Estos componentes tienen un gran impacto en el rendimiento.
-* Código que se ejecuta para cada solicitud o varias veces por solicitud. Por ejemplo, el registro personalizado, los controladores de autorización o inicialización de los servicios transitorios.
+* Los componentes de middleware en la canalización de procesamiento de solicitudes de la aplicación, especialmente el middleware se ejecutan al principio de la canalización. Estos componentes tienen un gran impacto en el rendimiento.
+* Código que se ejecuta para cada solicitud o varias veces por solicitud. Por ejemplo, registro personalizado, controladores de autorización o inicialización de servicios transitorios.
 
-Recomendaciones:
+Tenida
 
-* **No** usar componentes de middleware personalizado con tareas de ejecución prolongada.
-* **Hacer** usar herramientas de generación de perfiles como [herramientas de diagnóstico de Visual Studio](/visualstudio/profiling/profiling-feature-tour) o [PerfView](https://github.com/Microsoft/perfview)), para identificar ["hot" las rutas de código](#hot).
+* **No** use componentes de middleware personalizados con tareas de ejecución prolongada.
+* **Use herramientas** de generación de perfiles de rendimiento, como [Visual Studio herramientas de diagnóstico](/visualstudio/profiling/profiling-feature-tour) o [PerfView](https://github.com/Microsoft/perfview)), para identificar las rutas de [acceso de código activas](#understand-hot-code-paths).
 
-## <a name="complete-long-running-tasks-outside-of-http-requests"></a>Completar larga tareas fuera de las solicitudes HTTP
+## <a name="complete-long-running-tasks-outside-of-http-requests"></a>Completar tareas de ejecución prolongada fuera de las solicitudes HTTP
 
-La mayoría de las solicitudes a una aplicación ASP.NET Core pueden controlarse mediante un controlador o un modelo de página de una llamada a los servicios necesarios y devolver una respuesta HTTP. Para algunas solicitudes que implican las tareas de larga ejecución, es mejor facilitar el proceso de respuesta de solicitud completa asincrónica.
+La mayoría de las solicitudes a una aplicación ASP.NET Core pueden controlarse mediante un modelo de página o controlador que llama a los servicios necesarios y devuelve una respuesta HTTP. En el caso de algunas solicitudes que implican tareas de ejecución prolongada, es mejor hacer que todo el proceso de solicitud-respuesta sea asincrónico.
 
-Recomendaciones:
+Tenida
 
-* **No** esperar a las tareas de ejecución prolongada llevar a cabo como parte del procesamiento normal de la solicitud HTTP.
-* **Hacer** considere la posibilidad de controlar las solicitudes de ejecución prolongada con [servicios en segundo plano](xref:fundamentals/host/hosted-services) o fuera de proceso con un [Azure Function](/azure/azure-functions/). Completar fuera de proceso de trabajo es especialmente útil para las tareas que consumen más CPU.
-* **Hacer** usar opciones de comunicación en tiempo real, como [SignalR](xref:signalr/introduction), para comunicarse con clientes de forma asincrónica.
+* **No** espere a que se completen las tareas de ejecución prolongada como parte del procesamiento de solicitudes HTTP normales.
+* **Considere la** posibilidad de controlar las solicitudes de ejecución prolongada con [servicios en segundo plano](xref:fundamentals/host/hosted-services) o fuera de proceso con una [función de Azure](/azure/azure-functions/). Completar el trabajo fuera de proceso es especialmente útil para las tareas de uso intensivo de la CPU.
+* **Utilice opciones** de comunicación en tiempo real, como [signalr](xref:signalr/introduction), para comunicarse con los clientes de forma asincrónica.
 
-## <a name="minify-client-assets"></a>Minimizar los recursos del cliente
+## <a name="minify-client-assets"></a>Activos de cliente de minimizar
 
-Aplicaciones ASP.NET Core con servidores front-end complejo con frecuencia servir muchos archivos de imagen, CSS o JavaScript. Puede mejorar el rendimiento de las solicitudes de carga inicial por:
+ASP.NET Core aplicaciones con servidores front-end complejos suelen servir muchos archivos de JavaScript, CSS o image. El rendimiento de las solicitudes de carga inicial se puede mejorar:
 
-* La unión, que combina varios archivos en uno.
-* Minificar, lo que reduce el tamaño de archivos mediante la eliminación de espacio en blanco y comentarios.
+* Agrupación, que combina varios archivos en uno.
+* Minificar, que reduce el tamaño de los archivos quitando el espacio en blanco y los comentarios.
 
-Recomendaciones:
+Tenida
 
-* **Hacer** usar ASP.NET Core [compatibilidad integrada con](xref:client-side/bundling-and-minification) para agrupar y minificar recursos del cliente.
-* **Hacer** considere la posibilidad de otras herramientas de terceros, como [Webpack](https://webpack.js.org/), compleja administración de clientes activos.
+* **Use la** [compatibilidad integrada](xref:client-side/bundling-and-minification) de ASP.net Core para la agrupación y la minificar de los recursos de cliente.
+* **Tenga en** cuenta otras herramientas de terceros, como [WebPack](https://webpack.js.org/), para la administración de activos de clientes complejos.
 
-## <a name="compress-responses"></a>Comprimir las respuestas
+## <a name="compress-responses"></a>Comprimir respuestas
 
- Reducir el tamaño de la respuesta normalmente aumenta la capacidad de respuesta de una aplicación, a menudo drásticamente. Una forma de reducir los tamaños de carga es comprimir las respuestas de una aplicación. Para obtener más información, consulte [compresión de respuesta](xref:performance/response-compression).
+ Reducir el tamaño de la respuesta normalmente aumenta la capacidad de respuesta de una aplicación, a menudo drásticamente. Una manera de reducir los tamaños de carga es comprimir las respuestas de una aplicación. Para obtener más información, vea [compresión de respuesta](xref:performance/response-compression).
 
-## <a name="use-the-latest-aspnet-core-release"></a>Use la versión más reciente de ASP.NET Core
+## <a name="use-the-latest-aspnet-core-release"></a>Usar la versión más reciente del ASP.NET Core
 
-Cada nueva versión de ASP.NET Core incluye mejoras de rendimiento. Las optimizaciones en .NET Core y ASP.NET Core significan que las versiones más recientes generalmente superan las versiones anteriores. Por ejemplo, .NET Core 2.1 agrega compatibilidad para expresiones regulares compiladas y saca partido de [ `Span<T>` ](https://msdn.microsoft.com/magazine/mt814808.aspx). Compatibilidad de ASP.NET Core 2.2 agregado para HTTP/2. Si el rendimiento es una prioridad, considere la posibilidad de actualizar a la versión actual de ASP.NET Core.
+Cada nueva versión de ASP.NET Core incluye mejoras de rendimiento. Las optimizaciones en .NET Core y ASP.NET Core significan que las versiones más recientes superan normalmente las versiones anteriores. Por ejemplo, .NET Core 2,1 agregó compatibilidad con las expresiones regulares compiladas y benefitted desde [`Span<T>`](https://msdn.microsoft.com/magazine/mt814808.aspx). ASP.NET Core 2,2 agrega compatibilidad con HTTP/2. [ASP.NET Core 3,0 agrega muchas mejoras](xref:aspnetcore-3.0) que reducen el uso de memoria y mejoran el rendimiento. Si el rendimiento es una prioridad, considere la posibilidad de actualizar a la versión actual de ASP.NET Core.
 
-<!-- TODO review link and taking advantage of new [performance features](#TBD)
-Maybe skip this TBD link as each version will have perf improvements -->
+## <a name="minimize-exceptions"></a>Minimizar excepciones
 
-## <a name="minimize-exceptions"></a>Minimizar las excepciones
+Las excepciones deben ser poco frecuentes. Iniciar y detectar excepciones es lento con respecto a otros patrones de flujo de código. Por este motivo, las excepciones no se deben utilizar para controlar el flujo de programa normal.
 
-Las excepciones deben ser poco frecuentes. Iniciar y detectar excepciones son lento en relación con otros patrones de flujo de código. Por este motivo, las excepciones no deben utilizarse para controlar el flujo normal del programa.
+Tenida
 
-Recomendaciones:
+* **No** use las excepciones de inicio o detección como medio de flujo de programa normal, especialmente en las [rutas de acceso de código activas](#understand-hot-code-paths).
+* **Incluya lógica** en la aplicación para detectar y controlar las condiciones que provocarían una excepción.
+* Se **producen excepciones** Throw o catch para condiciones inusuales o inesperadas.
 
-* **No** uso lanzar o capturar excepciones como medio de flujo del programa normal, especialmente en ["hot" las rutas de código](#hot).
-* **Hacer** incluir lógica en la aplicación para detectar y controlar las condiciones que podrían provocar una excepción.
-* **Hacer** producir o detectar las excepciones para las condiciones inusuales o inesperadas.
+Las herramientas de diagnóstico de aplicaciones, como Application Insights, pueden ayudar a identificar excepciones comunes en una aplicación que pueden afectar al rendimiento.
 
-Herramientas de diagnóstico de aplicaciones, como Application Insights, pueden ayudar a identificar las excepciones comunes en una aplicación que puede afectar al rendimiento.
+## <a name="performance-and-reliability"></a>Rendimiento y confiabilidad
+
+En las secciones siguientes se proporcionan sugerencias de rendimiento y soluciones y problemas de confiabilidad conocidos.
+
+## <a name="avoid-synchronous-read-or-write-on-httprequesthttpresponse-body"></a>Evitar leer o escribir sincrónicos en el cuerpo HttpRequest/HttpResponse
+
+Todas las e/s en ASP.NET Core son asincrónicas. Los servidores implementan la interfaz `Stream`, que tiene sobrecargas sincrónicas y asincrónicas. Los asincrónicos deben ser preferibles para evitar el bloqueo de subprocesos de grupo de subprocesos. Los subprocesos de bloqueo pueden provocar colapsos de grupos de subprocesos.
+
+**No lo haga:** El ejemplo siguiente usa el <xref:System.IO.StreamReader.ReadToEnd*>. Bloquea el subproceso actual para esperar el resultado. Este es un ejemplo de [sync a través de Async @ no__t-1.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/MyFirstController.cs?name=snippet1)]
+
+En el código anterior, `Get` Lee sincrónicamente el cuerpo completo de la solicitud HTTP en la memoria. Si el cliente se está cargando lentamente, la aplicación está realizando la sincronización a través de Async. La aplicación se sincroniza a través de Async porque Kestrel **no admite lecturas** sincrónicas.
+
+**Haga lo siguiente:** En el ejemplo siguiente se usa <xref:System.IO.StreamReader.ReadToEndAsync*> y no bloquea el subproceso mientras se lee.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/MyFirstController.cs?name=snippet2)]
+
+El código anterior Lee asincrónicamente el cuerpo completo de la solicitud HTTP en la memoria.
+
+> [!WARNING]
+> Si la solicitud es grande, leer el cuerpo completo de la solicitud HTTP en la memoria podría producir una condición de memoria insuficiente (OOM). OOM puede producir una denegación de servicio.  Para obtener más información, consulte [evitar la lectura de cuerpos de solicitud grandes o cuerpos de respuesta](#arlb) en la memoria de este documento.
+
+**Haga lo siguiente:** El ejemplo siguiente es totalmente asincrónico mediante un cuerpo de solicitud no almacenado en búfer:
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/MyFirstController.cs?name=snippet3)]
+
+El código anterior Lee asincrónicamente el cuerpo completo de la solicitud HTTP en la memoria.
+
+> [!WARNING]
+> Si la solicitud es grande, leer el cuerpo completo de la solicitud HTTP en la memoria podría producir una condición de memoria insuficiente (OOM). OOM puede producir una denegación de servicio.  Para obtener más información, consulte [evitar la lectura de cuerpos de solicitud grandes o cuerpos de respuesta](#arlb) en la memoria de este documento.
+
+## <a name="prefer-readformasync-over-requestform"></a>Preferir ReadFormAsync sobre solicitud. formulario
+
+Use `HttpContext.Request.ReadFormAsync` en lugar de `HttpContext.Request.Form`.
+`HttpContext.Request.Form` solo se puede leer de forma segura con las siguientes condiciones:
+
+* Una llamada a `ReadFormAsync` ha leído el formulario y
+* El valor del formulario almacenado en caché se está leyendo mediante `HttpContext.Request.Form`
+
+**No lo haga:** En el ejemplo siguiente se usa `HttpContext.Request.Form`.  `HttpContext.Request.Form` usa [sync a través de Async @ no__t-2 y puede conducir a la colapso del grupo de subprocesos.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/MySecondController.cs?name=snippet1)]
+
+**Haga lo siguiente:** En el ejemplo siguiente se usa `HttpContext.Request.ReadFormAsync` para leer el cuerpo del formulario de forma asincrónica.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/MySecondController.cs?name=snippet2)]
+
+<a name="arlb"></a>
+
+## <a name="avoid-reading-large-request-bodies-or-response-bodies-into-memory"></a>Evite leer cuerpos de solicitud o cuerpos de respuesta de gran tamaño en la memoria
+
+En .NET, cada asignación de objetos superior a 85 KB termina en el montón de objetos grandes ([montón](https://blogs.msdn.microsoft.com/maoni/2006/04/19/large-object-heap/)). Los objetos grandes son caros de dos maneras:
+
+* El costo de asignación es alto porque la memoria de un objeto grande recién asignado tiene que borrarse. CLR garantiza que se borra la memoria para todos los objetos recién asignados.
+* El montón se recopila con el resto del montón. El montón de elementos requiere una recolección completa de [elementos no utilizados](/dotnet/standard/garbage-collection/fundamentals) o una [colección](/dotnet/standard/garbage-collection/fundamentals#generations)de la segunda.
+
+En esta [entrada de blog](https://adamsitnik.com/Array-Pool/#the-problem) se describe el problema brevemente:
+
+> Cuando se asigna un objeto grande, se marca como objeto de gen. 2. No gen 0 como para objetos pequeños. Las consecuencias son que, si se queda sin memoria en el montón de información, el GC limpia todo el montón administrado, no solo un montón de montón. De este modo, limpia la generación 0, la generación 1 y la generación 2, incluido el montón de negocio. Esto se conoce como recolección de elementos no utilizados completa y es la recolección de elementos no utilizados más prolongada. Para muchas aplicaciones, puede ser aceptable. Pero definitivamente no para servidores Web de alto rendimiento, donde se necesitan pocos búferes de gran tamaño para controlar una solicitud Web media (leer de un socket, descomprimir, descodificar JSON & más).
+
+Almacenar de un cuerpo de solicitud o de respuesta de gran tamaño en un único `byte[]` o `string`:
+
+* Puede dar lugar a un espacio insuficiente en el montón.
+* Puede producir problemas de rendimiento de la aplicación debido a la ejecución de GC completos.
+
+## <a name="working-with-a-synchronous-data-processing-api"></a>Trabajar con una API de procesamiento de datos sincrónicos
+
+Cuando se usa un serializador/deserializador que solo admite lecturas y escrituras sincrónicas (por ejemplo, [JSON.net](https://www.newtonsoft.com/json/help/html/Introduction.htm)):
+
+* Almacene los datos en memoria de forma asincrónica antes de pasarlos al serializador/deserializador.
+
+> [!WARNING]
+> Si la solicitud es grande, puede dar lugar a una condición de memoria insuficiente (OOM). OOM puede producir una denegación de servicio.  Para obtener más información, consulte [evitar la lectura de cuerpos de solicitud grandes o cuerpos de respuesta](#arlb) en la memoria de este documento.
+
+ASP.NET Core 3,0 usa <xref:System.Text.Json> de forma predeterminada para la serialización de JSON. <xref:System.Text.Json>:
+
+* Lee y escribe JSON de forma asincrónica.
+* Está optimizado para texto UTF-8.
+* Normalmente, mayor rendimiento que `Newtonsoft.Json`.
+
+## <a name="do-not-store-ihttpcontextaccessorhttpcontext-in-a-field"></a>No almacenar IHttpContextAccessor. HttpContext en un campo
+
+[IHttpContextAccessor. HttpContext](xref:Microsoft.AspNetCore.Http.IHttpContextAccessor.HttpContext) devuelve el `HttpContext` de la solicitud activa cuando se tiene acceso a ella desde el subproceso de solicitud. El `IHttpContextAccessor.HttpContext` **no** se debe almacenar en un campo o variable.
+
+**No lo haga:** En el ejemplo siguiente se almacena el `HttpContext` en un campo y, a continuación, se intenta usarlo más adelante.
+
+[!code-csharp[](performance-best-practices/samples/3.0/MyType.cs?name=snippet1)]
+
+Con frecuencia, el código anterior captura un valor null o incorrecto `HttpContext` en el constructor.
+
+**Haga lo siguiente:** En el ejemplo siguiente:
+
+* Almacena el <xref:Microsoft.AspNetCore.Http.IHttpContextAccessor> en un campo.
+* Utiliza el campo `HttpContext` en el momento correcto y comprueba `null`.
+
+[!code-csharp[](performance-best-practices/samples/3.0/MyType.cs?name=snippet2)]
+
+## <a name="do-not-access-httpcontext-from-multiple-threads"></a>No tener acceso a HttpContext desde varios subprocesos
+
+`HttpContext` *no* es seguro para subprocesos. El acceso a `HttpContext` desde varios subprocesos en paralelo puede dar lugar a un comportamiento indefinido, como bloqueos, bloqueos y daños en los datos.
+
+**No lo haga:** En el ejemplo siguiente se realizan tres solicitudes paralelas y se registra la ruta de acceso de la solicitud entrante antes y después de la solicitud HTTP de salida. Se tiene acceso a la ruta de acceso de la solicitud desde varios subprocesos, potencialmente en paralelo.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/AsyncFirstController.cs?name=snippet1&highlight=25,28)]
+
+**Haga lo siguiente:** En el ejemplo siguiente se copian todos los datos de la solicitud entrante antes de efectuar las tres solicitudes paralelas.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/AsyncFirstController.cs?name=snippet2&highlight=6,8,22,28)]
+
+## <a name="do-not-use-the-httpcontext-after-the-request-is-complete"></a>No usar HttpContext una vez completada la solicitud
+
+`HttpContext` solo es válido mientras haya una solicitud HTTP activa en la canalización de ASP.NET Core. Toda la canalización de ASP.NET Core es una cadena asincrónica de delegados que ejecuta cada solicitud. Cuando se completa el `Task` devuelto desde esta cadena, se recicla el `HttpContext`.
+
+**No lo haga:** En el ejemplo siguiente se usa `async void`:
+
+* Que **siempre** es una práctica incorrecta en ASP.net Core aplicaciones.
+* Obtiene acceso a la `HttpResponse` una vez completada la solicitud HTTP.
+* Bloquea el proceso.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/AsyncBadVoidController.cs?name=snippet1)]
+
+**Haga lo siguiente:** En el ejemplo siguiente se devuelve un `Task` al marco de trabajo para que la solicitud HTTP no se complete hasta que se complete la acción.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/AsyncSecondController.cs?name=snippet1)]
+
+## <a name="do-not-capture-the-httpcontext-in-background-threads"></a>No capturar el HttpContext en subprocesos en segundo plano
+
+**No lo haga:** En el ejemplo siguiente se muestra un cierre que captura el `HttpContext` de la propiedad `Controller`. Esta es una práctica incorrecta porque el elemento de trabajo podría:
+
+* Ejecutarse fuera del ámbito de la solicitud.
+* Intento de leer el @no__t incorrecto-0.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetFirstController.cs?name=snippet1)]
+
+**Haga lo siguiente:** En el ejemplo siguiente:
+
+* Copia los datos necesarios en la tarea en segundo plano durante la solicitud.
+* No hace referencia a nada del controlador.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetFirstController.cs?name=snippet2)]
+
+## <a name="do-not-capture-services-injected-into-the-controllers-on-background-threads"></a>No capturar servicios insertados en los controladores de subprocesos en segundo plano
+
+**No lo haga:** En el ejemplo siguiente se muestra un cierre que captura el `DbContext` desde el parámetro de acción `Controller`. Esta es una práctica incorrecta.  El elemento de trabajo se puede ejecutar fuera del ámbito de la solicitud. El ámbito de `ContosoDbContext` es la solicitud, lo que da como resultado un `ObjectDisposedException`.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet1)]
+
+**Haga lo siguiente:** En el ejemplo siguiente:
+
+* Inserta un <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> para crear un ámbito en el elemento de trabajo en segundo plano. `IServiceScopeFactory` es un singleton.
+* Crea un nuevo ámbito de inserción de dependencias en el subproceso en segundo plano.
+* No hace referencia a nada del controlador.
+* No captura el `ContosoDbContext` de la solicitud entrante.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet2)]
+
+El siguiente código resaltado:
+
+* Crea un ámbito para la duración de la operación en segundo plano y resuelve los servicios de la misma.
+* Utiliza `ContosoDbContext` del ámbito correcto.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet2&highlight=9-16)]
+
+## <a name="do-not-modify-the-status-code-or-headers-after-the-response-body-has-started"></a>No modifique el código de estado ni los encabezados una vez iniciado el cuerpo de la respuesta.
+
+ASP.NET Core no almacena en búfer el cuerpo de la respuesta HTTP. La primera vez que se escribe la respuesta:
+
+* Los encabezados se envían junto con ese fragmento del cuerpo al cliente.
+* Ya no es posible cambiar los encabezados de respuesta.
+
+**No lo haga:** El código siguiente intenta agregar encabezados de respuesta una vez que ya se ha iniciado la respuesta:
+
+[!code-csharp[](performance-best-practices/samples/3.0/Startup22.cs?name=snippet1)]
+
+En el código anterior, `context.Response.Headers["test"] = "test value";` producirá una excepción si `next()` ha escrito en la respuesta.
+
+**Haga lo siguiente:** En el ejemplo siguiente se comprueba si la respuesta HTTP se ha iniciado antes de modificar los encabezados.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Startup22.cs?name=snippet2)]
+
+**Haga lo siguiente:** En el ejemplo siguiente se usa `HttpResponse.OnStarting` para establecer los encabezados antes de que los encabezados de respuesta se vacíen en el cliente.
+
+La comprobación de si la respuesta no se ha iniciado permite registrar una devolución de llamada que se invocará justo antes de que se escriban los encabezados de respuesta. Comprobando si la respuesta no se ha iniciado:
+
+* Proporciona la capacidad de anexar o invalidar los encabezados Just-in-Time.
+* No es necesario conocer el siguiente middleware de la canalización.
+
+[!code-csharp[](performance-best-practices/samples/3.0/Startup22.cs?name=snippet3)]
+
+## <a name="do-not-call-next-if-you-have-already-started-writing-to-the-response-body"></a>No llame a Next () si ya ha empezado a escribir en el cuerpo de la respuesta.
+
+Los componentes solo esperan ser llamados si es posible que puedan controlar y manipular la respuesta.
