@@ -1,18 +1,18 @@
 ---
 title: Registros en .NET Core y ASP.NET Core
-author: tdykstra
+author: rick-anderson
 description: Obtenga información sobre cómo usar la plataforma de registro proporcionada por el paquete NuGet Microsoft.Extensions.Logging.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/08/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 9f7b39cc1c557356b75608817db4e8d6f61af794
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 697e6cf0cd1b51ad6c2942e21bc084d1fe6bfa4e
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007025"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259737"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registros en .NET Core y ASP.NET Core
 
@@ -22,7 +22,7 @@ Por [Tom Dykstra](https://github.com/tdykstra) y [Steve Smith](https://ardalis.c
 
 ::: moniker range=">= aspnetcore-3.0"
 
-La mayoría de los ejemplos de código que se muestran en este artículo son de aplicaciones de ASP.NET Core. Las partes específicas de registro de estos fragmentos de código son válidas para cualquier aplicación de .NET Core que use el [host genérico](xref:fundamentals/host/generic-host). Para obtener información sobre cómo usar el host genérico en aplicaciones de consola que no sean de web, vea [Servicios hospedados](xref:fundamentals/host/hosted-services).
+La mayoría de los ejemplos de código que se muestran en este artículo son de aplicaciones de ASP.NET Core. Las partes específicas de registro de estos fragmentos de código son válidas para cualquier aplicación de .NET Core que use el [host genérico](xref:fundamentals/host/generic-host). Para obtener información sobre cómo usar el host genérico en aplicaciones de consola que no sean de web, vea [Servicios hospedados](xref:fundamentals/host/hosted-services).
 
 El código de registro para las aplicaciones sin un host genérico es distinto en la forma en que se [agregan los proveedores](#add-providers) y [se crean los registradores](#create-logs). Los ejemplos de código que no sean de host se muestran en esas secciones del artículo.
 
@@ -392,10 +392,14 @@ ASP.NET Core define los niveles de registro siguientes, que aquí se ordenan de 
 
   Para los errores que requieren atención inmediata. Ejemplos: escenarios de pérdida de datos, espacio en disco insuficiente.
 
-Use el nivel de registro para controlar la cantidad de salida del registro que se escribe en un medio de almacenamiento determinado o ventana de presentación. Por ejemplo: 
+Use el nivel de registro para controlar la cantidad de salida del registro que se escribe en un medio de almacenamiento determinado o ventana de presentación. Por ejemplo:
 
-* En producción, envíe `Trace` a través del nivel `Information` a un almacén de datos de volumen. Envíe `Warning` a través de `Critical` a un almacén de datos de valor.
-* Durante el desarrollo, envíe `Warning` a través de `Critical` a la consola y agregue `Trace` a través de `Information` cuando solucione problemas.
+* En producción:
+  * El registro en los niveles `Trace` a `Information` genera un gran volumen de mensajes de registro detallados. Para controlar los costos y no superar los límites de almacenamiento de datos, registre los mensajes de nivel `Trace` a `Information` en un almacén de datos de alto volumen y bajo costo.
+  * El registro en los niveles `Warning` a `Critical` normalmente produce menos mensajes de registro y de menor tamaño. Por lo tanto, los costos y los límites de almacenamiento no suelen ser un problema, lo que da lugar a una mayor flexibilidad a la hora de elegir el almacén de datos.
+* Durante el desarrollo:
+  * Registre los mensajes `Warning` a `Critical` en la consola.
+  * Agregue los mensajes `Trace` a `Information` al solucionar problemas.
 
 En la sección [Filtrado del registro](#log-filtering) de este artículo se explica cómo controlar los niveles de registro que controla un proveedor.
 
@@ -679,7 +683,7 @@ Si no establece explícitamente el nivel mínimo, el valor predeterminado es `In
 
 ### <a name="filter-functions"></a>Funciones de filtro
 
-Se invoca una función de filtro para todos los proveedores y categorías que no tienen reglas asignadas mediante configuración o código. El código de la función tiene acceso al tipo de proveedor, la categoría y el nivel de registro. Por ejemplo: 
+Se invoca una función de filtro para todos los proveedores y categorías que no tienen reglas asignadas mediante configuración o código. El código de la función tiene acceso al tipo de proveedor, la categoría y el nivel de registro. Por ejemplo:
 
 ::: moniker range=">= aspnetcore-3.0"
 

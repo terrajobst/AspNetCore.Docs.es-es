@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/08/2019
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 5d02e1eb37693881d5b1855e1ed163590d8a44d3
-ms.sourcegitcommit: fcdf9aaa6c45c1a926bd870ed8f893bdb4935152
+ms.openlocfilehash: 8f5c3aabf17e78ae9675048602317c54f08e82a7
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165312"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259818"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware de ASP.NET Core
 
@@ -154,7 +154,7 @@ public void Configure(IApplicationBuilder app)
 1. Control de errores y excepciones
    * Cuando la aplicación se ejecuta en el entorno de desarrollo:
      * El middleware de la página de excepciones para el desarrollador (<xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*>) informa los errores en tiempo de ejecución de la aplicación.
-     * El middleware de la página de errores de la base de datos (<xref:Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage*>) informa los errores en tiempo de ejecución de la base de datos.
+     * El middleware de la página de errores de la base de datos (`Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage`) informa los errores en tiempo de ejecución de la base de datos.
    * Cuando la aplicación se ejecuta en el entorno de producción:
      * El middleware del controlador de excepciones (<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>) detecta las excepciones generadas en los middlewares siguientes.
      * El middleware del protocolo de seguridad de transporte estricta de HTTP (HSTS) (<xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*>) agrega el encabezado `Strict-Transport-Security`.
