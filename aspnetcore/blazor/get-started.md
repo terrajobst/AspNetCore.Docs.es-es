@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/25/2019
 uid: blazor/get-started
-ms.openlocfilehash: 5aec91eff7de0732a47fec1aafa5e094c89c37a4
-ms.sourcegitcommit: 14b25156e34c82ed0495b4aff5776ac5b1950b5e
+ms.openlocfilehash: ef9113dbfdbbd5920c4358cdac0c77c60f40b7c8
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71295442"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72288798"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Introducción a ASP.NET Core extraordinarias
 
@@ -42,7 +42,7 @@ Introducción a más increíble:
 
    4 \. Proporcione un nombre para el proyecto en el campo **Nombre del proyecto** o acepte el predeterminado. Confirme que la entrada de **Ubicación** es correcta o proporcione una ubicación para el proyecto. Seleccione **Crear**.
 
-   5 \. Para disfrutar de una experiencia de webassembly increíblemente rápida, elija la plantilla de **aplicación de Webassemble más brillante** . Para obtener una experiencia de servidor increíblemente rápida, elija la plantilla de **aplicación de servidor de extraordinarias** . Seleccione **Crear**. Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, vea <xref:blazor/hosting-models>.
+   5 \. Para disfrutar de una experiencia de webassembly increíblemente rápida, elija la plantilla de **aplicación de Webassemble más brillante** . Para obtener una experiencia de servidor increíblemente rápida, elija la plantilla de **aplicación de servidor de extraordinarias** . Seleccione **Crear**. Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte @no__t 2.
 
    6 \. Presione **F5** para ejecutar la aplicación.
 
@@ -67,13 +67,13 @@ Introducción a más increíble:
       dotnet new blazorserver -o WebApplication1
       ```
 
-      Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, vea <xref:blazor/hosting-models>.
+      Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte @no__t 2.
 
    4 \. Abra la carpeta *WebApplication1* en Visual Studio Code.
 
    5 \. En el caso de un proyecto de servidor más rápido, el IDE solicita que agregue recursos para compilar y depurar el proyecto. Seleccione **Sí**.
 
-   6 \. Si usa una aplicación de servidor más brillante, ejecute la aplicación con el depurador de Visual Studio Code. Si usa una aplicación webassembly increíblemente, ejecute `dotnet run` desde la carpeta de proyecto de la aplicación.
+   6 \. Si usa una aplicación de servidor más brillante, ejecute la aplicación con el depurador de Visual Studio Code. Si usa una aplicación de webassembly increíblemente alta, ejecute `dotnet run` desde la carpeta de proyecto de la aplicación.
 
    7 \. En un navegador, vaya a `https://localhost:5001`.
 
@@ -115,7 +115,7 @@ Introducción a más increíble:
    dotnet run
    ```
 
-   Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, vea <xref:blazor/hosting-models>.
+   Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte @no__t 2.
 
    En un navegador, vaya a `https://localhost:5001`.
 
@@ -127,47 +127,47 @@ Hay varias páginas disponibles en las pestañas de la barra lateral:
 * Contador
 * Capturar datos
 
-En la página Contador, seleccione el botón **Click me** para aumentar el contador sin una actualización de página. El incremento de un contador en una página web normalmente requiere la escritura de JavaScript, pero los componentes de C#Razor proporcionan un enfoque mejor mediante.
+En la página Contador, seleccione el botón **Click me** para aumentar el contador sin una actualización de página. El incremento de un contador en una página web normalmente requiere la escritura de JavaScript, pero con el C#aumento de la carga que puede usar.
 
 *Pages/Counter.razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Counter1.razor?highlight=7,12-15)]
 
-Una solicitud de `/counter` en el explorador, tal como se especifica `@page` en la Directiva en la parte superior `Counter` , hace que el componente represente su contenido. Los componentes se representan en una representación en memoria del árbol de representación que se puede usar para actualizar la interfaz de usuario de una forma flexible y eficaz.
+Una solicitud de `/counter` en el explorador, tal como la especifica la Directiva `@page` en la parte superior, hace que el componente `Counter` represente su contenido. Los componentes se representan en una representación en memoria del árbol de representación que se puede usar para actualizar la interfaz de usuario de una forma flexible y eficaz.
 
 Cada vez que se selecciona el botón **click me** :
 
-* Se `onclick` desencadena el evento.
+* Se desencadena el evento `onclick`.
 * Se llama al método `IncrementCount` .
-* `currentCount` Se incrementa.
+* Se incrementa el `currentCount`.
 * El componente se representará de nuevo.
 
 El tiempo de ejecución compara el nuevo contenido con el contenido anterior y solo aplica el contenido cambiado al Document Object Model (DOM).
 
-Agregar un componente a otro componente mediante la sintaxis HTML. Por ejemplo, agregue el `Counter` componente a la Página principal de la aplicación agregando un `<Counter />` elemento `Index` al componente.
+Agregar un componente a otro componente mediante la sintaxis HTML. Por ejemplo, agregue el componente `Counter` a la Página principal de la aplicación agregando un elemento `<Counter />` al componente `Index`.
 
 *Pages/Index.razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
-Ejecutar la aplicación. La Página principal tiene su propio contador proporcionado por `Counter` el componente.
+Ejecute la aplicación. La Página principal tiene su propio contador proporcionado por el componente `Counter`.
 
-Los parámetros de componente se especifican mediante atributos o [contenido secundario](xref:blazor/components#child-content), que permiten establecer propiedades en el componente secundario. Para agregar un parámetro al `Counter` componente, actualice el bloque del `@code` componente:
+Los parámetros de componente se especifican mediante atributos o [contenido secundario](xref:blazor/components#child-content), que permiten establecer propiedades en el componente secundario. Para agregar un parámetro al componente `Counter`, actualice el bloque `@code` del componente:
 
-* Agregue una propiedad pública para `IncrementAmount` con un `[Parameter]` atributo.
+* Agregue una propiedad pública para `IncrementAmount` con un atributo `[Parameter]`.
 * Cambie el método `IncrementCount` para usar `IncrementAmount` al aumentar el valor de `currentCount`.
 
 *Pages/Counter.razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Counter2.razor?highlight=12-13,17)]
 
-Especifique en el `Index` elemento del `<Counter>` componente mediante un atributo. `IncrementAmount`
+Especifique el `IncrementAmount` en el elemento `<Counter>` del componente `Index` mediante un atributo.
 
 *Pages/Index.razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-Ejecutar la aplicación. El `Index` componente tiene su propio contador que se incrementa en diez cada vez que se selecciona el botón **click me** . El `Counter` componente (*Counter. Razor*) de `/counter` continúa aumentando en uno.
+Ejecute la aplicación. El componente `Index` tiene su propio contador que se incrementa en diez cada vez que se selecciona el botón **click me** . El componente `Counter` (*Counter. Razor*) en `/counter` continúa aumentando en uno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

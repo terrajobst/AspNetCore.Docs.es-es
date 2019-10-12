@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/26/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: a2952f5234cdef7f749a1af8dd4adcb887290629
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 3484a0233a0d56811235192c4b64aa9296e72b58
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259775"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72289069"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>Procedimientos recomendados de ASP.NET Core rendimiento
 
@@ -178,10 +178,7 @@ El código anterior Lee asincrónicamente el cuerpo completo de la solicitud HTT
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/MyFirstController.cs?name=snippet3)]
 
-El código anterior Lee asincrónicamente el cuerpo completo de la solicitud HTTP en la memoria.
-
-> [!WARNING]
-> Si la solicitud es grande, leer el cuerpo completo de la solicitud HTTP en la memoria podría producir una condición de memoria insuficiente (OOM). OOM puede producir una denegación de servicio.  Para obtener más información, consulte [evitar la lectura de cuerpos de solicitud grandes o cuerpos de respuesta](#arlb) en la memoria de este documento.
+El código anterior deserializa de forma asincrónica el cuerpo de la solicitud C# en un objeto.
 
 ## <a name="prefer-readformasync-over-requestform"></a>Preferir ReadFormAsync sobre solicitud. formulario
 
@@ -265,7 +262,7 @@ Con frecuencia, el código anterior captura un valor null o incorrecto `HttpCont
 
 `HttpContext` solo es válido mientras haya una solicitud HTTP activa en la canalización de ASP.NET Core. Toda la canalización de ASP.NET Core es una cadena asincrónica de delegados que ejecuta cada solicitud. Cuando se completa el `Task` devuelto desde esta cadena, se recicla el `HttpContext`.
 
-**No lo haga:** En el ejemplo siguiente se usa `async void`:
+**No lo haga:** En el ejemplo siguiente se usa `async void` que hace que se complete la solicitud HTTP cuando se alcanza el primer `await`:
 
 * Que **siempre** es una práctica incorrecta en ASP.net Core aplicaciones.
 * Obtiene acceso a la `HttpResponse` una vez completada la solicitud HTTP.

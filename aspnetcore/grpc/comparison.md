@@ -1,19 +1,19 @@
 ---
-title: Comparación de los servicios de gRPC con las API de HTTP
+title: Comparación entre los servicios gRPC y las API HTTP
 author: jamesnk
 description: Obtenga información sobre cómo se compara gRPC con las API de HTTP y cuáles son los escenarios recomendados.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 09/25/2019
 uid: grpc/comparison
-ms.openlocfilehash: 935078d890998fe6af366e3f6a7bf21f53c20cf7
-ms.sourcegitcommit: a7813a776809a5029c94aa503ee71994f156231f
+ms.openlocfilehash: 5c3ea7a78401e6483425fa0774b3051b3d20f516
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267713"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72289039"
 ---
-# <a name="compare-grpc-services-with-http-apis"></a>Comparación de los servicios de gRPC con las API de HTTP
+# <a name="compare-grpc-services-with-http-apis"></a>Comparación entre los servicios gRPC y las API HTTP
 
 Por [James Newton-King](https://twitter.com/jamesnk)
 
@@ -55,7 +55,7 @@ Al compartir el archivo *. proto* entre el servidor y el cliente, los mensajes y
 
 No existe una especificación formal para la API HTTP con JSON. Los desarrolladores debaten el mejor formato de las direcciones URL, los verbos HTTP y los códigos de respuesta.
 
-La [especificación gRPC](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) es preceptiva sobre el formato que debe seguir un servicio gRPC. gRPC elimina el debate y ahorra tiempo de desarrollador porque gPRC es coherente entre las plataformas y las implementaciones.
+La [especificación gRPC](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) es preceptiva sobre el formato que debe seguir un servicio gRPC. gRPC elimina el debate y ahorra tiempo de desarrollador porque gRPC es coherente entre las plataformas y las implementaciones.
 
 ### <a name="streaming"></a>Streaming
 
@@ -78,10 +78,10 @@ La propagación de la fecha límite y la cancelación mediante llamadas secundar
 
 gRPC es idóneo para los siguientes escenarios:
 
-* **Microservicios** &ndash; gRPC está diseñado para una baja latencia y una comunicación de alto rendimiento. gRPC es ideal para microservicios ligeros en los que la eficacia es crítica.
-* **Comunicación en tiempo real de punto a punto** &ndash; gRPC tiene una excelente compatibilidad para el streaming bidireccional. gRPC Services puede enviar mensajes en tiempo real sin sondeos.
-* **Entornos polyglot** &ndash; las herramientas de gRPC admiten todos los lenguajes de desarrollo más populares, lo que convierte a gRPC en una buena opción para entornos de varios idiomas.
-* **Entornos restringidos de red** &ndash; los mensajes gRPC se serializan con protobuf, un formato de mensaje ligero. Un mensaje de gRPC siempre es más pequeño que un mensaje JSON equivalente.
+* Los **microservicios** &ndash; gRPC están diseñados para una baja latencia y una comunicación de alto rendimiento. gRPC es ideal para microservicios ligeros en los que la eficacia es crítica.
+* La **comunicación en tiempo real de punto a punto** &ndash; gRPC tiene una excelente compatibilidad para el streaming bidireccional. gRPC Services puede enviar mensajes en tiempo real sin sondeos.
+* **Entornos de Polyglot** &ndash; las herramientas de gRPC admiten todos los lenguajes de desarrollo más populares, lo que convierte a gRPC en una buena opción para entornos de varios idiomas.
+* Los **entornos con restricción de red** &ndash; los mensajes gRPC se serializan con protobuf, un formato de mensaje ligero. Un mensaje de gRPC siempre es más pequeño que un mensaje JSON equivalente.
 
 ## <a name="grpc-weaknesses"></a>debilidades de gRPC
 
@@ -105,9 +105,9 @@ Existen características como la [reflexión del servidor](https://github.com/gr
 
 Se recomiendan otros marcos de trabajo en gRPC en los siguientes escenarios:
 
-* **API accesibles del explorador** &ndash; gRPC no es totalmente compatible con el explorador. gRPC-web puede ofrecer compatibilidad con exploradores, pero tiene limitaciones e introduce un proxy de servidor.
+* Las **API accesibles del explorador** &ndash; gRPC no se admiten por completo en el explorador. gRPC-web puede ofrecer compatibilidad con exploradores, pero tiene limitaciones e introduce un proxy de servidor.
 * **Difundir la comunicación en tiempo real** &ndash; gRPC admite la comunicación en tiempo real a través de streaming, pero no existe el concepto de difusión de un mensaje a las conexiones registradas. Por ejemplo, en un escenario de salón de chat en el que se deben enviar nuevos mensajes de chat a todos los clientes del salón de chat, se requiere cada llamada gRPC para transmitir por separado los nuevos mensajes de chat al cliente. [Signalr](xref:signalr/introduction) es un marco útil para este escenario. Signalr tiene el concepto de conexiones persistentes y compatibilidad integrada para difundir mensajes.
-* **Comunicación entre procesos** &ndash; Un proceso debe hospedar un servidor http/2 para aceptar llamadas gRPC entrantes. En Windows, las [canalizaciones](/dotnet/standard/io/pipe-operations) de comunicación entre procesos son un método rápido y ligero de comunicación.
+* La **comunicación entre procesos** &ndash; un proceso debe hospedar un servidor http/2 para aceptar llamadas gRPC entrantes. En Windows, las [canalizaciones](/dotnet/standard/io/pipe-operations) de comunicación entre procesos son un método rápido y ligero de comunicación.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
