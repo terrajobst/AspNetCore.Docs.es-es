@@ -4,14 +4,14 @@ author: rick-anderson
 description: Consulte una introducción a ASP.NET Core, un marco multiplataforma de código abierto y de alto rendimiento que tiene como finalidad compilar modernas aplicaciones conectadas a Internet y basadas en la nube.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/07/2019
+ms.date: 10/10/2019
 uid: index
-ms.openlocfilehash: c9b33b16de354c8bac804e8fd5e8e3ce3af688fc
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 1ccc1f5d095833e89fc20127ee23b8fa3dc4c79f
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773703"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72289054"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -77,10 +77,12 @@ Se recomienda la siguiente secuencia de tutoriales y artículos para obtener una
 
    |Tipo de aplicación  |Escenario  |Tutorial  |
    |----------|----------|----------|
-   |Aplicación web       | Para un nuevo desarrollo        |[Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start) |
-   |Aplicación web       | Para mantener una aplicación MVC |[Introducción a MVC](xref:tutorials/first-mvc-app/start-mvc)|
-   |Web API       |                            |[Creación de una API web](xref:tutorials/first-web-api)\*  |
-   |Aplicación en tiempo real |                            |[Introducción a SignalR](xref:tutorials/signalr) |
+   |Aplicación web                   | Para un nuevo desarrollo        |[Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start) |
+   |Aplicación web                   | Para mantener una aplicación MVC |[Introducción a MVC](xref:tutorials/first-mvc-app/start-mvc)|
+   |Web API                   |                            |[Creación de una API web](xref:tutorials/first-web-api)\*  |
+   |Aplicación en tiempo real             |                            |[Introducción a SignalR](xref:tutorials/signalr) |
+   |Aplicación de Blazor                |                            |[Introducción a Blazor](xref:blazor/get-started) |
+   |Aplicación de llamada a procedimiento remoto |                            |[Introducción a un servicio gRPC](xref:tutorials/grpc/grpc-start) |
 
 1. Siga un tutorial que muestra cómo realizar el acceso a datos básicos:
 
@@ -107,7 +109,7 @@ En muchos de los artículos y tutoriales se incluyen vínculos a código de ejem
 
 ### <a name="preprocessor-directives-in-sample-code"></a>Directivas de preprocesador en código de ejemplo
 
-Para mostrar varios escenarios, las aplicaciones de ejemplo usan las instrucciones `#define` y `#if-#else/#elif-#endif` de C# para compilar de forma selectiva y ejecutar secciones distintas de código de ejemplo. Para los ejemplos que usan este enfoque, establezca la instrucción `#define` en la parte superior de los archivos C# con el símbolo asociado con el escenario que quiera ejecutar. Algunos ejemplos requieren establecer el símbolo en la parte superior de varios archivos para ejecutar un escenario.
+Para mostrar varios escenarios, las aplicaciones de ejemplo usan las directivas de preprocesador `#define` y `#if-#else/#elif-#endif` para compilar de forma selectiva y ejecutar secciones distintas de código de ejemplo. Para los ejemplos que usan este enfoque, establezca la directiva `#define` en la parte superior de los archivos C# para definir el símbolo asociado con el escenario que quiera ejecutar. Algunos ejemplos requieren la definición del símbolo en la parte superior de varios archivos para ejecutar un escenario.
 
 Por ejemplo, la siguiente lista de símbolos de `#define` indica que hay cuatro escenarios disponibles (un escenario por símbolo). La configuración de ejemplo actual ejecuta el escenario `TemplateCode`:
 
@@ -125,28 +127,27 @@ Para obtener información sobre cómo usar [directivas de preprocesador de C#](/
 
 ### <a name="regions-in-sample-code"></a>Regiones en código de ejemplo
 
-Algunas aplicaciones de ejemplo contienen secciones de código rodeadas de las instrucciones [#region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-region) y [#end-region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-endregion) de C#. El sistema de creación de documentación inserta estas regiones en los temas de documentación representados.  
+Algunas aplicaciones de ejemplo contienen secciones de código rodeadas de las directivas [#region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-region) y [#end-region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-endregion) de C#. El sistema de creación de documentación inserta estas regiones en los temas de documentación representados.  
 
-Normalmente, los nombres de región contienen la palabra "snippet". En el ejemplo siguiente se muestra una región denominada `snippet_FilterInCode`:
+Normalmente, los nombres de región contienen la palabra "snippet". En el ejemplo siguiente se muestra una región denominada `snippet_WebHostDefaults`:
 
 ```csharp
-#region snippet_FilterInCode
-WebHost.CreateDefaultBuilder(args)
-    .UseStartup<Startup>()
-    .ConfigureLogging(logging =>
-        logging.AddFilter("System", LogLevel.Debug)
-            .AddFilter<DebugLoggerProvider>("Microsoft", LogLevel.Trace))
-            .Build();
+#region snippet_WebHostDefaults
+Host.CreateDefaultBuilder(args)
+    .ConfigureWebHostDefaults(webBuilder =>
+    {
+        webBuilder.UseStartup<Startup>();
+    });
 #endregion
 ```
 
 En el archivo Markdown del tema se hace referencia al fragmento de código de C# anterior con la siguiente línea:
 
 ```md
-[!code-csharp[](sample/SampleApp/Program.cs?name=snippet_FilterInCode)]
+[!code-csharp[](sample/SampleApp/Program.cs?name=snippet_WebHostDefaults)]
 ```
 
-Puede ignorar sin problemas (o incluso quitar) las instrucciones `#region` y `#endregion` que rodean el código. No altere el código de estas instrucciones y tiene planeado ejecutar los escenarios de ejemplo descritos en el tema. Puede alterarlo si quiere experimentar con otros escenarios.
+Puede ignorar sin problemas (o incluso quitar) las directivas `#region` y `#endregion` que rodean el código. No altere el código de estas directivas si tiene planeado ejecutar los escenarios de ejemplo descritos en el tema. Puede alterarlo si quiere experimentar con otros escenarios.
 
 Para obtener más información, consulte [Contribute to the ASP.NET documentation: Code snippets](https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md#code-snippets) (Contribución a la documentación de ASP.NET: fragmentos de código).
 
