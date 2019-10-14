@@ -4,14 +4,14 @@ author: ardalis
 description: Obtenga información sobre cómo funcionan los filtros y cómo se pueden usar en ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/08/2019
+ms.date: 09/28/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: 50b199744f32ad19335080da406db69665ec1ae9
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: ed48c2074360768b8d8c5af7057b353b00592394
+ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856154"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037694"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtros en ASP.NET Core
 
@@ -133,10 +133,10 @@ El ejemplo siguiente que ilustra el orden en el que se llama a los métodos de f
 | Secuencia | Ámbito del filtro | Método de filtro |
 |:--------:|:------------:|:-------------:|
 | 1 | Global | `OnActionExecuting` |
-| 2 | Controller | `OnActionExecuting` |
+| 2 | Controlador | `OnActionExecuting` |
 | 3 | Método | `OnActionExecuting` |
 | 4 | Método | `OnActionExecuted` |
-| 5 | Controller | `OnActionExecuted` |
+| 5 | Controlador | `OnActionExecuted` |
 | 6 | Global | `OnActionExecuted` |
 
 Esta secuencia pone de manifiesto lo siguiente:
@@ -190,13 +190,13 @@ La propiedad `Order` se puede establecer con un parámetro de constructor:
 
 Considere los mismos tres filtros de acción que se muestran en el ejemplo anterior. Si la propiedad `Order` del controlador y de los filtros globales está establecida en 1 y 2 respectivamente, el orden de ejecución se invierte.
 
-| Secuencia | Ámbito del filtro | Propiedad `Order` | Método de filtro |
+| Secuencia | Ámbito del filtro | Propiedad`Order` | Método de filtro |
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1 | Método | 0 | `OnActionExecuting` |
-| 2 | Controller | 1  | `OnActionExecuting` |
+| 2 | Controlador | 1  | `OnActionExecuting` |
 | 3 | Global | 2  | `OnActionExecuting` |
 | 4 | Global | 2  | `OnActionExecuted` |
-| 5 | Controller | 1  | `OnActionExecuted` |
+| 5 | Controlador | 1  | `OnActionExecuted` |
 | 6 | Método | 0  | `OnActionExecuted` |
 
 La propiedad `Order` invalida el ámbito al determinar el orden en el que se ejecutarán los filtros. Los filtros se clasifican por orden en primer lugar y, después, se usa el ámbito para priorizar en caso de igualdad. Todos los filtros integrados implementan `IOrderedFilter` y establecen el valor predeterminado de `Order` en 0. En los filtros integrados, el ámbito determina el orden, a menos que `Order` se establezca en un valor distinto de cero.
@@ -218,7 +218,7 @@ Por tanto, el filtro `AddHeader` nunca se ejecuta en relación con la acción `S
 
 [!code-csharp[](./filters/sample/FiltersSample/Controllers/SampleController.cs?name=snippet_AddHeader&highlight=1,9)]
 
-## <a name="dependency-injection"></a>Inserción de dependencia
+## <a name="dependency-injection"></a>Inserción de dependencias
 
 Los filtros se pueden agregar por tipo o por instancia. Si se agrega una instancia, esta se utiliza para todas las solicitudes. Si se agrega un tipo, se activa por tipo. Un filtro activado por tipo significa:
 
@@ -439,7 +439,10 @@ El código siguiente muestra un filtro de resultados que agrega un encabezado HT
 
 El tipo de resultado que se ejecute dependerá de la acción. Una acción que devuelve una vista incluye todo el procesamiento de Razor como parte del elemento <xref:Microsoft.AspNetCore.Mvc.ViewResult> que se está ejecutando. Un método API puede llevar a cabo algunas funciones de serialización como parte de la ejecución del resultado. [Aquí](xref:mvc/controllers/actions) encontrará más información sobre los resultados de acciones.
 
-Los filtros de resultados solo se ejecutan cuando los resultados son correctos; es decir, cuando la acción o los filtros de acciones generan un resultado de acción. Los filtros de resultados no se ejecutan si hay filtros de excepciones que controlan una excepción.
+Los filtros de resultados solo se ejecutan cuando una acción o un filtro de acción genera un resultado de acción. Los filtros de resultados no se ejecutan cuando:
+
+* Un filtro de autorización o un filtro de recursos genera un cortocircuito en la canalización.
+* Un filtro de excepciones controla una excepción al producir un resultado de acción.
 
 El método <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter.OnResultExecuting*?displayProperty=fullName> puede cortocircuitar la ejecución del resultado de la acción y de los filtros de resultados posteriores mediante el establecimiento de <xref:Microsoft.AspNetCore.Mvc.Filters.ResultExecutingContext.Cancel?displayProperty=fullName> en `true`. Escriba en el objeto de respuesta cuando el proceso se cortocircuite, ya que así evitará que se genere una respuesta vacía. Si se inicia una excepción en `IResultFilter.OnResultExecuting`, sucederá lo siguiente:
 
@@ -471,12 +474,10 @@ El marco proporciona una clase abstracta `ResultFilterAttribute` de la que se pu
 
 ### <a name="ialwaysrunresultfilter-and-iasyncalwaysrunresultfilter"></a>IAlwaysRunResultFilter e IAsyncAlwaysRunResultFilter
 
-Las interfaces <xref:Microsoft.AspNetCore.Mvc.Filters.IAlwaysRunResultFilter> e <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncAlwaysRunResultFilter> declaran una implementación <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter> que se ejecuta para obtener todos los resultados de la acción. El filtro se aplica a todos los resultados de la acción a menos que:
+Las interfaces <xref:Microsoft.AspNetCore.Mvc.Filters.IAlwaysRunResultFilter> e <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncAlwaysRunResultFilter> declaran una implementación <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter> que se ejecuta para obtener todos los resultados de la acción. Esto incluye los resultados de la acción generados por:
 
-* Se aplique un <xref:Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter> o <xref:Microsoft.AspNetCore.Mvc.Filters.IAuthorizationFilter> y provoque un cortocircuito en la respuesta.
-* Un filtro de excepciones controla una excepción al producir un resultado de acción.
-
-Los filtros distintos de `IExceptionFilter` e `IAuthorizationFilter` no cortocircuitan `IAlwaysRunResultFilter` y `IAsyncAlwaysRunResultFilter`.
+* Filtros de autorización y filtros de recursos que generan un cortocircuito.
+* Filtros de excepción.
 
 Por ejemplo, el siguiente filtro siempre ejecuta y establece un resultado de la acción (<xref:Microsoft.AspNetCore.Mvc.ObjectResult>) con un código de estado *422 - Entidad no procesable* cuando se produce un error en la negociación de contenido:
 
@@ -493,7 +494,7 @@ Puede implementar `IFilterFactory` con las implementaciones de atributos persona
 El código anterior se puede probar mediante la ejecución del [ejemplo de descargar](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample):
 
 * Invoque las herramientas de desarrollador de F12.
-* Vaya a `https://localhost:5001/Sample/HeaderWithFactory`.
+* Navegue a `https://localhost:5001/Sample/HeaderWithFactory`.
 
 Las herramientas de desarrollador F12 muestran los siguientes encabezados de respuesta agregados por el código de ejemplo:
 

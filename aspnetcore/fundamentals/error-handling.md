@@ -5,14 +5,14 @@ description: Descubra cómo controlar errores en aplicaciones ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/10/2019
+ms.date: 10/08/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: 652a97a6b7fbe4c8cc678b86a92eea59937e809c
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: a5bdbc3ce75f5897c9cd67fe18897281bf2fb57b
+ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975580"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037567"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Controlar errores en ASP.NET Core
 
@@ -208,7 +208,7 @@ Si se ejecuta en [IIS](/iis), en Azure App Service o en [IIS Express](/iis/exten
 
 ## <a name="database-error-page"></a>Página de error de la base de datos
 
-El middleware de la [página de error de la base de datos](<xref:Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage*>) captura excepciones relacionadas con la base de datos que se pueden resolver mediante migraciones de Entity Framework. Cuando se producen estas excepciones, se genera una respuesta HTML con los detalles de las acciones posibles para resolver el problema. Esta página debe habilitarse solo en el entorno de desarrollo. Habilitar la página mediante la adición de código a `Startup.Configure`:
+El middleware de la página de error de la base de datos captura excepciones relacionadas con la base de datos que se pueden resolver mediante migraciones de Entity Framework. Cuando se producen estas excepciones, se genera una respuesta HTML con los detalles de las acciones posibles para resolver el problema. Esta página debe habilitarse solo en el entorno de desarrollo. Habilitar la página mediante la adición de código a `Startup.Configure`:
 
 ```csharp
 if (env.IsDevelopment())
@@ -216,6 +216,8 @@ if (env.IsDevelopment())
     app.UseDatabaseErrorPage();
 }
 ```
+
+<!-- FUTURE UPDATE: On the next topic overhaul/release update, add API crosslink to this section for xref:Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage* when available via the API docs. -->
 
 ## <a name="exception-filters"></a>Filtros de excepciones
 

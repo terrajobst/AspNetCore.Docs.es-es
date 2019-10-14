@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 8/7/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 47194f786b2d32fb343e8f1078a4400d6db37293
-ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
+ms.openlocfilehash: 0ea3965f73f4b0334810bc9ec2910b0c9364a7ba
+ms.sourcegitcommit: d8b12cc1716ee329d7bd2300e201b61e15d506ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248331"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71942867"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Inicio de la aplicación en ASP.NET Core
 
@@ -192,7 +192,10 @@ Para configurar los servicios y la canalización de procesamiento de solicitudes
 
 ## <a name="extend-startup-with-startup-filters"></a>Extensión del inicio con filtros de inicio
 
-Use <xref:Microsoft.AspNetCore.Hosting.IStartupFilter> para configurar el middleware al principio o al final de la canalización de middleware [Configure](#the-configure-method) de una aplicación. `IStartupFilter` se usa para crear una canalización de métodos `Configure`. [IStartupFilter.Configure](xref:Microsoft.AspNetCore.Hosting.IStartupFilter.Configure*) puede configurar middleware para que se ejecute antes o después del middleware agregado por las bibliotecas.
+Use <xref:Microsoft.AspNetCore.Hosting.IStartupFilter>:
+
+* Para configurar el middleware al principio o al final de la canalización de middleware [Configure](#the-configure-method) de una aplicación sin una llamada explícita a `Use{Middleware}`. ASP.NET Core usa `IStartupFilter` para agregar los valores predeterminados al principio de la canalización sin que el creador de la aplicación tenga que registrar explícitamente el middleware predeterminado. `IStartupFilter` permite que otro componente llame a `Use{Middleware}` en nombre del creador de la aplicación.
+* Para crear una canalización de métodos `Configure`. [IStartupFilter.Configure](xref:Microsoft.AspNetCore.Hosting.IStartupFilter.Configure*) puede configurar middleware para que se ejecute antes o después del middleware agregado por las bibliotecas.
 
 `IStartupFilter` implementa <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*>, que recibe y devuelve un elemento `Action<IApplicationBuilder>`. <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> define una clase para configurar la canalización de solicitudes de una aplicación. Para más información, vea [Creación de una canalización de middleware con IApplicationBuilder](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder).
 

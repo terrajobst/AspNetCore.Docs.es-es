@@ -4,14 +4,14 @@ author: rick-anderson
 description: Aprenda a proporcionar y proteger los archivos estáticos y a configurar los comportamientos de middleware de hospedaje de archivos estáticos en una aplicación web de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/8/2019
+ms.date: 10/07/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: 1c665d1206e984fe41e9f57bb5356839c354dde2
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: 2f153551a86860616469200862723528e4a8cc1c
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308193"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007331"
 ---
 # <a name="static-files-in-aspnet-core"></a>Archivos estáticos en ASP.NET Core
 
@@ -23,7 +23,7 @@ Los archivos estáticos, como HTML, CSS, imágenes y JavaScript, son activos que
 
 ## <a name="serve-static-files"></a>Proporcionar archivos estáticos
 
-Los archivos estáticos se almacenan en el directorio raíz de la web del proyecto. El directorio predeterminado es *\<content_root>/wwwroot*, pero puede cambiarse a través del método [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_). Vea [Raíz del contenido](xref:fundamentals/index#content-root) y [Raíz web](xref:fundamentals/index#web-root) para obtener más información.
+Los archivos estáticos se almacenan en el directorio [raíz web](xref:fundamentals/index#web-root) del proyecto. El directorio predeterminado es *{raíz del contenido}/wwwroot*, pero se puede cambiar con el método [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_). Vea [Raíz del contenido](xref:fundamentals/index#content-root) y [Raíz web](xref:fundamentals/index#web-root) para obtener más información.
 
 El host de web de la aplicación debe tener conocimiento del directorio raíz del contenido.
 
@@ -43,7 +43,7 @@ Establezca la raíz de contenido en el directorio actual invocando a [UseContent
 
 ::: moniker-end
 
-Se puede acceder a los archivos estáticos a través de una ruta de acceso relativa a la raíz web. Por ejemplo, la plantilla de proyecto **Aplicación web** contiene varias carpetas dentro de la carpeta *wwwroot*:
+Se puede acceder a los archivos estáticos a través de una ruta de acceso relativa a la [raíz web](xref:fundamentals/index#web-root). Por ejemplo, la plantilla de proyecto **Aplicación web** contiene varias carpetas dentro de la carpeta *wwwroot*:
 
 * **wwwroot**
   * **css**
@@ -78,15 +78,15 @@ Invoque el método [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.sta
 
 [!code-csharp[](static-files/samples/1x/StartupStaticFiles.cs?name=snippet_ConfigureMethod&highlight=3)]
 
-La sobrecarga del método sin parámetros `UseStaticFiles` marca los archivos en la raíz web como que se pueden proporcionar. El siguiente marcado hace referencia a *wwwroot/images/banner1.svg*:
+La sobrecarga del método `UseStaticFiles` sin parámetros marca los archivos en la [raíz web](xref:fundamentals/index#web-root) como que se pueden proporcionar. El siguiente marcado hace referencia a *wwwroot/images/banner1.svg*:
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_wwwroot)]
 
-En el código anterior, el carácter de tilde de la ñ `~/` apunta a la raíz web. Para obtener más información, vea [Raíz web](xref:fundamentals/index#web-root).
+En el código anterior, el carácter de tilde de la ñ `~/` apunta a la [raíz web](xref:fundamentals/index#web-root).
 
 ### <a name="serve-files-outside-of-web-root"></a>Proporcionar archivos fuera de la raíz web
 
-Considere una jerarquía de directorios en la que residen fuera de la raíz web los archivos estáticos que se van a proporcionar:
+Considere una jerarquía de directorios en la que residen fuera de la [raíz web](xref:fundamentals/index#web-root) los archivos estáticos que se van a proporcionar:
 
 * **wwwroot**
   * **css**
@@ -108,7 +108,7 @@ El siguiente marcado hace referencia a *MyStaticFiles/images/banner1.svg*:
 
 ### <a name="set-http-response-headers"></a>Establecer encabezados de respuesta HTTP
 
-Se puede usar un objeto [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions) para establecer encabezados de respuesta HTTP. Además de configurar el servicio de archivos estáticos desde la raíz web, el código siguiente establece el encabezado `Cache-Control`:
+Se puede usar un objeto [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions) para establecer encabezados de respuesta HTTP. Además de configurar el servicio de archivos estáticos desde la [raíz web](xref:fundamentals/index#web-root), el código siguiente establece el encabezado `Cache-Control`:
 
 [!code-csharp[](static-files/samples/1x/StartupAddHeader.cs?name=snippet_ConfigureMethod)]
 
@@ -206,7 +206,7 @@ Se debe llamar a `AddDirectoryBrowser` cuando el valor de la propiedad `EnableDi
 
 Al usar la jerarquía de archivos y el código anterior, las direcciones URL se resuelven como se indica a continuación:
 
-| URI            |                             Response  |
+| Identificador URI            |                             Respuesta  |
 | ------- | ------|
 | *http://\<dirección_servidor>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
 | *http://\<dirección_servidor>/StaticFiles*             |     MyStaticFiles/default.html |
@@ -256,9 +256,9 @@ Con el código anterior, una solicitud para un archivo con un tipo de contenido 
 > [!WARNING]
 > Si el controlador de archivos estáticos de IIS está habilitado **y** el módulo de ASP.NET Core no está configurado correctamente, se proporcionan archivos estáticos. Esto sucede, por ejemplo, si el archivo *web.config* no está implementado.
 
-* Coloque los archivos de código (incluidos *.cs* y *.cshtml*) fuera de la raíz web del proyecto de la aplicación. Por lo tanto, se crea una separación lógica entre el contenido del lado cliente de la aplicación y el código basado en servidor. Esto impide que se filtre el código del lado servidor.
+* Coloque los archivos de código (incluidos *.cs* y *.cshtml*) fuera de la [raíz web](xref:fundamentals/index#web-root) del proyecto de la aplicación. Por lo tanto, se crea una separación lógica entre el contenido del lado cliente de la aplicación y el código basado en servidor. Esto impide que se filtre el código del lado servidor.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Software intermedio](xref:fundamentals/middleware/index)
+* [Middleware](xref:fundamentals/middleware/index)
 * [Introducción a ASP.NET Core](xref:index)

@@ -5,14 +5,14 @@ description: Aprenda a hospedar una aplicación ASP.NET Core en un servicio de W
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/09/2019
+ms.date: 10/07/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 544037a2a1f836e51b4f10551316312ef55c68da
-ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
+ms.openlocfilehash: 32226c06ba005b4a61c473d6584b2b762733dcbd
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71688081"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007298"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hospedaje de ASP.NET Core en un servicio de Windows
 
@@ -49,7 +49,7 @@ La plantilla Worker Service de ASP.NET Core sirve de punto de partida para escri
 Se llama a `IHostBuilder.UseWindowsService`, proporcionado por el paquete [Microsoft.Extensions.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.Extensions.Hosting.WindowsServices), cuando se crea el host. Si la aplicación se ejecuta como un servicio de Windows, el método:
 
 * Establece la vigencia del host en `WindowsServiceLifetime`.
-* Establece la raíz de contenido.
+* Establece la [raíz del contenido](xref:fundamentals/index#content-root).
 * Habilita el registro en el registro de eventos con el nombre de la aplicación como nombre de origen predeterminado.
   * El nivel de registro puede configurarse con la clave `Logging:LogLevel:Default` en el archivo *appsettings.Production.json*.
   * Los administradores son los únicos que pueden crear nuevos orígenes de eventos. Cuando no se puede crear un origen de eventos con el nombre de la aplicación, se registra una advertencia para el origen *Aplicación* y los registros de eventos se deshabilitan.
@@ -326,7 +326,7 @@ Use [IHostEnvironment.ContentRootPath](xref:Microsoft.Extensions.Hosting.IHostEn
 
 ### <a name="set-the-content-root-path-to-the-apps-folder"></a>Configuración de la ruta de acceso raíz del contenido en la carpeta de la aplicación
 
-<xref:Microsoft.Extensions.Hosting.IHostingEnvironment.ContentRootPath*> es la misma ruta de acceso proporcionada al argumento `binPath` cuando se crea un servicio. En lugar de llamar `GetCurrentDirectory` para crear rutas de acceso a los archivos de configuración, llame a <xref:System.IO.Directory.SetCurrentDirectory*> con la ruta de acceso a la raíz del contenido de la aplicación.
+<xref:Microsoft.Extensions.Hosting.IHostingEnvironment.ContentRootPath*> es la misma ruta de acceso proporcionada al argumento `binPath` cuando se crea un servicio. En lugar de llamar a `GetCurrentDirectory` para crear rutas de acceso a los archivos de configuración, llame a <xref:System.IO.Directory.SetCurrentDirectory*> con la ruta de acceso a la [raíz del contenido](xref:fundamentals/index#content-root) de la aplicación.
 
 En `Program.Main`, determine la ruta de acceso a la carpeta del archivo ejecutable del servicio y use la ruta de acceso para establecer la raíz del contenido de la aplicación:
 

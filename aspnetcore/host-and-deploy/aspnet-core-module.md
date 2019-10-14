@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar el módulo de ASP.NET C
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/24/2019
+ms.date: 10/08/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 811aafce6686b446440b146efd7449b598ed1722
-ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
+ms.openlocfilehash: c1c34f368cb3f7767bf0f229ff70c5ab53c6005f
+ms.sourcegitcommit: fcdf9aaa6c45c1a926bd870ed8f893bdb4935152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248344"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165323"
 ---
 # <a name="aspnet-core-module"></a>Módulo ASP.NET Core
 
@@ -79,13 +79,15 @@ Al hospedar en proceso, se aplican las siguientes características:
 
 ### <a name="out-of-process-hosting-model"></a>Modelo de hospedaje fuera de proceso
 
-Para configurar una aplicación para el hospedaje fuera de proceso, establezca el valor de la propiedad `<AspNetCoreHostingModel>` en `OutOfProcess` (el hospedaje fuera de proceso se establece con `InProcess`, que es el valor predeterminado):
+Para configurar una aplicación para un hospedaje fuera de proceso, establezca el valor de la propiedad `<AspNetCoreHostingModel>` en `OutOfProcess` en el archivo del proyecto ( *.csproj*):
 
 ```xml
 <PropertyGroup>
   <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
 </PropertyGroup>
 ```
+
+El hospedaje en proceso se establece con `InProcess`, que es el valor predeterminado.
 
 En lugar del servidor [Kestrel](xref:fundamentals/servers/kestrel) se usa el servidor HTTP de IIS (`IISHttpServer`).
 
@@ -182,11 +184,11 @@ Para obtener información sobre la configuración de aplicaciones secundarias de
 | `stdoutLogEnabled` | <p>Atributo Boolean opcional.</p><p>Si es true, **stdout** y **stderr** en el proceso especificado en **processPath** se redirigen al archivo especificado en **stdoutLogFile**.</p> | `false` |
 | `stdoutLogFile` | <p>Atributo de cadena opcional.</p><p>Especifica la ruta de acceso relativa o absoluta para la que se registran **stdout** y **stderr** desde el proceso especificado en **processPath**. Las rutas de acceso relativas son relativas a la raíz del sitio. Cualquier ruta de acceso que se inicia con `.` es relativa a la raíz del sitio y todas las demás rutas de acceso se tratan como absolutas. Al crearse el archivo de registro, el módulo crea las carpetas que se proporcionan en la ruta de acceso. Mediante delimitadores se agrega una marca de tiempo, un identificador de proceso y una extensión de archivo ( *.log*) al último segmento de la ruta de acceso **stdoutLogFile**. Si `.\logs\stdout` se proporciona como valor, se guarda un registro de ejemplo de stdout como *stdout_20180205194132_1934.log* en la carpeta *logs*, cuando se guarda el 5/2/2018 a las 19:41:32 con un identificador de proceso de 1934.</p> | `aspnetcore-stdout` |
 
-### <a name="setting-environment-variables"></a>Configuración de las variables de entorno
+### <a name="set-environment-variables"></a>Establecimiento de variables de entorno
 
 Se pueden especificar variables de entorno para el proceso en el atributo `processPath`. Especifique una variable de entorno con el elemento secundario `<environmentVariable>` de un elemento de la colección `<environmentVariables>`. Las variables de entorno establecidas en esta sección tienen prioridad sobre las variables del entorno del sistema.
 
-En el ejemplo siguiente se establecen dos variables de entorno. `ASPNETCORE_ENVIRONMENT` configura el entorno de la aplicación como `Development`. Un desarrollador puede establecer temporalmente este valor en el archivo *web.config* con el fin de forzar a que se cargue la [página de excepciones del desarrollador](xref:fundamentals/error-handling) al depurar una excepción de aplicación. `CONFIG_DIR` es un ejemplo de una variable de entorno definida por el usuario, donde el desarrollador ha escrito código que lee el valor al inicio para formar una ruta de acceso destinada a la carga del archivo de configuración de la aplicación.
+El ejemplo siguiente establece dos variables de entorno en *web.config*. `ASPNETCORE_ENVIRONMENT` configura el entorno de la aplicación en `Development`. Un desarrollador puede establecer temporalmente este valor en el archivo *web.config* con el fin de forzar a que se cargue la [página de excepciones del desarrollador](xref:fundamentals/error-handling) al depurar una excepción de aplicación. `CONFIG_DIR` es un ejemplo de una variable de entorno definida por el usuario, donde el desarrollador ha escrito código que lee el valor al inicio para formar una ruta de acceso destinada a la carga del archivo de configuración de la aplicación.
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -245,7 +247,7 @@ Cuando se crea el archivo de registro, se agregan automáticamente una marca de 
 
 Si `stdoutLogEnabled` es falso, los errores que se produzcan al iniciar la aplicación se registrarán y se emitirán en el registro de eventos hasta un máximo de 30 KB. Después del inicio, se descartarán los registros adicionales.
 
-El elemento de ejemplo siguiente, `aspNetCore`, configura el registro de stdout para una aplicación hospedada en Azure App Service. Una ruta de acceso local o una ruta de acceso de recurso compartido de red son aceptables para el registro local. Confirme que la identidad del usuario de AppPool tenga permiso para escribir en la ruta de acceso proporcionada.
+El elemento `aspNetCore` de ejemplo siguiente en un archivo *web.config* configura el registro de stdout para una aplicación hospedada en Azure App Service. Una ruta de acceso local o una ruta de acceso de recurso compartido de red son aceptables para el registro local. Confirme que la identidad del usuario de AppPool tenga permiso para escribir en la ruta de acceso proporcionada.
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -304,7 +306,7 @@ Consulte [Configuración con web.config](#configuration-with-webconfig) para ver
 
 *Solo se aplica cuando se usa el modelo de hospedaje dentro de proceso.*
 
-Configure el tamaño de la pila administrada mediante el valor `stackSize` en bytes. El tamaño predeterminado es `1048576` bytes (1 MB).
+Configure el tamaño de la pila administrada mediante el valor `stackSize` en bytes en *web.config*. El tamaño predeterminado es `1048576` bytes (1 MB).
 
 ```xml
 <aspNetCore processPath="dotnet"

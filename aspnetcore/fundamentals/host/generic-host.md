@@ -5,14 +5,14 @@ description: Obtenga información sobre el host genérico .NET Core, que es resp
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/01/2019
+ms.date: 10/07/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 75af6dc58d31aaad888b14640268bf05c193272d
-ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
+ms.openlocfilehash: 1582955cd18e6739111af05c9a892cd5cb4e270d
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248277"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007230"
 ---
 # <a name="net-generic-host"></a>Host genérico de .NET
 
@@ -78,7 +78,7 @@ Si la aplicación usa Entity Framework Core, no cambie el nombre o la firma del 
 
 El método <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> realiza las acciones siguientes:
 
-* Establece la raíz de contenido en la ruta de acceso devuelta por <xref:System.IO.Directory.GetCurrentDirectory*>.
+* Establece la [raíz de contenido](xref:fundamentals/index#content-root) en la ruta de acceso devuelta por <xref:System.IO.Directory.GetCurrentDirectory*>.
 * Carga la configuración de host de:
   * Variables de entorno con el prefijo "DOTNET_".
   * Argumentos de la línea de comandos.
@@ -119,7 +119,7 @@ Para más información sobre los servicios proporcionados por el marco, consulte
 
 Permite insertar el servicio <xref:Microsoft.Extensions.Hosting.IHostApplicationLifetime> (anteriormente, `IApplicationLifetime`) en cualquier clase para controlar las tareas posteriores al inicio y el cierre estable. Tres de las propiedades de la interfaz son tokens de cancelación que se usan para registrar los métodos del controlador de eventos de inicio y detención de las aplicaciones. La interfaz también incluye un método `StopApplication`.
 
-El ejemplo siguiente es una implementación de `IHostedService` que registra los eventos `IApplicationLifetime`:
+El ejemplo siguiente es una implementación de `IHostedService` que registra los eventos `IHostApplicationLifetime`:
 
 [!code-csharp[](generic-host/samples-snapshot/3.x/LifetimeEventsHostedService.cs?name=snippet_LifetimeEvents)]
 
@@ -199,6 +199,11 @@ Host.CreateDefaultBuilder(args)
     .UseContentRoot("c:\\content-root")
     //...
 ```
+
+Para obtener más información, consulte:
+
+* [Aspectos básicos: Raíz del contenido](xref:fundamentals/index#content-root)
+* [WebRoot](#webroot)
 
 ### <a name="environmentname"></a>EnvironmentName
 
@@ -397,7 +402,7 @@ Ruta de acceso relativa a los recursos estáticos de la aplicación.
 
 **Clave**: webroot  
 **Tipo**: *cadena*  
-**Predeterminado**: *(Raíz de contenido)/wwwroot*, si existe la ruta de acceso. Si la ruta de acceso no existe, se utiliza un proveedor de archivos no-op.  
+**Predeterminado**: De manera predeterminada, es `wwwroot`. Debe existir la ruta de acceso a *{raíz del contenido}/wwwroot*. Si la ruta de acceso no existe, se utiliza un proveedor de archivos no-op.  
 **Variable de entorno**: `<PREFIX_>WEBROOT`
 
 Para establecer este valor, use la variable de entorno o llame a `UseWebRoot`:
@@ -405,6 +410,11 @@ Para establecer este valor, use la variable de entorno o llame a `UseWebRoot`:
 ```csharp
 webBuilder.UseWebRoot("public");
 ```
+
+Para obtener más información, consulte:
+
+* [Aspectos básicos: Raíz web](xref:fundamentals/index#web-root)
+* [ContentRootPath](#contentrootpath)
 
 ## <a name="manage-the-host-lifetime"></a>Administración de la vigencia del host
 
@@ -574,6 +584,8 @@ Esta configuración determina la ubicación en la que el host comienza a buscar 
 Si no existe la ruta de acceso, el host no se puede iniciar.
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_UseContentRoot)]
+
+Para más información, consulte [Aspectos básicos: Raíz del contenido](xref:fundamentals/index#content-root).
 
 ### <a name="environment"></a>Entorno
 

@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo hospedar e implementar una aplicac
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 10/07/2019
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: cdb424137d80b280873347c1352fc43d23b4aec3
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: a0a11f3aed9035000e79844fbec7cdd17b73fdaa
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211625"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007337"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-webassembly"></a>Hospedaje e implementación de Blazor WebAssembly con ASP.NET Core
 
@@ -198,7 +198,7 @@ Las [aplicaciones Blazor WebAssembly](xref:blazor/hosting-models#blazor-webassem
 
 ### <a name="content-root"></a>Raíz del contenido
 
-El argumento `--contentroot` establece la ruta de acceso absoluta al directorio que incluye los archivos de contenido de la aplicación. En los ejemplos siguientes, `/content-root-path` es la ruta de acceso raíz del contenido de la aplicación.
+El argumento `--contentroot` establece la ruta de acceso absoluta al directorio que incluye los archivos de contenido de la aplicación ([raíz del contenido](xref:fundamentals/index#content-root)). En los ejemplos siguientes, `/content-root-path` es la ruta de acceso raíz del contenido de la aplicación.
 
 * Pase el argumento al ejecutar la aplicación de forma local en un símbolo del sistema. En el directorio de la aplicación, ejecute lo siguiente:
 

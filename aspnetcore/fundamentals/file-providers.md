@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo ASP.NET Core abstrae el acceso al 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/26/2019
+ms.date: 10/07/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: 44c439dce893d486668bf8ac3f20cdf7952c5186
-ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
+ms.openlocfilehash: 3a92b44efc70d156596ee9fe80b4f6a65266e73d
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70059093"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007173"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Proveedores de archivo en ASP.NET Core
 
@@ -22,7 +22,7 @@ Por [Steve Smith](https://ardalis.com/) y [Luke Latham](https://github.com/guard
 
 ASP.NET Core abstrae el acceso al sistema de archivos mediante el uso de proveedores de archivos. Los proveedores de archivos se usan en el marco de ASP.NET Core:
 
-* `IWebHostEnvironment` expone la raíz del contenido de la aplicación y la raíz web como tipos `IFileProvider`.
+* `IWebHostEnvironment` expone la [raíz del contenido](xref:fundamentals/index#content-root) y la [raíz web](xref:fundamentals/index#web-root) de la aplicación como tipos `IFileProvider`.
 * El [middleware de archivos estáticos](xref:fundamentals/static-files) usa proveedores de archivos para buscar archivos estáticos.
 * [Razor](xref:mvc/views/razor) usa proveedores de archivos para localizar páginas y vistas.
 * Las herramientas de .NET Core usan proveedores de archivos y patrones globales para especificar los archivos que deben publicarse.
@@ -171,7 +171,7 @@ Coincide con todos los archivos que tengan la extensión *.txt* y se encuentren 
 
 ASP.NET Core abstrae el acceso al sistema de archivos mediante el uso de proveedores de archivos. Los proveedores de archivos se usan en el marco de ASP.NET Core:
 
-* <xref:Microsoft.Extensions.Hosting.IHostingEnvironment> expone la raíz del contenido de la aplicación y la raíz web como tipos `IFileProvider`.
+* <xref:Microsoft.Extensions.Hosting.IHostingEnvironment> expone la [raíz del contenido](xref:fundamentals/index#content-root) y la [raíz web](xref:fundamentals/index#web-root) de la aplicación como tipos `IFileProvider`.
 * El [middleware de archivos estáticos](xref:fundamentals/static-files) usa proveedores de archivos para buscar archivos estáticos.
 * [Razor](xref:mvc/views/razor) usa proveedores de archivos para localizar páginas y vistas.
 * Las herramientas de .NET Core usan proveedores de archivos y patrones globales para especificar los archivos que deben publicarse.

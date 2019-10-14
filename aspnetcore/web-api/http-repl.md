@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la herramienta global HTTP RE
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 08/29/2019
+ms.date: 10/07/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 086ac141a04ab4a560f2c26fb049ef8a5493dc97
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: bb3757f51487a307ebfb97452b80995f84e95e4b
+ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71187240"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037714"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Prueba de las API web HTTP REPL
 
@@ -790,25 +790,107 @@ Se trata del parámetro de ruta, si existe, que espera el método de acción del
 
 Para establecer un encabezado de solicitud HTTP, use uno de los métodos siguientes:
 
-1. Establézcalo insertado con la solicitud HTTP. Por ejemplo:
+* Establézcalo insertado con la solicitud HTTP. Por ejemplo:
 
-  ```console
-  https://localhost:5001/people~ post -h Content-Type=application/json
-  ```
+    ```console
+    https://localhost:5001/people~ post -h Content-Type=application/json
+    ```
+    
+    Con el método anterior, cada encabezado de solicitud HTTP distinto requiere su propia opción `-h`.
 
-  Con el método anterior, cada encabezado de solicitud HTTP distinto requiere su propia opción `-h`.
+* Establézcalo antes de enviar la solicitud HTTP. Por ejemplo:
 
-1. Establézcalo antes de enviar la solicitud HTTP. Por ejemplo:
+    ```console
+    https://localhost:5001/people~ set header Content-Type application/json
+    ```
+    
+    Al establecer el encabezado antes de enviar una solicitud, este permanece establecido mientras dure la sesión de shell de comandos. Para borrar el encabezado, proporcione un valor vacío. Por ejemplo:
+    
+    ```console
+    https://localhost:5001/people~ set header Content-Type
+    ```
 
-  ```console
-  https://localhost:5001/people~ set header Content-Type application/json
-  ```
+## <a name="test-secured-endpoints"></a>Prueba de los puntos de conexión seguros
 
-  Al establecer el encabezado antes de enviar una solicitud, este permanece establecido mientras dure la sesión de shell de comandos. Para borrar el encabezado, proporcione un valor vacío. Por ejemplo:
+HTTP REPL admite la prueba de los puntos de conexión seguros a través del uso de los encabezados de solicitud HTTP. Algunos ejemplos de esquemas de autenticación y autorización compatibles son la autenticación básica, los tokens de portador de JWT y la autenticación implícita. Por ejemplo, puede enviar un token de portador a un punto de conexión con el comando siguiente:
 
-  ```console
-  https://localhost:5001/people~ set header Content-Type
-  ```
+```console
+set header Authorization "bearer <TOKEN VALUE>"
+```
+
+Para acceder un punto de conexión hospedado por Azure o para usar la [API REST de Azure](/rest/api/azure/), necesitará un token de portador. Use los pasos siguientes para obtener un token de portador para la suscripción de Azure a través de la [CLI de Azure](/cli/azure/). HTTP REPL establece el token de portador en un encabezado de solicitud HTTP y recupera una lista de Azure App Service Web Apps.
+
+1. Inicie sesión en Azure:
+
+    ```azcli
+    az login
+    ```
+
+1. Obtenga el identificador de suscripción con el comando siguiente:
+
+    ```azcli
+    az account show --query id
+    ```
+
+1. Copie el identificador de suscripción y ejecute el comando siguiente:
+
+    ```azcli
+    az account set --subscription "<SUBSCRIPTION ID>"
+    ```
+
+1. Obtenga el token de portador con el comando siguiente:
+
+    ```azcli
+    az account get-access-token --query accessToken
+    ```
+
+1. Conéctese a la API REST de Azure con HTTP REPL:
+
+    ```console
+    httprepl https://management.azure.com
+    ```
+
+1. Establezca el encabezado de solicitud HTTP `Authorization`:
+
+    ```console
+    https://management.azure.com/> set header Authorization "bearer <ACCESS TOKEN>"
+    ```
+
+1. Vaya a la suscripción:
+
+    ```console
+    https://management.azure.com/> cd subscriptions/<SUBSCRIPTION ID>
+    ```
+
+1. Obtenga una lista de las instancias de Azure App Service Web Apps de su suscripción:
+
+    ```console
+    https://management.azure.com/subscriptions/{SUBSCRIPTION ID}> get providers/Microsoft.Web/sites?api-version=2016-08-01
+    ```
+
+    Se muestra la respuesta siguiente:
+
+    ```console
+    HTTP/1.1 200 OK
+    Cache-Control: no-cache
+    Content-Length: 35948
+    Content-Type: application/json; charset=utf-8
+    Date: Thu, 19 Sep 2019 23:04:03 GMT
+    Expires: -1
+    Pragma: no-cache
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    X-Content-Type-Options: nosniff
+    x-ms-correlation-request-id: <em>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</em>
+    x-ms-original-request-ids: <em>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</em>
+    x-ms-ratelimit-remaining-subscription-reads: 11999
+    x-ms-request-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    x-ms-routing-request-id: WESTUS:xxxxxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx
+    {
+      "value": [
+        <AZURE RESOURCES LIST>
+      ]
+    }
+    ```
 
 ## <a name="toggle-http-request-display"></a>Alternancia de la pantalla de solicitud HTTP
 
