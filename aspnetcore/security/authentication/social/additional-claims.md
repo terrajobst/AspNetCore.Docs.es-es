@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo establecer notificaciones y tokens
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/01/2019
+ms.date: 10/15/2019
 uid: security/authentication/social/additional-claims
-ms.openlocfilehash: cdf263df8d1aa17ea3820a16ecbd10abce9d683d
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: 72710d249d3210208dd9b0356a700ba02a0b727a
+ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71925153"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72378882"
 ---
 # <a name="persist-additional-claims-and-tokens-from-external-providers-in-aspnet-core"></a>Conservar notificaciones y tokens adicionales de proveedores externos en ASP.NET Core
 
@@ -26,7 +26,7 @@ Una aplicación ASP.NET Core puede establecer notificaciones y tokens adicionale
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Decida qué proveedores de autenticación externos admitir en la aplicación. Para cada proveedor, registre la aplicación y obtenga un identificador de cliente y un secreto de cliente. Para obtener más información, consulta <xref:security/authentication/social/index>. La aplicación de ejemplo usa el [proveedor de autenticación de Google](xref:security/authentication/google-logins).
+Decida qué proveedores de autenticación externos admitir en la aplicación. Para cada proveedor, registre la aplicación y obtenga un identificador de cliente y un secreto de cliente. Para obtener más información, vea <xref:security/authentication/social/index>. La aplicación de ejemplo usa el [proveedor de autenticación de Google](xref:security/authentication/google-logins).
 
 ## <a name="set-the-client-id-and-client-secret"></a>Establecimiento del identificador de cliente y el secreto de cliente
 
@@ -47,7 +47,7 @@ La aplicación de ejemplo configura el proveedor de autenticación de Google con
 
 Especifique la lista de permisos que se van a recuperar del proveedor especificando el <xref:Microsoft.AspNetCore.Authentication.OAuth.OAuthOptions.Scope*>. Los ámbitos de autenticación para proveedores externos comunes aparecen en la tabla siguiente.
 
-| Proveedor  | Scope                                                            |
+| Proveedor  | Ámbito                                                            |
 | --------- | ---------------------------------------------------------------- |
 | Facebook  | `https://www.facebook.com/dialog/oauth`                          |
 | Google    | `https://www.googleapis.com/auth/userinfo.profile`               |
@@ -68,7 +68,7 @@ La aplicación de ejemplo crea notificaciones de configuración regional (`urn:g
 
 [!code-csharp[](additional-claims/samples/3.x/ClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=13-14)]
 
-En <xref:Microsoft.AspNetCore.Identity.UI.Pages.Account.Internal.ExternalLoginModel.OnPostConfirmationAsync*>, un <xref:Microsoft.AspNetCore.Identity.IdentityUser> (`ApplicationUser`) se inicia sesión en la aplicación con <xref:Microsoft.AspNetCore.Identity.SignInManager%601.SignInAsync*>. Durante el proceso de inicio de sesión, el <xref:Microsoft.AspNetCore.Identity.UserManager%601> puede almacenar notificaciones `ApplicationUser` para los datos de usuario disponibles en el @no__t 2.
+En `Microsoft.AspNetCore.Identity.UI.Pages.Account.Internal.ExternalLoginModel.OnPostConfirmationAsync`, un <xref:Microsoft.AspNetCore.Identity.IdentityUser> (`ApplicationUser`) se inicia sesión en la aplicación con <xref:Microsoft.AspNetCore.Identity.SignInManager%601.SignInAsync*>. Durante el proceso de inicio de sesión, el <xref:Microsoft.AspNetCore.Identity.UserManager%601> puede almacenar notificaciones `ApplicationUser` para los datos de usuario disponibles en el @no__t 2.
 
 En la aplicación de ejemplo, `OnPostConfirmationAsync` (*account/ExternalLogin. cshtml. CS*) establece las notificaciones de configuración regional (`urn:google:locale`) e imagen (`urn:google:picture`) del `ApplicationUser` con sesión iniciada, incluida una notificación de <xref:System.Security.Claims.ClaimTypes.GivenName>:
 
@@ -110,7 +110,7 @@ El marco de trabajo proporciona acciones comunes y métodos de extensión para c
 
 Los usuarios pueden definir acciones personalizadas derivando de <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction> e implementando el método Abstract <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction.Run*>.
 
-Para obtener más información, consulta <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims>.
+Para obtener más información, vea <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims>.
 
 ## <a name="removal-of-claim-actions-and-claims"></a>Eliminación de las notificaciones y las acciones de notificación
 
@@ -166,7 +166,7 @@ Una aplicación ASP.NET Core puede establecer notificaciones y tokens adicionale
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Decida qué proveedores de autenticación externos admitir en la aplicación. Para cada proveedor, registre la aplicación y obtenga un identificador de cliente y un secreto de cliente. Para obtener más información, consulta <xref:security/authentication/social/index>. La aplicación de ejemplo usa el [proveedor de autenticación de Google](xref:security/authentication/google-logins).
+Decida qué proveedores de autenticación externos admitir en la aplicación. Para cada proveedor, registre la aplicación y obtenga un identificador de cliente y un secreto de cliente. Para obtener más información, vea <xref:security/authentication/social/index>. La aplicación de ejemplo usa el [proveedor de autenticación de Google](xref:security/authentication/google-logins).
 
 ## <a name="set-the-client-id-and-client-secret"></a>Establecimiento del identificador de cliente y el secreto de cliente
 
@@ -187,7 +187,7 @@ La aplicación de ejemplo configura el proveedor de autenticación de Google con
 
 Especifique la lista de permisos que se van a recuperar del proveedor especificando el <xref:Microsoft.AspNetCore.Authentication.OAuth.OAuthOptions.Scope*>. Los ámbitos de autenticación para proveedores externos comunes aparecen en la tabla siguiente.
 
-| Proveedor  | Scope                                                            |
+| Proveedor  | Ámbito                                                            |
 | --------- | ---------------------------------------------------------------- |
 | Facebook  | `https://www.facebook.com/dialog/oauth`                          |
 | Google    | `https://www.googleapis.com/auth/userinfo.profile`               |
@@ -208,7 +208,7 @@ La aplicación de ejemplo crea notificaciones de configuración regional (`urn:g
 
 [!code-csharp[](additional-claims/samples/2.x/ClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=13-14)]
 
-En <xref:Microsoft.AspNetCore.Identity.UI.Pages.Account.Internal.ExternalLoginModel.OnPostConfirmationAsync*>, un <xref:Microsoft.AspNetCore.Identity.IdentityUser> (`ApplicationUser`) se inicia sesión en la aplicación con <xref:Microsoft.AspNetCore.Identity.SignInManager%601.SignInAsync*>. Durante el proceso de inicio de sesión, el <xref:Microsoft.AspNetCore.Identity.UserManager%601> puede almacenar notificaciones `ApplicationUser` para los datos de usuario disponibles en el @no__t 2.
+En `Microsoft.AspNetCore.Identity.UI.Pages.Account.Internal.ExternalLoginModel.OnPostConfirmationAsync`, un <xref:Microsoft.AspNetCore.Identity.IdentityUser> (`ApplicationUser`) se inicia sesión en la aplicación con <xref:Microsoft.AspNetCore.Identity.SignInManager%601.SignInAsync*>. Durante el proceso de inicio de sesión, el <xref:Microsoft.AspNetCore.Identity.UserManager%601> puede almacenar notificaciones `ApplicationUser` para los datos de usuario disponibles en el @no__t 2.
 
 En la aplicación de ejemplo, `OnPostConfirmationAsync` (*account/ExternalLogin. cshtml. CS*) establece las notificaciones de configuración regional (`urn:google:locale`) e imagen (`urn:google:picture`) del `ApplicationUser` con sesión iniciada, incluida una notificación de <xref:System.Security.Claims.ClaimTypes.GivenName>:
 
@@ -250,7 +250,7 @@ El marco de trabajo proporciona acciones comunes y métodos de extensión para c
 
 Los usuarios pueden definir acciones personalizadas derivando de <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction> e implementando el método Abstract <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction.Run*>.
 
-Para obtener más información, consulta <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims>.
+Para obtener más información, vea <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims>.
 
 ## <a name="removal-of-claim-actions-and-claims"></a>Eliminación de las notificaciones y las acciones de notificación
 

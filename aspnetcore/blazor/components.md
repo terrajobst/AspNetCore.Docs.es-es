@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/05/2019
 uid: blazor/components
-ms.openlocfilehash: 3e0966bf978c99fc00db7682bea3292306cbb03c
-ms.sourcegitcommit: d81912782a8b0bd164f30a516ad80f8defb5d020
+ms.openlocfilehash: a71bbf3921417cbd23aeb14d0d78ad8354d6e93a
+ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72179036"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72378689"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -287,7 +287,7 @@ Los siguientes tipos de campo tienen requisitos de formato específicos y no se 
 
 `@bind` admite el parámetro `@bind:culture` para proporcionar un @no__t 2 para analizar y dar formato a un valor. No se recomienda especificar una referencia cultural al usar los tipos de campo `date` y `number`. `date` y `number` tienen compatibilidad increíblemente integrada que proporciona la referencia cultural necesaria.
 
-Para obtener información sobre cómo establecer la referencia cultural del usuario, consulte la sección [Localización](#localization).
+Para obtener información sobre cómo establecer la referencia cultural del usuario, consulte la sección [Localization](#localization) .
 
 **Cadenas de formato**
 
@@ -692,7 +692,7 @@ Las referencias de componente proporcionan una manera de hacer referencia a una 
 Cuando se representa el componente, el campo `loginDialog` se rellena con la instancia del componente secundario `MyLoginDialog`. Después, puede invocar métodos .NET en la instancia del componente.
 
 > [!IMPORTANT]
-> La variable `loginDialog` solo se rellena después de que el componente se represente y su salida incluye el elemento `MyLoginDialog`. Hasta ese momento, no hay nada que hacer referencia. Para manipular las referencias de componentes una vez finalizada la representación del componente, use los métodos `OnAfterRenderAsync` o `OnAfterRender`.
+> La variable `loginDialog` solo se rellena después de que el componente se represente y su salida incluye el elemento `MyLoginDialog`. Hasta ese momento, no hay nada que hacer referencia. Para manipular las referencias de componentes una vez finalizada la representación del componente, use los [métodos OnAfterRenderAsync o OnAfterRender](#lifecycle-methods).
 
 Al capturar referencias de componentes, use una sintaxis similar para [capturar referencias de elemento](xref:blazor/javascript-interop#capture-references-to-elements), no es una característica de [interoperabilidad de JavaScript](xref:blazor/javascript-interop) . Las referencias de componente no se pasan al código JavaScript @ no__t-0they're solo se usa en código de .NET.
 
@@ -841,6 +841,9 @@ protected override async Task OnInitializedAsync()
 }
 ```
 
+> [!NOTE]
+> El trabajo asincrónico durante la inicialización del componente debe producirse durante el evento del ciclo de vida `OnInitializedAsync`.
+
 En el caso de una operación sincrónica, utilice `OnInitialized`:
 
 ```csharp
@@ -858,6 +861,9 @@ protected override async Task OnParametersSetAsync()
     await ...
 }
 ```
+
+> [!NOTE]
+> El trabajo asincrónico al aplicar parámetros y valores de propiedad debe producirse durante el evento del ciclo de vida de `OnParametersSetAsync`.
 
 ```csharp
 protected override void OnParametersSet()
@@ -884,6 +890,9 @@ protected override async Task OnAfterRenderAsync(bool firstRender)
     }
 }
 ```
+
+> [!NOTE]
+> El trabajo asincrónico inmediatamente después de la representación debe producirse durante el evento del ciclo de vida `OnAfterRenderAsync`.
 
 ```csharp
 protected override void OnAfterRender(bool firstRender)
@@ -981,7 +990,7 @@ La [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/maste
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRocks.razor?name=snippet_BlazorRocks)]
 
-*BlazorRocksBase.cs*:
+*BlazorRocksBase.CS*:
 
 [!code-csharp[](common/samples/3.x/BlazorSample/Pages/BlazorRocksBase.cs)]
 
@@ -1051,7 +1060,7 @@ Si `IsCompleted` es `false`, la casilla se representa como:
 <input type="checkbox" />
 ```
 
-Para obtener más información, consulta <xref:mvc/views/razor>.
+Para obtener más información, vea <xref:mvc/views/razor>.
 
 > [!WARNING]
 > Algunos atributos HTML, como [Aria-pressed](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons), no funcionan correctamente cuando el tipo .net es un `bool`. En esos casos, use un tipo `string` en lugar de un `bool`.
@@ -1170,7 +1179,7 @@ En algunos escenarios, no es conveniente fluir los datos de un componente antece
 
 En el ejemplo siguiente de la aplicación de ejemplo, la clase `ThemeInfo` especifica la información del tema que va a fluir hacia abajo en la jerarquía de componentes para que todos los botones de una parte determinada de la aplicación compartan el mismo estilo.
 
-*UIThemeClasses/ThemeInfo.cs*:
+*UIThemeClasses/ThemeInfo. CS*:
 
 ```csharp
 public class ThemeInfo
@@ -1294,7 +1303,7 @@ El componente `CascadingValuesParametersTabSet` usa el componente `TabSet`, que 
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/CascadingValuesParametersTabSet.razor?name=snippet_TabSet)]
 
-Los componentes secundarios `Tab` no se pasan explícitamente como parámetros a la `TabSet`. En su lugar, los componentes secundarios `Tab` forman parte del contenido secundario del `TabSet`. Sin embargo, el `TabSet` todavía necesita saber sobre cada componente `Tab` para que pueda representar los encabezados y la pestaña activa. Para habilitar esta coordinación sin requerir código adicional, el componente `TabSet` *puede proporcionarse como un valor en cascada* que los componentes descendientes de @no__t 2 recogen a continuación.
+Los componentes secundarios `Tab` no se pasan explícitamente como parámetros a la `TabSet`. En su lugar, los componentes secundarios `Tab` forman parte del contenido secundario del `TabSet`. Sin embargo, el `TabSet` todavía necesita saber sobre cada componente `Tab` para que pueda representar los encabezados y la pestaña activa. Para habilitar esta coordinación sin necesidad de código adicional, el componente @no__t 2 *puede proporcionarse como un valor en cascada* que los componentes descendientes de @no__t 4 recogen a continuación.
 
 componente `TabSet`:
 
@@ -1429,14 +1438,14 @@ builder.AddContent(1, "Second");
 
 Cuando el código se ejecuta por primera vez, si `someFlag` es `true`, el generador recibe:
 
-| Secuencia | Tipo      | Datos   |
+| Secuencia | Type      | Datos   |
 | :------: | --------- | :----: |
-| 0        | Nodo de texto | Primero  |
+| 0        | Nodo de texto | First  |
 | 1        | Nodo de texto | Second |
 
 Imagine que `someFlag` se convierte en `false` y que el marcado se representará de nuevo. Esta vez, el generador recibe:
 
-| Secuencia | Tipo       | Datos   |
+| Secuencia | Type       | Datos   |
 | :------: | ---------- | :----: |
 | 1        | Nodo de texto  | Second |
 
@@ -1461,14 +1470,14 @@ builder.AddContent(seq++, "Second");
 
 Ahora, el primer resultado es:
 
-| Secuencia | Tipo      | Datos   |
+| Secuencia | Type      | Datos   |
 | :------: | --------- | :----: |
-| 0        | Nodo de texto | Primero  |
+| 0        | Nodo de texto | First  |
 | 1        | Nodo de texto | Second |
 
 Este resultado es idéntico al caso anterior, por lo que no existe ningún problema negativo. `someFlag` es `false` en la segunda representación y el resultado es:
 
-| Secuencia | Tipo      | Datos   |
+| Secuencia | Type      | Datos   |
 | :------: | --------- | ------ |
 | 0        | Nodo de texto | Second |
 
@@ -1562,7 +1571,7 @@ public class CultureController : Controller
 ```
 
 > [!WARNING]
-> Use el resultado de la acción `LocalRedirect` para evitar ataques de redireccionamiento abierto. Para obtener más información, consulta <xref:security/preventing-open-redirects>.
+> Use el resultado de la acción `LocalRedirect` para evitar ataques de redireccionamiento abierto. Para obtener más información, vea <xref:security/preventing-open-redirects>.
 
 El siguiente componente muestra un ejemplo de cómo realizar la redirección inicial cuando el usuario selecciona una referencia cultural:
 
@@ -1607,7 +1616,7 @@ Actualmente se admite un conjunto limitado de escenarios de localización de ASP
 * `IStringLocalizer<>` *es compatible* con aplicaciones increíbles.
 * `IHtmlLocalizer<>`, `IViewLocalizer<>` y la localización de anotaciones de datos son escenarios de MVC ASP.NET Core y **no se admiten** en aplicaciones increíbles.
 
-Para obtener más información, consulta <xref:fundamentals/localization>.
+Para obtener más información, vea <xref:fundamentals/localization>.
 
 ## <a name="scalable-vector-graphics-svg-images"></a>Imágenes de gráficos vectoriales escalables (SVG)
 

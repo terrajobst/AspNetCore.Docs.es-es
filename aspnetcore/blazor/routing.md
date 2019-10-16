@@ -5,14 +5,14 @@ description: Aprenda a enrutar las solicitudes en aplicaciones y el componente N
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/09/2019
+ms.date: 10/15/2019
 uid: blazor/routing
-ms.openlocfilehash: 8f48112237e6dd3fed88404c53b8d7d9137ef6ff
-ms.sourcegitcommit: 0b8a7571bf7acf85bf16118acb2435001cbe4b5d
+ms.openlocfilehash: a71709d6b87d8182e90f827d952090aa1e38d701
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72236527"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391198"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core el enrutamiento más brillante
 
@@ -59,7 +59,7 @@ Se pueden aplicar varias plantillas de ruta a un componente. El siguiente compon
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 > [!IMPORTANT]
-> Para que las direcciones URL se resuelvan correctamente, la aplicación debe incluir una etiqueta `<base>` en su archivo *wwwroot/index.html* (webassembly) o *pages/_Host. cshtml* (servidor increíblemente) con la ruta de acceso base de la aplicación especificada en el atributo `href` (`<base href="/">`). Para obtener más información, consulta <xref:host-and-deploy/blazor/index#app-base-path>.
+> Para que las direcciones URL se resuelvan correctamente, la aplicación debe incluir una etiqueta `<base>` en su archivo *wwwroot/index.html* (webassembly) o *pages/_Host. cshtml* (servidor increíblemente) con la ruta de acceso base de la aplicación especificada en el atributo `href` (`<base href="/">`). Para obtener más información, vea <xref:host-and-deploy/blazor/index#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>Proporcionar contenido personalizado cuando no se encuentra el contenido
 
@@ -88,7 +88,7 @@ Use el parámetro `AdditionalAssemblies` para especificar ensamblados adicionale
 ```cshtml
 <Router
     AppAssembly="typeof(Program).Assembly"
-    AdditionalAssemblies="new[] { typeof(Component1).Assembly }>
+    AdditionalAssemblies="new[] { typeof(Component1).Assembly }">
     ...
 </Router>
 ```
@@ -141,7 +141,7 @@ La plantilla `"/{**path}"` incluye:
 * Sintaxis *catch-all de* doble asterisco (`**`) para capturar la ruta de acceso en varios límites de carpeta sin codificar barras diagonales (`/`).
 * Un nombre de parámetro de ruta `path`.
 
-Para obtener más información, consulta <xref:fundamentals/routing>.
+Para obtener más información, vea <xref:fundamentals/routing>.
 
 ## <a name="navlink-component"></a>Componente NavLink
 

@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET C
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/11/2019
+ms.date: 10/13/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: c11a46220f0055f4d3d14c84065281f642a4cbe7
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: bf535134277a08103ba8ce55eeed540a9fce8260
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72289028"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333877"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -66,7 +66,7 @@ En el siguiente diagrama se muestra la relación entre IIS, el módulo ASP.NET C
 
 ![Módulo ASP.NET Core en el escenario de hospedaje dentro de proceso](index/_static/ancm-inprocess.png)
 
-Una solicitud llega de Internet al controlador HTTP.sys en modo kernel. El controlador enruta la solicitud nativa a IIS en el puerto configurado del sitio web, que suele ser el puerto 80 (HTTP) o 443 (HTTPS). El módulo recibe la solicitud nativa y la pasa a IIS HTTP Server (`IISHttpServer`). El servidor HTTP de IIS es una implementación de servidor en proceso para IIS que convierte una solicitud nativa en administrada.
+Una solicitud llega de Internet al controlador HTTP.sys en modo kernel. El controlador enruta la solicitud nativa a IIS en el puerto configurado del sitio web, que suele ser el puerto 80 (HTTP) o 443 (HTTPS). El módulo ASP.NET Core recibe la solicitud nativa y la pasa a IIS HTTP Server (`IISHttpServer`). El servidor HTTP de IIS es una implementación de servidor en proceso para IIS que convierte una solicitud nativa en administrada.
 
 Una vez que IIS HTTP Server procesa la solicitud, la envía a la canalización de middleware de ASP.NET Core. La canalización de middleware controla la solicitud y la pasa como una instancia de `HttpContext` a la lógica de la aplicación. La respuesta de la aplicación se pasa a IIS a través del servidor HTTP de IIS. IIS envía la respuesta al cliente que inició la solicitud.
 
@@ -87,7 +87,7 @@ El hospedaje en proceso es opcional para las aplicaciones existentes, pero, para
 
 ### <a name="out-of-process-hosting-model"></a>Modelo de hospedaje fuera de proceso
 
-Dado que las aplicaciones ASP.NET Core se ejecutan en un proceso independiente del proceso de trabajo de IIS, el módulo se encarga de la administración de procesos. El módulo inicia el proceso de la aplicación ASP.NET Core cuando entra la primera solicitud y reinicia la aplicación si esta se apaga o se bloquea. Este comportamiento es básicamente el mismo que el de las aplicaciones que se ejecutan en proceso y se administran a través del [Servicio de activación de procesos de Windows (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
+Dado que las aplicaciones ASP.NET Core se ejecutan en un proceso independiente del proceso de trabajo de IIS, el módulo ASP.NET Core se encarga de la administración de procesos. El módulo inicia el proceso de la aplicación ASP.NET Core cuando entra la primera solicitud y reinicia la aplicación si esta se apaga o se bloquea. Este comportamiento es básicamente el mismo que el de las aplicaciones que se ejecutan en proceso y se administran a través del [Servicio de activación de procesos de Windows (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
 
 En el siguiente diagrama se muestra la relación entre IIS, el módulo ASP.NET Core y una aplicación hospedada fuera de proceso:
 

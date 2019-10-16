@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo llamar a una API Web desde una apl
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/05/2019
+ms.date: 10/15/2019
 uid: blazor/call-web-api
-ms.openlocfilehash: 3d70af2226eb29870458a5fd3c2bbbc3ee5c14ce
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.openlocfilehash: b08fdf5c2f9a523314b1744a33087eb64fa4c14a
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037436"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390829"
 ---
 # <a name="call-a-web-api-from-aspnet-core-blazor"></a>Llamada a una API Web desde ASP.NET Core extraordinarias
 
@@ -22,7 +22,7 @@ Por [Luke Latham](https://github.com/guardrex), [Daniel Roth](https://github.com
 
 Las aplicaciones de webassembly increíbles llaman a las API Web mediante un servicio @no__t preconfigurado-0. Cree solicitudes, que pueden incluir opciones de [API fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) de JavaScript, con aplicaciones auxiliares JSON más increíbles o con <xref:System.Net.Http.HttpRequestMessage>.
 
-Las aplicaciones de servidor increíbles llaman a las API Web mediante instancias de <xref:System.Net.Http.HttpClient> creadas normalmente con <xref:System.Net.Http.IHttpClientFactory>. Para obtener más información, consulta <xref:fundamentals/http-requests>.
+Las aplicaciones de servidor increíbles llaman a las API Web mediante instancias de <xref:System.Net.Http.HttpClient> creadas normalmente con <xref:System.Net.Http.IHttpClientFactory>. Para obtener más información, vea <xref:fundamentals/http-requests>.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
@@ -200,7 +200,7 @@ Proporcione opciones de solicitud a la [API de captura](https://developer.mozill
 }
 ```
 
-Para obtener más información sobre las opciones de la API de captura, vea [MDN web docs: WindowOrWorkerGlobalScope. fetch ():P arameters @ no__t-0.
+Para obtener más información sobre las opciones de la API de captura, vea [MDN web docs: WindowOrWorkerGlobalScope. fetch ():P arameters](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters).
 
 Al enviar credenciales (cookies de autorización/encabezados) en solicitudes de CORS, la Directiva de CORS debe permitir el encabezado `Authorization`.
 
