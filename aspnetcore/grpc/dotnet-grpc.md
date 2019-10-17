@@ -1,23 +1,23 @@
 ---
-title: Administración de referencias de protobuf con dotnet-GRPC
+title: Administración de referencias de Protobuf con dotnet-grpc
 author: juntaoluo
 description: Obtenga información sobre cómo agregar, actualizar, eliminar y enumerar referencias de protobuf con la herramienta global dotnet-GRPC.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 09/24/2019
+ms.date: 10/17/2019
 uid: grpc/dotnet-grpc
-ms.openlocfilehash: ebd57419be24f7f4ed9765e36cf14189be8438b1
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: 994597c854a95bb33de1686ab025cb3744cf6845
+ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72290050"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519039"
 ---
-# <a name="manage-protobuf-references-with-dotnet-grpc"></a>Administración de referencias de protobuf con dotnet-GRPC
+# <a name="manage-protobuf-references-with-dotnet-grpc"></a>Administración de referencias de Protobuf con dotnet-grpc
 
 Por [John Luo](https://github.com/juntaoluo)
 
-`dotnet-grpc` es una herramienta global de .NET Core para administrar las referencias de protobuf dentro de un proyecto de gRPC de .NET. La herramienta se puede usar para agregar, actualizar, quitar y enumerar las referencias de protobuf.
+`dotnet-grpc` es una herramienta global de .NET Core para administrar las referencias de [protobuf ( *. proto*)](xref:grpc/basics#proto-file) dentro de un proyecto de gRPC de .net. La herramienta se puede usar para agregar, actualizar, quitar y enumerar las referencias de protobuf.
 
 ## <a name="installation"></a>Instalación
 
@@ -32,10 +32,10 @@ dotnet tool install -g dotnet-grpc
 `dotnet-grpc` se puede usar para agregar referencias de protobuf como elementos `<Protobuf />` al archivo *. csproj* :
 
 ```xml
-<Protobuf Include="..\Proto\count.proto" GrpcServices="Server" Link="Protos\count.proto" />
+<Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
 ```
 
-Las referencias de protobuf se usan para generar C# los recursos de cliente o servidor. El `dotnet-grpc`tool puede:
+Las referencias de protobuf se usan para generar C# los recursos de cliente o servidor. La herramienta `dotnet-grpc` puede:
 
 * Cree una referencia de protobuf a partir de archivos locales en el disco.
 * Cree una referencia de protobuf desde un archivo remoto especificado por una dirección URL.
