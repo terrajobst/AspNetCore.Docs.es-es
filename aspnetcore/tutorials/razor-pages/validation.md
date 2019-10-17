@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 7/23/2019
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 5c5419eb6ccfbd9ddd8d6fadb24d688966d76c10
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: c2397a535fa2c128f18d65323d0f4920af914205
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022403"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334220"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Agregar la validación a una página de Razor de ASP.NET Core
 
@@ -63,7 +63,7 @@ Seleccione el vínculo **Crear nuevo**. Rellene el formulario con algunos valore
 
 ![Formulario de vista de película con varios errores de validación de cliente de jQuery](validation/_static/val.png)
 
-[!INCLUDE[](~/includes/currency.md)]
+[!INCLUDE[](~/includes/localization/currency.md)]
 
 Observe cómo el formulario presenta automáticamente un mensaje de error de validación en cada campo que contiene un valor no válido. Los errores se aplican al cliente (con JavaScript y jQuery) y al servidor (cuando un usuario tiene JavaScript deshabilitado).
 

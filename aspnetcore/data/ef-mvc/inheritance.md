@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Implementación de la herencia: ASP.NET MVC con EF Core'
 description: En este tutorial se explica cómo implementar la herencia en el modelo de datos con Entity Framework Core en una aplicación de ASP.NET Core.
-author: tdykstra
+author: rick-anderson
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 8e092ac47b2fd5fb6f3a0524bf1c559b7c3935c4
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: c10df60a43f5d59f3ce13afd38aad42b88c80516
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080422"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259394"
 ---
 # <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>Tutorial: Implementación de la herencia: ASP.NET MVC con EF Core
 

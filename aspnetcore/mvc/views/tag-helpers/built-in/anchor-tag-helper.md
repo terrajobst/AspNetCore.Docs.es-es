@@ -4,14 +4,14 @@ author: pkellner
 description: Descubra los atributos del asistente de etiquetas delimitadoras de ASP.NET Core y el papel que desempeña cada atributo al ampliar el comportamiento de la etiqueta delimitadora de código HTML.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 04/18/2019
+ms.date: 10/13/2019
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 44fc4ff6334e33630974181021aa1a6880a89917
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 3ff8a52361b4911a5bb3163a8ea6ae90e504e4ef
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856222"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333947"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>Asistente de etiquetas delimitadoras en ASP.NET Core
 
@@ -47,7 +47,7 @@ Si el atributo `asp-controller` está especificado y `asp-action` no lo está, e
 <a href="/Home">All Speakers</a>
 ```
 
-## <a name="asp-action"></a>asp-action
+### <a name="asp-action"></a>asp-action
 
 El valor del atributo [asp-action](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Action*) representa el nombre de la acción del controlador incluido en el atributo `href` generado. El siguiente marcado establece el valor del atributo `href` generado en la página "Speaker Evaluations":
 
@@ -135,7 +135,7 @@ El asistente de etiquetas delimitadoras genera una ruta directamente a esa acci�
 
 Si además de `asp-route` se especifica `asp-controller` o `asp-action`, la ruta generada puede no ser la esperada. Para evitar un conflicto de ruta, no se debe usar `asp-route` con los atributos `asp-controller` y `asp-action`.
 
-## <a name="asp-all-route-data"></a>asp-all-route-data
+### <a name="asp-all-route-data"></a>asp-all-route-data
 
 El atributo [asp-all-route-data](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.RouteValues*) permite crear un diccionario de pares clave-valor. La clave es el nombre del parámetro, mientras que el valor es el valor del parámetro.
 
@@ -173,7 +173,7 @@ Las etiquetas hash son útiles al crear aplicaciones del lado cliente. Por ejemp
 
 El atributo [asp-area](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Area*) establece el nombre de área que se usa para establecer la ruta adecuada. En el siguiente ejemplo se muestra cómo el atributo `asp-area` provoca una reasignación de rutas.
 
-### <a name="usage-in-razor-pages"></a>Uso en Razor Pages
+#### <a name="usage-in-razor-pages"></a>Uso en Razor Pages
 
 Se admiten áreas de Razor Pages en ASP.NET Core 2.1 o versiones posteriores.
 
@@ -207,7 +207,7 @@ El código HTML generado:
 >
 >   [!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_AllowAreas)]
 
-### <a name="usage-in-mvc"></a>Uso en MVC
+#### <a name="usage-in-mvc"></a>Uso en MVC
 
 Tenga en cuenta la siguiente jerarquía de directorios:
 
@@ -218,7 +218,7 @@ Tenga en cuenta la siguiente jerarquía de directorios:
       * **Controladores**
         * *HomeController.cs*
       * **Vistas**
-        * **Local**
+        * **Página principal**
           * *AboutBlog.cshtml*
           * *Index.cshtml*
         * *\_ViewStart.cshtml*

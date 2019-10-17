@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo usar SQL Server LocalDB o SQLite e
 ms.author: riande
 ms.date: 8/16/2019
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: cb356bca50540d7c471cf625a26bfe2dd155b627
-ms.sourcegitcommit: 3ffcd8cbff8b49128733842f72270bc58279de70
+ms.openlocfilehash: de392f4220cf0182d02a20f387164d2f4b184b58
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955916"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72289081"
 ---
 # <a name="work-with-sql-in-aspnet-core"></a>Trabajo con SQL en ASP.NET Core
 
@@ -22,7 +22,7 @@ El objeto `MvcMovieContext` controla la tarea de conexión a la base de datos y 
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_ConfigureServices&highlight=6-7)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_ConfigureServices&highlight=5-6)]
 
 El sistema [Configuración](xref:fundamentals/configuration/index) de ASP.NET Core lee el elemento `ConnectionString`. Para el desarrollo local, obtiene la cadena de conexión del archivo *appsettings.json*:
 
@@ -30,7 +30,7 @@ El sistema [Configuración](xref:fundamentals/configuration/index) de ASP.NET Co
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_UseSqlite&highlight=6-7)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_UseSqlite&highlight=5-6)]
 
 El sistema [Configuración](xref:fundamentals/configuration/index) de ASP.NET Core lee el elemento `ConnectionString`. Para el desarrollo local, obtiene la cadena de conexión del archivo *appsettings.json*:
 
@@ -76,7 +76,7 @@ Observe el icono de llave junto a `ID`. De forma predeterminada, EF convierte un
 
 Cree una nueva clase denominada `SeedData` en la carpeta *Models*. Reemplace el código generado con el siguiente:
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Models/SeedData.cs?name=snippet_1)]
 
 Si hay alguna película en la base de datos, se devuelve el inicializador y no se agrega ninguna película.
 

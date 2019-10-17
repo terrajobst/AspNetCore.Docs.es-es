@@ -5,12 +5,12 @@ description: Cómo agregar la validación a una aplicación de ASP.NET Core.
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: f94d1003732b8ff04ec8aba3005f8c95a876cd67
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: 2bb4ed173d154e3b7457ce3f8009f0f9406e36c4
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "67815118"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334075"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Agregar validación a una aplicación ASP.NET Core MVC
 
@@ -37,7 +37,7 @@ Pulse el vínculo **Crear nueva** para agregar una nueva película. Rellene el f
 
 ![Formulario de vista de películas con varios errores de validación del lado cliente de jQuery](~/tutorials/first-mvc-app/validation/_static/val.png)
 
-[!INCLUDE[](~/includes/currency.md)]
+[!INCLUDE[](~/includes/localization/currency.md)]
 
 Observe cómo el formulario presenta automáticamente un mensaje de error de validación adecuado en cada campo que contiene un valor no válido. Los errores se aplican en el lado cliente (con JavaScript y jQuery) y en el lado servidor (cuando un usuario tiene JavaScript deshabilitado).
 

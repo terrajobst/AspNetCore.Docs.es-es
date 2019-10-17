@@ -3,14 +3,14 @@ title: Introducción a ASP.NET Core MVC
 author: rick-anderson
 description: Obtenga información sobre cómo empezar a usar ASP.NET Core MVC.
 ms.author: riande
-ms.date: 08/05/2019
+ms.date: 10/16/2019
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 52d8fc631075408991d3a2e62cdaccf681c5927f
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: f07afb15c0a31110c20d96a5db5c02030cefe5d5
+ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082164"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519088"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>Introducción a ASP.NET Core MVC
 
@@ -66,7 +66,7 @@ Al final, tendrá una aplicación que le permitirá administrar y mostrar datos 
 
 * Seleccione **Aplicación web (Modelo-Vista-Controlador)** y, luego, **Crear**.
 
-![Cuadro de diálogo Nuevo proyecto, .NET CORE en el panel izquierdo, Aplicación web ASP.NET Core ](start-mvc/_static/new_project22-21.png)
+![Cuadro de diálogo Nuevo proyecto, .NET CORE en el panel izquierdo, Aplicación web ASP.NET Core ](start-mvc/_static/new_project30.png)
 
 Visual Studio ha usado la plantilla predeterminada para el proyecto de MVC que acaba de crear. Si escribe un nombre de proyecto y selecciona algunas opciones, dispondrá de inmediato de una aplicación operativa. Se trata de un proyecto básico de inicio.
 
