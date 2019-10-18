@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
 uid: blazor/routing
-ms.openlocfilehash: a71709d6b87d8182e90f827d952090aa1e38d701
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: d9f81c8aa2cf07f8bfaede65efcb7328088f55b9
+ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391198"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72531138"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core el enrutamiento más brillante
 
@@ -56,10 +56,10 @@ Opcionalmente, puede especificar un parámetro `DefaultLayout` con una clase de 
 
 Se pueden aplicar varias plantillas de ruta a un componente. El siguiente componente responde a las solicitudes de `/BlazorRoute` y `/DifferentBlazorRoute`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 > [!IMPORTANT]
-> Para que las direcciones URL se resuelvan correctamente, la aplicación debe incluir una etiqueta `<base>` en su archivo *wwwroot/index.html* (webassembly) o *pages/_Host. cshtml* (servidor increíblemente) con la ruta de acceso base de la aplicación especificada en el atributo `href` (`<base href="/">`). Para obtener más información, vea <xref:host-and-deploy/blazor/index#app-base-path>.
+> Para que las direcciones URL se resuelvan correctamente, la aplicación debe incluir una `<base>` etiqueta en su archivo *wwwroot/index.html* (webassembly) o *pages/_Host. cshtml* (servidor increíblemente) con la ruta de acceso base de la aplicación especificada en el atributo `href` (`<base href="/">`). Para obtener más información, vea <xref:host-and-deploy/blazor/index#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>Proporcionar contenido personalizado cuando no se encuentra el contenido
 
@@ -97,7 +97,7 @@ Use el parámetro `AdditionalAssemblies` para especificar ensamblados adicionale
 
 El enrutador usa parámetros de ruta para rellenar los parámetros de componente correspondientes con el mismo nombre (no distingue mayúsculas de minúsculas):
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.razor?name=snippet_RouteParameter&highlight=2,7-8)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/RouteParameter.razor?name=snippet_RouteParameter&highlight=2,7-8)]
 
 Los parámetros opcionales no se admiten para las aplicaciones increíbles en ASP.NET Core 3,0. En el ejemplo anterior se aplican dos directivas `@page`. El primero permite la navegación al componente sin un parámetro. La segunda Directiva `@page` toma el parámetro de ruta `{text}` y asigna el valor a la propiedad `Text`.
 
@@ -177,7 +177,7 @@ Use `Microsoft.AspNetCore.Components.NavigationManager` para trabajar con los UR
 | Miembro | Descripción |
 | ------ | ----------- |
 | `Uri` | Obtiene el URI absoluto actual. |
-| `BaseUri` | Obtiene el URI base (con una barra diagonal final) que se puede anteponer a las rutas de acceso del URI relativo para generar un URI absoluto. Normalmente, `BaseUri` corresponde al atributo `href` del elemento `<base>` del documento en *wwwroot/index.html* (webassembly) o *pages/_Host. cshtml* (servidor increíble). |
+| `BaseUri` | Obtiene el URI base (con una barra diagonal final) que se puede anteponer a las rutas de acceso del URI relativo para generar un URI absoluto. Normalmente, `BaseUri` se corresponde con el atributo `href` en el elemento `<base>` del documento en *wwwroot/index.html* (webassembly) o *pages/_Host. cshtml* (servidor increíble). |
 | `NavigateTo` | Navega al URI especificado. Si `forceLoad` es `true`:<ul><li>Se omite el enrutamiento del lado cliente.</li><li>El explorador se ve obligado a cargar la nueva página del servidor, tanto si el identificador URI está controlado normalmente por el enrutador del lado cliente como si no.</li></ul> |
 | `LocationChanged` | Evento que se desencadena cuando ha cambiado la ubicación de navegación. |
 | `ToAbsoluteUri` | Convierte un URI relativo en un URI absoluto. |
