@@ -4,24 +4,24 @@ author: coderandhiker
 description: Obtenga información sobre cómo acceder a HttpContext en ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/27/2018
+ms.date: 10/11/2018
 uid: fundamentals/httpcontext
-ms.openlocfilehash: 373c036e0839ce51259e23f8503fbe4691b48751
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 888adf6d61e6968127385952e65f942e86b7eb63
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886520"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72288970"
 ---
-# <a name="access-httpcontext-in-aspnet-core"></a><span data-ttu-id="5700e-103">Acceso a HttpContext en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="5700e-103">Access HttpContext in ASP.NET Core</span></span>
+# <a name="access-httpcontext-in-aspnet-core"></a><span data-ttu-id="fd49c-103">Acceso a HttpContext en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="fd49c-103">Access HttpContext in ASP.NET Core</span></span>
 
-<span data-ttu-id="5700e-104">Las aplicaciones ASP.NET Core acceden a `HttpContext` a través de la interfaz [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) y de su implementación predeterminada [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor).</span><span class="sxs-lookup"><span data-stu-id="5700e-104">ASP.NET Core apps access the `HttpContext` through the [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) interface and its default implementation [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor).</span></span> <span data-ttu-id="5700e-105">Solo es necesario utilizar `IHttpContextAccessor` si necesita acceder al valor `HttpContext` dentro de un servicio.</span><span class="sxs-lookup"><span data-stu-id="5700e-105">It's only necessary to use `IHttpContextAccessor` when you need access to the `HttpContext` inside a service.</span></span>
+<span data-ttu-id="fd49c-104">Las aplicaciones ASP.NET Core acceden a `HttpContext` a través de la interfaz [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) y de su implementación predeterminada [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor).</span><span class="sxs-lookup"><span data-stu-id="fd49c-104">ASP.NET Core apps access the `HttpContext` through the [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) interface and its default implementation [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor).</span></span> <span data-ttu-id="fd49c-105">Solo es necesario utilizar `IHttpContextAccessor` si necesita acceder al valor `HttpContext` dentro de un servicio.</span><span class="sxs-lookup"><span data-stu-id="fd49c-105">It's only necessary to use `IHttpContextAccessor` when you need access to the `HttpContext` inside a service.</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
-## <a name="use-httpcontext-from-razor-pages"></a><span data-ttu-id="5700e-106">Uso de HttpContext desde Razor Pages</span><span class="sxs-lookup"><span data-stu-id="5700e-106">Use HttpContext from Razor Pages</span></span>
+## <a name="use-httpcontext-from-razor-pages"></a><span data-ttu-id="fd49c-106">Uso de HttpContext desde Razor Pages</span><span class="sxs-lookup"><span data-stu-id="fd49c-106">Use HttpContext from Razor Pages</span></span>
 
-<span data-ttu-id="5700e-107">[PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) de Razor Pages expone la propiedad [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext):</span><span class="sxs-lookup"><span data-stu-id="5700e-107">The Razor Pages [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) exposes the [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext) property:</span></span>
+<span data-ttu-id="fd49c-107">[PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) de Razor Pages expone la propiedad [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext):</span><span class="sxs-lookup"><span data-stu-id="fd49c-107">The Razor Pages [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) exposes the [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext) property:</span></span>
 
 ```csharp
 public class AboutModel : PageModel
@@ -37,9 +37,9 @@ public class AboutModel : PageModel
 
 ::: moniker-end
 
-## <a name="use-httpcontext-from-a-razor-view"></a><span data-ttu-id="5700e-108">Uso de HttpContext desde una vista de Razor</span><span class="sxs-lookup"><span data-stu-id="5700e-108">Use HttpContext from a Razor view</span></span>
+## <a name="use-httpcontext-from-a-razor-view"></a><span data-ttu-id="fd49c-108">Uso de HttpContext desde una vista de Razor</span><span class="sxs-lookup"><span data-stu-id="fd49c-108">Use HttpContext from a Razor view</span></span>
 
-<span data-ttu-id="5700e-109">Las vistas de Razor exponen el valor `HttpContext` directamente mediante una propiedad [RazorPage.Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context) de la vista.</span><span class="sxs-lookup"><span data-stu-id="5700e-109">Razor views expose the `HttpContext` directly via a [RazorPage.Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context) property on the view.</span></span> <span data-ttu-id="5700e-110">En el ejemplo siguiente se recupera el nombre de usuario actual de una aplicación de Intranet mediante la Autenticación de Windows:</span><span class="sxs-lookup"><span data-stu-id="5700e-110">The following example retrieves the current username in an Intranet app using Windows Authentication:</span></span>
+<span data-ttu-id="fd49c-109">Las vistas de Razor exponen el valor `HttpContext` directamente mediante una propiedad [RazorPage.Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context) de la vista.</span><span class="sxs-lookup"><span data-stu-id="fd49c-109">Razor views expose the `HttpContext` directly via a [RazorPage.Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context) property on the view.</span></span> <span data-ttu-id="fd49c-110">En el ejemplo siguiente se recupera el nombre de usuario actual de una aplicación de Intranet mediante la Autenticación de Windows:</span><span class="sxs-lookup"><span data-stu-id="fd49c-110">The following example retrieves the current username in an Intranet app using Windows Authentication:</span></span>
 
 ```cshtml
 @{
@@ -47,9 +47,9 @@ public class AboutModel : PageModel
 }
 ```
 
-## <a name="use-httpcontext-from-a-controller"></a><span data-ttu-id="5700e-111">Uso de HttpContext desde un controlador</span><span class="sxs-lookup"><span data-stu-id="5700e-111">Use HttpContext from a controller</span></span>
+## <a name="use-httpcontext-from-a-controller"></a><span data-ttu-id="fd49c-111">Uso de HttpContext desde un controlador</span><span class="sxs-lookup"><span data-stu-id="fd49c-111">Use HttpContext from a controller</span></span>
 
-<span data-ttu-id="5700e-112">Los controladores exponen la propiedad [ControllerBase.HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.httpcontext):</span><span class="sxs-lookup"><span data-stu-id="5700e-112">Controllers expose the [ControllerBase.HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.httpcontext) property:</span></span>
+<span data-ttu-id="fd49c-112">Los controladores exponen la propiedad [ControllerBase.HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.httpcontext):</span><span class="sxs-lookup"><span data-stu-id="fd49c-112">Controllers expose the [ControllerBase.HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.httpcontext) property:</span></span>
 
 ```csharp
 public class HomeController : Controller
@@ -64,9 +64,9 @@ public class HomeController : Controller
 }
 ```
 
-## <a name="use-httpcontext-from-middleware"></a><span data-ttu-id="5700e-113">Uso de HttpContext desde el software intermedio</span><span class="sxs-lookup"><span data-stu-id="5700e-113">Use HttpContext from middleware</span></span>
+## <a name="use-httpcontext-from-middleware"></a><span data-ttu-id="fd49c-113">Uso de HttpContext desde el software intermedio</span><span class="sxs-lookup"><span data-stu-id="fd49c-113">Use HttpContext from middleware</span></span>
 
-<span data-ttu-id="5700e-114">Cuando se trabaja con componentes de software intermedio personalizado, `HttpContext` se pasa al método `Invoke` o `InvokeAsync` y es accesible cuando el software intermedio está configurado:</span><span class="sxs-lookup"><span data-stu-id="5700e-114">When working with custom middleware components, `HttpContext` is passed into the `Invoke` or `InvokeAsync` method and can be accessed when the middleware is configured:</span></span>
+<span data-ttu-id="fd49c-114">Cuando se trabaja con componentes de software intermedio personalizado, `HttpContext` se pasa al método `Invoke` o `InvokeAsync` y es accesible cuando el software intermedio está configurado:</span><span class="sxs-lookup"><span data-stu-id="fd49c-114">When working with custom middleware components, `HttpContext` is passed into the `Invoke` or `InvokeAsync` method and can be accessed when the middleware is configured:</span></span>
 
 ```csharp
 public class MyCustomMiddleware
@@ -78,9 +78,9 @@ public class MyCustomMiddleware
 }
 ```
 
-## <a name="use-httpcontext-from-custom-components"></a><span data-ttu-id="5700e-115">Uso de HttpContext desde componentes personalizados</span><span class="sxs-lookup"><span data-stu-id="5700e-115">Use HttpContext from custom components</span></span>
+## <a name="use-httpcontext-from-custom-components"></a><span data-ttu-id="fd49c-115">Uso de HttpContext desde componentes personalizados</span><span class="sxs-lookup"><span data-stu-id="fd49c-115">Use HttpContext from custom components</span></span>
 
-<span data-ttu-id="5700e-116">Para los componentes de otro marco y componentes personalizados que requieren acceso a `HttpContext`, el enfoque recomendado es registrar una dependencia mediante el contenedor integrado de [inserción de dependencias](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="5700e-116">For other framework and custom components that require access to `HttpContext`, the recommended approach is to register a dependency using the built-in [dependency injection](xref:fundamentals/dependency-injection) container.</span></span> <span data-ttu-id="5700e-117">El contenedor de inserción de dependencias proporciona `IHttpContextAccessor` a cualquier clase que la declare como una dependencia en sus constructores.</span><span class="sxs-lookup"><span data-stu-id="5700e-117">The dependency injection container supplies the `IHttpContextAccessor` to any classes that declare it as a dependency in their constructors.</span></span>
+<span data-ttu-id="fd49c-116">Para los componentes de otro marco y componentes personalizados que requieren acceso a `HttpContext`, el enfoque recomendado es registrar una dependencia mediante el contenedor integrado de [inserción de dependencias](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="fd49c-116">For other framework and custom components that require access to `HttpContext`, the recommended approach is to register a dependency using the built-in [dependency injection](xref:fundamentals/dependency-injection) container.</span></span> <span data-ttu-id="fd49c-117">El contenedor de inserción de dependencias proporciona `IHttpContextAccessor` a cualquier clase que la declare como una dependencia en sus constructores.</span><span class="sxs-lookup"><span data-stu-id="fd49c-117">The dependency injection container supplies the `IHttpContextAccessor` to any classes that declare it as a dependency in their constructors.</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -109,10 +109,10 @@ public void ConfigureServices(IServiceCollection services)
 
 ::: moniker-end
 
-<span data-ttu-id="5700e-118">En el ejemplo siguiente:</span><span class="sxs-lookup"><span data-stu-id="5700e-118">In the following example:</span></span>
+<span data-ttu-id="fd49c-118">En el ejemplo siguiente:</span><span class="sxs-lookup"><span data-stu-id="fd49c-118">In the following example:</span></span>
 
-* <span data-ttu-id="5700e-119">`UserRepository` declara su dependencia de `IHttpContextAccessor`.</span><span class="sxs-lookup"><span data-stu-id="5700e-119">`UserRepository` declares its dependency on `IHttpContextAccessor`.</span></span>
-* <span data-ttu-id="5700e-120">La dependencia se proporciona cuando la inserción de dependencias resuelve la cadena de dependencias y crea una instancia de `UserRepository`.</span><span class="sxs-lookup"><span data-stu-id="5700e-120">The dependency is supplied when dependency injection resolves the dependency chain and creates an instance of `UserRepository`.</span></span>
+* <span data-ttu-id="fd49c-119">`UserRepository` declara su dependencia de `IHttpContextAccessor`.</span><span class="sxs-lookup"><span data-stu-id="fd49c-119">`UserRepository` declares its dependency on `IHttpContextAccessor`.</span></span>
+* <span data-ttu-id="fd49c-120">La dependencia se proporciona cuando la inserción de dependencias resuelve la cadena de dependencias y crea una instancia de `UserRepository`.</span><span class="sxs-lookup"><span data-stu-id="fd49c-120">The dependency is supplied when dependency injection resolves the dependency chain and creates an instance of `UserRepository`.</span></span>
 
 ```csharp
 public class UserRepository : IUserRepository
@@ -132,19 +132,19 @@ public class UserRepository : IUserRepository
 }
 ```
 
-## <a name="httpcontext-access-from-a-background-thread"></a><span data-ttu-id="5700e-121">Acceso de HttpContext desde un subproceso en segundo plano</span><span class="sxs-lookup"><span data-stu-id="5700e-121">HttpContext access from a background thread</span></span>
+## <a name="httpcontext-access-from-a-background-thread"></a><span data-ttu-id="fd49c-121">Acceso de HttpContext desde un subproceso en segundo plano</span><span class="sxs-lookup"><span data-stu-id="fd49c-121">HttpContext access from a background thread</span></span>
 
-<span data-ttu-id="5700e-122">`HttpContext` no es seguro para subprocesos.</span><span class="sxs-lookup"><span data-stu-id="5700e-122">`HttpContext` is not thread-safe.</span></span> <span data-ttu-id="5700e-123">La lectura o escritura de propiedades de `HttpContext` fuera del procesamiento de una solicitud puede iniciar una excepción `NullReferenceException`.</span><span class="sxs-lookup"><span data-stu-id="5700e-123">Reading or writing properties of the `HttpContext` outside of processing a request can result in a `NullReferenceException`.</span></span>
+<span data-ttu-id="fd49c-122">`HttpContext` no es seguro para subprocesos.</span><span class="sxs-lookup"><span data-stu-id="fd49c-122">`HttpContext` is not thread-safe.</span></span> <span data-ttu-id="fd49c-123">La lectura o escritura de propiedades de `HttpContext` fuera del procesamiento de una solicitud puede iniciar una excepción `NullReferenceException`.</span><span class="sxs-lookup"><span data-stu-id="fd49c-123">Reading or writing properties of the `HttpContext` outside of processing a request can result in a `NullReferenceException`.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="5700e-124">El uso de `HttpContext` fuera del procesamiento de una solicitud a menudo da como resultado una excepción `NullReferenceException`.</span><span class="sxs-lookup"><span data-stu-id="5700e-124">Using `HttpContext` outside of processing a request often results in a `NullReferenceException`.</span></span> <span data-ttu-id="5700e-125">Si la aplicación inicia excepciones `NullReferenceException` esporádicas, revise los elementos del código que inician el procesamiento en segundo plano, o bien que lo continúan después de que se complete una solicitud.</span><span class="sxs-lookup"><span data-stu-id="5700e-125">If your app generates sporadic `NullReferenceException`s , review parts of the code that start background processing, or that continue processing after a request completes.</span></span> <span data-ttu-id="5700e-126">Busque errores como la definición de un método de controlador como `async void`.</span><span class="sxs-lookup"><span data-stu-id="5700e-126">Look for a mistakes like defining a controller method as `async void`.</span></span>
+> <span data-ttu-id="fd49c-124">El uso de `HttpContext` fuera del procesamiento de una solicitud a menudo da como resultado una excepción `NullReferenceException`.</span><span class="sxs-lookup"><span data-stu-id="fd49c-124">Using `HttpContext` outside of processing a request often results in a `NullReferenceException`.</span></span> <span data-ttu-id="fd49c-125">Si la aplicación inicia excepciones `NullReferenceException` esporádicas, revise los elementos del código que inician el procesamiento en segundo plano, o bien que lo continúan después de que se complete una solicitud.</span><span class="sxs-lookup"><span data-stu-id="fd49c-125">If your app generates sporadic `NullReferenceException`s , review parts of the code that start background processing, or that continue processing after a request completes.</span></span> <span data-ttu-id="fd49c-126">Busque errores, como la definición de un método de controlador como `async void`.</span><span class="sxs-lookup"><span data-stu-id="fd49c-126">Look for mistakes, such as defining a controller method as `async void`.</span></span>
 
-<span data-ttu-id="5700e-127">Para realizar el trabajo en segundo plano de forma segura con datos `HttpContext`:</span><span class="sxs-lookup"><span data-stu-id="5700e-127">To safely perform background work with `HttpContext` data:</span></span>
+<span data-ttu-id="fd49c-127">Para realizar el trabajo en segundo plano de forma segura con datos `HttpContext`:</span><span class="sxs-lookup"><span data-stu-id="fd49c-127">To safely perform background work with `HttpContext` data:</span></span>
 
-* <span data-ttu-id="5700e-128">Copie los datos necesarios durante el procesamiento de la solicitud.</span><span class="sxs-lookup"><span data-stu-id="5700e-128">Copy the required data during request processing.</span></span>
-* <span data-ttu-id="5700e-129">Pase los datos copiados a una tarea en segundo plano.</span><span class="sxs-lookup"><span data-stu-id="5700e-129">Pass the copied data to a background task.</span></span>
+* <span data-ttu-id="fd49c-128">Copie los datos necesarios durante el procesamiento de la solicitud.</span><span class="sxs-lookup"><span data-stu-id="fd49c-128">Copy the required data during request processing.</span></span>
+* <span data-ttu-id="fd49c-129">Pase los datos copiados a una tarea en segundo plano.</span><span class="sxs-lookup"><span data-stu-id="fd49c-129">Pass the copied data to a background task.</span></span>
 
-<span data-ttu-id="5700e-130">Para evitar código no seguro, no pase nunca `HttpContext` a un método que realice trabajos en segundo plano; en su lugar, pase los datos que necesite.</span><span class="sxs-lookup"><span data-stu-id="5700e-130">To avoid unsafe code, never pass the `HttpContext` into a method that does background work - pass the data you need instead.</span></span>
+<span data-ttu-id="fd49c-130">Para evitar código no seguro, no pase nunca `HttpContext` a un método que realice trabajos en segundo plano; en su lugar, pase los datos que necesite.</span><span class="sxs-lookup"><span data-stu-id="fd49c-130">To avoid unsafe code, never pass the `HttpContext` into a method that does background work - pass the data you need instead.</span></span>
 
 ```csharp
 public class EmailController
