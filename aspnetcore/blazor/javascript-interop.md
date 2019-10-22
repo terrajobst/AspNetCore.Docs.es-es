@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo invocar funciones de JavaScript de
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 10/16/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: a8c3a0951761faab1c11507834aeef2507388d71
-ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
+ms.openlocfilehash: b157e16918975cd522318a02f21824d9a0198b11
+ms.sourcegitcommit: eb4fcdeb2f9e8413117624de42841a4997d1d82d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72531130"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72697915"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>Interoperabilidad de JavaScript de ASP.NET Core increíblemente
 
@@ -38,9 +38,9 @@ Para las aplicaciones de servidor increíbles:
 
 El ejemplo siguiente se basa en [TextDecoder](https://developer.mozilla.org/docs/Web/API/TextDecoder), un descodificador basado en JavaScript experimental. En el ejemplo se muestra cómo invocar una función de C# JavaScript desde un método. La función de JavaScript acepta una matriz de bytes de un C# método, descodifica la matriz y devuelve el texto al componente que se va a mostrar.
 
-Dentro del elemento `<head>` de *wwwroot/index.html* (webassembly) o *pages/_Host. cshtml* (servidor increíble), proporcione una función que use `TextDecoder` para descodificar una matriz pasada:
+Dentro del elemento `<head>` de *wwwroot/index.html* (webassembly más rápido) o *pages/_Host. cshtml* (servidor increíble), proporcione una función de JavaScript que use `TextDecoder` para descodificar una matriz pasada y devolver el valor descodificado:
 
-[!code-html[](javascript-interop/samples_snapshot/index-script.html)]
+[!code-html[](javascript-interop/samples_snapshot/index-script-convertarray.html)]
 
 El código JavaScript, como el código que se muestra en el ejemplo anterior, también se puede cargar desde un archivo JavaScript ( *. js*) con una referencia al archivo de script:
 
@@ -50,10 +50,12 @@ El código JavaScript, como el código que se muestra en el ejemplo anterior, ta
 
 El siguiente componente:
 
-* Invoca la función JavaScript `ConvertArray` mediante `JsRuntime` cuando se selecciona un botón de componente (**convertir matriz**).
+* Invoca la función `convertArray` JavaScript mediante `JSRuntime` cuando se selecciona un botón de componente (**convertir matriz**).
 * Después de llamar a la función de JavaScript, la matriz que se pasa se convierte en una cadena. La cadena se devuelve al componente para su presentación.
 
 [!code-cshtml[](javascript-interop/samples_snapshot/call-js-example.razor?highlight=2,34-35)]
+
+##  <a name="use-of-ijsruntime"></a>Uso de IJSRuntime
 
 Para usar la abstracción `IJSRuntime`, adopte cualquiera de los métodos siguientes:
 
@@ -61,9 +63,17 @@ Para usar la abstracción `IJSRuntime`, adopte cualquiera de los métodos siguie
 
   [!code-cshtml[](javascript-interop/samples_snapshot/inject-abstraction.razor?highlight=1)]
 
+  Dentro del elemento `<head>` de *wwwroot/index.html* (webassembly más rápido) o *pages/_Host. cshtml* (servidor increíble), proporcione un `handleTickerChanged` función de JavaScript. Se llama a la función con `IJSRuntime.InvokeVoidAsync` y no devuelve un valor:
+
+  [!code-html[](javascript-interop/samples_snapshot/index-script-handleTickerChanged1.html)]
+
 * Inserte la abstracción `IJSRuntime` en una clase ( *. CS*):
 
   [!code-csharp[](javascript-interop/samples_snapshot/inject-abstraction-class.cs?highlight=5)]
+
+  Dentro del elemento `<head>` de *wwwroot/index.html* (webassembly más rápido) o *pages/_Host. cshtml* (servidor increíble), proporcione un `handleTickerChanged` función de JavaScript. Se llama a la función con `JSRuntime.InvokeAsync` y devuelve un valor:
+
+  [!code-html[](javascript-interop/samples_snapshot/index-script-handleTickerChanged2.html)]
 
 * Para la generación de contenido dinámico con [BuildRenderTree](xref:blazor/components#manual-rendertreebuilder-logic), use el atributo `[Inject]`:
 
@@ -75,7 +85,7 @@ Para usar la abstracción `IJSRuntime`, adopte cualquiera de los métodos siguie
 En la aplicación de ejemplo del lado cliente que acompaña a este tema, hay dos funciones de JavaScript disponibles para la aplicación que interactúan con el DOM para recibir datos proporcionados por el usuario y mostrar un mensaje de bienvenida:
 
 * `showPrompt` &ndash; genera un mensaje para aceptar la entrada del usuario (el nombre del usuario) y devuelve el nombre al autor de la llamada.
-* `displayWelcome` &ndash; asigna un mensaje de bienvenida del autor de la llamada a un objeto DOM con un @no__t 2 de `welcome`.
+* `displayWelcome` &ndash; asigna un mensaje de bienvenida del autor de la llamada a un objeto DOM con un `id` de `welcome`.
 
 *wwwroot/exampleJsInterop. js*:
 
@@ -155,7 +165,7 @@ window.exampleJsFunctions = {
 }
 ```
 
-Use `IJSRuntime.InvokeAsync<T>` y llame a `exampleJsFunctions.focusElement` con un @no__t 2 para centrar un elemento:
+Use `IJSRuntime.InvokeAsync<T>` y llame a `exampleJsFunctions.focusElement` con un `ElementReference` para centrar un elemento:
 
 [!code-cshtml[](javascript-interop/samples_snapshot/component1.razor?highlight=1,3,11-12)]
 
@@ -230,7 +240,7 @@ Cuando se selecciona el botón **desencadenador de instancia de .net HelloHelper
 
 [!code-javascript[](./common/samples/3.x/BlazorWebAssemblySample/wwwroot/exampleJsInterop.js?highlight=15-18)]
 
-El nombre se pasa al constructor de `HelloHelper`, que establece la propiedad `HelloHelper.Name`. Cuando se ejecuta la función de JavaScript `sayHello`, `HelloHelper.SayHello` devuelve el mensaje @no__t 2, que la función JavaScript escribe en la consola.
+El nombre se pasa al constructor de `HelloHelper`, que establece la propiedad `HelloHelper.Name`. Cuando se ejecuta la función de JavaScript `sayHello`, `HelloHelper.SayHello` devuelve el mensaje `Hello, {Name}!`, que la función JavaScript escribe en la consola.
 
 *JsInteropClasses/HelloHelper. CS*:
 

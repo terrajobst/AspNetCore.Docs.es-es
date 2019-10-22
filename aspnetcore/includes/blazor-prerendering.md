@@ -6,21 +6,33 @@ Para retrasar las llamadas de interoperabilidad de JavaScript hasta que se estab
 @using Microsoft.JSInterop
 @inject IJSRuntime JSRuntime
 
-<input @ref="myInput" value="Value set during render" />
+<div @ref="divElement">Text during render</div>
 
 @code {
-    private ElementReference myInput;
+    private ElementReference divElement;
 
-    protected override void OnAfterRender(bool firstRender)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            JSRuntime.InvokeVoidAsync(
-                "setElementValue", myInput, "Value set after render");
+            await JSRuntime.InvokeVoidAsync(
+                "setElementText", divElement, "Text after render");
         }
     }
 }
 ```
+
+Para el código de ejemplo anterior, proporcione una `setElementText` función de JavaScript dentro del elemento `<head>` de *wwwroot/index.html* (webassembly) o *pages/_Host. cshtml* (servidor increíble). Se llama a la función con `IJSRuntime.InvokeVoidAsync` y no devuelve un valor:
+
+```html
+<!--  -->
+<script>
+  window.setElementText = (element, text) => element.innerText = text;
+</script>
+```
+
+> [!WARNING]
+> En el ejemplo anterior se modifica el Document Object Model (DOM) directamente solo con fines de demostración. La modificación directa del DOM con JavaScript no se recomienda en la mayoría de los escenarios, ya que JavaScript puede interferir con el seguimiento de cambios de la extraordinaria.
 
 En el componente siguiente se muestra cómo usar la interoperabilidad de JavaScript como parte de la lógica de inicialización de un componente de una manera compatible con la representación previa. El componente muestra que es posible desencadenar una actualización de representación desde dentro `OnAfterRenderAsync`. El desarrollador debe evitar la creación de un bucle infinito en este escenario.
 
@@ -39,24 +51,36 @@ se llama a `StateHasChanged` para representarlo con el nuevo estado Obtenido de 
     <strong id="val-get-by-interop">@(infoFromJs ?? "No value yet")</strong>
 </p>
 
-<p>
-    Set value via JS interop call:
-    <input id="val-set-by-interop" @ref="myElem" />
-</p>
+Set value via JS interop call:
+<div id="val-set-by-interop" @ref="divElement"></div>
 
 @code {
     private string infoFromJs;
-    private ElementReference myElem;
+    private ElementReference divElement;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender && infoFromJs == null)
         {
             infoFromJs = await JSRuntime.InvokeAsync<string>(
-                "setElementValue", myElem, "Hello from interop call");
+                "setElementText", divElement, "Hello from interop call!");
 
             StateHasChanged();
         }
     }
 }
 ```
+
+Para el código de ejemplo anterior, proporcione una `setElementText` función de JavaScript dentro del elemento `<head>` de *wwwroot/index.html* (webassembly) o *pages/_Host. cshtml* (servidor increíble). Se llama a la función con `IJSRuntime.InvokeAsync` y devuelve un valor:
+
+```html
+<script>
+  window.setElementText = (element, text) => {
+    element.innerText = text;
+    return text;
+  };
+</script>
+```
+
+> [!WARNING]
+> En el ejemplo anterior se modifica el Document Object Model (DOM) directamente solo con fines de demostración. La modificación directa del DOM con JavaScript no se recomienda en la mayoría de los escenarios, ya que JavaScript puede interferir con el seguimiento de cambios de la extraordinaria.
