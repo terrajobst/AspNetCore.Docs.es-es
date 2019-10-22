@@ -5,12 +5,12 @@ description: Agregar una vista a una aplicación sencilla de ASP.NET Core MVC
 ms.author: riande
 ms.date: 8/04/2019
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 1c29b59f9306774316ff37eeb57cc441fe5c7370
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: de75c3b0651c0cda6629af786d7db9dc83bc4fef
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68820081"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72288824"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Agregar una vista a una aplicación de ASP.NET Core MVC
 
@@ -86,7 +86,7 @@ Las plantillas de [diseño](xref:mvc/views/layout) permiten especificar el dise�
 
 ## <a name="change-the-title-footer-and-menu-link-in-the-layout-file"></a>Cambio de los vínculos del título, el pie de página y el menú en el archivo de diseño
 
-Reemplace el contenido del archivo *Views\Shared\_Layout.cshtml* por el marcado siguiente. Se resaltan los cambios:
+Reemplace el contenido del archivo *Views/Shared/_Layout.cshtml* por el marcado siguiente. Se resaltan los cambios:
 
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Views/Shared/_Layout.cshtml?highlight=6,14,40)]
 

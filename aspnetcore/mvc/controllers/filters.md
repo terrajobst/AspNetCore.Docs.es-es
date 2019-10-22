@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/28/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: ed48c2074360768b8d8c5af7057b353b00592394
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.openlocfilehash: 0c3597f24e02af40517e12a86127b140ed4fb550
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037694"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333932"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtros en ASP.NET Core
 
@@ -158,7 +158,7 @@ Por ejemplo, en el ejemplo de descarga, se aplica `MySampleActionFilter` globalm
 
 El `TestController`:
 
-* Aplica `SampleActionFilterAttribute` (`[SampleActionFilter]`) a la acción `FilterTest2`:
+* Aplica `SampleActionFilterAttribute` (`[SampleActionFilter]`) a la acción `FilterTest2`.
 * Invalida `OnActionExecuting` y `OnActionExecuted`.
 
 [!code-csharp[](./filters/sample/FiltersSample/Controllers/TestController.cs?name=snippet)]
@@ -449,18 +449,7 @@ El método <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter.OnResultExecutin
 * Se impedirá la ejecución del resultado de la acción y de los filtros subsiguientes.
 * Se tratará como un error en lugar de como un resultado correcto.
 
-Cuando se ejecuta el método <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter.OnResultExecuted*?displayProperty=fullName>:
-
-* Es probable que la respuesta se haya enviado al cliente y no se pueda cambiar.
-* Si se inicia una excepción, no se envía el cuerpo de respuesta.
-
-<!-- Review preceding "If an exception was thrown: Original 
-When the OnResultExecuted method runs, the response has likely been sent to the client and cannot be changed further (unless an exception was thrown).
-
-SHould that be , 
-If an exception was thrown **IN THE RESULT FILTER**, the response body is not sent.
-
- -->
+Cuando se ejecuta el método <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter.OnResultExecuted*?displayProperty=fullName>, es probable que la respuesta ya se haya enviado al cliente. En este caso, no se puede cambiar más.
 
 `ResultExecutedContext.Canceled` se establece en `true` si otro filtro ha cortocircuitado la ejecución del resultado de la acción.
 
@@ -532,7 +521,7 @@ Los filtros de recursos funcionan como el [middleware](xref:fundamentals/middlew
 
 Para usar middleware como un filtro, cree un tipo con un método `Configure` en el que se especifique el middleware para insertar en la canalización de filtro. El ejemplo siguiente usa el middleware de localización para establecer la referencia cultural actual de una solicitud:
 
-[!code-csharp[](./filters/sample/FiltersSample/Filters/LocalizationPipeline.cs?name=snippet_MiddlewareFilter&highlight=3,21)]
+[!code-csharp[](./filters/sample/FiltersSample/Filters/LocalizationPipeline.cs?name=snippet_MiddlewareFilter&highlight=3,22)]
 
 Use <xref:Microsoft.AspNetCore.Mvc.MiddlewareFilterAttribute> para ejecutar el middleware:
 

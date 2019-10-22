@@ -5,18 +5,16 @@ description: Obtenga información sobre la manera en que ASP.NET Core proporcion
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 6dfbeae201a3586dfea6620917083130c4985b22
-ms.sourcegitcommit: dc96d76f6b231de59586fcbb989a7fb5106d26a8
+ms.openlocfilehash: 9ed133c93a9ec95c63869b710d120eca9fda1b6e
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703813"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333702"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
 
 By [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](https://twitter.com/damien_bod), [Bart Calixto](https://twitter.com/bartmax), [Nadeem Afana](https://afana.me/) y [Hisham Bin Ateya](https://twitter.com/hishambinateya)
-
-Hasta que se actualice este documento para reflejar las novedades de ASP.NET Core 3.0, vea la entrada de blog [What is new in Localization in ASP.NET Core 3.0](http://hishambinateya.com/what-is-new-in-localization-in-asp.net-core-3.0) (Novedades en la localización de ASP.NET Core 3.0) de Hisham.
 
 El hecho de crear un sitio web multilingüe con ASP.NET Core permite que este llegue a un público más amplio. ASP.NET Core proporciona servicios y software intermedio para la localización en diferentes idiomas y referencias culturales.
 
@@ -275,10 +273,36 @@ El [encabezado Accept-Language](https://www.w3.org/International/questions/qa-ac
 
 6. Haga clic en el idioma y, después, en **Subir**.
 
+::: moniker range=">= aspnetcore-3.0"
+### <a name="the-content-language-http-header"></a>El encabezado HTTP Content-Language
+
+El encabezado de entidad [Content-Language](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language):
+
+ - Se usa para describir los lenguajes destinados a la audiencia.
+ - Permite a un usuario diferenciar según el propio idioma preferido de los usuarios.
+
+Los encabezados de entidad se usan en las solicitudes y respuestas HTTP.
+
+En ASP.NET Core 3.0, se puede agregar el encabezado `Content-Language` mediante el establecimiento de la propiedad `ApplyCurrentCultureToResponseHeaders`.
+
+La adición del encabezado `Content-Language`:
+
+ - Permite que RequestLocalizationMiddleware establezca el encabezado `Content-Language` con `CurrentUICulture`.
+ - Elimina la necesidad de establecer el encabezado de respuesta `Content-Language` explícitamente.
+
+```csharp
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    ApplyCurrentCultureToResponseHeaders = true
+});
+```
+::: moniker-end
+
 ### <a name="use-a-custom-provider"></a>Usar un proveedor personalizado
 
 Imagine que quiere permitir que los clientes almacenen su idioma y su referencia cultural en las bases de datos. Puede escribir un proveedor para que busque estos valores para el usuario. En el código siguiente se muestra cómo agregar un proveedor personalizado:
 
+::: moniker range="< aspnetcore-3.0"
 ```csharp
 private const string enUSCulture = "en-US";
 
@@ -301,6 +325,32 @@ services.Configure<RequestLocalizationOptions>(options =>
     }));
 });
 ```
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+```csharp
+private const string enUSCulture = "en-US";
+
+services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new[]
+    {
+        new CultureInfo(enUSCulture),
+        new CultureInfo("fr")
+    };
+
+    options.DefaultRequestCulture = new RequestCulture(culture: enUSCulture, uiCulture: enUSCulture);
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+
+    options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async context =>
+    {
+        // My custom request culture logic
+        return new ProviderCultureResult("en");
+    }));
+});
+```
+::: moniker-end
 
 Use `RequestLocalizationOptions` para agregar o quitar proveedores de localización.
 
@@ -341,7 +391,11 @@ Términos:
 * Referencia cultural principal: se trata de la referencia cultural neutra que contiene una referencia cultural específica. (por ejemplo, "en" es la referencia cultural principal de "en-US" y "en-GB").
 * Configuración regional: la configuración regional es lo mismo que la referencia cultural.
 
-[!INCLUDE[](~/includes/currency.md)]
+[!INCLUDE[](~/includes/localization/currency.md)]
+
+::: moniker range=">= aspnetcore-3.0"
+[!INCLUDE[](~/includes/localization/unsupported-culture-log-level.md)]
+::: moniker-end
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -351,3 +405,4 @@ Términos:
 * [Recursos en archivos .resx](/dotnet/framework/resources/working-with-resx-files-programmatically)
 * [Kit de herramientas de aplicaciones multilingüe de Microsoft](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
 * [Localización y genéricos](https://github.com/hishamco/hishambinateya.com/blob/master/Posts/localization-and-generics.md)
+* [Novedades de la localización en ASP.NET Core 3.0](http://hishambinateya.com/what-is-new-in-localization-in-asp.net-core-3.0)

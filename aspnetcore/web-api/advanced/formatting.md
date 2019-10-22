@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 8/22/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: e503df3d81efbb2800503c0cb4ff5ae093b6e1ac
-ms.sourcegitcommit: 023495344053dc59115c80538f0ece935e7490a2
+ms.openlocfilehash: 78fe620ea8fdd681a276253f77939bcb2a56ebb9
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2019
-ms.locfileid: "71592349"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391288"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Aplicación de formato a datos de respuesta en ASP.NET Core Web API
 
@@ -57,9 +57,7 @@ El siguiente método de acción usa los métodos del asistente `Ok` y `NotFound`
 
 [!code-csharp[](./formatting/sample/Controllers/AuthorsController.cs?name=snippet_search)]
 
-Se devuelve una respuesta con formato JSON, a menos que se haya solicitado otro formato y el servidor pueda devolverlo. Las herramientas como [Fiddler](https://www.telerik.com/fiddler) o [Postman](https://www.getpostman.com/tools) pueden establecer el encabezado `Accept` para especificar el formato de devolución. Cuando `Accept` contiene un tipo que el servidor admite, se devuelve ese tipo.
-
-De forma predeterminada, ASP.NET Core solo admite JSON. En el caso de las aplicaciones que no cambian el valor predeterminado, las respuestas con formato JSON siempre se devuelven independientemente de la solicitud del cliente. En la sección siguiente se muestra cómo agregar otros formateadores.
+De forma predeterminada, ASP.NET Core admite los tipos de medios `application/json`, `text/json` y `text/plain`. Las herramientas como [Fiddler](https://www.telerik.com/fiddler) o [Postman](https://www.getpostman.com/tools) pueden establecer el encabezado de solicitud `Accept` para especificar el formato de devolución. Cuando el encabezado `Accept` contiene un tipo que el servidor admite, se devuelve ese tipo. En la sección siguiente se muestra cómo agregar otros formateadores.
 
 Las acciones del controlador pueden devolver POCO (objetos CLR antiguos sin formato). Cuando se devuelve un objeto POCO, el tiempo de ejecución crea automáticamente un `ObjectResult` que encapsula al objeto. El cliente obtiene el objeto serializado con formato. Si el objeto que se va a devolver es `null`, se devuelve una respuesta `204 No Content`.
 
@@ -221,16 +219,16 @@ Para más información, consulte [Filtros](xref:mvc/controllers/filters).
 
 ### <a name="special-case-formatters"></a>Formateadores de casos especiales
 
-Algunos casos especiales se implementan mediante formateadores integrados. De forma predeterminada, los tipos de valor devueltos `string` se formatean como *texto/sin formato* (*texto/html* si se solicita a través del encabezado `Accept`). Este comportamiento se puede quitar mediante la eliminación de <xref:Microsoft.AspNetCore.Mvc.Formatters.TextOutputFormatter>. Los formateadores se quitan en el método `Configure`. Las acciones que tienen un tipo de valor devuelto de objeto de modelo devuelven `204 No Content` al devolver `null`. Este comportamiento se puede quitar mediante la eliminación de <xref:Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter>. El código siguiente quita `TextOutputFormatter` y `HttpNoContentOutputFormatter`.
+Algunos casos especiales se implementan mediante formateadores integrados. De forma predeterminada, los tipos de valor devueltos `string` se formatean como *texto/sin formato* (*texto/html* si se solicita a través del encabezado `Accept`). Este comportamiento se puede quitar mediante la eliminación de <xref:Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter>. Los formateadores se quitan en el método `ConfigureServices`. Las acciones que tienen un tipo de valor devuelto de objeto de modelo devuelven `204 No Content` al devolver `null`. Este comportamiento se puede quitar mediante la eliminación de <xref:Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter>. El código siguiente quita `StringOutputFormatter` y `HttpNoContentOutputFormatter`.
 
 ::: moniker range=">= aspnetcore-3.0"
-[!code-csharp[](./formatting/3.0sample/StartupTextOutputFormatter.cs?name=snippet)]
+[!code-csharp[](./formatting/3.0sample/StartupStringOutputFormatter.cs?name=snippet)]
 ::: moniker-end
 ::: moniker range="< aspnetcore-3.0"
-[!code-csharp[](./formatting/sample/StartupTextOutputFormatter.cs?name=snippet)]
+[!code-csharp[](./formatting/sample/StartupStringOutputFormatter.cs?name=snippet)]
 ::: moniker-end
 
-Sin `TextOutputFormatter`, los tipos de valor devuelto `string` devuelven `406 Not Acceptable`. Si existe un formateador XML, formatea los tipos de valor devueltos `string` si `TextOutputFormatter` se quita.
+Sin `StringOutputFormatter`, el formateador de JSON integrado aplica formato a los tipos devueltos `string`. Si se quita el formateador JSON integrado y está disponible un formateador XML, el formateador XML aplica formato a los tipos devueltos `string`. De lo contrario, los tipos devueltos `string` devuelven `406 Not Acceptable`.
 
 Sin `HttpNoContentOutputFormatter`, se da formato a los objetos nulos mediante el formateador configurado. Por ejemplo:
 

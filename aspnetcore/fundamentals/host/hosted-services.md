@@ -7,16 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/26/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 0eaa3a62370c1e413840bb65f597dc664adafc38
-ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
+ms.openlocfilehash: c1fbb5ae8ffc4ee506f42df6a4cbbe845b2b903d
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71688095"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333659"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Tareas en segundo plano con servicios hospedados en ASP.NET Core
 
-Por [Luke Latham](https://github.com/guardrex)
+De [Luke Latham](https://github.com/guardrex) y [Jeow Li Huan](https://github.com/huan086)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -147,13 +147,17 @@ En el ejemplo `QueueHostedService` siguiente:
 
 * El método `BackgroundProcessing` devuelve `Task`, que se espera en `ExecuteAsync`.
 * Las tareas en segundo plano que están en cola se quitan de ella y se ejecutan en `BackgroundProcessing`.
+* Se esperan elementos de trabajo antes de que el servicio se detenga en `StopAsync`.
 
-[!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/QueuedHostedService.cs?name=snippet1&highlight=28,39-40,44)]
+[!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/QueuedHostedService.cs?name=snippet1&highlight=28-29,33)]
 
 Un servicio `MonitorLoop` controla las tareas de puesta en cola para el servicio hospedado cada vez que se selecciona la tecla `w` en un dispositivo de entrada:
 
 * `IBackgroundTaskQueue` se inserta en el servicio `MonitorLoop`.
 * Se llama a `IBackgroundTaskQueue.QueueBackgroundWorkItem` para poner en cola el elemento de trabajo.
+* El elemento de trabajo simula una tarea en segundo plano de larga duración:
+  * Se ejecutan tres retrasos de 5 segundos (`Task.Delay`).
+  * Una instrucción `try-catch` captura <xref:System.OperationCanceledException> si se cancela la tarea.
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/MonitorLoop.cs?name=snippet_Monitor&highlight=7,33)]
 
@@ -234,7 +238,7 @@ Los servicios se registran en `Startup.ConfigureServices`. La implementación `I
 
 ## <a name="queued-background-tasks"></a>Tareas en segundo plano en cola
 
-La cola de tareas en segundo plano se basa en <xref:System.Web.Hosting.HostingEnvironment.QueueBackgroundWorkItem*> de .NET 4.x ([está previsto que se integre en ASP.NET Core](https://github.com/aspnet/Hosting/issues/1280)):
+La cola de tareas en segundo plano se basa en <xref:System.Web.Hosting.HostingEnvironment.QueueBackgroundWorkItem*> de .NET Framework 4.x ([está previsto que se integre en ASP.NET Core](https://github.com/aspnet/Hosting/issues/1280)):
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Services/BackgroundTaskQueue.cs?name=snippet1)]
 

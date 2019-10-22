@@ -5,14 +5,14 @@ description: Aprenda a hospedar una aplicación ASP.NET Core en un servicio de W
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/10/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 32226c06ba005b4a61c473d6584b2b762733dcbd
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: b02e627af875f15a81d68b0d625a2eccf25c0657
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007298"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333803"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hospedaje de ASP.NET Core en un servicio de Windows
 
@@ -302,10 +302,12 @@ Los servicios que interactúan con las solicitudes de Internet o de una red corp
 
 ASP.NET Core se enlaza a `http://localhost:5000` de forma predeterminada. Configure la dirección URL y el puerto estableciendo la variable de entorno `ASPNETCORE_URLS`.
 
-Para obtener más enfoques de configuración de puertos y direcciones URL, incluida la compatibilidad con los puntos de conexión HTTPS, vea los temas siguientes:
+Para información sobre otros enfoques de configuración de direcciones URL y puertos, consulte el artículo en cuestión:
 
-* <xref:fundamentals/servers/kestrel#endpoint-configuration> (Kestrel)
-* <xref:fundamentals/servers/httpsys#configure-windows-server> (HTTP.sys)
+* <xref:fundamentals/servers/kestrel#endpoint-configuration>
+* <xref:fundamentals/servers/httpsys#configure-windows-server>
+
+En la guía anterior se trata la compatibilidad con los puntos de conexión HTTPS. Por ejemplo, configure la aplicación para HTTPS cuando se use la autenticación con un servicio de Windows.
 
 > [!NOTE]
 > No se admite el uso del certificado de desarrollo HTTPS de ASP.NET Core para proteger un punto de conexión de servicio.

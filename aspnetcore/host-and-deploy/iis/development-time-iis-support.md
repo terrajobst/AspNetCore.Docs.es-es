@@ -5,14 +5,14 @@ description: Descubra la compatibilidad con la depuración de aplicaciones ASP.N
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/08/2019
+ms.date: 10/10/2019
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: f2d5dbbdc80eec035616ddea234ee5d3343eeae8
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: e5da4f7202bf31e65c366d6f7de54212f5b0fed7
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815188"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259802"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Compatibilidad de IIS de tiempo de desarrollo en Visual Studio para ASP.NET Core
 
@@ -68,7 +68,7 @@ Cree un nuevo perfil de inicio para agregar la compatibilidad con IIS en tiempo 
 
 ::: moniker range=">= aspnetcore-3.0"
 
-1. Haga clic con el botón derecho en el **Explorador de soluciones**. Seleccione **Propiedades**. Abra la pestaña **Depurar**.
+1. Haga clic con el botón derecho en el **Explorador de soluciones**. Haga clic en **Propiedades**. Abra la pestaña **Depurar**.
 1. En **Perfil**, seleccione el botón **Nuevo**. Asigne el perfil el nombre "IIS" en la ventana emergente. Seleccione **Aceptar** para crear el perfil.
 1. En **Iniciar**, seleccione **IIS** en la lista.
 1. Active la casilla **Iniciar explorador** y proporcione la dirección URL del punto de conexión.
@@ -89,7 +89,7 @@ Cree un nuevo perfil de inicio para agregar la compatibilidad con IIS en tiempo 
 
 ::: moniker range="< aspnetcore-3.0"
 
-1. Haga clic con el botón derecho en el **Explorador de soluciones**. Seleccione **Propiedades**. Abra la pestaña **Depurar**.
+1. Haga clic con el botón derecho en el **Explorador de soluciones**. Haga clic en **Propiedades**. Abra la pestaña **Depurar**.
 1. En **Perfil**, seleccione el botón **Nuevo**. Asigne el perfil el nombre "IIS" en la ventana emergente. Seleccione **Aceptar** para crear el perfil.
 1. En **Iniciar**, seleccione **IIS** en la lista.
 1. Active la casilla **Iniciar explorador** y proporcione la dirección URL del punto de conexión.
@@ -140,7 +140,7 @@ Confirme que los puntos de conexión `applicationUrl` y `launchUrl` coinciden y 
 Ejecute Visual Studio como administrador:
 
 * Confirme que la lista desplegable de configuración de compilación está configurada como **Depurar**.
-* Establezca el botón Ejecutar en el perfil **IIS** y seleccione el botón para iniciar la aplicación.
+* Establezca el botón [Iniciar depuración](/visualstudio/debugger/debugger-feature-tour) en el perfil de **IIS** y seleccione el botón para iniciar la aplicación.
 
 Visual Studio puede solicitar un reinicio si no se ejecuta como administrador. Si es así, reinicie Visual Studio.
 

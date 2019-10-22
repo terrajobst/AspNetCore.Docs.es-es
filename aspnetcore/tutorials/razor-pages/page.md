@@ -5,12 +5,12 @@ description: Explica las páginas de Razor generadas por la técnica scaffolding
 ms.author: riande
 ms.date: 08/17/2019
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 00a8458b9bee4d30c5774a980ff5c23fb8872737
-ms.sourcegitcommit: 38cac2552029fc19428722bb204ff9e16eb94225
+ms.openlocfilehash: 939ed5c3cdf33d8d99712e3166d8d07d3bac719f
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2019
-ms.locfileid: "69573146"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334083"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Páginas de Razor con scaffolding en ASP.NET Core
 
@@ -30,9 +30,9 @@ Examine el modelo de página *Pages/Movies/Index.cshtml.cs*:
 
 Las páginas de Razor se derivan de `PageModel`. Por convención, la clase derivada de `PageModel` se denomina `<PageName>Model`. El constructor aplica la [inserción de dependencias](xref:fundamentals/dependency-injection) para agregar el `RazorPagesMovieContext` a la página. Todas las páginas con scaffolding siguen este patrón. Vea [Código asincrónico](xref:data/ef-rp/intro#asynchronous-code) para obtener más información sobre programación asincrónica con Entity Framework.
 
-Cuando se efectúa una solicitud para la página, el método `OnGetAsync` devuelve una lista de películas a la página de Razor. Se llama a `OnGetAsync` o a `OnGet` en una página de Razor para inicializar el estado de la página. En este caso, `OnGetAsync` obtiene una lista de películas y las muestra.
+Cuando se efectúa una solicitud para la página, el método `OnGetAsync` devuelve una lista de películas a la página de Razor. Se llama a `OnGetAsync` o `OnGet` para inicializar el estado de la página. En este caso, `OnGetAsync` obtiene una lista de películas y las muestra.
 
-Cuando `OnGet` devuelve `void` o `OnGetAsync` devuelve `Task`, no se utiliza ningún método de devolución. Cuando el tipo de valor devuelto es `IActionResult` o `Task<IActionResult>`, se debe proporcionar una instrucción return. Por ejemplo, el método *Pages/Movies/Create.cshtml.cs*`OnPostAsync`:
+Cuando `OnGet` devuelve `void` o `OnGetAsync` devuelve `Task`, no se utiliza ninguna instrucción de devolución. Cuando el tipo de valor devuelto es `IActionResult` o `Task<IActionResult>`, se debe proporcionar una instrucción return. Por ejemplo, el método *Pages/Movies/Create.cshtml.cs*`OnPostAsync`:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Create.cshtml.cs?name=snippet)]
 
@@ -42,7 +42,9 @@ Cuando `OnGet` devuelve `void` o `OnGetAsync` devuelve `Task`, no se utiliza nin
 
 Razor puede realizar la transición de HTML a C# o a un marcado específico de Razor. Cuando el símbolo `@` va seguido de una [palabra clave reservada de Razor](xref:mvc/views/razor#razor-reserved-keywords), realiza una transición a un marcado específico de Razor; en caso contrario, realiza la transición a C#.
 
-La directiva de Razor `@page` convierte el archivo en una acción de MVC, lo que significa que puede controlar las solicitudes. `@page` debe ser la primera directiva de Razor de una página. `@page` es un ejemplo de la transición a un marcado específico de Razor. Vea [Razor syntax](xref:mvc/views/razor#razor-syntax) (Sintaxis de Razor) para más información.
+### <a name="the-page-directive"></a>La directiva @page
+
+La directiva de Razor `@page` convierte el archivo en una acción de MVC, lo que significa que puede administrar las solicitudes. `@page` debe ser la primera directiva de Razor de una página. `@page` es un ejemplo de la transición a un marcado específico de Razor. Vea [Razor syntax](xref:mvc/views/razor#razor-syntax) (Sintaxis de Razor) para más información.
 
 Examine la expresión lambda usada en el siguiente asistente de HTML:
 
@@ -81,7 +83,7 @@ Tenga en cuenta el siguiente marcado del archivo *Pages/Movies/Index.cshtml*:
 
 El marcado resaltado anterior es un ejemplo de Razor con una transición a C#. Los caracteres `{` y `}` delimitan un bloque de código de C#.
 
-La clase base `PageModel` contiene una propiedad de diccionario `ViewData` que se puede usar para agregar datos y pasarlos a una vista. Los objetos se agregan al diccionario `ViewData` con un patrón clave-valor. En el ejemplo anterior, la propiedad `"Title"` se agrega al diccionario `ViewData`.
+La clase base `PageModel` contiene una propiedad de diccionario `ViewData` que se puede usar para pasar datos a una vista. Los objetos se agregan al diccionario `ViewData` con un patrón clave-valor. En el ejemplo anterior, la propiedad `"Title"` se agrega al diccionario `ViewData`.
 
 La propiedad `"Title"` se usa en el archivo *Pages/Shared/_Layout.cshtml*. En el siguiente marcado se muestran las primeras líneas del archivo *_Layout.cshtml*.
 

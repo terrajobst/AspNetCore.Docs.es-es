@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 7/23/2019
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 0629605f4d5597a9694cb20ce00b91ff4a768468
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 1b08e1515afe656b95be9fb436caa00cd53ab9ad
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082469"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334105"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Agregar un campo nuevo a una página de Razor en ASP.NET Core
 
@@ -28,7 +28,7 @@ En esta sección, Migraciones de [Entity Framework](/ef/core/get-started/aspnetc
 
 Al usar EF Code First para crear una base de datos automáticamente, Code First hace lo siguiente:
 
-* Agrega una tabla a la base de datos para ayudar a saber si el esquema de la base de datos está sincronizado con las clases del modelo a partir del que se ha generado.
+* Agrega una tabla `__EFMigrationsHistory` a la base de datos para ayudar a saber si el esquema de la base de datos está sincronizado con las clases del modelo a partir del que se ha generado.
 * Si las clases del modelo no están sincronizadas con la base de datos, EF produce una excepción.
 
 La comprobación automática de la sincronización del esquema/modelo facilita la detección de problemas de código o base de datos incoherentes.
@@ -51,11 +51,11 @@ Actualice las páginas siguientes:
 * Actualice [Create.cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Create.cshtml) con un campo `Rating`.
 * Agregue el campo `Rating` a la página de edición.
 
-La aplicación no funciona hasta que la base de datos se actualiza para incluir el nuevo campo. Si se ejecuta ahora, la aplicación produce una `SqlException`:
+La aplicación no funciona hasta que la base de datos se actualiza para incluir el nuevo campo. Al ejecutar la aplicación sin actualizar la base de datos, se produce una excepción `SqlException`:
 
 `SqlException: Invalid column name 'Rating'.`
 
-Este error se debe a que la clase del modelo Movie actualizado es diferente al esquema de la tabla Movie de la base de datos. (No hay ninguna columna `Rating` en la tabla de la base de datos).
+La excepción `SqlException` se debe a que la clase del modelo Movie actualizado es diferente del esquema de la tabla Movie de la base de datos. (No hay ninguna columna `Rating` en la tabla de la base de datos).
 
 Este error se puede resolver de varias maneras:
 
@@ -96,7 +96,7 @@ El comando `Add-Migration` indica al marco de trabajo que:
 
 El nombre "Rating" es arbitrario y se usa para asignar nombre al archivo de migración. Resulta útil emplear un nombre descriptivo para el archivo de migración.
 
-El comando `Update-Database` le indica al marco que aplique los cambios de esquema a la base de datos.
+El comando `Update-Database` le indica al marco que aplique los cambios de esquema a la base de datos y que conserve los datos existentes.
 
 <a name="ssox"></a>
 

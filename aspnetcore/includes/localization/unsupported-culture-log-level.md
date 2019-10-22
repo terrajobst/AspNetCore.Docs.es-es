@@ -1,0 +1,2 @@
+> [!NOTE]
+> Antes de ASP.NET Core 3.0, las aplicaciones escribían un registro de tipo `LogLevel.Warning` por solicitud si no se admitía la referencia cultural solicitada. El registro de un valor `LogLevel.Warning` por solicitud puede crear archivos de registro de gran tamaño con información redundante. Este comportamiento ha cambiado en ASP.NET 3.0. `RequestLocalizationMiddleware` escribe un registro de tipo `LogLevel.Debug`, lo que reduce el tamaño de los registros de producción.
