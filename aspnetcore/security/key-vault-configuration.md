@@ -5,14 +5,14 @@ description: Aprenda a usar el proveedor de configuración de Azure Key Vault pa
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: cc3894df4df169d941f54ef3dfad5d3e6f798aad
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: c8e76068dbcf2a59a15fa75a1fc5aa0032e6acc5
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007408"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334207"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault proveedor de configuración en ASP.NET Core
 
@@ -76,7 +76,7 @@ Cuando estos secretos se almacenan en Azure Key Vault en el [almacenamiento Secr
 
 ## <a name="secret-storage-in-the-production-environment-with-azure-key-vault"></a>Almacenamiento secreto en el entorno de producción con Azure Key Vault
 
-Las instrucciones proporcionadas por el @no__t 0Quickstart: Establecer y recuperar un secreto de Azure Key Vault mediante el tema CLI de Azure @ no__t-0 se resumen aquí para crear un Azure Key Vault y almacenar secretos usados por la aplicación de ejemplo. Consulte el tema para obtener más detalles.
+Las instrucciones proporcionadas por el [Quickstart: Establecer y recuperar un secreto de Azure Key Vault mediante CLI de Azure tema de ](/azure/key-vault/quick-create-cli) se resume aquí para crear un Azure Key Vault y almacenar los secretos usados por la aplicación de ejemplo. Consulte el tema para obtener más detalles.
 
 1. Abra Azure Cloud Shell con cualquiera de los métodos siguientes en el [Azure portal](https://portal.azure.com/):
 
@@ -190,6 +190,16 @@ La aplicación de ejemplo:
 
 [!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet2&highlight=13-21)]
 
+Valor de ejemplo de nombre del almacén de claves: `contosovault`
+    
+*appsettings.json*:
+
+```json
+{
+  "KeyVaultName": "Key Vault Name"
+}
+```
+
 Al ejecutar la aplicación, se muestran los valores de secreto cargados en una página web. En el entorno de desarrollo, los valores secretos tienen el sufijo `_dev` porque son proporcionados por los secretos del usuario. En el entorno de producción, los valores se cargan con el sufijo `_prod` porque los proporciona Azure Key Vault.
 
 Si recibe un error `Access denied`, confirme que la aplicación está registrada con Azure AD y que proporciona acceso al almacén de claves. Confirme que ha reiniciado el servicio en Azure.
@@ -203,7 +213,7 @@ Si recibe un error `Access denied`, confirme que la aplicación está registrada
 
 En el siguiente ejemplo, se establece un secreto en el almacén de claves (y el uso de la herramienta de administrador de secretos para el entorno de desarrollo) para `5000-AppSecret` (no se permiten puntos en los nombres de secreto del almacén de claves). Este secreto representa un secreto de aplicación para la versión 5.0.0.0 de la aplicación. Para otra versión de la aplicación, 5.1.0.0, se agrega un secreto al almacén de claves (y con la herramienta de administración de secretos) para `5100-AppSecret`. Cada versión de la aplicación carga su valor de secreto con versión en su configuración como `AppSecret`, eliminando la versión mientras carga el secreto.
 
-se llama a `AddAzureKeyVault` con un @no__t personalizado-1:
+se llama a `AddAzureKeyVault` con un `IKeyVaultSecretManager` personalizado:
 
 [!code-csharp[](key-vault-configuration/sample_snapshot/Program.cs?highlight=30-34)]
 
@@ -249,7 +259,7 @@ Cuando se implementa este enfoque:
 
 1. La versión, `5000` (con el guión), se elimina del nombre de la clave. En toda la aplicación, la lectura de la configuración con la clave `AppSecret` carga el valor del secreto.
 
-1. Si se cambia la versión de la aplicación en el archivo de proyecto a `5.1.0.0` y se vuelve a ejecutar la aplicación, el valor de secreto devuelto es `5.1.0.0_secret_value_dev` en el entorno de desarrollo y @no__t 2 en producción.
+1. Si se cambia la versión de la aplicación en el archivo de proyecto a `5.1.0.0` y se vuelve a ejecutar la aplicación, el valor secreto devuelto se `5.1.0.0_secret_value_dev` en el entorno de desarrollo y `5.1.0.0_secret_value_prod` en producción.
 
 > [!NOTE]
 > También puede proporcionar su propia implementación `KeyVaultClient` a `AddAzureKeyVault`. Un cliente personalizado permite compartir una única instancia del cliente a través de la aplicación.
@@ -258,7 +268,7 @@ Cuando se implementa este enfoque:
 
 El proveedor es capaz de leer valores de configuración en una matriz para enlazar a una matriz POCO.
 
-Al leer desde un origen de configuración que permite que las claves contengan separadores de dos puntos (`:`), se usa un segmento de clave numérica para distinguir las claves que componen una matriz (`:0:`, `:1:`,... `:{n}:`). Para obtener más información, vea [Configuration: Enlazar una matriz a una clase @ no__t-0.
+Al leer desde un origen de configuración que permite que las claves contengan separadores de dos puntos (`:`), se usa un segmento de clave numérica para distinguir las claves que componen una matriz (`:0:`, `:1:`,... `:{n}:`). Para obtener más información, vea [Configuration: Enlazar una matriz a una clase ](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
 
 Azure Key Vault teclas no pueden usar un signo de dos puntos como separador. El enfoque que se describe en este tema utiliza los guiones dobles (`--`) como separador de valores jerárquicos (secciones). Las claves de matriz se almacenan en Azure Key Vault con dobles guiones y segmentos de clave numérica (`--0--`, `--1--`, &hellip; `--{n}--`).
 
@@ -323,9 +333,9 @@ Cuando la aplicación no carga la configuración mediante el proveedor, se escri
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * <xref:fundamentals/configuration/index>
-* [Microsoft Azure: Key Vault @ no__t-0
-* [Microsoft Azure: Key Vault documentación @ no__t-0
+* [Microsoft Azure: Key Vault ](https://azure.microsoft.com/services/key-vault/)
+* [Microsoft Azure: Key Vault documentación ](/azure/key-vault/)
 * [Cómo generar y transferir claves protegidas con HSM para Azure Key Vault](/azure/key-vault/key-vault-hsm-protected-keys)
 * [Clase KeyVaultClient](/dotnet/api/microsoft.azure.keyvault.keyvaultclient)
-* [Inicio rápido: Establecimiento y recuperación de un secreto desde Azure Key Vault mediante una aplicación Web de .NET @ no__t-0
-* [Tutorial: Cómo usar Azure Key Vault con máquinas virtuales Windows de Azure en. NET @ no__t-0
+* [Inicio rápido: Establecer y recuperar un secreto de Azure Key Vault mediante el uso de una aplicación Web de .NET ](/azure/key-vault/quick-create-net)
+* [Tutorial: Cómo usar Azure Key Vault con máquinas virtuales Windows de Azure en .NET ](/azure/key-vault/tutorial-net-windows-virtual-machine)
