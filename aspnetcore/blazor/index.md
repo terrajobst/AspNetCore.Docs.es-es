@@ -28,11 +28,11 @@ Blazor es un marco de trabajo para la creación de interfaces de usuario web int
 
 El uso de .NET para el desarrollo web en el lado cliente ofrece las siguientes ventajas:
 
-* Escribe el codigo en C# en lugar de JavaScript.
+* Escribe el código en C# en lugar de JavaScript.
 * Aprovechamiento del ecosistema y las bibliotecas .NET existentes.
 * Uso compartido de la lógica de aplicación en el servidor y el cliente.
 * Beneficios de rendimiento, confiabilidad y seguridad de .NET.
-* Use suggested translation
+* Mantenga la productividad con Visual Studio en Windows, Linux y macOS.
 * Compile sobre un conjunto común de lenguajes, marcos y herramientas que son estables, completos y fáciles de usar.
 
 ## <a name="components"></a>Componentes
