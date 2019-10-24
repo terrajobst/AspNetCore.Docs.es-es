@@ -5,14 +5,14 @@ description: Para empezar a trabajar con más increíble, cree una aplicación i
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 10/21/2019
 uid: blazor/get-started
-ms.openlocfilehash: fc368be5eb2e5d8f7c80071dc86a02ae986a685f
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: 80ff7b42a44e722dd27bc4fde53a066863448e10
+ms.sourcegitcommit: 810d5831169770ee240d03207d6671dabea2486e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391051"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72779124"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Introducción a ASP.NET Core extraordinarias
 
@@ -44,9 +44,9 @@ Introducción a más increíble:
 
    4 \. Proporcione un nombre para el proyecto en el campo **Nombre del proyecto** o acepte el predeterminado. Confirme que la entrada de **Ubicación** es correcta o proporcione una ubicación para el proyecto. Seleccione **Crear**.
 
-   5 \. Para disfrutar de una experiencia de webassembly increíblemente rápida, elija la plantilla de **aplicación de Webassemble más brillante** . Para obtener una experiencia de servidor increíblemente rápida, elija la plantilla de **aplicación de servidor de extraordinarias** . Seleccione **Crear**. Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte @no__t 2.
+   5 \. Para disfrutar de una experiencia de webassembly increíblemente rápida, elija la plantilla de **aplicación de Webassemble más brillante** . Para obtener una experiencia de servidor increíblemente rápida, elija la plantilla de **aplicación de servidor de extraordinarias** . Seleccione **Crear**. Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte <xref:blazor/hosting-models>.
 
-   6 \. Presione **F5** para ejecutar la aplicación.
+   6 \. Presione **Ctrl**+**F5** para ejecutar la aplicación.
 
    > [!NOTE]
    > Si ha instalado la extensión de Visual Studio de extraordinarias para una versión preliminar anterior de ASP.NET Core extraordinaria (versión preliminar 6 o anterior), puede desinstalar la extensión. Instalar las plantillas de extraordinarias en un shell de comandos ahora es suficiente para mostrar las plantillas en Visual Studio.
@@ -69,7 +69,7 @@ Introducción a más increíble:
       dotnet new blazorserver -o WebApplication1
       ```
 
-      Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte @no__t 2.
+      Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte <xref:blazor/hosting-models>.
 
    4 \. Abra la carpeta *WebApplication1* en Visual Studio Code.
 
@@ -117,7 +117,7 @@ Introducción a más increíble:
    dotnet run
    ```
 
-   Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte @no__t 2.
+   Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte <xref:blazor/hosting-models>.
 
    En un navegador, vaya a `https://localhost:5001`.
 
@@ -149,7 +149,7 @@ Introducción a más increíble:
 
    5 \. Proporcione un nombre para el proyecto en el campo **Nombre del proyecto** o acepte el predeterminado. Confirme que la entrada de **Ubicación** es correcta o proporcione una ubicación para el proyecto. Seleccione **Crear**.
 
-   6 \. Para disfrutar de una experiencia de webassembly increíblemente rápida, elija la plantilla de **aplicación de Webassemble más brillante** . Para obtener una experiencia de servidor increíblemente rápida, elija la plantilla de **aplicación de servidor de extraordinarias** . Seleccione **Crear**. Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte @no__t 2.
+   6 \. Para disfrutar de una experiencia de webassembly increíblemente rápida, elija la plantilla de **aplicación de Webassemble más brillante** . Para obtener una experiencia de servidor increíblemente rápida, elija la plantilla de **aplicación de servidor de extraordinarias** . Seleccione **Crear**. Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte <xref:blazor/hosting-models>.
 
    7 \. Presione **F5** para ejecutar la aplicación.
 
@@ -174,7 +174,7 @@ Introducción a más increíble:
       dotnet new blazorserver -o WebApplication1
       ```
 
-      Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte @no__t 2.
+      Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte <xref:blazor/hosting-models>.
 
    4 \. Abra la carpeta *WebApplication1* en Visual Studio Code.
 
@@ -222,7 +222,7 @@ Introducción a más increíble:
    dotnet run
    ```
 
-   Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte @no__t 2.
+   Para obtener más información sobre los dos modelos de hospedaje más increíbles, el *servidor* y el *webensamblado*increíble, consulte <xref:blazor/hosting-models>.
 
    En un navegador, vaya a `https://localhost:5001`.
 
@@ -263,7 +263,7 @@ Ejecutar la aplicación. La Página principal tiene su propio contador proporcio
 
 Los parámetros de componente se especifican mediante atributos o [contenido secundario](xref:blazor/components#child-content), que permiten establecer propiedades en el componente secundario. Para agregar un parámetro al componente `Counter`, actualice el bloque `@code` del componente:
 
-* Agregue una propiedad pública para `IncrementAmount` con un atributo `[Parameter]`.
+* Agregue una propiedad pública para `IncrementAmount` con un atributo de `[Parameter]`.
 * Cambie el método `IncrementCount` para usar `IncrementAmount` al aumentar el valor de `currentCount`.
 
 *Pages/Counter.razor*:
