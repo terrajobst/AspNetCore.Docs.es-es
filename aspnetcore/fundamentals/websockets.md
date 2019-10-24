@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/10/2019
 uid: fundamentals/websockets
-ms.openlocfilehash: 5d4d9b02bd45e6650aa56448a3663cad06b3b45e
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: 098e6826d6f7114baceb9578dc6d9883eb83f0aa
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975454"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589705"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Compatibilidad con WebSockets en ASP.NET Core
 
@@ -78,7 +78,7 @@ Se pueden configurar estas opciones:
 Se pueden configurar estas opciones:
 
 * `KeepAliveInterval`: la frecuencia con que se envían marcos "ping" al cliente, para asegurarse de que los servidores proxy mantienen abierta la conexión. El valor predeterminado es de dos minutos.
-* `ReceiveBufferSize`: el tamaño del búfer usado para recibir datos. Puede que los usuarios avanzados tengan que cambiar estas opciones para ajustar el rendimiento según el tamaño de los datos. El valor predeterminado es 4 KB.
+* <xref:Microsoft.AspNetCore.Builder.WebSocketOptions.ReceiveBufferSize>: el tamaño del búfer usado para recibir datos. Puede que los usuarios avanzados tengan que cambiar estas opciones para ajustar el rendimiento según el tamaño de los datos. El valor predeterminado es 4 KB.
 * `AllowedOrigins` - Una lista de valores de encabezado de origen permitidos para las solicitudes WebSocket. De forma predeterminada, se permiten todos los orígenes. Consulte "Restricción de los orígenes de WebSocket" a continuación para obtener información detallada.
 
 ::: moniker-end
