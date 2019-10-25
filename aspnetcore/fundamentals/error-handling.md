@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/08/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: a610c42d75864259b609e11b8bf0776c5ab8e507
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: bff526e196ecc378d4687e1c38188977aeeccfd9
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72288849"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589887"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Controlar errores en ASP.NET Core
 
 [Tom Dykstra](https://github.com/tdykstra/), [Luke Latham](https://github.com/guardrex) y [Steve Smith](https://ardalis.com/)
 
-Este artículo trata sobre los métodos comunes para controlar errores en aplicaciones ASP.NET Core.
+Este artículo trata sobre los métodos comunes para controlar errores en aplicaciones web ASP.NET Core. Consulte <xref:web-api/handle-errors> para las API web.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Cómo descargarlo](xref:index#how-to-download-a-sample)). El artículo incluye instrucciones sobre cómo establecer directivas de preprocesador (`#if`, `#endif` y `#define`) en la aplicación de ejemplo para habilitar escenarios diferentes.
 

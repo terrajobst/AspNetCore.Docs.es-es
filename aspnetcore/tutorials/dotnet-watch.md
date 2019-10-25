@@ -5,18 +5,18 @@ description: Este tutorial muestra cómo instalar y usar la herramienta de monit
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 5462f89a3b5a257ed0a6a8439efb077653fb14f6
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: a2a0bcdace67052975630f99aab23bbb0fd99bff
+ms.sourcegitcommit: 383017d7060a6d58f6a79cf4d7335d5b4b6c5659
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082246"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816140"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Desarrollar aplicaciones ASP.NET Core con un monitor de archivos
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Victor Hurdugaci](https://twitter.com/victorhurdugaci)
 
-`dotnet watch` es una herramienta que ejecuta un comando de la [CLI de .NET Core](/dotnet/core/tools) cuando se modifican los archivos de código fuente. Por ejemplo, un cambio en un archivo puede desencadenar una compilación, una ejecución de prueba o una implementación.
+[dotnet watch](https://www.nuget.org/packages/dotnet-watch) es una herramienta que ejecuta un comando de la [CLI de .NET Core](/dotnet/core/tools) cuando se modifican los archivos de código fuente. Por ejemplo, un cambio en un archivo puede desencadenar una compilación, una ejecución de prueba o una implementación.
 
 En este tutorial usaremos una API web existente con dos puntos de conexión: uno que devuelve una suma y otro que devuelve un producto. El método Product contiene un error, que se ha corregido en este tutorial.
 

@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo ASP.NET Core MVC usa el middleware
 ms.author: riande
 ms.date: 01/24/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: b4d5cd3add3fda6b70873eb5cce1dcee651f9185
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: a0dbfbe60c151990581b494f81e500fe0b315f55
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087506"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589851"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Enrutar a acciones de controlador de ASP.NET Core
 
@@ -287,7 +287,7 @@ public IActionResult CreateProduct(...)
 Para una ruta de dirección URL como `/products`, la acción `ProductsApi.ListProducts` se ejecutará cuando el verbo HTTP sea `GET` y `ProductsApi.CreateProduct` se ejecutará cuando el verbo HTTP sea `POST`. El enrutamiento mediante atributos primero busca una coincidencia de la dirección URL en el conjunto de plantillas de ruta que se definen mediante atributos de ruta. Una vez que se encuentra una plantilla de ruta que coincide, las restricciones `IActionConstraint` se aplican para determinar qué acciones se pueden ejecutar.
 
 > [!TIP]
-> Cuando se compila una API de REST, es poco frecuente que se quiera usar `[Route(...)]` en un método de acción. Es mejor usar `Http*Verb*Attributes` más específicos para precisar lo que es compatible con la API. Se espera que los clientes de API de REST sepan qué rutas y verbos HTTP se asignan a determinadas operaciones lógicas.
+> Cuando se compila una API de REST, es poco frecuente que se quiera usar `[Route(...)]` en un método de acción, ya que la acción aceptará todos los métodos HTTP. Es mejor usar `Http*Verb*Attributes` más específicos para precisar lo que es compatible con la API. Se espera que los clientes de API de REST sepan qué rutas y verbos HTTP se asignan a determinadas operaciones lógicas.
 
 Puesto que una ruta de atributo se aplica a una acción específica, es fácil crear parámetros necesarios como parte de la definición de plantilla de ruta. En este ejemplo, se requiere `id` como parte de la ruta de dirección URL.
 

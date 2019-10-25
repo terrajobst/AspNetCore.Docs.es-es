@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/29/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 7bb98fe5befa8eea80885d246da31ad87d5cfc2d
-ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
+ms.openlocfilehash: 6f2d62600da828261ecfc3a1df688ce914eccf33
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71691213"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72590017"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Tutorial: Creación de una API web con ASP.NET Core
 
@@ -429,7 +429,7 @@ Si recibe un error al llamar a `PutTodoItem`, llame a `GET` para asegurarse de q
 
 ### <a name="test-the-puttodoitem-method"></a>Prueba del método PutTodoItem
 
-En este ejemplo se usa una base de datos en memoria que se debe iniciar cada vez que se inicia la aplicación. Debe haber un elemento en la base de datos antes de que realice una llamada PUT. Llame a GET para asegurarse de que hay un elemento en la base de datos antes de realizar una llamada PUT.
+En este ejemplo se usa una base de datos en memoria que se debe inicializar cada vez que se inicia la aplicación. Debe haber un elemento en la base de datos antes de que realice una llamada PUT. Llame a GET para asegurarse de que hay un elemento en la base de datos antes de realizar una llamada PUT.
 
 Actualice el elemento to-do que tiene el id. = 1 y establezca su nombre en "feed fish":
 
@@ -828,7 +828,7 @@ Si recibe un error al llamar a `PutTodoItem`, llame a `GET` para asegurarse de q
 
 ### <a name="test-the-puttodoitem-method"></a>Prueba del método PutTodoItem
 
-En este ejemplo se usa una base de datos en memoria que se debe iniciar cada vez que se inicia la aplicación. Debe haber un elemento en la base de datos antes de que realice una llamada PUT. Llame a GET para asegurarse de que hay un elemento en la base de datos antes de realizar una llamada PUT.
+En este ejemplo se usa una base de datos en memoria que se debe inicializar cada vez que se inicia la aplicación. Debe haber un elemento en la base de datos antes de que realice una llamada PUT. Llame a GET para asegurarse de que hay un elemento en la base de datos antes de realizar una llamada PUT.
 
 Actualice la tarea pendiente que tiene el id. = 1 y establezca su nombre en "feed fish":
 
@@ -864,7 +864,7 @@ La aplicación de ejemplo permite eliminar todos los elementos. Sin embargo, al 
 
 ## <a name="call-the-web-api-with-javascript"></a>Llamar a la API web con JavaScript
 
-En esta sección, se agrega una página HTML que usa JavaScript para llamar a la API web. La API Fetch inicia la solicitud. JavaScript actualiza la página con los detalles de la respuesta de la API web.
+En esta sección, se agrega una página HTML que usa JavaScript para llamar a la API web. JQuery inicia la solicitud. JavaScript actualiza la página con los detalles de la respuesta de la API web.
 
 Configure la aplicación para [atender archivos estáticos](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) y [habilitar la asignación de archivos predeterminada](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) mediante la actualización de *Startup.cs* con el siguiente código resaltado:
 
@@ -889,13 +889,13 @@ En este ejemplo se llama a todos los métodos CRUD de la API web. A continuació
 
 ### <a name="get-a-list-of-to-do-items"></a>Obtención de una lista de tareas pendientes
 
-Fetch envía una solicitud HTTP GET a la API web, que devuelve código JSON que representa una matriz de tareas pendientes. La función de devolución de llamada `success` se invoca si la solicitud se realiza correctamente. En la devolución de llamada, el DOM se actualiza con la información de la tarea pendiente.
+jQuery envía una solicitud HTTP GET a la API web, que devuelve código JSON que representa una matriz de tareas pendientes. La función de devolución de llamada `success` se invoca si la solicitud se realiza correctamente. En la devolución de llamada, el DOM se actualiza con la información de la tarea pendiente.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_GetData)]
 
 ### <a name="add-a-to-do-item"></a>Incorporación de una tarea pendiente
 
-Fetch envía una solicitud HTTP POST con la tarea pendiente en el cuerpo de dicha solicitud. Las opciones `accepts` y `contentType` se establecen en `application/json` para especificar el tipo de medio que se va a recibir y a enviar. La tarea pendiente se convierte en JSON mediante [JSON.stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). Cuando la API devuelve un código de estado correcto, se invoca la función `getData` para actualizar la tabla HTML.
+jQuery envía una solicitud HTTP POST con la tarea pendiente en el cuerpo de dicha solicitud. Las opciones `accepts` y `contentType` se establecen en `application/json` para especificar el tipo de medio que se va a recibir y a enviar. La tarea pendiente se convierte en JSON mediante [JSON.stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). Cuando la API devuelve un código de estado correcto, se invoca la función `getData` para actualizar la tabla HTML.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_AddItem)]
 

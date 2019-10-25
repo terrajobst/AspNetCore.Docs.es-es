@@ -5,14 +5,14 @@ description: Obtenga información sobre la manera en que ASP.NET Core implementa
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/24/2019
+ms.date: 10/12/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: fefd0b9df71d5b0e7c30a31620292fd37eeecfa4
-ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
+ms.openlocfilehash: b07ed6d1c23454c95778a5942de615684b70bc36
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248272"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589902"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -270,15 +270,15 @@ Los servicios con duración Singleton (<xref:Microsoft.Extensions.DependencyInje
 
 ## <a name="service-registration-methods"></a>Métodos de registro del servicio
 
-Cada método de extensión de registro del servicio ofrece sobrecargas útiles en escenarios específicos.
+Los métodos de extensión de registro del servicio ofrecen sobrecargas útiles en escenarios específicos.
 
 | Método | Automático<br>objeto<br>eliminación | Múltiple<br>implementaciones | Transferencia de argumentos |
 | ------ | :-----------------------------: | :-------------------------: | :-------: |
-| `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Ejemplo:<br>`services.AddScoped<IMyDep, MyDep>();` | Sí | Sí | No |
-| `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddScoped<IMyDep>(sp => new MyDep());`<br>`services.AddScoped<IMyDep>(sp => new MyDep("A string!"));` | Sí | Sí | Sí |
-| `Add{LIFETIME}<{IMPLEMENTATION}>()`<br>Ejemplo:<br>`services.AddScoped<MyDep>();` | Sí | No | No |
-| `Add{LIFETIME}<{SERVICE}>(new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddScoped<IMyDep>(new MyDep());`<br>`services.AddScoped<IMyDep>(new MyDep("A string!"));` | No | Sí | Sí |
-| `Add{LIFETIME}(new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddScoped(new MyDep());`<br>`services.AddScoped(new MyDep("A string!"));` | No | No | Sí |
+| `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Ejemplo:<br>`services.AddSingleton<IMyDep, MyDep>();` | Sí | Sí | No |
+| `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddSingleton<IMyDep>(sp => new MyDep());`<br>`services.AddSingleton<IMyDep>(sp => new MyDep("A string!"));` | Sí | Sí | Sí |
+| `Add{LIFETIME}<{IMPLEMENTATION}>()`<br>Ejemplo:<br>`services.AddSingleton<MyDep>();` | Sí | No | No |
+| `AddSingleton<{SERVICE}>(new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddSingleton<IMyDep>(new MyDep());`<br>`services.AddSingleton<IMyDep>(new MyDep("A string!"));` | No | Sí | Sí |
+| `AddSingleton(new {IMPLEMENTATION})`<br>Ejemplos:<br>`services.AddSingleton(new MyDep());`<br>`services.AddSingleton(new MyDep("A string!"));` | No | No | Sí |
 
 Para obtener más información sobre el tipo de eliminación, consulte la sección [Eliminación de servicios](#disposal-of-services). Un escenario común para varias implementaciones es [utilizar tipos de simulación para las pruebas](xref:test/integration-tests#inject-mock-services).
 
