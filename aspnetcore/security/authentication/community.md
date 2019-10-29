@@ -1,31 +1,30 @@
 ---
-title: Opciones de autenticación de OSS de la Comunidad de ASP.NET Core
+title: Opciones de autenticación de OSS de la comunidad para ASP.NET Core
 author: rick-anderson
 description: Descubra las opciones de autenticación de código abierto para ASP.NET Core.
 ms.author: riande
-ms.date: 02/15/2019
+ms.date: 10/28/2019
 uid: security/authentication/community
-ms.openlocfilehash: e25df794bdff8f904382e7a299755ae4c23b892e
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 68c32515b7d789db86f60cd011632da5c1244c1f
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64891752"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034256"
 ---
-# <a name="community-oss-authentication-options-for-aspnet-core"></a>Opciones de autenticación de OSS de la Comunidad de ASP.NET Core
+# <a name="community-oss-authentication-options-for-aspnet-core"></a>Opciones de autenticación de OSS de la comunidad para ASP.NET Core
 
-Esta página contiene las opciones de autenticación proporcionado por la Comunidad de código abierto para ASP.NET Core. Esta página se actualiza periódicamente como nuevos proveedores disponibles.
+Esta página contiene opciones de autenticación de código abierto proporcionadas por la comunidad para ASP.NET Core. Esta página se actualiza periódicamente a medida que los nuevos proveedores están disponibles.
 
-## <a name="oss-authentication-providers"></a>Proveedores de autenticación de OSS
+## <a name="oss-authentication-providers"></a>Proveedores de autenticación OSS
 
-La siguiente lista se ordena alfabéticamente.
+La siguiente lista está ordenada alfabéticamente.
 
 | Name | Descripción |
 | ---- | ----------- |
-| [AspNet.Security.OpenIdConnect.Server (ASOS)](https://github.com/aspnet-contrib/AspNet.Security.OpenIdConnect.Server) | ASOS es un bajo nivel, first protocolo OpenID Connect marco de servidor para ASP.NET Core y OWIN o Katana. |
-| [Cierge](https://github.com/pwdless/Cierge) | Cierge es un servidor de OpenID Connect que controla el registro del usuario, inicio de sesión, perfiles, administración y los inicios de sesión sociales. |
-| [Gluu Server](https://gluu.org/) | Enterprise que esté listo, abra el software de código fuente para la identidad, de acceso (IAM) de administración y el inicio de sesión único (SSO). Para obtener más información, consulte el [documentación del producto Gluu](https://gluu.org/docs/). |
-| [IdentityServer](https://identityserver.io/) | IdentityServer es un marco de OAuth 2.0 y OpenID Connect para ASP.NET Core, oficialmente certificadas por la Fundación OpenID y bajo control de .NET Foundation. Para obtener más información, consulte [Bienvenido a IdentityServer4 (documentación)](https://identityserver4.readthedocs.io/en/latest/). |
-| [OpenIddict](https://github.com/openiddict/openiddict-core) | OpenIddict es un servidor de fácil de usar OpenID Connect para ASP.NET Core. |
+| [AspNet. Security. OpenIdConnect. Server (ASOS)](https://github.com/aspnet-contrib/AspNet.Security.OpenIdConnect.Server) | ASOS es un marco de trabajo de servidor de bajo nivel de OpenID Connect para ASP.NET Core y OWIN/Katana. |
+| [Servidor de Gluu](https://gluu.org/) | Software de código abierto listo para la empresa para identidad, administración de acceso (IAM) e inicio de sesión único (SSO). Para obtener más información, consulte la [documentación del producto de Gluu](https://gluu.org/docs/). |
+| [IdentityServer](https://identityserver.io/) | IdentityServer es un marco de OpenID Connect y OAuth 2,0 para ASP.NET Core, certificado oficialmente por OpenID Foundation y bajo gobierno de .NET Foundation. Para obtener más información, vea [Bienvenido a IdentityServer4 (documentación)](https://identityserver4.readthedocs.io/en/latest/). |
+| [OpenIddict](https://github.com/openiddict/openiddict-core) | OpenIddict es un servidor OpenID Connect fácil de usar para ASP.NET Core. |
 
-Para agregar un proveedor, [editar esta página](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Faspnet%2FDocs%2Fedit%2Fmaster%2Faspnetcore%2Fsecurity%2Fauthentication%2Fcommunity.md).
+Para agregar un proveedor, [Edite esta página](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Faspnet%2FDocs%2Fedit%2Fmaster%2Faspnetcore%2Fsecurity%2Fauthentication%2Fcommunity.md).

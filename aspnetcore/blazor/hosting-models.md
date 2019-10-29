@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 072f9bbdcf7171ede63383b085f9f0f030bf1076
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: be67c129af4f071d10719e0bbf121de761dde9f4
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391166"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73033989"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Modelos de hospedaje increíblemente ASP.NET Core
 
@@ -66,7 +66,7 @@ La aplicación ASP.NET Core hace referencia a la clase `Startup` de la aplicaci�
 * Servicios del lado servidor.
 * La aplicación a la canalización de control de solicitudes.
 
-El script *extraordinariamente. Server. js* @ no__t-1 establece la conexión del cliente. Es responsabilidad de la aplicación conservar y restaurar el estado de la aplicación según sea necesario (por ejemplo, en caso de que se pierda una conexión de red).
+El script *increíblemente. Server. js*&dagger; establece la conexión de cliente. Es responsabilidad de la aplicación conservar y restaurar el estado de la aplicación según sea necesario (por ejemplo, en caso de que se pierda una conexión de red).
 
 El modelo de hospedaje del servidor más rápido ofrece varias ventajas:
 
@@ -133,7 +133,7 @@ Las aplicaciones de servidor increíbles deben optimizarse para minimizar la lat
 
 Las aplicaciones de servidor increíbles requieren una conexión activa al servidor. Si se pierde la conexión, la aplicación intenta volver a conectarse al servidor. Siempre que el estado del cliente todavía esté en la memoria, la sesión del cliente se reanudará sin perder el estado.
 
-Cuando el cliente detecta que se ha perdido la conexión, se muestra al usuario una interfaz de usuario predeterminada mientras el cliente intenta volver a conectarse. Si se produce un error en la reconexión, se proporciona al usuario la opción de volver a intentarlo. Para personalizar la interfaz de usuario, defina un elemento con `components-reconnect-modal` como su `id` en la página de Razor de *_Host. cshtml* . El cliente actualiza este elemento con una de las siguientes clases CSS según el estado de la conexión:
+Cuando el cliente detecta que se ha perdido la conexión, se muestra al usuario una interfaz de usuario predeterminada mientras el cliente intenta volver a conectarse. Si se produce un error en la reconexión, se proporciona al usuario la opción de volver a intentarlo. Para personalizar la interfaz de usuario, defina un elemento con `components-reconnect-modal` como su `id` en la página de Razor *_Host. cshtml* . El cliente actualiza este elemento con una de las siguientes clases CSS según el estado de la conexión:
 
 * `components-reconnect-show` &ndash; muestran la interfaz de usuario para indicar una conexión perdida y el cliente intenta volver a conectarse.
 * `components-reconnect-hide` &ndash; el cliente tiene una conexión activa, oculte la interfaz de usuario.
@@ -228,7 +228,7 @@ Para configurar el cliente de Signalr en el archivo *pages/_Host. cshtml* :
 <script>
   Blazor.start({
     configureSignalR: function (builder) {
-      builder.configureLogging(2); // LogLevel.Information
+      builder.configureLogging("information"); // LogLevel.Information
     }
   });
 </script>

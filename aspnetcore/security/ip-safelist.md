@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: 02e44135ab1742d44691cfda8c4167f21d6efa4e
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: ca5b0f8088773027f7403120247cbeca8900bcf5
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975647"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034344"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>La dirección IP de cliente de la ASP.NET Core
 
@@ -35,7 +35,7 @@ La lista se configura en el archivo *appSettings. JSON* . Se trata de una lista 
 
 ## <a name="middleware"></a>Software intermedio
 
-El `Configure` método agrega el middleware y le pasa la cadena de la misma en un parámetro de constructor.
+El método `Configure` agrega el middleware y le pasa la cadena de la misma en un parámetro de constructor.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_Configure&highlight=10)]
 
@@ -47,7 +47,7 @@ El middleware analiza la cadena en una matriz y busca la dirección IP remota en
 
 Si desea una sola de la información solo para controladores o métodos de acción específicos, use un filtro de acción. Por ejemplo: 
 
-[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIdCheckFilter.cs)]
+[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIpCheckFilter.cs)]
 
 El filtro de acción se agrega al contenedor de servicios.
 
@@ -57,13 +57,13 @@ A continuación, el filtro se puede usar en un método de acción o controlador.
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Controllers/ValuesController.cs?name=snippet_Filter&highlight=1)]
 
-En la aplicación de ejemplo, el filtro se aplica al `Get` método. Por lo tanto, al probar la aplicación mediante `Get` el envío de una solicitud de API, el atributo está validando la dirección IP del cliente. Al realizar la prueba mediante una llamada a la API con cualquier otro método HTTP, el middleware está validando la IP del cliente.
+En la aplicación de ejemplo, el filtro se aplica al método `Get`. Por lo tanto, al probar la aplicación mediante el envío de una solicitud de API de `Get`, el atributo está validando la dirección IP del cliente. Al realizar la prueba mediante una llamada a la API con cualquier otro método HTTP, el middleware está validando la IP del cliente.
 
 ## <a name="razor-pages-filter"></a>Razor Pages filtro 
 
 Si desea una aplicación de la Razor Pages, use un filtro de Razor Pages. Por ejemplo: 
 
-[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIdCheckPageFilter.cs)]
+[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIpCheckPageFilter.cs)]
 
 Este filtro se habilita agregándolo a la colección de filtros de MVC.
 
