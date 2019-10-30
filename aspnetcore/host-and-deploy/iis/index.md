@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET C
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/13/2019
+ms.date: 10/26/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: bf535134277a08103ba8ce55eeed540a9fce8260
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 179ab4c97426c9d3cb8ed069d2059d767d755533
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333877"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034265"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -129,8 +129,6 @@ El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back
 
 No es necesario realizar llamadas a `UseUrls` o a la API `Listen` de Kestrel cuando se usa el módulo. Si se llama a `UseUrls` o `Listen`, Kestrel escucha en el puerto especificado cuando se ejecuta la aplicación sin IIS.
 
-Para obtener más información sobre los modelos de hospedaje dentro y fuera de proceso, vea el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) y la [Referencia de configuración del módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
-
 ::: moniker-end
 
 Para obtener instrucciones sobre la configuración del módulo ASP.NET Core, vea <xref:host-and-deploy/aspnet-core-module>.
@@ -221,7 +219,7 @@ El archivo *web.config* configura el [módulo ASP.NET Core](xref:host-and-deploy
 <Project Sdk="Microsoft.NET.Sdk.Web">
 ```
 
-Si el proyecto no incluye un archivo *web.config*, el archivo se crea con los elementos *processPath* y *arguments* correctos para configurar el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) y se mueve a la [salida publicada](xref:host-and-deploy/directory-structure).
+Si el proyecto no incluye un archivo *web.config*, el archivo se crea con los elementos *processPath* y *arguments* correctos para configurar el módulo ASP.NET Core y se mueve a la [salida publicada](xref:host-and-deploy/directory-structure).
 
 Si el proyecto incluye un archivo *web.config*, el archivo se transforma con los elementos *processPath* y *arguments* correctos para configurar el módulo ASP.NET Core y se mueve a la salida publicada. La transformación no modifica los valores de configuración de IIS del archivo.
 
@@ -235,7 +233,7 @@ Para evitar que el SDK web transforme el archivo *web.config*, use la propiedad 
 </PropertyGroup>
 ```
 
-Al deshabilitar el SDK web para la transformación del archivo, el desarrollador debe establecer el elemento *processPath* y los *argumentos* manualmente. Para más información, vea [ASP.NET Core Module configuration reference](xref:host-and-deploy/aspnet-core-module) (Referencia de configuración del módulo de ASP.NET Core).
+Al deshabilitar el SDK web para la transformación del archivo, el desarrollador debe establecer el elemento *processPath* y los *argumentos* manualmente. Para más información, consulte <xref:host-and-deploy/aspnet-core-module>.
 
 ### <a name="webconfig-file-location"></a>Ubicación del archivo web.config
 
@@ -332,6 +330,10 @@ Para obtener una versión anterior del instalador:
    * `OPT_NO_X86=1` &ndash; Omita la instalación de entornos de ejecución x86. Utilice este parámetro cuando sepa que no va a hospedar aplicaciones de 32 bits. Si hay alguna posibilidad de que vaya a hospedar aplicaciones de 32 bits y 64 bits en el futuro, no use este parámetro e instale ambos entornos de ejecución.
    * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; Deshabilite la comprobación para usar una configuración compartida de IIS cuando la configuración compartida (*applicationHost.config*) esté en la misma máquina que la instalación de IIS. *Solo disponible para ASP.NET Core 2.2 o instaladores del conjunto de hospedaje posteriores.* Para más información, consulte <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
 1. Reinicie el sistema o ejecute **net stop was /y**, seguido de **net start w3svc**, desde un shell de comandos. Al reiniciar IIS, se recoge un cambio en la variable PATH del sistema, que es una variable de entorno, realizado por el programa de instalación.
+
+No es necesario detener manualmente los sitios individuales en IIS al instalar el conjunto de hospedaje. Las aplicaciones hospedadas (sitios de IIS) se reinician cuando IIS se reinicia. Las aplicaciones se inician de nuevo cuando reciben su primera solicitud, incluso desde el [módulo de inicialización de la aplicación](#application-initialization-module-and-idle-timeout).
+
+ASP.NET Core adopta el comportamiento de puesta al día para las versiones de revisión de los paquetes de marco compartidos. Cuando las aplicaciones hospedadas por IIS se reinician con IIS, las aplicaciones se cargan con las versiones de revisión más recientes de los paquetes a los que se hace referencia cuando reciben su primera solicitud. Si IIS no se reinicia, las aplicaciones se reinician y muestran el comportamiento de la puesta al día cuando se reciclan sus procesos de trabajo y reciben su primera solicitud.
 
 > [!NOTE]
 > Para obtener información sobre la configuración compartida de IIS, vea [ASP.NET Core Module with IIS Shared Configuration](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration) (Módulo de ASP.NET Core con configuración compartida de IIS).
@@ -528,13 +530,19 @@ Para hospedar una aplicación ASP.NET Core como aplicación secundaria en otra a
 
 La asignación de un grupo de aplicaciones independiente de la aplicación secundaria es un requisito cuando se utiliza el modelo de hospedaje en proceso.
 
-Para más información sobre el modelo de hospedaje en proceso y cómo configurar el módulo de ASP.NET Core, consulte <xref:host-and-deploy/aspnet-core-module> y <xref:host-and-deploy/aspnet-core-module>.
+Para más información sobre el modelo de hospedaje en proceso y cómo configurar el módulo de ASP.NET Core, consulte <xref:host-and-deploy/aspnet-core-module>.
 
 ## <a name="configuration-of-iis-with-webconfig"></a>Configuración de IIS con web.config
 
 En escenarios de IIS que son funcionales para aplicaciones ASP.NET Core con el módulo ASP.NET Core, la configuración de IIS está influenciada por la sección `<system.webServer>` de *web.config*. Por ejemplo, la configuración de IIS es funcional para la compresión dinámica. Si IIS está configurado en el nivel de servidor para usar compresión dinámica, el elemento `<urlCompression>` del archivo *web.config* de la aplicación puede deshabilitarlo para una aplicación ASP.NET Core.
 
-Para más información, vea la [referencia de configuración para \<system.webServer>](/iis/configuration/system.webServer/), [Referencia de configuración del módulo de ASP.NET Core](xref:host-and-deploy/aspnet-core-module) y [Módulos IIS con ASP.NET Core](xref:host-and-deploy/iis/modules). Para establecer variables de entorno para aplicaciones individuales que se ejecutan en grupos de aplicaciones aislados (se admite para IIS 10.0 o posterior), vea la sección *AppCmd.exe command* (Comando AppCmd.exe) del tema [Environment Variables \<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) (Variables de entorno <environmentVariables>) de la documentación de referencia de IIS.
+Para obtener más información, vea los temas siguientes:
+
+* [Referencia de configuración para \<system.webServer>](/iis/configuration/system.webServer/)
+* <xref:host-and-deploy/aspnet-core-module>
+* <xref:host-and-deploy/iis/modules>
+
+Para establecer variables de entorno para aplicaciones individuales que se ejecutan en grupos de aplicaciones aislados (se admite para IIS 10.0 o posterior), vea la sección *AppCmd.exe command* (Comando AppCmd.exe) del tema [Environment Variables \<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) (Variables de entorno <environmentVariables>) de la documentación de referencia de IIS.
 
 ## <a name="configuration-sections-of-webconfig"></a>Secciones de configuración de web.config
 
@@ -728,11 +736,8 @@ Obtenga información detallada sobre IIS en su documentación.
 Obtenga información sobre los modelos de implementación de aplicaciones .NET Core.  
 [Implementación de aplicaciones .NET Core](/dotnet/core/deploying/)
 
-Obtenga información sobre cómo el módulo de ASP.NET Core permite que el servidor web de Kestrel use IIS o IIS Express como servidor proxy inverso.  
-[Módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-
-Obtenga información sobre cómo configurar el módulo de ASP.NET Core para hospedar aplicaciones ASP.NET Core.  
-[Referencia de configuración del módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
+Obtenga información sobre el módulo de ASP.NET Core, incluida la guía de configuración.  
+<xref:host-and-deploy/aspnet-core-module>
 
 Obtenga información sobre la estructura de directorios de las aplicaciones ASP.NET Core publicadas.  
 [Estructura de directorios](xref:host-and-deploy/directory-structure)

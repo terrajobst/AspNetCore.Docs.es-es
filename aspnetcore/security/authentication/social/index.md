@@ -1,31 +1,30 @@
 ---
 title: Autenticación con Facebook, Google y proveedores externos en ASP.NET Core
 author: rick-anderson
-description: En este tutorial se muestra cómo crear una aplicación de ASP.NET Core 2.x mediante OAuth 2.0 con proveedores de autenticación externos.
+description: En este tutorial se muestra cómo crear una aplicación de ASP.NET Core mediante OAuth 2.0 con proveedores de autenticación externos.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/10/2019
+ms.date: 10/21/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: edaf9eeaf02879b2f7816bab0eb373a7de640c05
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 627ca483d60514d85e38c0e346ff5aef64ad9fee
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082506"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034308"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticación con Facebook, Google y proveedores externos en ASP.NET Core
 
 Por [Valeriy Novytskyy](https://github.com/01binary) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-En este tutorial se muestra cómo crear una aplicación de ASP.NET Core 2.2 que permita a los usuarios iniciar sesión mediante OAuth 2.0 con credenciales de proveedores de autenticación externos.
+En este tutorial se muestra cómo crear una aplicación de ASP.NET Core 3.0 que permita a los usuarios iniciar sesión mediante OAuth 2.0 con credenciales de proveedores de autenticación externos.
 
-En las siguientes secciones se tratan los proveedores [Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins) y [Microsoft](xref:security/authentication/microsoft-logins). Hay disponibles otros proveedores en paquetes de terceros como [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) y [AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
-
-![Iconos de redes sociales para Facebook, Twitter, Google Plus y Windows](index/_static/social.png)
+En las siguientes secciones se tratan los proveedores [Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins) y [Microsoft](xref:security/authentication/microsoft-logins), y usan el proyecto inicial creado en este artículo. Hay disponibles otros proveedores en paquetes de terceros como [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) y [AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
 
 El hecho de permitir a los usuarios iniciar sesión con sus credenciales:
+
 * resulta muy práctico para ellos;
-* transfiere muchas de las complejidades de administrar el proceso de inicio de sesión a un tercero. 
+* transfiere muchas de las complejidades de administrar el proceso de inicio de sesión a un tercero.
 
 Para ver ejemplos de cómo los inicios de sesión de las redes sociales pueden controlar las conversiones del tráfico y de clientes, vea los casos prácticos de [Facebook](https://www.facebook.com/unsupportedbrowser) y [Twitter](https://dev.twitter.com/resources/case-studies).
 
@@ -36,36 +35,32 @@ Para ver ejemplos de cómo los inicios de sesión de las redes sociales pueden c
 * Cree un nuevo proyecto.
 * Seleccione **Aplicación web de ASP.NET Core** y **Siguiente**.
 * Proporcione un **Nombre del proyecto** y confirme o cambie la **Ubicación**. Seleccione **Crear**.
-* Seleccione **ASP.NET Core 2.2** en la lista desplegable. Seleccione **Aplicación web** en la lista de plantillas.
+* Seleccione **ASP.NET Core 3.0** en la lista desplegable y, luego, **Aplicación web**.
 * En **Autenticación**, seleccione **Cambiar** y establezca la autenticación en **Cuentas de usuario individuales**. Seleccione **Aceptar**.
 * En la ventana **Crear una aplicación web ASP.NET Core**, seleccione **Crear**.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
 
-* Abra el [terminal integrado](https://code.visualstudio.com/docs/editor/integrated-terminal).
+* Abra el terminal.  Para Visual Studio Code puede abrir el [terminal integrado](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
 * Cambie los directorios (`cd`) a una carpeta que contenga el proyecto.
 
-* Ejecute los comandos siguientes:
+* En Windows, ejecute el siguiente comando:
 
   ```dotnetcli
   dotnet new webapp -o WebApp1 -au Individual -uld
-  code -r WebApp1
+  ```
+
+  En macOS y Linux, ejecute el siguiente comando:
+
+  ```dotnetcli
+  dotnet new webapp -o WebApp1 -au Individual
   ```
 
   * El comando `dotnet new` crea un nuevo proyecto de Razor Pages en la carpeta *WebApp1*.
-  * `-uld` usa LocalDB en lugar de SQLite. Omita `-uld` para usar SQLite.
   * `-au Individual` crea el código para la autenticación individual.
+  * `-uld` usa LocalDB, una versión ligera de SQL Server Express para Windows. Omita `-uld` para usar SQLite.
   * El comando `code` abre la carpeta *WebApp1* en una nueva instancia de Visual Studio Code.
-
-* Se muestra un cuadro de diálogo con el texto **Required assets to build and debug are missing from 'WebApp1'. Add them?** (Faltan los activos necesarios para compilar y depurar en "RazorPagesMovie". ¿Desea agregarlos?). Seleccione **Sí**.
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
-
-* Seleccione **Archivo** > **Nueva solución**.
-* Seleccione **.NET Core** > **Aplicación** en la barra lateral. Seleccione la plantilla **Aplicación web**. Seleccione **Siguiente**.
-* Establezca la **Plataforma de destino** del menú desplegable en **.NET Core 2.2**. Seleccione **Siguiente**.
-* Proporcione un **Nombre del proyecto**. Confirme o cambie la **Ubicación**. Seleccione **Crear**.
 
 ---
 
