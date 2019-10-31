@@ -1,34 +1,53 @@
 ---
-title: Autorización basada en ASP.NET Core
+title: Autorización basada en notificaciones en ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre cómo agregar comprobaciones de notificaciones para la autorización en una aplicación ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/claims
-ms.openlocfilehash: 6b60ae5515819b017ab577f655ed91ee4d8ed0dd
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: e289851aafcbc7e3b3f60ab9fbe4b182a78bdf8a
+ms.sourcegitcommit: de0fc77487a4d342bcc30965ec5c142d10d22c03
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086154"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73143430"
 ---
-# <a name="claims-based-authorization-in-aspnet-core"></a>Autorización basada en ASP.NET Core
+# <a name="claims-based-authorization-in-aspnet-core"></a>Autorización basada en notificaciones en ASP.NET Core
 
 <a name="security-authorization-claims-based"></a>
 
-Cuando se crea una identidad se pueden asignar una o más notificaciones emitidas por una entidad de confianza. Una notificación es un par nombre-valor que representa el asunto de qué es, no lo que el sujeto puede hacer. Por ejemplo, puede tener un permiso de conducir, emitido por una entidad de licencia de conducción local. De conducir su permiso tiene su fecha de nacimiento. En este caso sería el nombre de la notificación `DateOfBirth`, el valor de notificación sería su fecha de nacimiento, por ejemplo `8th June 1970` y el emisor sería la autoridad de licencia de conducción. Autorización basada en notificaciones, en su forma más simple, comprueba el valor de una notificación y permite el acceso a un recurso en función de ese valor. Por ejemplo, si desea que el proceso de autorización el acceso a un club nocturno puede ser:
+Cuando se crea una identidad, se le puede asignar una o varias notificaciones emitidas por una entidad de confianza. Una demanda es un par de valor de nombre que representa lo que es el sujeto, no lo que puede hacer el sujeto. Por ejemplo, puede tener una licencia de controlador, emitida por una entidad de licencia de conducción local. La licencia de su controlador tiene su fecha de nacimiento. En este caso, el nombre de la demanda sería `DateOfBirth`, el valor de la demanda sería su fecha de nacimiento, por ejemplo `8th June 1970` y el emisor sería la entidad de la licencia de conducción. La autorización basada en notificaciones, en su forma más simple, comprueba el valor de una notificación y permite el acceso a un recurso en función de ese valor. Por ejemplo, si desea tener acceso a un club nocturno, el proceso de autorización podría ser:
 
-El responsable de la seguridad de la puerta evaluaría el valor de la fecha de nacimiento notificación y si confía en el emisor (la entidad de licencia conducción) antes de conceder que acceso.
+El responsable de seguridad de la puerta evaluaría el valor de la demanda de la fecha de nacimiento y si confía en el emisor (la entidad de la licencia de conducción) antes de concederle acceso.
 
 Una identidad puede contener varias notificaciones con varios valores y puede contener varias notificaciones del mismo tipo.
 
 ## <a name="adding-claims-checks"></a>Agregar comprobaciones de notificaciones
 
-Notificación de comprobaciones de autorización basado en son declarativas: el desarrollador incrusta dentro de su código, con un controlador o una acción dentro de un controlador, especificar las notificaciones que debe poseer el usuario actual y, opcionalmente, debe contener el valor de la notificación para tener acceso a la recurso solicitado. Notificaciones de los requisitos son basada en directivas, el desarrollador debe crear y registrar una directiva de expresar los requisitos de notificaciones.
+Las comprobaciones de autorización basadas en notificaciones son declarativas: el desarrollador las inserta en el código, en un controlador o una acción dentro de un controlador, especificando las notificaciones que el usuario actual debe poseer y, opcionalmente, el valor que debe tener la notificación para tener acceso al recurso solicitado. Los requisitos de las notificaciones están basados en directivas, el desarrollador debe compilar y registrar una directiva que exprese los requisitos de las notificaciones.
 
-El tipo más sencillo de directiva Busca la presencia de una notificación de notificación y no comprueba el valor.
+El tipo más sencillo de la Directiva de notificaciones busca la presencia de una demanda y no comprueba el valor.
 
-Primero deberá crear y registrar la directiva. Esta operación se realiza como parte de la configuración del servicio de autorización, que normalmente forma parte de `ConfigureServices()` en su *Startup.cs* archivo.
+En primer lugar, debe compilar y registrar la Directiva. Esto se produce como parte de la configuración del servicio de autorización, que normalmente participa en `ConfigureServices()` en el archivo *Startup.CS* .
+
+::: moniker range=">= aspnetcore-3.0"
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllersWithViews();
+    services.AddRazorPages();
+
+    services.AddAuthorization(options =>
+    {
+        options.AddPolicy("EmployeeOnly", policy => policy.RequireClaim("EmployeeNumber"));
+    });
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -42,9 +61,11 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-En este caso el `EmployeeOnly` directiva comprueba la presencia de un `EmployeeNumber` de notificación de la identidad actual.
+::: moniker-end
 
-A continuación, aplicar la directiva con la `Policy` propiedad en el `AuthorizeAttribute` atributo para especificar el nombre de la directiva;
+En este caso, la Directiva de `EmployeeOnly` comprueba la presencia de una demanda de `EmployeeNumber` en la identidad actual.
+
+A continuación, aplique la Directiva mediante la propiedad `Policy` del atributo `AuthorizeAttribute` para especificar el nombre de la Directiva;
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -54,7 +75,7 @@ public IActionResult VacationBalance()
 }
 ```
 
-El `AuthorizeAttribute` atributo puede aplicarse a un controlador todo, en este caso solo las identidades de la directiva de coincidencia se permitirá acceso a cualquier acción en el controlador.
+El atributo `AuthorizeAttribute` se puede aplicar a un controlador completo; en este caso, solo se permitirá el acceso a cualquier acción del controlador a las identidades que coincidan con la Directiva.
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -66,7 +87,7 @@ public class VacationController : Controller
 }
 ```
 
-Si tiene un controlador que está protegido por la `AuthorizeAttribute` de atributo, pero desea permitir el acceso anónimo a acciones concretas que se aplica los `AllowAnonymousAttribute` atributo.
+Si tiene un controlador que está protegido por el `AuthorizeAttribute` atributo, pero desea permitir el acceso anónimo a determinadas acciones, aplique el atributo `AllowAnonymousAttribute`.
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -83,7 +104,27 @@ public class VacationController : Controller
 }
 ```
 
-La mayoría de las notificaciones incluyen un valor. Puede especificar una lista de valores permitidos al crear la directiva. El ejemplo siguiente se realizaría correctamente sólo para los empleados cuyo número de empleado era 1, 2, 3, 4 o 5.
+La mayoría de las notificaciones tienen un valor. Puede especificar una lista de valores permitidos al crear la Directiva. El siguiente ejemplo solo se realizaría correctamente para los empleados cuyo número de empleado era 1, 2, 3, 4 o 5.
+
+::: moniker range=">= aspnetcore-3.0"
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllersWithViews();
+    services.AddRazorPages();
+
+    services.AddAuthorization(options =>
+    {
+        options.AddPolicy("Founders", policy =>
+                          policy.RequireClaim("EmployeeNumber", "1", "2", "3", "4", "5"));
+    });
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -98,13 +139,14 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### <a name="add-a-generic-claim-check"></a>Agregar una comprobación de solicitud genérico
+::: moniker-end
+### <a name="add-a-generic-claim-check"></a>Agregar una comprobación de notificaciones genéricas
 
-Si el valor de notificación no es un valor único o una transformación es necesaria, utilice [RequireAssertion](/dotnet/api/microsoft.aspnetcore.authorization.authorizationpolicybuilder.requireassertion). Para obtener más información, consulte [mediante func para satisfacer una directiva](xref:security/authorization/policies#using-a-func-to-fulfill-a-policy).
+Si el valor de la petición no es un valor único o se requiere una transformación, use [RequireAssertion](/dotnet/api/microsoft.aspnetcore.authorization.authorizationpolicybuilder.requireassertion). Para obtener más información, vea [usar un FUNC para cumplir una directiva](xref:security/authorization/policies#using-a-func-to-fulfill-a-policy).
 
-## <a name="multiple-policy-evaluation"></a>Evaluación de directiva múltiples
+## <a name="multiple-policy-evaluation"></a>Evaluación de varias directivas
 
-Si varias directivas se aplican a un controlador o acción, todas las directivas deben pasar antes de que se concede acceso. Por ejemplo:
+Si aplica varias directivas a un controlador o una acción, todas las directivas deben pasar antes de que se conceda el acceso. Por ejemplo:
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -121,6 +163,6 @@ public class SalaryController : Controller
 }
 ```
 
-En el ejemplo anterior cualquier identidad que cumple el `EmployeeOnly` directiva puede tener acceso a la `Payslip` acción como esa directiva se aplica en el controlador. Sin embargo para poder llamar a la `UpdateSalary` acción debe cumplir la identidad *ambos* el `EmployeeOnly` directiva y la `HumanResources` directiva.
+En el ejemplo anterior, cualquier identidad que cumpla la Directiva de `EmployeeOnly` puede tener acceso a la acción de `Payslip` a medida que se aplica la Directiva en el controlador. Sin embargo, para poder llamar a la acción de `UpdateSalary` la identidad debe cumplir *tanto* la directiva de `EmployeeOnly` como la directiva de `HumanResources`.
 
-Si desea que las directivas más complicadas, como llevar a cabo una fecha de nacimiento notificación, calcular una edad de él, a continuación, comprobar la edad es 21 o una versión anterior, deberá escribir [controladores de directiva personalizada](xref:security/authorization/policies).
+Si desea directivas más complicadas, como tomar una demanda de fecha de nacimiento, calcular una edad a partir de ella y comprobar la edad es 21 o anterior, debe escribir [controladores de directivas personalizados](xref:security/authorization/policies).
