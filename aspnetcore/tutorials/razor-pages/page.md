@@ -5,12 +5,12 @@ description: Explica las páginas de Razor generadas por la técnica scaffolding
 ms.author: riande
 ms.date: 08/17/2019
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 939ed5c3cdf33d8d99712e3166d8d07d3bac719f
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 594fd6186cc73aa054fc9a1478850fa01e481ef2
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334083"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034196"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Páginas de Razor con scaffolding en ASP.NET Core
 
@@ -49,7 +49,7 @@ La directiva de Razor `@page` convierte el archivo en una acción de MVC, lo que
 Examine la expresión lambda usada en el siguiente asistente de HTML:
 
 ```cshtml
-@Html.DisplayNameFor(model => model.Movie[0].Title))
+@Html.DisplayNameFor(model => model.Movie[0].Title)
 ```
 
 El asistente de HTML `DisplayNameFor` inspecciona la propiedad `Title` a la que se hace referencia en la expresión lambda para determinar el nombre para mostrar. La expresión lambda se inspecciona, no se evalúa. Esto significa que no hay ninguna infracción de acceso si `model`, `model.Movie` o `model.Movie[0]` son `null` o están vacíos. Al evaluar la expresión lambda (por ejemplo, con `@Html.DisplayFor(modelItem => item.Title)`), se evalúan los valores de propiedad del modelo.
@@ -240,7 +240,7 @@ La directiva de Razor `@page` convierte el archivo en una acción de MVC, lo que
 Examine la expresión lambda usada en el siguiente asistente de HTML:
 
 ```cshtml
-@Html.DisplayNameFor(model => model.Movie[0].Title))
+@Html.DisplayNameFor(model => model.Movie[0].Title)
 ```
 
 El asistente de HTML `DisplayNameFor` inspecciona la propiedad `Title` a la que se hace referencia en la expresión lambda para determinar el nombre para mostrar. La expresión lambda se inspecciona, no se evalúa. Esto significa que no hay ninguna infracción de acceso si `model`, `model.Movie` o `model.Movie[0]` son `null` o están vacíos. Al evaluar la expresión lambda (por ejemplo, con `@Html.DisplayFor(modelItem => item.Title)`), se evalúan los valores de propiedad del modelo.

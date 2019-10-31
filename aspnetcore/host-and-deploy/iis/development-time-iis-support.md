@@ -5,14 +5,14 @@ description: Descubra la compatibilidad con la depuración de aplicaciones ASP.N
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/10/2019
+ms.date: 10/26/2019
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: e5da4f7202bf31e65c366d6f7de54212f5b0fed7
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 2d2c8d8e4b39d18a3a727e2a2bdef3be566897c1
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259802"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034142"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Compatibilidad de IIS de tiempo de desarrollo en Visual Studio para ASP.NET Core
 
@@ -152,7 +152,6 @@ Si se usa un certificado de desarrollo que no es de confianza, el explorador pue
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Introducción al Administrador de IIS en IIS](/iis/get-started/getting-started-with-iis/getting-started-with-the-iis-manager-in-iis-7-and-iis-8)
-* [Hospedaje de ASP.NET Core en Windows con IIS](xref:host-and-deploy/iis/index)
-* [Introducción al módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-* [Referencia de configuración del módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-* [Aplicación de HTTPS](xref:security/enforcing-ssl)
+* <xref:host-and-deploy/iis/index>
+* <xref:host-and-deploy/aspnet-core-module>
+* <xref:security/enforcing-ssl>

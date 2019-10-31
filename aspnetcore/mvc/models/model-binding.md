@@ -6,12 +6,12 @@ ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
 ms.date: 05/31/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: 298e305cf918117ec2d313060a7420a1e721a365
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: aeb2da7e11df1eab5a17e2ae0a3971420c9383b4
+ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975294"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73190596"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Enlace de modelos en ASP.NET Core
 
@@ -179,7 +179,7 @@ Los tipos simples a los que el enlazador de modelos puede convertir las cadenas 
 * [TimeSpan](xref:System.ComponentModel.TimeSpanConverter)
 * [UInt16](xref:System.ComponentModel.UInt16Converter), [UInt32](xref:System.ComponentModel.UInt32Converter), [UInt64](xref:System.ComponentModel.UInt64Converter)
 * [Uri](xref:System.UriTypeConverter)
-* [Version](xref:System.ComponentModel.VersionConverter)
+* [Versión](xref:System.ComponentModel.VersionConverter)
 
 ## <a name="complex-types"></a>Tipos complejos
 
@@ -394,7 +394,7 @@ Para usar los formateadores de entrada XML integrados:
   public ActionResult<Pet> Create(Pet pet)
   ```
 
-  Para más información, vea [Introducción de la serialización XML](https://docs.microsoft.com/en-us/dotnet/standard/serialization/introducing-xml-serialization).
+  Para más información, vea [Introducción de la serialización XML](/dotnet/standard/serialization/introducing-xml-serialization).
 
 ## <a name="exclude-specified-types-from-model-binding"></a>Exclusión de tipos especificados del enlace de modelos
 
