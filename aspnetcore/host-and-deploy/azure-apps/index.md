@@ -1,18 +1,18 @@
 ---
 title: Implementar aplicaciones de ASP.NET Core en Azure App Service
-author: guardrex
+author: bradygaster
 description: Este artículo contiene vínculos a recursos de implementación y hospedaje de Azure.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: riande
+ms.author: bradyg
 ms.custom: mvc
-ms.date: 10/02/2019
+ms.date: 10/11/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: bda4923adb0f9769f883ef64f7902c8650308222
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: 392868b4fc9105279f8f3b10436a9915123e7070
+ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71924888"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73190626"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -29,6 +29,8 @@ Usar Visual Studio para crear e implementar una aplicación web de ASP.NET Core 
 Usar la línea de comandos para crear e implementar una aplicación web de ASP.NET Core para Azure App Service en Linux.
 
 Consulte el [panel ASP.NET Core en App Service](https://aspnetcoreon.azurewebsites.net/) para ver la versión de ASP.NET Core disponible en Azure App Service.
+
+Suscríbase al repositorio [App Service Announcements](https://github.com/Azure/app-service-announcements/) y supervise los problemas. El equipo de App Service publica periódicamente los anuncios y escenarios que llegan a App Service.
 
 Los artículos siguientes están disponibles en la documentación de ASP.NET Core:
 
@@ -141,24 +143,48 @@ Al realizar un intercambio entre ranuras de implementación, cualquier sistema q
 
 Para más información, consulte <xref:security/data-protection/implementation/key-storage-providers>.
 <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>
-<!-- revert this after 3.0 supported
-## Deploy ASP.NET Core preview release to Azure App Service
 
-Use one of the following approaches if the app relies on a preview release of .NET Core:
-
-* [Install the preview site extension](#install-the-preview-site-extension).
-* [Deploy a self-contained preview app](#deploy-a-self-contained-preview-app).
-* [Use Docker with Web Apps for containers](#use-docker-with-web-apps-for-containers).
--->
 ## <a name="deploy-aspnet-core-30-to-azure-app-service"></a>Implementar ASP.NET Core 3.0 en Azure App Service
 
-Esperamos tener ASP.NET Core 3.0 disponible en Azure App Service pronto.
+ASP.NET Core 3.0 se admite en Azure App Service. Para implementar una versión preliminar de una versión de .NET Core posterior a .NET Core 3.0, use una de las técnicas siguientes. Estos enfoques también se usan cuando el entorno de ejecución está disponible pero el SDK no se ha instalado en Azure App Service.
 
-Si la aplicación se basa en .NET Core 3.0, use uno de los enfoques siguientes:
-
-* [Instalación de la extensión de sitio de versión preliminar](#install-the-preview-site-extension).
+* [Especificación del SDK de .NET Core con Azure Pipelines](#specify-the-net-core-sdk-version-using-azure-pipelines)
 * [Implementación de la versión preliminar de una aplicación independiente](#deploy-a-self-contained-preview-app).
 * [Uso de Docker con Web Apps para contenedores](#use-docker-with-web-apps-for-containers).
+* [Instalación de la extensión de sitio de versión preliminar](#install-the-preview-site-extension).
+
+### <a name="specify-the-net-core-sdk-version-using-azure-pipelines"></a>Especificación de la versión del SDK de .NET Core con Azure Pipelines
+
+Use los [escenarios de CI/CD de Azure App Service](/azure/app-service/deploy-continuous-deployment) para configurar una compilación de integración continua con Azure DevOps. Después de crear la compilación de Azure DevOps, tiene la opción de configurar la compilación para usar una versión específica del SDK. 
+
+#### <a name="specify-the-net-core-sdk-version"></a>Especificación de la versión del SDK de .NET Core
+
+Al usar el centro de implementación de App Service para crear una compilación de Azure DevOps, la canalización de compilación predeterminada incluye los pasos `Restore`, `Build`, `Test` y `Publish`. Para especificar la versión del SDK, seleccione el botón **Add (+)** (Agregar [+]) en la lista de trabajos del agente para agregar un nuevo paso. Busque **.NET Core SDK** (SDK de .NET Core) en la barra de búsqueda. 
+
+![Paso para agregar el SDK de .NET Core](index/add-sdk-step.png)
+
+Mueva el paso a la primera posición de la compilación para que los pasos siguientes usen la versión especificada del SDK de .NET Core. Especifique la versión del SDK de .NET Core. En este ejemplo, el SDK se establece en `3.0.100`.
+
+![Paso del SDK completado](index/sdk-step-first-place.png)
+
+Para publicar una [implementación independiente (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd), configúrela en el paso `Publish` y proporcione el [identificador en tiempo de ejecución (RID)](/dotnet/core/rid-catalog).
+
+![Publicación independiente](index/self-contained.png)
+
+### <a name="deploy-a-self-contained-preview-app"></a>Implementación de la versión preliminar de una aplicación independiente
+
+Una [implementación independiente (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) que tiene como destino un entorno de ejecución en versión preliminar transporta el entorno de ejecución en versión preliminar en la implementación.
+
+Al implementar una aplicación independiente:
+
+* El sitio en Azure App Service no requiere la [extensión del sitio en versión preliminar](#install-the-preview-site-extension).
+* Se debe publicar la aplicación siguiendo un enfoque diferente que cuando se publica para una [implementación dependiente del marco (FDD)](/dotnet/core/deploying#framework-dependent-deployments-fdd).
+
+Siga las instrucciones de la sección [Implementación de la aplicación independiente](#deploy-the-app-self-contained).
+
+### <a name="use-docker-with-web-apps-for-containers"></a>Usar Docker con Web Apps para contenedores
+
+[Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) contiene las imágenes de Docker de versión preliminar más recientes. Las imágenes se pueden usar como base. Use la imagen y efectúe la implementación en Web App for Containers con normalidad.
 
 ### <a name="install-the-preview-site-extension"></a>Instalación de la extensión de sitio de versión preliminar
 
@@ -205,21 +231,6 @@ Cuando se complete la operación, se instalará la versión preliminar de .NET C
 Si usa una plantilla de ARM para crear e implementar aplicaciones, puede usar el tipo de recurso `siteextensions` para agregar la extensión de sitio a una aplicación web. Por ejemplo:
 
 [!code-json[](index/sample/arm.json?highlight=2)]
-
-### <a name="deploy-a-self-contained-preview-app"></a>Implementación de la versión preliminar de una aplicación independiente
-
-Una [implementación independiente (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) que tiene como destino un entorno de ejecución en versión preliminar transporta el entorno de ejecución en versión preliminar en la implementación.
-
-Al implementar una aplicación independiente:
-
-* El sitio en Azure App Service no requiere la [extensión del sitio en versión preliminar](#install-the-preview-site-extension).
-* Se debe publicar la aplicación siguiendo un enfoque diferente que cuando se publica para una [implementación dependiente del marco (FDD)](/dotnet/core/deploying#framework-dependent-deployments-fdd).
-
-Siga las instrucciones de la sección [Implementación de la aplicación independiente](#deploy-the-app-self-contained).
-
-### <a name="use-docker-with-web-apps-for-containers"></a>Usar Docker con Web Apps para contenedores
-
-[Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) contiene las imágenes de Docker de versión preliminar más recientes. Las imágenes se pueden usar como base. Use la imagen y efectúe la implementación en Web App for Containers con normalidad.
 
 ## <a name="publish-and-deploy-the-app"></a>Publicar e implementar la aplicación
 
