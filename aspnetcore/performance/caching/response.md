@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo usar el almacenamiento en caché de respuestas para reducir los requisitos de ancho de banda y aumentar el rendimiento de las aplicaciones de ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 10/15/2019
+ms.date: 11/04/2019
 uid: performance/caching/response
-ms.openlocfilehash: 4ebac97689347245d25e0954b33729d78dd1b516
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: a456e97053fea7c9ee9ec634ae9b7bbd52febe7f
+ms.sourcegitcommit: 09f4a5ded39cc8204576fe801d760bd8b611f3aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72378832"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611468"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Almacenamiento en caché de respuestas en ASP.NET Core
 
@@ -21,7 +21,9 @@ Por [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.co
 
 El almacenamiento en caché de respuestas reduce el número de solicitudes que un cliente o proxy realiza a un servidor Web. El almacenamiento en caché de respuestas también reduce la cantidad de trabajo que realiza el servidor web para generar una respuesta. El almacenamiento en caché de respuestas está controlado por encabezados que especifican cómo desea que el cliente, el proxy y el middleware almacenen en caché las respuestas.
 
-El [atributo ResponseCache](#responsecache-attribute) participa en el establecimiento de encabezados de caché de respuesta, que los clientes pueden respetar al almacenar en caché las respuestas. El [middleware de almacenamiento en](xref:performance/caching/middleware) caché de respuestas se puede usar para almacenar en caché las respuestas en el servidor. El middleware puede usar las propiedades <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute> para influir en el comportamiento del almacenamiento en caché del servidor.
+El [atributo ResponseCache](#responsecache-attribute) participa en el establecimiento de encabezados de caché de respuesta. Los clientes y los servidores proxy intermedios deben respetar los encabezados para almacenar en caché las respuestas en la [especificación HTTP 1,1 Caching](https://tools.ietf.org/html/rfc7234).
+
+Para el almacenamiento en caché del lado servidor que sigue la especificación HTTP 1,1 Caching, utilice el [middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware). El middleware puede usar las propiedades de <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute> para influir en el comportamiento del almacenamiento en caché del servidor.
 
 ## <a name="http-based-response-caching"></a>Almacenamiento en caché de respuesta basada en HTTP
 
@@ -140,10 +142,15 @@ Pragma: no-cache
 
 ### <a name="location-and-duration"></a>Ubicación y duración
 
-Para habilitar el almacenamiento en caché, <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Duration> debe establecerse en un valor positivo y <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> debe ser `Any` (valor predeterminado) o `Client`. En este caso, el encabezado `Cache-Control` se establece en el valor de ubicación seguido del `max-age` de la respuesta.
+Para habilitar el almacenamiento en caché, <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Duration> debe establecerse en un valor positivo y <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> debe ser `Any` (valor predeterminado) o `Client`. El marco de trabajo establece el encabezado de `Cache-Control` en el valor de ubicación seguido del `max-age` de la respuesta.
 
-> [!NOTE]
-> las opciones de <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> de `Any` y `Client` se traducen en valores de encabezado `Cache-Control` de `public` y `private`, respectivamente. Como se indicó anteriormente, si se establece <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> en `None`, se establecen los encabezados @no__t 2 y `Pragma` en `no-cache`.
+las opciones de <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> de `Any` y `Client` se traducen en valores de encabezado `Cache-Control` de `public` y `private`, respectivamente. Como se indicó en la sección [nostore y Location. None](#nostore-and-locationnone) , si se establece <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> en `None`, se establecen los encabezados `Cache-Control` y `Pragma` en `no-cache`.
+
+`Location.Any` (`Cache-Control` establecida en `public`) indica que el *cliente o cualquier proxy intermedio* puede almacenar en caché el valor, incluido el [middleware de almacenamiento en](xref:performance/caching/middleware)caché de las respuestas.
+
+`Location.Client` (`Cache-Control` establecida en `private`) indica que *solo el cliente* puede almacenar en caché el valor. Ninguna caché intermedia debe almacenar en caché el valor, incluido el [middleware de almacenamiento en](xref:performance/caching/middleware)caché de las respuestas.
+
+Los encabezados de control de caché simplemente proporcionan instrucciones a los clientes y los proxies intermediarios cuando y cómo almacenar en caché las respuestas. No hay ninguna garantía de que los clientes y los servidores proxy cumplan la [especificación de almacenamiento en caché HTTP 1,1](https://tools.ietf.org/html/rfc7234). El [middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware) sigue siempre las reglas de almacenamiento en caché establecidas por la especificación.
 
 En el ejemplo siguiente se muestra el modelo de página Cache3 de la aplicación de ejemplo y los encabezados generados al establecer <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Duration> y se sale del valor predeterminado <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location>:
 
@@ -159,7 +166,7 @@ Cache-Control: public,max-age=10
 
 En lugar de duplicar la configuración de la caché de respuesta en muchos atributos de acción del controlador, los perfiles de caché se pueden configurar como opciones al configurar MVC/Razor Pages en `Startup.ConfigureServices`. Los valores que se encuentran en un perfil de caché al que se hace referencia se utilizan como valores predeterminados por el <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute> y se reemplazan por las propiedades especificadas en el atributo.
 
-Configure un perfil de caché. En el ejemplo siguiente se muestra un perfil de caché de 30 segundos en el @no__t de la aplicación de ejemplo:
+Configure un perfil de caché. En el ejemplo siguiente se muestra un perfil de caché de 30 segundos en el `Startup.ConfigureServices`de la aplicación de ejemplo:
 
 [!code-csharp[](response/samples/2.x/ResponseCacheSample/Startup.cs?name=snippet1)]
 

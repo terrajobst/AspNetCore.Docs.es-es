@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/24/2019
 uid: fundamentals/routing
-ms.openlocfilehash: c8037d79c79c5b7eb3b99d9724aa3e5361f92b8c
-ms.sourcegitcommit: 5d25a7f22c50ca6fdd0f8ecd8e525822e1b35b7a
+ms.openlocfilehash: 8b4da4e1e262ec82225413d0338b3492d0b5e152
+ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2019
-ms.locfileid: "71482046"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73190506"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -591,6 +591,81 @@ La generación de vínculos solo genera un vínculo para esta ruta si se proporc
 Los segmentos complejos (por ejemplo, `[Route("/x{token}y")]`), se procesan buscando coincidencias de literales de derecha a izquierda de un modo no expansivo. Consulte [este código](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) para obtener una explicación detallada de cómo se comparan los segmentos complejos. El [código de ejemplo](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) no se usa en ASP.NET Core, pero proporciona una buena explicación de los segmentos complejos.
 <!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/aspnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
 -->
+
+## <a name="configuring-endpoint-metadata"></a>Configuración de metadatos de punto de conexión
+
+Los vínculos siguientes proporcionan información sobre la configuración de metadatos de punto de conexión:
+
+* [Habilitación de CORS con enrutamiento de punto de conexión](xref:security/cors#enable-cors-with-endpoint-routing)
+* [Ejemplo de IAuthorizationPolicyProvider](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Security/samples/CustomPolicyProvider) con un atributo `[MinimumAgeAuthorize]` personalizado
+* [Autenticación de pruebas con el atributo [Authorize]](xref:security/authentication/identity#test-identity)
+* <xref:Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions.RequireAuthorization*>
+* [Selección del esquema con el atributo [Authorize]](xref:security/authorization/limitingidentitybyscheme#selecting-the-scheme-with-the-authorize-attribute)
+* [Aplicación de directivas con el atributo [Authorize]](xref:security/authorization/policies#applying-policies-to-mvc-controllers)
+* <xref:security/authorization/roles>
+
+<a name="hostmatch"></a>
+
+## <a name="host-matching-in-routes-with-requirehost"></a>Comparación de host en rutas con RequireHost
+
+`RequireHost` aplica una restricción a la ruta que requiere el host especificado. Los parámetros `RequireHost` o `[Host]` pueden ser:
+
+* Host: `www.domain.com` (compara `www.domain.com` con cualquier puerto)
+* Host con carácter comodín: `*.domain.com` (coincide con `www.domain.com`, `subdomain.domain.com` o `www.subdomain.domain.com` en cualquier puerto)
+* Puerto: `*:5000` (coincide con el puerto 5000 con cualquier host)
+* Host y puerto: `www.domain.com:5000`, `*.domain.com:5000` (coincide con el host y el puerto)
+
+Se pueden especificar varios parámetros mediante `RequireHost` o `[Host]`. La restricción coincidirá con los hosts válidos para cualquiera de los parámetros. Por ejemplo, `[Host("domain.com", "*.domain.com")]` coincidirá con `domain.com`, `www.domain.com` o `subdomain.domain.com`.
+
+En el código siguiente se usa `RequireHost` para requerir el host especificado en la ruta:
+
+```csharp
+public void Configure(IApplicationBuilder app)
+{
+    app.UseRouting();
+
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapGet("/", context => context.Response.WriteAsync("Hi Contoso!"))
+            .RequireHost("contoso.com");
+        endpoints.MapGet("/", context => context.Response.WriteAsync("Hi AdventureWorks!"))
+            .RequireHost("adventure-works.com");
+        endpoints.MapHealthChecks("/healthz").RequireHost("*:8080");
+    });
+}
+```
+
+En el código siguiente se usa el atributo `[Host]` para requerir el host especificado en el controlador:
+
+```csharp
+[Host("contoso.com", "adventure-works.com")]
+public class HomeController : Controller
+{
+    private readonly ILogger<HomeController> _logger;
+
+    public HomeController(ILogger<HomeController> logger)
+    {
+        _logger = logger;
+    }
+
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+    [Host("example.com:8080")]
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
+}
+```
+
+Cuando el atributo `[Host]` se aplica al método de acción y al controlador:
+
+* Se usa el atributo en la acción.
+* Se omite el atributo del controlador.
 
 ::: moniker-end
 
