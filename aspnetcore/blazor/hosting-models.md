@@ -5,14 +5,14 @@ description: Comprenda los modelos de hospedaje de servidores de webassembler y 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 11/03/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: be67c129af4f071d10719e0bbf121de761dde9f4
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: d1b9e6ab7ba93c00a569be309f2334df9e3f4140
+ms.sourcegitcommit: e5d4768aaf85703effb4557a520d681af8284e26
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033989"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73616585"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Modelos de hospedaje increíblemente ASP.NET Core
 
@@ -146,6 +146,22 @@ Cuando el cliente detecta que se ha perdido la conexión, se muestra al usuario 
 
 Las aplicaciones de servidor increíbles se configuran de forma predeterminada para prerepresentar la interfaz de usuario en el servidor antes de que se establezca la conexión de cliente con el servidor. Esto se configura en la página de Razor de *_Host. cshtml* :
 
+::: moniker range=">= aspnetcore-3.1"
+
+```cshtml
+<body>
+    <app>
+      <component type="typeof(App)" render-mode="ServerPrerendered" />
+    </app>
+
+    <script src="_framework/blazor.server.js"></script>
+</body>
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
+
 ```cshtml
 <body>
     <app>@(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))</app>
@@ -154,10 +170,24 @@ Las aplicaciones de servidor increíbles se configuran de forma predeterminada p
 </body>
 ```
 
+::: moniker-end
+
 `RenderMode` configura si el componente:
 
 * Se representa en la página.
 * Se representa como HTML estático en la página o si incluye la información necesaria para iniciar una aplicación extraordinaria desde el agente de usuario.
+
+::: moniker range=">= aspnetcore-3.1"
+
+| `RenderMode`        | Descripción |
+| ------------------- | ----------- |
+| `ServerPrerendered` | Representa el componente en código HTML estático e incluye un marcador para una aplicación de servidor extraordinaria. Cuando se inicia el agente de usuario, este marcador se usa para arrancar una aplicación increíblemente alta. |
+| `Server`            | Representa un marcador para una aplicación de servidor extraordinaria. La salida del componente no está incluida. Cuando se inicia el agente de usuario, este marcador se usa para arrancar una aplicación increíblemente alta. |
+| `Static`            | Representa el componente en HTML estático. |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
 
 | `RenderMode`        | Descripción |
 | ------------------- | ----------- |
@@ -165,9 +195,65 @@ Las aplicaciones de servidor increíbles se configuran de forma predeterminada p
 | `Server`            | Representa un marcador para una aplicación de servidor extraordinaria. La salida del componente no está incluida. Cuando se inicia el agente de usuario, este marcador se usa para arrancar una aplicación increíblemente alta. No se admiten los parámetros. |
 | `Static`            | Representa el componente en HTML estático. Se admiten los parámetros. |
 
+::: moniker-end
+
 No se admite la representación de componentes de servidor desde una página HTML estática.
 
-El cliente se vuelve a conectar al servidor con el mismo estado que se usó para representarla. Si el estado de la aplicación todavía está en la memoria, el estado del componente no se representará una vez establecida la conexión de Signalr.
+Cuando se `ServerPrerendered`la `RenderMode`, el componente se representa inicialmente estáticamente como parte de la página. Una vez que el explorador vuelve a establecer una conexión con el servidor, el componente se *vuelve*a representar y el componente ahora es interactivo. Si hay un [método de ciclo de vida](xref:blazor/components#lifecycle-methods) para inicializar el componente (`OnInitialized{Async}`), el método se ejecuta *dos veces*:
+
+* Cuando el componente se representa de forma estática.
+* Una vez establecida la conexión al servidor.
+
+Esto puede dar lugar a un cambio notable en los datos mostrados en la interfaz de usuario cuando el componente se representa finalmente.
+
+Para evitar el escenario de representación doble en una aplicación de servidor increíblemente alta:
+
+* Pase un identificador que se puede usar para almacenar en caché el estado durante la representación previa y recuperar el estado después de que se reinicie la aplicación.
+* Use el identificador durante la representación previa para guardar el estado del componente.
+* Use el identificador después de la representación previa para recuperar el estado almacenado en caché.
+
+En el código siguiente se muestra una `WeatherForecastService` actualizada en una aplicación de servidor más extraordinaria basada en plantillas que evita la representación doble:
+
+```csharp
+public class WeatherForecastService
+{
+    private static readonly string[] Summaries = new[]
+    {
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild",
+        "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
+    
+    public WeatherForecastService(IMemoryCache memoryCache)
+    {
+        MemoryCache = memoryCache;
+    }
+    
+    public IMemoryCache MemoryCache { get; }
+
+    public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
+    {
+        return MemoryCache.GetOrCreateAsync(startDate, async e =>
+        {
+            e.SetOptions(new MemoryCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = 
+                    TimeSpan.FromSeconds(30)
+            });
+
+            var rng = new Random();
+
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = startDate.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = Summaries[rng.Next(Summaries.Length)]
+            }).ToArray();
+        });
+    }
+}
+```
 
 ### <a name="render-stateful-interactive-components-from-razor-pages-and-views"></a>Representación de componentes interactivos con estado desde vistas y páginas de Razor
 
@@ -181,15 +267,63 @@ Cuando se representa la página o la vista:
 
 La siguiente página de Razor representa un componente `Counter`:
 
+::: moniker range=">= aspnetcore-3.1"
+
+```cshtml
+<h1>My Razor Page</h1>
+
+<component type="typeof(Counter)" render-mode="ServerPrerendered" 
+    param-InitialValue="InitialValue" />
+
+@code {
+    [BindProperty(SupportsGet=true)]
+    public int InitialValue { get; set; }
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
+
 ```cshtml
 <h1>My Razor Page</h1>
 
 @(await Html.RenderComponentAsync<Counter>(RenderMode.ServerPrerendered))
+
+@code {
+    [BindProperty(SupportsGet=true)]
+    public int InitialValue { get; set; }
+}
 ```
+
+::: moniker-end
 
 ### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Representación de componentes no interactivos desde páginas y vistas de Razor
 
 En la siguiente página de Razor, el componente `MyComponent` se representa estáticamente con un valor inicial que se especifica mediante un formulario:
+
+::: moniker range=">= aspnetcore-3.1"
+
+```cshtml
+<h1>My Razor Page</h1>
+
+<form>
+    <input type="number" asp-for="InitialValue" />
+    <button type="submit">Set initial value</button>
+</form>
+
+<component type="typeof(Counter)" render-mode="Static" 
+    param-InitialValue="InitialValue" />
+
+@code {
+    [BindProperty(SupportsGet=true)]
+    public int InitialValue { get; set; }
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
 
 ```cshtml
 <h1>My Razor Page</h1>
@@ -207,6 +341,8 @@ En la siguiente página de Razor, el componente `MyComponent` se representa est�
     public int InitialValue { get; set; }
 }
 ```
+
+::: moniker-end
 
 Como `MyComponent` se representa estáticamente, el componente no puede ser interactivo.
 
