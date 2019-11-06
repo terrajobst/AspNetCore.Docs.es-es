@@ -1020,6 +1020,8 @@
   items:
     - name: Información general
       uid: performance/performance-best-practices
+    - name: Memoria y recolección de elementos no utilizados
+      uid: performance/memory
     - name: Almacenamiento en caché de respuestas
       items:
         - name: Información general

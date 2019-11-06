@@ -4,14 +4,14 @@ author: rick-anderson
 description: Consulte una introducción a ASP.NET Core, un marco multiplataforma de código abierto y de alto rendimiento que tiene como finalidad compilar modernas aplicaciones conectadas a Internet y basadas en la nube.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/10/2019
+ms.date: 11/03/2019
 uid: index
-ms.openlocfilehash: 1ccc1f5d095833e89fc20127ee23b8fa3dc4c79f
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: edbdce19656af64d7c2c0ee554bc5213a0d0c50e
+ms.sourcegitcommit: 09f4a5ded39cc8204576fe801d760bd8b611f3aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72289054"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611407"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -98,6 +98,10 @@ Se recomienda la siguiente secuencia de tutoriales y artículos para obtener una
 1. Examine la tabla de contenido para ver otros temas de interés.
 
 \* Hay un nuevo [tutorial de API web que sigue completamente en el explorador](https://docs.microsoft.com/learn/modules/build-web-api-net-core), no es necesaria una instalación del IDE local.  El código se ejecuta en un [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) y se usa [curl](https://curl.haxx.se/) para realizar pruebas.
+
+## <a name="migration-from-the-net-framework"></a>Migración desde .NET Framework
+
+Para obtener una guía de referencia para migrar aplicaciones de ASP.NET a ASP.NET Core, vea <migration/proper-to-2x/index>.
 
 ## <a name="how-to-download-a-sample"></a>Cómo descargar un ejemplo
 
