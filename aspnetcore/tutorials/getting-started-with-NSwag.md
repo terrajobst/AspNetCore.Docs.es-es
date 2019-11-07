@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 06/21/2019
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 5e62a8cc50947969d42981350b65a24781929d62
-ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
+ms.openlocfilehash: 23927e6ce0a7b29ce3f32d4e7f7d3f234257ca9b
+ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71691180"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416158"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>Introducción a NSwag y ASP.NET Core
 
@@ -265,7 +265,7 @@ La acción anterior devuelve `IActionResult` pero, dentro de la acción, devuelv
 
 ::: moniker range=">= aspnetcore-2.1"
 
- Dado que NSwag usa [Reflection](/dotnet/csharp/programming-guide/concepts/reflection) y el tipo de valor devuelto recomendado para acciones de API web es [ActionResult\<T>](xref:Microsoft.AspNetCore.Mvc.ActionResult%601), solo puede inferir el tipo de valor devuelto definido por `T`. No puede inferir automáticamente ningún otro tipo de valor devuelto.
+Dado que NSwag usa [Reflection](/dotnet/csharp/programming-guide/concepts/reflection) y el tipo de valor devuelto recomendado para acciones de API web es [ActionResult\<T>](xref:Microsoft.AspNetCore.Mvc.ActionResult%601), solo puede inferir el tipo de valor devuelto definido por `T`. No puede inferir automáticamente ningún otro tipo de valor devuelto.
 
 Considere el ejemplo siguiente:
 

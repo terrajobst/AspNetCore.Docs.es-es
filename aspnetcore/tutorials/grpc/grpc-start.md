@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 10/10/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 61324cdd5b574ea8a12a1be5846a25c311ab4499
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 0da5a4cf0d9cc15fee6417d143cfc9e9f1e4509c
+ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259672"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73463055"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Tutorial: Crear un servidor y un cliente gRPC en ASP.NET Core
 
@@ -255,8 +255,8 @@ Actualice el archivo *Program.cs* del cliente gRPC con el código siguiente:
 
 El cliente de Greeter se crea mediante lo siguiente:
 
-* Creación de una instancia de `HttpClient` que contiene la información para crear la conexión al servicio gRPC.
-* Uso de `HttpClient` para construir un canal gRPC y el cliente de Greeter:
+* Creación de una instancia de `GrpcChannel` que contiene la información para crear la conexión al servicio gRPC.
+* Uso de `GrpcChannel` para construir el cliente de Greeter:
 
 [!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=3-5)]
 
