@@ -1,5 +1,5 @@
 
-<span data-ttu-id="7f0e1-101">Ejecute los siguientes comandos CLI de .NET Core:</span><span class="sxs-lookup"><span data-stu-id="7f0e1-101">Run the following .NET Core CLI commands:</span></span>
+<span data-ttu-id="b0bf0-101">Ejecute los siguientes comandos CLI de .NET Core:</span><span class="sxs-lookup"><span data-stu-id="b0bf0-101">Run the following .NET Core CLI commands:</span></span>
 
 ```dotnetcli
 dotnet ef migrations add InitialCreate
