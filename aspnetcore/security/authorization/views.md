@@ -1,31 +1,30 @@
 ---
-title: Autorización basada en la vista en ASP.NET Core MVC
+title: Autorización basada en vistas en ASP.NET Core MVC
 author: rick-anderson
-description: Este documento muestra cómo insertar y usar el servicio de autorización dentro de una vista de Razor de ASP.NET Core.
+description: En este documento se muestra cómo insertar y emplear el servicio de autorización dentro de una ASP.NET Core vista de Razor.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 10/30/2017
+ms.date: 11/08/2019
 uid: security/authorization/views
-ms.openlocfilehash: e497c41d4dca29fed8733f18cf727804e3f06d8c
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: fc03da9eb98d36ffdda932ee5b16f327c2be9f83
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64892062"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73896981"
 ---
-# <a name="view-based-authorization-in-aspnet-core-mvc"></a>Autorización basada en la vista en ASP.NET Core MVC
+# <a name="view-based-authorization-in-aspnet-core-mvc"></a>Autorización basada en vistas en ASP.NET Core MVC
 
-A menudo, un programador desea mostrar, ocultar o modificar una interfaz de usuario según la identidad del usuario actual. Solo puede acceder al servicio de autorización en las vistas MVC a través de [inserción de dependencias](xref:fundamentals/dependency-injection). Para insertar el servicio de autorización en una vista de Razor, use el `@inject` directiva:
+A menudo, un desarrollador desea mostrar, ocultar o modificar de otra forma una interfaz de usuario basada en la identidad del usuario actual. Puede tener acceso al servicio de autorización en las vistas de MVC a través de la [inserción de dependencias](xref:fundamentals/dependency-injection). Para insertar el servicio de autorización en una vista de Razor, use la Directiva `@inject`:
 
 ```cshtml
 @using Microsoft.AspNetCore.Authorization
 @inject IAuthorizationService AuthorizationService
 ```
 
-Si desea que el servicio de autorización en cada vista, coloque el `@inject` la directiva en el *_ViewImports.cshtml* archivos de la *vistas* directory. Para más información, vea [Dependency injection into views](xref:mvc/views/dependency-injection) (Inserción de dependencias en vistas).
+Si desea usar el servicio de autorización en cada vista, coloque la Directiva `@inject` en el archivo *_ViewImports. cshtml* del directorio *views* . Para más información, vea [Dependency injection into views](xref:mvc/views/dependency-injection) (Inserción de dependencias en vistas).
 
-Usar el servicio de autorización insertado para invocar `AuthorizeAsync` exactamente del mismo modo que se comprobaría si durante [autorización basada en recursos](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+Use el servicio de autorización insertado para invocar `AuthorizeAsync` exactamente del mismo modo que lo haría durante la [autorización basada en recursos](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
 
 ```cshtml
 @if ((await AuthorizationService.AuthorizeAsync(User, "PolicyName")).Succeeded)
@@ -34,20 +33,7 @@ Usar el servicio de autorización insertado para invocar `AuthorizeAsync` exacta
 }
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-```cshtml
-@if (await AuthorizationService.AuthorizeAsync(User, "PolicyName"))
-{
-    <p>This paragraph is displayed because you fulfilled PolicyName.</p>
-}
-```
-
----
-
-En algunos casos, el recurso será el modelo de vista. Invocar `AuthorizeAsync` exactamente del mismo modo que se comprobaría si durante [autorización basada en recursos](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+En algunos casos, el recurso será el modelo de vista. Invoque `AuthorizeAsync` exactamente del mismo modo que lo haría durante la [autorización basada en recursos](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
 
 ```cshtml
 @if ((await AuthorizationService.AuthorizeAsync(User, Model, Operations.Edit)).Succeeded)
@@ -57,19 +43,7 @@ En algunos casos, el recurso será el modelo de vista. Invocar `AuthorizeAsync` 
 }
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-```cshtml
-@if (await AuthorizationService.AuthorizeAsync(User, Model, Operations.Edit))
-{
-    <p><a class="btn btn-default" role="button"
-        href="@Url.Action("Edit", "Document", new { id = Model.Id })">Edit</a></p>
-}
-```
-
----
-
-En el código anterior, el modelo se pasa como un recurso de que la evaluación de directivas debe tomar en consideración.
+En el código anterior, el modelo se pasa como un recurso que debería tener en cuenta la evaluación de la Directiva.
 
 > [!WARNING]
-> No confíe en la visibilidad de alternancia de elementos de interfaz de usuario de la aplicación como la comprobación de autorización única. Ocultar un elemento de interfaz de usuario puede impedir completamente el acceso a su acción de controlador asociado. Por ejemplo, considere el botón en el fragmento de código anterior. Un usuario puede invocar la `Edit` dirección URL del método de acción si conozca el recurso relativo es */Document/Edit/1*. Por este motivo, la `Edit` método de acción debe realizar su propia comprobación de autorización.
+> No se base en la alternancia de la visibilidad de los elementos de la interfaz de usuario de la aplicación como la única comprobación de autorización. Ocultar un elemento de la interfaz de usuario puede no impedir completamente el acceso a su acción de controlador asociada. Por ejemplo, considere el botón en el fragmento de código anterior. Un usuario puede invocar el método de acción `Edit` si sabe que la dirección URL relativa del recurso es */Document/Edit/1*. Por esta razón, el método de acción `Edit` debe realizar su propia comprobación de autorización.

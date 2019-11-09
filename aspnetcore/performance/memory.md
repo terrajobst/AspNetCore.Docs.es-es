@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/05/2019
 uid: performance/memory
-ms.openlocfilehash: 8f6b47ecde6f265bfb9437234b89f11f7d235869
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 4c25c069aa2a6088c0549d786ecdd487ab7b9ea5
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73660015"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73896944"
 ---
 # <a name="memory-management-and-garbage-collection-gc-in-aspnet-core"></a>Administración de memoria y recolección de elementos no utilizados (GC) en ASP.NET Core
 
@@ -82,7 +82,7 @@ Ejecute MemoryLeak. La memoria asignada aumenta lentamente hasta que se produce 
 El gráfico muestra dos valores para el uso de memoria:
 
 - Asignado: la cantidad de memoria ocupada por los objetos administrados
-- Espacio de trabajo: la memoria física total (RAM) utilizada por el proceso. El espacio de trabajo mostrado es el mismo valor que puede mostrar el administrador de tareas.
+- Espacio de [trabajo](/windows/win32/memory/working-set): el conjunto de páginas del espacio de direcciones virtuales del proceso residente actualmente en la memoria física. El espacio de trabajo mostrado es el mismo valor que se muestra en el administrador de tareas.
 
 ### <a name="transient-objects"></a>Objetos transitorios
 

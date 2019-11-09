@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2019
 uid: web-api/index
-ms.openlocfilehash: aab9b848eb6e69055b019c9253c716898e9847e2
-ms.sourcegitcommit: a11f09c10ef3d4eeab7ae9ce993e7f30427741c1
+ms.openlocfilehash: 122de0a225668a7523eec900e2ad8fdac56d7886
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71149350"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73897022"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Creación de API web con ASP.NET Core
 
@@ -159,7 +159,7 @@ Las acciones no son accesibles mediante [rutas convencionales](xref:mvc/controll
 
 ::: moniker-end
 
-### <a name="automatic-http-400-responses"></a>Respuestas HTTP 400 automáticas
+## <a name="automatic-http-400-responses"></a>Respuestas HTTP 400 automáticas
 
 El atributo `[ApiController]` hace que los errores de validación de un modelo desencadenen automáticamente una respuesta HTTP 400. Por lo tanto, el siguiente código no es necesario en un método de acción:
 
