@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar entornos de hospedaje e
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/12/2019
+ms.date: 11/07/2019
 uid: host-and-deploy/index
-ms.openlocfilehash: 068c5f357b8010d78493a78a10c353e3317f3867
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: aa6e3da5f40211535037c671de913ab3219f063a
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969887"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799333"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hospedaje e implementación de ASP.NET Core
 
@@ -32,7 +32,7 @@ La carpeta *publish* contiene uno o varios archivos de ensamblado de aplicacione
 
 Se puede publicar una aplicación .NET Core como *implementación independiente* o *implementación dependiente del marco*. Si la aplicación es independiente, los archivos de ensamblado que contienen el entorno de ejecución .NET se incluyen en la carpeta *publish*. Si la aplicación es dependiente del marco, los archivos del tiempo de ejecución .NET no se incluyen porque la aplicación tiene una referencia a una versión de .NET que está instalada en el servidor. El modelo de implementación predeterminado es dependiente del marco. Para más información, vea [Implementación de aplicaciones .NET Core](/dotnet/core/deploying/).
 
-Además de los archivos *.exe* y *.dll*, la carpeta *publish* de una aplicación ASP.NET Core suele contener archivos de configuración, recursos estáticos y vistas de MVC. Para obtener más información, vea <xref:host-and-deploy/directory-structure>.
+Además de los archivos *.exe* y *.dll*, la carpeta *publish* de una aplicación ASP.NET Core suele contener archivos de configuración, recursos estáticos y vistas de MVC. Para más información, consulte <xref:host-and-deploy/directory-structure>.
 
 ## <a name="set-up-a-process-manager"></a>Configurar un administrador de procesos
 
@@ -69,6 +69,10 @@ Consulte <xref:tutorials/publish-to-azure-webapp-using-vs> para obtener instrucc
 
 Consulte <xref:host-and-deploy/visual-studio-publish-profiles> para ver instrucciones sobre cómo publicar una aplicación con un perfil de publicación de Visual Studio, incluyendo desde un símbolo del sistema de Windows mediante el comando [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild).
 
+## <a name="internet-information-services-iis"></a>Internet Information Services (IIS)
+
+Para las implementaciones en Internet Information Services (IIS) con la configuración proporcionada por el archivo *web.config*, consulte los artículos en <xref:host-and-deploy/iis/index>.
+
 ## <a name="host-in-a-web-farm"></a>Hospedaje en una granja de servidores web
 
 Para obtener más información sobre la configuración del hospedaje de aplicaciones de ASP.NET Core en un entorno de granja de servidores web (por ejemplo, para implementar varias instancias de la aplicación para escalabilidad), consulte <xref:host-and-deploy/web-farm>.
@@ -77,7 +81,7 @@ Para obtener más información sobre la configuración del hospedaje de aplicaci
 
 ## <a name="perform-health-checks"></a>Realización de comprobaciones de estado
 
-Use middleware de comprobación de estado para realizar comprobaciones de estado en una aplicación y sus dependencias. Para obtener más información, vea <xref:host-and-deploy/health-checks>.
+Use middleware de comprobación de estado para realizar comprobaciones de estado en una aplicación y sus dependencias. Para más información, consulte <xref:host-and-deploy/health-checks>.
 
 ::: moniker-end
 

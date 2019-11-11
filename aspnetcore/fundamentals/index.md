@@ -5,14 +5,14 @@ description: Obtenga información sobre los conceptos básicos para crear aplica
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 11/07/2019
 uid: fundamentals/index
-ms.openlocfilehash: a70d6aa05a2c92d19076b8d6e4ea24d7554368b6
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 7173a732a04bf3e598adef298fa9120c15dd52fb
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007118"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799370"
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
@@ -254,12 +254,12 @@ Para más información, consulte <xref:fundamentals/http-requests>.
 
 La raíz del contenido es la ruta de acceso base a:
 
-* El archivo ejecutable que hospeda la aplicación (*.exe*).
-* Los ensamblados compilados que componen la aplicación (*.dll*).
+* El archivo ejecutable que hospeda la aplicación ( *.exe*).
+* Los ensamblados compilados que componen la aplicación ( *.dll*).
 * Los archivos de contenido que no son de código usados por la aplicación, como:
-  * Archivos de Razor (*.cshtml*, *.razor*)
-  * Archivos de configuración (*.json*, *.xml*)
-  * Archivos de datos (*.db*)
+  * Archivos de Razor ( *.cshtml*, *.razor*)
+  * Archivos de configuración ( *.json*, *.xml*)
+  * Archivos de datos ( *.db*)
 * [Raíz web](#web-root), normalmente la carpeta *wwwroot* publicada.
 
 Durante el desarrollo:
@@ -285,9 +285,9 @@ Se puede especificar una ruta raíz de contenido alternativa al [crear el host](
 
 La raíz web es la ruta de acceso base a archivos de recursos públicos, que no son de código y estáticos, como:
 
-* Hojas de estilo (*.css*)
-* JavaScript (*.js*)
-* Imágenes (*.png*, *.jpg*)
+* Hojas de estilo ( *.css*)
+* JavaScript ( *.js*)
+* Imágenes ( *.png*, *.jpg*)
 
 De forma predeterminada, los archivos estáticos se atienden solo desde el directorio raíz web (y los subdirectorios).
 
@@ -303,6 +303,14 @@ El valor predeterminado de la ruta de acceso de la raíz web es *{raíz del cont
 
 ::: moniker-end
 
-En los archivos de Razor (*.cshtml*), la virgulilla `~/` apunta a la raíz web. Una ruta de acceso que empieza por `~/` se conoce como *ruta de acceso virtual*.
+Evite la publicación de archivos en *wwwroot* con el [\<Content> elemento de proyecto](/visualstudio/msbuild/common-msbuild-project-items#content) en el archivo de proyecto. En el ejemplo siguiente se impide la publicación de contenido en el directorio *wwwroot/local* y en los subdirectorios:
+
+```xml
+<ItemGroup>
+  <Content Update="wwwroot\local\**\*.*" CopyToPublishDirectory="Never" />
+</ItemGroup>
+```
+
+En los archivos de Razor ( *.cshtml*), la virgulilla `~/` apunta a la raíz web. Una ruta de acceso que empieza por `~/` se conoce como *ruta de acceso virtual*.
 
 Para más información, consulte <xref:fundamentals/static-files>.
