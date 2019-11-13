@@ -5,14 +5,14 @@ description: Obtenga información sobre la manera en que ASP.NET Core implementa
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/12/2019
+ms.date: 11/05/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: b07ed6d1c23454c95778a5942de615684b70bc36
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: c46e7322e86c2836a15bd0720995a8634bb185be
+ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589902"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73634010"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -571,7 +571,7 @@ Por lo general, la aplicación no debe usar estas propiedades directamente. En s
 Los procedimientos recomendados son:
 
 * Diseñar servicios para usar la inserción de dependencias a fin de obtener sus dependencias.
-* Evite las llamadas de método estático y con estado.
+* Evitar clases y miembros estáticos y con estado. En su lugar, diseñe las aplicaciones para usar servicios Singleton, lo que evita crear un estado global.
 * Evitar la creación directa de instancias de clases dependientes dentro de los servicios. La creación directa de instancias se acopla al código de una implementación particular.
 * Cree clases de aplicación pequeñas, bien factorizadas y probadas con facilidad.
 

@@ -71,4 +71,5 @@ Registre el contexto de base de datos con el contenedor de [inserción de depend
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
 Compile el proyecto para comprobar si hay errores.
+
 ::: moniker-end

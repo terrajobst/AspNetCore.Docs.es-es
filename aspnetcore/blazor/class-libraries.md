@@ -1,18 +1,20 @@
 ---
 title: Bibliotecas de clases de componentes de ASP.NET Core Razor
 author: guardrex
-description: Descubra cómo se pueden incluir los componentes en aplicaciones increíbles desde una biblioteca de componentes externos.
+description: Descubra cómo se pueden incluir componentes en Blazor aplicaciones desde una biblioteca de componentes externos.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 09/23/2019
+no-loc:
+- Blazor
 uid: blazor/class-libraries
-ms.openlocfilehash: 2e042b43c6db24e0ecac727be100575fe1275e17
-ms.sourcegitcommit: 6d26ab647ede4f8e57465e29b03be5cb130fc872
+ms.openlocfilehash: d4cc4124c9dc28ed6da0923b919919df4965f89f
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71999772"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73962708"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>Bibliotecas de clases de componentes de ASP.NET Core Razor
 
@@ -28,7 +30,7 @@ Del mismo modo que los componentes son tipos regulares de .NET, los componentes 
 
 ## <a name="create-an-rcl"></a>Creación de un RCL
 
-Siga las instrucciones del artículo @no__t 0 para configurar su entorno para que sea increíble.
+Siga las instrucciones del artículo <xref:blazor/get-started> para configurar el entorno para Blazor.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -39,9 +41,9 @@ Siga las instrucciones del artículo @no__t 0 para configurar su entorno para qu
 1. Agregue RCL a una solución:
    1. Haga clic con el botón secundario en la solución. Seleccione **agregar** > **proyecto existente**.
    1. Navegue hasta el archivo de proyecto de RCL.
-   1. Seleccione el archivo de proyecto de RCL ( *. csproj*).
+   1. Seleccione el archivo de proyecto de RCL (*. csproj*).
 1. Agregue una referencia a RCL desde la aplicación:
-   1. Haga clic con el botón derecho en el proyecto de la aplicación. Seleccione **Agregar** **referencia** > .
+   1. Haga clic con el botón derecho en el proyecto de la aplicación. Seleccione **Agregar** **referencia**de > .
    1. Seleccione el proyecto RCL. Seleccione **Aceptar**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
@@ -65,11 +67,11 @@ Siga las instrucciones del artículo @no__t 0 para configurar su entorno para qu
 Para consumir los componentes definidos en una biblioteca de otro proyecto, use cualquiera de los métodos siguientes:
 
 * Utilice el nombre de tipo completo con el espacio de nombres.
-* Use la directiva [@no__t 1using](xref:mvc/views/razor#using) de Razor. Los componentes individuales se pueden agregar por nombre.
+* Use la Directiva de [uso de\@](xref:mvc/views/razor#using) de Razor. Los componentes individuales se pueden agregar por nombre.
 
-En los ejemplos siguientes, `MyComponentLib1` es una biblioteca de componentes que contiene un componente `SalesReport`.
+En los ejemplos siguientes, `MyComponentLib1` es una biblioteca de componentes que contiene un componente de `SalesReport`.
 
-Se puede hacer referencia al componente `SalesReport` utilizando su nombre de tipo completo con el espacio de nombres:
+Se puede hacer referencia al componente de `SalesReport` utilizando su nombre de tipo completo con el espacio de nombres:
 
 ```cshtml
 <h1>Hello, world!</h1>
@@ -105,7 +107,7 @@ Cargue el paquete en NuGet con el comando [dotnet NuGet de extracción](/dotnet/
 
 ## <a name="create-a-razor-components-class-library-with-static-assets"></a>Crear una biblioteca de clases de componentes de Razor con recursos estáticos
 
-Un RCL puede incluir recursos estáticos. Los recursos estáticos están disponibles para cualquier aplicación que utilice la biblioteca. Para obtener más información, consulta <xref:razor-pages/ui-class#create-an-rcl-with-static-assets>.
+Un RCL puede incluir recursos estáticos. Los recursos estáticos están disponibles para cualquier aplicación que utilice la biblioteca. Para obtener más información, vea <xref:razor-pages/ui-class#create-an-rcl-with-static-assets>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

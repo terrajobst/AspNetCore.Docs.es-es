@@ -4,14 +4,16 @@ author: scottaddie
 description: Aprenda a usar la interfaz de la línea de comandos (CLI) de LibMan en un proyecto de ASP.NET Core.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 08/30/2018
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: client-side/libman/libman-cli
-ms.openlocfilehash: cf61bab2f0c3fc33d293968b8ac380cb56958d29
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 8b2b1e45ab4685482554ac439b0276e0cf381609
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080622"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73962801"
 ---
 # <a name="use-the-libman-command-line-interface-cli-with-aspnet-core"></a>Use la interfaz de la línea de comandos (CLI) de LibMan con ASP.NET Core
 
@@ -92,7 +94,7 @@ En las secciones siguientes se describen los comandos disponibles de la CLI.
 
 ## <a name="initialize-libman-in-the-project"></a>Inicializar LibMan en el proyecto
 
-El `libman init` comando crea un archivo *Libman. JSON* si no existe ninguno. El archivo se crea con el contenido de la plantilla de elemento predeterminado.
+El comando `libman init` crea un archivo *Libman. JSON* si no existe ninguno. El archivo se crea con el contenido de la plantilla de elemento predeterminado.
 
 ### <a name="synopsis"></a>Sinopsis
 
@@ -107,11 +109,11 @@ Las siguientes opciones están disponibles para el comando `libman init`:
 
 * `-d|--default-destination <PATH>`
 
-  Ruta de acceso relativa a la carpeta actual. Los archivos de biblioteca se instalan en esta `destination` ubicación si no se ha definido ninguna propiedad para una biblioteca en *Libman. JSON*. El `<PATH>` valor se escribe en la `defaultDestination` propiedad de *Libman. JSON*.
+  Ruta de acceso relativa a la carpeta actual. Los archivos de biblioteca se instalan en esta ubicación si no se ha definido ninguna propiedad `destination` para una biblioteca en *Libman. JSON*. El valor `<PATH>` se escribe en la propiedad `defaultDestination` de *Libman. JSON*.
 
 * `-p|--default-provider <PROVIDER>`
 
-  Proveedor que se va a usar si no se ha definido ningún proveedor para una biblioteca determinada. El `<PROVIDER>` valor se escribe en la `defaultProvider` propiedad de *Libman. JSON*. Reemplace `<PROVIDER>` por uno de los siguientes valores:
+  Proveedor que se va a usar si no se ha definido ningún proveedor para una biblioteca determinada. El valor `<PROVIDER>` se escribe en la propiedad `defaultProvider` de *Libman. JSON*. Reemplace `<PROVIDER>` por uno de los siguientes valores:
 
   [!INCLUDE [LibMan provider names](../../includes/libman-cli/provider-names.md)]
 
@@ -146,7 +148,7 @@ Se agrega un archivo *Libman. JSON* a la raíz del proyecto con el siguiente con
 
 ## <a name="add-library-files"></a>Agregar archivos de biblioteca
 
-El `libman install` comando descarga e instala los archivos de biblioteca en el proyecto. Si no existe una, se agrega un archivo *Libman. JSON* . El archivo *Libman. JSON* se modifica para almacenar los detalles de configuración de los archivos de biblioteca.
+El comando `libman install` descarga e instala los archivos de biblioteca en el proyecto. Si no existe una, se agrega un archivo *Libman. JSON* . El archivo *Libman. JSON* se modifica para almacenar los detalles de configuración de los archivos de biblioteca.
 
 ### <a name="synopsis"></a>Sinopsis
 
@@ -159,7 +161,7 @@ libman install [-h|--help]
 
 `LIBRARY`
 
-Nombre de la biblioteca que se va a instalar. Este nombre puede incluir la notación del número de versión ( `@1.2.0`por ejemplo,).
+Nombre de la biblioteca que se va a instalar. Este nombre puede incluir la notación del número de versión (por ejemplo, `@1.2.0`).
 
 ### <a name="options"></a>Opciones
 
@@ -167,7 +169,7 @@ Las siguientes opciones están disponibles para el comando `libman install`:
 
 * `-d|--destination <PATH>`
 
-  Ubicación en la que se va a instalar la biblioteca. Si no se especifica, se utiliza la ubicación predeterminada. Si no `defaultDestination` se especifica ninguna propiedad en *Libman. JSON*, esta opción es obligatoria.
+  Ubicación en la que se va a instalar la biblioteca. Si no se especifica, se utiliza la ubicación predeterminada. Si no se especifica ninguna propiedad `defaultDestination` en *Libman. JSON*, esta opción es obligatoria.
 
 * `--files <FILE>`
 
@@ -179,7 +181,7 @@ Las siguientes opciones están disponibles para el comando `libman install`:
   
   [!INCLUDE [LibMan provider names](../../includes/libman-cli/provider-names.md)]
 
-  Si no se especifica, `defaultProvider` se usa la propiedad en *Libman. JSON* . Si no `defaultProvider` se especifica ninguna propiedad en *Libman. JSON*, esta opción es obligatoria.
+  Si no se especifica, se usa la propiedad `defaultProvider` en *Libman. JSON* . Si no se especifica ninguna propiedad `defaultProvider` en *Libman. JSON*, esta opción es obligatoria.
 
 [!INCLUDE [standard-cli-options](../../includes/libman-cli/standard-cli-options.md)]
 
@@ -219,7 +221,7 @@ El archivo *Libman. JSON* es similar al siguiente:
 }
 ```
 
-Para instalar los archivos *Calendar. js* y *Calendar. CSS* desde *C:\\Temp\\contosoCalendar\\*  con el proveedor del sistema de archivos:
+Para instalar los archivos *Calendar. js* y *Calendar. CSS* desde *C:\\Temp\\contosoCalendar\\* con el proveedor del sistema de archivos:
 
   ```console
   libman install C:\temp\contosoCalendar\ --provider filesystem --files calendar.js --files calendar.css
@@ -227,8 +229,8 @@ Para instalar los archivos *Calendar. js* y *Calendar. CSS* desde *C:\\Temp\\con
 
 El siguiente mensaje aparece por dos motivos:
 
-* El archivo *Libman. JSON* no contiene una `defaultDestination` propiedad.
-* El `libman install` comando no contiene la `-d|--destination` opción.
+* El archivo *Libman. JSON* no contiene una propiedad `defaultDestination`.
+* El comando `libman install` no contiene la opción `-d|--destination`.
 
 ![comando de instalación de Libman: destino](_static/libman-install-destination.png)
 
@@ -261,11 +263,11 @@ Después de aceptar el destino predeterminado, el archivo *Libman. JSON* es simi
 
 ## <a name="restore-library-files"></a>Restaurar archivos de biblioteca
 
-El `libman restore` comando instala los archivos de biblioteca definidos en *Libman. JSON*. Se aplican las siguientes reglas:
+El comando `libman restore` instala los archivos de biblioteca definidos en *Libman. JSON*. Se aplican las siguientes reglas:
 
 * Si no existe ningún archivo *Libman. JSON* en la raíz del proyecto, se devuelve un error.
-* Si una biblioteca especifica un proveedor, se `defaultProvider` omite la propiedad en *Libman. JSON* .
-* Si una biblioteca especifica un destino, se `defaultDestination` omite la propiedad en *Libman. JSON* .
+* Si una biblioteca especifica un proveedor, se omite la propiedad `defaultProvider` de *Libman. JSON* .
+* Si una biblioteca especifica un destino, se omite la propiedad `defaultDestination` de *Libman. JSON* .
 
 ### <a name="synopsis"></a>Sinopsis
 
@@ -290,7 +292,7 @@ libman restore
 
 ## <a name="delete-library-files"></a>Eliminar archivos de biblioteca
 
-El `libman clean` comando elimina los archivos de biblioteca restaurados previamente a través de LibMan. Las carpetas que se vacían después de esta operación se eliminan. No se quitan las configuraciones asociadas de `libraries` los archivos de biblioteca en la propiedad de *Libman. JSON* .
+El comando `libman clean` elimina los archivos de biblioteca restaurados previamente a través de LibMan. Las carpetas que se vacían después de esta operación se eliminan. No se quitan las configuraciones asociadas de los archivos de biblioteca de la propiedad `libraries` de *Libman. JSON* .
 
 ### <a name="synopsis"></a>Sinopsis
 
@@ -315,7 +317,7 @@ libman clean
 
 ## <a name="uninstall-library-files"></a>Desinstalar archivos de biblioteca
 
-El `libman uninstall` comando:
+El comando `libman uninstall`:
 
 * Elimina todos los archivos asociados a la biblioteca especificada del destino en *Libman. JSON*.
 * Quita la configuración de biblioteca asociada de *Libman. JSON*.
@@ -338,7 +340,7 @@ libman uninstall [-h|--help]
 
 `LIBRARY`
 
-Nombre de la biblioteca que se va a desinstalar. Este nombre puede incluir la notación del número de versión ( `@1.2.0`por ejemplo,).
+Nombre de la biblioteca que se va a desinstalar. Este nombre puede incluir la notación del número de versión (por ejemplo, `@1.2.0`).
 
 ### <a name="options"></a>Opciones
 
@@ -362,7 +364,7 @@ Considere el siguiente archivo *Libman. JSON* :
   libman uninstall jquery@3.3.1
   ```
 
-* Para desinstalar los archivos Lodash instalados a través `filesystem` del proveedor:
+* Para desinstalar los archivos Lodash instalados a través del proveedor de `filesystem`:
 
   ```console
   libman uninstall C:\temp\lodash\
@@ -370,7 +372,7 @@ Considere el siguiente archivo *Libman. JSON* :
 
 ## <a name="update-library-version"></a>Actualizar la versión de la biblioteca
 
-El `libman update` comando actualiza una biblioteca instalada a través de LibMan a la versión especificada.
+El comando `libman update` actualiza una biblioteca instalada a través de LibMan a la versión especificada.
 
 Se produce un error cuando:
 
@@ -428,7 +430,7 @@ Las siguientes opciones están disponibles para el comando `libman update`:
 
 ## <a name="manage-library-cache"></a>Administrar caché de biblioteca
 
-El `libman cache` comando administra la memoria caché de la biblioteca LibMan. El `filesystem` proveedor no utiliza la memoria caché de la biblioteca.
+El comando `libman cache` administra la memoria caché de la biblioteca LibMan. El proveedor de `filesystem` no utiliza la memoria caché de la biblioteca.
 
 ### <a name="synopsis"></a>Sinopsis
 
@@ -442,7 +444,7 @@ libman cache [-h|--help]
 
 `PROVIDER`
 
-Solo se usa con `clean` el comando. Especifica la caché del proveedor que se va a limpiar. Los valores válidos son:
+Solo se usa con el comando `clean`. Especifica la caché del proveedor que se va a limpiar. Los valores válidos son:
 
 [!INCLUDE [LibMan provider names](../../includes/libman-cli/provider-names.md)]
 
@@ -546,7 +548,7 @@ Las siguientes opciones están disponibles para el comando `libman cache`:
   libman cache clean cdnjs
   ```
 
-  Después de vaciar la memoria caché del proveedor `libman cache list` de CDNJS, el comando muestra lo siguiente:
+  Después de vaciar la memoria caché del proveedor de CDNJS, el comando `libman cache list` muestra lo siguiente:
 
   ```console
   Cache contents:
@@ -565,7 +567,7 @@ Las siguientes opciones están disponibles para el comando `libman cache`:
   libman cache clean
   ```
 
-  Después de vaciar todas las memorias caché del `libman cache list` proveedor, el comando muestra lo siguiente:
+  Después de vaciar todas las memorias caché del proveedor, el comando `libman cache list` muestra lo siguiente:
 
   ```console
   Cache contents:

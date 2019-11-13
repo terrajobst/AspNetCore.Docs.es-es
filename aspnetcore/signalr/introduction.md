@@ -1,42 +1,44 @@
 ---
 title: Introducción a ASP.NET Core SignalR
 author: bradygaster
-description: Obtenga información sobre cómo la biblioteca de ASP.NET Core SignalR simplifica la adición de funcionalidad en tiempo real a las aplicaciones.
+description: Obtenga información sobre cómo la biblioteca de SignalR de ASP.NET Core simplifica la adición de funcionalidad en tiempo real a las aplicaciones.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 04/25/2018
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: signalr/introduction
-ms.openlocfilehash: 673efafce60dfa46cb99f9537fda2bca42bf9822
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 7108d9f223db78937dd1203a1cb4b890006b20ec
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64892252"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963938"
 ---
-# <a name="introduction-to-aspnet-core-signalr"></a>Introducción a ASP.NET Core SignalR
+# <a name="introduction-to-aspnet-core-opno-locsignalr"></a>Introducción a ASP.NET Core SignalR
 
-## <a name="what-is-signalr"></a>¿Qué es SignalR?
+## <a name="what-is-opno-locsignalr"></a>¿Qué es SignalR?
 
-ASP.NET Core SignalR es una biblioteca de código abierto que simplifica la adición de la funcionalidad web en tiempo real a las aplicaciones. La funcionalidad web en tiempo real permite que el código del lado servidor inserte contenido en los clientes al momento.
+ASP.NET Core SignalR es una biblioteca de código abierto que simplifica la incorporación de funcionalidades Web en tiempo real a las aplicaciones. La funcionalidad web en tiempo real permite que el código del lado servidor Inserte contenido a los clientes al instante.
 
 Buenos candidatos para SignalR:
 
-* Aplicaciones que requieren actualizaciones de alta frecuencia desde el servidor. Algunos ejemplos son juegos, redes sociales, votación, subastas, mapas y aplicaciones GPS.
-* Los paneles y aplicaciones de supervisión. Los ejemplos incluyen paneles empresariales, actualizaciones de venta instantáneas o alertas de viaje.
-* Aplicaciones de colaboración. Las aplicaciones de pizarra y software de reuniones de equipo son ejemplos de aplicaciones de colaboración.
-* Aplicaciones que requieren las notificaciones. Redes sociales, correo electrónico, chat, juegos, alertas de viaje y muchas otras aplicaciones utilizan notificaciones.
+* Aplicaciones que requieren actualizaciones de alta frecuencia del servidor. Algunos ejemplos son las aplicaciones de juegos, redes sociales, votación, subasta, mapas y GPS.
+* Paneles y aplicaciones de supervisión. Algunos ejemplos son los paneles de la empresa, las actualizaciones de ventas instantáneas o las alertas de viaje.
+* Aplicaciones de colaboración. Las aplicaciones de pizarra y el software de reunión de equipo son ejemplos de aplicaciones de colaboración.
+* Aplicaciones que requieren notificaciones. Las redes sociales, el correo electrónico, el chat, los juegos, las alertas de viajes y muchas otras aplicaciones usan notificaciones.
 
-SignalR proporciona una API para crear el servidor a cliente [llamadas a procedimiento remoto (RPC)](https://wikipedia.org/wiki/Remote_procedure_call). Las RPC llamar a funciones de JavaScript en los clientes desde el código de .NET Core en el servidor.
+SignalR proporciona una API para crear [llamadas a procedimiento remoto (RPC)](https://wikipedia.org/wiki/Remote_procedure_call)de servidor a cliente. Las RPC llaman a funciones de JavaScript en los clientes desde el código de .NET Core del lado servidor.
 
 Estas son algunas características de SignalR para ASP.NET Core:
 
-* Controla automáticamente la administración de conexiones.
-* Envía mensajes a todos los clientes conectados al mismo tiempo. Por ejemplo, un salón de chat.
-* Envía mensajes a clientes específicos o grupos de clientes.
-* Se puede ampliar para controlar el creciente tráfico.
+* Controla la administración de conexiones automáticamente.
+* Envía mensajes a todos los clientes conectados simultáneamente. Por ejemplo, un salón de chat.
+* Envía mensajes a clientes o grupos de clientes específicos.
+* Escala para controlar el aumento del tráfico.
 
-El origen se hospeda en un [SignalR repositorio de GitHub](https://github.com/aspnet/AspNetCore/tree/master/src/SignalR).
+El origen se hospeda en un [repositorio deSignalR en github](https://github.com/aspnet/AspNetCore/tree/master/src/SignalR).
 
 ## <a name="transports"></a>Transportes
 
@@ -46,15 +48,15 @@ SignalR admite varias técnicas para controlar las comunicaciones en tiempo real
 * Eventos enviados por el servidor
 * Sondeo largo
 
-SignalR elige automáticamente el mejor método de transporte que se encuentra dentro de las capacidades del servidor y cliente.
+SignalR elige automáticamente el mejor método de transporte que se encuentra dentro de las capacidades del servidor y del cliente.
 
 ## <a name="hubs"></a>Concentradores
 
 SignalR usa *hubs* para la comunicación entre clientes y servidores.
 
-Un concentrador es una canalización de alto nivel que permite que un cliente y servidor llamar a métodos entre sí. SignalR controla el envío a través de los límites del equipo automáticamente, permitir que los clientes llamar a métodos en el servidor y viceversa. Puede pasar parámetros fuertemente tipados a métodos, lo que permite el enlace de modelos. SignalR proporciona dos protocolos de concentrador integrada: un protocolo de texto basado en JSON y un protocolo binario según [MessagePack](https://msgpack.org/).  MessagePack generalmente crea mensajes más pequeños en comparación con JSON. Deben ser compatible con los exploradores más antiguos [nivel XHR 2](https://caniuse.com/#feat=xhr2) para proporcionar compatibilidad con el protocolo MessagePack.
+Un concentrador es una canalización de alto nivel que permite a un cliente y un servidor llamar a métodos entre sí. SignalR controla el envío automático de los límites de la máquina, lo que permite a los clientes llamar a métodos en el servidor y viceversa. Puede pasar parámetros fuertemente tipados a métodos, lo que permite el enlace de modelos. SignalR proporciona dos protocolos de concentrador integrados: un protocolo de texto basado en JSON y un protocolo binario basado en [MessagePack](https://msgpack.org/).  MessagePack suele crear mensajes más pequeños en comparación con JSON. Los exploradores más antiguos deben admitir el [nivel 2 de XHR](https://caniuse.com/#feat=xhr2) para proporcionar compatibilidad con el protocolo MessagePack.
 
-Centros de llamar a código de cliente mediante el envío de mensajes que contienen el nombre y los parámetros del método del lado cliente. Se deserializan los objetos que se envía como parámetros de método mediante el protocolo configurado. El cliente intenta hacer coincidir el nombre a un método en el código del lado cliente. Cuando el cliente encuentra una coincidencia, llama al método y le pasa los datos deserializados.
+Los concentradores llaman a código de cliente mediante el envío de mensajes que contienen el nombre y los parámetros del método del lado cliente. Los objetos enviados como parámetros de método se deserializan mediante el protocolo configurado. El cliente intenta hacer coincidir el nombre con un método en el código del lado cliente. Cuando el cliente encuentra una coincidencia, llama al método y le pasa los datos del parámetro deserializado.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

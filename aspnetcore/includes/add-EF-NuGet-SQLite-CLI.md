@@ -14,3 +14,5 @@ Los comandos anteriores agregan:
 * Las herramientas de Entity Framework Core para la CLI de .NET Core.
 * El proveedor SQLite de EF Core, que instala el paquete de EF Core como una dependencia.
 * Los paquetes necesarios para scaffolding: `Microsoft.VisualStudio.Web.CodeGeneration.Design` y `Microsoft.EntityFrameworkCore.SqlServer`.
+
+Para obtener instrucciones sobre la configuración de varios entornos que permite que una aplicación configure sus contextos de base de datos por entorno, vea <xref:fundamentals/environments#environment-based-startup-class-and-methods>.

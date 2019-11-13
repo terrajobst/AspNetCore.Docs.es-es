@@ -5,14 +5,14 @@ description: Cómo usar el enlace de modelos y el streaming para cargar archivos
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/02/2019
+ms.date: 10/31/2019
 uid: mvc/models/file-uploads
-ms.openlocfilehash: de8bfee22e39dfc5a6ed254cf0555887891d4590
-ms.sourcegitcommit: d81912782a8b0bd164f30a516ad80f8defb5d020
+ms.openlocfilehash: 04e7533aa190a4875d3f66e8665fec16abec48b3
+ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72179305"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73462941"
 ---
 # <a name="upload-files-in-aspnet-core"></a>Carga de archivos en ASP.NET Core
 
@@ -34,13 +34,12 @@ Tenga precaución al proporcionar a los usuarios la capacidad de cargar archivos
 
 Estos son algunos de los pasos de seguridad con los que se reduce la probabilidad de sufrir ataques:
 
-* Cargue los archivos a un área de carga de archivos dedicada del sistema, de preferencia una unidad que no sea de sistema. Usar una ubicación dedicada permite imponer de manera más sencilla restricciones de seguridad en los archivos cargados. Deshabilite la ejecución de los permisos en la ubicación de carga de archivos.&dagger;
-* Los archivos cargados nunca deben persistir en el mismo árbol de directorio que la aplicación.&dagger;
-* Use un nombre de archivo seguro determinado por la aplicación. No use un nombre de archivo que proporcione el usuario ni el nombre de archivo que no es de confianza del archivo cargado.&dagger; Para mostrar un nombre de archivo que no es de confianza en una interfaz de usuario o en un mensaje de registro, codifique el valor en HTML.
-* Permita únicamente un conjunto específico de extensiones de archivo aprobadas.&dagger;
-* Compruebe la firma de formato de archivo para evitar que un usuario cargue un archivo enmascarado.&dagger; Por ejemplo, no permita que un usuario cargue un archivo *.exe* con una extensión *.txt*.
-* Compruebe que también se llevan a cabo comprobaciones de cliente en el servidor.&dagger; Las comprobaciones de cliente son fáciles de sortear.
-* Compruebe el tamaño de un archivo cargado y evite las cargas mayores de lo esperado.&dagger;
+* Cargue los archivos a un área de carga de archivos dedicada, preferiblemente una unidad que no sea de sistema. Una ubicación dedicada facilita la imposición de restricciones de seguridad en los archivos cargados. Deshabilite la ejecución de los permisos en la ubicación de carga de archivos.&dagger;
+* Los archivos cargados **no** se deben persistir en el mismo árbol de directorio que la aplicación.&dagger;
+* Use un nombre de archivo seguro determinado por la aplicación. No use un nombre de archivo que proporcione el usuario ni el nombre de archivo que no es de confianza del archivo cargado.&dagger; HTML codifica el nombre de archivo que no es de confianza al mostrarlo. Por ejemplo, al registrar el nombre de archivo o mostrarlo en la interfaz de usuario (Razor codifica de forma automática la salida HTML).
+* Permita solo las extensiones de archivo aprobadas para la especificación de diseño de la aplicación.&dagger; <!-- * Check the file format signature to prevent a user from uploading a masqueraded file.&dagger; For example, don't permit a user to upload an *.exe* file with a *.txt* extension. Add this back when we get instructions how to do this.  -->
+* Compruebe que se realizan comprobaciones del lado cliente en el servidor.&dagger; Las comprobaciones de cliente son fáciles de sortear.
+* Compruebe el tamaño de un archivo cargado. Establezca un límite de tamaño máximo para evitar cargas grandes.&dagger;
 * Cuando un archivo cargado con el mismo nombre no deba sobrescribir los archivos, vuelva a comprobar el nombre de archivo en la base de datos o en el almacenamiento físico antes de cargarlo.
 * **Ejecute un detector de virus o malware en el contenido cargado antes de que se almacene el archivo.**
 
@@ -212,8 +211,20 @@ Para que un elemento de entrada `files` admita al carga de varios archivos, prop
 
 Es posible acceder a archivos individuales cargados en el servidor a través del [enlace de modelos](xref:mvc/models/model-binding) mediante <xref:Microsoft.AspNetCore.Http.IFormFile>. La aplicación de ejemplo muestra varias cargas de archivos almacenados en búfer para escenarios de almacenamiento físico y base de datos.
 
+<a name="filename"></a>
+
 > [!WARNING]
-> No se base ni confíe en la propiedad `FileName` de <xref:Microsoft.AspNetCore.Http.IFormFile> sin validarla. La propiedad `FileName` solo debe usarse para fines de presentación y solo después de codificar el valor de HTML.
+> **No** utilice la propiedad `FileName` de <xref:Microsoft.AspNetCore.Http.IFormFile> para usos distintos a la presentación y el registro. Para fines de presentación y registro, codifique el nombre de archivo en HTML. Un atacante puede proporcionar un nombre de archivo malintencionado, incluidas rutas de acceso completas o relativas. Las aplicaciones deben:
+>
+> * Quitar la ruta de acceso del nombre de archivo proporcionado por el usuario.
+> * Guardar el nombre de archivo codificado en HTML, sin la ruta de acceso para la interfaz de usuario o el registro.
+> * Generar un nombre de archivo aleatorio nuevo para el almacenamiento.
+>
+> En el código siguiente se quita la ruta de acceso del nombre del archivo:
+>
+> ```csharp
+> string untrustedFileName = Path.GetFileName(pathName);
+> ```
 >
 > Los ejemplos proporcionados hasta ahora no tienen en cuenta las consideraciones de seguridad. Se proporciona información adicional en las secciones siguientes y en la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
@@ -290,7 +301,7 @@ Para ver otro ejemplo que recorre en bucle varios archivos para cargar y usa nom
 > [!WARNING]
 > [Path.GetTempFileName](xref:System.IO.Path.GetTempFileName*) arroja una <xref:System.IO.IOException> si se crean más de 65 535 archivos sin eliminar los archivos temporales anteriores. El límite de 65 535 archivos es un límite por servidor. Para más información sobre este límite en el sistema operativo Windows, consulte las notas en los temas siguientes:
 >
-> * [GetTempFileNameA function](/windows/desktop/api/fileapi/nf-fileapi-gettempfilenamea#remarks)
+> * [Función GetTempFileNameA](/windows/desktop/api/fileapi/nf-fileapi-gettempfilenamea#remarks)
 > * <xref:System.IO.Path.GetTempFileName*>
 
 ### <a name="upload-small-files-with-buffered-model-binding-to-a-database"></a>Carga de archivos pequeños con enlace de modelos almacenado en búfer a una base de datos
@@ -748,13 +759,12 @@ Tenga precaución al proporcionar a los usuarios la capacidad de cargar archivos
 
 Estos son algunos de los pasos de seguridad con los que se reduce la probabilidad de sufrir ataques:
 
-* Cargue los archivos a un área de carga de archivos dedicada del sistema, de preferencia una unidad que no sea de sistema. Usar una ubicación dedicada permite imponer de manera más sencilla restricciones de seguridad en los archivos cargados. Deshabilite la ejecución de los permisos en la ubicación de carga de archivos.&dagger;
-* Los archivos cargados nunca deben persistir en el mismo árbol de directorio que la aplicación.&dagger;
-* Use un nombre de archivo seguro determinado por la aplicación. No use un nombre de archivo que proporcione el usuario ni el nombre de archivo que no es de confianza del archivo cargado.&dagger; Para mostrar un nombre de archivo que no es de confianza en una interfaz de usuario o en un mensaje de registro, codifique el valor en HTML.
-* Permita únicamente un conjunto específico de extensiones de archivo aprobadas.&dagger;
-* Compruebe la firma de formato de archivo para evitar que un usuario cargue un archivo enmascarado.&dagger; Por ejemplo, no permita que un usuario cargue un archivo *.exe* con una extensión *.txt*.
-* Compruebe que también se llevan a cabo comprobaciones de cliente en el servidor.&dagger; Las comprobaciones de cliente son fáciles de sortear.
-* Compruebe el tamaño de un archivo cargado y evite las cargas mayores de lo esperado.&dagger;
+* Cargue los archivos a un área de carga de archivos dedicada, preferiblemente una unidad que no sea de sistema. Una ubicación dedicada facilita la imposición de restricciones de seguridad en los archivos cargados. Deshabilite la ejecución de los permisos en la ubicación de carga de archivos.&dagger;
+* Los archivos cargados **no** se deben persistir en el mismo árbol de directorio que la aplicación.&dagger;
+* Use un nombre de archivo seguro determinado por la aplicación. No use un nombre de archivo que proporcione el usuario ni el nombre de archivo que no es de confianza del archivo cargado.&dagger; HTML codifica el nombre de archivo que no es de confianza al mostrarlo. Por ejemplo, al registrar el nombre de archivo o mostrarlo en la interfaz de usuario (Razor codifica de forma automática la salida HTML).
+* Permita solo las extensiones de archivo aprobadas para la especificación de diseño de la aplicación.&dagger; <!-- * Check the file format signature to prevent a user from uploading a masqueraded file.&dagger; For example, don't permit a user to upload an *.exe* file with a *.txt* extension. Add this back when we get instructions how to do this.  -->
+* Compruebe que se realizan comprobaciones del lado cliente en el servidor.&dagger; Las comprobaciones de cliente son fáciles de sortear.
+* Compruebe el tamaño de un archivo cargado. Establezca un límite de tamaño máximo para evitar cargas grandes.&dagger;
 * Cuando un archivo cargado con el mismo nombre no deba sobrescribir los archivos, vuelva a comprobar el nombre de archivo en la base de datos o en el almacenamiento físico antes de cargarlo.
 * **Ejecute un detector de virus o malware en el contenido cargado antes de que se almacene el archivo.**
 
@@ -926,8 +936,20 @@ Para que un elemento de entrada `files` admita al carga de varios archivos, prop
 
 Es posible acceder a archivos individuales cargados en el servidor a través del [enlace de modelos](xref:mvc/models/model-binding) mediante <xref:Microsoft.AspNetCore.Http.IFormFile>. La aplicación de ejemplo muestra varias cargas de archivos almacenados en búfer para escenarios de almacenamiento físico y base de datos.
 
+<a name="filename2"></a>
+
 > [!WARNING]
-> No se base ni confíe en la propiedad `FileName` de <xref:Microsoft.AspNetCore.Http.IFormFile> sin validarla. La propiedad `FileName` solo debe usarse para fines de presentación y solo después de codificar el valor de HTML.
+> **No** utilice la propiedad `FileName` de <xref:Microsoft.AspNetCore.Http.IFormFile> para usos distintos a la presentación y el registro. Para fines de presentación y registro, codifique el nombre de archivo en HTML. Un atacante puede proporcionar un nombre de archivo malintencionado, incluidas rutas de acceso completas o relativas. Las aplicaciones deben:
+>
+> * Quitar la ruta de acceso del nombre de archivo proporcionado por el usuario.
+> * Guardar el nombre de archivo codificado en HTML, sin la ruta de acceso para la interfaz de usuario o el registro.
+> * Generar un nombre de archivo aleatorio nuevo para el almacenamiento.
+>
+> En el código siguiente se quita la ruta de acceso del nombre del archivo:
+>
+> ```csharp
+> string untrustedFileName = Path.GetFileName(pathName);
+> ```
 >
 > Los ejemplos proporcionados hasta ahora no tienen en cuenta las consideraciones de seguridad. Se proporciona información adicional en las secciones siguientes y en la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >

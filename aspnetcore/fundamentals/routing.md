@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/24/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 8b4da4e1e262ec82225413d0338b3492d0b5e152
-ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
+ms.openlocfilehash: be4493cc927bd5437a2c9dab00b6a555756195bb
+ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73190506"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416131"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -127,7 +127,7 @@ Los métodos proporcionados por <xref:Microsoft.AspNetCore.Routing.LinkGenerator
 >
 > * Use <xref:Microsoft.AspNetCore.Routing.LinkGenerator> con precaución en el middleware junto con `Map` o `MapWhen`. `Map*` cambia la ruta de acceso base de la solicitud que se ejecuta, lo que afecta a la salida de la generación de vínculos. Todas las API de <xref:Microsoft.AspNetCore.Routing.LinkGenerator> permiten especificar una ruta de acceso base. Especifique siempre una ruta de acceso base vacía para deshacer el efecto de `Map*` en la generación de vínculos.
 
-## <a name="differences-from-earlier-versions-of-routing"></a>Diferencias con respecto a versiones anteriores del enrutamiento
+## <a name="endpoint-routing-differences-from-earlier-versions-of-routing"></a>Diferencias de enrutamiento de puntos de conexión con respecto a versiones anteriores del enrutamiento
 
 Existen algunas diferencias entre el enrutamiento de punto de conexión y las versiones anteriores del enrutamiento anteriores a ASP.NET Core 2.2:
 

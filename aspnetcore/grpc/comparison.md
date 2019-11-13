@@ -4,14 +4,16 @@ author: jamesnk
 description: Obtenga información sobre cómo se compara gRPC con las API de HTTP y cuáles son los escenarios recomendados.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 09/25/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: grpc/comparison
-ms.openlocfilehash: 52b057876481bd9be4f83d93b1f05081ed19660f
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: ceb24d656827548492a6fa326681922297fc481b
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589975"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963653"
 ---
 # <a name="compare-grpc-services-with-http-apis"></a>Comparación entre los servicios gRPC y las API HTTP
 
@@ -25,7 +27,7 @@ En la tabla siguiente se ofrece una comparación de alto nivel de las caracterí
 
 | Característica          | gRPC                                               | API HTTP con JSON           |
 | ---------------- | -------------------------------------------------- | ----------------------------- |
-| Contrato         | Requerido ( *. proto*)                                | Opcional (OpenAPI)            |
+| Contrato         | Requerido (*. proto*)                                | Opcional (OpenAPI)            |
 | Protocolo         | HTTP/2                                             | HTTP                          |
 | Payload          | [Protobuf (pequeño, binario)](#performance)           | JSON (grande, legible para usuarios)  |
 | Preceptivo | [Especificación estricta](#strict-specification)      | Combinados. Cualquier HTTP es válido.     |
@@ -106,7 +108,7 @@ Existen características como la [reflexión del servidor](https://github.com/gr
 Se recomiendan otros marcos de trabajo en gRPC en los siguientes escenarios:
 
 * Las **API accesibles del explorador** &ndash; gRPC no son totalmente compatibles con el explorador. gRPC-web puede ofrecer compatibilidad con exploradores, pero tiene limitaciones e introduce un proxy de servidor.
-* **Difundir la comunicación en tiempo real** &ndash; gRPC admite la comunicación en tiempo real a través de streaming, pero no existe el concepto de difusión de un mensaje a las conexiones registradas. Por ejemplo, en un escenario de salón de chat en el que se deben enviar nuevos mensajes de chat a todos los clientes del salón de chat, se requiere cada llamada gRPC para transmitir por separado los nuevos mensajes de chat al cliente. [Signalr](xref:signalr/introduction) es un marco útil para este escenario. Signalr tiene el concepto de conexiones persistentes y compatibilidad integrada para difundir mensajes.
+* **Difundir la comunicación en tiempo real** &ndash; gRPC admite la comunicación en tiempo real a través de streaming, pero no existe el concepto de difusión de un mensaje a las conexiones registradas. Por ejemplo, en un escenario de salón de chat en el que se deben enviar nuevos mensajes de chat a todos los clientes del salón de chat, se requiere cada llamada gRPC para transmitir por separado los nuevos mensajes de chat al cliente. [SignalR](xref:signalr/introduction) es un marco útil para este escenario. SignalR tiene el concepto de conexiones persistentes y compatibilidad integrada para difundir mensajes.
 * La **comunicación entre procesos** &ndash; un proceso debe hospedar un servidor http/2 para aceptar llamadas gRPC entrantes. En Windows, las [canalizaciones](/dotnet/standard/io/pipe-operations) de comunicación entre procesos son un método rápido y ligero de comunicación.
 
 ## <a name="additional-resources"></a>Recursos adicionales

@@ -1,28 +1,30 @@
 ---
-title: Inyección de dependencia de ASP.NET Core extraordinaria
+title: ASP.NET Core Blazor la inserción de dependencias
 author: guardrex
-description: Vea cómo las aplicaciones más extraordinarias pueden insertar servicios en los componentes.
+description: Vea cómo Blazor aplicaciones pueden insertar servicios en los componentes.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
+no-loc:
+- Blazor
 uid: blazor/dependency-injection
-ms.openlocfilehash: b548f0e50e1a60b74969e5bbee43860be9ba5a7f
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: a39d913636afc55ac9d831de923ba7ae8db1216b
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391136"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963075"
 ---
-# <a name="aspnet-core-blazor-dependency-injection"></a>Inyección de dependencia de ASP.NET Core extraordinaria
+# <a name="aspnet-core-opno-locblazor-dependency-injection"></a>ASP.NET Core Blazor la inserción de dependencias
 
 Por [Rainer Stropek](https://www.timecockpit.com)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-El increíble es compatible con la [inserción de dependencias (di)](xref:fundamentals/dependency-injection). Las aplicaciones pueden usar servicios integrados mediante su inserción en componentes. Las aplicaciones también pueden definir y registrar servicios personalizados y hacer que estén disponibles en toda la aplicación a través de DI.
+Blazor admite la [inserción de dependencias (di)](xref:fundamentals/dependency-injection). Las aplicaciones pueden usar servicios integrados mediante su inserción en componentes. Las aplicaciones también pueden definir y registrar servicios personalizados y hacer que estén disponibles en toda la aplicación a través de DI.
 
-DI es una técnica para tener acceso a los servicios configurados en una ubicación central. Esto puede ser útil en aplicaciones increíbles para:
+DI es una técnica para tener acceso a los servicios configurados en una ubicación central. Esto puede ser útil en Blazor aplicaciones para:
 
 * Compartir una única instancia de una clase de servicio entre varios componentes, conocido como servicio *Singleton* .
 * Desacoplar componentes de clases de servicio concretas mediante el uso de abstracciones de referencia. Por ejemplo, considere una interfaz `IDataAccess` para tener acceso a los datos de la aplicación. La interfaz se implementa mediante una clase `DataAccess` concreta y se registra como un servicio en el contenedor de servicios de la aplicación. Cuando un componente usa DI para recibir una implementación `IDataAccess`, el componente no se acopla al tipo concreto. La implementación se puede intercambiar, quizás para una implementación ficticia en pruebas unitarias.
@@ -63,7 +65,7 @@ Los servicios se pueden configurar con las duraciones que se muestran en la tabl
 
 | Período de duración | Descripción |
 | -------- | ----------- |
-| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Las aplicaciones de webassembly increíbles no tienen actualmente un concepto de ámbito de DI. @no__t servicios registrados de -0 se comportan como los servicios `Singleton`. Sin embargo, el modelo de hospedaje del servidor más rápido admite la duración `Scoped`. En las aplicaciones de servidor increíbles, el ámbito de un registro de servicio de ámbito es la *conexión*. Por esta razón, se prefiere el uso de servicios con ámbito para los servicios que deben tener el ámbito del usuario actual, aunque la intención actual sea ejecutar el lado cliente en el explorador. |
+| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Blazor aplicaciones webassembly no tienen actualmente un concepto de ámbitos de DI. los servicios registrados `Scoped`se comportan como `Singleton` Services. Sin embargo, el modelo de hospedaje del servidor de Blazor admite la duración del `Scoped`. En Blazor aplicaciones de servidor, el ámbito de un registro de servicio de ámbito es la *conexión*. Por esta razón, se prefiere el uso de servicios con ámbito para los servicios que deben tener el ámbito del usuario actual, aunque la intención actual sea ejecutar el lado cliente en el explorador. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Singleton*> | DI crea una *única instancia* del servicio. Todos los componentes que requieren un servicio `Singleton` reciben una instancia del mismo servicio. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Transient*> | Cada vez que un componente obtiene una instancia de un servicio `Transient` del contenedor de servicios, recibe una *nueva instancia* del servicio. |
 
@@ -129,7 +131,7 @@ Requisitos previos para la inserción de constructores:
 
 ## <a name="utility-base-component-classes-to-manage-a-di-scope"></a>Clases de componentes base de la utilidad para administrar un ámbito de DI
 
-En ASP.NET Core aplicaciones, el ámbito de los servicios de ámbito suele ser la solicitud actual. Una vez completada la solicitud, el sistema DI elimina todos los servicios de ámbito o transitorios. En las aplicaciones de servidor increíbles, el ámbito de la solicitud se mantiene durante la conexión del cliente, lo que puede dar lugar a que los servicios transitorios y de ámbito duren mucho más tiempo del esperado.
+En ASP.NET Core aplicaciones, el ámbito de los servicios de ámbito suele ser la solicitud actual. Una vez completada la solicitud, el sistema DI elimina todos los servicios de ámbito o transitorios. En Blazor las aplicaciones de servidor, el ámbito de la solicitud dura la duración de la conexión de cliente, lo que puede dar lugar a que los servicios transitorios y de ámbito duren mucho más tiempo del esperado.
 
 Para limitar los servicios a la duración de un componente, puede usar las clases base `OwningComponentBase` y `OwningComponentBase<TService>`. Estas clases base exponen una propiedad `ScopedServices` de tipo `IServiceProvider` que resuelve los servicios cuyo ámbito es la duración del componente. Para crear un componente que herede de una clase base en Razor, use la Directiva `@inherits`.
 

@@ -5,14 +5,20 @@ description: ''
 ms.author: riande
 ms.date: 03/27/2017
 uid: data/ef-mvc/index
-ms.openlocfilehash: 9d0be37a5eacb42723fda89a87385ed184f255fb
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 469b16cfe3cdd41abd133df59036baf92ff04e42
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259658"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73962642"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---tutorial-series"></a>ASP.NET Core MVC con EF Core: serie de tutoriales
+
+::: moniker range=">= aspnetcore-3.0"
+
+Este tutorial **no** se ha actualizado para ASP.NET Core 3.0. La versión de [Razor Pages](xref:data/ef-rp/intro) se ha actualizado. Para información sobre cuándo podría actualizarse, consulte [este problema de GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/13920).
+
+::: moniker-end
 
 [!INCLUDE [RP better than MVC](../../includes/RP-EF/rp-over-mvc.md)]
 

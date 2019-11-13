@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre las nuevas características de ASP.NET Core 3.0.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/08/2019
+ms.date: 10/31/2019
 uid: aspnetcore-3.0
-ms.openlocfilehash: 90433773bec2efc5a2bc39d71ce7ae324b922046
-ms.sourcegitcommit: fcdf9aaa6c45c1a926bd870ed8f893bdb4935152
+ms.openlocfilehash: 8c53d8a9fa222ca40f26dc713ec3b70ddde76539
+ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165366"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416122"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Novedades de ASP.NET Core 3.0
 
@@ -321,14 +321,16 @@ La lista siguiente contiene las nuevas directivas de Razor:
 
 ## <a name="identityserver4-supports-authentication-and-authorization-for-web-apis-and-spas"></a>IdentityServer4 admite la autenticación y la autorización de SPA y API web
 
-[IdentityServer4](https://identityserver.io) es un marco de OpenID Connect y OAuth 2.0 para ASP.NET Core 3.0. IdentityServer4 permite la utilización de las siguientes características de seguridad:
+ASP.NET Core 3.0 ofrece autenticación en aplicaciones de página única (SPA) mediante la compatibilidad con la autorización de API web. La identidad de ASP.NET Core para autenticar y almacenar usuarios se combina con [IdentityServer4](https://identityserver.io/) para implementar Open ID Connect.
+
+IdentityServer4 es un marco de OpenID Connect y OAuth 2.0 para ASP.NET Core 3.0. Habilita las características de seguridad siguientes:
 
 * Autenticación como servicio (AaaS)
 * Inicio de sesión único (SSO) mediante varios tipos de aplicaciones
 * Control de acceso para API
 * Federation Gateway
 
-Para obtener más información, vea [Bienvenida a IdentityServer4](http://docs.identityserver.io/en/latest/index.html).
+Para más información, vea [la documentación de IdentityServer4](http://docs.identityserver.io/en/latest/index.html) o [Autenticación y autorización para SPA](xref:security/authentication/identity/spa).
 
 ## <a name="certificate-and-kerberos-authentication"></a>Autenticación de certificados y Kerberos
 
@@ -392,7 +394,7 @@ Para más información, consulte <xref:security/authentication/windowsauth>.
 
 Se ha eliminado lo siguiente de las plantillas de la interfaz de usuario web (Razor Pages, MVC con el controlador y las vistas):
 
-* La interfaz de usuario de consentimiento de cookies ya no está incluida. Para habilitar la función de consentimiento de cookies en una aplicación generada por plantillas de ASP.NET Core 3.0, consulte <xref:security/gdpr>.
+* La interfaz de usuario de consentimiento de cookies ya no está incluida. Para habilitar la función de consentimiento de cookies en una aplicación ASP.NET Core 3.0 generada por plantillas, vea <xref:security/gdpr>.
 * Ahora se hace referencia a los scripts y los recursos estáticos relacionados como archivos locales en lugar de usar CDN. Para más información, consulte [Ahora se hace referencia a los scripts y recursos estáticos relacionados como archivos locales en lugar de usar CDN en base al entorno actual (aspnet/AspNetCore.Docs nº 14350)](https://github.com/aspnet/AspNetCore.Docs/issues/14350).
 
 La plantilla de Angular se ha actualizado para usar Angular 8.
@@ -401,13 +403,13 @@ De forma predeterminada, la plantilla de la biblioteca de clases de Razor (RCL) 
 
 ## <a name="generic-host"></a>Host genérico
 
-Las plantillas de ASP.NET Core 3.0 usan <xref:fundamentals/host/generic-host>. Las versiones anteriores usaban <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>. El uso del host genérico de .NET Core (<xref:Microsoft.Extensions.Hosting.HostBuilder>) proporciona una mejor integración de las aplicaciones ASP.NET Core con otros escenarios de servidor que no son específicos de la Web. Para más información, vea [HostBuilder reemplaza a WebHostBuilder](xref:migration/22-to-30?view=aspnetcore-2.2#hostbuilder-replaces-webhostbuilder).
+Las plantillas de ASP.NET Core 3.0 usan <xref:fundamentals/host/generic-host>. Las versiones anteriores usaban <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>. El uso del host genérico de .NET Core (<xref:Microsoft.Extensions.Hosting.HostBuilder>) proporciona una mejor integración de las aplicaciones ASP.NET Core con otros escenarios de servidor que no son específicos de la web. Para más información, vea [HostBuilder reemplaza a WebHostBuilder](xref:migration/22-to-30?view=aspnetcore-2.2#hostbuilder-replaces-webhostbuilder).
 
 ### <a name="host-configuration"></a>Configuración de host
 
 Antes de la versión de ASP.NET Core 3.0, se cargaron las variables de entorno prefijadas con `ASPNETCORE_` para la configuración del host web. En la versión 3.0, `AddEnvironmentVariables` se usaba para cargar variables de entorno con el prefijo `DOTNET_` para la configuración de host con `CreateDefaultBuilder`.
 
-### <a name="changes-to-startup-contructor-injection"></a>Cambios en la inserción del constructor Startup
+### <a name="changes-to-startup-constructor-injection"></a>Cambios en la inserción del constructor Startup
 
 El host genérico solo admite los siguientes tipos para la inserción del constructor `Startup`:
 
@@ -512,7 +514,7 @@ ASP.NET Core 3.0 incluye muchas mejoras que reducen el uso de memoria y aumentan
 
 ## <a name="aspnet-core-30-only-runs-on-net-core-30"></a>ASP.NET Core 3.0 solo se ejecuta en .NET Core 3.0
 
-A partir de ASP.NET Core 3.0, .NET Framework ya no es un marco de destino admitido. Los proyectos que tienen .NET Framework como destino pueden continuar usando la [versión .NET Core 2.1 LTS](https://www.microsoft.com/net/download/dotnet-core/2.1) de forma totalmente compatible. La mayoría de los paquetes relacionados con ASP.NET Core 2.1. x se admitirán de forma indefinida, más allá del período LTS de 3 años para .NET Core 2.1.
+A partir de ASP.NET Core 3.0, .NET Framework ya no es un marco de destino admitido. Los proyectos que tienen .NET Framework como destino pueden continuar usando la [versión .NET Core 2.1 LTS](https://www.microsoft.com/net/download/dotnet-core/2.1) de forma totalmente compatible. La mayoría de los paquetes relacionados con ASP.NET Core 2.1.x se admitirán de forma indefinida, más allá del período LTS de tres años para .NET Core 2.1.
 
 Para información sobre la migración, consulte [Realice la portabilidad de su código de .NET Framework a .NET Core](/dotnet/core/porting/).
 

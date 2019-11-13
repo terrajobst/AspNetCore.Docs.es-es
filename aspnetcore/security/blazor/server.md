@@ -1,28 +1,31 @@
 ---
-title: Protección de aplicaciones de servidor de ASP.NET Core increíblemente
+title: Protección de aplicaciones de ASP.NET Core Blazor Server
 author: guardrex
-description: Obtenga información acerca de cómo mitigar las amenazas de seguridad para las aplicaciones de servidor increíbles.
+description: Obtenga información acerca de cómo mitigar las amenazas de seguridad para las aplicaciones de Blazor Server.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 11/12/2019
+no-loc:
+- Blazor
+- SignalR
 uid: security/blazor/server
-ms.openlocfilehash: 706f504738d9c6e5af3c368c382424f2e206bcbf
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: 5cf83a4dd255959e8840fca3a8194b5b4e2ad0a8
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211707"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963876"
 ---
-# <a name="secure-aspnet-core-blazor-server-apps"></a>Protección de aplicaciones de servidor de ASP.NET Core increíblemente
+# <a name="secure-aspnet-core-opno-locblazor-server-apps"></a>Protección de aplicaciones de ASP.NET Core Blazor Server
 
 Por [Javier Calvarro Nelson](https://github.com/javiercn)
 
-Las aplicaciones de servidor increíbles adoptan un modelo de procesamiento de datos con *Estado* , donde el servidor y el cliente mantienen una relación de larga duración. Un [circuito](xref:blazor/state-management)mantiene el estado persistente, que puede abarcar conexiones que también son potencialmente de larga duración.
+las aplicaciones de Blazor Server adoptan un modelo de procesamiento de datos con *Estado* , donde el servidor y el cliente mantienen una relación de larga duración. Un [circuito](xref:blazor/state-management)mantiene el estado persistente, que puede abarcar conexiones que también son potencialmente de larga duración.
 
-Cuando un usuario visita un sitio de servidor más rápido, el servidor crea un circuito en la memoria del servidor. El circuito indica al explorador qué contenido se va a representar y responde a los eventos, como cuando el usuario selecciona un botón en la interfaz de usuario. Para realizar estas acciones, un circuito invoca las funciones de JavaScript en el explorador del usuario y los métodos de .NET en el servidor. Esta interacción basada en JavaScript bidireccional se conoce como [interoperabilidad de JavaScript (interoperabilidad de JS)](xref:blazor/javascript-interop).
+Cuando un usuario visita un sitio de Blazor Server, el servidor crea un circuito en la memoria del servidor. El circuito indica al explorador qué contenido se va a representar y responde a los eventos, como cuando el usuario selecciona un botón en la interfaz de usuario. Para realizar estas acciones, un circuito invoca las funciones de JavaScript en el explorador del usuario y los métodos de .NET en el servidor. Esta interacción basada en JavaScript bidireccional se conoce como [interoperabilidad de JavaScript (interoperabilidad de JS)](xref:blazor/javascript-interop).
 
-Dado que la interoperabilidad de JS se produce a través de Internet y el cliente usa un explorador remoto, las aplicaciones de servidor increíbles comparten la mayoría de los problemas de seguridad de las aplicaciones Web. En este tema se describen las amenazas comunes a las aplicaciones de servidor increíbles y se proporciona una guía de mitigación de amenazas centrada en las aplicaciones orientadas a Internet.
+Dado que la interoperabilidad de JS se produce a través de Internet y el cliente usa un explorador remoto, las aplicaciones de Blazor Server comparten la mayoría de los problemas de seguridad de las aplicaciones Web. En este tema se describen las amenazas comunes a las aplicaciones de Blazor Server y se proporciona una guía de mitigación de amenazas centrada en las aplicaciones orientadas a Internet.
 
 En entornos restringidos, como dentro de redes corporativas o intranets, algunas de las instrucciones de mitigación:
 
@@ -39,33 +42,33 @@ El agotamiento de recursos puede producirse cuando un cliente interactúa con el
 
 Los ataques por denegación de servicio (DoS) suelen intentar agotar los recursos de una aplicación o un servidor. Sin embargo, el agotamiento de recursos no es necesariamente el resultado de un ataque en el sistema. Por ejemplo, los recursos finitos se pueden agotar debido a una alta demanda del usuario. DoS se describe con más detalle en la sección [ataques por denegación de servicio (dos)](#denial-of-service-dos-attacks) .
 
-Los recursos externos al marco increíble, como las bases de datos y los identificadores de archivo (que se usan para leer y escribir archivos), también pueden experimentar el agotamiento de los recursos. Para obtener más información, consulta <xref:performance/performance-best-practices>.
+Los recursos externos al marco de Blazor, como las bases de datos y los identificadores de archivo (que se usan para leer y escribir archivos), también pueden experimentar el agotamiento de los recursos. Para obtener más información, vea <xref:performance/performance-best-practices>.
 
 ### <a name="cpu"></a>CPU
 
 El agotamiento de la CPU puede producirse cuando uno o varios clientes fuerzan al servidor a realizar un trabajo intensivo de la CPU.
 
-Por ejemplo, considere una aplicación de servidor más brillante que calcula un *número de Fibonnacci*. Un número de Fibonnacci se genera a partir de una secuencia de Fibonnacci, donde cada número de la secuencia es la suma de los dos números anteriores. La cantidad de trabajo necesaria para llegar a la respuesta depende de la longitud de la secuencia y el tamaño del valor inicial. Si la aplicación no impone límites en la solicitud de un cliente, los cálculos de uso intensivo de la CPU pueden dominar el tiempo de la CPU y reducir el rendimiento de otras tareas. Un consumo excesivo de recursos es un problema de seguridad que afecta a la disponibilidad.
+Por ejemplo, imagine una aplicación de Blazor Server que calcula un *número de Fibonnacci*. Un número de Fibonnacci se genera a partir de una secuencia de Fibonnacci, donde cada número de la secuencia es la suma de los dos números anteriores. La cantidad de trabajo necesaria para llegar a la respuesta depende de la longitud de la secuencia y el tamaño del valor inicial. Si la aplicación no impone límites en la solicitud de un cliente, los cálculos de uso intensivo de la CPU pueden dominar el tiempo de la CPU y reducir el rendimiento de otras tareas. Un consumo excesivo de recursos es un problema de seguridad que afecta a la disponibilidad.
 
-El agotamiento de la CPU es un problema para todas las aplicaciones orientadas al público. En las aplicaciones web normales, las solicitudes y conexiones agotan el tiempo de espera como medida de seguridad, pero las aplicaciones de servidor increíbles no proporcionan las mismas medidas de seguridad. Las aplicaciones de servidor increíbles deben incluir comprobaciones y límites adecuados antes de llevar a cabo un trabajo potencialmente intensivo de la CPU.
+El agotamiento de la CPU es un problema para todas las aplicaciones orientadas al público. En las aplicaciones web normales, las solicitudes y conexiones agotan el tiempo de espera como medida de seguridad, pero las aplicaciones de Blazor Server no proporcionan las mismas medidas de seguridad. las aplicaciones de Blazor Server deben incluir comprobaciones y límites adecuados antes de llevar a cabo un trabajo potencialmente intensivo de la CPU.
 
 ### <a name="memory"></a>Memoria
 
 El agotamiento de la memoria puede producirse cuando uno o varios clientes fuerzan al servidor a consumir una gran cantidad de memoria.
 
-Por ejemplo, supongamos que tiene una aplicación de servidor más increíblemente con un componente que acepta y muestra una lista de elementos. Si la aplicación increíblemente alta no impone límites en el número de elementos permitidos o el número de elementos representados en el cliente, el procesamiento y la representación con un uso intensivo de memoria pueden dominar la memoria del servidor hasta el punto en el que el rendimiento del servidor se vea afectado. El servidor puede bloquearse o ralentizarse hasta el punto en el que parece que se ha bloqueado.
+Por ejemplo, considere una aplicación del lado servidor Blazorcon un componente que acepta y muestra una lista de elementos. Si la aplicación Blazor no impone límites en el número de elementos permitidos o el número de elementos representados en el cliente, el procesamiento y la representación que consumen mucha memoria pueden dominar la memoria del servidor hasta el punto en el que el rendimiento del servidor se vea afectado. El servidor puede bloquearse o ralentizarse hasta el punto en el que parece que se ha bloqueado.
 
 Considere el siguiente escenario para mantener y mostrar una lista de los elementos que pertenecen a un posible escenario de agotamiento de memoria en el servidor:
 
-* Los elementos de una `List<MyItem>` propiedad o un campo utilizan la memoria del servidor. Si la aplicación permite que la lista de elementos crezca sin límite, existe el riesgo de que el servidor se quede sin memoria. Quedarse sin memoria hace que la sesión actual finalice (bloqueo) y todas las sesiones simultáneas en esa instancia de servidor reciban una excepción de memoria insuficiente. Para evitar que se produzca este escenario, la aplicación debe usar una estructura de datos que impone un límite de elementos a los usuarios simultáneos.
+* Los elementos de una `List<MyItem>` propiedad o campo utilizan la memoria del servidor. Si la aplicación permite que la lista de elementos crezca sin límite, existe el riesgo de que el servidor se quede sin memoria. Quedarse sin memoria hace que la sesión actual finalice (bloqueo) y todas las sesiones simultáneas en esa instancia de servidor reciban una excepción de memoria insuficiente. Para evitar que se produzca este escenario, la aplicación debe usar una estructura de datos que impone un límite de elementos a los usuarios simultáneos.
 * Si no se usa un esquema de paginación para la representación, el servidor utiliza memoria adicional para los objetos que no están visibles en la interfaz de usuario. Sin un límite en cuanto al número de elementos, las demandas de memoria pueden agotar la memoria del servidor disponible. Para evitar este escenario, use uno de los métodos siguientes:
   * Usar listas paginadas al representar.
   * Solo se muestran los primeros 100 a 1.000 elementos y se requiere que el usuario escriba criterios de búsqueda para buscar elementos más allá de los elementos mostrados.
   * Para un escenario de representación más avanzado, implemente listas o cuadrículas que admitan la *Virtualización*. Con la virtualización, las listas solo representan un subconjunto de elementos actualmente visibles para el usuario. Cuando el usuario interactúa con la barra de desplazamiento en la interfaz de usuario, el componente solo representa los elementos necesarios para la presentación. Los elementos que no son necesarios actualmente para la presentación se pueden almacenar en el almacenamiento secundario, que es el enfoque ideal. Los elementos no mostrados también se pueden almacenar en memoria, lo que es menos idóneo.
 
-Las aplicaciones de servidor increíbles ofrecen un modelo de programación similar a otros marcos de interfaz de usuario para aplicaciones con estado, como WPF, Windows Forms o webassembly. La principal diferencia es que en varios marcos de interfaz de usuario la memoria consumida por la aplicación pertenece al cliente y solo afecta a ese cliente individual. Por ejemplo, una aplicación webassembly increíble se ejecuta completamente en el cliente y solo utiliza recursos de memoria del cliente. En el escenario de servidor increíble, la memoria consumida por la aplicación pertenece al servidor y se comparte entre los clientes en la instancia del servidor.
+las aplicaciones de Blazor Server ofrecen un modelo de programación similar a otros marcos de interfaz de usuario para las aplicaciones con estado, como WPF, Windows Forms o Blazor webassembly. La principal diferencia es que en varios marcos de interfaz de usuario la memoria consumida por la aplicación pertenece al cliente y solo afecta a ese cliente individual. Por ejemplo, una aplicación Blazor webassembly se ejecuta completamente en el cliente y solo utiliza recursos de memoria del cliente. En el escenario de Blazor Server, la memoria consumida por la aplicación pertenece al servidor y se comparte entre los clientes en la instancia del servidor.
 
-Las peticiones de memoria del lado servidor son una consideración para todas las aplicaciones de servidor increíbles. Sin embargo, la mayoría de las aplicaciones web no tienen estado y la memoria que se usa al procesar una solicitud se libera cuando se devuelve la respuesta. Como recomendación general, no permita que los clientes asignen una cantidad de memoria sin enlazar como en cualquier otra aplicación del lado servidor que conserve las conexiones de cliente. La memoria consumida por una aplicación de servidor increíblemente larga se conserva durante más tiempo que una única solicitud.
+Las peticiones de memoria del lado servidor son una consideración para todas las aplicaciones de Blazor Server. Sin embargo, la mayoría de las aplicaciones web no tienen estado y la memoria que se usa al procesar una solicitud se libera cuando se devuelve la respuesta. Como recomendación general, no permita que los clientes asignen una cantidad de memoria sin enlazar como en cualquier otra aplicación del lado servidor que conserve las conexiones de cliente. La memoria consumida por una aplicación de servidor Blazor persiste durante más tiempo que una única solicitud.
 
 > [!NOTE]
 > Durante el desarrollo, se puede usar un generador de perfiles o un seguimiento capturado para evaluar las demandas de memoria de los clientes. Un generador de perfiles o seguimiento no capturará la memoria asignada a un cliente específico. Para capturar el uso de memoria de un cliente específico durante el desarrollo, Capture un volcado y examine la demanda de memoria de todos los objetos cuya raíz se encuentra en el circuito de un usuario.
@@ -74,9 +77,9 @@ Las peticiones de memoria del lado servidor son una consideración para todas la
 
 El agotamiento de la conexión puede producirse cuando uno o varios clientes abren demasiadas conexiones simultáneas al servidor, lo que impide que otros clientes establezcan nuevas conexiones.
 
-Los clientes más increíbles establecen una conexión única por sesión y mantienen la conexión abierta mientras la ventana del explorador esté abierta. La demanda en el servidor de mantenimiento de todas las conexiones no es específica de las aplicaciones increíbles. Dada la naturaleza persistente de las conexiones y la naturaleza con estado de las aplicaciones de servidor increíbles, el agotamiento de la conexión es un riesgo mayor para la disponibilidad de la aplicación.
+Blazor clientes establecen una conexión única por sesión y mantienen abierta la conexión mientras la ventana del explorador esté abierta. La demanda en el servidor de mantenimiento de todas las conexiones no es específica de Blazor aplicaciones. Dada la naturaleza persistente de las conexiones y la naturaleza con estado de Blazor aplicaciones de servidor, el agotamiento de la conexión es un riesgo mayor para la disponibilidad de la aplicación.
 
-De forma predeterminada, no hay ningún límite en cuanto al número de conexiones por usuario para una aplicación de servidor más brillante. Si la aplicación requiere un límite de conexión, realice uno o varios de los métodos siguientes:
+De forma predeterminada, no hay ningún límite en cuanto al número de conexiones por usuario para una aplicación Blazor Server. Si la aplicación requiere un límite de conexión, realice uno o varios de los métodos siguientes:
 
 * Requiere autenticación, que de forma natural limita la posibilidad de que usuarios no autorizados se conecten a la aplicación. Para que este escenario sea eficaz, los usuarios deben evitar el aprovisionamiento de nuevos usuarios en.
 * Limite el número de conexiones por usuario. La limitación de las conexiones se puede realizar mediante los siguientes enfoques. Preste atención para permitir que los usuarios legítimos tengan acceso a la aplicación (por ejemplo, cuando se establece un límite de conexión en función de la dirección IP del cliente).
@@ -84,14 +87,14 @@ De forma predeterminada, no hay ningún límite en cuanto al número de conexion
     * Extensibilidad de enrutamiento de extremo.
     * Requerir autenticación para conectarse a la aplicación y realizar un seguimiento de las sesiones activas por usuario.
     * Rechazar nuevas sesiones al alcanzar un límite.
-    * Conexiones de WebSocket de proxy a una aplicación mediante el uso de un proxy, como el [servicio Azure signalr](/azure/azure-signalr/signalr-overview) que multiplexa las conexiones de los clientes a una aplicación. Esto proporciona una aplicación con mayor capacidad de conexión de la que puede establecer un solo cliente, lo que impide que un cliente agote las conexiones al servidor.
-  * En el nivel de servidor: Usar un proxy o puerta de enlace delante de la aplicación. Por ejemplo, la [puerta frontal de Azure](/azure/frontdoor/front-door-overview) permite definir, administrar y supervisar el enrutamiento global del tráfico web a una aplicación.
+    * Conexiones de WebSocket de proxy a una aplicación mediante el uso de un proxy, como el [servicio Azure SignalR](/azure/azure-signalr/signalr-overview) que multiplexa las conexiones de los clientes a una aplicación. Esto proporciona una aplicación con mayor capacidad de conexión de la que puede establecer un solo cliente, lo que impide que un cliente agote las conexiones al servidor.
+  * En el nivel de servidor: Use un proxy o puerta de enlace delante de la aplicación. Por ejemplo, la [puerta frontal de Azure](/azure/frontdoor/front-door-overview) permite definir, administrar y supervisar el enrutamiento global del tráfico web a una aplicación.
 
 ## <a name="denial-of-service-dos-attacks"></a>Ataques por denegación de servicio (DoS)
 
-Los ataques por denegación de servicio (DoS) implican a un cliente que hace que el servidor agote uno o más de sus recursos, lo que hace que la aplicación no esté disponible. Las aplicaciones de servidor increíbles incluyen algunos límites predeterminados y se basan en otros límites de ASP.NET Core y Signalr para protegerse frente a ataques de DoS:
+Los ataques por denegación de servicio (DoS) implican a un cliente que hace que el servidor agote uno o más de sus recursos, lo que hace que la aplicación no esté disponible. las aplicaciones de Blazor Server incluyen algunos límites predeterminados y se basan en otros límites de ASP.NET Core y SignalR para protegerse frente a los ataques de DoS:
 
-| Límite de aplicación de servidor de extraordinarias                            | Descripción | Default |
+| límite de aplicación de Blazor Server                            | Descripción | Predeterminado |
 | ------------------------------------------------------- | ----------- | ------- |
 | `CircuitOptions.DisconnectedCircuitMaxRetained`         | Número máximo de circuitos desconectados que un servidor determinado contiene en la memoria a la vez. | 100 |
 | `CircuitOptions.DisconnectedCircuitRetentionPeriod`     | Cantidad máxima de tiempo que un circuito desconectado se mantiene en la memoria antes de que se detenga. | 3 minutos |
@@ -99,7 +102,7 @@ Los ataques por denegación de servicio (DoS) implican a un cliente que hace que
 | `CircuitOptions.MaxBufferedUnacknowledgedRenderBatches` | Número máximo de lotes de representación no confirmados el servidor mantiene en memoria por circuito en un momento dado para admitir una reconexión sólida. Después de alcanzar el límite, el servidor deja de generar nuevos lotes de representación hasta que el cliente ha confirmado uno o varios lotes. | 10 |
 
 
-| Límite de signalr y ASP.NET Core             | Descripción | Default |
+| límite de SignalR y ASP.NET Core             | Descripción | Predeterminado |
 | ------------------------------------------ | ----------- | ------- |
 | `CircuitOptions.MaximumReceiveMessageSize` | Tamaño del mensaje para un mensaje individual. | 32 KB |
 
@@ -114,16 +117,16 @@ Un cliente interactúa con el servidor a través de la distribución de eventos 
 
 Para las llamadas de métodos de .NET a JavaScript:
 
-* Todas las invocaciones tienen un tiempo de espera configurable después del cual se produce <xref:System.OperationCanceledException> un error y devuelven un al llamador.
-  * Hay un tiempo de espera predeterminado para las llamadas`CircuitOptions.JSInteropDefaultCallTimeout`() de un minuto. Para configurar este límite, vea <xref:blazor/javascript-interop#harden-js-interop-calls>.
+* Todas las invocaciones tienen un tiempo de espera configurable después del cual se produce un error, devolviendo un <xref:System.OperationCanceledException> al autor de la llamada.
+  * Hay un tiempo de espera predeterminado para las llamadas (`CircuitOptions.JSInteropDefaultCallTimeout`) de un minuto. Para configurar este límite, consulte <xref:blazor/javascript-interop#harden-js-interop-calls>.
   * Se puede proporcionar un token de cancelación para controlar la cancelación en cada llamada. Confíe en el tiempo de espera de la llamada predeterminado, siempre que sea posible, y en cualquier llamada al cliente si se proporciona un token de cancelación.
-* No se puede confiar en el resultado de una llamada de JavaScript. El cliente de la aplicación extraordinaria que se ejecuta en el explorador busca la función de JavaScript que se va a invocar. Se invoca la función y se produce el resultado o un error. Un cliente malintencionado puede intentar:
+* No se puede confiar en el resultado de una llamada de JavaScript. El Blazor cliente de aplicación que se ejecuta en el explorador busca la función de JavaScript que se va a invocar. Se invoca la función y se produce el resultado o un error. Un cliente malintencionado puede intentar:
   * Producir un problema en la aplicación devolviendo un error de la función de JavaScript.
   * Inducir un comportamiento no deseado en el servidor devolviendo un resultado inesperado de la función de JavaScript.
 
 Tome las siguientes precauciones para protegerse frente a los escenarios anteriores:
 
-* Ajuste las llamadas de interoperabilidad de JS dentro de las instrucciones [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) para tener en cuenta los errores que pueden producirse durante las invocaciones. Para obtener más información, consulta <xref:blazor/handle-errors#javascript-interop>.
+* Ajuste las llamadas de interoperabilidad de JS dentro de las instrucciones [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) para tener en cuenta los errores que pueden producirse durante las invocaciones. Para obtener más información, vea <xref:blazor/handle-errors#javascript-interop>.
 * Valide los datos devueltos por las invocaciones de interoperabilidad de JS, incluidos los mensajes de error, antes de realizar cualquier acción.
 
 ### <a name="net-methods-invoked-from-the-browser"></a>Métodos de .NET que se invocan desde el explorador
@@ -136,23 +139,23 @@ No confíe en llamadas de JavaScript a métodos de .NET. Cuando un método .NET 
     * Asegúrese de que el usuario tiene permiso para realizar la acción solicitada.
   * No asigne una cantidad excesiva de recursos como parte de la invocación de método de .NET. Por ejemplo, realice comprobaciones y coloque límites en el uso de la CPU y la memoria.
   * Tenga en cuenta que los métodos estáticos y de instancia se pueden exponer a los clientes de JavaScript. Evite compartir el estado entre las sesiones a menos que el diseño llame al estado de uso compartido con las restricciones adecuadas.
-    * Para los métodos de instancia `DotNetReference` expuestos a través de objetos que se crearon originalmente a través de la inserción de dependencias (di), los objetos se deben registrar como objetos con ámbito. Esto se aplica a cualquier servicio de DI que use la aplicación de servidor de increíble.
+    * Para los métodos de instancia expuestos a través de `DotNetReference` objetos que se crearon originalmente a través de la inserción de dependencias (DI), los objetos se deben registrar como objetos con ámbito. Esto se aplica a cualquier servicio DI que use la aplicación de Blazor Server.
     * En el caso de los métodos estáticos, evite establecer el estado que no se puede limitar al cliente a menos que la aplicación comparta explícitamente el estado por diseño entre todos los usuarios de una instancia de servidor.
-  * Evite pasar datos proporcionados por el usuario en parámetros a llamadas de JavaScript. Si pasar datos en parámetros es absolutamente necesario, asegúrese de que el código de JavaScript controla el paso de los datos sin introducir vulnerabilidades de [scripting entre sitios (XSS)](#cross-site-scripting-xss) . Por ejemplo, no escriba los datos proporcionados por el usuario en el Document Object Model (dom) `innerHTML` estableciendo la propiedad de un elemento. Considere la posibilidad de usar la Directiva de seguridad de `eval` [contenido (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP) para deshabilitar y otras primitivas de JavaScript no seguras.
-* Evite implementar la distribución personalizada de las invocaciones de .NET sobre la implementación de distribución del marco. Exponer los métodos de .NET en el explorador es un escenario avanzado, no recomendado para el desarrollo general de increíbles.
+  * Evite pasar datos proporcionados por el usuario en parámetros a llamadas de JavaScript. Si pasar datos en parámetros es absolutamente necesario, asegúrese de que el código de JavaScript controla el paso de los datos sin introducir vulnerabilidades de [scripting entre sitios (XSS)](#cross-site-scripting-xss) . Por ejemplo, no escriba los datos proporcionados por el usuario en el Document Object Model (DOM) estableciendo la propiedad `innerHTML` de un elemento. Considere la posibilidad de usar la [Directiva de seguridad de contenido (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP) para deshabilitar `eval` y otras primitivas de JavaScript no seguras.
+* Evite implementar la distribución personalizada de las invocaciones de .NET sobre la implementación de distribución del marco. Exponer métodos .NET en el explorador es un escenario avanzado, no recomendado para el desarrollo de Blazor general.
 
-### <a name="events"></a>Eventos
+### <a name="events"></a>Events
 
-Los eventos proporcionan un punto de entrada a una aplicación de servidor más brillante. Las mismas reglas para proteger los puntos de conexión de las aplicaciones web se aplican al control de eventos en las aplicaciones de servidor increíbles. Un cliente malintencionado puede enviar cualquier dato que desee enviar como carga para un evento.
+Los eventos proporcionan un punto de entrada a una aplicación de Blazor Server. Las mismas reglas para proteger los puntos de conexión de las aplicaciones web se aplican al control de eventos en las aplicaciones de Blazor Server. Un cliente malintencionado puede enviar cualquier dato que desee enviar como carga para un evento.
 
 Por ejemplo:
 
-* Un evento de cambio de `<select>` un puede enviar un valor que no está dentro de las opciones que la aplicación presentó al cliente.
-* `<input>` Podría enviar cualquier dato de texto al servidor, omitiendo la validación del lado cliente.
+* Un evento de cambio para un `<select>` podría enviar un valor que no está dentro de las opciones que la aplicación presentó al cliente.
+* Un `<input>` podría enviar datos de texto al servidor, omitiendo la validación del lado cliente.
 
-La aplicación debe validar los datos de los eventos que controla la aplicación. Los [componentes de formularios](xref:blazor/forms-validation) de marco increíbles realizan validaciones básicas. Si la aplicación usa componentes de formularios personalizados, se debe escribir código personalizado para validar los datos de evento según corresponda.
+La aplicación debe validar los datos de los eventos que controla la aplicación. Los componentes de [formularios](xref:blazor/forms-validation) de Blazor Framework realizan validaciones básicas. Si la aplicación usa componentes de formularios personalizados, se debe escribir código personalizado para validar los datos de evento según corresponda.
 
-Los eventos de servidor increíbles son asincrónicos, por lo que se pueden enviar varios eventos al servidor antes de que la aplicación tenga tiempo de reaccionar mediante la generación de una nueva representación. Esto tiene algunas implicaciones de seguridad que se deben tener en cuenta. La limitación de las acciones de cliente en la aplicación debe realizarse dentro de los controladores de eventos y no depender del estado de vista representado actual.
+Blazor eventos de servidor son asincrónicos, por lo que se pueden enviar varios eventos al servidor antes de que la aplicación tenga tiempo de reaccionar mediante la generación de una nueva representación. Esto tiene algunas implicaciones de seguridad que se deben tener en cuenta. La limitación de las acciones de cliente en la aplicación debe realizarse dentro de los controladores de eventos y no depender del estado de vista representado actual.
 
 Considere un componente de contador que debe permitir que un usuario incremente un contador un máximo de tres veces. El botón para incrementar el contador se basa condicionalmente en el valor de `count`:
 
@@ -175,7 +178,7 @@ Considere un componente de contador que debe permitir que un usuario incremente 
 }
 ```
 
-Un cliente puede enviar uno o varios eventos de incremento antes de que el marco de trabajo genere una nueva representación de este componente. El resultado es que el `count` usuario puede incrementar *tres veces el número de veces* que la interfaz de usuario no haya quitado el botón con la suficiente rapidez. En el ejemplo siguiente se muestra la manera correcta `count` de lograr el límite de tres incrementos:
+Un cliente puede enviar uno o varios eventos de incremento antes de que el marco de trabajo genere una nueva representación de este componente. El resultado es que el usuario puede incrementar el `count` *en tres horas* , ya que la interfaz de usuario no quita el botón con la suficiente rapidez. En el ejemplo siguiente se muestra la manera correcta de lograr el límite de tres `count` incrementos:
 
 ```cshtml
 <p>Count: @count<p>
@@ -199,11 +202,11 @@ Un cliente puede enviar uno o varios eventos de incremento antes de que el marco
 }
 ```
 
-Al agregar la `if (count < 3) { ... }` comprobación dentro del controlador, la decisión de incrementar `count` se basa en el estado actual de la aplicación. La decisión no se basa en el estado de la interfaz de usuario tal como se encontraba en el ejemplo anterior, lo que podría estar temporalmente obsoleto.
+Al agregar la comprobación de `if (count < 3) { ... }` dentro del controlador, la decisión de incrementar `count` se basa en el estado actual de la aplicación. La decisión no se basa en el estado de la interfaz de usuario tal como se encontraba en el ejemplo anterior, lo que podría estar temporalmente obsoleto.
 
 ### <a name="guard-against-multiple-dispatches"></a>Protección contra varios envíos
 
-Si una devolución de llamada de evento invoca una operación de ejecución prolongada, como la recuperación de datos de una base de datos o un servicio externo, considere la posibilidad de usar una protección. La protección puede impedir que el usuario pueda poner en cola varias operaciones mientras la operación está en curso con comentarios visuales. El código de componente siguiente `isLoading` establece `true` en `GetForecastAsync` mientras obtiene datos del servidor. Aunque `isLoading` es`true`, el botón está deshabilitado en la interfaz de usuario:
+Si una devolución de llamada de evento invoca una operación de ejecución prolongada, como la recuperación de datos de una base de datos o un servicio externo, considere la posibilidad de usar una protección. La protección puede impedir que el usuario pueda poner en cola varias operaciones mientras la operación está en curso con comentarios visuales. El código de componente siguiente establece `isLoading` en `true` mientras `GetForecastAsync` obtiene los datos del servidor. Mientras `isLoading` se `true`, el botón está deshabilitado en la interfaz de usuario:
 
 ```cshtml
 @page "/fetchdata"
@@ -230,7 +233,7 @@ Si una devolución de llamada de evento invoca una operación de ejecución prol
 
 ### <a name="cancel-early-and-avoid-use-after-dispose"></a>CANCELAR pronto y evitar usar-After-Dispose
 
-Además de usar una protección como se describe en la sección [protección contra varias distribuciones](#guard-against-multiple-dispatches) , considere la posibilidad <xref:System.Threading.CancellationToken> de usar para cancelar operaciones de ejecución prolongada cuando se desecha el componente. Este enfoque tiene la ventaja adicional de evitar *usar-After-Dispose* en los componentes:
+Además de usar una protección como se describe en la sección [protección contra varias distribuciones](#guard-against-multiple-dispatches) , considere la posibilidad de usar un <xref:System.Threading.CancellationToken> para cancelar operaciones de ejecución prolongada cuando se desecha el componente. Este enfoque tiene la ventaja adicional de evitar *usar-After-Dispose* en los componentes:
 
 ```cshtml
 @implements IDisposable
@@ -265,11 +268,11 @@ Además de usar una protección como se describe en la sección [protección con
 
 ### <a name="avoid-events-that-produce-large-amounts-of-data"></a>Evitar eventos que generan grandes cantidades de datos
 
-Algunos eventos DOM, `oninput` como o `onscroll`, pueden generar una gran cantidad de datos. Evite el uso de estos eventos en las aplicaciones de servidor increíbles.
+Algunos eventos de DOM, como `oninput` o `onscroll`, pueden generar una gran cantidad de datos. Evite el uso de estos eventos en las aplicaciones de Blazor Server.
 
 ## <a name="additional-security-guidance"></a>Instrucciones de seguridad adicionales
 
-Las instrucciones para proteger ASP.NET Core aplicaciones se aplican a las aplicaciones de servidor increíbles y se describen en las siguientes secciones:
+Las instrucciones para proteger ASP.NET Core aplicaciones se aplican a las aplicaciones de Blazor Server y se describen en las siguientes secciones:
 
 * [Registro y datos confidenciales](#logging-and-sensitive-data)
 * [Protección de la información en tránsito con HTTPS](#protect-information-in-transit-with-https)
@@ -280,7 +283,7 @@ Las instrucciones para proteger ASP.NET Core aplicaciones se aplican a las aplic
 
 ### <a name="logging-and-sensitive-data"></a>Registro y datos confidenciales
 
-Las interacciones de interoperabilidad de JS entre el cliente y el servidor se <xref:Microsoft.Extensions.Logging.ILogger> registran en los registros del servidor con instancias. Increíble evita el registro de información confidencial, como eventos reales o entradas y salidas de interoperabilidad de JS.
+Las interacciones de interoperabilidad de JS entre el cliente y el servidor se registran en los registros del servidor con instancias de <xref:Microsoft.Extensions.Logging.ILogger>. Blazor evita el registro de información confidencial, como eventos reales o entradas y salidas de interoperabilidad de JS.
 
 Cuando se produce un error en el servidor, el marco de trabajo notifica al cliente y anula la sesión. De forma predeterminada, el cliente recibe un mensaje de error genérico que puede verse en las herramientas de desarrollo del explorador.
 
@@ -288,17 +291,17 @@ El error del lado cliente no incluye la pila de llamadas y no proporciona detall
 
 Habilitar errores detallados con:
 
-* `CircuitOptions.DetailedErrors`.
-* `DetailedErrors`clave de configuración. Por ejemplo, establezca la `ASPNETCORE_DETAILEDERRORS` variable de entorno en un valor `true`de.
+* `CircuitOptions.DetailedErrors`Operador
+* `DetailedErrors` clave de configuración. Por ejemplo, establezca la variable de entorno `ASPNETCORE_DETAILEDERRORS` en un valor de `true`.
 
 > [!WARNING]
 > Exponer información de errores a los clientes de Internet es un riesgo de seguridad que siempre debe evitarse.
 
 ### <a name="protect-information-in-transit-with-https"></a>Protección de la información en tránsito con HTTPS
 
-El servidor extraordinariamente utiliza Signalr para la comunicación entre el cliente y el servidor. El servidor más rápido usa normalmente el transporte que Signalr negocia, que suele ser WebSockets.
+Blazor servidor utiliza SignalR para la comunicación entre el cliente y el servidor. Blazor servidor utiliza normalmente el transporte que SignalR negocia, que suele ser WebSockets.
 
-El servidor más rápido no garantiza la integridad y confidencialidad de los datos enviados entre el servidor y el cliente. Use siempre HTTPS.
+Blazor Server no garantiza la integridad y confidencialidad de los datos enviados entre el servidor y el cliente. Use siempre HTTPS.
 
 ### <a name="cross-site-scripting-xss"></a>Scripting entre sitios (XSS)
 
@@ -311,10 +314,10 @@ El scripting entre sitios (XSS) permite que una entidad no autorizada ejecute un
 * Modifique la respuesta de las llamadas de interoperabilidad de .NET a JavaScript.
 * Evite el envío de resultados de interoperabilidad de .NET a JS.
 
-El marco de trabajo de servidor de extraordinarias toma medidas para protegerse frente a algunas de las amenazas anteriores:
+El marco de Blazor Server toma los pasos necesarios para protegerse frente a algunas de las amenazas anteriores:
 
-* Detiene la generación de nuevas actualizaciones de la interfaz de usuario si el cliente no reconoce los lotes de representación. Configurado con `CircuitOptions.MaxBufferedUnacknowledgedRenderBatches`.
-* Agota el tiempo de espera cualquier llamada de .NET a JavaScript después de un minuto sin recibir una respuesta del cliente. Configurado con `CircuitOptions.JSInteropDefaultCallTimeout`.
+* Detiene la generación de nuevas actualizaciones de la interfaz de usuario si el cliente no reconoce los lotes de representación. Se configura con `CircuitOptions.MaxBufferedUnacknowledgedRenderBatches`.
+* Agota el tiempo de espera cualquier llamada de .NET a JavaScript después de un minuto sin recibir una respuesta del cliente. Se configura con `CircuitOptions.JSInteropDefaultCallTimeout`.
 * Realiza la validación básica de todas las entradas procedentes del explorador durante la interoperabilidad de JS:
   * Las referencias de .NET son válidas y del tipo esperado por el método de .NET.
   * Los datos no tienen un formato incorrecto.
@@ -335,56 +338,56 @@ Además de las medidas de seguridad que implementa el marco, el desarrollador de
 * No confíe en la entrada en las llamadas de interoperabilidad de JS en ambas direcciones entre los métodos de .NET y JavaScript.
 * La aplicación es responsable de validar que el contenido de los argumentos y los resultados son válidos, incluso si los argumentos o resultados se deserializan correctamente.
 
-Para que exista una vulnerabilidad de XSS, la aplicación debe incorporar los datos proporcionados por el usuario en la página representada. Los componentes de servidor increíbles ejecutan un paso en tiempo de compilación en el que el marcado de un archivo *. Razor* se transforma en una lógica de procedimiento C# . En tiempo de ejecución C# , la lógica crea un *árbol de representación* que describe los elementos, el texto y los componentes secundarios. Esto se aplica al DOM del explorador a través de una secuencia de instrucciones de JavaScript (o se serializa a HTML en el caso de la representación previa):
+Para que exista una vulnerabilidad de XSS, la aplicación debe incorporar los datos proporcionados por el usuario en la página representada. los componentes de Blazor Server ejecutan un paso en tiempo de compilación en el que el marcado de un archivo C# *. Razor* se transforma en una lógica de procedimiento. En tiempo de ejecución C# , la lógica crea un *árbol de representación* que describe los elementos, el texto y los componentes secundarios. Esto se aplica al DOM del explorador a través de una secuencia de instrucciones de JavaScript (o se serializa a HTML en el caso de la representación previa):
 
-* Los datos proporcionados por el usuario a través de sintaxis Razor `@someStringValue`normal (por ejemplo,) no exponen una vulnerabilidad de XSS porque la sintaxis Razor se agrega al Dom a través de comandos que solo pueden escribir texto. Aunque el valor incluya el marcado HTML, el valor se muestra como texto estático. Al prerepresentar, la salida está codificada en HTML, que también muestra el contenido como texto estático.
+* Los datos proporcionados por el usuario a través de sintaxis Razor normal (por ejemplo, `@someStringValue`) no exponen una vulnerabilidad de XSS porque el sintaxis Razor se agrega al DOM a través de comandos que solo pueden escribir texto. Aunque el valor incluya el marcado HTML, el valor se muestra como texto estático. Al prerepresentar, la salida está codificada en HTML, que también muestra el contenido como texto estático.
 * No se permiten etiquetas de script y no deben incluirse en el árbol de representación de componentes de la aplicación. Si se incluye una etiqueta de script en el marcado de un componente, se genera un error en tiempo de compilación.
-* Los autores de componentes pueden crear C# componentes en sin usar Razor. El autor del componente es responsable de usar las API correctas al emitir la salida. Por ejemplo, use `builder.AddContent(0, someUserSuppliedString)` y *Not* `builder.AddMarkupContent(0, someUserSuppliedString)`, ya que el último podría crear una vulnerabilidad XSS.
+* Los autores de componentes pueden crear C# componentes en sin usar Razor. El autor del componente es responsable de usar las API correctas al emitir la salida. Por ejemplo, use `builder.AddContent(0, someUserSuppliedString)` y *no* `builder.AddMarkupContent(0, someUserSuppliedString)`, ya que el último podría crear una vulnerabilidad XSS.
 
 Como parte de la protección contra ataques XSS, considere la posibilidad de implementar mitigaciones XSS, como la [Directiva de seguridad de contenido (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP).
 
-Para obtener más información, consulta <xref:security/cross-site-scripting>.
+Para obtener más información, vea <xref:security/cross-site-scripting>.
 
 ### <a name="cross-origin-protection"></a>Protección entre orígenes
 
-Los ataques entre orígenes implican a un cliente de un origen diferente que realiza una acción en el servidor. La acción malintencionada es normalmente una solicitud GET o un POST de formulario (falsificación de solicitud entre sitios, CSRF), pero también es posible abrir un WebSocket malintencionado. Las aplicaciones de servidor increíbles ofrecen [las mismas garantías de que cualquier otra aplicación de signalr que use la oferta de protocolo del centro](xref:signalr/security):
+Los ataques entre orígenes implican a un cliente de un origen diferente que realiza una acción en el servidor. La acción malintencionada es normalmente una solicitud GET o un POST de formulario (falsificación de solicitud entre sitios, CSRF), pero también es posible abrir un WebSocket malintencionado. las aplicaciones de Blazor Server ofrecen [las mismas garantías de que cualquier otra aplicación SignalR que use la oferta de protocolo del centro](xref:signalr/security):
 
-* Se puede acceder a las aplicaciones de servidor más increíbles a menos que se tomen medidas adicionales para evitarlo. Para deshabilitar el acceso entre orígenes, deshabilite CORS en el punto de conexión agregando el middleware de CORS a la `DisableCorsAttribute` canalización y agregando el a los metadatos del punto de conexión de extraordinarias o limite el conjunto de orígenes permitidos mediante la [configuración de signalr para un recurso entre orígenes uso compartido](xref:signalr/security#cross-origin-resource-sharing).
-* Si CORS está habilitado, podrían ser necesarios pasos adicionales para proteger la aplicación en función de la configuración de CORS. Si CORS está habilitado de forma global, CORS se puede deshabilitar para el concentrador de servidor `DisableCorsAttribute` más rápido agregando los metadatos `hub.MapBlazorHub()`a los metadatos del punto de conexión después de llamar a.
+* se puede acceder a las aplicaciones de Blazor Server entre orígenes a menos que se tomen medidas adicionales para evitarlo. Para deshabilitar el acceso entre orígenes, deshabilite CORS en el punto de conexión agregando el middleware de CORS a la canalización y agregando el `DisableCorsAttribute` a los metadatos del punto de conexión de Blazor o limite el conjunto de orígenes permitidos mediante la [configuración de SignalR para el uso compartido de recursos entre orígenes](xref:signalr/security#cross-origin-resource-sharing).
+* Si CORS está habilitado, podrían ser necesarios pasos adicionales para proteger la aplicación en función de la configuración de CORS. Si CORS está habilitado globalmente, CORS se puede deshabilitar para el Blazor concentrador de servidor agregando los metadatos de `DisableCorsAttribute` a los metadatos del punto de conexión después de llamar a `hub.MapBlazorHub()`.
 
-Para obtener más información, consulta <xref:security/anti-request-forgery>.
+Para obtener más información, vea <xref:security/anti-request-forgery>.
 
 ### <a name="click-jacking"></a>Hacer clic en el conector
 
-La toma de clics implica representar un sitio como `<iframe>` dentro de un sitio de un origen diferente para engañar al usuario en la realización de acciones en el sitio bajo ataque.
+La toma de clics implica representar un sitio como `<iframe>` dentro de un sitio desde un origen diferente para engañar al usuario en la realización de acciones en el sitio bajo ataque.
 
-Para proteger una aplicación de la representación dentro de una `<iframe>`, usa la [Directiva de seguridad de contenido (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP) y el `X-Frame-Options` encabezado. Para obtener más información, [consulte documentos web de MDN: X-Frame-Options](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options).
+Para proteger una aplicación de la representación dentro de una `<iframe>`, usa la [Directiva de seguridad de contenido (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP) y el encabezado de `X-Frame-Options`. Para obtener más información, vea [MDN web docs: X-Frame-Options](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options).
 
 ### <a name="open-redirects"></a>Redirecciones abiertas
 
-Cuando se inicia una sesión de aplicación de servidor más brillante, el servidor realiza la validación básica de las direcciones URL que se envían como parte del inicio de la sesión. El marco comprueba que la dirección URL base es un elemento primario de la dirección URL actual antes de establecer el circuito. El marco de trabajo no realiza ninguna comprobación adicional.
+Cuando se inicia una sesión de aplicación de Blazor Server, el servidor realiza la validación básica de las direcciones URL que se envían como parte del inicio de la sesión. El marco comprueba que la dirección URL base es un elemento primario de la dirección URL actual antes de establecer el circuito. El marco de trabajo no realiza ninguna comprobación adicional.
 
 Cuando un usuario selecciona un vínculo en el cliente, la dirección URL del vínculo se envía al servidor, lo que determina la acción que se debe realizar. Por ejemplo, la aplicación puede realizar una navegación en el lado cliente o indicar al explorador que vaya a la nueva ubicación.
 
-Los componentes también pueden desencadenar solicitudes de navegación mediante programación `NavigationManager`a través del uso de. En estos casos, la aplicación puede realizar una navegación del lado cliente o indicar al explorador que vaya a la nueva ubicación.
+Los componentes también pueden desencadenar solicitudes de navegación mediante programación a través del uso de `NavigationManager`. En estos casos, la aplicación puede realizar una navegación del lado cliente o indicar al explorador que vaya a la nueva ubicación.
 
 Los componentes deben:
 
 * Evite el uso de datos proporcionados por el usuario como parte de los argumentos de la llamada de navegación.
 * Valide los argumentos para asegurarse de que la aplicación permite el destino.
 
-De lo contrario, un usuario malintencionado puede forzar al explorador para que vaya a un sitio controlado por un atacante. En este escenario, el atacante engaña a la aplicación para que use algunos datos proporcionados por el usuario como parte `NavigationManager.Navigate` de la invocación del método.
+De lo contrario, un usuario malintencionado puede forzar al explorador para que vaya a un sitio controlado por un atacante. En este escenario, el atacante engaña a la aplicación para que use algunos datos proporcionados por el usuario como parte de la invocación del método `NavigationManager.Navigate`.
 
 Este Consejo también se aplica cuando se representan vínculos como parte de la aplicación:
 
 * Si es posible, use vínculos relativos.
 * Compruebe que los destinos absolutos de los vínculos son válidos antes de incluirlos en una página.
 
-Para obtener más información, consulta <xref:security/preventing-open-redirects>.
+Para obtener más información, vea <xref:security/preventing-open-redirects>.
 
 ## <a name="authentication-and-authorization"></a>Autenticación y autorización
 
-Para obtener instrucciones sobre la autenticación y la <xref:security/blazor/index>autorización, vea.
+Para obtener instrucciones sobre la autenticación y la autorización, consulte <xref:security/blazor/index>.
 
 ## <a name="security-checklist"></a>Lista de comprobación de seguridad
 
@@ -395,13 +398,13 @@ La siguiente lista de consideraciones de seguridad no es completa:
 * Evite usar (o validar previamente) la entrada del usuario para las llamadas de interoperabilidad de .NET a JS.
 * Impedir que el cliente asigne una cantidad de memoria sin enlazar.
   * Datos dentro del componente.
-  * `DotNetObject`referencias devueltas al cliente.
+  * `DotNetObject` referencias devueltas al cliente.
 * Protéjase contra varios envíos.
 * Cancela las operaciones de ejecución prolongada cuando se desecha el componente.
 * Evite eventos que generen grandes cantidades de datos.
-* Evite el uso de datos proporcionados por el `NavigationManager.Navigate` usuario como parte de las llamadas a y valide primero los datos proporcionados por el usuario para las direcciones URL en un conjunto de orígenes permitidos si no se puede evitar.
+* Evite el uso de datos proporcionados por el usuario como parte de las llamadas a `NavigationManager.Navigate` y valide en primer lugar los datos proporcionados por el usuario para las direcciones URL en un conjunto de orígenes permitidos.
 * No tome decisiones de autorización basadas en el estado de la interfaz de usuario, sino solo en el estado del componente.
 * Considere la posibilidad de usar la [Directiva de seguridad de contenido (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP) para protegerse frente a ataques XSS.
 * Considere la posibilidad de usar CSP y [X-Frame-Options](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Frame-Options) para protegerse frente a clics.
-* Asegúrese de que la configuración de CORS sea adecuada al habilitar CORS o deshabilitar de forma explícita CORS para aplicaciones increíbles.
-* Realice una prueba para asegurarse de que los límites del servidor de la aplicación increíblemente alta proporcionan una experiencia de usuario aceptable sin niveles inaceptables de riesgo.
+* Asegúrese de que la configuración de CORS sea adecuada al habilitar CORS o deshabilitar de forma explícita CORS para Blazor aplicaciones.
+* Pruebe para asegurarse de que los límites del servidor para la aplicación Blazor proporcionan una experiencia de usuario aceptable sin niveles de riesgo inaceptables.
