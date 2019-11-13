@@ -5,14 +5,14 @@ description: Sepa cómo configurar Nginx como un proxy inverso en Ubuntu 16.04 p
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/31/2019
+ms.date: 11/05/2019
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: b71bc0464892f15ef8db0324a8e66a28a6192577
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: c6ae86ec9ac54ddf2d487fd72156199fbdd029ef
+ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080876"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659873"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hospedar ASP.NET Core en Linux con Nginx
 
@@ -287,7 +287,7 @@ Para configurar la protección de datos de modo que sea persistente y permita ci
 
 ## <a name="long-request-header-fields"></a>Campos del encabezado de solicitud más largos
 
-Si la aplicación requiere campos de encabezado de solicitud más largos que los permitidos por la configuración predeterminada del servidor proxy (normalmente 4K u 8K, según la plataforma), será necesario ajustar las siguientes directivas. Los valores aplicables dependerán del escenario. Para obtener más información, consulte la documentación del servidor.
+La configuración predeterminada del servidor proxy normalmente limita los campos de encabezado de la solicitud a 4 K u 8 K, en función de la plataforma. Una aplicación puede requerir campos con una longitud mayor que la predeterminada (por ejemplo, las aplicaciones que usan [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)). Si se requieren campos más largos, es necesario ajustar la configuración predeterminada del servidor proxy. Los valores que se aplican dependen del escenario. Para obtener más información, consulte la documentación del servidor.
 
 * [proxy_buffer_size](https://nginx.org/docs/http/ngx_http_proxy_module.html#proxy_buffer_size)
 * [proxy_buffers](https://nginx.org/docs/http/ngx_http_proxy_module.html#proxy_buffers)

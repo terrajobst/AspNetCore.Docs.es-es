@@ -5,14 +5,14 @@ description: Aprenda a configurar Apache como servidor proxy inverso en CentOS p
 monikerRange: '>= aspnetcore-2.1'
 ms.author: shboyer
 ms.custom: mvc
-ms.date: 03/31/2019
+ms.date: 11/05/2019
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: ec14bce5d8ada9a56ccc44d1159373dc73a09c1b
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: fce91db736908e433ba6803319aa8984bb68a554
+ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081880"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659884"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hospedar ASP.NET Core en Linux con Apache
 
@@ -484,7 +484,7 @@ En el archivo de ejemplo se limita el ancho de banda a 600 KB/s en la ubicación
 
 ### <a name="long-request-header-fields"></a>Campos del encabezado de solicitud más largos
 
-Si la aplicación requiere campos de encabezado de solicitud más largos que los permitidos por la configuración predeterminada del servidor proxy (normalmente 8190 bytes), ajuste el valor de la directiva [LimitRequestFieldSize](https://httpd.apache.org/docs/2.4/mod/core.html#LimitRequestFieldSize). El valor aplicable dependerá del escenario. Para obtener más información, consulte la documentación del servidor.
+La configuración predeterminada del servidor proxy normalmente limita los campos de encabezado de la solicitud a 8.190 bytes. Una aplicación puede requerir campos con una longitud mayor que la predeterminada (por ejemplo, las aplicaciones que usan [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)). Si se requieren campos más largos, es necesario ajustar la directiva [LimitRequestFieldSize](https://httpd.apache.org/docs/2.4/mod/core.html#LimitRequestFieldSize) del servidor proxy. El valor que se aplica depende del escenario. Para obtener más información, consulte la documentación del servidor.
 
 > [!WARNING]
 > No aumente el valor predeterminado de `LimitRequestFieldSize` a menos que sea necesario. El aumento de este valor incrementa el riesgo de saturación del búfer (desbordamiento) y ataques por denegación de servicio (DoS) realizados por usuarios malintencionados.
