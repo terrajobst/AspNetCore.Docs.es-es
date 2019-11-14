@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo ASP.NET Core abstrae el acceso al 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 11/07/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: 3a92b44efc70d156596ee9fe80b4f6a65266e73d
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 531f7acd7a704a74e6142d201f613f05288deecb
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007173"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73896854"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Proveedores de archivo en ASP.NET Core
 
@@ -105,7 +105,7 @@ La aplicación de ejemplo crea `ManifestEmbeddedFileProvider` y pasa el ensambla
 
 ```csharp
 var manifestEmbeddedProvider = 
-    new ManifestEmbeddedFileProvider(Assembly.GetEntryAssembly());
+    new ManifestEmbeddedFileProvider(typeof(Program).Assembly);
 ```
 
 Las sobrecargas adicionales le permiten:
@@ -252,7 +252,7 @@ La aplicación de ejemplo crea `ManifestEmbeddedFileProvider` y pasa el ensambla
 
 ```csharp
 var manifestEmbeddedProvider = 
-    new ManifestEmbeddedFileProvider(Assembly.GetEntryAssembly());
+    new ManifestEmbeddedFileProvider(typeof(Program).Assembly);
 ```
 
 Las sobrecargas adicionales le permiten:

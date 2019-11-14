@@ -4,14 +4,17 @@ author: rick-anderson
 description: Consulte una introducción a ASP.NET Core, un marco multiplataforma de código abierto y de alto rendimiento que tiene como finalidad compilar modernas aplicaciones conectadas a Internet y basadas en la nube.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/03/2019
+ms.date: 11/12/2019
+no-loc:
+- Blazor
+- SignalR
 uid: index
-ms.openlocfilehash: edbdce19656af64d7c2c0ee554bc5213a0d0c50e
-ms.sourcegitcommit: 09f4a5ded39cc8204576fe801d760bd8b611f3aa
+ms.openlocfilehash: dc1acd9e31fdc4f626c9dee2f378252c802491b6
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611407"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963648"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -44,7 +47,7 @@ ASP.NET Core MVC proporciona características para crear [API web](xref:tutorial
 
 ## <a name="client-side-development"></a>Desarrollo del lado del cliente
 
-ASP.NET Core se integra perfectamente con bibliotecas y marcos populares del lado cliente, que incluyen [Blazor](xref:blazor/index), [Angular](xref:spa/angular), [React](xref:spa/react) y [Bootstrap](https://getbootstrap.com/). Para más información, consulte <xref:blazor/index> y los temas relacionados en *Client-side development* (Desarrollo del lado cliente).
+ASP.NET Core se integra perfectamente con bibliotecas y plataformas de trabajo populares del lado cliente, que incluyen [Blazor](xref:blazor/index), [Angular](xref:spa/angular), [React](xref:spa/react) y [Bootstrap](https://getbootstrap.com/). Para más información, consulte <xref:blazor/index> y los temas relacionados en *Client-side development* (Desarrollo del lado cliente).
 
 <a name="target-framework"></a>
 
