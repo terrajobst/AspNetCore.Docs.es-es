@@ -46,7 +46,7 @@ static async Task Main(string[] args)
 }
 ```
 
-Todas las implementaciones de cliente de gRPC admiten TLS. los clientes de gRPC de otros idiomas normalmente requieren el canal configurado con `SslCredentials`. `SslCredentials` especifica el certificado que usará el cliente y debe usarse en lugar de credenciales no seguras. Para obtener ejemplos de configuración de las distintas implementaciones de cliente de gRPC para usar TLS, consulte [autenticación de gRPC](https://www.grpc.io/docs/guides/auth/).
+Todas las implementaciones de cliente de gRPC admiten TLS. los clientes de gRPC de otros idiomas normalmente requieren el canal configurado con `SslCredentials`. `SslCredentials` especifica el certificado que usará el cliente y se debe usar en lugar de credenciales no seguras. Para obtener ejemplos de configuración de las distintas implementaciones de cliente de gRPC para usar TLS, consulte [autenticación de gRPC](https://www.grpc.io/docs/guides/auth/).
 
 ## <a name="call-a-grpc-service-with-an-untrustedinvalid-certificate"></a>Llamar a un servicio de gRPC con un certificado no confiable o no válido
 
@@ -92,7 +92,7 @@ var client = new Greet.GreeterClient(channel);
 
 Kestrel no admite HTTP/2 con TLS en macOS y versiones anteriores de Windows, como Windows 7. La plantilla ASP.NET Core gRPC y los ejemplos usan TLS de forma predeterminada. Verá el siguiente mensaje de error al intentar iniciar el servidor de gRPC:
 
-> No se puede enlazar a https://localhost:5001 en la interfaz de bucle invertido IPv4: ' HTTP/2 a través de TLS no se admite en macOS debido a que falta compatibilidad con ALPN. '.
+> No se puede enlazar a https://localhost:5001 en la interfaz de bucle invertido IPv4: ' HTTP/2 a través de TLS no se admite en macOS debido a que falta la compatibilidad con ALPN. '.
 
 Para solucionar este problema, configure Kestrel y el cliente de gRPC para que use HTTP/2 *sin* TLS. Esto solo debe realizarse durante el desarrollo. Si no se usa TLS, se enviarán mensajes gRPC sin cifrado.
 
@@ -124,12 +124,12 @@ El cliente de gRPC también debe estar configurado para no usar TLS. Para obtene
 
 la generación de código gRPC de los clientes concretos y las clases base del servicio requiere que se haga referencia a los archivos y las herramientas de protobuf desde un proyecto. Debe incluir:
 
-* archivos *. proto* que quiere usar en el grupo de elementos `<Protobuf>`. El proyecto debe hacer referencia a [los archivos *. proto* importados](https://developers.google.com/protocol-buffers/docs/proto3#importing-definitions) .
+* archivos *. proto* que desea utilizar en el grupo de elementos `<Protobuf>`. El proyecto debe hacer referencia a [los archivos *. proto* importados](https://developers.google.com/protocol-buffers/docs/proto3#importing-definitions) .
 * Referencia de paquete al paquete de herramientas de gRPC [gRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/).
 
 Para obtener más información sobre la C# generación de recursos gRPC, consulte <xref:grpc/basics>.
 
-De forma predeterminada, una referencia `<Protobuf>` genera un cliente concreto y una clase base de servicio. El atributo `GrpcServices` del elemento de referencia se puede utilizar para C# limitar la generación de activos. Las opciones válidas de `GrpcServices` son:
+De forma predeterminada, una referencia `<Protobuf>` genera un cliente concreto y una clase base de servicio. El atributo `GrpcServices` del elemento de referencia se puede utilizar para C# limitar la generación de recursos. Las opciones de `GrpcServices` válidas son:
 
 * `Both` (valor predeterminado si no está presente)
 * `Server`
@@ -154,14 +154,14 @@ Una aplicación cliente de gRPC que realiza llamadas a gRPC solo necesita el cli
 
 ## <a name="wpf-projects-unable-to-generate-grpc-c-assets-from-proto-files"></a>Los proyectos de WPF no pueden C# generar recursos gRPC a partir de archivos. proto
 
-Los proyectos de WPF tienen un [problema conocido](https://github.com/dotnet/wpf/issues/810) que evita que la generación de código de gRPC funcione correctamente. Los tipos gRPC generados en un proyecto de WPF haciendo referencia a los archivos `Grpc.Tools` y *. proto* crearán errores de compilación cuando se usen:
+Los proyectos de WPF tienen un [problema conocido](https://github.com/dotnet/wpf/issues/810) que evita que la generación de código de gRPC funcione correctamente. Los tipos gRPC generados en un proyecto de WPF haciendo referencia a `Grpc.Tools` y archivos *. proto* crearán errores de compilación cuando se utilicen:
 
 > error CS0246: no se encontró el tipo o el nombre de espacio de nombres ' MyGrpcServices ' (¿falta una directiva using o una referencia de ensamblado?)
 
 Para solucionar este problema, puede hacer lo siguiente:
 
 1. Cree un nuevo proyecto de biblioteca de clases de .NET Core.
-2. En el nuevo proyecto, agregue referencias para habilitar [ C# la generación de código desde *@no__t archivos -3. proto* ](xref:grpc/basics#generated-c-assets):
+2. En el nuevo proyecto, agregue referencias para habilitar [ C# la generación de código desde *\*archivos. proto* ](xref:grpc/basics#generated-c-assets):
     * Agregue una referencia de paquete al paquete [Grpc.Tools](https://www.nuget.org/packages/Grpc.Tools/).
     * Agregue archivos *\*.proto* al grupo de elementos `<Protobuf>`.
 3. En la aplicación WPF, agregue una referencia al nuevo proyecto.

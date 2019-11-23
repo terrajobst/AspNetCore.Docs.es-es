@@ -41,12 +41,12 @@ Estas dos direcciones URL tienen el mismo origen:
 
 Estas direcciones URL tienen distintos orígenes que las dos direcciones URL anteriores:
 
-* dominio diferente `https://example.net` &ndash;
+* `https://example.net` &ndash; dominio diferente
 * `https://www.example.com/foo.html` &ndash; subdominio diferente
 * `http://example.com/foo.html` &ndash; esquema diferente
 * `https://example.com:9000/foo.html` &ndash; puerto diferente
 
-Internet Explorer no tiene en cuenta el puerto al comparar los orígenes.
+Internet Explorer no tiene en cuenta el puerto al comparar orígenes.
 
 ## <a name="cors-with-named-policy-and-middleware"></a>CORS con Directiva con nombre y middleware
 
@@ -70,7 +70,7 @@ El método <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> pue
 
 [!code-csharp[](cors/sample/Cors/WebAPI/Startup2.cs?name=snippet2)]
 
-Nota: la dirección URL **no** debe contener una barra diagonal final (`/`). Si la dirección URL termina con `/`, la comparación devuelve `false` y no se devuelve ningún encabezado.
+Nota: la dirección URL **no** debe contener una barra diagonal final (`/`). Si la dirección URL finaliza con `/`, la comparación devuelve `false` y no se devuelve ningún encabezado.
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -135,7 +135,7 @@ Consulte [prueba de CORS](#test) para obtener instrucciones sobre cómo probar e
 
 ## <a name="enable-cors-with-endpoint-routing"></a>Habilitación de CORS con enrutamiento de punto de conexión
 
-Con el enrutamiento de punto de conexión, CORS se puede habilitar en cada punto de conexión mediante el conjunto `RequireCors` de métodos de extensión.
+Con el enrutamiento de punto de conexión, CORS se puede habilitar en cada punto de conexión mediante el `RequireCors` conjunto de métodos de extensión.
 
 ```csharp
 app.UseEndpoints(endpoints =>
@@ -158,17 +158,17 @@ app.UseEndpoints(endpoints =>
 
 ## <a name="enable-cors-with-attributes"></a>Habilitación de CORS con atributos
 
-El atributo [&lbrack;EnableCors @ no__t-2](xref:Microsoft.AspNetCore.Cors.EnableCorsAttribute) proporciona una alternativa a la aplicación de CORS globalmente. El atributo `[EnableCors]` habilita CORS para los puntos de conexión seleccionados, en lugar de todos los extremos.
+El atributo [&lbrack;EnableCors&rbrack;](xref:Microsoft.AspNetCore.Cors.EnableCorsAttribute) proporciona una alternativa a la aplicación de CORS globalmente. El atributo `[EnableCors]` habilita CORS para los puntos de conexión seleccionados, en lugar de todos los extremos.
 
 Use `[EnableCors]` para especificar la directiva predeterminada y `[EnableCors("{Policy String}")]` para especificar una directiva.
 
 El atributo `[EnableCors]` se puede aplicar a:
 
-* Página de Razor `PageModel`
+* `PageModel` de página de Razor
 * Controlador
 * Método de acción del controlador
 
-Puede aplicar diferentes directivas al controlador/página-modelo/acción con el atributo `[EnableCors]`. Cuando se aplica el atributo `[EnableCors]` a un método Controllers/Page-Model/Action y CORS está habilitado en middleware, se aplican ambas directivas. Se recomienda no combinar directivas. Use el atributo `[EnableCors]` o middleware, no ambos en la misma aplicación.
+Puede aplicar diferentes directivas al controlador/página-modelo/acción con el atributo `[EnableCors]`. Cuando el atributo `[EnableCors]` se aplica a un método Controllers/Page-Model/Action y CORS está habilitado en middleware, se aplican ambas directivas. Se recomienda no combinar directivas. Use el `[EnableCors]` atributo o middleware, no ambos en la misma aplicación.
 
 En el código siguiente se aplica una directiva diferente a cada método:
 
@@ -180,7 +180,7 @@ En el código siguiente se crea una directiva predeterminada de CORS y una direc
 
 ### <a name="disable-cors"></a>Deshabilitar CORS
 
-El atributo [&lbrack;DisableCors @ no__t-2](xref:Microsoft.AspNetCore.Cors.DisableCorsAttribute) deshabilita CORS para el controlador/página-modelo/acción.
+El atributo [&lbrack;DisableCors&rbrack;](xref:Microsoft.AspNetCore.Cors.DisableCorsAttribute) deshabilita CORS para el controlador/página-modelo/acción.
 
 <a name="cpo"></a>
 
@@ -190,16 +190,16 @@ En esta sección se describen las distintas opciones que se pueden establecer en
 
 * [Establecer los orígenes permitidos](#set-the-allowed-origins)
 * [Establecer los métodos HTTP permitidos](#set-the-allowed-http-methods)
-* [Establecer los encabezados de solicitud permitidos](#set-the-allowed-request-headers)
+* [Establecer los encabezados de solicitudes permitidos](#set-the-allowed-request-headers)
 * [Establecer los encabezados de respuesta expuestos](#set-the-exposed-response-headers)
 * [Credenciales en solicitudes entre orígenes](#credentials-in-cross-origin-requests)
-* [Establecer la hora de expiración de la comprobación previa](#set-the-preflight-expiration-time)
+* [Establecer el tiempo de expiración de las comprobaciones preparatorias](#set-the-preflight-expiration-time)
 
 se llama a <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions.AddPolicy*> en `Startup.ConfigureServices`. Para algunas opciones, puede resultar útil leer la sección [Cómo funciona CORS](#how-cors) en primer lugar.
 
 ## <a name="set-the-allowed-origins"></a>Establecer los orígenes permitidos
 
-<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*> &ndash; permite solicitudes de CORS de todos los orígenes con cualquier esquema (@no__t 2 o `https`). `AllowAnyOrigin` es inseguro porque *cualquier sitio web* puede realizar solicitudes entre orígenes a la aplicación.
+<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*> &ndash; permite solicitudes de CORS desde todos los orígenes con cualquier esquema (`http` o `https`). `AllowAnyOrigin` es inseguro porque *cualquier sitio web* puede realizar solicitudes entre orígenes a la aplicación.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -232,7 +232,7 @@ se llama a <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions.AddPolicy*
 * Permite cualquier método HTTP:
 * Afecta a las solicitudes preparatorias y al encabezado `Access-Control-Allow-Methods`. Para obtener más información, consulte la sección [solicitudes preparatorias](#preflight-requests) .
 
-### <a name="set-the-allowed-request-headers"></a>Establecer los encabezados de solicitud permitidos
+### <a name="set-the-allowed-request-headers"></a>Establecer los encabezados de solicitudes permitidos
 
 Para permitir el envío de encabezados específicos en una solicitud de CORS, denominados *encabezados de solicitud de autor*, llame a <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*> y especifique los encabezados permitidos:
 
@@ -279,7 +279,7 @@ Por ejemplo, considere una aplicación configurada de la siguiente manera:
 app.UseCors(policy => policy.WithHeaders(HeaderNames.CacheControl));
 ```
 
-El middleware de CORS responde correctamente a una solicitud preparatoria con el siguiente encabezado de solicitud porque `Content-Language` siempre está en la lista de permitidos:
+Middleware de CORS responde correctamente a una solicitud preparatoria con el siguiente encabezado de solicitud porque `Content-Language` siempre está en la lista de permitidos:
 
 ```
 Access-Control-Request-Headers: Cache-Control, Content-Language
@@ -342,7 +342,7 @@ El servidor debe permitir las credenciales. Para permitir las credenciales entre
 
 La respuesta HTTP incluye un encabezado `Access-Control-Allow-Credentials`, que indica al explorador que el servidor permite credenciales para una solicitud entre orígenes.
 
-Si el explorador envía credenciales pero la respuesta no incluye un encabezado `Access-Control-Allow-Credentials` válido, el explorador no expone la respuesta a la aplicación y se produce un error en la solicitud entre orígenes.
+Si el explorador envía credenciales pero la respuesta no incluye un encabezado de `Access-Control-Allow-Credentials` válido, el explorador no expone la respuesta a la aplicación y se produce un error en la solicitud entre orígenes.
 
 Permitir las credenciales entre orígenes es un riesgo para la seguridad. Un sitio web en otro dominio puede enviar las credenciales del usuario que ha iniciado sesión a la aplicación en nombre del usuario sin el conocimiento del usuario. <!-- TODO Review: When using `AllowCredentials`, all CORS enabled domains must be trusted.
 I don't like "all CORS enabled domains must be trusted", because it implies that if you're not using  `AllowCredentials`, domains don't need to be trusted. -->
@@ -354,13 +354,13 @@ La especificación CORS también indica que el establecimiento de orígenes en `
 En algunas solicitudes de CORS, el explorador envía una solicitud adicional antes de efectuar la solicitud real. Esta solicitud se denomina *solicitud preparatoria*. El explorador puede omitir la solicitud preparatoria si se cumplen las condiciones siguientes:
 
 * El método de solicitud es GET, HEAD o POST.
-* La aplicación no establece encabezados de solicitud distintos de `Accept`, `Accept-Language`, `Content-Language`, `Content-Type` o `Last-Event-ID`.
-* El encabezado `Content-Type`, si está establecido, tiene uno de los valores siguientes:
+* La aplicación no establece encabezados de solicitud distintos de `Accept`, `Accept-Language`, `Content-Language`, `Content-Type`o `Last-Event-ID`.
+* El encabezado `Content-Type`, si se establece, tiene uno de los siguientes valores:
   * `application/x-www-form-urlencoded`
   * `multipart/form-data`
   * `text/plain`
 
-La regla de los encabezados de solicitud establecidos para la solicitud de cliente se aplica a los encabezados que establece la aplicación mediante una llamada a `setRequestHeader` en el objeto `XMLHttpRequest`. La especificación CORS llama a estos encabezados de *solicitud Author*. La regla no se aplica a los encabezados que el explorador puede establecer, como `User-Agent`, `Host` o `Content-Length`.
+La regla de los encabezados de solicitud establecidos para la solicitud de cliente se aplica a los encabezados que establece la aplicación mediante una llamada a `setRequestHeader` en el objeto `XMLHttpRequest`. La especificación CORS llama a estos encabezados de *solicitud Author*. La regla no se aplica a los encabezados que el explorador puede establecer, como `User-Agent`, `Host`o `Content-Length`.
 
 El siguiente es un ejemplo de una solicitud preparatoria:
 
@@ -391,7 +391,7 @@ Para permitir todos los encabezados de solicitud de autor, llame a <xref:Microso
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=64-69&highlight=5)]
 
-Los exploradores no son totalmente coherentes en el modo en que establecen `Access-Control-Request-Headers`. Si establece encabezados en un valor distinto de `"*"` (o usa <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy.AllowAnyHeader*>), debe incluir al menos `Accept`, `Content-Type` y `Origin`, además de los encabezados personalizados que desee admitir.
+Los exploradores no son totalmente coherentes en el modo en que establecen `Access-Control-Request-Headers`. Si establece encabezados en algo distinto de `"*"` (o usa <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy.AllowAnyHeader*>), debe incluir al menos `Accept`, `Content-Type`y `Origin`, además de los encabezados personalizados que desee admitir.
 
 A continuación se ofrece un ejemplo de respuesta a la solicitud preparatoria (siempre que el servidor permita la solicitud):
 
@@ -410,7 +410,7 @@ La respuesta incluye un encabezado `Access-Control-Allow-Methods` que enumera lo
 
 Si se deniega la solicitud preparatoria, la aplicación devuelve una respuesta *200 OK* pero no envía los encabezados de CORS. Por lo tanto, el explorador no intenta la solicitud entre orígenes.
 
-### <a name="set-the-preflight-expiration-time"></a>Establecer la hora de expiración de la comprobación previa
+### <a name="set-the-preflight-expiration-time"></a>Establecer el tiempo de expiración de las comprobaciones preparatorias
 
 El encabezado `Access-Control-Max-Age` especifica cuánto tiempo se puede almacenar en caché la respuesta a la solicitud preparatoria. Para establecer este encabezado, llame a <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetPreflightMaxAge*>:
 
@@ -433,7 +433,7 @@ En esta sección se describe lo que sucede en una solicitud de [CORS](https://de
 * Es una forma de que un servidor permita que los exploradores ejecuten una solicitud de API [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) o [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) entre orígenes que, de lo contrario, se prohibirá.
   * Los exploradores (sin CORS) no pueden realizar solicitudes entre orígenes. Antes de CORS, se usaba [JSONP](https://www.w3schools.com/js/js_json_jsonp.asp) para eludir esta restricción. JSONP no usa XHR, usa la etiqueta `<script>` para recibir la respuesta. Los scripts pueden cargarse entre orígenes.
 
-La [especificación CORS](https://www.w3.org/TR/cors/) presentó varios encabezados HTTP nuevos que permiten solicitudes entre orígenes. Si un explorador admite CORS, establece estos encabezados automáticamente para las solicitudes entre orígenes. No es necesario el código personalizado de JavaScript para habilitar CORS.
+La [especificación CORS](https://www.w3.org/TR/cors/) presentó varios encabezados HTTP nuevos que permiten solicitudes entre orígenes. Si un explorador es compatible con CORS, establece estos encabezados automáticamente para las solicitudes entre orígenes. No se necesita código JavaScript personalizado para habilitar CORS.
 
 A continuación se presenta un ejemplo de una solicitud entre orígenes. El encabezado `Origin` proporciona el dominio del sitio que realiza la solicitud. El encabezado `Origin` es obligatorio y debe ser diferente del host.
 
@@ -486,7 +486,7 @@ Para probar CORS:
 1. En el código anterior, reemplace `url: 'https://<web app>.azurewebsites.net/api/values/1',` por la dirección URL a la aplicación implementada.
 1. Implemente el proyecto de API. Por ejemplo, [implemente en Azure](xref:host-and-deploy/azure-apps/index).
 1. Ejecute la aplicación Razor Pages o MVC desde el escritorio y haga clic en el botón **probar** . Use las herramientas F12 para revisar los mensajes de error.
-1. Quite el origen localhost de `WithOrigins` e implemente la aplicación. Como alternativa, ejecute la aplicación cliente con un puerto diferente. Por ejemplo, ejecute desde Visual Studio.
+1. Quitar el origen localhost de `WithOrigins` e implementar la aplicación. Como alternativa, ejecute la aplicación cliente con un puerto diferente. Por ejemplo, ejecute desde Visual Studio.
 1. Pruebe con la aplicación cliente. Los errores de CORS devuelven un error, pero el mensaje de error no está disponible para JavaScript. Use la pestaña consola de las herramientas F12 para ver el error. Dependiendo del explorador, obtendrá un error (en la consola de herramientas de F12) similar al siguiente:
 
    * Uso de Microsoft Edge:
@@ -495,7 +495,7 @@ Para probar CORS:
 
    * Usar Chrome:
 
-     **La Directiva CORS ha bloqueado el acceso a XMLHttpRequest en `https://webapi.azurewebsites.net/api/values/1` desde el origen `https://localhost:44375`: no hay ningún encabezado "Access-Control-Allow-Origin" presente en el recurso solicitado.**
+     **La Directiva CORS ha bloqueado el acceso a XMLHttpRequest en `https://webapi.azurewebsites.net/api/values/1` desde el origen `https://localhost:44375`: no hay ningún encabezado "Access-Control-Allow-Origin" en el recurso solicitado.**
      
 Los puntos de conexión habilitados para CORS se pueden probar con una herramienta, como [Fiddler](https://www.telerik.com/fiddler) o [Postman](https://www.getpostman.com/). Cuando se usa una herramienta, el origen de la solicitud especificada por el encabezado `Origin` debe ser diferente del host que recibe la solicitud. Si la solicitud no es de *origen cruzado* según el valor del encabezado `Origin`:
 

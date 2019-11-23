@@ -23,7 +23,7 @@ Por [James Newton-King](https://twitter.com/jamesnk)
 
 gRPC se puede usar con la [autenticación ASP.net Core](xref:security/authentication/identity) para asociar un usuario a cada llamada.
 
-El siguiente es un ejemplo de `Startup.Configure` que usa la autenticación de gRPC y ASP.NET Core:
+El siguiente es un ejemplo de `Startup.Configure` que usa la autenticación gRPC y ASP.NET Core:
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -41,7 +41,7 @@ public void Configure(IApplicationBuilder app)
 ```
 
 > [!NOTE]
-> El orden en el que se registra el middleware de autenticación ASP.NET Core es importante. Llame siempre a `UseAuthentication` y `UseAuthorization` después de @no__t 2 y antes de `UseEndpoints`.
+> El orden en el que se registra el middleware de autenticación ASP.NET Core es importante. Llame siempre a `UseAuthentication` y `UseAuthorization` después de `UseRouting` y antes de `UseEndpoints`.
 
 El mecanismo de autenticación que usa la aplicación durante una llamada debe configurarse. La configuración de autenticación se agrega en `Startup.ConfigureServices` y será diferente en función del mecanismo de autenticación que use la aplicación. Para ver ejemplos de cómo proteger ASP.NET Core aplicaciones, consulte [ejemplos de autenticación](xref:security/authentication/samples).
 
@@ -150,7 +150,7 @@ Para obtener más información sobre la configuración de la autenticación en e
 
 La configuración del cliente de gRPC para usar la autenticación dependerá del mecanismo de autenticación que se use. El token de portador anterior y los ejemplos de certificados de cliente muestran un par de formas en que se puede configurar el cliente de gRPC para enviar metadatos de autenticación con llamadas gRPC:
 
-* Los clientes de gRPC fuertemente tipados usan `HttpClient` internamente. La autenticación se puede configurar en [`HttpClientHandler`](/dotnet/api/system.net.http.httpclienthandler)o agregando instancias de [`HttpMessageHandler`](/dotnet/api/system.net.http.httpmessagehandler) personalizadas al `HttpClient`.
+* Los clientes de gRPC fuertemente tipados usan `HttpClient` internamente. La autenticación se puede configurar en [`HttpClientHandler`](/dotnet/api/system.net.http.httpclienthandler)o agregando instancias de [`HttpMessageHandler`](/dotnet/api/system.net.http.httpmessagehandler) personalizadas a la `HttpClient`.
 * Cada llamada a gRPC tiene un argumento opcional `CallOptions`. Los encabezados personalizados se pueden enviar mediante la colección de encabezados de la opción.
 
 > [!NOTE]
@@ -176,7 +176,7 @@ public class TicketerService : Ticketer.TicketerBase
 }
 ```
 
-Los métodos de servicio individuales también pueden tener el atributo `[Authorize]` aplicado. Si el usuario actual no coincide con las directivas que se aplican **al método y a la** clase, se devuelve un error al autor de la llamada:
+Los métodos de servicio individuales pueden tener también el atributo `[Authorize]` aplicado. Si el usuario actual no coincide con las directivas que se aplican **al método y a la** clase, se devuelve un error al autor de la llamada:
 
 ```csharp
 [Authorize]
