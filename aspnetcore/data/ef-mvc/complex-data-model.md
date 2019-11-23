@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 313d951ccdd45ae1209ffd9612d24738822fbed8
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: b8b1ade4c8c29d34200bf8c0944cff6adec0bb95
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259611"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74288956"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Tutorial: Creación de un modelo de datos complejo: ASP.NET MVC con EF Core
 
@@ -155,11 +155,12 @@ En *Models/Student.cs*, reemplace el código que agregó anteriormente con el c�
 
 El atributo `Required` hace que las propiedades de nombre sean campos obligatorios. El atributo `Required` no es necesario para los tipos que no aceptan valores NULL, como los tipos de valor (DateTime, int, double, float, etc.). Los tipos que no aceptan valores NULL se tratan automáticamente como campos obligatorios.
 
-Puede quitar el atributo `Required` y reemplazarlo por un parámetro de longitud mínima para el atributo `StringLength`:
+El atributo `Required` se debe usar con `MinimumLength` para que se aplique `MinimumLength`.
 
 ```csharp
 [Display(Name = "Last Name")]
-[StringLength(50, MinimumLength=1)]
+[Required]
+[StringLength(50, MinimumLength=2)]
 public string LastName { get; set; }
 ```
 

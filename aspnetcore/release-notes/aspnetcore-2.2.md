@@ -4,14 +4,16 @@ author: rick-anderson
 description: Obtenga información sobre las nuevas características de ASP.NET Core 2.2.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: aspnetcore-2.2
-ms.openlocfilehash: 88a202d85c4d4ed7a395dba78feea29ef4637732
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
+ms.openlocfilehash: fca653158c95e7c1a11f25f4076830fe3e7e93ae
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975711"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963133"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>Novedades de ASP.NET Core 2.2
 
@@ -74,11 +76,11 @@ En versiones anteriores de ASP.NET Core, IIS actuaba como un proxy inverso. En l
 
 Para obtener más información, consulte [Modelo de hospedaje en proceso](xref:host-and-deploy/aspnet-core-module?view=aspnetcore-2.2#in-process-hosting-model).
 
-## <a name="signalr-java-client"></a>Cliente de SignalR Java
+## <a name="opno-locsignalr-java-client"></a>Cliente de Java para SignalR
 
-ASP.NET Core 2.2 presenta un nuevo cliente de Java para SignalR. Este cliente admite la conexión a un servidor de SignalR de ASP.NET Core desde código de Java, incluidas las aplicaciones Android.
+ASP.NET Core 2.2 presenta un cliente de Java para SignalR. Este cliente admite la conexión a una instancia de ASP.NET Core SignalR Server desde código de Java, incluidas las aplicaciones Android.
 
-Para obtener más información, consulte [Cliente de Java para SignalR de ASP.NET Core](https://docs.microsoft.com/aspnet/core/signalr/java-client?view=aspnetcore-2.2).
+Para más información, consulte [Cliente de Java de ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/java-client?view=aspnetcore-2.2).
 
 ## <a name="cors-improvements"></a>Mejoras de CORS
 

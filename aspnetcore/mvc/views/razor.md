@@ -5,12 +5,12 @@ description: Obtenga información sobre la sintaxis de marcado de Razor para ins
 ms.author: riande
 ms.date: 09/28/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 6f8835419dbf4c271617f57484c3408e0af30617
-ms.sourcegitcommit: f62014bb558ff6f8fdaef2e96cb05986e216aacd
+ms.openlocfilehash: d8d686c23ea61950947798f213c9846058f1812e
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2019
-ms.locfileid: "71592321"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73896897"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Referencia de sintaxis de Razor para ASP.NET Core
 
@@ -676,7 +676,7 @@ Si la carpeta *EvenMorePages* del ejemplo anterior tiene un archivo de importaci
 
 La directiva `@page` tiene efectos diferentes en función del tipo de archivo en el que aparece. Directiva:
 
-* En un archivo *.cshtml*, indica que el archivo es una página de Razor. Para más información, consulte <xref:razor-pages/index>.
+* En un archivo *.cshtml*, indica que el archivo es una página de Razor. Para más información, consulte [Rutas personalizadas](xref:razor-pages/index#custom-routes) y <xref:razor-pages/index>.
 * Especifica que un componente de Razor debería controlar las solicitudes directamente. Para más información, consulte <xref:blazor/routing>.
 
 ::: moniker-end

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 10/07/2019
 uid: razor-pages/index
-ms.openlocfilehash: 61e15b9b9b8f84de36621c301ecb9d33b21dff88
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 67cc4f9b261372996d612f922c9f491f53948ece
+ms.sourcegitcommit: ddc813f0f1fb293861a01597532919945b0e7fe5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034279"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74412072"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -65,7 +65,7 @@ Abra el archivo *.csproj* generado desde Visual Studio para Mac.
 
 Páginas de Razor está habilitada en *Startup.cs*:
 
-[!code-cs[](index/3.0sample/RazorPagesIntro/Startup.cs?name=snippet_Startup&highlight=12)]
+[!code-cs[](index/3.0sample/RazorPagesIntro/Startup.cs?name=snippet_Startup&highlight=12,36)]
 
 Considere la posibilidad de una página básica: <a name="OnGet"></a>
 

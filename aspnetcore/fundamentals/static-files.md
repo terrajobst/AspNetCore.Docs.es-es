@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: 2f153551a86860616469200862723528e4a8cc1c
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: b989b90100318ac874dc399daf65ef7d21c5549f
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007331"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799476"
 ---
 # <a name="static-files-in-aspnet-core"></a>Archivos estáticos en ASP.NET Core
 
@@ -171,7 +171,7 @@ El código siguiente cambia el nombre de archivo predeterminado a *mydefault.htm
 
 ## <a name="usefileserver"></a>UseFileServer
 
-[UseFileServer](/dotnet/api/microsoft.aspnetcore.builder.fileserverextensions.usefileserver#Microsoft_AspNetCore_Builder_FileServerExtensions_UseFileServer_Microsoft_AspNetCore_Builder_IApplicationBuilder_) combina la funcionalidad de `UseStaticFiles`, `UseDefaultFiles` y `UseDirectoryBrowser`.
+<xref:Microsoft.AspNetCore.Builder.FileServerExtensions.UseFileServer*> combina la funcionalidad de `UseStaticFiles` y `UseDefaultFiles` y, opcionalmente, la de `UseDirectoryBrowser`.
 
 El código siguiente permite proporcionar archivos estáticos y el archivo predeterminado. El examen de directorios no está habilitado.
 
