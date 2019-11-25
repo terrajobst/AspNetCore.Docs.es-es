@@ -4,20 +4,23 @@ author: rick-anderson
 description: Obtenga información sobre las nuevas características de ASP.NET Core 3.0.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 11/12/2019
+no-loc:
+- Blazor
+- SignalR
 uid: aspnetcore-3.0
-ms.openlocfilehash: 8c53d8a9fa222ca40f26dc713ec3b70ddde76539
-ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.openlocfilehash: c3dde383507ec919f82b5268ddbf23911c3d24f8
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416122"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963122"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Novedades de ASP.NET Core 3.0
 
 En este artículo se resaltan los cambios más importantes de ASP.NET Core 3.0, con vínculos a la documentación pertinente.
 
-## <a name="blazor"></a>Blazor
+## Blazor
 
 Blazor es un marco nuevo en ASP.NET Core para la creación de interfaces de usuario web interactivas del lado cliente con .NET:
 
@@ -37,13 +40,13 @@ Escenarios compatibles con el marco Blazor:
 
 Para más información, consulte <xref:blazor/index>.
 
-### <a name="blazor-server"></a>Servidor Blazor
+### <a name="opno-locblazor-server"></a>Servidor de Blazor
 
-Blazor separa la lógica de representación de componentes del modo en que se aplican las actualizaciones de la interfaz de usuario. El servidor Blazor ofrece compatibilidad con el hospedaje de componentes de Razor en el servidor en una aplicación ASP.NET Core. Las actualizaciones de la interfaz de usuario se controlan a través de una conexión de SignalR. El servidor Blazor es compatible con ASP.NET Core 3.0.
+Blazor separa la lógica de representación de componentes del modo en el que se aplican las actualizaciones de la interfaz de usuario. El servidor de Blazor admite el hospedaje de componentes de Razor en el servidor en una aplicación de ASP.NET Core. Las actualizaciones de la interfaz de usuario se administran mediante una conexión de SignalR. Blazor Server se admite en ASP.NET Core 3.0.
 
-### <a name="blazor-webassembly-preview"></a>WebAssembly de Blazor (versión preliminar)
+### <a name="opno-locblazor-webassembly-preview"></a>Blazor WebAssembly (versión preliminar)
 
-Las aplicaciones Blazor también se pueden ejecutar directamente en el explorador mediante un entorno de ejecución .NET basado en WebAssembly. WebAssembly de Blazor se encuentra en versión preliminar *no* se admite en ASP.NET Core 3.0. WebAssembly de Blazor se admitirá en una versión futura de ASP.NET Core.
+Las aplicaciones Blazor también se pueden ejecutar directamente en el explorador mediante un entorno de ejecución .NET basado en WebAssembly. Blazor WebAssembly se encuentra en versión preliminar y *no* se admite en ASP.NET Core 3.0. Blazor WebAssembly se admitirá en una versión futura de ASP.NET Core.
 
 ### <a name="razor-components"></a>Componentes de Razor
 
@@ -76,9 +79,9 @@ La funcionalidad gRPC en ASP.NET Core 3.0 incluye:
 
 Para más información, consulte <xref:grpc/index>.
 
-## <a name="signalr"></a>SignalR
+## SignalR
 
-Consulte [Actualizar el código de SignalR](xref:migration/22-to-30#signalr) para obtener instrucciones sobre la migración. SignalR ahora usa `System.Text.Json` para serializar o deserializar los mensajes JSON. Consulte [Cambiar a Newtonsoft.Json](xref:migration/22-to-30#switch-to-newtonsoftjson) para obtener instrucciones sobre cómo restaurar el serializador basado en `Newtonsoft.Json`.
+Consulte [Actualización del código SignalR ](xref:migration/22-to-30#signalr) para ver las instrucciones de migración. SignalR ahora usa `System.Text.Json` para serializar o deserializar los mensajes JSON. Consulte [Cambiar a Newtonsoft.Json](xref:migration/22-to-30#switch-to-newtonsoftjson) para obtener instrucciones sobre cómo restaurar el serializador basado en `Newtonsoft.Json`.
 
 En los clientes de JavaScript y .NET para SignalR, se agregó compatibilidad para la reconexión automática. De forma predeterminada, el cliente intenta conectarse de nuevo inmediatamente y lo vuelve a intentar después de dos, diez y treinta segundos si es necesario. Si el cliente se vuelve a conectar correctamente, recibe un nuevo identificador de conexión. La reconexión automática es opcional:
 
@@ -222,7 +225,7 @@ services
     });
 ```
 
-Los métodos Hub de SignalR usan el [enrutamiento de punto de conexión](xref:fundamentals/routing). La conexión de los métodos Hub de SignalR se hizo previamente explícitamente:
+Los métodos Hub de SignalR usan el [enrutamiento de punto de conexión](xref:fundamentals/routing). La conexión de los métodos Hub de SignalR se hizo previamente de manera explícita:
 
 ```csharp
 app.UseSignalR(routes =>
@@ -255,7 +258,7 @@ app.UseRouting(routes =>
 });
 ```
 
-SignalR 3.0 de ASP.NET Core agregado:
+Se agregó ASP.NET Core 3.0 SignalR:
 
 Streaming de cliente a servidor. Con el streaming de cliente a servidor, los métodos del lado servidor pueden tomar instancias de `IAsyncEnumerable<T>` o `ChannelReader<T>`. En el ejemplo de C# siguiente, el método `UploadStream` del método Hub recibirá un flujo de cadenas del cliente:
 
@@ -286,7 +289,7 @@ async IAsyncEnumerable<string> clientStreamData()
 await connection.SendAsync("UploadStream", clientStreamData());
 ```
 
-Las aplicaciones cliente de JavaScript usan `Subject` de SignalR (o [Subject de RxJS ](https://rxjs.dev/api/index/class/Subject)) para el argumento `stream` del método Hub `UploadStream` anterior.
+Las aplicaciones cliente de JavaScript usan SignalR `Subject` (o [RxJS Subject](https://rxjs.dev/api/index/class/Subject)) como argumento `stream` del método Hub `UploadStream` anterior.
 
 ```javascript
 let subject = new signalR.Subject();

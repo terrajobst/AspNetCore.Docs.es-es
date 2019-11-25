@@ -4,22 +4,24 @@ author: isaac2004
 description: Obtenga información sobre las nuevas características de ASP.NET Core 2.1.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/30/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: aspnetcore-2.1
-ms.openlocfilehash: 359f961db768b9048427c8ab296ee3e035879408
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: a45ba44fb7911a21927a4a996c0d6fa9eb776357
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086406"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963178"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>Novedades de ASP.NET Core 2.1
 
 En este artículo se resaltan los cambios más importantes de ASP.NET Core 2.1, con vínculos a la documentación pertinente.
 
-## <a name="signalr"></a>SignalR
+## SignalR
 
-SignalR se ha reescrito para ASP.NET Core 2.1. SignalR de ASP.NET Core incluye una serie de mejoras:
+SignalR se ha reescrito para ASP.NET Core 2.1. ASP.NET Core SignalR incluye una serie de mejoras:
 
 * Un modelo de escalabilidad horizontal simplificado.
 * Un nuevo cliente de JavaScript sin dependencias de jQuery.
@@ -28,7 +30,7 @@ SignalR se ha reescrito para ASP.NET Core 2.1. SignalR de ASP.NET Core incluye u
 * Un nuevo modelo de respuesta de streaming.
 * Compatibilidad con clientes basados en WebSockets vacíos.
 
-Para más información, vea [SignalR de ASP.NET Core](xref:signalr/introduction).
+Para más información, consulte [ASP.NET CoreSignalR](xref:signalr/introduction).
 
 ## <a name="razor-class-libraries"></a>Bibliotecas de clases de Razor
 
@@ -81,7 +83,7 @@ ASP.NET Core proporciona API y plantillas para cumplir algunos de los requisitos
 
 Se ha incorporado un nuevo paquete que optimiza las tareas de creación y ejecución de pruebas. El paquete [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/) se encarga de estas tareas:
 
-* Copia el archivo de dependencia (*\*.deps*) de la aplicación que se está probando en la carpeta *bin* del proyecto de prueba.
+* Copia el archivo de dependencia ( *\*.deps*) de la aplicación que se está probando en la carpeta *bin* del proyecto de prueba.
 * Establece la raíz de contenido en la raíz de proyecto de la aplicación que se está probando, lo que permite encontrar archivos estáticos y páginas o vistas cuando se ejecutan las pruebas.
 * Proporciona la clase [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) para optimizar el arranque de la aplicación que se está probando con [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver).
 
@@ -167,7 +169,7 @@ Razor Pages ya admite las [áreas](xref:mvc/controllers/areas). Para ver un ejem
 
 El método <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> permite a una aplicación participar o no en los cambios de comportamiento importantes incorporados en ASP.NET Core MVC 2.1 o una versión posterior.
 
-Para obtener más información, vea <xref:mvc/compatibility-version>.
+Para más información, consulte <xref:mvc/compatibility-version>.
 
 ## <a name="migrate-from-20-to-21"></a>Migración de 2.0 a 2.1
 

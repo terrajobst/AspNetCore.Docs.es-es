@@ -9,12 +9,12 @@ ms.date: 10/15/2019
 no-loc:
 - Blazor
 uid: blazor/state-management
-ms.openlocfilehash: 408d44a3f2e81a165e8b786c6d2efc9329082e30
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 38ee5fccdf476f08c9f39d01b53c81b48eea04bf
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962824"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317185"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>Administración de estado de Blazor de ASP.NET Core
 
@@ -56,8 +56,8 @@ Para conservar el estado más allá de un solo circuito, *no almacene simplement
 
 La persistencia de los datos normalmente solo es necesaria para el estado de alto valor que los usuarios han gastado en crear. En los ejemplos siguientes, el estado persistente ahorra tiempo o ayudas en las actividades comerciales:
 
-* Webstep &ndash; le lleva mucho tiempo para que un usuario vuelva a escribir datos en varios pasos completados de un proceso de varios pasos si se pierde su estado. Un usuario pierde el estado en este escenario si se desplaza fuera del formulario de múltiples pasos y vuelve al formulario más adelante.
-* Carro de la compra &ndash; cualquier componente comercial importante de una aplicación que represente ingresos potenciales puede mantenerse. Un usuario que pierde su estado y, por tanto, su carro de la compra, puede comprar menos productos o servicios cuando vuelvan al sitio más adelante.
+* La WebForm de varios pasos &ndash; que consume mucho tiempo para que un usuario vuelva a escribir los datos de varios pasos completos de un proceso de varios pasos si se pierde su estado. Un usuario pierde el estado en este escenario si se desplaza fuera del formulario de múltiples pasos y vuelve al formulario más adelante.
+* Carro de la compra &ndash; se puede mantener cualquier componente comercial importante de una aplicación que represente ingresos potenciales. Un usuario que pierde su estado y, por tanto, su carro de la compra, puede comprar menos productos o servicios cuando vuelvan al sitio más adelante.
 
 Normalmente no es necesario conservar el estado de fácil creación, como el nombre de usuario especificado en un cuadro de diálogo de inicio de sesión que no se ha enviado.
 
@@ -85,7 +85,7 @@ Una vez guardados los datos en la base de datos, un usuario puede iniciar un nue
 
 Para más información sobre las opciones de almacenamiento de datos de Azure, consulte la [documentación de Azure Storage](/azure/storage/) y [las bases](https://azure.microsoft.com/product-categories/databases/)de datos de Azure.
 
-### <a name="url"></a>Resolución
+### <a name="url"></a>Dirección URL
 
 Para los datos transitorios que representan el estado de navegación, modelo de los datos como parte de la dirección URL. Entre los ejemplos de estado modelado en la dirección URL se incluyen:
 
@@ -97,11 +97,11 @@ Se conserva el contenido de la barra de direcciones del explorador:
 * Si el usuario recarga manualmente la página.
 * Si el servidor Web deja de estar disponible&mdash;el usuario se ve obligado a volver a cargar la página para conectarse a un servidor diferente.
 
-Para obtener información sobre cómo definir patrones de direcciones URL con la Directiva `@page`, consulte <xref:blazor/routing>.
+Para obtener información sobre cómo definir patrones de direcciones URL con la Directiva `@page`, vea <xref:blazor/routing>.
 
 ### <a name="client-side-in-the-browser"></a>Del lado cliente en el explorador
 
-En el caso de los datos transitorios que el usuario está creando activamente, una memoria auxiliar común son las colecciones `localStorage` y `sessionStorage` del explorador. No es necesario que la aplicación administre o borre el estado almacenado si se abandona el circuito, lo que supone una ventaja sobre el almacenamiento del lado servidor.
+En el caso de los datos transitorios que el usuario está creando activamente, una memoria auxiliar común es la `localStorage` y las colecciones de `sessionStorage` del explorador. No es necesario que la aplicación administre o borre el estado almacenado si se abandona el circuito, lo que supone una ventaja sobre el almacenamiento del lado servidor.
 
 > [!NOTE]
 > En esta sección, "cliente" hace referencia a los escenarios del lado cliente en el explorador, no al [modelo de hospedaje de Webassembly deBlazor](xref:blazor/hosting-models#blazor-webassembly). `localStorage` y `sessionStorage` se pueden usar en Blazor aplicaciones webassembly, pero solo escribiendo código personalizado o usando un paquete de terceros.
@@ -111,7 +111,7 @@ En el caso de los datos transitorios que el usuario está creando activamente, u
 * `localStorage` está en el ámbito del explorador del usuario. Si el usuario recarga la página o cierra y vuelve a abrir el explorador, el estado persiste. Si el usuario abre varias pestañas del explorador, el estado se comparte entre las pestañas. Los datos se conservan en `localStorage` hasta que se borran explícitamente.
 * `sessionStorage` está en el ámbito de la pestaña del explorador del usuario. Si el usuario vuelve a cargar la pestaña, el estado persiste. Si el usuario cierra la pestaña o el explorador, se pierde el estado. Si el usuario abre varias pestañas del explorador, cada pestaña tendrá su propia versión independiente de los datos.
 
-Por lo general, `sessionStorage` es más seguro de usar. `sessionStorage` evita el riesgo de que un usuario abra varias pestañas y encuentre lo siguiente:
+Por lo general, el uso de `sessionStorage` es más seguro. `sessionStorage` evita el riesgo de que un usuario abra varias pestañas y encuentre lo siguiente:
 
 * Errores en el almacenamiento de estado en todas las pestañas.
 * Comportamiento confuso cuando una pestaña sobrescribe el estado de otras pestañas.
@@ -140,7 +140,7 @@ Un ejemplo de un paquete NuGet que proporciona [protección de datos](xref:secur
 
 ### <a name="installation"></a>Instalación
 
-Para instalar el paquete `Microsoft.AspNetCore.ProtectedBrowserStorage`:
+Para instalar el paquete de `Microsoft.AspNetCore.ProtectedBrowserStorage`:
 
 1. En el proyecto de aplicación de Blazor Server, agregue una referencia de paquete a [Microsoft. AspNetCore. ProtectedBrowserStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.ProtectedBrowserStorage).
 1. En el código HTML de nivel superior (por ejemplo, en el archivo *pages/_Host. cshtml* en la plantilla de proyecto predeterminada), agregue la siguiente etiqueta de `<script>`:
@@ -157,7 +157,7 @@ Para instalar el paquete `Microsoft.AspNetCore.ProtectedBrowserStorage`:
 
 ### <a name="save-and-load-data-within-a-component"></a>Guardar y cargar datos dentro de un componente
 
-En cualquier componente que requiera cargar o guardar datos en el almacenamiento del explorador, use [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) para insertar una instancia de uno de los elementos siguientes:
+En cualquier componente que requiera cargar o guardar los datos en el almacenamiento del explorador, use [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) para insertar una instancia de uno de los elementos siguientes:
 
 * `ProtectedLocalStorage`
 * `ProtectedSessionStorage`
@@ -171,7 +171,7 @@ La elección depende de la memoria auxiliar que quiera usar. En el ejemplo sigui
 
 La instrucción `@using` se puede colocar en un archivo *_Imports. Razor* en lugar de en el componente. El uso del archivo *_Imports. Razor* hace que el espacio de nombres esté disponible para segmentos mayores de la aplicación o de toda la aplicación.
 
-Para conservar el valor `currentCount` en el componente `Counter` de la plantilla de proyecto, modifique el método `IncrementCount` para usar `ProtectedSessionStore.SetAsync`:
+Para conservar el valor de `currentCount` en el componente `Counter` de la plantilla de proyecto, modifique el método `IncrementCount` para usar `ProtectedSessionStore.SetAsync`:
 
 ```csharp
 private async Task IncrementCount()
@@ -194,7 +194,7 @@ protected override async Task OnInitializedAsync()
 }
 ```
 
-Si los parámetros del componente incluyen el estado de navegación, llame a `ProtectedSessionStore.GetAsync` y asigne el resultado en `OnParametersSetAsync`, no `OnInitializedAsync`. solo se llama a `OnInitializedAsync` una vez cuando se crea una instancia del componente en primer lugar. `OnInitializedAsync` no se llama de nuevo más tarde si el usuario navega a una dirección URL diferente mientras permanece en la misma página.
+Si los parámetros del componente incluyen el estado de navegación, llame a `ProtectedSessionStore.GetAsync` y asigne el resultado en `OnParametersSetAsync`, no `OnInitializedAsync`. solo se llama a `OnInitializedAsync` una vez cuando se crea una instancia del componente en primer lugar. `OnInitializedAsync` no se llama de nuevo más tarde si el usuario navega a una dirección URL diferente y permanece en la misma página.
 
 > [!WARNING]
 > Los ejemplos de esta sección solo funcionan si el servidor no tiene habilitada la representación previa. Con la representación previa habilitada, se genera un error similar al siguiente:
@@ -207,7 +207,7 @@ Si los parámetros del componente incluyen el estado de navegación, llame a `Pr
 
 Dado que el almacenamiento del explorador es asincrónico (al que se accede a través de una conexión de red), siempre hay un período de tiempo antes de que los datos se carguen y estén disponibles para que los use un componente. Para obtener los mejores resultados, procese un mensaje de estado de carga mientras se carga está en curso en lugar de Mostrar datos en blanco o predeterminados.
 
-Un enfoque consiste en realizar un seguimiento de si los datos son `null` (aún carga) o no. En el componente `Counter` predeterminado, el recuento se mantiene en `int`. Haga que `currentCount` admita valores NULL agregando un signo de interrogación (`?`) al tipo (`int`):
+Un enfoque consiste en realizar un seguimiento de si los datos se `null`n (todavía se están cargando) o no. En el componente de `Counter` predeterminado, el recuento se mantiene en un `int`. Haga que `currentCount` admita valores NULL agregando un signo de interrogación (`?`) al tipo (`int`):
 
 ```csharp
 private int? currentCount;
@@ -239,11 +239,21 @@ Durante la representación previa:
 
 > No se pueden emitir llamadas de interoperabilidad de JavaScript en este momento. Esto se debe a que el componente se está preprocesando.
 
-Una manera de resolver el error es deshabilitar la representación previa. Esta suele ser la mejor opción si la aplicación hace un uso intensivo del almacenamiento basado en explorador. La representación previa agrega complejidad y no aprovecha la aplicación porque la aplicación no puede representar un contenido útil hasta que `localStorage` o `sessionStorage` estén disponibles.
+Una manera de resolver el error es deshabilitar la representación previa. Esta suele ser la mejor opción si la aplicación hace un uso intensivo del almacenamiento basado en explorador. La representación previa agrega complejidad y no aprovecha la aplicación porque la aplicación no puede representar de ningún contenido útil hasta que `localStorage` o `sessionStorage` estén disponibles.
+
+::: moniker range=">= aspnetcore-3.1"
+
+Para deshabilitar la representación previa, abra el archivo *pages/_Host. cshtml* y cambie la llamada a `render-mode` de la aplicación auxiliar de etiquetas `Component` a `Server`.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
 
 Para deshabilitar la representación previa, abra el archivo *pages/_Host. cshtml* y cambie la llamada a `Html.RenderComponentAsync<App>(RenderMode.Server)`.
 
-La representación previa puede ser útil para otras páginas que no usan `localStorage` o `sessionStorage`. Para mantener habilitada la pregeneración, postergue la operación de carga hasta que el explorador esté conectado al circuito. El siguiente es un ejemplo para almacenar un valor de contador:
+::: moniker-end
+
+La representación previa puede ser útil para otras páginas que no utilizan `localStorage` o `sessionStorage`. Para mantener habilitada la pregeneración, postergue la operación de carga hasta que el explorador esté conectado al circuito. El siguiente es un ejemplo para almacenar un valor de contador:
 
 ```cshtml
 @using Microsoft.AspNetCore.ProtectedBrowserStorage
@@ -284,7 +294,7 @@ La representación previa puede ser útil para otras páginas que no usan `local
 
 Si muchos componentes se basan en el almacenamiento basado en explorador, al volver a implementar el código del proveedor de estado muchas veces se crea la duplicación de código. Una opción para evitar la duplicación de código es crear un *componente primario del proveedor de estado* que encapsula la lógica del proveedor de estado. Los componentes secundarios pueden trabajar con datos persistentes sin tener en cuenta el mecanismo de persistencia del estado.
 
-En el siguiente ejemplo de un componente `CounterStateProvider`, se conservan los datos del contador:
+En el siguiente ejemplo de un componente de `CounterStateProvider`, se conservan los datos del contador:
 
 ```cshtml
 @using Microsoft.AspNetCore.ProtectedBrowserStorage
@@ -324,7 +334,7 @@ else
 
 El componente `CounterStateProvider` controla la fase de carga, ya que no representa el contenido secundario hasta que se completa la carga.
 
-Para usar el componente `CounterStateProvider`, ajuste una instancia del componente en torno a cualquier otro componente que requiera acceso al estado del contador. Para hacer que el estado sea accesible a todos los componentes de una aplicación, ajuste el componente `CounterStateProvider` alrededor del `Router` en el componente `App` (*app. Razor*):
+Para usar el componente de `CounterStateProvider`, ajuste una instancia del componente en torno a cualquier otro componente que requiera acceso al estado del contador. Para hacer que el estado sea accesible a todos los componentes de una aplicación, ajuste el componente `CounterStateProvider` alrededor del `Router` en el componente `App` (*app. Razor*):
 
 ```cshtml
 <CounterStateProvider>
@@ -334,7 +344,7 @@ Para usar el componente `CounterStateProvider`, ajuste una instancia del compone
 </CounterStateProvider>
 ```
 
-Los componentes encapsulados reciben y pueden modificar el estado del contador guardado. El siguiente componente `Counter` implementa el patrón:
+Los componentes encapsulados reciben y pueden modificar el estado del contador guardado. El siguiente componente de `Counter` implementa el patrón:
 
 ```cshtml
 @page "/counter"
@@ -355,7 +365,7 @@ Los componentes encapsulados reciben y pueden modificar el estado del contador g
 }
 ```
 
-No es necesario que el componente anterior interactúe con `ProtectedBrowserStorage`, ni se trata de una fase de "carga".
+No es necesario que el componente anterior interactúe con `ProtectedBrowserStorage`, ni se trata de una fase de carga.
 
 Para tratar la representación previa tal y como se ha descrito anteriormente, `CounterStateProvider` se puede modificar para que todos los componentes que consumen los datos del contador funcionen automáticamente con la representación previa. Para obtener más información, consulte la sección [Handle prerendering](#handle-prerendering) .
 

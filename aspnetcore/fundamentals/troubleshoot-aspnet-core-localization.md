@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo diagnosticar problemas con la loca
 ms.author: riande
 ms.date: 01/24/2019
 uid: fundamentals/troubleshoot-aspnet-core-localization
-ms.openlocfilehash: 98e06a92af0b6c045095ac803196bf4b1f25e5c5
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: 229e274a22e170d984a16d3b1ee64ebc38c4ef77
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72289015"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963334"
 ---
 # <a name="troubleshoot-aspnet-core-localization"></a>Solución de problemas de localización de ASP.NET Core
 
@@ -100,6 +100,9 @@ options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async 
 ## <a name="root-namespace-issues"></a>Problemas con el espacio de nombres raíz
 
 Si el espacio de nombres raíz de un ensamblado es distinto al nombre del ensamblado, la localización no funcionará de manera predeterminada. Para evitar este problema, use [RootNamespace](/dotnet/api/microsoft.extensions.localization.rootnamespaceattribute?view=aspnetcore-2.1), procedimiento que se describe detalladamente [aquí](xref:fundamentals/localization?view=aspnetcore-2.2#resource-file-naming).
+
+> [!WARNING]
+> Esto puede ocurrir cuando el nombre de un proyecto no es un identificador de .NET válido. Por ejemplo `my-project-name.csproj` usará el espacio de nombres raíz `my_project_name` y el nombre de ensamblado `my-project-name`, lo que lleva a este error. 
 
 ## <a name="resources--build-action"></a>Acción de compilación y recursos
 

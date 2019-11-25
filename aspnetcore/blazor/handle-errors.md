@@ -1,35 +1,76 @@
 ---
-title: Control de errores en ASP.NET Core aplicaciones increíbles
+title: Control de errores en las aplicaciones de Blazor de ASP.NET Core
 author: guardrex
-description: Descubra cómo ASP.NET Core increíble el grado de administración de las excepciones no controladas y cómo desarrollar aplicaciones que detecten y controlen los errores.
+description: Descubra cómo ASP.NET Core Blazor cómo Blazor administra las excepciones no controladas y cómo desarrollar aplicaciones que detecten y controlen los errores.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 11/21/2019
+no-loc:
+- Blazor
+- SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: afcaa4d926c3e5f0a018897ce4b67b54574dae77
-ms.sourcegitcommit: 77c8be22d5e88dd710f42c739748869f198865dd
+ms.openlocfilehash: f2fa59259f1dd36f50e81256bddea265e347554b
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426983"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317155"
 ---
-# <a name="handle-errors-in-aspnet-core-blazor-apps"></a>Control de errores en ASP.NET Core aplicaciones increíbles
+# <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Control de errores en las aplicaciones de Blazor de ASP.NET Core
 
 Por [Steve Sanderson](https://github.com/SteveSandersonMS)
 
-En este artículo se describe el modo en que el increíble grado de administración de las excepciones no controladas y el modo de desarrollar aplicaciones que detectan y controlan los errores.
+En este artículo se describe cómo Blazor administra las excepciones no controladas y cómo desarrollar las aplicaciones que detectan y controlan los errores.
 
-## <a name="how-the-blazor-framework-reacts-to-unhandled-exceptions"></a>Cómo reacciona el marco de increíbles a las excepciones no controladas
+::: moniker range=">= aspnetcore-3.1"
 
-El servidor es un marco con estado. Mientras los usuarios interactúan con una aplicación, mantienen una conexión con el servidor conocido como *circuito*. El circuito contiene instancias de componentes activas, además de muchos otros aspectos del estado, como:
+## <a name="detailed-errors-during-development"></a>Errores detallados durante el desarrollo
+
+Cuando una aplicación Blazor no funciona correctamente durante el desarrollo, recibir información detallada del error de la aplicación ayuda a solucionar el problema. Cuando se produce un error, Blazor aplicaciones muestran una barra dorada en la parte inferior de la pantalla:
+
+* Durante el desarrollo, la barra dorada le dirige a la consola del explorador, donde puede ver la excepción.
+* En producción, la barra dorada informa al usuario de que se ha producido un error y recomienda actualizar el explorador.
+
+La interfaz de usuario para esta experiencia de control de errores forma parte de las plantillas de proyecto de Blazor. En una aplicación Blazor webassembly, personalice la experiencia en el archivo *wwwroot/index.html* :
+
+```html
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+```
+
+En una aplicación de Blazor Server, personalice la experiencia en el archivo *pages/_Host. cshtml* :
+
+```cshtml
+<div id="blazor-error-ui">
+    <environment include="Staging,Production">
+        An error has occurred. This application may no longer respond until reloaded.
+    </environment>
+    <environment include="Development">
+        An unhandled exception has occurred. See browser dev tools for details.
+    </environment>
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+```
+
+Los estilos incluidos en las plantillas de Blazor ocultan el elemento `blazor-error-ui` y, a continuación, se muestra cuando se produce un error.
+
+::: moniker-end
+
+## <a name="how-the-opno-locblazor-framework-reacts-to-unhandled-exceptions"></a>Cómo reacciona el marco de Blazor a las excepciones no controladas
+
+Blazor Server es un marco con estado. Mientras los usuarios interactúan con una aplicación, mantienen una conexión con el servidor conocido como *circuito*. El circuito contiene instancias de componentes activas, además de muchos otros aspectos del estado, como:
 
 * La salida representada más reciente de los componentes.
 * Conjunto actual de delegados de control de eventos que pueden ser desencadenados por eventos del cliente.
 
 Si un usuario abre la aplicación en varias pestañas del explorador, tiene varios circuitos independientes.
 
-El increíbledor trata las excepciones no controladas como graves para el circuito en el que se producen. Si se termina un circuito debido a una excepción no controlada, el usuario solo puede seguir interactuando con la aplicación recargando la página para crear un nuevo circuito. Los circuitos fuera de la terminación, que son circuitos para otros usuarios u otras pestañas del explorador, no se ven afectados. Este escenario es similar a una aplicación de escritorio que se bloquea&mdash;se debe reiniciar la aplicación bloqueada, pero no se ven afectadas otras aplicaciones.
+Blazor trata la mayoría de las excepciones no controladas como graves para el circuito en el que se producen. Si se termina un circuito debido a una excepción no controlada, el usuario solo puede seguir interactuando con la aplicación recargando la página para crear un nuevo circuito. Los circuitos fuera de la terminación, que son circuitos para otros usuarios u otras pestañas del explorador, no se ven afectados. Este escenario es similar a una aplicación de escritorio que se bloquea&mdash;se debe reiniciar la aplicación bloqueada, pero no se ven afectadas otras aplicaciones.
 
 Un circuito finaliza cuando se produce una excepción no controlada por los siguientes motivos:
 
@@ -48,9 +89,9 @@ En producción, no se representan mensajes de excepción de marco o seguimientos
 
 ## <a name="log-errors-with-a-persistent-provider"></a>Registrar errores con un proveedor persistente
 
-Si se produce una excepción no controlada, la excepción se registra en <xref:Microsoft.Extensions.Logging.ILogger> las instancias configuradas en el contenedor de servicios. De forma predeterminada, las aplicaciones increíbles se registran en la salida de la consola con el proveedor de registro de la consola. Considere la posibilidad de iniciar sesión en una ubicación más permanente con un proveedor que administre el tamaño y la rotación del registro. Para obtener más información, vea <xref:fundamentals/logging/index>.
+Si se produce una excepción no controlada, la excepción se registra en <xref:Microsoft.Extensions.Logging.ILogger> las instancias configuradas en el contenedor de servicios. De forma predeterminada, Blazor aplicaciones registran la salida de la consola con el proveedor de registro de la consola. Considere la posibilidad de iniciar sesión en una ubicación más permanente con un proveedor que administre el tamaño y la rotación del registro. Para obtener más información, consulta <xref:fundamentals/logging/index>.
 
-Durante el desarrollo, el increíble normalmente envía los detalles completos de las excepciones a la consola del explorador para ayudar en la depuración. En producción, los errores detallados en la consola del explorador están deshabilitados de forma predeterminada, lo que significa que los errores no se envían a los clientes, pero los detalles completos de la excepción siguen registrándose en el lado servidor. Para obtener más información, vea <xref:fundamentals/error-handling>.
+Durante el desarrollo, Blazor envía normalmente los detalles completos de las excepciones a la consola del explorador para ayudar en la depuración. En producción, los errores detallados en la consola del explorador están deshabilitados de forma predeterminada, lo que significa que los errores no se envían a los clientes, pero los detalles completos de la excepción siguen registrándose en el lado servidor. Para obtener más información, consulta <xref:fundamentals/error-handling>.
 
 Debe decidir qué incidentes registrar y el nivel de gravedad de los incidentes registrados. Es posible que los usuarios hostiles puedan desencadenar errores deliberadamente. Por ejemplo, no registre un incidente de un error en el que se proporcione un `ProductId` desconocido en la dirección URL de un componente que muestra los detalles del producto. No todos los errores se deben tratar como incidentes de alta gravedad para el registro.
 
@@ -72,7 +113,7 @@ Las excepciones no controladas anteriores se describen en las siguientes seccion
 
 ### <a name="component-instantiation"></a>Creación de instancias de componentes
 
-Cuando el increíbles crea una instancia de un componente:
+Cuando Blazor crea una instancia de un componente:
 
 * Se invoca el constructor del componente.
 * Se invocan los constructores de cualquier servicio de DI no singleton proporcionado al constructor del componente a través de la directiva [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) o el atributo [[Insert]](xref:blazor/dependency-injection#request-a-service-in-a-component) . 
@@ -81,7 +122,7 @@ Se produce un error en un circuito cuando cualquier constructor ejecutado o un e
 
 ### <a name="lifecycle-methods"></a>Métodos de ciclo de vida
 
-Durante el ciclo de vida de un componente, el increíblemente llama a los métodos de ciclo de vida:
+Durante la vigencia de un componente, Blazor invoca métodos de ciclo de vida:
 
 * `OnInitialized` / `OnInitializedAsync`
 * `OnParametersSet` / `OnParametersSetAsync`
@@ -151,11 +192,11 @@ Del mismo modo, el código de JavaScript puede iniciar llamadas a métodos .NET 
 
 Tiene la opción de usar el código de control de errores en el lado de .NET o en el lado de JavaScript de la llamada al método.
 
-Para obtener más información, vea <xref:blazor/javascript-interop>.
+Para obtener más información, consulta <xref:blazor/javascript-interop>.
 
 ### <a name="circuit-handlers"></a>Controladores de circuito
 
-Increíbles permite que el código defina un *controlador de circuito*, que recibe notificaciones cuando cambia el estado del circuito de un usuario. Se utilizan los siguientes Estados:
+Blazor permite que el código defina un *controlador de circuito*, que recibe notificaciones cuando cambia el estado del circuito de un usuario. Se utilizan los siguientes Estados:
 
 * `initialized`
 * `connected`
@@ -172,11 +213,32 @@ Cuando un circuito finaliza porque un usuario se ha desconectado y el marco est�
 
 ### <a name="prerendering"></a>Representación previa
 
-Los componentes increíbles se pueden representar con `Html.RenderComponentAsync` de modo que su marcado HTML representado se devuelva como parte de la solicitud HTTP inicial del usuario. Esto funciona de la siguiente manera:
+::: moniker range=">= aspnetcore-3.1"
+
+Blazor componentes se pueden representarse mediante la aplicación auxiliar de etiquetas `Component` de modo que su marca HTML representada se devuelva como parte de la solicitud HTTP inicial del usuario. Esto funciona de la siguiente manera:
 
 * Crear un circuito nuevo para todos los componentes prerepresentados que forman parte de la misma página.
 * Generar el código HTML inicial.
-* Tratamiento del circuito como `disconnected` hasta que el explorador del usuario establece una conexión Signalr en el mismo servidor. Cuando se establece la conexión, se reanuda la interactividad en el circuito y se actualiza el marcado HTML de los componentes.
+* Tratamiento del circuito como `disconnected` hasta que el explorador del usuario establece una conexión de SignalR al mismo servidor. Cuando se establece la conexión, se reanuda la interactividad en el circuito y se actualiza el marcado HTML de los componentes.
+
+Si algún componente produce una excepción no controlada durante la representación previa, por ejemplo, durante un método de ciclo de vida o en la lógica de representación:
+
+* La excepción es grave para el circuito.
+* La excepción se inicia en la pila de llamadas de la aplicación auxiliar de etiquetas `Component`. Por lo tanto, se produce un error en toda la solicitud HTTP a menos que el código del desarrollador detecte la excepción explícitamente.
+
+En circunstancias normales, cuando se produce un error en la representación previa, la generación y representación del componente no tiene sentido, ya que no se puede representar un componente de trabajo.
+
+Para tolerar los errores que pueden producirse durante la representación previa, la lógica de control de errores debe colocarse dentro de un componente que pueda producir excepciones. Use instrucciones [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro. En lugar de ajustar la aplicación auxiliar de etiquetas `Component` en una instrucción `try-catch`, coloque la lógica de control de errores en el componente representado por la aplicación auxiliar de etiquetas `Component`.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
+
+Blazor componentes se pueden representar con `Html.RenderComponentAsync` de modo que su marcado HTML representado se devuelva como parte de la solicitud HTTP inicial del usuario. Esto funciona de la siguiente manera:
+
+* Crear un circuito nuevo para todos los componentes prerepresentados que forman parte de la misma página.
+* Generar el código HTML inicial.
+* Tratamiento del circuito como `disconnected` hasta que el explorador del usuario establece una conexión de SignalR al mismo servidor. Cuando se establece la conexión, se reanuda la interactividad en el circuito y se actualiza el marcado HTML de los componentes.
 
 Si algún componente produce una excepción no controlada durante la representación previa, por ejemplo, durante un método de ciclo de vida o en la lógica de representación:
 
@@ -186,6 +248,8 @@ Si algún componente produce una excepción no controlada durante la representac
 En circunstancias normales, cuando se produce un error en la representación previa, la generación y representación del componente no tiene sentido, ya que no se puede representar un componente de trabajo.
 
 Para tolerar los errores que pueden producirse durante la representación previa, la lógica de control de errores debe colocarse dentro de un componente que pueda producir excepciones. Use instrucciones [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro. En lugar de encapsular la llamada a `RenderComponentAsync` en una instrucción de `try-catch`, coloque la lógica de control de errores en el componente representado por `RenderComponentAsync`.
+
+::: moniker-end
 
 ## <a name="advanced-scenarios"></a>Escenarios avanzados
 
@@ -213,7 +277,7 @@ Para evitar patrones infinitos de recursividad, asegúrese de que el código de 
 
 ### <a name="custom-render-tree-logic"></a>Lógica de árbol de representación personalizada
 
-La mayoría de los componentes más increíbles se implementan como archivos *. Razor* y se compilan para generar lógica que opere en un `RenderTreeBuilder` para representar la salida. Un desarrollador puede implementar manualmente `RenderTreeBuilder` lógica mediante código C# de procedimiento. Para obtener más información, vea <xref:blazor/components#manual-rendertreebuilder-logic>.
+La mayoría de los componentes de Blazor se implementan como archivos *. Razor* y se compilan para generar lógica que opere en un `RenderTreeBuilder` para representar su salida. Un desarrollador puede implementar manualmente `RenderTreeBuilder` lógica mediante código C# de procedimiento. Para obtener más información, consulta <xref:blazor/components#manual-rendertreebuilder-logic>.
 
 > [!WARNING]
 > El uso de la lógica del generador de árboles de representación manual se considera un escenario avanzado y no seguro, no recomendado para el desarrollo de componentes generales.

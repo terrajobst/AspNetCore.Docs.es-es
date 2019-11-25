@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/08/2019
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 8f5c3aabf17e78ae9675048602317c54f08e82a7
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: d678f3d1f6ca10e486543a2965506236e4e61b82
+ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259818"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239849"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware de ASP.NET Core
 
@@ -57,13 +57,24 @@ Cuando un delegado no pasa una solicitud al siguiente delegado, se denomina *cor
 >
 > <xref:Microsoft.AspNetCore.Http.HttpResponse.HasStarted*> es una sugerencia útil para indicar si se han enviado los encabezados o se han realizado escrituras en el cuerpo.
 
-## <a name="order"></a>Ordenar
+<a name="order"></a>
 
-El orden en el que se agregan los componentes de software intermedio en el método `Startup.Configure` define el orden en el que se invocarán los componentes de software intermedio en las solicitudes y el orden inverso de la respuesta. Por motivos de seguridad, rendimiento y funcionalidad, el orden es básico.
+## <a name="middleware-order"></a>Orden del middleware
 
-El siguiente método `Startup.Configure` agrega los componentes de middleware para escenarios de aplicaciones comunes:
+El orden en el que se agregan los componentes de software intermedio en el método `Startup.Configure` define el orden en el que se invocarán los componentes de software intermedio en las solicitudes y el orden inverso de la respuesta. Por motivos de seguridad, rendimiento y funcionalidad, el orden es **crítico**.
+
+El método `Startup.Configure` siguiente agrega componentes de middleware relacionados con la seguridad en el orden recomendado:
 
 ::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](index/snapshot/StartupAll3.cs?name=snippet)]
+
+En el código anterior:
+
+* El middleware que no se agrega al crear una aplicación web con [cuentas de usuario individuales](xref:security/authentication/identity) se convierte en comentario.
+* No todo el middleware tiene que ir en este orden exacto, pero gran parte sí lo hace. Por ejemplo, `UseCors`, `UseAuthentication` y `UseAuthorization` deben ir en el orden mostrado.
+
+El siguiente método `Startup.Configure` agrega los componentes de middleware para escenarios de aplicaciones comunes:
 
 1. Control de errores y excepciones
    * Cuando la aplicación se ejecuta en el entorno de desarrollo:
@@ -150,6 +161,15 @@ public void Configure(IApplicationBuilder app)
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
+
+[!code-csharp[](index/snapshot/Startup22.cs?name=snippet)]
+
+En el código anterior:
+
+* El middleware que no se agrega al crear una aplicación web con [cuentas de usuario individuales](xref:security/authentication/identity) se convierte en comentario.
+* No todo el middleware tiene que ir en este orden exacto, pero gran parte sí lo hace. Por ejemplo, `UseCors` y `UseAuthentication` deben ir en el orden mostrado.
+
+El siguiente método `Startup.Configure` agrega los componentes de middleware para escenarios de aplicaciones comunes:
 
 1. Control de errores y excepciones
    * Cuando la aplicación se ejecuta en el entorno de desarrollo:

@@ -1,26 +1,28 @@
 ---
-title: Creación de la primera aplicación Blazor
+title: Compilación de la primera aplicación Blazor
 author: guardrex
 description: Cree una aplicación Blazor paso a paso.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/31/2019
+no-loc:
+- Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: cc7caa1ee01e0282024895ab35c5b9933b1504d0
-ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.openlocfilehash: 646e14060b88fc2a0fefc2f7a5ebb1c15ac39b79
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416174"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963714"
 ---
-# <a name="build-your-first-blazor-app"></a>Creación de la primera aplicación Blazor
+# <a name="build-your-first-opno-locblazor-app"></a>Compilación de la primera aplicación Blazor
 
 Por [Daniel Roth](https://github.com/danroth27) y [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-En este tutorial se muestra cómo crear y modificar una aplicación de Blazor.
+En este tutorial se muestra cómo crear y modificar una aplicación Blazor.
 
 Siga las instrucciones del artículo <xref:blazor/get-started> para crear un proyecto de Blazor en este tutorial. Denomine el proyecto *ToDoList*.
 
@@ -28,7 +30,7 @@ Siga las instrucciones del artículo <xref:blazor/get-started> para crear un pro
 
 1. Vaya a cada una de las tres páginas de la aplicación en la carpeta *Pages*: Home (Inicio), Counter (Contador) y Fetch data (Recuperar datos). Estas páginas se implementan mediante los archivos de componente de Razor *Index.razor*, *Counter.razor* y *FetchData.razor*.
 
-1. En la página Contador, seleccione el botón **Click me** para aumentar el contador sin una actualización de página. Para aumentar un contador en una página web suele ser necesario escribir JavaScript. Con Blazor, puede escribir código de C# en su lugar.
+1. En la página Contador, seleccione el botón **Click me** para aumentar el contador sin una actualización de página. Para aumentar un contador en una página web suele ser necesario escribir JavaScript. Con Blazor, puede escribir C# en su lugar.
 
 1. Examine la implementación del componente `Counter` en el archivo *Counter.razor*.
 
@@ -59,7 +61,7 @@ Incluya un componente en otro componente mediante una sintaxis HTML.
 
 1. Agregue el componente `Counter` al componente `Index` de la aplicación al agregar un elemento `<Counter />` al componente `Index` (*Index.razor*).
 
-   Si va a usar Blazor WebAssembly para esta experiencia, el componente `Index` usa un componente `SurveyPrompt`. Reemplace el elemento `<SurveyPrompt>` por un elemento `<Counter />`. Si va a usar la aplicación Blazor Server para esta experiencia, agregue el elemento `<Counter />` al componente `Index`:
+   Si va a usar Blazor WebAssembly en esta experiencia, el componente `Index` usa un componente `SurveyPrompt`. Reemplace el elemento `<SurveyPrompt>` por un elemento `<Counter />`. Si va a usar la aplicación Blazor Server en esta experiencia, agregue el elemento `<Counter />` al componente `Index`:
 
    *Pages/Index.razor*:
 
@@ -99,7 +101,7 @@ La directiva `@page` en la parte superior del archivo *Counter.razor* especifica
 
 ## <a name="dependency-injection"></a>Inserción de dependencias
 
-### <a name="blazor-server-experience"></a>Experiencia del servidor Blazor
+### <a name="opno-locblazor-server-experience"></a>Experiencia de Blazor Server
 
 Si va a trabajar con una aplicación Blazor Server, el servicio `WeatherForecastService` se registra como [singleton](xref:fundamentals/dependency-injection#service-lifetimes) en `Startup.ConfigureServices`. Una instancia del servicio está disponible en toda la aplicación a través de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection):
 
@@ -115,7 +117,7 @@ El componente `FetchData` usa el servicio insertado, como `ForecastService`, par
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-### <a name="blazor-webassembly-experience"></a>Experiencia de Blazor WebAssembly
+### <a name="opno-locblazor-webassembly-experience"></a>Experiencia de Blazor WebAssembly
 
 Si trabaja con una aplicación Blazor WebAssembly, se inserta `HttpClient` para obtener datos de previsión del tiempo del archivo *weather.json* de la carpeta *wwwroot/sample-data*.
 

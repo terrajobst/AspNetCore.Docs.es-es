@@ -5,14 +5,16 @@ description: Detecte enfoques para conservar el estado de sesión y aplicación 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/12/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: fundamentals/app-state
-ms.openlocfilehash: ccb37a422d972ab9113bb4115473d054282dac87
-ms.sourcegitcommit: 994da92edb0abf856b1655c18880028b15a28897
+ms.openlocfilehash: b80b1e72eb2f25e9c9fe07a0c33c14ecf5ae05aa
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71278693"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963480"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Estado de sesión y aplicación en ASP.NET Core
 
@@ -52,7 +54,7 @@ Preste atención al [reglamento general de protección de datos (GDPR) de la Uni
 El estado de sesión es un escenario de ASP.NET Core para el almacenamiento de datos de usuario mientras el usuario examina una aplicación web. El estado de sesión usa un almacén mantenido por la aplicación para conservar los datos en las solicitudes de un cliente. Los datos de sesión están respaldados por una memoria caché y se consideran datos efímeros y el sitio debería continuar funcionando correctamente sin los datos de sesión. Los datos críticos de aplicaciones deben almacenarse en la base de datos de usuario y almacenarse en caché en la sesión solo para optimizar el rendimiento.
 
 > [!NOTE]
-> La sesión no es compatible con aplicaciones [SignalR](xref:signalr/index) porque un [concentrador SignalR](xref:signalr/hubs) podría ejecutarse independientemente de un contexto HTTP. Por ejemplo, esto puede ocurrir cuando un concentrador mantiene abierta una solicitud de sondeo larga más allá de la duración del contexto HTTP de la solicitud.
+> La sesión no se admite en aplicaciones [SignalR](xref:signalr/index) porque un [SignalRconcentrador de ](xref:signalr/hubs) se podría ejecutar con independencia de un contexto HTTP. Por ejemplo, esto puede ocurrir cuando un concentrador mantiene abierta una solicitud de sondeo larga más allá de la duración del contexto HTTP de la solicitud.
 
 Para mantener el estado de sesión, ASP.NET Core proporciona una cookie al cliente que contiene un identificador de sesión, que se envía a la aplicación con cada solicitud. La aplicación usa el identificador de sesión para capturar los datos de sesión.
 
@@ -316,9 +318,9 @@ Use [inserción de dependencias](xref:fundamentals/dependency-injection) para qu
 
   El enfoque recomendado para comprobar los errores es llamar a `await feature.Session.CommitAsync();` desde el código de la aplicación cuando esta haya terminado de escribir en la sesión. `CommitAsync` produce una excepción si la memoria auxiliar no está disponible. Si `CommitAsync` produce un error, la aplicación puede procesar la excepción. `LoadAsync` se produce en las mismas condiciones donde el almacén de datos no está disponible.
   
-## <a name="signalr-and-session-state"></a>SignalR y estado de sesión
+## <a name="opno-locsignalr-and-session-state"></a>SignalR y estado de la sesión
 
-Las aplicaciones de SignalR no deben usar el estado de sesión para almacenar información. Las aplicaciones de SignalR pueden almacenar por estado de conexión en `Context.Items` en el concentrador. <!-- https://github.com/aspnet/SignalR/issues/2139 -->
+Las aplicaciones SignalR no deben usar el estado de sesión para almacenar información. Las aplicaciones SignalR pueden almacenarse por estado de conexión en `Context.Items` en el concentrador. <!-- https://github.com/aspnet/SignalR/issues/2139 -->
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

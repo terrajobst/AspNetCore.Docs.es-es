@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo usar diseños comunes, compartir d
 ms.author: riande
 ms.date: 07/30/2019
 uid: mvc/views/layout
-ms.openlocfilehash: 9a7b8003b24329f6e9cbd349ee47f6844b7c5f6d
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: 3ba2f459ca2b04a3001e261acab26880b6582500
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238035"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74288995"
 ---
 # <a name="layout-in-aspnet-core"></a>Diseño en ASP.NET Core
 
@@ -68,9 +68,9 @@ De forma predeterminada, todos los diseños deben llamar a `RenderBody`. Cada ve
 Opcionalmente, un diseño puede hacer referencia a una o varias *secciones* mediante una llamada a `RenderSection`. Las secciones permiten organizar dónde se deben colocar determinados elementos de la página. Cada llamada a `RenderSection` puede especificar si esa sección es obligatoria u opcional:
 
 ```html
-@section Scripts {
-    @RenderSection("Scripts", required: false)
-}
+<script type="text/javascript" src="~/scripts/global.js"></script>
+
+@RenderSection("Scripts", required: false)
 ```
 
 Si no se encuentra una sección obligatoria, se produce una excepción. Las vistas individuales especifican el contenido que se va a representar dentro de una sección con la sintaxis `@section` de Razor. Si una página o una vista define una sección, se debe representar (o se producirá un error).
@@ -79,7 +79,7 @@ Ejemplo de definición de `@section` en una vista de Razor Pages:
 
 ```html
 @section Scripts {
-     <script type="text/javascript" src="/scripts/main.js"></script>
+     <script type="text/javascript" src="~/scripts/main.js"></script>
 }
 ```
 

@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar el módulo de ASP.NET C
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2019
+ms.date: 11/07/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 42ff4438738931fde70e123031412bcfc8a83efb
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: c9bbd36b8a55b837f6d78abf99215c5496895a39
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034211"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799415"
 ---
 # <a name="aspnet-core-module"></a>Módulo ASP.NET Core
 
@@ -208,7 +208,7 @@ El ejemplo siguiente establece dos variables de entorno en *web.config*. `ASPNET
 ```
 
 > [!NOTE]
-> Una alternativa a establecer directamente el entorno en *web.config* consiste en incluir la propiedad `<EnvironmentName>` en el perfil de publicación ( *.pubxml*) o el archivo de proyecto. Este método establece el entorno en *web.config* cuando se publica el proyecto:
+> Una alternativa a establecer directamente el entorno en *web.config* consiste en incluir la propiedad `<EnvironmentName>` en el [perfil de publicación (.pubxml)](xref:host-and-deploy/visual-studio-publish-profiles) o el archivo de proyecto. Este método establece el entorno en *web.config* cuando se publica el proyecto:
 >
 > ```xml
 > <PropertyGroup>
@@ -623,7 +623,7 @@ En el ejemplo siguiente se establecen dos variables de entorno. `ASPNETCORE_ENVI
 ```
 
 > [!NOTE]
-> Una alternativa a establecer directamente el entorno en *web.config* consiste en incluir la propiedad `<EnvironmentName>` en el perfil de publicación ( *.pubxml*) o el archivo de proyecto. Este método establece el entorno en *web.config* cuando se publica el proyecto:
+> Una alternativa a establecer directamente el entorno en *web.config* consiste en incluir la propiedad `<EnvironmentName>` en el [perfil de publicación (.pubxml)](xref:host-and-deploy/visual-studio-publish-profiles) o el archivo de proyecto. Este método establece el entorno en *web.config* cuando se publica el proyecto:
 >
 > ```xml
 > <PropertyGroup>

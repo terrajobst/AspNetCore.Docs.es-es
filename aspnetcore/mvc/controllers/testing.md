@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo probar la lógica del controlador 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/22/2019
+ms.date: 11/07/2019
 uid: mvc/controllers/testing
-ms.openlocfilehash: 3b5e60bbc76030b6d08bcb2f3aa1f6eca3c9bb05
-ms.sourcegitcommit: 0365af91518004c4a44a30dc3a8ac324558a399b
+ms.openlocfilehash: 7f4fcb1a5d6e9959c751ebe24e41b39ee05a5819
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71199093"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799501"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Probar la lógica del controlador en ASP.NET Core
 
@@ -347,4 +347,6 @@ Para una sesión válida `id`, la prueba final confirma que:
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * <xref:test/integration-tests>
-* [Cree y ejecute pruebas unitarias con Visual Studio](/visualstudio/test/unit-test-your-code).
+* [Creación y ejecución de pruebas unitarias con Visual Studio](/visualstudio/test/unit-test-your-code)
+* [MyTested.AspNetCore.Mvc: biblioteca fluida de pruebas para ASP.NET Core MVC](https://github.com/ivaylokenov/MyTested.AspNetCore.Mvc): biblioteca de pruebas fuertemente tipada, que ofrece una interfaz fluida para la prueba de aplicaciones MVC y de API web. (*Microsoft no realiza su mantenimiento ni su soporte técnico.* )
+

@@ -5,12 +5,12 @@ description: Obtenga información sobre la manera en que ASP.NET Core proporcion
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 9ed133c93a9ec95c63869b710d120eca9fda1b6e
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 36235e305037c0bbf20093327e2a0ff21b3de809
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333702"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963663"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
 
@@ -166,6 +166,9 @@ Si no usa la opción `ResourcesPath`, el archivo *.resx* de una vista se ubicar�
 
 El atributo [RootNamespace](/dotnet/api/microsoft.extensions.localization.rootnamespaceattribute?view=aspnetcore-2.1) proporciona el espacio de nombres raíz de un ensamblado cuando el espacio de nombres raíz del ensamblado es diferente del nombre de ensamblado. 
 
+> [!WARNING]
+> Esto puede ocurrir cuando el nombre de un proyecto no es un identificador de .NET válido. Por ejemplo `my-project-name.csproj` usará el espacio de nombres raíz `my_project_name` y el nombre de ensamblado `my-project-name`, lo que lleva a este error. 
+
 Si el espacio de nombres raíz de un ensamblado es diferente del nombre de ensamblado:
 
 * La localización no funciona de forma predeterminada.
@@ -197,7 +200,7 @@ Consideremos, por ejemplo, que quita el designador de referencia cultural ".fr" 
 
 ### <a name="generate-resource-files-with-visual-studio"></a>Generar archivos de recursos con Visual Studio
 
-Si crea un archivo de recursos en Visual Studio sin una referencia cultural en el nombre de archivo (por ejemplo, *Welcome.resx*), Visual Studio creará una clase de C# con una propiedad para cada cadena. Normalmente esto no interesa con ASP.NET Core; por lo general, no tendrá un archivo de recursos *.resx* predeterminado (un archivo *.resx* sin el nombre de la referencia cultural). Se recomienda que cree el archivo *.resx* con un nombre de referencia cultural (por ejemplo, *Welcome.fr.resx*). Cuando cree un archivo *.resx* con un nombre de referencia cultural, Visual Studio no generará el archivo de clase. Suponemos que muchos desarrolladores no crearán un archivo de recursos de idioma predeterminado.
+Si crea un archivo de recursos en Visual Studio sin una referencia cultural en el nombre de archivo (por ejemplo, *Welcome.resx*), Visual Studio creará una clase de C# con una propiedad para cada cadena. Normalmente esto no interesa con ASP.NET Core; por lo general, no tendrá un archivo de recursos *.resx* predeterminado (un archivo *.resx* sin el nombre de la referencia cultural). Se recomienda que cree el archivo *.resx* con un nombre de referencia cultural (por ejemplo, *Welcome.fr.resx*). Cuando cree un archivo *.resx* con un nombre de referencia cultural, Visual Studio no generará el archivo de clase.
 
 ### <a name="add-other-cultures"></a>Agregar otras referencias culturales
 

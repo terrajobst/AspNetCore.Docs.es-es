@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/09/2019
 uid: web-api/action-return-types
-ms.openlocfilehash: 991265810324d6339ebf346ff9aa14c479112af9
-ms.sourcegitcommit: fa61d882be9d0c48bd681f2efcb97e05522051d0
+ms.openlocfilehash: c409170a24225e160c1c53e7294590589e114f7f
+ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71205755"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116088"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Tipos de valor devuelto de acción del controlador de la API web de ASP.NET Core
 
@@ -50,7 +50,7 @@ Si existen condiciones conocidas que deban tenerse en cuenta en una acción, se 
 
 ### <a name="return-ienumerablet-or-iasyncenumerablet"></a>Devuelve IEnumerable\<T> o IAsyncEnumerable\<T>
 
-En ASP.net Core 2.2 y versiones anteriores, la devolución de <xref:System.Collections.Generic.IAsyncEnumerable%601> en una acción da como resultado la iteración de la colección sincrónica por parte del serializador. El resultado es el bloqueo de llamadas y una posibilidad de colapso del grupo de subprocesos. Por poner un ejemplo, imagine que se usa Entity Framework (EF) Core para las necesidades de acceso a los datos de la API Web. El tipo de valor devuelto de la acción siguiente se enumera sincrónicamente durante la serialización:
+En ASP.net Core 2.2 y versiones anteriores, la devolución de <xref:System.Collections.Generic.IEnumerable%601> en una acción da como resultado la iteración de la colección sincrónica por parte del serializador. El resultado es el bloqueo de llamadas y una posibilidad de colapso del grupo de subprocesos. Por poner un ejemplo, imagine que se usa Entity Framework (EF) Core para las necesidades de acceso a los datos de la API Web. El tipo de valor devuelto de la acción siguiente se enumera sincrónicamente durante la serialización:
 
 ```csharp
 public IEnumerable<Product> GetOnSaleProducts() =>
