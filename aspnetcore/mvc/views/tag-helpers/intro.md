@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 03/18/2019
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 870ce2eb28f384b380cc1178842325dc28199f09
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 15f94fd1c619e9f69c5783f664eafc9ca28f86f9
+ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814990"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239855"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Asistentes de etiquetas en ASP.NET Core
 
@@ -97,7 +97,7 @@ Como se ha mencionado anteriormente, al agregar la directiva `@addTagHelper` al 
 
 `@removeTagHelper` tiene los mismos parámetros que `@addTagHelper`, y quita un asistente de etiquetas que se ha agregado anteriormente. Por ejemplo, si se aplica `@removeTagHelper` a una vista específica, se quita de la vista el asistente de etiquetas especificada. Si se usa `@removeTagHelper` en un archivo *Views/Folder/_ViewImports.cshtml*, se quita el asistente de etiquetas especificada de todas las vistas de *Folder*.
 
-### <a name="controlling-tag-helper-scope-with-the-viewimportscshtml-file"></a>Controlar el ámbito del asistente de etiquetas con el archivo *_ViewImports.cshtml*
+### <a name="controlling-tag-helper-scope-with-the-_viewimportscshtml-file"></a>Controlar el ámbito del asistente de etiquetas con el archivo *_ViewImports.cshtml*
 
 Si agrega un archivo *_ViewImports.cshtml* a cualquier carpeta de vistas, el motor de vistas aplica las directivas de ese archivo y del archivo *Views/_ViewImports.cshtml*. Si agregara un archivo *Views/Home/_ViewImports.cshtml* vacío para las vistas de *Home*, no se produciría ningún cambio porque el archivo *_ViewImports.cshtml* se suma. Todas las directivas `@addTagHelper` que agregue al archivo *Views/Home/_ViewImports.cshtml* (que no estén en el archivo predeterminado *Views/_ViewImports.cshtml*) expondrán esos asistentes de etiquetas únicamente a las vistas de la carpeta *Home*.
 
@@ -132,6 +132,22 @@ Las mismas reglas de jerarquía que se aplican a `@addTagHelper` también se apl
 ## <a name="self-closing-tag-helpers"></a>Asistentes de etiquetas de autocierre
 
 Muchos asistentes de etiquetas no se pueden usar como etiquetas de autocierre. Algunos asistentes de etiquetas están diseñados para ser etiquetas de cierre. Si se usa un asistente de etiquetas que no se ha diseñado para ser de autocierre se suprime la salida representada. Si se usa el autocierre para un asistente de etiquetas, se genera una etiqueta de autocierre en la salida representada. Vea [esta nota](xref:mvc/views/tag-helpers/authoring#self-closing) en [Creación de asistentes de etiquetas](xref:mvc/views/tag-helpers/authoring) para más información.
+
+## <a name="c-in-tag-helpers-attributedeclaration"></a>C# en el atributo/declaración de los asistentes de etiquetas 
+
+Los asistentes de etiquetas no admiten C# en el área de declaraciones de etiquetas o atributos del elemento. Por ejemplo, el código siguiente no es válido:
+
+```cshtml
+<input asp-for="LastName"  
+       @(Model?.LicenseId == null ? "disabled" : string.Empty) />
+```
+
+El código anterior se puede escribir como:
+
+```cshtml
+<input asp-for="LastName" 
+       disabled="@(Model?.LicenseId == null)" />
+```
 
 ## <a name="intellisense-support-for-tag-helpers"></a>Compatibilidad de IntelliSense con asistentes de etiquetas
 

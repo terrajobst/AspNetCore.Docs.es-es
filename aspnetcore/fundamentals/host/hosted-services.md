@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo implementar tareas en segundo plan
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/26/2019
+ms.date: 11/19/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: c1fbb5ae8ffc4ee506f42df6a4cbbe845b2b903d
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: da3c2679005714a3d82de94cf3bc3c809aa3500d
+ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333659"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239731"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Tareas en segundo plano con servicios hospedados en ASP.NET Core
 
@@ -28,22 +28,23 @@ En ASP.NET Core, las tareas en segundo plano se pueden implementar como *servici
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-La aplicación de ejemplo se ofrece en dos versiones:
-
-* Host web: el host web resulta útil para hospedar aplicaciones web. El código de ejemplo que se muestra en este tema corresponde a la versión de host web del ejemplo. Para más información, vea el sitio web [Host de web](xref:fundamentals/host/web-host).
-* Host genérico: el host genérico es nuevo en ASP.NET Core 2.1. Para más información, vea el sitio web [Host genérico](xref:fundamentals/host/generic-host).
-
 ## <a name="worker-service-template"></a>Plantilla Worker Service
 
-La plantilla Worker Service de ASP.NET Core sirve de punto de partida para escribir aplicaciones de servicio de larga duración. Para usar la plantilla como base de una aplicación de servicios hospedados:
+La plantilla Worker Service de ASP.NET Core sirve de punto de partida para escribir aplicaciones de servicio de larga duración. Una aplicación creada a partir de la plantilla Worker Service especifica el SDK de trabajo en su archivo del proyecto:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+```
+
+Para usar la plantilla como base de una aplicación de servicios hospedados:
 
 [!INCLUDE[](~/includes/worker-template-instructions.md)]
 
----
-
 ## <a name="package"></a>Package
 
-Se agrega implícitamente una referencia de paquete al paquete [Microsoft.Extensions.Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting) para las aplicaciones ASP.NET Core.
+Una aplicación basada en la plantilla Worker Service usa el SDK de `Microsoft.NET.Sdk.Worker` y tiene una referencia de paquete explícita al paquete [Microsoft.Extensions.Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting). Por ejemplo, consulte el archivo del proyecto de la aplicación de ejemplo (*BackgroundTasksSample.csproj*).
+
+En el caso de las aplicaciones web que usan el SDK de `Microsoft.NET.Sdk.Web`, desde el marco compartido se hace una referencia implícita al paquete [Microsoft.Extensions.Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting). No se requiere una referencia de paquete explícita en el archivo del proyecto de la aplicación.
 
 ## <a name="ihostedservice-interface"></a>Interfaz IHostedService
 
@@ -99,14 +100,13 @@ La interfaz <xref:Microsoft.Extensions.Hosting.IHostedService> define dos métod
 
 El servicio hospedado se activa una vez al inicio de la aplicación y se cierra de manera estable cuando dicha aplicación se cierra. Si se produce un error durante la ejecución de una tarea en segundo plano, hay que llamar a `Dispose`, aun cuando no se haya llamado a `StopAsync`.
 
-## <a name="backgroundservice"></a>BackgroundService
+## <a name="backgroundservice-base-class"></a>Clase base BackgroundService
 
-`BackgroundService` es una clase base para implementar un <xref:Microsoft.Extensions.Hosting.IHostedService> de larga duración. `BackgroundService` proporciona el método abstracto `ExecuteAsync(CancellationToken stoppingToken)` para contener la lógica del servicio. `stoppingToken` se desencadena cuando se realiza una llamada a [IHostedService.StopAsync](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*). La implementación de este método devuelve `Task`, que representa toda la duración del servicio en segundo plano.
+<xref:Microsoft.Extensions.Hosting.BackgroundService> es una clase base para implementar un <xref:Microsoft.Extensions.Hosting.IHostedService> de larga duración.
 
-Además, también *puede* invalidar los métodos definidos en `IHostedService` para ejecutar el código de inicio y de apagado para el servicio:
+Se llama a [ExecuteAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.BackgroundService.ExecuteAsync*) para ejecutar el servicio en segundo plano. La implementación devuelve <xref:System.Threading.Tasks.Task>, que representa toda la duración del servicio en segundo plano. No se inicia ningún servicio hasta que [ExecuteAsync se convierte en asincrónico](https://github.com/aspnet/Extensions/issues/2149), mediante una llamada a `await`. Evite realizar un trabajo de inicialización de bloqueo prolongado en `ExecuteAsync`. El host se bloquea en [StopAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.BackgroundService.StopAsync*) a la espera de que `ExecuteAsync` se complete.
 
-* Se realiza una llamada a `StopAsync(CancellationToken cancellationToken)` &ndash; `StopAsync` cuando el host de la aplicación está realizando un apagado estable. Se envía una señal a `cancellationToken` cuando el host decide finalizar forzosamente el servicio. Si se invalida este método, **debe** realizar una llamada (y `await`) al método de la clase base para asegurarse de que el servicio se apaga correctamente.
-* Se realiza una llamada a `StartAsync(CancellationToken cancellationToken)` &ndash; `StartAsync` para iniciar el servicio en segundo plano. Se envía una señal a `cancellationToken` si se interrumpe el proceso de inicio. La implementación devuelve `Task`, que representa el proceso de inicio del servicio. No se inicia ningún otro servicio hasta que se complete `Task`. Si se invalida este método, **debe** realizar una llamada (y `await`) al método de la clase base para asegurarse de que el servicio se inicia correctamente.
+El token de cancelación se desencadena cuando se llama a [IHostedService.StopAsync](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*). La implementación de `ExecuteAsync` debe finalizar rápidamente cuando se active el token de cancelación para cerrar correctamente el servicio. De lo contrario, el servicio se cierra de manera abrupta durante el tiempo de expiración del cierre. Para más información, consulte la sección sobre la [interfaz IHostedService](#ihostedservice-interface).
 
 ## <a name="timed-background-tasks"></a>Tareas en segundo plano temporizadas
 
@@ -120,7 +120,7 @@ El servicio se registra en `IHostBuilder.ConfigureServices` (*Program.cs*) con e
 
 ## <a name="consuming-a-scoped-service-in-a-background-task"></a>Consumir un servicio con ámbito en una tarea en segundo plano
 
-Para usar [servicios con ámbito](xref:fundamentals/dependency-injection#service-lifetimes) en un elemento `BackgroundService`, cree un ámbito. No se crean ámbitos de forma predeterminada para los servicios hospedados.
+Para usar [servicios con ámbito](xref:fundamentals/dependency-injection#service-lifetimes) dentro de un [BackgroundService](#backgroundservice-base-class), cree un ámbito. No se crean ámbitos de forma predeterminada para los servicios hospedados.
 
 El servicio de tareas en segundo plano con ámbito contiene la lógica de la tarea en segundo plano. En el ejemplo siguiente:
 
@@ -176,11 +176,6 @@ En ASP.NET Core, las tareas en segundo plano se pueden implementar como *servici
 * Tareas en segundo plano en cola que se ejecutan en secuencia.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
-
-La aplicación de ejemplo se ofrece en dos versiones:
-
-* Host web: el host web resulta útil para hospedar aplicaciones web. El código de ejemplo que se muestra en este tema corresponde a la versión de host web del ejemplo. Para más información, vea el sitio web [Host de web](xref:fundamentals/host/web-host).
-* Host genérico: el host genérico es nuevo en ASP.NET Core 2.1. Para más información, vea el sitio web [Host genérico](xref:fundamentals/host/generic-host).
 
 ## <a name="package"></a>Package
 
@@ -242,7 +237,7 @@ La cola de tareas en segundo plano se basa en <xref:System.Web.Hosting.HostingEn
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Services/BackgroundTaskQueue.cs?name=snippet1)]
 
-En `QueueHostedService`, las tareas en segundo plano en la cola se quitan de la cola y se ejecutan como un servicio <xref:Microsoft.Extensions.Hosting.BackgroundService>, que es una clase base para implementar `IHostedService` de ejecución prolongada:
+En `QueueHostedService`, las tareas en segundo plano en la cola se quitan de la cola y se ejecutan como un servicio [BackgroundService](#backgroundservice-base-class), que es una clase base para implementar `IHostedService` de ejecución prolongada:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Services/QueuedHostedService.cs?name=snippet1&highlight=21,25)]
 

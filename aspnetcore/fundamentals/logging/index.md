@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la plataforma de registro pro
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 11/19/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 2cb19d251ad69ebd7d18480c14857e948c69b747
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: b23e64077290f0f613e904651e4bb640fcbba95d
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73659969"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74289093"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registros en .NET Core y ASP.NET Core
 
@@ -311,8 +311,6 @@ Uno o varios proveedores de configuración proporcionan la configuración del pr
 
 Por ejemplo, la sección `Logging` de archivos de configuración de aplicación suele proporcionar la configuración de registro. En el ejemplo siguiente se muestra el contenido de un archivo *appsettings.Development.json* típico:
 
-::: moniker range=">= aspnetcore-2.1"
-
 ```json
 {
   "Logging": {
@@ -337,7 +335,7 @@ Otras propiedades bajo `Logging` especifican proveedores de registro. El ejemplo
 
 Si los niveles se especifican en `Logging.{providername}.LogLevel`, invalidan todo lo establecido en `Logging.LogLevel`.
 
-::: moniker-end
+La API de registro no incluye un escenario que permita cambiar los niveles de registro mientras se ejecuta una aplicación. No obstante, algunos proveedores de configuración pueden volver a cargar la configuración, lo que tiene efecto inmediato en la configuración del registro. Por ejemplo, [FileConfigurationProvider](xref:fundamentals/configuration/index#file-configuration-provider) —agregado por `CreateDefaultBuilder` para leer los archivos de configuración— vuelve a cargar la configuración de registro de forma predeterminada. Si se cambia la configuración en el código mientras se ejecuta una aplicación, la aplicación puede llamar a [IConfigurationRoot.Reload](xref:Microsoft.Extensions.Configuration.IConfigurationRoot.Reload*) para actualizar la configuración de registro de la aplicación.
 
 Para obtener información sobre cómo implementar proveedores de configuración, consulte <xref:fundamentals/configuration/index>.
 
@@ -706,7 +704,7 @@ Para suprimir todos los registros, especifique `LogLevel.None` como el nivel de 
 
 ### <a name="create-filter-rules-in-configuration"></a>Creación de reglas de filtro en la configuración
 
-El código de la plantilla de proyecto llama a `CreateDefaultBuilder` para configurar el registro para los proveedores de consola y de depuración. El método `CreateDefaultBuilder` configura el registro para buscar la configuración en una sección de `Logging`, como se explica [anteriormente en este artículo](#configuration).
+El código de la plantilla de proyecto llama a `CreateDefaultBuilder` para configurar el registro para los proveedores de Console, Debug y EventSource (ASP.NET Core 2.2 o versiones posteriores). El método `CreateDefaultBuilder` configura el registro para buscar la configuración en una sección de `Logging`, como se explica [anteriormente en este artículo](#configuration).
 
 Los datos de configuración especifican niveles de registro mínimo por proveedor y categoría, como en el ejemplo siguiente:
 
@@ -892,7 +890,7 @@ ASP.NET Core incluye los proveedores siguientes:
 
 * [Consola](#console-provider)
 * [Depurar](#debug-provider)
-* [EventSource](#eventsource-provider)
+* [EventSource](#event-source-provider)
 * [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
 * [AzureAppServicesFile](#azure-app-service-provider)
@@ -925,15 +923,121 @@ En Linux, este proveedor escribe registros en */var/log/message*.
 logging.AddDebug();
 ```
 
-### <a name="eventsource-provider"></a>Proveedor EventSource
+### <a name="event-source-provider"></a>Proveedor de origen del evento
 
-Para las aplicaciones que tengan como destino ASP.NET Core 1.1.0 o una versión posterior, el paquete de proveedor [Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) puede implementar el seguimiento de eventos. En Windows, usa [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803). Es un proveedor multiplataforma, pero todavía no hay herramientas de recopilación y visualización de eventos para Linux o macOS.
+El paquete del proveedor [Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) escribe en una multiplataforma de origen del evento con el nombre `Microsoft-Extensions-Logging`. En Windows, el proveedor utiliza [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803).
 
 ```csharp
 logging.AddEventSourceLogger();
 ```
 
-Una buena manera de recopilar y ver los registros es usar la [utilidad PerfView](https://github.com/Microsoft/perfview). Hay otras herramientas para ver los registros ETW, pero PerfView proporciona la mejor experiencia para trabajar con los eventos ETW emitidos por ASP.NET Core.
+El proveedor de origen del evento se agrega automáticamente cuando se llama a `CreateDefaultBuilder` para compilar el host.
+
+::: moniker range=">= aspnetcore-3.0"
+
+#### <a name="dotnet-trace-tooling"></a>herramienta de seguimiento de dotnet
+
+La herramienta de [seguimiento de dotnet](/dotnet/core/diagnostics/dotnet-trace) es una herramienta global de CLI multiplataforma que permite la recopilación de seguimientos de .NET Core de un proceso en ejecución. La herramienta recopila datos del proveedor <xref:Microsoft.Extensions.Logging.EventSource> mediante un <xref:Microsoft.Extensions.Logging.EventSource.LoggingEventSource>.
+
+Instale la herramienta de seguimiento de dotnet con el siguiente comando:
+
+```dotnetcli
+dotnet tool install --global dotnet-trace
+```
+
+Use la herramienta de seguimiento de dotnet para recopilar un seguimiento de una aplicación:
+
+1. Si la aplicación no compila el host con `CreateDefaultBuilder`, agregue el [proveedor de origen del evento](#event-source-provider) a la configuración de registro de la aplicación.
+
+1. Ejecute la aplicación con el comando `dotnet run`.
+
+1. Determine el identificador del proceso (PID) de la aplicación .NET Core:
+
+   * En Windows, siga uno de estos procedimientos:
+     * Administrador de tareas (Ctrl + Alt + Supr)
+     * [Comando TaskList](/windows-server/administration/windows-commands/tasklist)
+     * [Comando de PowerShell Get-Process](/powershell/module/microsoft.powershell.management/get-process)
+   * En Linux, use el [comando pidof](https://refspecs.linuxfoundation.org/LSB_5.0.0/LSB-Core-generic/LSB-Core-generic/pidof.html).
+
+   Busque el PID del proceso que tenga el mismo nombre que el ensamblado de la aplicación.
+
+1. Ejecute el comando `dotnet trace`.
+
+   Sintaxis general del comando:
+
+   ```dotnetcli
+   dotnet trace collect -p {PID} 
+       --providers Microsoft-Extensions-Logging:{Keyword}:{Event Level}
+           :FilterSpecs=\"
+               {Logger Category 1}:{Event Level 1};
+               {Logger Category 2}:{Event Level 2};
+               ...
+               {Logger Category N}:{Event Level N}\"
+   ```
+
+   Al usar un shell de comandos de PowerShell, incluya el valor `--providers` entre comillas simples (`'`):
+
+   ```dotnetcli
+   dotnet trace collect -p {PID} 
+       --providers 'Microsoft-Extensions-Logging:{Keyword}:{Event Level}
+           :FilterSpecs=\"
+               {Logger Category 1}:{Event Level 1};
+               {Logger Category 2}:{Event Level 2};
+               ...
+               {Logger Category N}:{Event Level N}\"'
+   ```
+
+   En plataformas que no sean Windows, agregue la opción `-f speedscope` para cambiar el formato del archivo de seguimiento de salida a `speedscope`.
+
+   | Palabra clave | DESCRIPCIÓN |
+   | :-----: | ----------- |
+   | 1       | Registre los eventos meta sobre el elemento `LoggingEventSource`. No registre eventos de `ILogger`). |
+   | 2       | Activa el evento `Message` cuando se llama a `ILogger.Log()`. Proporciona la información mediante programación (sin formato). |
+   | 4       | Activa el evento `FormatMessage` cuando se llama a `ILogger.Log()`. Proporciona la versión de cadena con formato de la información. |
+   | 8       | Activa el evento `MessageJson` cuando se llama a `ILogger.Log()`. Proporciona una representación JSON de los argumentos. |
+
+   | Nivel de evento | DESCRIPCIÓN     |
+   | :---------: | --------------- |
+   | 0           | `LogAlways`     |
+   | 1           | `Critical`      |
+   | 2           | `Error`         |
+   | 3           | `Warning`       |
+   | 4           | `Informational` |
+   | 5           | `Verbose`       |
+
+   Las entradas `FilterSpecs` de `{Logger Category}` y `{Event Level}` representan condiciones de filtrado de registros adicionales. Separe las entradas `FilterSpecs` con un punto y coma (`;`).
+
+   Ejemplo de uso de un shell de comandos de Windows (**no** hay comillas simples alrededor del valor `--providers`):
+
+   ```dotnetcli
+   dotnet trace collect -p {PID} --providers Microsoft-Extensions-Logging:4:2:FilterSpecs=\"Microsoft.AspNetCore.Hosting*:4\"
+   ```
+
+   El comando anterior activa lo siguiente:
+
+   * Registrador de origen del evento para generar cadenas con formato (`4`) de los errores (`2`).
+   * Registro `Microsoft.AspNetCore.Hosting` en el nivel de registro `Informational` (`4`).
+
+1. Presione la tecla Entrar o Ctrl + C para detener las herramientas de seguimiento de dotnet.
+
+   El seguimiento se guarda con el nombre *trace.nettrace* en la carpeta en la que se ejecuta el comando `dotnet trace`.
+
+1. Abra el seguimiento con [Perfview](#perfview). Abra el archivo *trace.nettrace* y explore los eventos de seguimiento.
+
+Para obtener más información, consulte:
+
+* [Seguimiento de la utilidad de análisis de rendimiento (dotnet-trace)](/dotnet/core/diagnostics/dotnet-trace) (documentación de .NET Core)
+* [Seguimiento de la utilidad de análisis de rendimiento (dotnet-trace)](https://github.com/dotnet/diagnostics/blob/master/documentation/dotnet-trace-instructions.md) (documentación del repositorio de GitHub sobre diagnóstico y dotnet)
+* [Clase LoggingEventSource](xref:Microsoft.Extensions.Logging.EventSource.LoggingEventSource) (Explorador de API de .NET)
+* <xref:System.Diagnostics.Tracing.EventLevel>
+* [Origen de referencia LoggingEventSource (3.0)](https://github.com/aspnet/Extensions/blob/release/3.0/src/Logging/Logging.EventSource/src/LoggingEventSource.cs). Para obtener el origen de referencia de otra versión, cambie la rama a `release/{Version}`, donde `{Version}` corresponde a la versión de ASP.NET Core que desee.
+* [Perfview](#perfview): es útil para ver los seguimientos de origen del evento.
+
+#### <a name="perfview"></a>Perfview
+
+::: moniker-end
+
+Use la [utilidad PerfView](https://github.com/Microsoft/perfview) para recopilar y ver los registros. Hay otras herramientas para ver los registros ETW, pero PerfView proporciona la mejor experiencia para trabajar con los eventos ETW emitidos por ASP.NET Core.
 
 Para configurar PerfView para la recopilación de eventos registrados por este proveedor, agregue la cadena `*Microsoft-Extensions-Logging` a la lista **Proveedores adicionales**. (No olvide el asterisco al principio de la cadena).
 
@@ -975,7 +1079,7 @@ El paquete del proveedor no se incluye en el marco compartido. Para usar el prov
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+::: moniker range="< aspnetcore-3.0"
 
 El paquete de proveedor no está incluido en el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Si el destino es .NET Framework o hace referencia al metapaquete `Microsoft.AspNetCore.App`, agregue el paquete del proveedor al proyecto. 
 
@@ -1024,7 +1128,7 @@ Para configurar las secuencias de registro de Azure:
 
 * Navegue hasta la página **Registros de App Service** desde la página de portal de la aplicación.
 * Establezca **Registro de la aplicación (sistema de archivos)** en **Activado**.
-* Elija el **Nivel** de registro.
+* Elija el **Nivel** de registro. Este valor solo se aplica a las secuencias de registro de Azure, no a otros proveedores de registro de la aplicación.
 
 Navegue hasta la página **Secuencia de registro** para consultar los mensajes de la aplicación. La aplicación los registra a través de la interfaz `ILogger`.
 
