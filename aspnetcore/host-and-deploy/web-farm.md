@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo hospedar varias instancias de una 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/12/2019
+ms.date: 11/07/2019
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: df1be8cc76a5017923f26636a241b69881dfcc81
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: 16ec2162be8199857d0f2d0ff989ec4cdc6c3277
+ms.sourcegitcommit: 68d804d60e104c81fe77a87a9af70b5df2726f60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970109"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830703"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Hospedaje de ASP.NET Core en una granja de servidores web
 
@@ -52,7 +52,7 @@ Las aplicaciones usan el [sistema de protección de datos de ASP.NET Core](xref:
 
 ### <a name="caching"></a>Almacenamiento en memoria caché
 
-En un entorno de granja de servidores web, el mecanismo de almacenamiento en caché debe compartir elementos en caché en todos los nodos de la granja de servidores web. El almacenamiento en caché debe basarse en una instancia común de Redis Cache, en una base de datos SQL Server compartida o en una implementación de almacenamiento en caché personalizada que comparte los elementos en caché en toda la granja de servidores web. Para obtener más información, vea <xref:performance/caching/distributed>.
+En un entorno de granja de servidores web, el mecanismo de almacenamiento en caché debe compartir elementos en caché en todos los nodos de la granja de servidores web. El almacenamiento en caché debe basarse en una instancia común de Redis Cache, en una base de datos SQL Server compartida o en una implementación de almacenamiento en caché personalizada que comparte los elementos en caché en toda la granja de servidores web. Para más información, consulte <xref:performance/caching/distributed>.
 
 ## <a name="dependent-components"></a>Componentes dependientes
 
@@ -61,10 +61,10 @@ Los escenarios siguientes no requieren configuración adicional, pero dependen d
 | Escenario | Depende de &hellip; |
 | -------- | ------------------- |
 | Autenticación | Protección de datos (consulte <xref:security/data-protection/configuration/overview>).<br><br>Para obtener más información, vea <xref:security/authentication/cookie> y <xref:security/cookie-sharing>. |
-| identidad | Autenticación y configuración de base de datos.<br><br>Para obtener más información, vea <xref:security/authentication/identity>. |
+| identidad | Autenticación y configuración de base de datos.<br><br>Para más información, consulte <xref:security/authentication/identity>. |
 | Sesión | Protección de datos (cookies cifradas) (consulte <xref:security/data-protection/configuration/overview>) y almacenamiento en caché (consulte <xref:performance/caching/distributed>).<br><br>Para más información, consulte [Estado de sesión y aplicación: Estado de la sesión](xref:fundamentals/app-state#session-state). |
 | TempData | Protección de datos (cookies cifradas) (consulte <xref:security/data-protection/configuration/overview>) o sesión (consulte [Estado de sesión y aplicación: Estado de la sesión](xref:fundamentals/app-state#session-state)).<br><br>Para más información, consulte [Estado de sesión y aplicación: TempData](xref:fundamentals/app-state#tempdata). |
-| Antifalsificación | Protección de datos (consulte <xref:security/data-protection/configuration/overview>).<br><br>Para obtener más información, vea <xref:security/anti-request-forgery>. |
+| Antifalsificación | Protección de datos (consulte <xref:security/data-protection/configuration/overview>).<br><br>Para más información, consulte <xref:security/anti-request-forgery>. |
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
@@ -88,3 +88,7 @@ Para más información sobre la configuración de la protección de datos para l
 ## <a name="obtain-data-from-apps"></a>Obtención de datos de aplicaciones
 
 Si las aplicaciones de la granja de servidores web son capaces de responder a solicitudes, obtenga solicitudes, conexiones y datos adicionales de las aplicaciones mediante el middleware en línea del terminal. Para obtener más información y un código de ejemplo, vea <xref:test/troubleshoot#obtain-data-from-an-app>.
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Extensión de script personalizada para Windows](/azure/virtual-machines/extensions/custom-script-windows): descarga y ejecuta scripts en máquinas virtuales de Azure, lo que resulta útil para la configuración posterior a la implementación y la instalación de software.
