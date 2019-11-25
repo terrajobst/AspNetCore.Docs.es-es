@@ -5,14 +5,14 @@ description: Obtenga información sobre Kestrel, el servidor web multiplataforma
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 11/14/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: bab751bc1453481a11114a7a8c0787fa5576e500
-ms.sourcegitcommit: 77c8be22d5e88dd710f42c739748869f198865dd
+ms.openlocfilehash: 04512504cc5a7c4b9cb30ce2280e86956f8cc25c
+ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73427072"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155050"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web Kestrel en ASP.NET Core
 
@@ -390,6 +390,9 @@ webBuilder.ConfigureKestrel(serverOptions =>
 });
 ```
 
+> [!NOTE]
+> Los puntos de conexión que se crean mediante una llamada a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **antes** de llamar a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureEndpointDefaults*> no tendrán aplicados los valores predeterminados.
+
 ### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults(Action\<HttpsConnectionAdapterOptions>)
 
 Especifica una `Action` de configuración para que se ejecute con cada punto de conexión HTTPS. Al llamar a `ConfigureHttpsDefaults` varias veces, se reemplazan las `Action` anteriores por la última `Action` especificada.
@@ -404,6 +407,9 @@ webBuilder.ConfigureKestrel(serverOptions =>
     });
 });
 ```
+
+> [!NOTE]
+> Los puntos de conexión que se crean mediante una llamada a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **antes** de llamar a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> no tendrán aplicados los valores predeterminados.
 
 ### <a name="configureiconfiguration"></a>Configure(IConfiguration)
 
@@ -1354,6 +1360,9 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
+> [!NOTE]
+> Los puntos de conexión que se crean mediante una llamada a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **antes** de llamar a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureEndpointDefaults*> no tendrán aplicados los valores predeterminados.
+
 ### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults(Action\<HttpsConnectionAdapterOptions>)
 
 Especifica una `Action` de configuración para que se ejecute con cada punto de conexión HTTPS. Al llamar a `ConfigureHttpsDefaults` varias veces, se reemplazan las `Action` anteriores por la última `Action` especificada.
@@ -1371,6 +1380,10 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             });
         });
 ```
+
+> [!NOTE]
+> Los puntos de conexión que se crean mediante una llamada a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **antes** de llamar a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> no tendrán aplicados los valores predeterminados.
+
 
 ### <a name="configureiconfiguration"></a>Configure(IConfiguration)
 
@@ -2194,6 +2207,9 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
+> [!NOTE]
+> Los puntos de conexión que se crean mediante una llamada a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **antes** de llamar a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureEndpointDefaults*> no tendrán aplicados los valores predeterminados.
+
 ### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults(Action\<HttpsConnectionAdapterOptions>)
 
 Especifica una `Action` de configuración para que se ejecute con cada punto de conexión HTTPS. Al llamar a `ConfigureHttpsDefaults` varias veces, se reemplazan las `Action` anteriores por la última `Action` especificada.
@@ -2211,6 +2227,9 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             });
         });
 ```
+
+> [!NOTE]
+> Los puntos de conexión que se crean mediante una llamada a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **antes** de llamar a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> no tendrán aplicados los valores predeterminados.
 
 ### <a name="configureiconfiguration"></a>Configure(IConfiguration)
 
