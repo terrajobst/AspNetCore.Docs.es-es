@@ -29,7 +29,7 @@ Para crear un proyecto para los modelos de hospedaje descritos en este artículo
 
 ## <a name="opno-locblazor-webassembly"></a>Blazor WebAssembly
 
-El modelo de hospedaje principal de Blazor se está ejecutando en el lado cliente en el explorador de webassembly. La aplicación Blazor, sus dependencias y el tiempo de ejecución de .NET se descargan en el explorador. La aplicación se ejecuta directamente en el subproceso de interfaz de usuario del explorador. Las actualizaciones de la interfaz de usuario y el control de eventos se producen dentro del mismo proceso. Los recursos de la aplicación se implementan como archivos estáticos en un servidor web o servicio capaz de servir contenido estático a los clientes.
+El modelo de hospedaje principal de Blazor se está ejecutando en el lado cliente en el explorador de webassembly. La aplicación Blazor, sus dependencias y el entorno de ejecución de .NET se descargan en el explorador. La aplicación se ejecuta directamente en el subproceso de interfaz de usuario del explorador. Las actualizaciones de la interfaz de usuario y el control de eventos se producen dentro del mismo proceso. Los recursos de la aplicación se implementan como archivos estáticos en un servidor web o servicio capaz de servir contenido estático a los clientes.
 
 ![[! Operador. Webassembly NO-LOC (increíble)]: [! Operador. NO-LOC (increíble): la aplicación se ejecuta en un subproceso de interfaz de usuario dentro del explorador.](hosting-models/_static/blazor-webassembly.png)
 
@@ -58,7 +58,7 @@ Hay desventajas para Blazor hospedaje de webassembly:
 
 ## <a name="opno-locblazor-server"></a>Servidor de Blazor
 
-Con el modelo de hospedaje de servidor de Blazor, la aplicación se ejecuta en el servidor desde una aplicación ASP.NET Core. Las actualizaciones de la interfaz de usuario, el control de eventos y las llamadas de JavaScript se controlan a través de una conexión [SignalR](xref:signalr/introduction) .
+Con el modelo de hospedaje de servidor de Blazor, la aplicación se ejecuta en el servidor desde una aplicación ASP.NET Core. Las actualizaciones de la interfaz de usuario, el control de eventos y las llamadas de JavaScript se controlan mediante una conexión [SignalR](xref:signalr/introduction).
 
 ![El explorador interactúa con la aplicación (hospedada dentro de una aplicación ASP.NET Core) en el servidor a través de un [! Operador. Conexión NO-LOC (Signalr)].](hosting-models/_static/blazor-server.png)
 
@@ -140,7 +140,7 @@ las aplicaciones de Blazor Server requieren una conexión de SignalR activa con 
 
 Una aplicación de Blazor Server se representa en respuesta a la primera solicitud de cliente, que configura el estado de la interfaz de usuario en el servidor. Cuando el cliente intenta crear una conexión SignalR, el cliente debe volver a conectarse al mismo servidor. las aplicaciones de Blazor Server que usan más de un servidor back-end deben implementar *sesiones permanentes* para conexiones SignalR.
 
-Se recomienda usar el [servicio Azure SignalR](/azure/azure-signalr) para las aplicaciones de Blazor Server. El servicio permite escalar verticalmente una aplicación de Blazor Server a un gran número de conexiones SignalR simultáneas. Las sesiones permanentes están habilitadas para el servicio Azure SignalR estableciendo la opción de `ServerStickyMode` o el valor de configuración del servicio en `Required`. Para obtener más información, consulta <xref:host-and-deploy/blazor/server#signalr-configuration>.
+Se recomienda usar [Azure SignalR Service](/azure/azure-signalr) para las aplicaciones Blazor Server. El servicio permite el escalado vertical de una aplicación Blazor Server a un gran número de conexiones SignalR simultáneas. Las sesiones permanentes están habilitadas para el servicio Azure SignalR estableciendo la opción de `ServerStickyMode` o el valor de configuración del servicio en `Required`. Para obtener más información, consulta <xref:host-and-deploy/blazor/server#signalr-configuration>.
 
 Cuando se usa IIS, las sesiones permanentes se habilitan con el enrutamiento de solicitud de aplicaciones. Para obtener más información, consulte [equilibrio de carga http con enrutamiento de solicitud de aplicaciones](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
 

@@ -329,7 +329,7 @@ A diferencia de `onchange`, que se activa cuando el elemento pierde el foco, `on
 
 Cuando un usuario proporciona un valor que no se pueda analizar a un elemento DataBound, el valor no analizable se revierte automáticamente a su valor anterior cuando se desencadena el evento de enlace.
 
-Considere el caso siguiente:
+Considere el siguiente escenario:
 
 * Un elemento `<input>` se enlaza a un tipo `int` con un valor inicial de `123`:
 
@@ -378,7 +378,7 @@ Los siguientes tipos de campo tienen requisitos de formato específicos y no se 
 
 `@bind` admite el parámetro `@bind:culture` para proporcionar un <xref:System.Globalization.CultureInfo?displayProperty=fullName> para analizar y dar formato a un valor. No se recomienda especificar una referencia cultural al usar los tipos de campo `date` y `number`. `date` y `number` tienen compatibilidad integrada con Blazor que proporciona la referencia cultural necesaria.
 
-Para obtener información sobre cómo establecer la referencia cultural del usuario, consulte la sección [Localización](#localization).
+Para obtener información sobre cómo establecer la referencia cultural del usuario, consulte la sección [Localization](#localization) .
 
 **Cadenas de formato**
 
@@ -545,12 +545,12 @@ En algunos eventos, se permiten los tipos de argumento de evento. Si no es neces
 
 Los `EventArgs` admitidos se muestran en la tabla siguiente.
 
-| evento            | Clase                | Eventos y notas de DOM |
+| Evento            | Clase                | Eventos y notas de DOM |
 | ---------------- | -------------------- | -------------------- |
 | Portapapeles        | `ClipboardEventArgs` | `oncut`, `oncopy`, `onpaste` |
 | Arrastre             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` y `DataTransferItem` mantener los datos de los elementos arrastrados. |
 | Error            | `ErrorEventArgs`     | `onerror` |
-| evento            | `EventArgs`          | *General*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Portapapeles*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Entrada*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Soporte*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
+| Evento            | `EventArgs`          | *General*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Portapapeles*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Entrada*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Soporte*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
 | Foco            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>No incluye compatibilidad con `relatedTarget`. |
 | Entrada            | `ChangeEventArgs`    | `onchange`, `oninput` |
 | Teclado         | `KeyboardEventArgs`  | `onkeydown`, `onkeypress`, `onkeyup` |
@@ -1227,7 +1227,7 @@ La [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/maste
 <h1>@BlazorRocksText</h1>
 ```
 
-*BlazorRocksBase.cs*:
+*BlazorRocksBase.CS*:
 
 ```csharp
 using Microsoft.AspNetCore.Components;
@@ -1429,7 +1429,7 @@ En algunos escenarios, no es conveniente fluir los datos de un componente antece
 
 En el ejemplo siguiente de la aplicación de ejemplo, la clase `ThemeInfo` especifica la información del tema que va a fluir hacia abajo en la jerarquía de componentes para que todos los botones de una parte determinada de la aplicación compartan el mismo estilo.
 
-*UIThemeClasses/ThemeInfo.cs*:
+*UIThemeClasses/ThemeInfo. CS*:
 
 ```csharp
 public class ThemeInfo
@@ -1688,14 +1688,14 @@ builder.AddContent(1, "Second");
 
 Cuando el código se ejecuta por primera vez, si se `true``someFlag`, el generador recibe:
 
-| Secuencia | Tipo      | data   |
+| Secuencia | Tipo      | Datos   |
 | :------: | --------- | :----: |
 | 0        | Nodo de texto | First  |
 | 1        | Nodo de texto | Second |
 
 Imagine que `someFlag` se `false`y que el marcado se representará de nuevo. Esta vez, el generador recibe:
 
-| Secuencia | Tipo       | data   |
+| Secuencia | Tipo       | Datos   |
 | :------: | ---------- | :----: |
 | 1        | Nodo de texto  | Second |
 
@@ -1720,14 +1720,14 @@ builder.AddContent(seq++, "Second");
 
 Ahora, el primer resultado es:
 
-| Secuencia | Tipo      | data   |
+| Secuencia | Tipo      | Datos   |
 | :------: | --------- | :----: |
 | 0        | Nodo de texto | First  |
 | 1        | Nodo de texto | Second |
 
 Este resultado es idéntico al caso anterior, por lo que no existe ningún problema negativo. `someFlag` se `false` en la segunda representación y el resultado es:
 
-| Secuencia | Tipo      | data   |
+| Secuencia | Tipo      | Datos   |
 | :------: | --------- | ------ |
 | 0        | Nodo de texto | Second |
 

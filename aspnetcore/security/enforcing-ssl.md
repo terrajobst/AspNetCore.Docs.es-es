@@ -52,7 +52,7 @@ Ninguna API puede impedir que un cliente envíe datos confidenciales en la prime
 
 ::: moniker-end
 
-## <a name="require-https"></a>Requisito de HTTPS
+## <a name="require-https"></a>Requerir HTTPS
 
 Se recomienda que las aplicaciones Web de producción ASP.NET Core usen:
 
