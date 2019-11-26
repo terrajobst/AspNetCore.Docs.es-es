@@ -5,14 +5,14 @@ description: Este artículo contiene vínculos a recursos de implementación y h
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 10/11/2019
+ms.date: 11/07/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 392868b4fc9105279f8f3b10436a9915123e7070
-ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
+ms.openlocfilehash: f9fc6e706046165c142e19ca38d97ac21914dc9b
+ms.sourcegitcommit: a104ba258ae7c0b3ee7c6fa7eaea1ddeb8b6eb73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73190626"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74478762"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -52,6 +52,8 @@ Conozca y solucione advertencias y errores en proyectos de ASP.NET Core.
 ## <a name="application-configuration"></a>Configuración de aplicación
 
 ### <a name="platform"></a>Plataforma
+
+La arquitectura de plataforma (x86/x64) de una aplicación de App Services se establece en la configuración de la aplicación de Azure Portal para las aplicaciones hospedadas en un cálculo de serie A (básico) o en un nivel de hospedaje superior. Confirme que la configuración de publicación de la aplicación (por ejemplo, en el [perfil de publicación [.pubxml])](xref:host-and-deploy/visual-studio-publish-profiles) de Visual Studio coincide con los valores de configuración de servicio de la aplicación en Azure Portal.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -213,9 +215,11 @@ Cuando se complete la operación, se instalará la versión preliminar de .NET C
    El comando devuelve `True` cuando está instalado el runtime de la versión preliminar de x64.
 
 > [!NOTE]
-> La arquitectura de plataforma (x86/x64) de una aplicación de App Services se establece en la configuración de la aplicación de Azure Portal para las aplicaciones hospedadas en un cálculo de serie A o en un mejor nivel de hospedaje. Si la aplicación se ejecuta en modo de en proceso y la arquitectura de plataforma está configurada para 64 bits (x64), el módulo ASP.NET Core usa el runtime de la versión preliminar de 64 bits, si está presente. Instale la extensión **Runtime de ASP.NET Core {X.Y} (x64) Runtime**.
+> La arquitectura de plataforma (x86/x64) de una aplicación de App Services se establece en la configuración de la aplicación de Azure Portal para las aplicaciones hospedadas en un cálculo de serie A (básico) o en un nivel de hospedaje superior. Confirme que la configuración de publicación de la aplicación (por ejemplo, en el [perfil de publicación [.pubxml])](xref:host-and-deploy/visual-studio-publish-profiles) de Visual Studio coincide con los valores de configuración de servicio de la aplicación en Azure Portal.
 >
-> Después de instalar el runtime de la versión preliminar de x64, ejecute el siguiente comando en la ventana de comandos de Kudu PowerShell para comprobar la instalación. Sustituya la versión de runtime de ASP.NET Core por `{X.Y}` en el comando:
+> Si la aplicación se ejecuta en modo de en proceso y la arquitectura de plataforma está configurada para 64 bits (x64), el módulo ASP.NET Core usa el runtime de la versión preliminar de 64 bits, si está presente. Instale la extensión del **entorno de ejecución de ASP.NET Core {X.Y} (x64)** mediante Azure Portal.
+>
+> Después de instalar el entorno de ejecución de la versión preliminar de x64, ejecute el siguiente comando en la ventana de comandos de Kudu PowerShell de Azure para comprobar la instalación. Sustituya la versión del entorno de ejecución de ASP.NET Core por `{X.Y}` en el comando siguiente:
 >
 > ```powershell
 > Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64\
@@ -234,16 +238,16 @@ Si usa una plantilla de ARM para crear e implementar aplicaciones, puede usar el
 
 ## <a name="publish-and-deploy-the-app"></a>Publicar e implementar la aplicación
 
-### <a name="deploy-the-app-framework-dependent"></a>Implementación de la aplicación dependiente del marco de trabajo
-
 ::: moniker range=">= aspnetcore-2.2"
 
-Para una [implementación dependiente de marco de trabajo](/dotnet/core/deploying/#framework-dependent-deployments-fdd) de 64 bits:
+Para una implementación de 64 bits:
 
 * Use un SDK de .NET Core de 64 bits para compilar una aplicación de 64 bits.
 * Establezca la **Plataforma** en **64 bits** en **Configuración** > **Configuración general** de App Service. La aplicación debe usar un plan de servicio básico o superior para habilitar la elección del valor de bits de la plataforma.
 
 ::: moniker-end
+
+### <a name="deploy-the-app-framework-dependent"></a>Implementación de la aplicación dependiente del marco de trabajo
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
