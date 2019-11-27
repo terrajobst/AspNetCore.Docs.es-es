@@ -5,16 +5,16 @@ description: Obtenga información sobre cómo crear y usar componentes de Razor,
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 uid: blazor/components
-ms.openlocfilehash: 267a6f5aa96feeecc280238abbef86949750b07e
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 89c92fbd5a3939cd2b4a34c39163767bcdf73bb8
+ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317212"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74550304"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -329,7 +329,7 @@ A diferencia de `onchange`, que se activa cuando el elemento pierde el foco, `on
 
 Cuando un usuario proporciona un valor que no se pueda analizar a un elemento DataBound, el valor no analizable se revierte automáticamente a su valor anterior cuando se desencadena el evento de enlace.
 
-Considere el siguiente escenario:
+Considere el caso siguiente:
 
 * Un elemento `<input>` se enlaza a un tipo `int` con un valor inicial de `123`:
 
@@ -545,14 +545,14 @@ En algunos eventos, se permiten los tipos de argumento de evento. Si no es neces
 
 Los `EventArgs` admitidos se muestran en la tabla siguiente.
 
-| Evento            | Clase                | Eventos y notas de DOM |
+| Event            | Clase                | Eventos y notas de DOM |
 | ---------------- | -------------------- | -------------------- |
 | Portapapeles        | `ClipboardEventArgs` | `oncut`, `oncopy`, `onpaste` |
 | Arrastre             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` y `DataTransferItem` mantener los datos de los elementos arrastrados. |
-| Error            | `ErrorEventArgs`     | `onerror` |
-| Evento            | `EventArgs`          | *General*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Portapapeles*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Entrada*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Soporte*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
+| Error de :            | `ErrorEventArgs`     | `onerror` |
+| Event            | `EventArgs`          | *General*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Portapapeles*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Entrada*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Soporte*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
 | Foco            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>No incluye compatibilidad con `relatedTarget`. |
-| Entrada            | `ChangeEventArgs`    | `onchange`, `oninput` |
+| Input            | `ChangeEventArgs`    | `onchange`, `oninput` |
 | Teclado         | `KeyboardEventArgs`  | `onkeydown`, `onkeypress`, `onkeyup` |
 | Mouse            | `MouseEventArgs`     | `onclick`, `oncontextmenu`, `ondblclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` |
 | Puntero del mouse    | `PointerEventArgs`   | `onpointerdown`, `onpointerup`, `onpointercancel`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `ongotpointercapture`, `onlostpointercapture` |
@@ -1145,6 +1145,8 @@ Los componentes pueden recibir parámetros de ruta de la plantilla de ruta propo
 
 Los parámetros opcionales no se admiten, por lo que se aplican dos directivas de `@page` en el ejemplo anterior. El primero permite la navegación al componente sin un parámetro. La segunda Directiva de `@page` toma el parámetro `{text}` Route y asigna el valor a la propiedad `Text`.
 
+La sintaxis de *los parámetros catch-all* (`*`/`**`), que capturan la ruta de acceso en varios límites de carpeta, **no** se admite en los componentes de Razor ( *. Razor*).
+
 ::: moniker range=">= aspnetcore-3.1"
 
 ## <a name="partial-class-support"></a>Compatibilidad de clases parciales
@@ -1310,7 +1312,7 @@ Si `IsCompleted` se `false`, la casilla se representa como:
 <input type="checkbox" />
 ```
 
-Para obtener más información, consulta <xref:mvc/views/razor>.
+Para obtener más información, vea <xref:mvc/views/razor>.
 
 > [!WARNING]
 > Algunos atributos HTML, como [Aria-pressed](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons), no funcionan correctamente cuando el tipo .net es un `bool`. En esos casos, use un tipo de `string` en lugar de un `bool`.
@@ -1688,14 +1690,14 @@ builder.AddContent(1, "Second");
 
 Cuando el código se ejecuta por primera vez, si se `true``someFlag`, el generador recibe:
 
-| Secuencia | Tipo      | Datos   |
+| Secuencia | Tipo de      | Datos   |
 | :------: | --------- | :----: |
 | 0        | Nodo de texto | First  |
 | 1        | Nodo de texto | Second |
 
 Imagine que `someFlag` se `false`y que el marcado se representará de nuevo. Esta vez, el generador recibe:
 
-| Secuencia | Tipo       | Datos   |
+| Secuencia | Tipo de       | Datos   |
 | :------: | ---------- | :----: |
 | 1        | Nodo de texto  | Second |
 
@@ -1720,14 +1722,14 @@ builder.AddContent(seq++, "Second");
 
 Ahora, el primer resultado es:
 
-| Secuencia | Tipo      | Datos   |
+| Secuencia | Tipo de      | Datos   |
 | :------: | --------- | :----: |
 | 0        | Nodo de texto | First  |
 | 1        | Nodo de texto | Second |
 
 Este resultado es idéntico al caso anterior, por lo que no existe ningún problema negativo. `someFlag` se `false` en la segunda representación y el resultado es:
 
-| Secuencia | Tipo      | Datos   |
+| Secuencia | Tipo de      | Datos   |
 | :------: | --------- | ------ |
 | 0        | Nodo de texto | Second |
 
@@ -1825,7 +1827,7 @@ public class CultureController : Controller
 ```
 
 > [!WARNING]
-> Use el resultado de la acción `LocalRedirect` para evitar ataques de redireccionamiento abierto. Para obtener más información, consulta <xref:security/preventing-open-redirects>.
+> Use el resultado de la acción `LocalRedirect` para evitar ataques de redireccionamiento abierto. Para obtener más información, vea <xref:security/preventing-open-redirects>.
 
 El siguiente componente muestra un ejemplo de cómo realizar la redirección inicial cuando el usuario selecciona una referencia cultural:
 
@@ -1870,7 +1872,7 @@ Actualmente se admite un conjunto limitado de escenarios de localización de ASP
 * `IStringLocalizer<>` *se admite* en las aplicaciones de Blazor.
 * la localización de `IHtmlLocalizer<>`, `IViewLocalizer<>`y las anotaciones de datos es ASP.NET Core escenarios MVC y **no se admiten** en Blazor aplicaciones.
 
-Para obtener más información, consulta <xref:fundamentals/localization>.
+Para obtener más información, vea <xref:fundamentals/localization>.
 
 ## <a name="scalable-vector-graphics-svg-images"></a>Imágenes de gráficos vectoriales escalables (SVG)
 
