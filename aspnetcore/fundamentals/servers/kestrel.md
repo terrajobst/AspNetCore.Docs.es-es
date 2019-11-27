@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/14/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 04512504cc5a7c4b9cb30ce2280e86956f8cc25c
-ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
+ms.openlocfilehash: 6fba6689f72f7a565e28d80f6770765ab097cf11
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155050"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74289107"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web Kestrel en ASP.NET Core
 
@@ -81,9 +81,9 @@ Un proxy inverso puede hacer lo siguiente:
 > [!WARNING]
 > El hospedaje en una configuración de proxy inverso requiere [filtrado de hosts](#host-filtering).
 
-## <a name="how-to-use-kestrel-in-aspnet-core-apps"></a>Cómo usar Kestrel en aplicaciones ASP.NET Core
+## <a name="kestrel-in-aspnet-core-apps"></a>Kestrel en aplicaciones ASP.NET Core
 
-Las plantillas de proyecto de ASP.NET Core usan Kestrel de forma predeterminada. En *Program.cs*, la aplicación llama a `ConfigureWebHostDefaults`, que a su vez llama a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*> en segundo plano.
+Las plantillas de proyecto de ASP.NET Core usan Kestrel de forma predeterminada. En *Program.cs*, el método <xref:Microsoft.Extensions.Hosting.GenericHostBuilderExtensions.ConfigureWebHostDefaults*> llama a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>:
 
 [!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_DefaultBuilder&highlight=8)]
 
@@ -343,7 +343,7 @@ Para más información sobre otras opciones y límites de Kestrel, vea:
 * <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits>
 * <xref:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions>
 
-## <a name="endpoint-configuration"></a>Configuración de punto de conexión
+## <a name="endpoint-configuration"></a>Configuración del punto de conexión
 
 ASP.NET Core enlaza de forma predeterminada a:
 
@@ -357,7 +357,7 @@ Especifique direcciones URL mediante los siguientes elementos:
 * La clave de configuración de host `urls`.
 * El método de extensión `UseUrls`.
 
-El valor que estos métodos suministran puede ser uno o más puntos de conexión HTTP y HTTPS (este último, si hay disponible un certificado predeterminado). Configure el valor como una lista separada por punto y coma (por ejemplo, `"Urls": "http://localhost:8000;http://localhost:8001"`).
+El valor que estos métodos suministran puede ser uno o más puntos de conexión HTTP y HTTPS (este último, si hay disponible un certificado predeterminado). Configure el valor como una lista separada por punto y coma (por ejemplo, `"Urls": "http://localhost:8000; http://localhost:8001"`).
 
 Para más información sobre estos enfoques, consulte [Direcciones URL del servidor](xref:fundamentals/host/web-host#server-urls) e [Invalidar la configuración](xref:fundamentals/host/web-host#override-configuration).
 
@@ -668,7 +668,7 @@ Configure puntos de conexión con los siguientes métodos:
 * <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseUrls*>
 * El argumento de la línea de comandos `--urls`
 * La clave de configuración de host `urls`
-* La variable de entorno `ASPNETCORE_URLS`
+* Variable de entorno `ASPNETCORE_URLS`
 
 Estos métodos son útiles para que el código funcione con servidores que no sean de Kestrel. Sin embargo, tenga en cuenta las siguientes limitaciones:
 
@@ -1310,7 +1310,7 @@ Para más información sobre otras opciones y límites de Kestrel, vea:
 * <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits>
 * <xref:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions>
 
-## <a name="endpoint-configuration"></a>Configuración de punto de conexión
+## <a name="endpoint-configuration"></a>Configuración del punto de conexión
 
 ASP.NET Core enlaza de forma predeterminada a:
 
@@ -1324,7 +1324,7 @@ Especifique direcciones URL mediante los siguientes elementos:
 * La clave de configuración de host `urls`.
 * El método de extensión `UseUrls`.
 
-El valor que estos métodos suministran puede ser uno o más puntos de conexión HTTP y HTTPS (este último, si hay disponible un certificado predeterminado). Configure el valor como una lista separada por punto y coma (por ejemplo, `"Urls": "http://localhost:8000;http://localhost:8001"`).
+El valor que estos métodos suministran puede ser uno o más puntos de conexión HTTP y HTTPS (este último, si hay disponible un certificado predeterminado). Configure el valor como una lista separada por punto y coma (por ejemplo, `"Urls": "http://localhost:8000; http://localhost:8001"`).
 
 Para más información sobre estos enfoques, consulte [Direcciones URL del servidor](xref:fundamentals/host/web-host#server-urls) e [Invalidar la configuración](xref:fundamentals/host/web-host#override-configuration).
 
@@ -1651,7 +1651,7 @@ Configure puntos de conexión con los siguientes métodos:
 * <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseUrls*>
 * El argumento de la línea de comandos `--urls`
 * La clave de configuración de host `urls`
-* La variable de entorno `ASPNETCORE_URLS`
+* Variable de entorno `ASPNETCORE_URLS`
 
 Estos métodos son útiles para que el código funcione con servidores que no sean de Kestrel. Sin embargo, tenga en cuenta las siguientes limitaciones:
 
@@ -2157,7 +2157,7 @@ Para más información sobre otras opciones y límites de Kestrel, vea:
 * <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits>
 * <xref:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions>
 
-## <a name="endpoint-configuration"></a>Configuración de punto de conexión
+## <a name="endpoint-configuration"></a>Configuración del punto de conexión
 
 ASP.NET Core enlaza de forma predeterminada a:
 
@@ -2171,7 +2171,7 @@ Especifique direcciones URL mediante los siguientes elementos:
 * La clave de configuración de host `urls`.
 * El método de extensión `UseUrls`.
 
-El valor que estos métodos suministran puede ser uno o más puntos de conexión HTTP y HTTPS (este último, si hay disponible un certificado predeterminado). Configure el valor como una lista separada por punto y coma (por ejemplo, `"Urls": "http://localhost:8000;http://localhost:8001"`).
+El valor que estos métodos suministran puede ser uno o más puntos de conexión HTTP y HTTPS (este último, si hay disponible un certificado predeterminado). Configure el valor como una lista separada por punto y coma (por ejemplo, `"Urls": "http://localhost:8000; http://localhost:8001"`).
 
 Para más información sobre estos enfoques, consulte [Direcciones URL del servidor](xref:fundamentals/host/web-host#server-urls) e [Invalidar la configuración](xref:fundamentals/host/web-host#override-configuration).
 
@@ -2546,7 +2546,7 @@ Configure puntos de conexión con los siguientes métodos:
 * <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseUrls*>
 * El argumento de la línea de comandos `--urls`
 * La clave de configuración de host `urls`
-* La variable de entorno `ASPNETCORE_URLS`
+* Variable de entorno `ASPNETCORE_URLS`
 
 Estos métodos son útiles para que el código funcione con servidores que no sean de Kestrel. Sin embargo, tenga en cuenta las siguientes limitaciones:
 
