@@ -5,17 +5,17 @@ description: Descubra cómo ASP.NET Core Blazor cómo Blazor administra las exce
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: f2fa59259f1dd36f50e81256bddea265e347554b
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 9784b357c2cdeb7422bbe40a39f881c97f6d716a
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317155"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74680998"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Control de errores en las aplicaciones de Blazor de ASP.NET Core
 
@@ -89,9 +89,9 @@ En producción, no se representan mensajes de excepción de marco o seguimientos
 
 ## <a name="log-errors-with-a-persistent-provider"></a>Registrar errores con un proveedor persistente
 
-Si se produce una excepción no controlada, la excepción se registra en <xref:Microsoft.Extensions.Logging.ILogger> las instancias configuradas en el contenedor de servicios. De forma predeterminada, Blazor aplicaciones registran la salida de la consola con el proveedor de registro de la consola. Considere la posibilidad de iniciar sesión en una ubicación más permanente con un proveedor que administre el tamaño y la rotación del registro. Para obtener más información, consulta <xref:fundamentals/logging/index>.
+Si se produce una excepción no controlada, la excepción se registra en <xref:Microsoft.Extensions.Logging.ILogger> las instancias configuradas en el contenedor de servicios. De forma predeterminada, Blazor aplicaciones registran la salida de la consola con el proveedor de registro de la consola. Considere la posibilidad de iniciar sesión en una ubicación más permanente con un proveedor que administre el tamaño y la rotación del registro. Para obtener más información, vea <xref:fundamentals/logging/index>.
 
-Durante el desarrollo, Blazor envía normalmente los detalles completos de las excepciones a la consola del explorador para ayudar en la depuración. En producción, los errores detallados en la consola del explorador están deshabilitados de forma predeterminada, lo que significa que los errores no se envían a los clientes, pero los detalles completos de la excepción siguen registrándose en el lado servidor. Para obtener más información, consulta <xref:fundamentals/error-handling>.
+Durante el desarrollo, Blazor envía normalmente los detalles completos de las excepciones a la consola del explorador para ayudar en la depuración. En producción, los errores detallados en la consola del explorador están deshabilitados de forma predeterminada, lo que significa que los errores no se envían a los clientes, pero los detalles completos de la excepción siguen registrándose en el lado servidor. Para obtener más información, vea <xref:fundamentals/error-handling>.
 
 Debe decidir qué incidentes registrar y el nivel de gravedad de los incidentes registrados. Es posible que los usuarios hostiles puedan desencadenar errores deliberadamente. Por ejemplo, no registre un incidente de un error en el que se proporcione un `ProductId` desconocido en la dirección URL de un componente que muestra los detalles del producto. No todos los errores se deben tratar como incidentes de alta gravedad para el registro.
 
@@ -122,7 +122,7 @@ Se produce un error en un circuito cuando cualquier constructor ejecutado o un e
 
 ### <a name="lifecycle-methods"></a>Métodos de ciclo de vida
 
-Durante la vigencia de un componente, Blazor invoca métodos de ciclo de vida:
+Durante la vigencia de un componente, Blazor invoca [métodos de ciclo de vida](xref:blazor/lifecycle):
 
 * `OnInitialized` / `OnInitializedAsync`
 * `OnParametersSet` / `OnParametersSetAsync`
@@ -173,7 +173,7 @@ Un componente se puede quitar de la interfaz de usuario, por ejemplo, porque el 
 
 Si el método `Dispose` del componente produce una excepción no controlada, la excepción es grave para el circuito. Si la lógica de eliminación puede producir excepciones, la aplicación debe interceptar las excepciones mediante una instrucción [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro.
 
-Para obtener más información sobre la eliminación de componentes, consulte <xref:blazor/components#component-disposal-with-idisposable>.
+Para obtener más información sobre la eliminación de componentes, consulte <xref:blazor/lifecycle#component-disposal-with-idisposable>.
 
 ### <a name="javascript-interop"></a>Interoperabilidad de JavaScript
 
@@ -192,7 +192,7 @@ Del mismo modo, el código de JavaScript puede iniciar llamadas a métodos .NET 
 
 Tiene la opción de usar el código de control de errores en el lado de .NET o en el lado de JavaScript de la llamada al método.
 
-Para obtener más información, consulta <xref:blazor/javascript-interop>.
+Para obtener más información, vea <xref:blazor/javascript-interop>.
 
 ### <a name="circuit-handlers"></a>Controladores de circuito
 
@@ -277,7 +277,7 @@ Para evitar patrones infinitos de recursividad, asegúrese de que el código de 
 
 ### <a name="custom-render-tree-logic"></a>Lógica de árbol de representación personalizada
 
-La mayoría de los componentes de Blazor se implementan como archivos *. Razor* y se compilan para generar lógica que opere en un `RenderTreeBuilder` para representar su salida. Un desarrollador puede implementar manualmente `RenderTreeBuilder` lógica mediante código C# de procedimiento. Para obtener más información, consulta <xref:blazor/components#manual-rendertreebuilder-logic>.
+La mayoría de los componentes de Blazor se implementan como archivos *. Razor* y se compilan para generar lógica que opere en un `RenderTreeBuilder` para representar su salida. Un desarrollador puede implementar manualmente `RenderTreeBuilder` lógica mediante código C# de procedimiento. Para obtener más información, vea <xref:blazor/components#manual-rendertreebuilder-logic>.
 
 > [!WARNING]
 > El uso de la lógica del generador de árboles de representación manual se considera un escenario avanzado y no seguro, no recomendado para el desarrollo de componentes generales.

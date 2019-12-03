@@ -9,12 +9,12 @@ ms.date: 11/23/2019
 no-loc:
 - Blazor
 uid: blazor/components
-ms.openlocfilehash: 89c92fbd5a3939cd2b4a34c39163767bcdf73bb8
-ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
+ms.openlocfilehash: 764e5e7db995b2dcadccf6d93c826ccf32c9ba04
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74550304"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681011"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -522,7 +522,7 @@ El código siguiente llama al método `CheckChanged` cuando se cambia la casilla
 }
 ```
 
-Los controladores de eventos también pueden ser asincrónicos y devolver un <xref:System.Threading.Tasks.Task>. No es necesario llamar a `StateHasChanged()`manualmente. Las excepciones se registran cuando se producen.
+Los controladores de eventos también pueden ser asincrónicos y devolver un <xref:System.Threading.Tasks.Task>. No es necesario llamar a [StateHasChanged](xref:blazor/lifecycle#state-changes)manualmente. Las excepciones se registran cuando se producen.
 
 En el ejemplo siguiente, se llama a `UpdateHeading` de forma asincrónica cuando se selecciona el botón:
 
@@ -614,7 +614,7 @@ El `ParentComponent` establece el `EventCallback<T>` del elemento secundario en 
 Cuando el botón está seleccionado en el `ChildComponent`:
 
 * Se llama al método `ShowMessage` del `ParentComponent`. `messageText` se actualiza y se muestra en el `ParentComponent`.
-* No se requiere una llamada a `StateHasChanged` en el método de la devolución de llamada (`ShowMessage`). se llama a `StateHasChanged` automáticamente para rerepresentar el `ParentComponent`, del mismo modo que los eventos secundarios desencadenan la rerepresentación de componentes en los controladores de eventos que se ejecutan dentro del elemento secundario.
+* No se requiere una llamada a [StateHasChanged](xref:blazor/lifecycle#state-changes) en el método de la devolución de llamada (`ShowMessage`). se llama a `StateHasChanged` automáticamente para rerepresentar el `ParentComponent`, del mismo modo que los eventos secundarios desencadenan la rerepresentación de componentes en los controladores de eventos que se ejecutan dentro del elemento secundario.
 
 `EventCallback` y `EventCallback<T>` permiten los delegados asincrónicos. `EventCallback<T>` tiene un tipo seguro y requiere un tipo de argumento específico. `EventCallback` tiene un tipo débil y permite cualquier tipo de argumento.
 
@@ -854,7 +854,7 @@ Las referencias de componente proporcionan una manera de hacer referencia a una 
 Cuando se representa el componente, el campo de `loginDialog` se rellena con la instancia del componente secundario `MyLoginDialog`. Después, puede invocar métodos .NET en la instancia del componente.
 
 > [!IMPORTANT]
-> La variable `loginDialog` solo se rellena después de que el componente se represente y su salida incluye el elemento `MyLoginDialog`. Hasta ese momento, no hay nada que hacer referencia. Para manipular las referencias de componentes una vez finalizada la representación del componente, use los [métodos OnAfterRenderAsync o OnAfterRender](#lifecycle-methods).
+> La variable `loginDialog` solo se rellena después de que el componente se represente y su salida incluye el elemento `MyLoginDialog`. Hasta ese momento, no hay nada que hacer referencia. Para manipular las referencias de componentes una vez finalizada la representación del componente, use los [métodos OnAfterRenderAsync o OnAfterRender](xref:blazor/lifecycle#after-component-render).
 
 Al capturar referencias de componentes, use una sintaxis similar para [capturar referencias de elemento](xref:blazor/javascript-interop#capture-references-to-elements), no es una característica de [interoperabilidad de JavaScript](xref:blazor/javascript-interop) . Las referencias a componentes no se pasan al código JavaScript&mdash;solo se usan en código .NET.
 
@@ -863,7 +863,7 @@ Al capturar referencias de componentes, use una sintaxis similar para [capturar 
 
 ## <a name="invoke-component-methods-externally-to-update-state"></a>Invocar métodos de componentes externamente para actualizar el estado
 
-Blazor usa un `SynchronizationContext` para aplicar un único subproceso lógico de ejecución. Los métodos de ciclo de vida de un componente y las devoluciones de llamada de eventos que se producen en Blazor se ejecutan en esta `SynchronizationContext`. En caso de que un componente deba actualizarse en función de un evento externo, como un temporizador u otras notificaciones, use el método `InvokeAsync`, que se enviará al `SynchronizationContext`de Blazor.
+Blazor usa un `SynchronizationContext` para aplicar un único subproceso lógico de ejecución. [Los métodos de ciclo de vida](xref:blazor/lifecycle) de un componente y las devoluciones de llamada de eventos que se producen en Blazor se ejecutan en esta `SynchronizationContext`. En caso de que un componente deba actualizarse en función de un evento externo, como un temporizador u otras notificaciones, use el método `InvokeAsync`, que se enviará al `SynchronizationContext`de Blazor.
 
 Por ejemplo, considere un *servicio de notificador* que puede notificar a cualquier componente de escucha del estado actualizado:
 
@@ -991,139 +991,6 @@ Por lo general, tiene sentido proporcionar uno de los siguientes tipos de valor 
 * Los identificadores únicos (por ejemplo, los valores de clave principal de tipo `int`, `string`o `Guid`).
 
 Asegúrese de que los valores usados para `@key` no entren en conflicto. Si se detectan valores en conflicto en el mismo elemento primario, Blazor produce una excepción porque no puede asignar de forma determinista elementos o componentes antiguos a nuevos elementos o componentes. Utilice solo valores distintos, como instancias de objeto o valores de clave principal.
-
-## <a name="lifecycle-methods"></a>Métodos de ciclo de vida
-
-`OnInitializedAsync` y `OnInitialized` ejecutar código para inicializar el componente. Para realizar una operación asincrónica, use `OnInitializedAsync` y la palabra clave `await` en la operación:
-
-```csharp
-protected override async Task OnInitializedAsync()
-{
-    await ...
-}
-```
-
-> [!NOTE]
-> El trabajo asincrónico durante la inicialización del componente debe producirse durante el evento del ciclo de vida de `OnInitializedAsync`.
-
-En el caso de una operación sincrónica, utilice `OnInitialized`:
-
-```csharp
-protected override void OnInitialized()
-{
-    ...
-}
-```
-
-se llama a `OnParametersSetAsync` y `OnParametersSet` cuando un componente ha recibido parámetros de su elemento primario y los valores se asignan a las propiedades. Estos métodos se ejecutan después de la inicialización del componente y cada vez que se representa el componente primario:
-
-```csharp
-protected override async Task OnParametersSetAsync()
-{
-    await ...
-}
-```
-
-> [!NOTE]
-> El trabajo asincrónico al aplicar parámetros y valores de propiedad debe producirse durante el evento del ciclo de vida de `OnParametersSetAsync`.
-
-```csharp
-protected override void OnParametersSet()
-{
-    ...
-}
-```
-
-se llama a `OnAfterRenderAsync` y `OnAfterRender` después de que un componente haya terminado de representar. En este punto se rellenan las referencias a elementos y componentes. Use esta fase para realizar pasos de inicialización adicionales mediante el contenido representado, como la activación de bibliotecas de JavaScript de terceros que operan en los elementos DOM representados.
-
-*no se llama a `OnAfterRender` al representarse en el servidor.*
-
-El parámetro `firstRender` para `OnAfterRenderAsync` y `OnAfterRender` es:
-
-* Se establece en `true` la primera vez que se invoca la instancia de componente.
-* Garantiza que el trabajo de inicialización solo se realiza una vez.
-
-```csharp
-protected override async Task OnAfterRenderAsync(bool firstRender)
-{
-    if (firstRender)
-    {
-        await ...
-    }
-}
-```
-
-> [!NOTE]
-> El trabajo asincrónico inmediatamente después de la representación debe producirse durante el evento del ciclo de vida de `OnAfterRenderAsync`.
-
-```csharp
-protected override void OnAfterRender(bool firstRender)
-{
-    if (firstRender)
-    {
-        ...
-    }
-}
-```
-
-### <a name="handle-incomplete-async-actions-at-render"></a>Controlar acciones asincrónicas incompletas en la representación
-
-Es posible que las acciones asincrónicas realizadas en eventos del ciclo de vida no se hayan completado antes de que se represente el componente. Los objetos podrían estar `null` o rellenarse de forma incompleta con datos mientras se ejecuta el método de ciclo de vida. Proporcione lógica de representación para confirmar que los objetos se inicializan. Representar los elementos de la interfaz de usuario del marcador de posición (por ejemplo, un mensaje de carga) mientras los objetos se `null`.
-
-En el `FetchData` componente de las plantillas de Blazor, `OnInitializedAsync` se invalida a asincrónica recibir datos de previsión (`forecasts`). Cuando `forecasts` se `null`, se muestra al usuario un mensaje de carga. Una vez que se completa el `Task` devuelto por `OnInitializedAsync`, el componente se representará con el estado actualizado.
-
-*Pages/FetchData.razor*:
-
-[!code-cshtml[](components/samples_snapshot/3.x/FetchData.razor?highlight=9)]
-
-### <a name="execute-code-before-parameters-are-set"></a>Ejecutar código antes de establecer los parámetros
-
-`SetParameters` se pueden invalidar para ejecutar código antes de que se establezcan los parámetros:
-
-```csharp
-public override void SetParameters(ParameterView parameters)
-{
-    ...
-
-    base.SetParameters(parameters);
-}
-```
-
-Si no se invoca `base.SetParameters`, el código personalizado puede interpretar el valor de los parámetros entrantes de cualquier manera que sea necesario. Por ejemplo, no es necesario asignar los parámetros de entrada a las propiedades de la clase.
-
-### <a name="suppress-refreshing-of-the-ui"></a>Suprimir la actualización de la interfaz de usuario
-
-`ShouldRender` se pueden invalidar para suprimir la actualización de la interfaz de usuario. Si la implementación devuelve `true`, se actualiza la interfaz de usuario. Aunque se invalide `ShouldRender`, el componente siempre se representa inicialmente.
-
-```csharp
-protected override bool ShouldRender()
-{
-    var renderUI = true;
-
-    return renderUI;
-}
-```
-
-## <a name="component-disposal-with-idisposable"></a>Eliminación de componentes con IDisposable
-
-Si un componente implementa <xref:System.IDisposable>, se llama al [método Dispose](/dotnet/standard/garbage-collection/implementing-dispose) cuando se quita el componente de la interfaz de usuario. El siguiente componente utiliza `@implements IDisposable` y el método `Dispose`:
-
-```csharp
-@using System
-@implements IDisposable
-
-...
-
-@code {
-    public void Dispose()
-    {
-        ...
-    }
-}
-```
-
-> [!NOTE]
-> No se admite la llamada a `StateHasChanged` en `Dispose`. `StateHasChanged` se puede invocar como parte del representador que se va a anular. No se admite la solicitud de actualizaciones de la interfaz de usuario en ese momento.
 
 ## <a name="routing"></a>Enrutamiento
 

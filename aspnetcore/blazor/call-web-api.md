@@ -5,16 +5,16 @@ description: Obtenga información sobre cómo llamar a una API Web desde una apl
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 uid: blazor/call-web-api
-ms.openlocfilehash: b5c57317005d0072410542bad322458b1cb3f5ee
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: ffc9904c5746fbf0fafa10cf054666608942650c
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962726"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74680907"
 ---
 # <a name="call-a-web-api-from-aspnet-core-opno-locblazor"></a>Llamar a una API Web desde ASP.NET Core Blazor
 
@@ -35,7 +35,7 @@ Para obtener Blazor ejemplos de webassembly, vea los siguientes componentes en l
 
 ## <a name="httpclient-and-json-helpers"></a>Aplicaciones auxiliares de HttpClient y JSON
 
-En Blazor aplicaciones webassembly, [HttpClient](xref:fundamentals/http-requests) está disponible como un servicio preconfigurado para realizar solicitudes de vuelta al servidor de origen. Para usar `HttpClient` aplicaciones auxiliares de JSON, agregue una referencia de paquete a `Microsoft.AspNetCore.Blazor.HttpClient`. las aplicaciones auxiliares `HttpClient` y JSON también se usan para llamar a puntos de conexión de API Web de terceros. `HttpClient` se implementa mediante la [API fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) del explorador y está sujeto a sus limitaciones, incluido el cumplimiento de la misma directiva de origen.
+En Blazor aplicaciones webassembly, [HttpClient](xref:fundamentals/http-requests) está disponible como un servicio preconfigurado para realizar solicitudes de vuelta al servidor de origen. Para usar `HttpClient` aplicaciones auxiliares de JSON, agregue una referencia de paquete a `Microsoft.AspNetCore.Blazor.HttpClient`. las aplicaciones auxiliares de `HttpClient` y JSON también se usan para llamar a puntos de conexión de API Web de terceros. `HttpClient` se implementa mediante la [API fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) del explorador y está sujeto a sus limitaciones, incluido el cumplimiento de la misma directiva de origen.
 
 La dirección base del cliente se establece en la dirección del servidor de origen. Inserte una instancia de `HttpClient` mediante la Directiva `@inject`:
 
@@ -46,9 +46,9 @@ La dirección base del cliente se establece en la dirección del servidor de ori
 
 En los ejemplos siguientes, una API Web de todo procesa operaciones de creación, lectura, actualización y eliminación (CRUD). Los ejemplos se basan en una clase `TodoItem` que almacena:
 
-* ID. (`Id`, `long`) &ndash; ID. único del elemento.
+* ID. (`Id`, `long`) &ndash; identificador único del elemento.
 * Nombre (`Name`, `string`) &ndash; nombre del elemento.
-* Estado (`IsComplete`, `bool`) &ndash; Si el elemento todo ha finalizado.
+* Estado (`IsComplete`, `bool`) &ndash; indicación si el elemento todo ha finalizado.
 
 ```csharp
 private class TodoItem
@@ -63,7 +63,7 @@ Los métodos auxiliares de JSON envían solicitudes a un URI (una API Web en los
 
 * `GetJsonAsync` &ndash; envía una solicitud HTTP GET y analiza el cuerpo de respuesta JSON para crear un objeto.
 
-  En el código siguiente, el componente muestra el `_todoItems`. El método `GetTodoItems` se desencadena cuando finaliza la representación del componente ([OnInitializedAsync](xref:blazor/components#lifecycle-methods)). Consulte la aplicación de ejemplo para obtener un ejemplo completo.
+  En el código siguiente, el componente muestra el `_todoItems`. El método `GetTodoItems` se desencadena cuando finaliza la representación del componente ([OnInitializedAsync](xref:blazor/lifecycle#component-initialization-methods)). Consulte la aplicación de ejemplo para obtener un ejemplo completo.
 
   ```cshtml
   @using System.Net.Http
@@ -101,7 +101,7 @@ Los métodos auxiliares de JSON envían solicitudes a un URI (una API Web en los
 
 * `PutJsonAsync` &ndash; envía una solicitud HTTP PUT, incluido el contenido con codificación JSON.
 
-  En el código siguiente, los elementos enlazados del componente proporcionan `_editItem` valores para `Name` y `IsCompleted`. El `Id` del elemento se establece cuando el elemento está seleccionado en otra parte de la interfaz de usuario y se llama a `EditItem`. El método `SaveItem` se desencadena seleccionando el elemento Save `<button>`. Consulte la aplicación de ejemplo para obtener un ejemplo completo.
+  En el código siguiente, los elementos enlazados del componente proporcionan `_editItem` valores para `Name` y `IsCompleted`. El `Id` del elemento se establece cuando el elemento está seleccionado en otra parte de la interfaz de usuario y se llama a `EditItem`. El método `SaveItem` se desencadena seleccionando el elemento guardar `<button>`. Consulte la aplicación de ejemplo para obtener un ejemplo completo.
 
   ```cshtml
   @using System.Net.Http
@@ -128,7 +128,7 @@ Los métodos auxiliares de JSON envían solicitudes a un URI (una API Web en los
 
 <xref:System.Net.Http> incluye métodos de extensión adicionales para enviar solicitudes HTTP y recibir respuestas HTTP. [HttpClient. DeleteAsync](xref:System.Net.Http.HttpClient.DeleteAsync*) se usa para enviar una solicitud HTTP DELETE a una API Web.
 
-En el código siguiente, el elemento Delete `<button>` llama al método `DeleteItem`. El elemento `<input>` enlazado proporciona el `id` del elemento que se va a eliminar. Consulte la aplicación de ejemplo para obtener un ejemplo completo.
+En el código siguiente, el elemento Delete `<button>` llama al método `DeleteItem`. El elemento de `<input>` enlazado proporciona la `id` del elemento que se va a eliminar. Consulte la aplicación de ejemplo para obtener un ejemplo completo.
 
 ```cshtml
 @using System.Net.Http
@@ -210,8 +210,8 @@ La siguiente directiva incluye la configuración de:
 
 * Orígenes de la solicitud (`http://localhost:5000`, `https://localhost:5001`).
 * Cualquier método (verbo).
-* `Content-Type` y `Authorization` encabezados. Para permitir un encabezado personalizado (por ejemplo, `x-custom-header`), enumere el encabezado al llamar a <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*>.
-* Credenciales establecidas por el código JavaScript del lado cliente (propiedad `credentials` establecida en `include`).
+* encabezados de `Content-Type` y `Authorization`. Para permitir un encabezado personalizado (por ejemplo, `x-custom-header`), enumere el encabezado al llamar a <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*>.
+* Credenciales establecidas por el código JavaScript del lado cliente (`credentials` propiedad establecida en `include`).
 
 ```csharp
 app.UseCors(policy => 
