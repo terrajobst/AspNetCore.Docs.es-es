@@ -5,16 +5,16 @@ description: Obtenga información sobre cómo crear y usar componentes de Razor,
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 11/27/2019
 no-loc:
 - Blazor
 uid: blazor/components
-ms.openlocfilehash: 764e5e7db995b2dcadccf6d93c826ccf32c9ba04
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 19636b0f10e71133eddece918b1bb9e2bc25a226
+ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681011"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74733848"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -71,6 +71,8 @@ Para representar un componente de una página o vista, use la aplicación auxili
 <component type="typeof(Counter)" render-mode="ServerPrerendered" 
     param-IncrementAmount="10" />
 ```
+
+Se admite el paso de parámetros (por ejemplo, `IncrementAmount` en el ejemplo anterior).
 
 `RenderMode` configura si el componente:
 
@@ -402,7 +404,11 @@ En el código anterior, el tipo de campo del elemento de `<input>` (`type`) tien
 
 El atributo `@bind:format` especifica el formato de fecha que se va a aplicar al `value` del elemento `<input>`. El formato también se usa para analizar el valor cuando se produce un evento `onchange`.
 
-No se recomienda especificar un formato para el tipo de campo `date` porque Blazor tiene compatibilidad integrada para dar formato a las fechas.
+No se recomienda especificar un formato para el tipo de campo `date` porque Blazor tiene compatibilidad integrada para dar formato a las fechas. A pesar de la recomendación, use solo el formato de fecha `yyyy-MM-dd` para que el enlace funcione correctamente si se proporciona un formato con el tipo de campo `date`:
+
+```razor
+<input type="date" @bind="StartDate" @bind:format="yyyy-MM-dd">
+```
 
 **Parámetros de componente**
 

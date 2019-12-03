@@ -5,16 +5,16 @@ description: Obtenga información sobre cómo llamar a una API Web desde una apl
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 12/03/2019
 no-loc:
 - Blazor
 uid: blazor/call-web-api
-ms.openlocfilehash: ffc9904c5746fbf0fafa10cf054666608942650c
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: d4c69e8be2d4f6295c7177bf5d00aed596d0ead2
+ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74680907"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74733861"
 ---
 # <a name="call-a-web-api-from-aspnet-core-opno-locblazor"></a>Llamar a una API Web desde ASP.NET Core Blazor
 
@@ -22,20 +22,30 @@ Por [Luke Latham](https://github.com/guardrex), [Daniel Roth](https://github.com
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor aplicaciones webassembly llaman a las API Web mediante un servicio `HttpClient` preconfigurado. Cree solicitudes, que pueden incluir opciones de [API fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) de JavaScript, con Blazor aplicaciones auxiliares de JSON o con <xref:System.Net.Http.HttpRequestMessage>.
+[Blazor aplicaciones Webassembly](xref:blazor/hosting-models#blazor-webassembly) llaman a las API Web mediante un servicio `HttpClient` preconfigurado. Cree solicitudes, que pueden incluir opciones de [API fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) de JavaScript, con Blazor aplicaciones auxiliares de JSON o con <xref:System.Net.Http.HttpRequestMessage>.
 
-las aplicaciones de Blazor Server llaman a las API Web mediante instancias de <xref:System.Net.Http.HttpClient> creadas normalmente con <xref:System.Net.Http.IHttpClientFactory>. Para obtener más información, vea <xref:fundamentals/http-requests>.
+las aplicaciones de [Blazor Server](xref:blazor/hosting-models#blazor-server) llaman a las API Web mediante instancias de <xref:System.Net.Http.HttpClient> creadas normalmente con <xref:System.Net.Http.IHttpClientFactory>. Para obtener más información, vea <xref:fundamentals/http-requests>.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([cómo descargar](xref:index#how-to-download-a-sample)) &ndash; seleccione la aplicación *BlazorWebAssemblySample* .
 
-Para obtener Blazor ejemplos de webassembly, vea los siguientes componentes en la aplicación de ejemplo:
+Vea los siguientes componentes en la aplicación de ejemplo *BlazorWebAssemblySample* :
 
 * Llamar a la API Web (*pages/CallWebAPI. Razor*)
 * Evaluador de solicitudes HTTP (*Components/HTTPRequestTester. Razor*)
 
+## <a name="packages"></a>Paquetes
+
+Haga referencia al [Microsoft. AspNetCore.Blazorexperimental. ](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.HttpClient/)Paquete de NuGet de HttpClient en el archivo de proyecto. `Microsoft.AspNetCore.Blazor.HttpClient` se basa en `HttpClient` y [System. Text. JSON](https://www.nuget.org/packages/System.Text.Json/).
+
+Para usar una API estable, use el paquete [Microsoft. Aspnet. WebApi. Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) , que usa [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/)/[JSON.net](https://www.newtonsoft.com/json/help/html/Introduction.htm). El uso de la API estable en `Microsoft.AspNet.WebApi.Client` no proporciona las aplicaciones auxiliares de JSON que se describen en este tema, que son únicas del paquete experimental `Microsoft.AspNetCore.Blazor.HttpClient`.
+
 ## <a name="httpclient-and-json-helpers"></a>Aplicaciones auxiliares de HttpClient y JSON
 
-En Blazor aplicaciones webassembly, [HttpClient](xref:fundamentals/http-requests) está disponible como un servicio preconfigurado para realizar solicitudes de vuelta al servidor de origen. Para usar `HttpClient` aplicaciones auxiliares de JSON, agregue una referencia de paquete a `Microsoft.AspNetCore.Blazor.HttpClient`. las aplicaciones auxiliares de `HttpClient` y JSON también se usan para llamar a puntos de conexión de API Web de terceros. `HttpClient` se implementa mediante la [API fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) del explorador y está sujeto a sus limitaciones, incluido el cumplimiento de la misma directiva de origen.
+En una aplicación Blazor webassembly, [HttpClient](xref:fundamentals/http-requests) está disponible como un servicio preconfigurado para realizar solicitudes de vuelta al servidor de origen.
+
+De forma predeterminada, una aplicación de Blazor Server no incluye un servicio `HttpClient`. Proporcione una `HttpClient` a la aplicación mediante la [infraestructura de factoría HttpClient](xref:fundamentals/http-requests).
+
+las aplicaciones auxiliares de `HttpClient` y JSON también se usan para llamar a puntos de conexión de API Web de terceros. `HttpClient` se implementa mediante la [API fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) del explorador y está sujeto a sus limitaciones, incluido el cumplimiento de la misma directiva de origen.
 
 La dirección base del cliente se establece en la dirección del servidor de origen. Inserte una instancia de `HttpClient` mediante la Directiva `@inject`:
 
@@ -149,19 +159,13 @@ En el código siguiente, el elemento Delete `<button>` llama al método `DeleteI
 
 La seguridad del explorador evita que una página web realice solicitudes a un dominio diferente del que sirvió a la Página Web. Esta restricción se llama *Directiva del mismo origen*. La Directiva del mismo origen impide que un sitio malintencionado Lea datos confidenciales de otro sitio. Para realizar solicitudes desde el explorador a un punto de conexión con un origen diferente, el *punto de conexión* debe habilitar el [uso compartido de recursos entre orígenes (CORS)](https://www.w3.org/TR/cors/).
 
-En la aplicación de ejemplo se muestra el uso de CORS en el componente Call Web API (*pages/CallWebAPI. Razor*).
+En la [Blazor aplicación de ejemplo Webassembly (BlazorWebAssemblySample)](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) se muestra el uso de CORS en el componente Call Web API (*pages/CallWebAPI. Razor*).
 
 Para permitir que otros sitios realicen solicitudes de uso compartido de recursos entre orígenes (CORS) a la aplicación, consulte <xref:security/cors>.
 
 ## <a name="httpclient-and-httprequestmessage-with-fetch-api-request-options"></a>HttpClient y HttpRequestMessage con las opciones de solicitud de la API fetch
 
 Al ejecutar webassembly en una aplicación Blazor webassembly, use [HttpClient](xref:fundamentals/http-requests) y <xref:System.Net.Http.HttpRequestMessage> para personalizar las solicitudes. Por ejemplo, puede especificar el URI de solicitud, el método HTTP y cualquier encabezado de solicitud deseado.
-
-Proporcione opciones de solicitud a la [API de captura](https://developer.mozilla.org/docs/Web/API/Fetch_API) de JavaScript subyacente mediante la propiedad `WebAssemblyHttpMessageHandler.FetchArgs` en la solicitud. Como se muestra en el ejemplo siguiente, la propiedad `credentials` se establece en cualquiera de los siguientes valores:
-
-* `FetchCredentialsOption.Include` ("include") &ndash; aconseja al explorador que envíe las credenciales (como cookies o encabezados de autenticación HTTP) incluso para las solicitudes entre orígenes. Solo se permite cuando la Directiva CORS está configurada para permitir credenciales.
-* `FetchCredentialsOption.Omit` ("omitir") &ndash; informa al explorador de que nunca debe enviar credenciales (como cookies o encabezados de autenticación HTTP).
-* `FetchCredentialsOption.SameOrigin` ("Same-Origin") &ndash; aconseja al explorador que envíe las credenciales (como cookies o encabezados de autenticación HTTP) solo si la dirección URL de destino está en el mismo origen que la aplicación que realiza la llamada.
 
 ```cshtml
 @using System.Net.Http
@@ -189,11 +193,6 @@ Proporcione opciones de solicitud a la [API de captura](https://developer.mozill
 
         requestMessage.Content.Headers.TryAddWithoutValidation(
             "x-custom-header", "value");
-        
-        requestMessage.Properties[WebAssemblyHttpMessageHandler.FetchArgs] = new
-        { 
-            credentials = FetchCredentialsOption.Include
-        };
 
         var response = await Http.SendAsync(requestMessage);
         var responseStatusCode = response.StatusCode;
