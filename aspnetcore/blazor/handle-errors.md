@@ -5,17 +5,17 @@ description: Descubra cómo ASP.NET Core Blazor cómo Blazor administra las exce
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 12/01/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: 9784b357c2cdeb7422bbe40a39f881c97f6d716a
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 9f249fac331d31249f9325892e8365e3d0b4cc5a
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74680998"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717066"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Control de errores en las aplicaciones de Blazor de ASP.NET Core
 
@@ -122,7 +122,7 @@ Se produce un error en un circuito cuando cualquier constructor ejecutado o un e
 
 ### <a name="lifecycle-methods"></a>Métodos de ciclo de vida
 
-Durante la vigencia de un componente, Blazor invoca [métodos de ciclo de vida](xref:blazor/lifecycle):
+Durante la vigencia de un componente, Blazor invoca los siguientes [métodos de ciclo de vida](xref:blazor/lifecycle):
 
 * `OnInitialized` / `OnInitializedAsync`
 * `OnParametersSet` / `OnParametersSetAsync`
