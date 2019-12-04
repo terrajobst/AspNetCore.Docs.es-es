@@ -12,6 +12,8 @@
   uid: getting-started
 - name: Novedades
   items:
+    - name: "Novedades de la versión\_3.1"
+      uid: aspnetcore-3.1
     - name: Novedades de la versión 3.0
       uid: aspnetcore-3.0
     - name: Novedades de la versión 2.2
@@ -1016,6 +1018,8 @@
       uid: security/cors
     - name: Compartir cookies entre aplicaciones
       uid: security/cookie-sharing
+    - name: Cookies SameSite
+      uid: security/samesite
     - name: Lista de IP seguras
       uid: security/ip-safelist
     - name: 'Seguridad de aplicaciones: OWASP'

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/26/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 179ab4c97426c9d3cb8ed069d2059d767d755533
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: de1b3e270ccd90bde741975de38a224e557f1a08
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034265"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717421"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -325,15 +325,36 @@ Para obtener una versión anterior del instalador:
 1. Ejecute el instalador en el servidor. Los parámetros siguientes están disponibles cuando se ejecuta el instalador desde un shell de comandos de administrador:
 
    * `OPT_NO_ANCM=1` &ndash; Omita la instalación del módulo de ASP.NET Core.
-   * `OPT_NO_RUNTIME=1` &ndash; Omita la instalación del entorno de ejecución de .NET Core.
-   * `OPT_NO_SHAREDFX=1` &ndash; Omita la instalación del marco compartido de ASP.NET (entorno de ejecución de ASP.NET).
+   * `OPT_NO_RUNTIME=1` &ndash; Omita la instalación del entorno de ejecución de .NET Core. Se usa si el servidor solo hospeda [implementaciones autocontenidas (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
+   * `OPT_NO_SHAREDFX=1` &ndash; Omita la instalación del marco compartido de ASP.NET (entorno de ejecución de ASP.NET). Se usa si el servidor solo hospeda [implementaciones autocontenidas (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
    * `OPT_NO_X86=1` &ndash; Omita la instalación de entornos de ejecución x86. Utilice este parámetro cuando sepa que no va a hospedar aplicaciones de 32 bits. Si hay alguna posibilidad de que vaya a hospedar aplicaciones de 32 bits y 64 bits en el futuro, no use este parámetro e instale ambos entornos de ejecución.
    * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; Deshabilite la comprobación para usar una configuración compartida de IIS cuando la configuración compartida (*applicationHost.config*) esté en la misma máquina que la instalación de IIS. *Solo disponible para ASP.NET Core 2.2 o instaladores del conjunto de hospedaje posteriores.* Para más información, consulte <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
-1. Reinicie el sistema o ejecute **net stop was /y**, seguido de **net start w3svc**, desde un shell de comandos. Al reiniciar IIS, se recoge un cambio en la variable PATH del sistema, que es una variable de entorno, realizado por el programa de instalación.
+1. Reinicie el sistema o ejecute los comandos siguientes en un shell de comandos:
+
+   ```console
+   net stop was /y
+   net start w3svc
+   ```
+   Al reiniciar IIS, se recoge un cambio en la variable PATH del sistema, que es una variable de entorno, realizado por el programa de instalación.
+
+::: moniker range=">= aspnetcore-3.0"
+
+ASP.NET Core no adopta el comportamiento de puesta al día para las versiones de revisión de los paquetes de marco compartidos. Después de actualizar el marco compartido mediante la instalación de un nuevo lote de hospedaje, reinicie el sistema o ejecute los comandos siguientes en un shell de comandos:
+
+```console
+net stop was /y
+net start w3svc
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 No es necesario detener manualmente los sitios individuales en IIS al instalar el conjunto de hospedaje. Las aplicaciones hospedadas (sitios de IIS) se reinician cuando IIS se reinicia. Las aplicaciones se inician de nuevo cuando reciben su primera solicitud, incluso desde el [módulo de inicialización de la aplicación](#application-initialization-module-and-idle-timeout).
 
 ASP.NET Core adopta el comportamiento de puesta al día para las versiones de revisión de los paquetes de marco compartidos. Cuando las aplicaciones hospedadas por IIS se reinician con IIS, las aplicaciones se cargan con las versiones de revisión más recientes de los paquetes a los que se hace referencia cuando reciben su primera solicitud. Si IIS no se reinicia, las aplicaciones se reinician y muestran el comportamiento de la puesta al día cuando se reciclan sus procesos de trabajo y reciben su primera solicitud.
+
+::: moniker-end
 
 > [!NOTE]
 > Para obtener información sobre la configuración compartida de IIS, vea [ASP.NET Core Module with IIS Shared Configuration](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration) (Módulo de ASP.NET Core con configuración compartida de IIS).
