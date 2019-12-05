@@ -7,12 +7,12 @@ ms.author: prkrishn
 ms.custom: mvc
 ms.date: 09/27/2019
 uid: web-api/handle-errors
-ms.openlocfilehash: dc21d4b2cf096b8d38b0a24d739e6874186004e7
-ms.sourcegitcommit: 5d25a7f22c50ca6fdd0f8ecd8e525822e1b35b7a
+ms.openlocfilehash: 457ad7449c608c3b1b0acd729626e07808f55897
+ms.sourcegitcommit: ddc813f0f1fb293861a01597532919945b0e7fe5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2019
-ms.locfileid: "71551743"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74412092"
 ---
 # <a name="handle-errors-in-aspnet-core-web-apis"></a>Control de errores en API web de ASP.NET Core
 
@@ -121,7 +121,7 @@ La respuesta con formato HTML resulta útil al realizar pruebas mediante herrami
 
 En entornos que no son de desarrollo, se puede usar [middleware de control de excepciones](xref:fundamentals/error-handling) para producir una carga de error:
 
-1. En `Startup.Configure`, invoque <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> para usar el middleware:
+1. En `Startup.Configure`, invoque <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler%2A> para usar el middleware:
 
     ::: moniker range=">= aspnetcore-3.0"
 
@@ -301,7 +301,7 @@ La respuesta de error se puede configurar como se describe en la sección [Uso d
 
 ### <a name="use-apibehavioroptionsclienterrormapping"></a>Uso de ApiBehaviorOptions.ClientErrorMapping
 
-Use la propiedad <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping*> para configurar el contenido de la respuesta `ProblemDetails`. Por ejemplo, el código siguiente de `Startup.ConfigureServices` permite actualizar la propiedad `type` para respuestas 404:
+Use la propiedad <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping%2A> para configurar el contenido de la respuesta `ProblemDetails`. Por ejemplo, el código siguiente de `Startup.ConfigureServices` permite actualizar la propiedad `type` para respuestas 404:
 
 ::: moniker-end
 
@@ -313,6 +313,6 @@ Use la propiedad <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMa
 
 ::: moniker range="= aspnetcore-2.2"
 
-[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=9-10)]
+[!code-csharp[](index/samples/2.x/2.2/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=9-10)]
 
 ::: moniker-end

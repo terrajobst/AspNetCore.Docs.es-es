@@ -5,12 +5,12 @@ description: Obtenga información sobre la vista y el método de controlador Det
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: d19e8cdb63da2bb9c66db1943dfcec183d432401
-ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
+ms.openlocfilehash: 04eb2efa4e67d84e575580a6248d0b5b567064af
+ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68862970"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803388"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Examinar los métodos Details y Delete de una aplicación ASP.NET Core
 
@@ -22,7 +22,7 @@ Abra el controlador Movie y examine el método `Details`:
 
 El motor de scaffolding de MVC que creó este método de acción agrega un comentario en el que se muestra una solicitud HTTP que invoca el método. En este caso se trata de una solicitud GET con tres segmentos de dirección URL, el controlador `Movies`, el método `Details` y un valor `id`. Recuerde que estos segmentos se definen en *Startup.cs*.
 
-[!code-csharp[](start-mvc/sample/MvcMovie/Startup.cs?highlight=5&name=snippet_1)]
+[!code-csharp[](start-mvc/sample/MvcMovie3/Startup.cs?highlight=5&name=snippet_1)]
 
 EF facilita el proceso de búsqueda de datos mediante el método `FirstOrDefaultAsync`. Una característica de seguridad importante integrada en el método es que el código comprueba que el método de búsqueda haya encontrado una película antes de intentar hacer nada con ella. Por ejemplo, un pirata informático podría introducir errores en el sitio cambiando la dirección URL creada por los vínculos de `http://localhost:{PORT}/Movies/Details/1` a algo parecido a `http://localhost:{PORT}/Movies/Details/12345` (o algún otro valor que no represente una película real). Si no comprobara una película null, la aplicación generaría una excepción.
 

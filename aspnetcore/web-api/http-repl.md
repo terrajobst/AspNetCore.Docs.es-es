@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la herramienta global HTTP RE
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 12/02/2019
 uid: web-api/http-repl
-ms.openlocfilehash: bb3757f51487a307ebfb97452b80995f84e95e4b
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.openlocfilehash: c6e3ab5685b5bd0b154d20585fb0d187f81da641
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037714"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717170"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Prueba de las API web HTTP REPL
 
@@ -270,7 +270,7 @@ Actualmente solo se permite colorear la respuesta para JSON. Para personalizar e
 https://localhost:5001/people~ pref set colors.json White
 ```
 
-Solo se pueden usar los [colores permitidos](https://github.com/aspnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs). Las solicitudes HTTP posteriores muestran la salida con el nuevo color.
+Solo se pueden usar los [colores permitidos](https://github.com/dotnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs). Las solicitudes HTTP posteriores muestran la salida con el nuevo color.
 
 Si no se establecen claves de color específicas, se consideran las más genéricas. Para mostrar este comportamiento de reserva, veamos el ejemplo siguiente:
 
@@ -1037,4 +1037,4 @@ https://localhost:5001/~
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Solicitudes de API REST](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods)
-* [Repositorio GitHub de HTTP REPL](https://github.com/aspnet/HttpRepl)
+* [Repositorio GitHub de HTTP REPL](https://github.com/dotnet/HttpRepl)

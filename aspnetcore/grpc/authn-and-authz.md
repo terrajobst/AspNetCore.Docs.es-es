@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 08/13/2019
 uid: grpc/authn-and-authz
-ms.openlocfilehash: e8dd384ec43a66e56891925dcaa529085fa200c7
-ms.sourcegitcommit: 6d26ab647ede4f8e57465e29b03be5cb130fc872
+ms.openlocfilehash: 84903ee781588ff525d1dfce6a313e3867794762
+ms.sourcegitcommit: 76d7fff62014c3db02564191ab768acea00f1b26
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71999859"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74852706"
 ---
 # <a name="authentication-and-authorization-in-grpc-for-aspnet-core"></a>Autenticación y autorización en gRPC para ASP.NET Core
 
@@ -97,7 +97,7 @@ private static GrpcChannel CreateAuthenticatedChannel(string address)
     });
 
     // SslCredentials is used here because this channel is using TLS.
-    // Channels that aren't using TLS should use ChannelCredentials.Insecure instead.
+    // CallCredentials can't be used with ChannelCredentials.Insecure on non-TLS channels.
     var channel = GrpcChannel.ForAddress(address, new GrpcChannelOptions
     {
         Credentials = ChannelCredentials.Create(new SslCredentials(), credentials)
@@ -142,7 +142,7 @@ Muchos ASP.NET Core mecanismos de autenticación admitidos funcionan con gRPC:
 * Certificado de cliente
 * IdentityServer
 * Token de JWT
-* OAuth 2,0
+* OAuth 2.0
 * OpenID Connect
 * WS-Federation
 

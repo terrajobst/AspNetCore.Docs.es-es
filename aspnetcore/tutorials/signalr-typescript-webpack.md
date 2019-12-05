@@ -1,31 +1,33 @@
 ---
-title: Uso de SignalR de ASP.NET Core con TypeScript y Webpack
+title: Uso de ASP.NET Core SignalR con TypeScript and Webpack
 author: ssougnez
-description: En este tutorial, se configura Webpack para agrupar y compilar una aplicación web de SignalR de ASP.NET Core cuyo cliente está escrito en TypeScript.
+description: En este tutorial, configurará Webpack para agrupar y compilar una aplicación web ASP.NET Core SignalR cuyo cliente está escrito en TypeScript.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 10/04/2019
+ms.date: 11/21/2019
+no-loc:
+- SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: 630e8cb5efe9c313479960626d3d864c4923cbd1
-ms.sourcegitcommit: 3ffcd8cbff8b49128733842f72270bc58279de70
+ms.openlocfilehash: a7c99c9e79647995886aec5b3a91584fd2f24451
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955934"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317485"
 ---
-# <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Uso de SignalR de ASP.NET Core con TypeScript y Webpack
+# <a name="use-aspnet-core-opno-locsignalr-with-typescript-and-webpack"></a>Uso de ASP.NET Core SignalR con TypeScript and Webpack
 
 Por [Sébastien Sougnez](https://twitter.com/ssougnez) y [Scott Addie](https://twitter.com/Scott_Addie)
 
-[Webpack](https://webpack.js.org/) permite a los desarrolladores agrupar y compilar los recursos del lado cliente de una aplicación web. En este tutorial se describe el uso de Webpack en una aplicación web de SignalR de ASP.NET Core cuyo cliente está escrito en [TypeScript](https://www.typescriptlang.org/).
+[Webpack](https://webpack.js.org/) permite a los desarrolladores agrupar y compilar los recursos del lado cliente de una aplicación web. En este tutorial se describe el uso de Webpack en una aplicación web ASP.NET Core SignalR cuyo cliente está escrito en [TypeScript](https://www.typescriptlang.org/).
 
 En este tutorial aprenderá a:
 
 > [!div class="checklist"]
-> * Aplicación de scaffolding a una aplicación de inicio de SignalR de ASP.NET Core
-> * Configuración del cliente TypeScript de SignalR
+> * Agregar scaffold a una aplicación ASP.NET Core SignalR de inicio
+> * Configurar el cliente de TypeScript para SignalR
 > * Configuración de una canalización de compilación mediante Webpack
-> * Configuración del servidor de SignalR
+> * Configurar el servidor SignalR
 > * Habilitar la comunicación entre cliente y servidor
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
@@ -130,7 +132,7 @@ Los pasos siguientes permiten configurar la conversión de TypeScript a JavaScri
     El archivo anterior configura la compilación de Webpack. Algunos detalles de configuración para tener en cuenta:
 
     * La propiedad `output` invalida el valor predeterminado de *dist*. En su lugar, la agrupación se genera en el directorio *wwwroot*.
-    * La matriz `resolve.extensions` incluye *.js* para importar el código JavaScript cliente de SignalR.
+    * La matriz `resolve.extensions` incluye *.js* para importar el código JavaScript del cliente de SignalR.
 
 1. Cree un directorio *src* en la raíz del proyecto. Su función es almacenar los activos del lado cliente del proyecto.
 
@@ -175,7 +177,7 @@ Los pasos siguientes permiten configurar la conversión de TypeScript a JavaScri
 
    [!code-csharp[Startup](signalr-typescript-webpack/sample/3.x/Startup.cs?name=snippet_UseSignalR&highlight=3)]
 
-1. En el método `Startup.ConfigureServices`, llame a [AddSignalR ](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_). Esto permite agregar los servicios SignalR al proyecto.
+1. En el método `Startup.ConfigureServices`, llame a [AddSignalR ](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_). Esta acción agrega los servicios SignalR al proyecto.
 
    [!code-csharp[Startup](signalr-typescript-webpack/sample/3.x/Startup.cs?name=snippet_AddSignalR)]
 
@@ -196,10 +198,10 @@ Actualmente, en la aplicación se muestra un formulario simple para enviar mensa
 1. Ejecute el comando siguiente en la raíz del proyecto:
 
     ```console
-    npm install @aspnet/signalr
+    npm install @microsoft/signalr
     ```
 
-    El comando anterior instala el [cliente TypeScript de SignalR](https://www.npmjs.com/package/@aspnet/signalr), que permite al cliente enviar mensajes al servidor.
+    El comando anterior instala el [cliente TypeScript de SignalR](https://www.npmjs.com/package/@microsoft/signalr), que permite al cliente enviar mensajes al servidor.
 
 1. Agregue el código resaltado al archivo *src/index.ts*:
 
@@ -365,7 +367,7 @@ Los pasos siguientes permiten configurar la conversión de TypeScript a JavaScri
     El archivo anterior configura la compilación de Webpack. Algunos detalles de configuración para tener en cuenta:
 
     * La propiedad `output` invalida el valor predeterminado de *dist*. En su lugar, la agrupación se genera en el directorio *wwwroot*.
-    * La matriz `resolve.extensions` incluye *.js* para importar el código JavaScript cliente de SignalR.
+    * La matriz `resolve.extensions` incluye *.js* para importar el código JavaScript del cliente de SignalR.
 
 1. Cree un directorio *src* en la raíz del proyecto. Su función es almacenar los activos del lado cliente del proyecto.
 
@@ -406,7 +408,7 @@ Los pasos siguientes permiten configurar la conversión de TypeScript a JavaScri
 
     El código anterior permite que el servidor busque y proporcione el archivo *index.html*, con independencia de que el usuario escriba su dirección URL completa o la dirección URL raíz de la aplicación web.
 
-1. Llame a [AddSignalR](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_) en el método `Startup.ConfigureServices`. Esto permite agregar los servicios SignalR al proyecto.
+1. Llame a [AddSignalR](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_) en el método `Startup.ConfigureServices`. Esta acción agrega los servicios SignalR al proyecto.
 
     [!code-csharp[Startup](signalr-typescript-webpack/sample/2.x/Startup.cs?name=snippet_AddSignalR)]
 
@@ -431,10 +433,10 @@ Actualmente, en la aplicación se muestra un formulario simple para enviar mensa
 1. Ejecute el comando siguiente en la raíz del proyecto:
 
     ```console
-    npm install @aspnet/signalr
+    npm install @microsoft/signalr
     ```
 
-    El comando anterior instala el [cliente TypeScript de SignalR](https://www.npmjs.com/package/@aspnet/signalr), que permite al cliente enviar mensajes al servidor.
+    El comando anterior instala el [cliente TypeScript de SignalR](https://www.npmjs.com/package/@microsoft/signalr), que permite al cliente enviar mensajes al servidor.
 
 1. Agregue el código resaltado al archivo *src/index.ts*:
 

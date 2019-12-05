@@ -5,16 +5,16 @@ description: Cree una aplicación Blazor paso a paso.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 11/27/2019
 no-loc:
 - Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 646e14060b88fc2a0fefc2f7a5ebb1c15ac39b79
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 2a83761b598a339aeaf8bec6f8fd50d09e608f0c
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963714"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681219"
 ---
 # <a name="build-your-first-opno-locblazor-app"></a>Compilación de la primera aplicación Blazor
 
@@ -36,7 +36,7 @@ Siga las instrucciones del artículo <xref:blazor/get-started> para crear un pro
 
    *Pages/Counter.razor*:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter1.razor)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Counter1.razor)]
 
    la interfaz de usuario del componente `Counter` se define mediante HTML. La lógica de la representación dinámica (por ejemplo, bucles, instrucciones condicionales, expresiones) se agrega mediante una sintaxis de C# insertada denominada [Razor](xref:mvc/views/razor). El marcado HTML y la lógica de representación de C# se convierten en una clase de componente en tiempo de compilación. El nombre de la clase de .NET generada coincide con el nombre del archivo.
 
@@ -51,7 +51,7 @@ Siga las instrucciones del artículo <xref:blazor/get-started> para crear un pro
 
 1. Modifique la lógica de C# del componente `Counter` para hacer que el recuento se incremente en dos en lugar de uno.
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter2.razor?highlight=14)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Counter2.razor?highlight=14)]
 
 1. Recompile y ejecute la aplicación para ver los cambios. Seleccione el botón **Hacer clic aquí**. El contador se incrementa en dos.
 
@@ -65,7 +65,7 @@ Incluya un componente en otro componente mediante una sintaxis HTML.
 
    *Pages/Index.razor*:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index1.razor?highlight=7)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
 1. Recompile y ejecute la aplicación. El componente `Index` tiene su propio contador.
 
@@ -80,7 +80,7 @@ Los componentes también pueden tener parámetros. Los parámetros de componente
 
    *Pages/Counter.razor*:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter.razor?highlight=13,17)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Counter.razor?highlight=13,17)]
 
 <!-- Add back when supported.
    > [!NOTE]
@@ -91,7 +91,7 @@ Los componentes también pueden tener parámetros. Los parámetros de componente
 
    *Pages/Index.razor*:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index2.razor?highlight=7)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
 1. Recargue el componente `Index`. El contador se incrementa en diez cada vez que se selecciona el botón **Click me**. El contador del componente `Counter` sigue incrementándose en uno.
 
@@ -111,11 +111,11 @@ La directiva `@inject` se usa para insertar la instancia del servicio `WeatherFo
 
 *Pages/FetchData.razor*:
 
-[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1.razor?highlight=3)]
+[!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1.razor?highlight=3)]
 
 El componente `FetchData` usa el servicio insertado, como `ForecastService`, para recuperar una matriz de objetos `WeatherForecast`:
 
-[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
+[!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
 ### <a name="opno-locblazor-webassembly-experience"></a>Experiencia de Blazor WebAssembly
 
@@ -123,11 +123,11 @@ Si trabaja con una aplicación Blazor WebAssembly, se inserta `HttpClient` para 
 
 *Pages/FetchData.razor*:
 
-[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1_client.razor?highlight=7-8)]
+[!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1_client.razor?highlight=7-8)]
 
 Se usa un bucle [@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) para representar cada instancia de previsión como una fila en la tabla de datos meteorológicos:
 
-[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
+[!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
 
 ## <a name="build-a-todo-list"></a>Creación de una lista de tareas pendientes
 
@@ -137,7 +137,7 @@ Agregue un nuevo componente a la aplicación que implemente una simple lista de 
 
 1. Proporcione el marcado inicial para el componente:
 
-   ```cshtml
+   ```razor
    @page "/todo"
 
    <h1>Todo</h1>
@@ -149,7 +149,7 @@ Agregue un nuevo componente a la aplicación que implemente una simple lista de 
 
    Agregue un elemento `<NavLink>` al componente `Todo` mediante la incorporación del siguiente marcado de elementos de lista debajo de los elementos de lista existentes en el archivo *Shared/NavMenu.razor*:
 
-   ```cshtml
+   ```razor
    <li class="nav-item px-3">
        <NavLink class="nav-link" href="todo">
            <span class="oi oi-list-rich" aria-hidden="true"></span> Todo
@@ -161,28 +161,28 @@ Agregue un nuevo componente a la aplicación que implemente una simple lista de 
 
 1. Agregue un archivo *TodoItem.cs* a la raíz del proyecto para contener una clase que represente un elemento de la lista de tareas. Use el siguiente código de C# para la clase `TodoItem`:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/TodoItem.cs)]
+   [!code-csharp[](build-your-first-blazor-app/samples_snapshot/3.x/TodoItem.cs)]
 
 1. Vuelva al componente `Todo` (*Pages/Todo.razor*):
 
    * Agregue un campo a los elementos de tareas pendientes en un bloque `@code`. El componente `Todo` utiliza este campo para mantener el estado de la lista de tareas pendientes.
    * Agregue el marcado de la lista no ordenada y un bucle `foreach` para que cada elemento de la lista se represente en un elemento de la lista de tareas pendientes (`<li>`).
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo4.razor?highlight=5-10,12-14)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo4.razor?highlight=5-10,12-14)]
 
 1. Para agregar elementos de tareas pendientes a la lista, la aplicación requiere elementos de la interfaz de usuario. Agregue una entrada de texto (`<input>`) y un botón (`<button>`) debajo de la lista no ordenada (`<ul>...</ul>`):
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo5.razor?highlight=12-13)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo5.razor?highlight=12-13)]
 
 1. Recompile y ejecute la aplicación. Cuando se selecciona el botón **Add todo** (Agregar tarea pendiente), no ocurre nada porque no hay ningún controlador de eventos conectado al botón.
 
 1. Agregue un método `AddTodo` al componente `Todo` y regístrelo para seleccionar los botones mediante el atributo `@onclick`. El método `AddTodo` de C# se llama cuando se selecciona el botón:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo6.razor?highlight=2,7-10)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo6.razor?highlight=2,7-10)]
 
 1. Para obtener el título del nuevo elemento de tarea pendiente, agregue un campo de cadena `newTodo` en la parte superior del bloque `@code` y enlácelo al valor de la entrada de texto mediante el atributo `bind` en el elemento `<input>`:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
 
    ```cshtml
    <input placeholder="Something todo" @bind="newTodo" />
@@ -190,23 +190,23 @@ Agregue un nuevo componente a la aplicación que implemente una simple lista de 
 
 1. Actualice el método `AddTodo` para agregar el `TodoItem` con el título especificado a la lista. Borre el valor de la entrada de texto mediante el establecimiento de `newTodo` en una cadena vacía:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo8.razor?highlight=19-26)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo8.razor?highlight=19-26)]
 
 1. Recompile y ejecute la aplicación. Agregue algunos elementos de tareas pendientes a la lista de tareas pendientes para probar el nuevo código.
 
 1. Se puede hacer que el texto de título de cada elemento de tarea pendiente sea editable y una casilla puede ayudar al usuario a realizar un seguimiento de los elementos completados. Agregue una entrada de casilla a cada elemento de tarea pendiente y enlace su valor a la propiedad `IsDone`. Cambie `@todo.Title` a un elemento `<input>` enlazado a `@todo.Title`:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo9.razor?highlight=5-6)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo9.razor?highlight=5-6)]
 
 1. Para comprobar que estos valores están enlazados, actualice el encabezado `<h1>` para mostrar un recuento del número de elementos de la lista de tareas pendientes que no se han completado (`IsDone` es `false`).
 
-   ```cshtml
+   ```razor
    <h1>Todo (@todos.Count(todo => !todo.IsDone))</h1>
    ```
 
 1. El componente `Todo` completado (*Pages/Todo.razor*):
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Todo.razor)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Todo.razor)]
 
 1. Recompile y ejecute la aplicación. Agregue elementos de tarea pendiente para probar el nuevo código.
 
