@@ -6,24 +6,24 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 08/13/2019
 uid: grpc/authn-and-authz
-ms.openlocfilehash: e8dd384ec43a66e56891925dcaa529085fa200c7
-ms.sourcegitcommit: 6d26ab647ede4f8e57465e29b03be5cb130fc872
+ms.openlocfilehash: 84903ee781588ff525d1dfce6a313e3867794762
+ms.sourcegitcommit: 76d7fff62014c3db02564191ab768acea00f1b26
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71999859"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74852706"
 ---
-# <a name="authentication-and-authorization-in-grpc-for-aspnet-core"></a><span data-ttu-id="b64dd-103">Autenticación y autorización en gRPC para ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="b64dd-103">Authentication and authorization in gRPC for ASP.NET Core</span></span>
+# <a name="authentication-and-authorization-in-grpc-for-aspnet-core"></a><span data-ttu-id="bea0d-103">Autenticación y autorización en gRPC para ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="bea0d-103">Authentication and authorization in gRPC for ASP.NET Core</span></span>
 
-<span data-ttu-id="b64dd-104">Por [James Newton-King](https://twitter.com/jamesnk)</span><span class="sxs-lookup"><span data-stu-id="b64dd-104">By [James Newton-King](https://twitter.com/jamesnk)</span></span>
+<span data-ttu-id="bea0d-104">Por [James Newton-King](https://twitter.com/jamesnk)</span><span class="sxs-lookup"><span data-stu-id="bea0d-104">By [James Newton-King](https://twitter.com/jamesnk)</span></span>
 
-<span data-ttu-id="b64dd-105">[Ver o descargar el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/grpc/authn-and-authz/sample/) [(cómo descargarlo)](xref:index#how-to-download-a-sample)</span><span class="sxs-lookup"><span data-stu-id="b64dd-105">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/grpc/authn-and-authz/sample/) [(how to download)](xref:index#how-to-download-a-sample)</span></span>
+<span data-ttu-id="bea0d-105">[Ver o descargar el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/grpc/authn-and-authz/sample/) [(cómo descargarlo)](xref:index#how-to-download-a-sample)</span><span class="sxs-lookup"><span data-stu-id="bea0d-105">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/grpc/authn-and-authz/sample/) [(how to download)](xref:index#how-to-download-a-sample)</span></span>
 
-## <a name="authenticate-users-calling-a-grpc-service"></a><span data-ttu-id="b64dd-106">Autenticar a los usuarios que llaman a un servicio gRPC</span><span class="sxs-lookup"><span data-stu-id="b64dd-106">Authenticate users calling a gRPC service</span></span>
+## <a name="authenticate-users-calling-a-grpc-service"></a><span data-ttu-id="bea0d-106">Autenticar a los usuarios que llaman a un servicio gRPC</span><span class="sxs-lookup"><span data-stu-id="bea0d-106">Authenticate users calling a gRPC service</span></span>
 
-<span data-ttu-id="b64dd-107">gRPC se puede usar con la [autenticación ASP.net Core](xref:security/authentication/identity) para asociar un usuario a cada llamada.</span><span class="sxs-lookup"><span data-stu-id="b64dd-107">gRPC can be used with [ASP.NET Core authentication](xref:security/authentication/identity) to associate a user with each call.</span></span>
+<span data-ttu-id="bea0d-107">gRPC se puede usar con la [autenticación ASP.net Core](xref:security/authentication/identity) para asociar un usuario a cada llamada.</span><span class="sxs-lookup"><span data-stu-id="bea0d-107">gRPC can be used with [ASP.NET Core authentication](xref:security/authentication/identity) to associate a user with each call.</span></span>
 
-<span data-ttu-id="b64dd-108">El siguiente es un ejemplo de `Startup.Configure` que usa la autenticación gRPC y ASP.NET Core:</span><span class="sxs-lookup"><span data-stu-id="b64dd-108">The following is an example of `Startup.Configure` which uses gRPC and ASP.NET Core authentication:</span></span>
+<span data-ttu-id="bea0d-108">El siguiente es un ejemplo de `Startup.Configure` que usa la autenticación gRPC y ASP.NET Core:</span><span class="sxs-lookup"><span data-stu-id="bea0d-108">The following is an example of `Startup.Configure` which uses gRPC and ASP.NET Core authentication:</span></span>
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -41,11 +41,11 @@ public void Configure(IApplicationBuilder app)
 ```
 
 > [!NOTE]
-> <span data-ttu-id="b64dd-109">El orden en el que se registra el middleware de autenticación ASP.NET Core es importante.</span><span class="sxs-lookup"><span data-stu-id="b64dd-109">The order in which you register the ASP.NET Core authentication middleware matters.</span></span> <span data-ttu-id="b64dd-110">Llame siempre a `UseAuthentication` y `UseAuthorization` después de `UseRouting` y antes de `UseEndpoints`.</span><span class="sxs-lookup"><span data-stu-id="b64dd-110">Always call `UseAuthentication` and `UseAuthorization` after `UseRouting` and before `UseEndpoints`.</span></span>
+> <span data-ttu-id="bea0d-109">El orden en el que se registra el middleware de autenticación ASP.NET Core es importante.</span><span class="sxs-lookup"><span data-stu-id="bea0d-109">The order in which you register the ASP.NET Core authentication middleware matters.</span></span> <span data-ttu-id="bea0d-110">Llame siempre a `UseAuthentication` y `UseAuthorization` después de `UseRouting` y antes de `UseEndpoints`.</span><span class="sxs-lookup"><span data-stu-id="bea0d-110">Always call `UseAuthentication` and `UseAuthorization` after `UseRouting` and before `UseEndpoints`.</span></span>
 
-<span data-ttu-id="b64dd-111">El mecanismo de autenticación que usa la aplicación durante una llamada debe configurarse.</span><span class="sxs-lookup"><span data-stu-id="b64dd-111">The authentication mechanism your app uses during a call needs to be configured.</span></span> <span data-ttu-id="b64dd-112">La configuración de autenticación se agrega en `Startup.ConfigureServices` y será diferente en función del mecanismo de autenticación que use la aplicación.</span><span class="sxs-lookup"><span data-stu-id="b64dd-112">Authentication configuration is added in `Startup.ConfigureServices` and will be different depending upon the authentication mechanism your app uses.</span></span> <span data-ttu-id="b64dd-113">Para ver ejemplos de cómo proteger ASP.NET Core aplicaciones, consulte [ejemplos de autenticación](xref:security/authentication/samples).</span><span class="sxs-lookup"><span data-stu-id="b64dd-113">For examples of how to secure ASP.NET Core apps, see [Authentication samples](xref:security/authentication/samples).</span></span>
+<span data-ttu-id="bea0d-111">El mecanismo de autenticación que usa la aplicación durante una llamada debe configurarse.</span><span class="sxs-lookup"><span data-stu-id="bea0d-111">The authentication mechanism your app uses during a call needs to be configured.</span></span> <span data-ttu-id="bea0d-112">La configuración de autenticación se agrega en `Startup.ConfigureServices` y será diferente en función del mecanismo de autenticación que use la aplicación.</span><span class="sxs-lookup"><span data-stu-id="bea0d-112">Authentication configuration is added in `Startup.ConfigureServices` and will be different depending upon the authentication mechanism your app uses.</span></span> <span data-ttu-id="bea0d-113">Para ver ejemplos de cómo proteger ASP.NET Core aplicaciones, consulte [ejemplos de autenticación](xref:security/authentication/samples).</span><span class="sxs-lookup"><span data-stu-id="bea0d-113">For examples of how to secure ASP.NET Core apps, see [Authentication samples](xref:security/authentication/samples).</span></span>
 
-<span data-ttu-id="b64dd-114">Una vez que se ha configurado la autenticación, se puede tener acceso al usuario en un método de servicio de gRPC mediante el `ServerCallContext`.</span><span class="sxs-lookup"><span data-stu-id="b64dd-114">Once authentication has been setup, the user can be accessed in a gRPC service methods via the `ServerCallContext`.</span></span>
+<span data-ttu-id="bea0d-114">Una vez que se ha configurado la autenticación, se puede tener acceso al usuario en un método de servicio de gRPC mediante el `ServerCallContext`.</span><span class="sxs-lookup"><span data-stu-id="bea0d-114">Once authentication has been setup, the user can be accessed in a gRPC service methods via the `ServerCallContext`.</span></span>
 
 ```csharp
 public override Task<BuyTicketsResponse> BuyTickets(
@@ -58,13 +58,13 @@ public override Task<BuyTicketsResponse> BuyTickets(
 
 ```
 
-### <a name="bearer-token-authentication"></a><span data-ttu-id="b64dd-115">Autenticación de token de portador</span><span class="sxs-lookup"><span data-stu-id="b64dd-115">Bearer token authentication</span></span>
+### <a name="bearer-token-authentication"></a><span data-ttu-id="bea0d-115">Autenticación de token de portador</span><span class="sxs-lookup"><span data-stu-id="bea0d-115">Bearer token authentication</span></span>
 
-<span data-ttu-id="b64dd-116">El cliente puede proporcionar un token de acceso para la autenticación.</span><span class="sxs-lookup"><span data-stu-id="b64dd-116">The client can provide an access token for authentication.</span></span> <span data-ttu-id="b64dd-117">El servidor valida el token y lo usa para identificar al usuario.</span><span class="sxs-lookup"><span data-stu-id="b64dd-117">The server validates the token and uses it to identify the user.</span></span>
+<span data-ttu-id="bea0d-116">El cliente puede proporcionar un token de acceso para la autenticación.</span><span class="sxs-lookup"><span data-stu-id="bea0d-116">The client can provide an access token for authentication.</span></span> <span data-ttu-id="bea0d-117">El servidor valida el token y lo usa para identificar al usuario.</span><span class="sxs-lookup"><span data-stu-id="bea0d-117">The server validates the token and uses it to identify the user.</span></span>
 
-<span data-ttu-id="b64dd-118">En el servidor, la autenticación de token de portador se configura mediante el [middleware portador de JWT](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).</span><span class="sxs-lookup"><span data-stu-id="b64dd-118">On the server, bearer token authentication is configured using the [JWT Bearer middleware](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).</span></span>
+<span data-ttu-id="bea0d-118">En el servidor, la autenticación de token de portador se configura mediante el [middleware portador de JWT](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).</span><span class="sxs-lookup"><span data-stu-id="bea0d-118">On the server, bearer token authentication is configured using the [JWT Bearer middleware](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).</span></span>
 
-<span data-ttu-id="b64dd-119">En el cliente gRPC de .NET, el token se puede enviar con llamadas como encabezado:</span><span class="sxs-lookup"><span data-stu-id="b64dd-119">In the .NET gRPC client, the token can be sent with calls as a header:</span></span>
+<span data-ttu-id="bea0d-119">En el cliente gRPC de .NET, el token se puede enviar con llamadas como encabezado:</span><span class="sxs-lookup"><span data-stu-id="bea0d-119">In the .NET gRPC client, the token can be sent with calls as a header:</span></span>
 
 ```csharp
 public bool DoAuthenticatedCall(
@@ -80,9 +80,9 @@ public bool DoAuthenticatedCall(
 }
 ```
 
-<span data-ttu-id="b64dd-120">La configuración de `ChannelCredentials` en un canal es una forma alternativa de enviar el token al servicio con llamadas gRPC.</span><span class="sxs-lookup"><span data-stu-id="b64dd-120">Configuring `ChannelCredentials` on a channel is an alternative way to send the token to the service with gRPC calls.</span></span> <span data-ttu-id="b64dd-121">La credencial se ejecuta cada vez que se realiza una llamada a gRPC, lo que evita la necesidad de escribir código en varios lugares para pasar el token usted mismo.</span><span class="sxs-lookup"><span data-stu-id="b64dd-121">The credential is run each time a gRPC call is made, which avoids the need to write code in multiple places to pass the token yourself.</span></span>
+<span data-ttu-id="bea0d-120">La configuración de `ChannelCredentials` en un canal es una forma alternativa de enviar el token al servicio con llamadas gRPC.</span><span class="sxs-lookup"><span data-stu-id="bea0d-120">Configuring `ChannelCredentials` on a channel is an alternative way to send the token to the service with gRPC calls.</span></span> <span data-ttu-id="bea0d-121">La credencial se ejecuta cada vez que se realiza una llamada a gRPC, lo que evita la necesidad de escribir código en varios lugares para pasar el token usted mismo.</span><span class="sxs-lookup"><span data-stu-id="bea0d-121">The credential is run each time a gRPC call is made, which avoids the need to write code in multiple places to pass the token yourself.</span></span>
 
-<span data-ttu-id="b64dd-122">La credencial en el ejemplo siguiente configura el canal para enviar el token con cada llamada a gRPC:</span><span class="sxs-lookup"><span data-stu-id="b64dd-122">The credential in the following example configures the channel to send the token with every gRPC call:</span></span>
+<span data-ttu-id="bea0d-122">La credencial en el ejemplo siguiente configura el canal para enviar el token con cada llamada a gRPC:</span><span class="sxs-lookup"><span data-stu-id="bea0d-122">The credential in the following example configures the channel to send the token with every gRPC call:</span></span>
 
 ```csharp
 private static GrpcChannel CreateAuthenticatedChannel(string address)
@@ -97,7 +97,7 @@ private static GrpcChannel CreateAuthenticatedChannel(string address)
     });
 
     // SslCredentials is used here because this channel is using TLS.
-    // Channels that aren't using TLS should use ChannelCredentials.Insecure instead.
+    // CallCredentials can't be used with ChannelCredentials.Insecure on non-TLS channels.
     var channel = GrpcChannel.ForAddress(address, new GrpcChannelOptions
     {
         Credentials = ChannelCredentials.Create(new SslCredentials(), credentials)
@@ -106,14 +106,14 @@ private static GrpcChannel CreateAuthenticatedChannel(string address)
 }
 ```
 
-### <a name="client-certificate-authentication"></a><span data-ttu-id="b64dd-123">Autenticación de certificado de cliente</span><span class="sxs-lookup"><span data-stu-id="b64dd-123">Client certificate authentication</span></span>
+### <a name="client-certificate-authentication"></a><span data-ttu-id="bea0d-123">Autenticación de certificado de cliente</span><span class="sxs-lookup"><span data-stu-id="bea0d-123">Client certificate authentication</span></span>
 
-<span data-ttu-id="b64dd-124">Un cliente podría proporcionar alternativamente un certificado de cliente para la autenticación.</span><span class="sxs-lookup"><span data-stu-id="b64dd-124">A client could alternatively provide a client certificate for authentication.</span></span> <span data-ttu-id="b64dd-125">La [autenticación de certificados](https://tools.ietf.org/html/rfc5246#section-7.4.4) se produce en el nivel de TLS, mucho antes de que llegue a ASP.net Core.</span><span class="sxs-lookup"><span data-stu-id="b64dd-125">[Certificate authentication](https://tools.ietf.org/html/rfc5246#section-7.4.4) happens at the TLS level, long before it ever gets to ASP.NET Core.</span></span> <span data-ttu-id="b64dd-126">Cuando la solicitud entra en ASP.NET Core, el [paquete de autenticación de certificados de cliente](xref:security/authentication/certauth) permite resolver el certificado en un `ClaimsPrincipal`.</span><span class="sxs-lookup"><span data-stu-id="b64dd-126">When the request enters ASP.NET Core, the [client certificate authentication package](xref:security/authentication/certauth) allows you to resolve the certificate to a `ClaimsPrincipal`.</span></span>
+<span data-ttu-id="bea0d-124">Un cliente podría proporcionar alternativamente un certificado de cliente para la autenticación.</span><span class="sxs-lookup"><span data-stu-id="bea0d-124">A client could alternatively provide a client certificate for authentication.</span></span> <span data-ttu-id="bea0d-125">La [autenticación de certificados](https://tools.ietf.org/html/rfc5246#section-7.4.4) se produce en el nivel de TLS, mucho antes de que llegue a ASP.net Core.</span><span class="sxs-lookup"><span data-stu-id="bea0d-125">[Certificate authentication](https://tools.ietf.org/html/rfc5246#section-7.4.4) happens at the TLS level, long before it ever gets to ASP.NET Core.</span></span> <span data-ttu-id="bea0d-126">Cuando la solicitud entra en ASP.NET Core, el [paquete de autenticación de certificados de cliente](xref:security/authentication/certauth) permite resolver el certificado en un `ClaimsPrincipal`.</span><span class="sxs-lookup"><span data-stu-id="bea0d-126">When the request enters ASP.NET Core, the [client certificate authentication package](xref:security/authentication/certauth) allows you to resolve the certificate to a `ClaimsPrincipal`.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="b64dd-127">El host debe estar configurado para aceptar certificados de cliente.</span><span class="sxs-lookup"><span data-stu-id="b64dd-127">The host needs to be configured to accept client certificates.</span></span> <span data-ttu-id="b64dd-128">Consulte [configuración del host para requerir certificados](xref:security/authentication/certauth#configure-your-host-to-require-certificates) para obtener información sobre la aceptación de certificados de cliente en KESTREL, IIS y Azure.</span><span class="sxs-lookup"><span data-stu-id="b64dd-128">See [configure your host to require certificates](xref:security/authentication/certauth#configure-your-host-to-require-certificates) for information on accepting client certificates in Kestrel, IIS and Azure.</span></span>
+> <span data-ttu-id="bea0d-127">El host debe estar configurado para aceptar certificados de cliente.</span><span class="sxs-lookup"><span data-stu-id="bea0d-127">The host needs to be configured to accept client certificates.</span></span> <span data-ttu-id="bea0d-128">Consulte [configuración del host para requerir certificados](xref:security/authentication/certauth#configure-your-host-to-require-certificates) para obtener información sobre la aceptación de certificados de cliente en KESTREL, IIS y Azure.</span><span class="sxs-lookup"><span data-stu-id="bea0d-128">See [configure your host to require certificates](xref:security/authentication/certauth#configure-your-host-to-require-certificates) for information on accepting client certificates in Kestrel, IIS and Azure.</span></span>
 
-<span data-ttu-id="b64dd-129">En el cliente gRPC de .NET, el certificado de cliente se agrega a `HttpClientHandler` que se usa para crear el cliente de gRPC:</span><span class="sxs-lookup"><span data-stu-id="b64dd-129">In the .NET gRPC client, the client certificate is added to `HttpClientHandler` that is then used to create the gRPC client:</span></span>
+<span data-ttu-id="bea0d-129">En el cliente gRPC de .NET, el certificado de cliente se agrega a `HttpClientHandler` que se usa para crear el cliente de gRPC:</span><span class="sxs-lookup"><span data-stu-id="bea0d-129">In the .NET gRPC client, the client certificate is added to `HttpClientHandler` that is then used to create the gRPC client:</span></span>
 
 ```csharp
 public Ticketer.TicketerClient CreateClientWithCert(
@@ -134,31 +134,31 @@ public Ticketer.TicketerClient CreateClientWithCert(
 }
 ```
 
-### <a name="other-authentication-mechanisms"></a><span data-ttu-id="b64dd-130">Otros mecanismos de autenticación</span><span class="sxs-lookup"><span data-stu-id="b64dd-130">Other authentication mechanisms</span></span>
+### <a name="other-authentication-mechanisms"></a><span data-ttu-id="bea0d-130">Otros mecanismos de autenticación</span><span class="sxs-lookup"><span data-stu-id="bea0d-130">Other authentication mechanisms</span></span>
 
-<span data-ttu-id="b64dd-131">Muchos ASP.NET Core mecanismos de autenticación admitidos funcionan con gRPC:</span><span class="sxs-lookup"><span data-stu-id="b64dd-131">Many ASP.NET Core supported authentication mechanisms work with gRPC:</span></span>
+<span data-ttu-id="bea0d-131">Muchos ASP.NET Core mecanismos de autenticación admitidos funcionan con gRPC:</span><span class="sxs-lookup"><span data-stu-id="bea0d-131">Many ASP.NET Core supported authentication mechanisms work with gRPC:</span></span>
 
-* <span data-ttu-id="b64dd-132">Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="b64dd-132">Azure Active Directory</span></span>
-* <span data-ttu-id="b64dd-133">Certificado de cliente</span><span class="sxs-lookup"><span data-stu-id="b64dd-133">Client Certificate</span></span>
-* <span data-ttu-id="b64dd-134">IdentityServer</span><span class="sxs-lookup"><span data-stu-id="b64dd-134">IdentityServer</span></span>
-* <span data-ttu-id="b64dd-135">Token de JWT</span><span class="sxs-lookup"><span data-stu-id="b64dd-135">JWT Token</span></span>
-* <span data-ttu-id="b64dd-136">OAuth 2,0</span><span class="sxs-lookup"><span data-stu-id="b64dd-136">OAuth 2.0</span></span>
-* <span data-ttu-id="b64dd-137">OpenID Connect</span><span class="sxs-lookup"><span data-stu-id="b64dd-137">OpenID Connect</span></span>
-* <span data-ttu-id="b64dd-138">WS-Federation</span><span class="sxs-lookup"><span data-stu-id="b64dd-138">WS-Federation</span></span>
+* <span data-ttu-id="bea0d-132">Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="bea0d-132">Azure Active Directory</span></span>
+* <span data-ttu-id="bea0d-133">Certificado de cliente</span><span class="sxs-lookup"><span data-stu-id="bea0d-133">Client Certificate</span></span>
+* <span data-ttu-id="bea0d-134">IdentityServer</span><span class="sxs-lookup"><span data-stu-id="bea0d-134">IdentityServer</span></span>
+* <span data-ttu-id="bea0d-135">Token de JWT</span><span class="sxs-lookup"><span data-stu-id="bea0d-135">JWT Token</span></span>
+* <span data-ttu-id="bea0d-136">OAuth 2.0</span><span class="sxs-lookup"><span data-stu-id="bea0d-136">OAuth 2.0</span></span>
+* <span data-ttu-id="bea0d-137">OpenID Connect</span><span class="sxs-lookup"><span data-stu-id="bea0d-137">OpenID Connect</span></span>
+* <span data-ttu-id="bea0d-138">WS-Federation</span><span class="sxs-lookup"><span data-stu-id="bea0d-138">WS-Federation</span></span>
 
-<span data-ttu-id="b64dd-139">Para obtener más información sobre la configuración de la autenticación en el servidor, consulte [ASP.net Core la autenticación](xref:security/authentication/identity).</span><span class="sxs-lookup"><span data-stu-id="b64dd-139">For more information on configuring authentication on the server, see [ASP.NET Core authentication](xref:security/authentication/identity).</span></span>
+<span data-ttu-id="bea0d-139">Para obtener más información sobre la configuración de la autenticación en el servidor, consulte [ASP.net Core la autenticación](xref:security/authentication/identity).</span><span class="sxs-lookup"><span data-stu-id="bea0d-139">For more information on configuring authentication on the server, see [ASP.NET Core authentication](xref:security/authentication/identity).</span></span>
 
-<span data-ttu-id="b64dd-140">La configuración del cliente de gRPC para usar la autenticación dependerá del mecanismo de autenticación que se use.</span><span class="sxs-lookup"><span data-stu-id="b64dd-140">Configuring the gRPC client to use authentication will depend on the authentication mechanism you are using.</span></span> <span data-ttu-id="b64dd-141">El token de portador anterior y los ejemplos de certificados de cliente muestran un par de formas en que se puede configurar el cliente de gRPC para enviar metadatos de autenticación con llamadas gRPC:</span><span class="sxs-lookup"><span data-stu-id="b64dd-141">The previous bearer token and client certificate examples show a couple of ways the gRPC client can be configured to send authentication metadata with gRPC calls:</span></span>
+<span data-ttu-id="bea0d-140">La configuración del cliente de gRPC para usar la autenticación dependerá del mecanismo de autenticación que se use.</span><span class="sxs-lookup"><span data-stu-id="bea0d-140">Configuring the gRPC client to use authentication will depend on the authentication mechanism you are using.</span></span> <span data-ttu-id="bea0d-141">El token de portador anterior y los ejemplos de certificados de cliente muestran un par de formas en que se puede configurar el cliente de gRPC para enviar metadatos de autenticación con llamadas gRPC:</span><span class="sxs-lookup"><span data-stu-id="bea0d-141">The previous bearer token and client certificate examples show a couple of ways the gRPC client can be configured to send authentication metadata with gRPC calls:</span></span>
 
-* <span data-ttu-id="b64dd-142">Los clientes de gRPC fuertemente tipados usan `HttpClient` internamente.</span><span class="sxs-lookup"><span data-stu-id="b64dd-142">Strongly typed gRPC clients use `HttpClient` internally.</span></span> <span data-ttu-id="b64dd-143">La autenticación se puede configurar en [`HttpClientHandler`](/dotnet/api/system.net.http.httpclienthandler)o agregando instancias de [`HttpMessageHandler`](/dotnet/api/system.net.http.httpmessagehandler) personalizadas a la `HttpClient`.</span><span class="sxs-lookup"><span data-stu-id="b64dd-143">Authentication can be configured on [`HttpClientHandler`](/dotnet/api/system.net.http.httpclienthandler), or by adding custom [`HttpMessageHandler`](/dotnet/api/system.net.http.httpmessagehandler) instances to the `HttpClient`.</span></span>
-* <span data-ttu-id="b64dd-144">Cada llamada a gRPC tiene un argumento opcional `CallOptions`.</span><span class="sxs-lookup"><span data-stu-id="b64dd-144">Each gRPC call has an optional `CallOptions` argument.</span></span> <span data-ttu-id="b64dd-145">Los encabezados personalizados se pueden enviar mediante la colección de encabezados de la opción.</span><span class="sxs-lookup"><span data-stu-id="b64dd-145">Custom headers can be sent using the option's headers collection.</span></span>
+* <span data-ttu-id="bea0d-142">Los clientes de gRPC fuertemente tipados usan `HttpClient` internamente.</span><span class="sxs-lookup"><span data-stu-id="bea0d-142">Strongly typed gRPC clients use `HttpClient` internally.</span></span> <span data-ttu-id="bea0d-143">La autenticación se puede configurar en [`HttpClientHandler`](/dotnet/api/system.net.http.httpclienthandler)o agregando instancias de [`HttpMessageHandler`](/dotnet/api/system.net.http.httpmessagehandler) personalizadas a la `HttpClient`.</span><span class="sxs-lookup"><span data-stu-id="bea0d-143">Authentication can be configured on [`HttpClientHandler`](/dotnet/api/system.net.http.httpclienthandler), or by adding custom [`HttpMessageHandler`](/dotnet/api/system.net.http.httpmessagehandler) instances to the `HttpClient`.</span></span>
+* <span data-ttu-id="bea0d-144">Cada llamada a gRPC tiene un argumento opcional `CallOptions`.</span><span class="sxs-lookup"><span data-stu-id="bea0d-144">Each gRPC call has an optional `CallOptions` argument.</span></span> <span data-ttu-id="bea0d-145">Los encabezados personalizados se pueden enviar mediante la colección de encabezados de la opción.</span><span class="sxs-lookup"><span data-stu-id="bea0d-145">Custom headers can be sent using the option's headers collection.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="b64dd-146">La autenticación de Windows (NTLM/Kerberos/Negotiate) no se puede usar con gRPC.</span><span class="sxs-lookup"><span data-stu-id="b64dd-146">Windows Authentication (NTLM/Kerberos/Negotiate) can't be used with gRPC.</span></span> <span data-ttu-id="b64dd-147">gRPC requiere HTTP/2 y HTTP/2 no admite la autenticación de Windows.</span><span class="sxs-lookup"><span data-stu-id="b64dd-147">gRPC requires HTTP/2, and HTTP/2 doesn't support Windows Authentication.</span></span>
+> <span data-ttu-id="bea0d-146">La autenticación de Windows (NTLM/Kerberos/Negotiate) no se puede usar con gRPC.</span><span class="sxs-lookup"><span data-stu-id="bea0d-146">Windows Authentication (NTLM/Kerberos/Negotiate) can't be used with gRPC.</span></span> <span data-ttu-id="bea0d-147">gRPC requiere HTTP/2 y HTTP/2 no admite la autenticación de Windows.</span><span class="sxs-lookup"><span data-stu-id="bea0d-147">gRPC requires HTTP/2, and HTTP/2 doesn't support Windows Authentication.</span></span>
 
-## <a name="authorize-users-to-access-services-and-service-methods"></a><span data-ttu-id="b64dd-148">Autorizar a los usuarios para obtener acceso a servicios y métodos de servicio</span><span class="sxs-lookup"><span data-stu-id="b64dd-148">Authorize users to access services and service methods</span></span>
+## <a name="authorize-users-to-access-services-and-service-methods"></a><span data-ttu-id="bea0d-148">Autorizar a los usuarios para obtener acceso a servicios y métodos de servicio</span><span class="sxs-lookup"><span data-stu-id="bea0d-148">Authorize users to access services and service methods</span></span>
 
-<span data-ttu-id="b64dd-149">De forma predeterminada, los usuarios no autenticados pueden llamar a todos los métodos de un servicio.</span><span class="sxs-lookup"><span data-stu-id="b64dd-149">By default, all methods in a service can be called by unauthenticated users.</span></span> <span data-ttu-id="b64dd-150">Para requerir autenticación, aplique el atributo [[Authorize]](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) al servicio:</span><span class="sxs-lookup"><span data-stu-id="b64dd-150">To require authentication, apply the [[Authorize]](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) attribute to the service:</span></span>
+<span data-ttu-id="bea0d-149">De forma predeterminada, los usuarios no autenticados pueden llamar a todos los métodos de un servicio.</span><span class="sxs-lookup"><span data-stu-id="bea0d-149">By default, all methods in a service can be called by unauthenticated users.</span></span> <span data-ttu-id="bea0d-150">Para requerir autenticación, aplique el atributo [[Authorize]](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) al servicio:</span><span class="sxs-lookup"><span data-stu-id="bea0d-150">To require authentication, apply the [[Authorize]](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) attribute to the service:</span></span>
 
 ```csharp
 [Authorize]
@@ -167,7 +167,7 @@ public class TicketerService : Ticketer.TicketerBase
 }
 ```
 
-<span data-ttu-id="b64dd-151">Puede usar los argumentos de constructor y las propiedades del atributo `[Authorize]` para restringir el acceso solo a los usuarios que coincidan con [las directivas de autorización](xref:security/authorization/policies)específicas.</span><span class="sxs-lookup"><span data-stu-id="b64dd-151">You can use the constructor arguments and properties of the `[Authorize]` attribute to restrict access to only users matching specific [authorization policies](xref:security/authorization/policies).</span></span> <span data-ttu-id="b64dd-152">Por ejemplo, si tiene una directiva de autorización personalizada llamada `MyAuthorizationPolicy`, asegúrese de que solo los usuarios que coincidan con esa Directiva puedan tener acceso al servicio mediante el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="b64dd-152">For example, if you have a custom authorization policy called `MyAuthorizationPolicy`, ensure that only users matching that policy can access the service using the following code:</span></span>
+<span data-ttu-id="bea0d-151">Puede usar los argumentos de constructor y las propiedades del atributo `[Authorize]` para restringir el acceso solo a los usuarios que coincidan con [las directivas de autorización](xref:security/authorization/policies)específicas.</span><span class="sxs-lookup"><span data-stu-id="bea0d-151">You can use the constructor arguments and properties of the `[Authorize]` attribute to restrict access to only users matching specific [authorization policies](xref:security/authorization/policies).</span></span> <span data-ttu-id="bea0d-152">Por ejemplo, si tiene una directiva de autorización personalizada llamada `MyAuthorizationPolicy`, asegúrese de que solo los usuarios que coincidan con esa Directiva puedan tener acceso al servicio mediante el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="bea0d-152">For example, if you have a custom authorization policy called `MyAuthorizationPolicy`, ensure that only users matching that policy can access the service using the following code:</span></span>
 
 ```csharp
 [Authorize("MyAuthorizationPolicy")]
@@ -176,7 +176,7 @@ public class TicketerService : Ticketer.TicketerBase
 }
 ```
 
-<span data-ttu-id="b64dd-153">Los métodos de servicio individuales pueden tener también el atributo `[Authorize]` aplicado.</span><span class="sxs-lookup"><span data-stu-id="b64dd-153">Individual service methods can have the `[Authorize]` attribute applied as well.</span></span> <span data-ttu-id="b64dd-154">Si el usuario actual no coincide con las directivas que se aplican **al método y a la** clase, se devuelve un error al autor de la llamada:</span><span class="sxs-lookup"><span data-stu-id="b64dd-154">If the current user doesn't match the policies applied to **both** the method and the class, an error is returned to the caller:</span></span>
+<span data-ttu-id="bea0d-153">Los métodos de servicio individuales pueden tener también el atributo `[Authorize]` aplicado.</span><span class="sxs-lookup"><span data-stu-id="bea0d-153">Individual service methods can have the `[Authorize]` attribute applied as well.</span></span> <span data-ttu-id="bea0d-154">Si el usuario actual no coincide con las directivas que se aplican **al método y a la** clase, se devuelve un error al autor de la llamada:</span><span class="sxs-lookup"><span data-stu-id="bea0d-154">If the current user doesn't match the policies applied to **both** the method and the class, an error is returned to the caller:</span></span>
 
 ```csharp
 [Authorize]
@@ -197,7 +197,7 @@ public class TicketerService : Ticketer.TicketerBase
 }
 ```
 
-## <a name="additional-resources"></a><span data-ttu-id="b64dd-155">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="b64dd-155">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="bea0d-155">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="bea0d-155">Additional resources</span></span>
 
-* [<span data-ttu-id="b64dd-156">Autenticación de token de portador en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="b64dd-156">Bearer Token authentication in ASP.NET Core</span></span>](https://blogs.msdn.microsoft.com/webdev/2016/10/27/bearer-token-authentication-in-asp-net-core/)
-* [<span data-ttu-id="b64dd-157">Configurar la autenticación de certificados de cliente en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="b64dd-157">Configure Client Certificate authentication in ASP.NET Core</span></span>](xref:security/authentication/certauth)
+* [<span data-ttu-id="bea0d-156">Autenticación de token de portador en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="bea0d-156">Bearer Token authentication in ASP.NET Core</span></span>](https://blogs.msdn.microsoft.com/webdev/2016/10/27/bearer-token-authentication-in-asp-net-core/)
+* [<span data-ttu-id="bea0d-157">Configurar la autenticación de certificados de cliente en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="bea0d-157">Configure Client Certificate authentication in ASP.NET Core</span></span>](xref:security/authentication/certauth)

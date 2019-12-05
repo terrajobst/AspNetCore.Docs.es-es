@@ -5,151 +5,151 @@ description: Cree una aplicación Blazor paso a paso.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 11/27/2019
 no-loc:
 - Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 646e14060b88fc2a0fefc2f7a5ebb1c15ac39b79
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 2a83761b598a339aeaf8bec6f8fd50d09e608f0c
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963714"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681219"
 ---
-# <a name="build-your-first-opno-locblazor-app"></a><span data-ttu-id="14611-103">Compilación de la primera aplicación Blazor</span><span class="sxs-lookup"><span data-stu-id="14611-103">Build your first Blazor app</span></span>
+# <a name="build-your-first-opno-locblazor-app"></a><span data-ttu-id="a06e8-103">Compilación de la primera aplicación Blazor</span><span class="sxs-lookup"><span data-stu-id="a06e8-103">Build your first Blazor app</span></span>
 
-<span data-ttu-id="14611-104">Por [Daniel Roth](https://github.com/danroth27) y [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="14611-104">By [Daniel Roth](https://github.com/danroth27) and [Luke Latham](https://github.com/guardrex)</span></span>
+<span data-ttu-id="a06e8-104">Por [Daniel Roth](https://github.com/danroth27) y [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="a06e8-104">By [Daniel Roth](https://github.com/danroth27) and [Luke Latham](https://github.com/guardrex)</span></span>
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-<span data-ttu-id="14611-105">En este tutorial se muestra cómo crear y modificar una aplicación Blazor.</span><span class="sxs-lookup"><span data-stu-id="14611-105">This tutorial shows you how to build and modify a Blazor app.</span></span>
+<span data-ttu-id="a06e8-105">En este tutorial se muestra cómo crear y modificar una aplicación Blazor.</span><span class="sxs-lookup"><span data-stu-id="a06e8-105">This tutorial shows you how to build and modify a Blazor app.</span></span>
 
-<span data-ttu-id="14611-106">Siga las instrucciones del artículo <xref:blazor/get-started> para crear un proyecto de Blazor en este tutorial.</span><span class="sxs-lookup"><span data-stu-id="14611-106">Follow the guidance in the <xref:blazor/get-started> article to create a Blazor project for this tutorial.</span></span> <span data-ttu-id="14611-107">Denomine el proyecto *ToDoList*.</span><span class="sxs-lookup"><span data-stu-id="14611-107">Name the project *ToDoList*.</span></span>
+<span data-ttu-id="a06e8-106">Siga las instrucciones del artículo <xref:blazor/get-started> para crear un proyecto de Blazor en este tutorial.</span><span class="sxs-lookup"><span data-stu-id="a06e8-106">Follow the guidance in the <xref:blazor/get-started> article to create a Blazor project for this tutorial.</span></span> <span data-ttu-id="a06e8-107">Denomine el proyecto *ToDoList*.</span><span class="sxs-lookup"><span data-stu-id="a06e8-107">Name the project *ToDoList*.</span></span>
 
-## <a name="build-components"></a><span data-ttu-id="14611-108">Creación de componentes</span><span class="sxs-lookup"><span data-stu-id="14611-108">Build components</span></span>
+## <a name="build-components"></a><span data-ttu-id="a06e8-108">Creación de componentes</span><span class="sxs-lookup"><span data-stu-id="a06e8-108">Build components</span></span>
 
-1. <span data-ttu-id="14611-109">Vaya a cada una de las tres páginas de la aplicación en la carpeta *Pages*: Home (Inicio), Counter (Contador) y Fetch data (Recuperar datos).</span><span class="sxs-lookup"><span data-stu-id="14611-109">Browse to each of the app's three pages in the *Pages* folder: Home, Counter, and Fetch data.</span></span> <span data-ttu-id="14611-110">Estas páginas se implementan mediante los archivos de componente de Razor *Index.razor*, *Counter.razor* y *FetchData.razor*.</span><span class="sxs-lookup"><span data-stu-id="14611-110">These pages are implemented by the Razor component files *Index.razor*, *Counter.razor*, and *FetchData.razor*.</span></span>
+1. <span data-ttu-id="a06e8-109">Vaya a cada una de las tres páginas de la aplicación en la carpeta *Pages*: Home (Inicio), Counter (Contador) y Fetch data (Recuperar datos).</span><span class="sxs-lookup"><span data-stu-id="a06e8-109">Browse to each of the app's three pages in the *Pages* folder: Home, Counter, and Fetch data.</span></span> <span data-ttu-id="a06e8-110">Estas páginas se implementan mediante los archivos de componente de Razor *Index.razor*, *Counter.razor* y *FetchData.razor*.</span><span class="sxs-lookup"><span data-stu-id="a06e8-110">These pages are implemented by the Razor component files *Index.razor*, *Counter.razor*, and *FetchData.razor*.</span></span>
 
-1. <span data-ttu-id="14611-111">En la página Contador, seleccione el botón **Click me** para aumentar el contador sin una actualización de página.</span><span class="sxs-lookup"><span data-stu-id="14611-111">On the Counter page, select the **Click me** button to increment the counter without a page refresh.</span></span> <span data-ttu-id="14611-112">Para aumentar un contador en una página web suele ser necesario escribir JavaScript.</span><span class="sxs-lookup"><span data-stu-id="14611-112">Incrementing a counter in a webpage normally requires writing JavaScript.</span></span> <span data-ttu-id="14611-113">Con Blazor, puede escribir C# en su lugar.</span><span class="sxs-lookup"><span data-stu-id="14611-113">With Blazor, you can write C# instead.</span></span>
+1. <span data-ttu-id="a06e8-111">En la página Contador, seleccione el botón **Click me** para aumentar el contador sin una actualización de página.</span><span class="sxs-lookup"><span data-stu-id="a06e8-111">On the Counter page, select the **Click me** button to increment the counter without a page refresh.</span></span> <span data-ttu-id="a06e8-112">Para aumentar un contador en una página web suele ser necesario escribir JavaScript.</span><span class="sxs-lookup"><span data-stu-id="a06e8-112">Incrementing a counter in a webpage normally requires writing JavaScript.</span></span> <span data-ttu-id="a06e8-113">Con Blazor, puede escribir C# en su lugar.</span><span class="sxs-lookup"><span data-stu-id="a06e8-113">With Blazor, you can write C# instead.</span></span>
 
-1. <span data-ttu-id="14611-114">Examine la implementación del componente `Counter` en el archivo *Counter.razor*.</span><span class="sxs-lookup"><span data-stu-id="14611-114">Examine the implementation of the `Counter` component in the *Counter.razor* file.</span></span>
+1. <span data-ttu-id="a06e8-114">Examine la implementación del componente `Counter` en el archivo *Counter.razor*.</span><span class="sxs-lookup"><span data-stu-id="a06e8-114">Examine the implementation of the `Counter` component in the *Counter.razor* file.</span></span>
 
-   <span data-ttu-id="14611-115">*Pages/Counter.razor*:</span><span class="sxs-lookup"><span data-stu-id="14611-115">*Pages/Counter.razor*:</span></span>
+   <span data-ttu-id="a06e8-115">*Pages/Counter.razor*:</span><span class="sxs-lookup"><span data-stu-id="a06e8-115">*Pages/Counter.razor*:</span></span>
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter1.razor)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Counter1.razor)]
 
-   <span data-ttu-id="14611-116">la interfaz de usuario del componente `Counter` se define mediante HTML.</span><span class="sxs-lookup"><span data-stu-id="14611-116">The UI of the `Counter` component is defined using HTML.</span></span> <span data-ttu-id="14611-117">La lógica de la representación dinámica (por ejemplo, bucles, instrucciones condicionales, expresiones) se agrega mediante una sintaxis de C# insertada denominada [Razor](xref:mvc/views/razor).</span><span class="sxs-lookup"><span data-stu-id="14611-117">Dynamic rendering logic (for example, loops, conditionals, expressions) is added using an embedded C# syntax called [Razor](xref:mvc/views/razor).</span></span> <span data-ttu-id="14611-118">El marcado HTML y la lógica de representación de C# se convierten en una clase de componente en tiempo de compilación.</span><span class="sxs-lookup"><span data-stu-id="14611-118">The HTML markup and C# rendering logic are converted into a component class at build time.</span></span> <span data-ttu-id="14611-119">El nombre de la clase de .NET generada coincide con el nombre del archivo.</span><span class="sxs-lookup"><span data-stu-id="14611-119">The name of the generated .NET class matches the file name.</span></span>
+   <span data-ttu-id="a06e8-116">la interfaz de usuario del componente `Counter` se define mediante HTML.</span><span class="sxs-lookup"><span data-stu-id="a06e8-116">The UI of the `Counter` component is defined using HTML.</span></span> <span data-ttu-id="a06e8-117">La lógica de la representación dinámica (por ejemplo, bucles, instrucciones condicionales, expresiones) se agrega mediante una sintaxis de C# insertada denominada [Razor](xref:mvc/views/razor).</span><span class="sxs-lookup"><span data-stu-id="a06e8-117">Dynamic rendering logic (for example, loops, conditionals, expressions) is added using an embedded C# syntax called [Razor](xref:mvc/views/razor).</span></span> <span data-ttu-id="a06e8-118">El marcado HTML y la lógica de representación de C# se convierten en una clase de componente en tiempo de compilación.</span><span class="sxs-lookup"><span data-stu-id="a06e8-118">The HTML markup and C# rendering logic are converted into a component class at build time.</span></span> <span data-ttu-id="a06e8-119">El nombre de la clase de .NET generada coincide con el nombre del archivo.</span><span class="sxs-lookup"><span data-stu-id="a06e8-119">The name of the generated .NET class matches the file name.</span></span>
 
-   <span data-ttu-id="14611-120">Los miembros de la clase de componente se definen en un bloque `@code`.</span><span class="sxs-lookup"><span data-stu-id="14611-120">Members of the component class are defined in an `@code` block.</span></span> <span data-ttu-id="14611-121">En el bloque `@code`, se especifica el estado del componente (propiedades, campos) y los métodos para el tratamiento de eventos o para definir otra lógica del componente.</span><span class="sxs-lookup"><span data-stu-id="14611-121">In the `@code` block, component state (properties, fields) and methods are specified for event handling or for defining other component logic.</span></span> <span data-ttu-id="14611-122">Estos miembros se utilizan como parte de la lógica de representación del componente y para el tratamiento de eventos.</span><span class="sxs-lookup"><span data-stu-id="14611-122">These members are then used as part of the component's rendering logic and for handling events.</span></span>
+   <span data-ttu-id="a06e8-120">Los miembros de la clase de componente se definen en un bloque `@code`.</span><span class="sxs-lookup"><span data-stu-id="a06e8-120">Members of the component class are defined in an `@code` block.</span></span> <span data-ttu-id="a06e8-121">En el bloque `@code`, se especifica el estado del componente (propiedades, campos) y los métodos para el tratamiento de eventos o para definir otra lógica del componente.</span><span class="sxs-lookup"><span data-stu-id="a06e8-121">In the `@code` block, component state (properties, fields) and methods are specified for event handling or for defining other component logic.</span></span> <span data-ttu-id="a06e8-122">Estos miembros se utilizan como parte de la lógica de representación del componente y para el tratamiento de eventos.</span><span class="sxs-lookup"><span data-stu-id="a06e8-122">These members are then used as part of the component's rendering logic and for handling events.</span></span>
 
-   <span data-ttu-id="14611-123">Al seleccionarse el botón **Click me**:</span><span class="sxs-lookup"><span data-stu-id="14611-123">When the **Click me** button is selected:</span></span>
+   <span data-ttu-id="a06e8-123">Al seleccionarse el botón **Click me**:</span><span class="sxs-lookup"><span data-stu-id="a06e8-123">When the **Click me** button is selected:</span></span>
 
-   * <span data-ttu-id="14611-124">Se llama al controlador `onclick` registrado del componente `Counter` (el método `IncrementCount`).</span><span class="sxs-lookup"><span data-stu-id="14611-124">The `Counter` component's registered `onclick` handler is called (the `IncrementCount` method).</span></span>
-   * <span data-ttu-id="14611-125">El componente `Counter` regenera su árbol de representación.</span><span class="sxs-lookup"><span data-stu-id="14611-125">The `Counter` component regenerates its render tree.</span></span>
-   * <span data-ttu-id="14611-126">El nuevo árbol de representación se compara con el anterior.</span><span class="sxs-lookup"><span data-stu-id="14611-126">The new render tree is compared to the previous one.</span></span>
-   * <span data-ttu-id="14611-127">Únicamente se aplican modificaciones en Document Object Model (DOM).</span><span class="sxs-lookup"><span data-stu-id="14611-127">Only modifications to the Document Object Model (DOM) are applied.</span></span> <span data-ttu-id="14611-128">Se actualiza el recuento mostrado.</span><span class="sxs-lookup"><span data-stu-id="14611-128">The displayed count is updated.</span></span>
+   * <span data-ttu-id="a06e8-124">Se llama al controlador `onclick` registrado del componente `Counter` (el método `IncrementCount`).</span><span class="sxs-lookup"><span data-stu-id="a06e8-124">The `Counter` component's registered `onclick` handler is called (the `IncrementCount` method).</span></span>
+   * <span data-ttu-id="a06e8-125">El componente `Counter` regenera su árbol de representación.</span><span class="sxs-lookup"><span data-stu-id="a06e8-125">The `Counter` component regenerates its render tree.</span></span>
+   * <span data-ttu-id="a06e8-126">El nuevo árbol de representación se compara con el anterior.</span><span class="sxs-lookup"><span data-stu-id="a06e8-126">The new render tree is compared to the previous one.</span></span>
+   * <span data-ttu-id="a06e8-127">Únicamente se aplican modificaciones en Document Object Model (DOM).</span><span class="sxs-lookup"><span data-stu-id="a06e8-127">Only modifications to the Document Object Model (DOM) are applied.</span></span> <span data-ttu-id="a06e8-128">Se actualiza el recuento mostrado.</span><span class="sxs-lookup"><span data-stu-id="a06e8-128">The displayed count is updated.</span></span>
 
-1. <span data-ttu-id="14611-129">Modifique la lógica de C# del componente `Counter` para hacer que el recuento se incremente en dos en lugar de uno.</span><span class="sxs-lookup"><span data-stu-id="14611-129">Modify the C# logic of the `Counter` component to make the count increment by two instead of one.</span></span>
+1. <span data-ttu-id="a06e8-129">Modifique la lógica de C# del componente `Counter` para hacer que el recuento se incremente en dos en lugar de uno.</span><span class="sxs-lookup"><span data-stu-id="a06e8-129">Modify the C# logic of the `Counter` component to make the count increment by two instead of one.</span></span>
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter2.razor?highlight=14)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Counter2.razor?highlight=14)]
 
-1. <span data-ttu-id="14611-130">Recompile y ejecute la aplicación para ver los cambios.</span><span class="sxs-lookup"><span data-stu-id="14611-130">Rebuild and run the app to see the changes.</span></span> <span data-ttu-id="14611-131">Seleccione el botón **Hacer clic aquí**.</span><span class="sxs-lookup"><span data-stu-id="14611-131">Select the **Click me** button.</span></span> <span data-ttu-id="14611-132">El contador se incrementa en dos.</span><span class="sxs-lookup"><span data-stu-id="14611-132">The counter increments by two.</span></span>
+1. <span data-ttu-id="a06e8-130">Recompile y ejecute la aplicación para ver los cambios.</span><span class="sxs-lookup"><span data-stu-id="a06e8-130">Rebuild and run the app to see the changes.</span></span> <span data-ttu-id="a06e8-131">Seleccione el botón **Hacer clic aquí**.</span><span class="sxs-lookup"><span data-stu-id="a06e8-131">Select the **Click me** button.</span></span> <span data-ttu-id="a06e8-132">El contador se incrementa en dos.</span><span class="sxs-lookup"><span data-stu-id="a06e8-132">The counter increments by two.</span></span>
 
-## <a name="use-components"></a><span data-ttu-id="14611-133">Uso de componentes</span><span class="sxs-lookup"><span data-stu-id="14611-133">Use components</span></span>
+## <a name="use-components"></a><span data-ttu-id="a06e8-133">Uso de componentes</span><span class="sxs-lookup"><span data-stu-id="a06e8-133">Use components</span></span>
 
-<span data-ttu-id="14611-134">Incluya un componente en otro componente mediante una sintaxis HTML.</span><span class="sxs-lookup"><span data-stu-id="14611-134">Include a component in another component using an HTML syntax.</span></span>
+<span data-ttu-id="a06e8-134">Incluya un componente en otro componente mediante una sintaxis HTML.</span><span class="sxs-lookup"><span data-stu-id="a06e8-134">Include a component in another component using an HTML syntax.</span></span>
 
-1. <span data-ttu-id="14611-135">Agregue el componente `Counter` al componente `Index` de la aplicación al agregar un elemento `<Counter />` al componente `Index` (*Index.razor*).</span><span class="sxs-lookup"><span data-stu-id="14611-135">Add the `Counter` component to the app's `Index` component by adding a `<Counter />` element to the `Index` component (*Index.razor*).</span></span>
+1. <span data-ttu-id="a06e8-135">Agregue el componente `Counter` al componente `Index` de la aplicación al agregar un elemento `<Counter />` al componente `Index` (*Index.razor*).</span><span class="sxs-lookup"><span data-stu-id="a06e8-135">Add the `Counter` component to the app's `Index` component by adding a `<Counter />` element to the `Index` component (*Index.razor*).</span></span>
 
-   <span data-ttu-id="14611-136">Si va a usar Blazor WebAssembly en esta experiencia, el componente `Index` usa un componente `SurveyPrompt`.</span><span class="sxs-lookup"><span data-stu-id="14611-136">If you're using Blazor WebAssembly for this experience, a `SurveyPrompt` component is used by the `Index` component.</span></span> <span data-ttu-id="14611-137">Reemplace el elemento `<SurveyPrompt>` por un elemento `<Counter />`.</span><span class="sxs-lookup"><span data-stu-id="14611-137">Replace the `<SurveyPrompt>` element with a `<Counter />` element.</span></span> <span data-ttu-id="14611-138">Si va a usar la aplicación Blazor Server en esta experiencia, agregue el elemento `<Counter />` al componente `Index`:</span><span class="sxs-lookup"><span data-stu-id="14611-138">If you're using a Blazor Server app for this experience, add the `<Counter />` element to the `Index` component:</span></span>
+   <span data-ttu-id="a06e8-136">Si va a usar Blazor WebAssembly en esta experiencia, el componente `Index` usa un componente `SurveyPrompt`.</span><span class="sxs-lookup"><span data-stu-id="a06e8-136">If you're using Blazor WebAssembly for this experience, a `SurveyPrompt` component is used by the `Index` component.</span></span> <span data-ttu-id="a06e8-137">Reemplace el elemento `<SurveyPrompt>` por un elemento `<Counter />`.</span><span class="sxs-lookup"><span data-stu-id="a06e8-137">Replace the `<SurveyPrompt>` element with a `<Counter />` element.</span></span> <span data-ttu-id="a06e8-138">Si va a usar la aplicación Blazor Server en esta experiencia, agregue el elemento `<Counter />` al componente `Index`:</span><span class="sxs-lookup"><span data-stu-id="a06e8-138">If you're using a Blazor Server app for this experience, add the `<Counter />` element to the `Index` component:</span></span>
 
-   <span data-ttu-id="14611-139">*Pages/Index.razor*:</span><span class="sxs-lookup"><span data-stu-id="14611-139">*Pages/Index.razor*:</span></span>
+   <span data-ttu-id="a06e8-139">*Pages/Index.razor*:</span><span class="sxs-lookup"><span data-stu-id="a06e8-139">*Pages/Index.razor*:</span></span>
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index1.razor?highlight=7)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
-1. <span data-ttu-id="14611-140">Recompile y ejecute la aplicación.</span><span class="sxs-lookup"><span data-stu-id="14611-140">Rebuild and run the app.</span></span> <span data-ttu-id="14611-141">El componente `Index` tiene su propio contador.</span><span class="sxs-lookup"><span data-stu-id="14611-141">The `Index` component has its own counter.</span></span>
+1. <span data-ttu-id="a06e8-140">Recompile y ejecute la aplicación.</span><span class="sxs-lookup"><span data-stu-id="a06e8-140">Rebuild and run the app.</span></span> <span data-ttu-id="a06e8-141">El componente `Index` tiene su propio contador.</span><span class="sxs-lookup"><span data-stu-id="a06e8-141">The `Index` component has its own counter.</span></span>
 
-## <a name="component-parameters"></a><span data-ttu-id="14611-142">Parámetros del componente</span><span class="sxs-lookup"><span data-stu-id="14611-142">Component parameters</span></span>
+## <a name="component-parameters"></a><span data-ttu-id="a06e8-142">Parámetros del componente</span><span class="sxs-lookup"><span data-stu-id="a06e8-142">Component parameters</span></span>
 
-<span data-ttu-id="14611-143">Los componentes también pueden tener parámetros.</span><span class="sxs-lookup"><span data-stu-id="14611-143">Components can also have parameters.</span></span> <span data-ttu-id="14611-144">Los parámetros de componente se definen mediante propiedades públicas en la clase de componentes con el atributo `[Parameter]`.</span><span class="sxs-lookup"><span data-stu-id="14611-144">Component parameters are defined using public properties on the component class with the `[Parameter]` attribute.</span></span> <span data-ttu-id="14611-145">Use atributos para especificar argumentos para un componente en el marcado.</span><span class="sxs-lookup"><span data-stu-id="14611-145">Use attributes to specify arguments for a component in markup.</span></span>
+<span data-ttu-id="a06e8-143">Los componentes también pueden tener parámetros.</span><span class="sxs-lookup"><span data-stu-id="a06e8-143">Components can also have parameters.</span></span> <span data-ttu-id="a06e8-144">Los parámetros de componente se definen mediante propiedades públicas en la clase de componentes con el atributo `[Parameter]`.</span><span class="sxs-lookup"><span data-stu-id="a06e8-144">Component parameters are defined using public properties on the component class with the `[Parameter]` attribute.</span></span> <span data-ttu-id="a06e8-145">Use atributos para especificar argumentos para un componente en el marcado.</span><span class="sxs-lookup"><span data-stu-id="a06e8-145">Use attributes to specify arguments for a component in markup.</span></span>
 
-1. <span data-ttu-id="14611-146">Actualice el código de C# `@code` del componente:</span><span class="sxs-lookup"><span data-stu-id="14611-146">Update the component's `@code` C# code:</span></span>
+1. <span data-ttu-id="a06e8-146">Actualice el código de C# `@code` del componente:</span><span class="sxs-lookup"><span data-stu-id="a06e8-146">Update the component's `@code` C# code:</span></span>
 
-   * <span data-ttu-id="14611-147">Agregue una propiedad `IncrementAmount` pública con el atributo `[Parameter]`.</span><span class="sxs-lookup"><span data-stu-id="14611-147">Add a public `IncrementAmount` property with the `[Parameter]` attribute.</span></span>
-   * <span data-ttu-id="14611-148">Cambie el método `IncrementCount` para usar `IncrementAmount` al aumentar el valor de `currentCount`.</span><span class="sxs-lookup"><span data-stu-id="14611-148">Change the `IncrementCount` method to use the `IncrementAmount` when increasing the value of `currentCount`.</span></span>
+   * <span data-ttu-id="a06e8-147">Agregue una propiedad `IncrementAmount` pública con el atributo `[Parameter]`.</span><span class="sxs-lookup"><span data-stu-id="a06e8-147">Add a public `IncrementAmount` property with the `[Parameter]` attribute.</span></span>
+   * <span data-ttu-id="a06e8-148">Cambie el método `IncrementCount` para usar `IncrementAmount` al aumentar el valor de `currentCount`.</span><span class="sxs-lookup"><span data-stu-id="a06e8-148">Change the `IncrementCount` method to use the `IncrementAmount` when increasing the value of `currentCount`.</span></span>
 
-   <span data-ttu-id="14611-149">*Pages/Counter.razor*:</span><span class="sxs-lookup"><span data-stu-id="14611-149">*Pages/Counter.razor*:</span></span>
+   <span data-ttu-id="a06e8-149">*Pages/Counter.razor*:</span><span class="sxs-lookup"><span data-stu-id="a06e8-149">*Pages/Counter.razor*:</span></span>
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter.razor?highlight=13,17)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Counter.razor?highlight=13,17)]
 
 <!-- Add back when supported.
    > [!NOTE]
    > From Visual Studio, you can quickly add a component parameter by using the `para` snippet. Type `para` and press the `Tab` key twice.
 -->
 
-1. <span data-ttu-id="14611-150">Especifique un parámetro `IncrementAmount` en el elemento `<Counter>` del componente `Index` mediante un atributo.</span><span class="sxs-lookup"><span data-stu-id="14611-150">Specify an `IncrementAmount` parameter in the `Index` component's `<Counter>` element using an attribute.</span></span> <span data-ttu-id="14611-151">Establezca el valor para incrementar el contador en diez.</span><span class="sxs-lookup"><span data-stu-id="14611-151">Set the value to increment the counter by ten.</span></span>
+1. <span data-ttu-id="a06e8-150">Especifique un parámetro `IncrementAmount` en el elemento `<Counter>` del componente `Index` mediante un atributo.</span><span class="sxs-lookup"><span data-stu-id="a06e8-150">Specify an `IncrementAmount` parameter in the `Index` component's `<Counter>` element using an attribute.</span></span> <span data-ttu-id="a06e8-151">Establezca el valor para incrementar el contador en diez.</span><span class="sxs-lookup"><span data-stu-id="a06e8-151">Set the value to increment the counter by ten.</span></span>
 
-   <span data-ttu-id="14611-152">*Pages/Index.razor*:</span><span class="sxs-lookup"><span data-stu-id="14611-152">*Pages/Index.razor*:</span></span>
+   <span data-ttu-id="a06e8-152">*Pages/Index.razor*:</span><span class="sxs-lookup"><span data-stu-id="a06e8-152">*Pages/Index.razor*:</span></span>
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index2.razor?highlight=7)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-1. <span data-ttu-id="14611-153">Recargue el componente `Index`.</span><span class="sxs-lookup"><span data-stu-id="14611-153">Reload the `Index` component.</span></span> <span data-ttu-id="14611-154">El contador se incrementa en diez cada vez que se selecciona el botón **Click me**.</span><span class="sxs-lookup"><span data-stu-id="14611-154">The counter increments by ten each time the **Click me** button is selected.</span></span> <span data-ttu-id="14611-155">El contador del componente `Counter` sigue incrementándose en uno.</span><span class="sxs-lookup"><span data-stu-id="14611-155">The counter in the `Counter` component continues to increment by one.</span></span>
+1. <span data-ttu-id="a06e8-153">Recargue el componente `Index`.</span><span class="sxs-lookup"><span data-stu-id="a06e8-153">Reload the `Index` component.</span></span> <span data-ttu-id="a06e8-154">El contador se incrementa en diez cada vez que se selecciona el botón **Click me**.</span><span class="sxs-lookup"><span data-stu-id="a06e8-154">The counter increments by ten each time the **Click me** button is selected.</span></span> <span data-ttu-id="a06e8-155">El contador del componente `Counter` sigue incrementándose en uno.</span><span class="sxs-lookup"><span data-stu-id="a06e8-155">The counter in the `Counter` component continues to increment by one.</span></span>
 
-## <a name="route-to-components"></a><span data-ttu-id="14611-156">Enrutamiento a los componentes</span><span class="sxs-lookup"><span data-stu-id="14611-156">Route to components</span></span>
+## <a name="route-to-components"></a><span data-ttu-id="a06e8-156">Enrutamiento a los componentes</span><span class="sxs-lookup"><span data-stu-id="a06e8-156">Route to components</span></span>
 
-<span data-ttu-id="14611-157">La directiva `@page` en la parte superior del archivo *Counter.razor* especifica que el componente `Counter` es un punto de conexión de enrutamiento.</span><span class="sxs-lookup"><span data-stu-id="14611-157">The `@page` directive at the top of the *Counter.razor* file specifies that the `Counter` component is a routing endpoint.</span></span> <span data-ttu-id="14611-158">El componente `Counter` controla las solicitudes enviadas a `/counter`.</span><span class="sxs-lookup"><span data-stu-id="14611-158">The `Counter` component handles requests sent to `/counter`.</span></span> <span data-ttu-id="14611-159">Sin la directiva `@page`, el componente no controla las solicitudes enrutadas, pero otros componentes aún pueden usar el componente.</span><span class="sxs-lookup"><span data-stu-id="14611-159">Without the `@page` directive, a component doesn't handle routed requests, but the component can still be used by other components.</span></span>
+<span data-ttu-id="a06e8-157">La directiva `@page` en la parte superior del archivo *Counter.razor* especifica que el componente `Counter` es un punto de conexión de enrutamiento.</span><span class="sxs-lookup"><span data-stu-id="a06e8-157">The `@page` directive at the top of the *Counter.razor* file specifies that the `Counter` component is a routing endpoint.</span></span> <span data-ttu-id="a06e8-158">El componente `Counter` controla las solicitudes enviadas a `/counter`.</span><span class="sxs-lookup"><span data-stu-id="a06e8-158">The `Counter` component handles requests sent to `/counter`.</span></span> <span data-ttu-id="a06e8-159">Sin la directiva `@page`, el componente no controla las solicitudes enrutadas, pero otros componentes aún pueden usar el componente.</span><span class="sxs-lookup"><span data-stu-id="a06e8-159">Without the `@page` directive, a component doesn't handle routed requests, but the component can still be used by other components.</span></span>
 
-## <a name="dependency-injection"></a><span data-ttu-id="14611-160">Inserción de dependencias</span><span class="sxs-lookup"><span data-stu-id="14611-160">Dependency injection</span></span>
+## <a name="dependency-injection"></a><span data-ttu-id="a06e8-160">Inserción de dependencias</span><span class="sxs-lookup"><span data-stu-id="a06e8-160">Dependency injection</span></span>
 
-### <a name="opno-locblazor-server-experience"></a><span data-ttu-id="14611-161">Experiencia de Blazor Server</span><span class="sxs-lookup"><span data-stu-id="14611-161">Blazor Server experience</span></span>
+### <a name="opno-locblazor-server-experience"></a><span data-ttu-id="a06e8-161">Experiencia de Blazor Server</span><span class="sxs-lookup"><span data-stu-id="a06e8-161">Blazor Server experience</span></span>
 
-<span data-ttu-id="14611-162">Si va a trabajar con una aplicación Blazor Server, el servicio `WeatherForecastService` se registra como [singleton](xref:fundamentals/dependency-injection#service-lifetimes) en `Startup.ConfigureServices`.</span><span class="sxs-lookup"><span data-stu-id="14611-162">If working with a Blazor Server app, the `WeatherForecastService` service is registered as a [singleton](xref:fundamentals/dependency-injection#service-lifetimes) in `Startup.ConfigureServices`.</span></span> <span data-ttu-id="14611-163">Una instancia del servicio está disponible en toda la aplicación a través de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection):</span><span class="sxs-lookup"><span data-stu-id="14611-163">An instance of the service is available throughout the app via [dependency injection (DI)](xref:fundamentals/dependency-injection):</span></span>
+<span data-ttu-id="a06e8-162">Si va a trabajar con una aplicación Blazor Server, el servicio `WeatherForecastService` se registra como [singleton](xref:fundamentals/dependency-injection#service-lifetimes) en `Startup.ConfigureServices`.</span><span class="sxs-lookup"><span data-stu-id="a06e8-162">If working with a Blazor Server app, the `WeatherForecastService` service is registered as a [singleton](xref:fundamentals/dependency-injection#service-lifetimes) in `Startup.ConfigureServices`.</span></span> <span data-ttu-id="a06e8-163">Una instancia del servicio está disponible en toda la aplicación a través de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection):</span><span class="sxs-lookup"><span data-stu-id="a06e8-163">An instance of the service is available throughout the app via [dependency injection (DI)](xref:fundamentals/dependency-injection):</span></span>
 
 [!code-csharp[](build-your-first-blazor-app/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
-<span data-ttu-id="14611-164">La directiva `@inject` se usa para insertar la instancia del servicio `WeatherForecastService` en el componente `FetchData`.</span><span class="sxs-lookup"><span data-stu-id="14611-164">The `@inject` directive is used to inject the instance of the `WeatherForecastService` service into the `FetchData` component.</span></span>
+<span data-ttu-id="a06e8-164">La directiva `@inject` se usa para insertar la instancia del servicio `WeatherForecastService` en el componente `FetchData`.</span><span class="sxs-lookup"><span data-stu-id="a06e8-164">The `@inject` directive is used to inject the instance of the `WeatherForecastService` service into the `FetchData` component.</span></span>
 
-<span data-ttu-id="14611-165">*Pages/FetchData.razor*:</span><span class="sxs-lookup"><span data-stu-id="14611-165">*Pages/FetchData.razor*:</span></span>
+<span data-ttu-id="a06e8-165">*Pages/FetchData.razor*:</span><span class="sxs-lookup"><span data-stu-id="a06e8-165">*Pages/FetchData.razor*:</span></span>
 
-[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1.razor?highlight=3)]
+[!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1.razor?highlight=3)]
 
-<span data-ttu-id="14611-166">El componente `FetchData` usa el servicio insertado, como `ForecastService`, para recuperar una matriz de objetos `WeatherForecast`:</span><span class="sxs-lookup"><span data-stu-id="14611-166">The `FetchData` component uses the injected service, as `ForecastService`, to retrieve an array of `WeatherForecast` objects:</span></span>
+<span data-ttu-id="a06e8-166">El componente `FetchData` usa el servicio insertado, como `ForecastService`, para recuperar una matriz de objetos `WeatherForecast`:</span><span class="sxs-lookup"><span data-stu-id="a06e8-166">The `FetchData` component uses the injected service, as `ForecastService`, to retrieve an array of `WeatherForecast` objects:</span></span>
 
-[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
+[!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-### <a name="opno-locblazor-webassembly-experience"></a><span data-ttu-id="14611-167">Experiencia de Blazor WebAssembly</span><span class="sxs-lookup"><span data-stu-id="14611-167">Blazor WebAssembly experience</span></span>
+### <a name="opno-locblazor-webassembly-experience"></a><span data-ttu-id="a06e8-167">Experiencia de Blazor WebAssembly</span><span class="sxs-lookup"><span data-stu-id="a06e8-167">Blazor WebAssembly experience</span></span>
 
-<span data-ttu-id="14611-168">Si trabaja con una aplicación Blazor WebAssembly, se inserta `HttpClient` para obtener datos de previsión del tiempo del archivo *weather.json* de la carpeta *wwwroot/sample-data*.</span><span class="sxs-lookup"><span data-stu-id="14611-168">If working with a Blazor WebAssembly app, `HttpClient` is injected to obtain weather forecast data from the *weather.json* file in the *wwwroot/sample-data* folder.</span></span>
+<span data-ttu-id="a06e8-168">Si trabaja con una aplicación Blazor WebAssembly, se inserta `HttpClient` para obtener datos de previsión del tiempo del archivo *weather.json* de la carpeta *wwwroot/sample-data*.</span><span class="sxs-lookup"><span data-stu-id="a06e8-168">If working with a Blazor WebAssembly app, `HttpClient` is injected to obtain weather forecast data from the *weather.json* file in the *wwwroot/sample-data* folder.</span></span>
 
-<span data-ttu-id="14611-169">*Pages/FetchData.razor*:</span><span class="sxs-lookup"><span data-stu-id="14611-169">*Pages/FetchData.razor*:</span></span>
+<span data-ttu-id="a06e8-169">*Pages/FetchData.razor*:</span><span class="sxs-lookup"><span data-stu-id="a06e8-169">*Pages/FetchData.razor*:</span></span>
 
-[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1_client.razor?highlight=7-8)]
+[!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1_client.razor?highlight=7-8)]
 
-<span data-ttu-id="14611-170">Se usa un bucle [@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) para representar cada instancia de previsión como una fila en la tabla de datos meteorológicos:</span><span class="sxs-lookup"><span data-stu-id="14611-170">An [@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) loop is used to render each forecast instance as a row in the table of weather data:</span></span>
+<span data-ttu-id="a06e8-170">Se usa un bucle [@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) para representar cada instancia de previsión como una fila en la tabla de datos meteorológicos:</span><span class="sxs-lookup"><span data-stu-id="a06e8-170">An [@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) loop is used to render each forecast instance as a row in the table of weather data:</span></span>
 
-[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
+[!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
 
-## <a name="build-a-todo-list"></a><span data-ttu-id="14611-171">Creación de una lista de tareas pendientes</span><span class="sxs-lookup"><span data-stu-id="14611-171">Build a todo list</span></span>
+## <a name="build-a-todo-list"></a><span data-ttu-id="a06e8-171">Creación de una lista de tareas pendientes</span><span class="sxs-lookup"><span data-stu-id="a06e8-171">Build a todo list</span></span>
 
-<span data-ttu-id="14611-172">Agregue un nuevo componente a la aplicación que implemente una simple lista de tareas pendientes.</span><span class="sxs-lookup"><span data-stu-id="14611-172">Add a new component to the app that implements a simple todo list.</span></span>
+<span data-ttu-id="a06e8-172">Agregue un nuevo componente a la aplicación que implemente una simple lista de tareas pendientes.</span><span class="sxs-lookup"><span data-stu-id="a06e8-172">Add a new component to the app that implements a simple todo list.</span></span>
 
-1. <span data-ttu-id="14611-173">Agregue un archivo vacío denominado *Todo.razor* a la aplicación en la carpeta *Pages*:</span><span class="sxs-lookup"><span data-stu-id="14611-173">Add an empty file named *Todo.razor* to the app in the *Pages* folder:</span></span>
+1. <span data-ttu-id="a06e8-173">Agregue un archivo vacío denominado *Todo.razor* a la aplicación en la carpeta *Pages*:</span><span class="sxs-lookup"><span data-stu-id="a06e8-173">Add an empty file named *Todo.razor* to the app in the *Pages* folder:</span></span>
 
-1. <span data-ttu-id="14611-174">Proporcione el marcado inicial para el componente:</span><span class="sxs-lookup"><span data-stu-id="14611-174">Provide the initial markup for the component:</span></span>
+1. <span data-ttu-id="a06e8-174">Proporcione el marcado inicial para el componente:</span><span class="sxs-lookup"><span data-stu-id="a06e8-174">Provide the initial markup for the component:</span></span>
 
-   ```cshtml
+   ```razor
    @page "/todo"
 
    <h1>Todo</h1>
    ```
 
-1. <span data-ttu-id="14611-175">Agregue el componente `Todo` a la barra de navegación.</span><span class="sxs-lookup"><span data-stu-id="14611-175">Add the `Todo` component to the navigation bar.</span></span>
+1. <span data-ttu-id="a06e8-175">Agregue el componente `Todo` a la barra de navegación.</span><span class="sxs-lookup"><span data-stu-id="a06e8-175">Add the `Todo` component to the navigation bar.</span></span>
 
-   <span data-ttu-id="14611-176">El componente `NavMenu` (*Shared/NavMenu.razor*) se usa en el diseño de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="14611-176">The `NavMenu` component (*Shared/NavMenu.razor*) is used in the app's layout.</span></span> <span data-ttu-id="14611-177">Los diseños son componentes que le permiten impedir la duplicación de contenido en la aplicación.</span><span class="sxs-lookup"><span data-stu-id="14611-177">Layouts are components that allow you to avoid duplication of content in the app.</span></span>
+   <span data-ttu-id="a06e8-176">El componente `NavMenu` (*Shared/NavMenu.razor*) se usa en el diseño de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="a06e8-176">The `NavMenu` component (*Shared/NavMenu.razor*) is used in the app's layout.</span></span> <span data-ttu-id="a06e8-177">Los diseños son componentes que le permiten impedir la duplicación de contenido en la aplicación.</span><span class="sxs-lookup"><span data-stu-id="a06e8-177">Layouts are components that allow you to avoid duplication of content in the app.</span></span>
 
-   <span data-ttu-id="14611-178">Agregue un elemento `<NavLink>` al componente `Todo` mediante la incorporación del siguiente marcado de elementos de lista debajo de los elementos de lista existentes en el archivo *Shared/NavMenu.razor*:</span><span class="sxs-lookup"><span data-stu-id="14611-178">Add a `<NavLink>` element for the `Todo` component by adding the following list item markup below the existing list items in the *Shared/NavMenu.razor* file:</span></span>
+   <span data-ttu-id="a06e8-178">Agregue un elemento `<NavLink>` al componente `Todo` mediante la incorporación del siguiente marcado de elementos de lista debajo de los elementos de lista existentes en el archivo *Shared/NavMenu.razor*:</span><span class="sxs-lookup"><span data-stu-id="a06e8-178">Add a `<NavLink>` element for the `Todo` component by adding the following list item markup below the existing list items in the *Shared/NavMenu.razor* file:</span></span>
 
-   ```cshtml
+   ```razor
    <li class="nav-item px-3">
        <NavLink class="nav-link" href="todo">
            <span class="oi oi-list-rich" aria-hidden="true"></span> Todo
@@ -157,58 +157,58 @@ ms.locfileid: "73963714"
    </li>
    ```
 
-1. <span data-ttu-id="14611-179">Recompile y ejecute la aplicación.</span><span class="sxs-lookup"><span data-stu-id="14611-179">Rebuild and run the app.</span></span> <span data-ttu-id="14611-180">Visite la nueva página Todo para confirmar que el vínculo al componente `Todo` funcione.</span><span class="sxs-lookup"><span data-stu-id="14611-180">Visit the new Todo page to confirm that the link to the `Todo` component works.</span></span>
+1. <span data-ttu-id="a06e8-179">Recompile y ejecute la aplicación.</span><span class="sxs-lookup"><span data-stu-id="a06e8-179">Rebuild and run the app.</span></span> <span data-ttu-id="a06e8-180">Visite la nueva página Todo para confirmar que el vínculo al componente `Todo` funcione.</span><span class="sxs-lookup"><span data-stu-id="a06e8-180">Visit the new Todo page to confirm that the link to the `Todo` component works.</span></span>
 
-1. <span data-ttu-id="14611-181">Agregue un archivo *TodoItem.cs* a la raíz del proyecto para contener una clase que represente un elemento de la lista de tareas.</span><span class="sxs-lookup"><span data-stu-id="14611-181">Add a *TodoItem.cs* file to the root of the project to hold a class that represents a todo item.</span></span> <span data-ttu-id="14611-182">Use el siguiente código de C# para la clase `TodoItem`:</span><span class="sxs-lookup"><span data-stu-id="14611-182">Use the following C# code for the `TodoItem` class:</span></span>
+1. <span data-ttu-id="a06e8-181">Agregue un archivo *TodoItem.cs* a la raíz del proyecto para contener una clase que represente un elemento de la lista de tareas.</span><span class="sxs-lookup"><span data-stu-id="a06e8-181">Add a *TodoItem.cs* file to the root of the project to hold a class that represents a todo item.</span></span> <span data-ttu-id="a06e8-182">Use el siguiente código de C# para la clase `TodoItem`:</span><span class="sxs-lookup"><span data-stu-id="a06e8-182">Use the following C# code for the `TodoItem` class:</span></span>
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/TodoItem.cs)]
+   [!code-csharp[](build-your-first-blazor-app/samples_snapshot/3.x/TodoItem.cs)]
 
-1. <span data-ttu-id="14611-183">Vuelva al componente `Todo` (*Pages/Todo.razor*):</span><span class="sxs-lookup"><span data-stu-id="14611-183">Return to the `Todo` component (*Pages/Todo.razor*):</span></span>
+1. <span data-ttu-id="a06e8-183">Vuelva al componente `Todo` (*Pages/Todo.razor*):</span><span class="sxs-lookup"><span data-stu-id="a06e8-183">Return to the `Todo` component (*Pages/Todo.razor*):</span></span>
 
-   * <span data-ttu-id="14611-184">Agregue un campo a los elementos de tareas pendientes en un bloque `@code`.</span><span class="sxs-lookup"><span data-stu-id="14611-184">Add a field for the todo items in an `@code` block.</span></span> <span data-ttu-id="14611-185">El componente `Todo` utiliza este campo para mantener el estado de la lista de tareas pendientes.</span><span class="sxs-lookup"><span data-stu-id="14611-185">The `Todo` component uses this field to maintain the state of the todo list.</span></span>
-   * <span data-ttu-id="14611-186">Agregue el marcado de la lista no ordenada y un bucle `foreach` para que cada elemento de la lista se represente en un elemento de la lista de tareas pendientes (`<li>`).</span><span class="sxs-lookup"><span data-stu-id="14611-186">Add unordered list markup and a `foreach` loop to render each todo item as a list item (`<li>`).</span></span>
+   * <span data-ttu-id="a06e8-184">Agregue un campo a los elementos de tareas pendientes en un bloque `@code`.</span><span class="sxs-lookup"><span data-stu-id="a06e8-184">Add a field for the todo items in an `@code` block.</span></span> <span data-ttu-id="a06e8-185">El componente `Todo` utiliza este campo para mantener el estado de la lista de tareas pendientes.</span><span class="sxs-lookup"><span data-stu-id="a06e8-185">The `Todo` component uses this field to maintain the state of the todo list.</span></span>
+   * <span data-ttu-id="a06e8-186">Agregue el marcado de la lista no ordenada y un bucle `foreach` para que cada elemento de la lista se represente en un elemento de la lista de tareas pendientes (`<li>`).</span><span class="sxs-lookup"><span data-stu-id="a06e8-186">Add unordered list markup and a `foreach` loop to render each todo item as a list item (`<li>`).</span></span>
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo4.razor?highlight=5-10,12-14)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo4.razor?highlight=5-10,12-14)]
 
-1. <span data-ttu-id="14611-187">Para agregar elementos de tareas pendientes a la lista, la aplicación requiere elementos de la interfaz de usuario.</span><span class="sxs-lookup"><span data-stu-id="14611-187">The app requires UI elements for adding todo items to the list.</span></span> <span data-ttu-id="14611-188">Agregue una entrada de texto (`<input>`) y un botón (`<button>`) debajo de la lista no ordenada (`<ul>...</ul>`):</span><span class="sxs-lookup"><span data-stu-id="14611-188">Add a text input (`<input>`) and a button (`<button>`) below the unordered list (`<ul>...</ul>`):</span></span>
+1. <span data-ttu-id="a06e8-187">Para agregar elementos de tareas pendientes a la lista, la aplicación requiere elementos de la interfaz de usuario.</span><span class="sxs-lookup"><span data-stu-id="a06e8-187">The app requires UI elements for adding todo items to the list.</span></span> <span data-ttu-id="a06e8-188">Agregue una entrada de texto (`<input>`) y un botón (`<button>`) debajo de la lista no ordenada (`<ul>...</ul>`):</span><span class="sxs-lookup"><span data-stu-id="a06e8-188">Add a text input (`<input>`) and a button (`<button>`) below the unordered list (`<ul>...</ul>`):</span></span>
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo5.razor?highlight=12-13)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo5.razor?highlight=12-13)]
 
-1. <span data-ttu-id="14611-189">Recompile y ejecute la aplicación.</span><span class="sxs-lookup"><span data-stu-id="14611-189">Rebuild and run the app.</span></span> <span data-ttu-id="14611-190">Cuando se selecciona el botón **Add todo** (Agregar tarea pendiente), no ocurre nada porque no hay ningún controlador de eventos conectado al botón.</span><span class="sxs-lookup"><span data-stu-id="14611-190">When the **Add todo** button is selected, nothing happens because an event handler isn't wired up to the button.</span></span>
+1. <span data-ttu-id="a06e8-189">Recompile y ejecute la aplicación.</span><span class="sxs-lookup"><span data-stu-id="a06e8-189">Rebuild and run the app.</span></span> <span data-ttu-id="a06e8-190">Cuando se selecciona el botón **Add todo** (Agregar tarea pendiente), no ocurre nada porque no hay ningún controlador de eventos conectado al botón.</span><span class="sxs-lookup"><span data-stu-id="a06e8-190">When the **Add todo** button is selected, nothing happens because an event handler isn't wired up to the button.</span></span>
 
-1. <span data-ttu-id="14611-191">Agregue un método `AddTodo` al componente `Todo` y regístrelo para seleccionar los botones mediante el atributo `@onclick`.</span><span class="sxs-lookup"><span data-stu-id="14611-191">Add an `AddTodo` method to the `Todo` component and register it for button selections using the `@onclick` attribute.</span></span> <span data-ttu-id="14611-192">El método `AddTodo` de C# se llama cuando se selecciona el botón:</span><span class="sxs-lookup"><span data-stu-id="14611-192">The `AddTodo` C# method is called when the button is selected:</span></span>
+1. <span data-ttu-id="a06e8-191">Agregue un método `AddTodo` al componente `Todo` y regístrelo para seleccionar los botones mediante el atributo `@onclick`.</span><span class="sxs-lookup"><span data-stu-id="a06e8-191">Add an `AddTodo` method to the `Todo` component and register it for button selections using the `@onclick` attribute.</span></span> <span data-ttu-id="a06e8-192">El método `AddTodo` de C# se llama cuando se selecciona el botón:</span><span class="sxs-lookup"><span data-stu-id="a06e8-192">The `AddTodo` C# method is called when the button is selected:</span></span>
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo6.razor?highlight=2,7-10)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo6.razor?highlight=2,7-10)]
 
-1. <span data-ttu-id="14611-193">Para obtener el título del nuevo elemento de tarea pendiente, agregue un campo de cadena `newTodo` en la parte superior del bloque `@code` y enlácelo al valor de la entrada de texto mediante el atributo `bind` en el elemento `<input>`:</span><span class="sxs-lookup"><span data-stu-id="14611-193">To get the title of the new todo item, add a `newTodo` string field at the top of the `@code` block and bind it to the value of the text input using the `bind` attribute in the `<input>` element:</span></span>
+1. <span data-ttu-id="a06e8-193">Para obtener el título del nuevo elemento de tarea pendiente, agregue un campo de cadena `newTodo` en la parte superior del bloque `@code` y enlácelo al valor de la entrada de texto mediante el atributo `bind` en el elemento `<input>`:</span><span class="sxs-lookup"><span data-stu-id="a06e8-193">To get the title of the new todo item, add a `newTodo` string field at the top of the `@code` block and bind it to the value of the text input using the `bind` attribute in the `<input>` element:</span></span>
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
 
    ```cshtml
    <input placeholder="Something todo" @bind="newTodo" />
    ```
 
-1. <span data-ttu-id="14611-194">Actualice el método `AddTodo` para agregar el `TodoItem` con el título especificado a la lista.</span><span class="sxs-lookup"><span data-stu-id="14611-194">Update the `AddTodo` method to add the `TodoItem` with the specified title to the list.</span></span> <span data-ttu-id="14611-195">Borre el valor de la entrada de texto mediante el establecimiento de `newTodo` en una cadena vacía:</span><span class="sxs-lookup"><span data-stu-id="14611-195">Clear the value of the text input by setting `newTodo` to an empty string:</span></span>
+1. <span data-ttu-id="a06e8-194">Actualice el método `AddTodo` para agregar el `TodoItem` con el título especificado a la lista.</span><span class="sxs-lookup"><span data-stu-id="a06e8-194">Update the `AddTodo` method to add the `TodoItem` with the specified title to the list.</span></span> <span data-ttu-id="a06e8-195">Borre el valor de la entrada de texto mediante el establecimiento de `newTodo` en una cadena vacía:</span><span class="sxs-lookup"><span data-stu-id="a06e8-195">Clear the value of the text input by setting `newTodo` to an empty string:</span></span>
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo8.razor?highlight=19-26)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo8.razor?highlight=19-26)]
 
-1. <span data-ttu-id="14611-196">Recompile y ejecute la aplicación.</span><span class="sxs-lookup"><span data-stu-id="14611-196">Rebuild and run the app.</span></span> <span data-ttu-id="14611-197">Agregue algunos elementos de tareas pendientes a la lista de tareas pendientes para probar el nuevo código.</span><span class="sxs-lookup"><span data-stu-id="14611-197">Add some todo items to the todo list to test the new code.</span></span>
+1. <span data-ttu-id="a06e8-196">Recompile y ejecute la aplicación.</span><span class="sxs-lookup"><span data-stu-id="a06e8-196">Rebuild and run the app.</span></span> <span data-ttu-id="a06e8-197">Agregue algunos elementos de tareas pendientes a la lista de tareas pendientes para probar el nuevo código.</span><span class="sxs-lookup"><span data-stu-id="a06e8-197">Add some todo items to the todo list to test the new code.</span></span>
 
-1. <span data-ttu-id="14611-198">Se puede hacer que el texto de título de cada elemento de tarea pendiente sea editable y una casilla puede ayudar al usuario a realizar un seguimiento de los elementos completados.</span><span class="sxs-lookup"><span data-stu-id="14611-198">The title text for each todo item can be made editable, and a check box can help the user keep track of completed items.</span></span> <span data-ttu-id="14611-199">Agregue una entrada de casilla a cada elemento de tarea pendiente y enlace su valor a la propiedad `IsDone`.</span><span class="sxs-lookup"><span data-stu-id="14611-199">Add a check box input for each todo item and bind its value to the `IsDone` property.</span></span> <span data-ttu-id="14611-200">Cambie `@todo.Title` a un elemento `<input>` enlazado a `@todo.Title`:</span><span class="sxs-lookup"><span data-stu-id="14611-200">Change `@todo.Title` to an `<input>` element bound to `@todo.Title`:</span></span>
+1. <span data-ttu-id="a06e8-198">Se puede hacer que el texto de título de cada elemento de tarea pendiente sea editable y una casilla puede ayudar al usuario a realizar un seguimiento de los elementos completados.</span><span class="sxs-lookup"><span data-stu-id="a06e8-198">The title text for each todo item can be made editable, and a check box can help the user keep track of completed items.</span></span> <span data-ttu-id="a06e8-199">Agregue una entrada de casilla a cada elemento de tarea pendiente y enlace su valor a la propiedad `IsDone`.</span><span class="sxs-lookup"><span data-stu-id="a06e8-199">Add a check box input for each todo item and bind its value to the `IsDone` property.</span></span> <span data-ttu-id="a06e8-200">Cambie `@todo.Title` a un elemento `<input>` enlazado a `@todo.Title`:</span><span class="sxs-lookup"><span data-stu-id="a06e8-200">Change `@todo.Title` to an `<input>` element bound to `@todo.Title`:</span></span>
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo9.razor?highlight=5-6)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo9.razor?highlight=5-6)]
 
-1. <span data-ttu-id="14611-201">Para comprobar que estos valores están enlazados, actualice el encabezado `<h1>` para mostrar un recuento del número de elementos de la lista de tareas pendientes que no se han completado (`IsDone` es `false`).</span><span class="sxs-lookup"><span data-stu-id="14611-201">To verify that these values are bound, update the `<h1>` header to show a count of the number of todo items that aren't complete (`IsDone` is `false`).</span></span>
+1. <span data-ttu-id="a06e8-201">Para comprobar que estos valores están enlazados, actualice el encabezado `<h1>` para mostrar un recuento del número de elementos de la lista de tareas pendientes que no se han completado (`IsDone` es `false`).</span><span class="sxs-lookup"><span data-stu-id="a06e8-201">To verify that these values are bound, update the `<h1>` header to show a count of the number of todo items that aren't complete (`IsDone` is `false`).</span></span>
 
-   ```cshtml
+   ```razor
    <h1>Todo (@todos.Count(todo => !todo.IsDone))</h1>
    ```
 
-1. <span data-ttu-id="14611-202">El componente `Todo` completado (*Pages/Todo.razor*):</span><span class="sxs-lookup"><span data-stu-id="14611-202">The completed `Todo` component (*Pages/Todo.razor*):</span></span>
+1. <span data-ttu-id="a06e8-202">El componente `Todo` completado (*Pages/Todo.razor*):</span><span class="sxs-lookup"><span data-stu-id="a06e8-202">The completed `Todo` component (*Pages/Todo.razor*):</span></span>
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Todo.razor)]
+   [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Todo.razor)]
 
-1. <span data-ttu-id="14611-203">Recompile y ejecute la aplicación.</span><span class="sxs-lookup"><span data-stu-id="14611-203">Rebuild and run the app.</span></span> <span data-ttu-id="14611-204">Agregue elementos de tarea pendiente para probar el nuevo código.</span><span class="sxs-lookup"><span data-stu-id="14611-204">Add todo items to test the new code.</span></span>
+1. <span data-ttu-id="a06e8-203">Recompile y ejecute la aplicación.</span><span class="sxs-lookup"><span data-stu-id="a06e8-203">Rebuild and run the app.</span></span> <span data-ttu-id="a06e8-204">Agregue elementos de tarea pendiente para probar el nuevo código.</span><span class="sxs-lookup"><span data-stu-id="a06e8-204">Add todo items to test the new code.</span></span>
 
 > [!div class="nextstepaction"]
 > <xref:blazor/components>
