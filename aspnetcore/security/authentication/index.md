@@ -4,14 +4,14 @@ author: mjrousos
 description: Obtenga más información sobre la autenticación en ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/22/2019
+ms.date: 12/04/2019
 uid: security/authentication/index
-ms.openlocfilehash: 5e6c875188831c468bc6ca52ce71c5961b43573c
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 324b2669d3b69e4757a284e4ae7e1de5f4e87e5a
+ms.sourcegitcommit: 05ca05a5c8f6ae556aaad66ad9e4ec1e6b643c77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681366"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810251"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>Información general sobre la autenticación de ASP.NET Core
 
@@ -57,7 +57,7 @@ Un esquema de autenticación es un nombre que corresponde a:
 * Un controlador de autenticación.
 * Opciones para configurar esa instancia específica del controlador.
 
-Los esquemas son útiles como mecanismo para hacer referencia a los comportamientos de autenticación, desafío y prohibición del controlador asociado. Por ejemplo, una directiva de autorización puede especificar por el nombre qué esquema (o esquemas) de autorización conviene usar para autenticar al usuario. Al configurar la autenticación, es habitual especificar un esquema de autenticación predeterminado. A menos que un recurso solicite un esquema específico, se usará el predeterminado. También es posible:
+Los esquemas son útiles como mecanismo para hacer referencia a los comportamientos de autenticación, desafío y prohibición del controlador asociado. Por ejemplo, una directiva de autorización puede usar nombres de esquemas para especificar qué esquema (o esquemas) de autenticación conviene usar para autenticar al usuario. Al configurar la autenticación, es habitual especificar un esquema de autenticación predeterminado. A menos que un recurso solicite un esquema específico, se usará el predeterminado. También es posible:
 
 * Especificar distintos esquemas predeterminados que se usarán para las acciones de autenticación, desafío y prohibición.
 * Combinar varios esquemas en uno mediante [esquemas de directiva](xref:security/authentication/policyschemes).
