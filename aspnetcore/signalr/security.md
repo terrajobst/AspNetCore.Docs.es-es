@@ -5,16 +5,16 @@ description: Aprenda a usar la autenticación y autorización en ASP.NET Core Si
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: signalr/security
-ms.openlocfilehash: c5a34ae67bdfb8f7fd92c00f18973b66b685a99c
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: f443fe0fbaaa1facd09edc0878c048772895ecff
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963897"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881181"
 ---
 # <a name="security-considerations-in-aspnet-core-opno-locsignalr"></a>Consideraciones de seguridad en ASP.NET Core SignalR
 
@@ -117,7 +117,7 @@ Si tiene dudas sobre el registro de estos datos con los registros de servidor, p
 
 ## <a name="exceptions"></a>Excepciones
 
-Los mensajes de excepción generalmente se consideran datos confidenciales que no se deben revelar a un cliente. De forma predeterminada, SignalR no envía al cliente los detalles de una excepción producida por un método de concentrador. En su lugar, el cliente recibe un mensaje genérico que indica que se ha producido un error. La entrega de mensajes de excepción al cliente se puede invalidar (por ejemplo, en desarrollo o prueba) con [`EnableDetailedErrors`](xref:signalr/configuration#configure-server-options). Los mensajes de excepción no deben exponerse al cliente en las aplicaciones de producción.
+Los mensajes de excepción generalmente se consideran datos confidenciales que no se deben revelar a un cliente. De forma predeterminada, SignalR no envía al cliente los detalles de una excepción producida por un método de concentrador. En su lugar, el cliente recibe un mensaje genérico que indica que se ha producido un error. La entrega de mensajes de excepción al cliente se puede invalidar (por ejemplo, en desarrollo o prueba) con [EnableDetailedErrors](xref:signalr/configuration#configure-server-options). Los mensajes de excepción no deben exponerse al cliente en las aplicaciones de producción.
 
 ## <a name="buffer-management"></a>Administración de búfer
 
@@ -131,7 +131,7 @@ Si los mensajes son mayores de 32 KB, puede aumentar el límite. Aumentar este l
 * El cliente puede hacer que el servidor asigne grandes búferes de memoria.
 * La asignación de servidores de búferes de gran tamaño puede reducir el número de conexiones simultáneas.
 
-Hay límites para los mensajes entrantes y salientes, ambos se pueden configurar en el [`HttpConnectionDispatcherOptions`](xref:signalr/configuration#configure-server-options) objeto configurado en `MapHub`:
+Hay límites para los mensajes entrantes y salientes, ambos se pueden configurar en el objeto [HttpConnectionDispatcherOptions](xref:signalr/configuration#configure-server-options) configurado en `MapHub`:
 
 * `ApplicationMaxBufferSize` representa el número máximo de bytes del cliente que el servidor almacena en búfer. Si el cliente intenta enviar un mensaje mayor que este límite, es posible que se cierre la conexión.
 * `TransportMaxBufferSize` representa el número máximo de bytes que el servidor puede enviar. Si el servidor intenta enviar un mensaje (incluidos los valores devueltos de los métodos de concentrador) más grande que este límite, se producirá una excepción.

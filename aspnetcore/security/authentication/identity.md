@@ -3,14 +3,14 @@ title: Introducción a la identidad en ASP.NET Core
 author: rick-anderson
 description: Usar Identity con una aplicación ASP.NET Core. Obtenga información sobre cómo establecer los requisitos de contraseña (RequireDigit, RequiredLength, RequiredUniqueChars, etc.).
 ms.author: riande
-ms.date: 12/7/2019
+ms.date: 12/05/2019
 uid: security/authentication/identity
-ms.openlocfilehash: 331ebe36eb4bb7fa694de8daa969bcabcab1c974
-ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
+ms.openlocfilehash: c867b73a96fd081f6e2ca17fef561ac539c0a129
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803401"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880724"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introducción a la identidad en ASP.NET Core
 

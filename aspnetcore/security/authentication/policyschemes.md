@@ -1,38 +1,38 @@
 ---
-title: Esquemas de directivas en ASP.NET Core
+title: Esquemas de directiva en ASP.NET Core
 author: rick-anderson
-description: Esquemas de autenticación de directiva que sea más fácil tener un esquema de autenticación lógico único
+description: Los esquemas de directivas de autenticación facilitan el uso de un único esquema de autenticación lógica
 ms.author: riande
-ms.date: 02/28/2019
+ms.date: 12/05/2019
 uid: security/authentication/policyschemes
-ms.openlocfilehash: be03f349455c673b0739935ad20e596325c8cb74
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: f02d8e5cac20a9b60c5eddbd28253efacf682ea1
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815284"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880715"
 ---
-# <a name="policy-schemes-in-aspnet-core"></a>Esquemas de directivas en ASP.NET Core
+# <a name="policy-schemes-in-aspnet-core"></a>Esquemas de directiva en ASP.NET Core
 
-Esquemas de la directiva de autenticación facilitan tiene un esquema de autenticación lógico único potencialmente usar varios enfoques. Por ejemplo, un esquema de la directiva podría usar autenticación de Google para enfrentar los desafíos y autenticación de cookies para todo lo demás. Esquemas de autenticación de directiva hacen que sea:
+Los esquemas de directivas de autenticación facilitan que un único esquema de autenticación lógica use varios enfoques. Por ejemplo, un esquema de directiva podría usar la autenticación de Google para desafíos y la autenticación de cookies para todo lo demás. Los esquemas de la Directiva de autenticación lo hacen:
 
-* Fácil reenviar cualquier acción de autenticación a otro esquema.
-* Avance de manera dinámica basándose en la solicitud.
+* Es fácil reenviar cualquier acción de autenticación a otro esquema.
+* Reenviar dinámicamente según la solicitud.
 
-Todos los esquemas de autenticación que utilice derivados <xref:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions> y asociado [ `AuthenticationHandler<TOptions>` ](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1):
+Todos los esquemas de autenticación que usan <xref:Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions> derivadas y las [\<ciones de AuthenticationHandler asociadas >](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhandler-1):
 
-* Son automáticamente combinaciones de directivas en ASP.NET Core 2.1 y versiones posteriores.
-* Puede habilitarse a través de configuración de las opciones del esquema.
+* Son esquemas de directivas automáticamente en ASP.NET Core 2,1 y versiones posteriores.
+* Se puede habilitar mediante la configuración de las opciones del esquema.
 
 [!code-csharp[sample](policyschemes/samples/AuthenticationSchemeOptions.cs?name=snippet)]
 
 ## <a name="examples"></a>Ejemplos
 
-El ejemplo siguiente muestra un esquema de nivel superior que combina los esquemas de nivel inferior. Se utiliza la autenticación de Google para enfrentar los desafíos y se usa la autenticación de cookies para todo lo demás:
+En el ejemplo siguiente se muestra un esquema de nivel superior que combina esquemas de nivel inferior. La autenticación de Google se usa para los desafíos y la autenticación de cookies se usa para todo lo demás:
 
 [!code-csharp[sample](policyschemes/samples/Startup.cs?name=snippet1)]
 
-El ejemplo siguiente habilita la selección dinámica de esquemas en función de la solicitud. Es decir, cómo se combinan las cookies y la autenticación de API:
+En el ejemplo siguiente se habilita la selección dinámica de esquemas por solicitud. Es decir, cómo mezclar cookies y la autenticación de API:
 
  <!-- REVIEW, missing If set in public Func<HttpContext, string> ForwardDefaultSelector -->
 

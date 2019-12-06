@@ -9,12 +9,12 @@ ms.date: 11/27/2019
 no-loc:
 - Blazor
 uid: blazor/components
-ms.openlocfilehash: 19636b0f10e71133eddece918b1bb9e2bc25a226
-ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
+ms.openlocfilehash: 9cdbae0bde8f6c44dc8b680dccbf9c8f96043c7f
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74733848"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879705"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -171,7 +171,7 @@ En el `ParentComponent` siguiente se puede proporcionar contenido para represent
 
 ## <a name="attribute-splatting-and-arbitrary-parameters"></a>Atributos expansión y parámetros arbitrarios
 
-Los componentes de pueden capturar y representar atributos adicionales además de los parámetros declarados del componente. Los atributos adicionales se pueden capturar en un diccionario y, después, *splatted* en un elemento cuando el componente se representa mediante la Directiva de Razor [@attributes](xref:mvc/views/razor#attributes) . Este escenario es útil cuando se define un componente que genera un elemento de marcado que admite diversas personalizaciones. Por ejemplo, puede resultar tedioso definir atributos por separado para una `<input>` que admita muchos parámetros.
+Los componentes de pueden capturar y representar atributos adicionales además de los parámetros declarados del componente. Los atributos adicionales se pueden capturar en un diccionario y, después, *splatted* en un elemento cuando el componente se representa mediante la Directiva de Razor [`@attributes`](xref:mvc/views/razor#attributes) . Este escenario es útil cuando se define un componente que genera un elemento de marcado que admite diversas personalizaciones. Por ejemplo, puede resultar tedioso definir atributos por separado para una `<input>` que admita muchos parámetros.
 
 En el ejemplo siguiente, el primer elemento `<input>` (`id="useIndividualParams"`) utiliza parámetros de componente individuales, mientras que el segundo elemento `<input>` (`id="useAttributesDict"`) utiliza el atributo expansión:
 
@@ -287,7 +287,7 @@ El `<div>` representado en el componente `Parent` contiene `extra="10"` cuando s
 
 ## <a name="data-binding"></a>Enlace de datos
 
-El enlace de datos tanto a componentes como a elementos DOM se realiza con el [@bind](xref:mvc/views/razor#bind) atributo. En el ejemplo siguiente se enlaza una propiedad `CurrentValue` al valor del cuadro de texto:
+El enlace de datos tanto a componentes como a elementos DOM se realiza con el [`@bind`](xref:mvc/views/razor#bind) atributo. En el ejemplo siguiente se enlaza una propiedad `CurrentValue` al valor del cuadro de texto:
 
 ```cshtml
 <input @bind="CurrentValue" />
@@ -315,7 +315,7 @@ El uso de `@bind` con la propiedad `CurrentValue` (`<input @bind="CurrentValue" 
 
 Cuando se representa el componente, el `value` del elemento de entrada procede de la propiedad `CurrentValue`. Cuando el usuario escribe en el cuadro de texto y cambia el foco del elemento, se desencadena el evento `onchange` y la propiedad `CurrentValue` se establece en el valor modificado. En realidad, la generación de código es más compleja porque `@bind` administra los casos en los que se realizan las conversiones de tipos. En principio, `@bind` asocia el valor actual de una expresión con un atributo `value` y controla los cambios mediante el controlador registrado.
 
-Además de controlar los eventos de `onchange` con sintaxis de `@bind`, se puede enlazar una propiedad o un campo mediante otros eventos mediante la especificación de un atributo de [@bind-value](xref:mvc/views/razor#bind) con un parámetro de `event` ([@bind-value:event](xref:mvc/views/razor#bind)). En el siguiente ejemplo se enlaza la propiedad `CurrentValue` del evento `oninput`:
+Además de controlar los eventos de `onchange` con sintaxis de `@bind`, se puede enlazar una propiedad o un campo mediante otros eventos mediante la especificación de un atributo de [`@bind-value`](xref:mvc/views/razor#bind) con un parámetro de `event` ([`@bind-value:event`](xref:mvc/views/razor#bind)). En el siguiente ejemplo se enlaza la propiedad `CurrentValue` del evento `oninput`:
 
 ```cshtml
 <input @bind-value="CurrentValue" @bind-value:event="oninput" />
@@ -380,11 +380,11 @@ Los siguientes tipos de campo tienen requisitos de formato específicos y no se 
 
 `@bind` admite el parámetro `@bind:culture` para proporcionar un <xref:System.Globalization.CultureInfo?displayProperty=fullName> para analizar y dar formato a un valor. No se recomienda especificar una referencia cultural al usar los tipos de campo `date` y `number`. `date` y `number` tienen compatibilidad integrada con Blazor que proporciona la referencia cultural necesaria.
 
-Para obtener información sobre cómo establecer la referencia cultural del usuario, consulte la sección [Localization](#localization) .
+Para obtener información sobre cómo establecer la referencia cultural del usuario, consulte la sección [Localización](#localization).
 
 **Cadenas de formato**
 
-El enlace de datos funciona con cadenas de formato <xref:System.DateTime> mediante [@bind:format](xref:mvc/views/razor#bind). Otras expresiones de formato, como los formatos de moneda o número, no están disponibles en este momento.
+El enlace de datos funciona con cadenas de formato <xref:System.DateTime> mediante [`@bind:format`](xref:mvc/views/razor#bind). Otras expresiones de formato, como los formatos de moneda o número, no están disponibles en este momento.
 
 ```cshtml
 <input @bind="StartDate" @bind:format="yyyy-MM-dd" />
@@ -498,7 +498,7 @@ En general, una propiedad se puede enlazar a un controlador de eventos correspon
 
 ## <a name="event-handling"></a>Control de eventos
 
-Los componentes de Razor proporcionan características de control de eventos. Para un atributo de elemento HTML denominado `on{EVENT}` (por ejemplo, `onclick` y `onsubmit`) con un valor de tipo delegado, los componentes de Razor tratan el valor del atributo como un controlador de eventos. Siempre se da formato al nombre del atributo [@on{Event}](xref:mvc/views/razor#onevent).
+Los componentes de Razor proporcionan características de control de eventos. Para un atributo de elemento HTML denominado `on{EVENT}` (por ejemplo, `onclick` y `onsubmit`) con un valor de tipo delegado, los componentes de Razor tratan el valor del atributo como un controlador de eventos. Siempre se da formato al nombre del atributo [`@on{EVENT}`](xref:mvc/views/razor#onevent).
 
 El código siguiente llama al método `UpdateHeading` cuando el botón está seleccionado en la interfaz de usuario:
 
@@ -554,15 +554,15 @@ Los `EventArgs` admitidos se muestran en la tabla siguiente.
 | Event            | Clase                | Eventos y notas de DOM |
 | ---------------- | -------------------- | -------------------- |
 | Portapapeles        | `ClipboardEventArgs` | `oncut`, `oncopy`, `onpaste` |
-| Arrastre             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` y `DataTransferItem` mantener los datos de los elementos arrastrados. |
+| Arrastrar             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` y `DataTransferItem` mantener los datos de los elementos arrastrados. |
 | Error de :            | `ErrorEventArgs`     | `onerror` |
-| Event            | `EventArgs`          | *General*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Portapapeles*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Entrada*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Soporte*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
+| Event            | `EventArgs`          | *General*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Portapapeles*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Entrada*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Medios*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
 | Foco            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>No incluye compatibilidad con `relatedTarget`. |
 | Input            | `ChangeEventArgs`    | `onchange`, `oninput` |
 | Teclado         | `KeyboardEventArgs`  | `onkeydown`, `onkeypress`, `onkeyup` |
 | Mouse            | `MouseEventArgs`     | `onclick`, `oncontextmenu`, `ondblclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` |
-| Puntero del mouse    | `PointerEventArgs`   | `onpointerdown`, `onpointerup`, `onpointercancel`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `ongotpointercapture`, `onlostpointercapture` |
-| Rueda del mouse      | `WheelEventArgs`     | `onwheel`, `onmousewheel` |
+| Puntero    | `PointerEventArgs`   | `onpointerdown`, `onpointerup`, `onpointercancel`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `ongotpointercapture`, `onlostpointercapture` |
+| Rueda del ratón      | `WheelEventArgs`     | `onwheel`, `onmousewheel` |
 | Progreso         | `ProgressEventArgs`  | `onabort`, `onload`, `onloadend`, `onloadstart`, `onprogress`, `ontimeout` |
 | Entrada táctil            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave`, `ontouchcancel`<br><br>`TouchPoint` representa un único punto de contacto en un dispositivo con distinción de toque. |
 
@@ -651,7 +651,7 @@ Prefiera el `EventCallback<T>` fuertemente tipado en `EventCallback`. `EventCall
 
 ### <a name="prevent-default-actions"></a>Impedir acciones predeterminadas
 
-Use el atributo de directiva [@on{Event}:P reventdefault](xref:mvc/views/razor#oneventpreventdefault) para evitar la acción predeterminada de un evento.
+Use el atributo de directiva de [`@on{EVENT}:preventDefault`](xref:mvc/views/razor#oneventpreventdefault) para evitar la acción predeterminada de un evento.
 
 Cuando se selecciona una clave en un dispositivo de entrada y el foco del elemento está en un cuadro de texto, un explorador muestra normalmente el carácter de la tecla en el cuadro de texto. En el ejemplo siguiente, el comportamiento predeterminado se evita especificando el atributo de directiva de `@onkeypress:preventDefault`. El contador se incrementa y la clave **+** no se captura en el valor del elemento `<input>`:
 
@@ -683,7 +683,7 @@ No es necesario un controlador de eventos para evitar la acción predeterminada.
 
 ### <a name="stop-event-propagation"></a>Detener propagación de eventos
 
-Use el atributo de directiva [@on{Event}: stopPropagation](xref:mvc/views/razor#oneventstoppropagation) para detener la propagación de eventos.
+Use el atributo de directiva de [`@on{EVENT}:stopPropagation`](xref:mvc/views/razor#oneventstoppropagation) para detener la propagación de eventos.
 
 En el ejemplo siguiente, al activar la casilla se impide que los eventos de clic de la segunda `<div>` secundaria se propaguen al `<div>`primario:
 
@@ -841,7 +841,7 @@ Password:
 
 Las referencias de componente proporcionan una manera de hacer referencia a una instancia de componente para que pueda emitir comandos a esa instancia, como `Show` o `Reset`. Para capturar una referencia de componente:
 
-* Agregue un atributo [@ref](xref:mvc/views/razor#ref) al componente secundario.
+* Agregue un atributo [`@ref`](xref:mvc/views/razor#ref) al componente secundario.
 * Defina un campo con el mismo tipo que el componente secundario.
 
 ```cshtml
@@ -1026,7 +1026,7 @@ La sintaxis de *los parámetros catch-all* (`*`/`**`), que capturan la ruta de a
 
 Los componentes de Razor se generan como clases parciales. Los componentes de Razor se crean mediante cualquiera de los métodos siguientes:
 
-* C#el código se define en un bloque [@code](xref:mvc/views/razor#code) con marcado HTML y código Razor en un único archivo. Blazor plantillas definen sus componentes de Razor mediante este enfoque.
+* C#el código se define en un bloque [`@code`](xref:mvc/views/razor#code) con marcado HTML y código Razor en un único archivo. Blazor plantillas definen sus componentes de Razor mediante este enfoque.
 * C#el código se coloca en un archivo de código subyacente definido como una clase parcial.
 
 En el ejemplo siguiente se muestra el componente de `Counter` predeterminado con un bloque de `@code` en una aplicación generada a partir de una plantilla de Blazor. El marcado HTML, el código Razor C# y el código se encuentran en el mismo archivo:
@@ -1102,7 +1102,7 @@ La [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/maste
 <h1>@BlazorRocksText</h1>
 ```
 
-*BlazorRocksBase.CS*:
+*BlazorRocksBase.cs*:
 
 ```csharp
 using Microsoft.AspNetCore.Components;
@@ -1125,13 +1125,13 @@ La clase base debe derivar de `ComponentBase`.
 
 El espacio de nombres de un componente creado con Razor se basa en (en orden de prioridad):
 
-* [@namespace](xref:mvc/views/razor#namespace) designación en el marcado de archivos Razor ( *. Razor*) (`@namespace BlazorSample.MyNamespace`).
+* [`@namespace`](xref:mvc/views/razor#namespace) designación en el marcado de archivos Razor ( *. Razor*) (`@namespace BlazorSample.MyNamespace`).
 * `RootNamespace` del proyecto en el archivo de proyecto (`<RootNamespace>BlazorSample</RootNamespace>`).
 * Nombre del proyecto, tomado del nombre de archivo del archivo de proyecto ( *. csproj*) y la ruta de acceso de la raíz del proyecto al componente. Por ejemplo, el marco de trabajo resuelve *{root Project}/pages/index.Razor* (*BlazorSample. csproj*) en el espacio de nombres `BlazorSample.Pages`. Los componentes C# siguen las reglas de enlace de nombres. En el caso del componente `Index` en este ejemplo, los componentes del ámbito son todos los componentes:
   * En la misma carpeta, *páginas*.
   * Los componentes de la raíz del proyecto que no especifican explícitamente un espacio de nombres diferente.
 
-Los componentes definidos en un espacio de nombres diferente se incluyen en el ámbito mediante la Directiva de [@using](xref:mvc/views/razor#using) de Razor.
+Los componentes definidos en un espacio de nombres diferente se incluyen en el ámbito mediante la Directiva de [`@using`](xref:mvc/views/razor#using) de Razor.
 
 Si existe otro componente, `NavMenu.razor`, en la carpeta *BlazorSample/Shared/* , el componente se puede utilizar en `Index.razor` con la siguiente instrucción `@using`:
 
@@ -1143,7 +1143,7 @@ This is the Index page.
 <NavMenu></NavMenu>
 ```
 
-También se puede hacer referencia a los componentes mediante sus nombres completos, que no requieren la directiva [@using](xref:mvc/views/razor#using) :
+También se puede hacer referencia a los componentes mediante sus nombres completos, que no requieren la directiva [`@using`](xref:mvc/views/razor#using) :
 
 ```cshtml
 This is the Index page.
@@ -1272,7 +1272,7 @@ También puede especificar el atributo de `Context` en el elemento de componente
 
 ### <a name="generic-typed-components"></a>Componentes de tipo genérico
 
-Los componentes con plantilla suelen tener tipos genéricos. Por ejemplo, se puede usar un componente de `ListViewTemplate` genérico para representar valores de `IEnumerable<T>`. Para definir un componente genérico, utilice la directiva [@typeparam](xref:mvc/views/razor#typeparam) para especificar parámetros de tipo:
+Los componentes con plantilla suelen tener tipos genéricos. Por ejemplo, se puede usar un componente de `ListViewTemplate` genérico para representar valores de `IEnumerable<T>`. Para definir un componente genérico, utilice la directiva [`@typeparam`](xref:mvc/views/razor#typeparam) para especificar parámetros de tipo:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ListViewTemplate.razor)]
 
@@ -1304,7 +1304,7 @@ En algunos escenarios, no es conveniente fluir los datos de un componente antece
 
 En el ejemplo siguiente de la aplicación de ejemplo, la clase `ThemeInfo` especifica la información del tema que va a fluir hacia abajo en la jerarquía de componentes para que todos los botones de una parte determinada de la aplicación compartan el mismo estilo.
 
-*UIThemeClasses/ThemeInfo. CS*:
+*UIThemeClasses/ThemeInfo.cs*:
 
 ```csharp
 public class ThemeInfo

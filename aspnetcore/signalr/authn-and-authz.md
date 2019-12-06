@@ -5,16 +5,16 @@ description: Aprenda a usar la autenticación y autorización en ASP.NET Core Si
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 5a1e15ef46a3f89af3fbd3d505e7bd340c46e672
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 091cc9b2adc1f6a8fac79519884695d1c1725d2a
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963824"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880414"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-opno-locsignalr"></a>Autenticación y autorización en ASP.NET Core SignalR
 
@@ -24,7 +24,7 @@ Por [Andrew Stanton-enfermera](https://twitter.com/anurse)
 
 ## <a name="authenticate-users-connecting-to-a-opno-locsignalr-hub"></a>Autenticación de usuarios que se conectan a un concentrador de SignalR
 
-SignalR puede usarse con la [autenticación de ASP.net Core](xref:security/authentication/identity) para asociar un usuario a cada conexión. En un concentrador, se puede tener acceso a los datos de autenticación desde la propiedad [`HubConnectionContext.User`](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) . La autenticación permite que el concentrador llame a métodos en todas las conexiones asociadas a un usuario. Para obtener más información, vea [administrar usuarios y grupos en SignalR](xref:signalr/groups). Es posible que varias conexiones estén asociadas a un solo usuario.
+SignalR puede usarse con la [autenticación de ASP.net Core](xref:security/authentication/identity) para asociar un usuario a cada conexión. En un concentrador, se puede tener acceso a los datos de autenticación desde la propiedad [HubConnectionContext. User](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) . La autenticación permite que el concentrador llame a métodos en todas las conexiones asociadas a un usuario. Para obtener más información, vea [administrar usuarios y grupos en SignalR](xref:signalr/groups). Es posible que varias conexiones estén asociadas a un solo usuario.
 
 El siguiente es un ejemplo de `Startup.Configure` que usa la autenticación de SignalR y ASP.NET Core:
 
@@ -220,7 +220,7 @@ public class ChatHub : Hub
 
 SignalR proporciona un recurso personalizado a los controladores de autorización cuando un método de concentrador requiere autorización. El recurso es una instancia de `HubInvocationContext`. El `HubInvocationContext` incluye el `HubCallerContext`, el nombre del método de concentrador que se va a invocar y los argumentos para el método de concentrador.
 
-Considere el ejemplo de un salón de chat que permite el inicio de sesión en varias organizaciones a través de Azure Active Directory. Cualquier persona con un cuenta de Microsoft puede iniciar sesión en el chat, pero solo los miembros de la organización propietaria deben ser capaces de prohibir a los usuarios o ver el historial de chat de los usuarios. Además, es posible que quiera restringir ciertas funciones de determinados usuarios. El uso de las características actualizadas en ASP.NET Core 3,0 es todo lo posible. Observe cómo el `DomainRestrictedRequirement` actúa como `IAuthorizationRequirement` personalizado. Ahora que se está pasando el parámetro de recurso `HubInvocationContext`, la lógica interna puede inspeccionar el contexto en el que se llama al centro y tomar decisiones sobre cómo permitir que el usuario ejecute métodos de concentrador individuales.
+Considere el ejemplo de un salón de chat que permite el inicio de sesión en varias organizaciones a través de Azure Active Directory. Cualquier persona con un cuenta de Microsoft puede iniciar sesión en el chat, pero solo los miembros de la organización propietaria deben ser capaces de prohibir a los usuarios o ver el historial de chat de los usuarios. Además, es posible que quiera restringir ciertas funciones de determinados usuarios. El uso de las características actualizadas en ASP.NET Core 3,0 es todo lo posible. Observe cómo el `DomainRestrictedRequirement` actúa como `IAuthorizationRequirement`personalizado. Ahora que se está pasando el parámetro de recurso `HubInvocationContext`, la lógica interna puede inspeccionar el contexto en el que se llama al centro y tomar decisiones sobre cómo permitir que el usuario ejecute métodos de concentrador individuales.
 
 ```csharp
 [Authorize]

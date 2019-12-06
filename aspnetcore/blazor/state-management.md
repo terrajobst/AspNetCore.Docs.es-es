@@ -9,12 +9,12 @@ ms.date: 11/23/2019
 no-loc:
 - Blazor
 uid: blazor/state-management
-ms.openlocfilehash: facd6c2747bb0b31404c3c4fce25b76cd141932e
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: ed203458126f3b4c97103c88a465e3eb5953a775
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74680985"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879711"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>Administración de estado de Blazor de ASP.NET Core
 
@@ -77,7 +77,7 @@ Existen tres ubicaciones comunes para el estado persistente en una aplicación d
 Para la persistencia de datos permanente o para cualquier dato que deba abarcar varios usuarios o dispositivos, una base de datos independiente del servidor es casi seguro la mejor opción. Entre las opciones se incluyen:
 
 * SQL Database relacional
-* Almacén de clave-valor
+* almacén de pares clave-valor
 * Almacén de blobs
 * Almacén de tabla
 
@@ -157,7 +157,7 @@ Para instalar el paquete de `Microsoft.AspNetCore.ProtectedBrowserStorage`:
 
 ### <a name="save-and-load-data-within-a-component"></a>Guardar y cargar datos dentro de un componente
 
-En cualquier componente que requiera cargar o guardar los datos en el almacenamiento del explorador, use [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) para insertar una instancia de uno de los elementos siguientes:
+En cualquier componente que requiera cargar o guardar los datos en el almacenamiento del explorador, use [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) para insertar una instancia de uno de los elementos siguientes:
 
 * `ProtectedLocalStorage`
 * `ProtectedSessionStorage`

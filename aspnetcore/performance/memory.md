@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo se administra la memoria en ASP.NET Core y cómo funciona el recolector de elementos no utilizados (GC).
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 12/05/2019
 uid: performance/memory
-ms.openlocfilehash: 4c25c069aa2a6088c0549d786ecdd487ab7b9ea5
-ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
+ms.openlocfilehash: 85e34c9faa31a1020a4200eb99003455ca435ec3
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896944"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880948"
 ---
 # <a name="memory-management-and-garbage-collection-gc-in-aspnet-core"></a>Administración de memoria y recolección de elementos no utilizados (GC) en ASP.NET Core
 
@@ -274,7 +274,7 @@ En los siguientes vínculos se muestra el enfoque ASP.NET Core para mantener obj
 - [ResponseCaching/streams/StreamUtilities. CS](https://github.com/aspnet/AspNetCore/blob/v3.0.0/src/Middleware/ResponseCaching/src/Streams/StreamUtilities.cs#L16)
 - [ResponseCaching/MemoryResponseCache. CS](https://github.com/aspnet/ResponseCaching/blob/c1cb7576a0b86e32aec990c22df29c780af29ca5/src/Microsoft.AspNetCore.ResponseCaching/Internal/MemoryResponseCache.cs#L55)
 
-Para obtener más información, consulte:
+Para obtener más información, vea:
 
 * [Montón de objetos grandes descubierto](https://devblogs.microsoft.com/dotnet/large-object-heap-uncovered-from-an-old-msdn-article/)
 * [Montón de objetos grandes](/dotnet/standard/garbage-collection/large-object-heap)
@@ -373,7 +373,7 @@ En el siguiente gráfico se muestra la llamada a la API anterior con carga moder
 
 En el gráfico anterior, las recopilaciones de generación 0 se producen aproximadamente una vez por segundo.
 
-El código anterior se puede optimizar agrupando el búfer de `byte` mediante [`ArrayPool<T>`](xref:System.Buffers.ArrayPool`1). Una instancia estática se reutiliza en todas las solicitudes.
+El código anterior se puede optimizar agrupando el búfer de `byte` mediante [ArrayPool\<t >](xref:System.Buffers.ArrayPool`1). Una instancia estática se reutiliza en todas las solicitudes.
 
 Lo que es diferente con este enfoque es que la API devuelve un objeto agrupado. Esto significa:
 

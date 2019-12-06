@@ -4,14 +4,14 @@ author: steve-smith
 description: Descubra cómo evitar ataques contra aplicaciones web en las que un sitio Web malintencionado puede influir en la interacción entre un explorador cliente y la aplicación.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/11/2019
+ms.date: 12/05/2019
 uid: security/anti-request-forgery
-ms.openlocfilehash: c3d32a93bcbf9f3897c10e68ba4e43d269a3ea80
-ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
+ms.openlocfilehash: 54e153af55f28d9a89bbf16bce1c17f876567b59
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803375"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880805"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Prevención de ataques de falsificación de solicitud entre sitios (XSRF/CSRF) en ASP.NET Core
 
@@ -172,7 +172,7 @@ El token es único e impredecible. El token también se puede usar para garantiz
 }
 ```
 
-Agregue explícitamente un token antifalsificación a un elemento `<form>` sin usar aplicaciones auxiliares de etiquetas con la aplicación auxiliar HTML [@Html.AntiForgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.htmlhelper.antiforgerytoken):
+Agregue explícitamente un token antifalsificación a un elemento `<form>` sin usar aplicaciones auxiliares de etiquetas con la aplicación auxiliar HTML [`@Html.AntiForgeryToken`](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.htmlhelper.antiforgerytoken):
 
 ```cshtml
 <form action="/" method="post">
@@ -305,7 +305,7 @@ public async Task<IActionResult> RemoveLogin(RemoveLoginViewModel account)
 }
 ```
 
-El atributo `ValidateAntiForgeryToken` requiere un token para las solicitudes a los métodos de acción que decora, incluidas las solicitudes HTTP GET. Si el atributo `ValidateAntiForgeryToken` se aplica a los controladores de la aplicación, se puede invalidar con el atributo `IgnoreAntiforgeryToken`.
+El atributo `ValidateAntiForgeryToken` requiere un token para las solicitudes a los métodos de acción que marca, incluidas las solicitudes HTTP GET. Si el atributo `ValidateAntiForgeryToken` se aplica a los controladores de la aplicación, se puede invalidar con el atributo `IgnoreAntiforgeryToken`.
 
 > [!NOTE]
 > ASP.NET Core no admite la adición de tokens antifalsificación para obtener solicitudes automáticamente.

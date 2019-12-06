@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: 9f249fac331d31249f9325892e8365e3d0b4cc5a
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: e737a8a85e7eb83d95618d71e85b0307c54b0766
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717066"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879681"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Control de errores en las aplicaciones de Blazor de ASP.NET Core
 
@@ -116,7 +116,7 @@ Las excepciones no controladas anteriores se describen en las siguientes seccion
 Cuando Blazor crea una instancia de un componente:
 
 * Se invoca el constructor del componente.
-* Se invocan los constructores de cualquier servicio de DI no singleton proporcionado al constructor del componente a través de la directiva [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) o el atributo [[Insert]](xref:blazor/dependency-injection#request-a-service-in-a-component) . 
+* Se invocan los constructores de cualquier servicio de DI no singleton proporcionado al constructor del componente mediante la directiva [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) o el atributo [`[Inject]`](xref:blazor/dependency-injection#request-a-service-in-a-component) . 
 
 Se produce un error en un circuito cuando cualquier constructor ejecutado o un establecedor para cualquier propiedad `[Inject]` produce una excepción no controlada. La excepción es grave porque el marco no puede crear una instancia del componente. Si la lógica del constructor puede producir excepciones, la aplicación debe interceptar las excepciones mediante una instrucción [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro.
 
@@ -185,7 +185,7 @@ Las condiciones siguientes se aplican al control de errores con `InvokeAsync<T>`
 * Si se produce un error en una llamada a `InvokeAsync<T>` de forma asincrónica, se produce un error en .NET <xref:System.Threading.Tasks.Task>. Una llamada a `InvokeAsync<T>` puede producir un error, por ejemplo, porque el código de JavaScript produce una excepción o devuelve un `Promise` que se ha completado como `rejected`. El código del desarrollador debe detectar la excepción. Si usa el operador [Await](/dotnet/csharp/language-reference/keywords/await) , considere la posibilidad de encapsular la llamada al método en una instrucción [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro. De lo contrario, el código que genera el error provoca una excepción no controlada que es grave para el circuito.
 * De forma predeterminada, las llamadas a `InvokeAsync<T>` deben completarse en un período determinado o, de lo contrario, se agota el tiempo de espera de la llamada. El período de tiempo de espera predeterminado es de un minuto. El tiempo de espera protege el código contra una pérdida en la conectividad de red o código JavaScript que nunca devuelve un mensaje de finalización. Si se agota el tiempo de espera de la llamada, se produce un error en el `Task` resultante con un <xref:System.OperationCanceledException>. Capture y procese la excepción con el registro.
 
-Del mismo modo, el código de JavaScript puede iniciar llamadas a métodos .NET indicados por el [atributo [JSInvokable]](xref:blazor/javascript-interop#invoke-net-methods-from-javascript-functions). Si estos métodos .NET producen una excepción no controlada:
+Del mismo modo, el código de JavaScript puede iniciar llamadas a métodos .NET indicados por el atributo [`[JSInvokable]`](xref:blazor/javascript-interop#invoke-net-methods-from-javascript-functions) . Si estos métodos .NET producen una excepción no controlada:
 
 * La excepción no se trata como grave para el circuito.
 * Se rechaza el `Promise` del lado de JavaScript.

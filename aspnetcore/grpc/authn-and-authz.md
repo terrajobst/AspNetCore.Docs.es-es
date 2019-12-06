@@ -4,14 +4,14 @@ author: jamesnk
 description: Obtenga información sobre cómo usar la autenticación y la autorización en gRPC para ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 08/13/2019
+ms.date: 12/05/2019
 uid: grpc/authn-and-authz
-ms.openlocfilehash: 84903ee781588ff525d1dfce6a313e3867794762
-ms.sourcegitcommit: 76d7fff62014c3db02564191ab768acea00f1b26
+ms.openlocfilehash: 258b34113f3c3d9ef2031a43295ea5806b1e22ff
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852706"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880690"
 ---
 # <a name="authentication-and-authorization-in-grpc-for-aspnet-core"></a>Autenticación y autorización en gRPC para ASP.NET Core
 
@@ -150,7 +150,7 @@ Para obtener más información sobre la configuración de la autenticación en e
 
 La configuración del cliente de gRPC para usar la autenticación dependerá del mecanismo de autenticación que se use. El token de portador anterior y los ejemplos de certificados de cliente muestran un par de formas en que se puede configurar el cliente de gRPC para enviar metadatos de autenticación con llamadas gRPC:
 
-* Los clientes de gRPC fuertemente tipados usan `HttpClient` internamente. La autenticación se puede configurar en [`HttpClientHandler`](/dotnet/api/system.net.http.httpclienthandler)o agregando instancias de [`HttpMessageHandler`](/dotnet/api/system.net.http.httpmessagehandler) personalizadas a la `HttpClient`.
+* Los clientes de gRPC fuertemente tipados usan `HttpClient` internamente. La autenticación se puede configurar en [HttpClientHandler](/dotnet/api/system.net.http.httpclienthandler)o agregando instancias de [HttpMessageHandler](/dotnet/api/system.net.http.httpmessagehandler) personalizadas al `HttpClient`.
 * Cada llamada a gRPC tiene un argumento opcional `CallOptions`. Los encabezados personalizados se pueden enviar mediante la colección de encabezados de la opción.
 
 > [!NOTE]
@@ -158,7 +158,7 @@ La configuración del cliente de gRPC para usar la autenticación dependerá del
 
 ## <a name="authorize-users-to-access-services-and-service-methods"></a>Autorizar a los usuarios para obtener acceso a servicios y métodos de servicio
 
-De forma predeterminada, los usuarios no autenticados pueden llamar a todos los métodos de un servicio. Para requerir autenticación, aplique el atributo [[Authorize]](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) al servicio:
+De forma predeterminada, los usuarios no autenticados pueden llamar a todos los métodos de un servicio. Para requerir la autenticación, aplique el atributo [`[Authorize]`](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) al servicio:
 
 ```csharp
 [Authorize]

@@ -4,16 +4,16 @@ author: mjrousos
 description: Sugerencias para aumentar el rendimiento en ASP.NET Core aplicaciones y evitar problemas de rendimiento comunes.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: performance/performance-best-practices
-ms.openlocfilehash: 64d231ca435ccbfe9bfcd839a2b67fcee68c0cc6
-ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
+ms.openlocfilehash: bd30776d527b4ac9f44005e9f5d03fec7cfda2e6
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74239889"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880917"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>Procedimientos recomendados de ASP.NET Core rendimiento
 
@@ -23,7 +23,7 @@ En este artículo se proporcionan instrucciones para las prácticas recomendadas
 
 ## <a name="cache-aggressively"></a>Caché agresiva
 
-El almacenamiento en caché se describe en varias partes de este documento. Para obtener más información, consulta <xref:performance/caching/response>.
+El almacenamiento en caché se describe en varias partes de este documento. Para obtener más información, vea <xref:performance/caching/response>.
 
 ## <a name="understand-hot-code-paths"></a>Comprender las rutas de acceso de código activas
 
@@ -41,7 +41,7 @@ Un problema de rendimiento común en ASP.NET Core aplicaciones es el bloqueo de 
 * Adquirir bloqueos en rutas de acceso de código comunes. ASP.NET Core aplicaciones tienen más rendimiento cuando se diseña para ejecutar código en paralelo.
 * Llame a [Task. Run](/dotnet/api/system.threading.tasks.task.run) y espere inmediatamente. ASP.NET Core ya ejecuta código de aplicación en subprocesos normales del grupo de subprocesos, por lo que llamar a Task. Run solo produce una programación de grupo de subprocesos innecesaria adicional. Aunque el código programado bloquee un subproceso, Task. Run no lo impide.
 
-**Haga**lo siguiente:
+**Sí**:
 
 * Establecer [rutas de acceso de código activas](#understand-hot-code-paths) de forma asincrónica.
 * Llame a las API de acceso a datos y operaciones de ejecución prolongada de forma asincrónica si hay disponible una API asincrónica. Una vez más, no use [Task. Run](/dotnet/api/system.threading.tasks.task.run) para hacer que una API de synchronus sea asincrónica.
@@ -56,7 +56,7 @@ El [recolector de elementos no utilizados de .net Core](/dotnet/standard/garbage
 Recomendaciones:
 
 * **Considere la** posibilidad de almacenar en caché objetos grandes que se usan con frecuencia. Almacenar en caché objetos grandes evita asignaciones costosas.
-* Los búferes **de grupo se** usan con un [`ArrayPool<T>`](/dotnet/api/system.buffers.arraypool-1) para almacenar matrices de gran tamaño.
+* Los búferes **de grupo se** usan con un [> ArrayPool\<t](/dotnet/api/system.buffers.arraypool-1) para almacenar matrices grandes.
 * **No** asigne muchos objetos grandes de corta duración en rutas de [acceso de código activas](#understand-hot-code-paths).
 
 Los problemas de memoria, como el anterior, se pueden diagnosticar revisando las estadísticas de la recolección de elementos no utilizados (GC) en [PerfView](https://github.com/Microsoft/perfview) y examinando:
@@ -75,7 +75,7 @@ Recomendaciones:
 
 * **Llame a** todas las API de acceso a datos de forma asincrónica.
 * **No** recupere más datos de los necesarios. Escribir consultas para devolver solo los datos necesarios para la solicitud HTTP actual.
-* **Considere la** posibilidad de almacenar en caché los datos a los que se accede con frecuencia recuperados de una base de datos o servicio remoto si se aceptan ligeramente datos desactualizados. En función del escenario, use [MemoryCache](xref:performance/caching/memory) o [DistributedCache](xref:performance/caching/distributed). Para obtener más información, consulta <xref:performance/caching/response>.
+* **Considere la** posibilidad de almacenar en caché los datos a los que se accede con frecuencia recuperados de una base de datos o servicio remoto si se aceptan ligeramente datos desactualizados. En función del escenario, use [MemoryCache](xref:performance/caching/memory) o [DistributedCache](xref:performance/caching/distributed). Para obtener más información, vea <xref:performance/caching/response>.
 * **Minimice los** recorridos de ida y vuelta de red. El objetivo es recuperar los datos necesarios en una sola llamada en lugar de varias llamadas.
 * **Use** [consultas sin seguimiento](/ef/core/querying/tracking#no-tracking-queries) en Entity Framework Core al obtener acceso a los datos con fines de solo lectura. EF Core puede devolver los resultados de las consultas sin seguimiento de forma más eficaz.
 * **Filtre y** agregue consultas LINQ (con `.Where`, `.Select`o `.Sum` instrucciones, por ejemplo) para que la base de datos realice el filtrado.
@@ -98,7 +98,7 @@ Aunque [HttpClient](/dotnet/api/system.net.http.httpclient) implementa la interf
 Recomendaciones:
 
 * **No** cree ni elimine instancias de `HttpClient` directamente.
-* **Use** [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) para recuperar instancias de `HttpClient`. Para obtener más información, consulte [uso de HttpClientFactory para implementar solicitudes HTTP resistentes](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
+* **Use** [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) para recuperar instancias de `HttpClient`. Para obtener más información, consulte el artículo sobre el [uso de HttpClientFactory para implementar solicitudes HTTP resistentes](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 ## <a name="keep-common-code-paths-fast"></a>Mantenga las rutas de acceso de código comunes con rapidez
 
@@ -140,7 +140,7 @@ Recomendaciones:
 
 ## <a name="use-the-latest-aspnet-core-release"></a>Usar la versión más reciente del ASP.NET Core
 
-Cada nueva versión de ASP.NET Core incluye mejoras de rendimiento. Las optimizaciones en .NET Core y ASP.NET Core significan que las versiones más recientes superan normalmente las versiones anteriores. Por ejemplo, .NET Core 2,1 agregó compatibilidad con las expresiones regulares compiladas y benefitted desde [`Span<T>`](https://msdn.microsoft.com/magazine/mt814808.aspx). ASP.NET Core 2,2 agrega compatibilidad con HTTP/2. [ASP.NET Core 3,0 agrega muchas mejoras](xref:aspnetcore-3.0) que reducen el uso de memoria y mejoran el rendimiento. Si el rendimiento es una prioridad, considere la posibilidad de actualizar a la versión actual de ASP.NET Core.
+Cada nueva versión de ASP.NET Core incluye mejoras de rendimiento. Las optimizaciones en .NET Core y ASP.NET Core significan que las versiones más recientes superan normalmente las versiones anteriores. Por ejemplo, .NET Core 2,1 agregó compatibilidad con las expresiones regulares compiladas y benefitted desde [Span\<t >](https://msdn.microsoft.com/magazine/mt814808.aspx). ASP.NET Core 2,2 agrega compatibilidad con HTTP/2. [ASP.NET Core 3,0 agrega muchas mejoras](xref:aspnetcore-3.0) que reducen el uso de memoria y mejoran el rendimiento. Si el rendimiento es una prioridad, considere la posibilidad de actualizar a la versión actual de ASP.NET Core.
 
 ## <a name="minimize-exceptions"></a>Minimizar excepciones
 
