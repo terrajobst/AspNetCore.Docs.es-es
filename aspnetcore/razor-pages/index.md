@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Obtenga información sobre cómo las páginas de Razor de ASP.NET Core facilitan la programación de escenarios centrados en páginas y hacen que resulte más productiva que con MVC.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 10/07/2019
+ms.date: 12/05/2019
 uid: razor-pages/index
-ms.openlocfilehash: 67cc4f9b261372996d612f922c9f491f53948ece
-ms.sourcegitcommit: ddc813f0f1fb293861a01597532919945b0e7fe5
+ms.openlocfilehash: fbe6e307ff5f7388e91cc2276f22ae1672507587
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74412072"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880894"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -71,7 +71,7 @@ Considere la posibilidad de una página básica: <a name="OnGet"></a>
 
 [!code-cshtml[](index/3.0sample/RazorPagesIntro/Pages/Index.cshtml?highlight=1)]
 
-El código anterior se parece mucho a un [archivo de vista de Razor](xref:tutorials/first-mvc-app/adding-view) que se utiliza en una aplicación ASP.NET Core con controladores y vistas. La directiva [@page](xref:mvc/views/razor#page) lo hace diferente. `@page` transforma el archivo en una acción de MVC, lo que significa que administra las solicitudes directamente, sin tener que pasar a través de un controlador. `@page` debe ser la primera directiva de Razor de una página. `@page` afecta al comportamiento de otras construcciones de [Razor](xref:mvc/views/razor). Los nombres de archivo de Razor Pages tienen el sufijo *.cshtml*.
+El código anterior se parece mucho a un [archivo de vista de Razor](xref:tutorials/first-mvc-app/adding-view) que se utiliza en una aplicación ASP.NET Core con controladores y vistas. La directiva [`@page`](xref:mvc/views/razor#page) lo hace diferente. `@page` transforma el archivo en una acción de MVC, lo que significa que administra las solicitudes directamente, sin tener que pasar a través de un controlador. `@page` debe ser la primera directiva de Razor de una página. `@page` afecta al comportamiento de otras construcciones de [Razor](xref:mvc/views/razor). Los nombres de archivo de Razor Pages tienen el sufijo *.cshtml*.
 
 Una página similar, con una clase `PageModel`, se muestra en los dos archivos siguientes. El archivo *Pages/Index2.cshtml*:
 
@@ -814,7 +814,7 @@ El método `OnPostDeleteAsync` realiza las acciones siguientes:
 
 ## <a name="mark-page-properties-as-required"></a>Marcado de las propiedades de página según sea necesario
 
-Las propiedades de un valor `PageModel` se pueden decorar con el atributo [Required](/dotnet/api/system.componentmodel.dataannotations.requiredattribute):
+Las propiedades de un valor `PageModel` se pueden marcar con el atributo [Required](/dotnet/api/system.componentmodel.dataannotations.requiredattribute):
 
 [!code-cs[](index/sample/Create.cshtml.cs?highlight=3,15-16)]
 
@@ -979,9 +979,9 @@ Para más información, consulte <xref:mvc/controllers/areas>.
 
 ## <a name="viewdata-attribute"></a>Atributo ViewData
 
-Se pueden pasar datos a una página con [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Los valores de las propiedades de controladores o modelos de página de Razor decoradas con `[ViewData]` se almacenan y cargan desde [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
+Se pueden pasar datos a una página con [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Los valores de las propiedades de controladores o modelos de página de Razor con el atributo `[ViewData]` se almacenan y cargan desde [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
 
-En el ejemplo siguiente, el valor `AboutModel` contiene una propiedad `Title` decorada con `[ViewData]`. La propiedad `Title` se establece en el título de la página Acerca de:
+En el ejemplo siguiente, el valor `AboutModel` contiene una propiedad `Title` marcada con `[ViewData]`. La propiedad `Title` se establece en el título de la página Acerca de:
 
 ```csharp
 public class AboutModel : PageModel

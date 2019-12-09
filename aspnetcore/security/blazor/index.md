@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/index
-ms.openlocfilehash: 2ebc4d72191dff33a7fb6170650be67c3836cdaa
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 693ac1a5b5bcaf8a9bbf0ff9ab63fb41764e3888
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73964003"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880453"
 ---
 # <a name="aspnet-core-opno-locblazor-authentication-and-authorization"></a>Autenticación y autorización de ASP.NET Core Blazor
 
@@ -398,7 +398,7 @@ Si no se especifica `Roles` ni `Policy`, `[Authorize]` usa la directiva predeter
 El componente `Router`, junto con el componente `AuthorizeRouteView`, permite que la aplicación especifique el contenido personalizado si:
 
 * No se encuentra el contenido.
-* El usuario produce un error en la condición `[Authorize]` aplicada al componente. El atributo `[Authorize]` se trata en la sección [Atributo [Authorize]](#authorize-attribute).
+* El usuario produce un error en la condición `[Authorize]` aplicada al componente. El atributo `[Authorize]` se describe en la sección [Atributo `[Authorize]`](#authorize-attribute).
 * La autenticación asincrónica está en curso.
 
 En la plantilla de proyecto predeterminada del servidor de Blazor, el archivo *App.razor* muestra cómo configurar el contenido personalizado:

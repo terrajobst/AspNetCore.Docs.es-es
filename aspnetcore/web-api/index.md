@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/22/2019
 uid: web-api/index
-ms.openlocfilehash: 3f52e4ce2d26902324ab30e0bda7ed8a4942daa0
-ms.sourcegitcommit: ddc813f0f1fb293861a01597532919945b0e7fe5
+ms.openlocfilehash: 5ef8b4d012f4ed90339ffea191612e4dc365d958
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74412046"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880526"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Creación de API web con ASP.NET Core
 
@@ -66,17 +66,17 @@ Estos son algunos ejemplos más de atributos que están disponibles.
 
 |Atributo|Notas|
 |---------|-----|
-|[[Route]](<xref:Microsoft.AspNetCore.Mvc.RouteAttribute>)      |Especifica el patrón de dirección URL de un controlador o una acción.|
-|[[Bind]](<xref:Microsoft.AspNetCore.Mvc.BindAttribute>)        |Especifica el prefijo y las propiedades que se incluirán en el enlace de modelo.|
-|[[HttpGet]](<xref:Microsoft.AspNetCore.Mvc.HttpGetAttribute>)  |Identifica una acción que admite el verbo de acción GET HTTP.|
-|[[Consumes]](<xref:Microsoft.AspNetCore.Mvc.ConsumesAttribute>)|Especifica los tipos de datos que acepta una acción.|
-|[[Produces]](<xref:Microsoft.AspNetCore.Mvc.ProducesAttribute>)|Especifica los tipos de datos que devuelve una acción.|
+|[`[Route]`](<xref:Microsoft.AspNetCore.Mvc.RouteAttribute>)      |Especifica el patrón de dirección URL de un controlador o una acción.|
+|[`[Bind]`](<xref:Microsoft.AspNetCore.Mvc.BindAttribute>)        |Especifica el prefijo y las propiedades que se incluirán en el enlace de modelo.|
+|[`[HttpGet]`](<xref:Microsoft.AspNetCore.Mvc.HttpGetAttribute>)  |Identifica una acción que admite el verbo de acción GET HTTP.|
+|[`[Consumes]`](<xref:Microsoft.AspNetCore.Mvc.ConsumesAttribute>)|Especifica los tipos de datos que acepta una acción.|
+|[`[Produces]`](<xref:Microsoft.AspNetCore.Mvc.ProducesAttribute>)|Especifica los tipos de datos que devuelve una acción.|
 
 Para ver una lista que incluye los atributos disponibles, consulte el espacio de nombres <xref:Microsoft.AspNetCore.Mvc>.
 
 ## <a name="apicontroller-attribute"></a>Atributo ApiController
 
-El atributo [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) puede aplicarse a una clase de controlador para permitir los siguientes comportamientos pertinaces específicos de la API:
+El atributo [`[ApiController]`](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) se puede aplicar a una clase de controlador para permitir los siguientes comportamientos específicos de la API:
 
 * [Requisito de enrutamiento mediante atributos](#attribute-routing-requirement)
 * [Respuestas HTTP 400 automáticas](#automatic-http-400-responses)
@@ -241,12 +241,12 @@ Un atributo de origen de enlace define la ubicación del valor del parámetro de
 
 |Atributo|Origen de enlace |
 |---------|---------|
-|[[FromBody]](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute)     | Cuerpo de la solicitud |
-|[[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute)     | Datos del formulario en el cuerpo de la solicitud |
-|[[FromHeader]](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute) | Encabezado de la solicitud |
-|[[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute)   | Parámetro de la cadena de consulta de la solicitud |
-|[[FromRoute]](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute)   | Datos de ruta de la solicitud actual |
-|[[FromServices]](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) | Servicio de solicitud insertado como parámetro de acción |
+|[`[FromBody]`](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute)     | Cuerpo de la solicitud |
+|[`[FromForm]`](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute)     | Datos del formulario en el cuerpo de la solicitud |
+|[`[FromHeader]`](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute) | Encabezado de la solicitud |
+|[`[FromQuery]`](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute)   | Parámetro de la cadena de consulta de la solicitud |
+|[`[FromRoute]`](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute)   | Datos de ruta de la solicitud actual |
+|[`[FromServices]`](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) | Servicio de solicitud insertado como parámetro de acción |
 
 > [!WARNING]
 > No use `[FromRoute]` si los valores pueden contener `%2f` (es decir, `/`). `%2f` no incluirá el carácter sin escape `/`. Use `[FromQuery]` si el valor puede contener `%2f`.
@@ -322,7 +322,7 @@ Para deshabilitar la inferencia del origen de enlace, establezca <xref:Microsoft
 
 ## <a name="multipartform-data-request-inference"></a>Inferencia de solicitud de varios elementos o datos de formulario
 
-El atributo `[ApiController]` aplica una regla de inferencia cuando se anota un parámetro de acción con el atributo [[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute). Se infiere el tipo de contenido de la solicitud `multipart/form-data`.
+El atributo `[ApiController]` aplica una regla de inferencia cuando se anota un parámetro de acción con el atributo [`[FromForm]`](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute). Se infiere el tipo de contenido de la solicitud `multipart/form-data`.
 
 Para deshabilitar el comportamiento predeterminado, establezca la propiedad <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressConsumesConstraintForFormFileParameters> en `true` en `Startup.ConfigureServices`:
 
