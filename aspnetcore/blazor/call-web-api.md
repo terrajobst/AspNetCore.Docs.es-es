@@ -5,16 +5,16 @@ description: Obtenga información sobre cómo llamar a una API Web desde una apl
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/03/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/call-web-api
-ms.openlocfilehash: d4c69e8be2d4f6295c7177bf5d00aed596d0ead2
-ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
+ms.openlocfilehash: f1929b48275a36552f061a64823267df0f3acabc
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74733861"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943919"
 ---
 # <a name="call-a-web-api-from-aspnet-core-opno-locblazor"></a>Llamar a una API Web desde ASP.NET Core Blazor
 
@@ -49,7 +49,7 @@ las aplicaciones auxiliares de `HttpClient` y JSON también se usan para llamar 
 
 La dirección base del cliente se establece en la dirección del servidor de origen. Inserte una instancia de `HttpClient` mediante la Directiva `@inject`:
 
-```cshtml
+```razor
 @using System.Net.Http
 @inject HttpClient Http
 ```
@@ -75,7 +75,7 @@ Los métodos auxiliares de JSON envían solicitudes a un URI (una API Web en los
 
   En el código siguiente, el componente muestra el `_todoItems`. El método `GetTodoItems` se desencadena cuando finaliza la representación del componente ([OnInitializedAsync](xref:blazor/lifecycle#component-initialization-methods)). Consulte la aplicación de ejemplo para obtener un ejemplo completo.
 
-  ```cshtml
+  ```razor
   @using System.Net.Http
   @inject HttpClient Http
 
@@ -91,7 +91,7 @@ Los métodos auxiliares de JSON envían solicitudes a un URI (una API Web en los
 
   En el código siguiente, un elemento enlazado del componente proporciona `_newItemName`. El método `AddItem` se desencadena seleccionando un elemento `<button>`. Consulte la aplicación de ejemplo para obtener un ejemplo completo.
 
-  ```cshtml
+  ```razor
   @using System.Net.Http
   @inject HttpClient Http
 
@@ -113,7 +113,7 @@ Los métodos auxiliares de JSON envían solicitudes a un URI (una API Web en los
 
   En el código siguiente, los elementos enlazados del componente proporcionan `_editItem` valores para `Name` y `IsCompleted`. El `Id` del elemento se establece cuando el elemento está seleccionado en otra parte de la interfaz de usuario y se llama a `EditItem`. El método `SaveItem` se desencadena seleccionando el elemento guardar `<button>`. Consulte la aplicación de ejemplo para obtener un ejemplo completo.
 
-  ```cshtml
+  ```razor
   @using System.Net.Http
   @inject HttpClient Http
 
@@ -140,7 +140,7 @@ Los métodos auxiliares de JSON envían solicitudes a un URI (una API Web en los
 
 En el código siguiente, el elemento Delete `<button>` llama al método `DeleteItem`. El elemento de `<input>` enlazado proporciona la `id` del elemento que se va a eliminar. Consulte la aplicación de ejemplo para obtener un ejemplo completo.
 
-```cshtml
+```razor
 @using System.Net.Http
 @inject HttpClient Http
 
@@ -167,7 +167,7 @@ Para permitir que otros sitios realicen solicitudes de uso compartido de recurso
 
 Al ejecutar webassembly en una aplicación Blazor webassembly, use [HttpClient](xref:fundamentals/http-requests) y <xref:System.Net.Http.HttpRequestMessage> para personalizar las solicitudes. Por ejemplo, puede especificar el URI de solicitud, el método HTTP y cualquier encabezado de solicitud deseado.
 
-```cshtml
+```razor
 @using System.Net.Http
 @using System.Net.Http.Headers
 @inject HttpClient Http

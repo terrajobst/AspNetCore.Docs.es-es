@@ -5,17 +5,17 @@ description: Explore ASP.NET Core Blazor, una forma de compilar la interfaz de u
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/index
-ms.openlocfilehash: 8b656a7461c78475432722540ad628258cfe19c4
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 4ab6af649afe66d92fb2ea07d3abed057f321bce
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962910"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943724"
 ---
 # <a name="introduction-to-aspnet-core-opno-locblazor"></a>Introducción a ASP.NET Core Blazor
 
@@ -53,7 +53,7 @@ La clase del componente se escribe normalmente en forma de una página de marcad
 
 El siguiente marcado de Razor muestra un componente (*Dialog.razor*), que se puede anidar dentro de otro componente:
 
-```cshtml
+```razor
 <div>
     <h1>@Title</h1>
 
@@ -84,7 +84,7 @@ En el ejemplo siguiente, el componente `Index` utiliza el componente `Dialog`. `
 
 *Index.razor*:
 
-```cshtml
+```razor
 @page "/"
 
 <h1>Hello, world!</h1>

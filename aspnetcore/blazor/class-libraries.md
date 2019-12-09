@@ -5,16 +5,16 @@ description: Descubra cómo se pueden incluir componentes en Blazor aplicaciones
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/class-libraries
-ms.openlocfilehash: d4cc4124c9dc28ed6da0923b919919df4965f89f
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 6bac007e3e1d046d6b16a3a0be6dc5976b99b766
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962708"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943880"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>Bibliotecas de clases de componentes de ASP.NET Core Razor
 
@@ -39,9 +39,9 @@ Siga las instrucciones del artículo <xref:blazor/get-started> para configurar e
 1. En el cuadro de diálogo **crear una nueva biblioteca de clases de Razor** , seleccione **crear**.
 1. Proporcione un nombre para el proyecto en el campo **Nombre del proyecto** o acepte el predeterminado. En los ejemplos de este tema se usa el nombre del proyecto `MyComponentLib1`. Seleccione **Crear**.
 1. Agregue RCL a una solución:
-   1. Haga clic con el botón secundario en la solución. Seleccione **agregar** > **proyecto existente**.
+   1. Haga clic con el botón secundario en la solución. Seleccione **Agregar** > **Proyecto existente**.
    1. Navegue hasta el archivo de proyecto de RCL.
-   1. Seleccione el archivo de proyecto de RCL (*. csproj*).
+   1. Seleccione el archivo de proyecto de RCL ( *. csproj*).
 1. Agregue una referencia a RCL desde la aplicación:
    1. Haga clic con el botón derecho en el proyecto de la aplicación. Seleccione **Agregar** **referencia**de > .
    1. Seleccione el proyecto RCL. Seleccione **Aceptar**.
@@ -73,7 +73,7 @@ En los ejemplos siguientes, `MyComponentLib1` es una biblioteca de componentes q
 
 Se puede hacer referencia al componente de `SalesReport` utilizando su nombre de tipo completo con el espacio de nombres:
 
-```cshtml
+```razor
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
@@ -83,7 +83,7 @@ Welcome to your new app.
 
 También se puede hacer referencia al componente si la biblioteca se incluye en el ámbito con una directiva `@using`:
 
-```cshtml
+```razor
 @using MyComponentLib1
 
 <h1>Hello, world!</h1>

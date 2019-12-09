@@ -5,17 +5,17 @@ description: Descubra cómo ASP.NET Core Blazor cómo Blazor administra las exce
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: e737a8a85e7eb83d95618d71e85b0307c54b0766
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: d73eb9a0dd0ec7a4bec4b7b9aeaaa4a9ee888bce
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879681"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943711"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Control de errores en las aplicaciones de Blazor de ASP.NET Core
 
@@ -138,7 +138,7 @@ En el ejemplo siguiente, donde `OnParametersSetAsync` llama a un método para ob
   * `loadFailed` se establece en `true`, que se usa para mostrar un mensaje de error al usuario.
   * El error se registra.
 
-[!code-cshtml[](handle-errors/samples_snapshot/3.x/product-details.razor?highlight=11,27-39)]
+[!code-razor[](handle-errors/samples_snapshot/3.x/product-details.razor?highlight=11,27-39)]
 
 ### <a name="rendering-logic"></a>Lógica de representación
 
@@ -148,7 +148,7 @@ La lógica de representación puede producir una excepción. Un ejemplo de este 
 
 Para evitar una excepción de referencia nula en la lógica de representación, busque un objeto `null` antes de tener acceso a sus miembros. En el ejemplo siguiente, no se tiene acceso a las propiedades de `person.Address` si `person.Address` se `null`:
 
-[!code-cshtml[](handle-errors/samples_snapshot/3.x/person-example.razor?highlight=1)]
+[!code-razor[](handle-errors/samples_snapshot/3.x/person-example.razor?highlight=1)]
 
 En el código anterior se supone que `person` no está `null`. A menudo, la estructura del código garantiza que un objeto existe en el momento en que se representa el componente. En esos casos, no es necesario comprobar `null` en la lógica de representación. En el ejemplo anterior, es posible que se garantice la existencia de `person` porque `person` se crea cuando se crea una instancia del componente.
 

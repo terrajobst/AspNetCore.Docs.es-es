@@ -5,16 +5,16 @@ description: Obtenga información sobre cómo conservar el estado en las aplicac
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/state-management
-ms.openlocfilehash: ed203458126f3b4c97103c88a465e3eb5953a775
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 7351ee2438c6adf675b8aa5e8ecdb1b2da7b4f23
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879711"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943932"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>Administración de estado de Blazor de ASP.NET Core
 
@@ -164,7 +164,7 @@ En cualquier componente que requiera cargar o guardar los datos en el almacenami
 
 La elección depende de la memoria auxiliar que quiera usar. En el ejemplo siguiente, se usa `sessionStorage`:
 
-```cshtml
+```razor
 @using Microsoft.AspNetCore.ProtectedBrowserStorage
 @inject ProtectedSessionStorage ProtectedSessionStore
 ```
@@ -215,7 +215,7 @@ private int? currentCount;
 
 En lugar de mostrar de manera incondicional el botón recuento e **incremento** , elija Mostrar estos elementos solo si se cargan los datos:
 
-```cshtml
+```razor
 @if (currentCount.HasValue)
 {
     <p>Current count: <strong>@currentCount</strong></p>
@@ -255,7 +255,7 @@ Para deshabilitar la representación previa, abra el archivo *pages/_Host. cshtm
 
 La representación previa puede ser útil para otras páginas que no utilizan `localStorage` o `sessionStorage`. Para mantener habilitada la pregeneración, postergue la operación de carga hasta que el explorador esté conectado al circuito. El siguiente es un ejemplo para almacenar un valor de contador:
 
-```cshtml
+```razor
 @using Microsoft.AspNetCore.ProtectedBrowserStorage
 @inject ProtectedLocalStorage ProtectedLocalStore
 
@@ -296,7 +296,7 @@ Si muchos componentes se basan en el almacenamiento basado en explorador, al vol
 
 En el siguiente ejemplo de un componente de `CounterStateProvider`, se conservan los datos del contador:
 
-```cshtml
+```razor
 @using Microsoft.AspNetCore.ProtectedBrowserStorage
 @inject ProtectedSessionStorage ProtectedSessionStore
 
@@ -336,7 +336,7 @@ El componente `CounterStateProvider` controla la fase de carga, ya que no repres
 
 Para usar el componente de `CounterStateProvider`, ajuste una instancia del componente en torno a cualquier otro componente que requiera acceso al estado del contador. Para hacer que el estado sea accesible a todos los componentes de una aplicación, ajuste el componente `CounterStateProvider` alrededor del `Router` en el componente `App` (*app. Razor*):
 
-```cshtml
+```razor
 <CounterStateProvider>
     <Router AppAssembly="typeof(Startup).Assembly">
         ...
@@ -346,7 +346,7 @@ Para usar el componente de `CounterStateProvider`, ajuste una instancia del comp
 
 Los componentes encapsulados reciben y pueden modificar el estado del contador guardado. El siguiente componente de `Counter` implementa el patrón:
 
-```cshtml
+```razor
 @page "/counter"
 
 <p>Current count: <strong>@CounterStateProvider.CurrentCount</strong></p>

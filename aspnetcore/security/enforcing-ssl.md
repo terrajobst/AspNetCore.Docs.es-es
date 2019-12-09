@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo requerir HTTPS/TLS en una aplicación Web de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/14/2019
+ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: 82cd2e52f3bd929682b9eae24611ad04fd9f8682
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 032105c67e15ab94635ae6fadea103450c7eb0fb
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317366"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944244"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Aplicación de HTTPS en ASP.NET Core
 
@@ -85,7 +85,7 @@ Código resaltado anterior:
 
 Se recomienda el uso de redirecciones temporales en lugar de redireccionamientos permanentes. El almacenamiento en caché de vínculos puede producir un comportamiento inestable en entornos de desarrollo. Si prefiere enviar un código de estado de redirección permanente cuando la aplicación se encuentra en un entorno que no es de desarrollo, consulte la sección [configuración de redirecciones permanentes en producción](#configure-permanent-redirects-in-production) . Se recomienda usar [HSTS](#http-strict-transport-security-protocol-hsts) para indicar a los clientes que solo se deben enviar solicitudes de recursos seguros a la aplicación (solo en producción).
 
-### <a name="port-configuration"></a>Configuración de Puerto
+### <a name="port-configuration"></a>Configuración del puerto
 
 Un puerto debe estar disponible para que el middleware redirija una solicitud no segura a HTTPS. Si no hay ningún puerto disponible:
 
@@ -131,7 +131,7 @@ Especifique el Puerto HTTPS mediante cualquiera de los métodos siguientes:
 > [!NOTE]
 > Cuando una aplicación se ejecuta en una configuración de proxy inverso, <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature> no está disponible. Establezca el puerto con uno de los otros enfoques descritos en esta sección.
 
-### <a name="edge-deployments"></a>Implementaciones perimetrales 
+### <a name="edge-deployments"></a>Implementaciones de Edge 
 
 Cuando Kestrel o HTTP. sys se usa como un servidor perimetral de acceso público, se debe configurar Kestrel o HTTP. sys para que escuche en ambos:
 
@@ -173,7 +173,7 @@ Solo es necesario llamar a `AddHttpsRedirection` para cambiar los valores de `Ht
 Código resaltado anterior:
 
 * Establece [HttpsRedirectionOptions. RedirectStatusCode](xref:Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionOptions.RedirectStatusCode*) en <xref:Microsoft.AspNetCore.Http.StatusCodes.Status307TemporaryRedirect>, que es el valor predeterminado. Utilice los campos de la clase <xref:Microsoft.AspNetCore.Http.StatusCodes> para las asignaciones a `RedirectStatusCode`.
-* Establece el Puerto HTTPS en 5001. El valor predeterminado es 443.
+* Establece el Puerto HTTPS en 5001.
 
 #### <a name="configure-permanent-redirects-in-production"></a>Configuración de redirecciones permanentes en producción
 

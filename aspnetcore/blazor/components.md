@@ -5,16 +5,16 @@ description: Obtenga información sobre cómo crear y usar componentes de Razor,
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/27/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/components
-ms.openlocfilehash: 9cdbae0bde8f6c44dc8b680dccbf9c8f96043c7f
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: a79202565f45b4d26e280427892ea16b33f3f853
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879705"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943867"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -42,7 +42,7 @@ Los miembros de componente se pueden usar como parte de la lógica de representa
 * `_headingFontStyle` al valor de la propiedad CSS para `font-style`.
 * `_headingText` al contenido del elemento `<h1>`.
 
-```cshtml
+```razor
 <h1 style="font-style:@_headingFontStyle">@_headingText</h1>
 
 @code {
@@ -55,7 +55,7 @@ Una vez que el componente se representa inicialmente, el componente regenera su 
 
 Los componentes son C# clases normales y se pueden colocar en cualquier parte dentro de un proyecto. Los componentes que generan páginas web normalmente residen en la carpeta *pages* . Los componentes que no son de página se colocan con frecuencia en la carpeta *compartida* o en una carpeta personalizada agregada al proyecto. Para usar una carpeta personalizada, agregue el espacio de nombres de la carpeta personalizada al componente primario o al archivo *_Imports. Razor* de la aplicación. Por ejemplo, el siguiente espacio de nombres hace que los componentes de una carpeta *Components* estén disponibles cuando se `WebApplication`el espacio de nombres raíz de la aplicación:
 
-```cshtml
+```razor
 @using WebApplication.Components
 ```
 
@@ -128,11 +128,13 @@ El enlace de atributo distingue mayúsculas de minúsculas. Por ejemplo, `@bind`
 
 El marcado siguiente en *index. Razor* representa una instancia de `HeadingComponent`:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/Index.razor?name=snippet_HeadingComponent)]
+```razor
+<HeadingComponent />
+```
 
 *Components/HeadingComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/HeadingComponent.razor)]
+[!code-razor[](common/samples/3.x/BlazorWebAssemblySample/Components/HeadingComponent.razor)]
 
 Si un componente contiene un elemento HTML con una primera letra mayúscula que no coincide con un nombre de componente, se emite una advertencia que indica que el elemento tiene un nombre inesperado. La adición de una instrucción `@using` para el espacio de nombres del componente hace que el componente esté disponible, lo que elimina la advertencia.
 
@@ -142,13 +144,25 @@ Los componentes pueden tener *parámetros de componente*, que se definen mediant
 
 *Components/ChildComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=11-12)]
+[!code-razor[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=11-12)]
 
-En el ejemplo siguiente, el `ParentComponent` establece el valor de la propiedad `Title` de la `ChildComponent`.
+En el ejemplo siguiente de la aplicación de ejemplo, el `ParentComponent` establece el valor de la propiedad `Title` de la `ChildComponent`.
 
 *Pages/ParentComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=5-6)]
+```razor
+@page "/ParentComponent"
+
+<h1>Parent-child example</h1>
+
+<ChildComponent Title="Panel Title from Parent"
+                OnClick="@ShowMessage">
+    Content of the child component is supplied
+    by the parent component.
+</ChildComponent>
+
+...
+```
 
 ## <a name="child-content"></a>Contenido secundario
 
@@ -158,16 +172,28 @@ En el ejemplo siguiente, el `ChildComponent` tiene una propiedad `ChildContent` 
 
 *Components/ChildComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=3,14-15)]
+[!code-razor[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=3,14-15)]
 
 > [!NOTE]
 > La propiedad que recibe el contenido del `RenderFragment` debe denominarse `ChildContent` por Convención.
 
-En el `ParentComponent` siguiente se puede proporcionar contenido para representar el `ChildComponent` colocando el contenido dentro de las etiquetas `<ChildComponent>`.
+El `ParentComponent` de la aplicación de ejemplo puede proporcionar contenido para representar el `ChildComponent` colocando el contenido dentro de las etiquetas de `<ChildComponent>`.
 
 *Pages/ParentComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=7-8)]
+```razor
+@page "/ParentComponent"
+
+<h1>Parent-child example</h1>
+
+<ChildComponent Title="Panel Title from Parent"
+                OnClick="@ShowMessage">
+    Content of the child component is supplied
+    by the parent component.
+</ChildComponent>
+
+...
+```
 
 ## <a name="attribute-splatting-and-arbitrary-parameters"></a>Atributos expansión y parámetros arbitrarios
 
@@ -175,7 +201,7 @@ Los componentes de pueden capturar y representar atributos adicionales además d
 
 En el ejemplo siguiente, el primer elemento `<input>` (`id="useIndividualParams"`) utiliza parámetros de componente individuales, mientras que el segundo elemento `<input>` (`id="useAttributesDict"`) utiliza el atributo expansión:
 
-```cshtml
+```razor
 <input id="useIndividualParams"
        maxlength="@Maxlength"
        placeholder="@Placeholder"
@@ -230,7 +256,7 @@ Los elementos `<input>` representados con ambos enfoques son idénticos:
 
 Para aceptar atributos arbitrarios, defina un parámetro de componente mediante el atributo `[Parameter]` con la propiedad `CaptureUnmatchedValues` establecida en `true`:
 
-```cshtml
+```razor
 @code {
     [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object> InputAttributes { get; set; }
@@ -243,13 +269,13 @@ La posición de `@attributes` relativa a la posición de los atributos de elemen
 
 *ParentComponent. Razor*:
 
-```cshtml
+```razor
 <ChildComponent extra="10" />
 ```
 
 *ChildComponent. Razor*:
 
-```cshtml
+```razor
 <div @attributes="AdditionalAttributes" extra="5" />
 
 [Parameter(CaptureUnmatchedValues = true)]
@@ -266,13 +292,13 @@ En el ejemplo siguiente, el orden de `extra` y `@attributes` se invierte en el `
 
 *ParentComponent. Razor*:
 
-```cshtml
+```razor
 <ChildComponent extra="10" />
 ```
 
 *ChildComponent. Razor*:
 
-```cshtml
+```razor
 <div extra="5" @attributes="AdditionalAttributes" />
 
 [Parameter(CaptureUnmatchedValues = true)]
@@ -289,7 +315,7 @@ El `<div>` representado en el componente `Parent` contiene `extra="10"` cuando s
 
 El enlace de datos tanto a componentes como a elementos DOM se realiza con el [`@bind`](xref:mvc/views/razor#bind) atributo. En el ejemplo siguiente se enlaza una propiedad `CurrentValue` al valor del cuadro de texto:
 
-```cshtml
+```razor
 <input @bind="CurrentValue" />
 
 @code {
@@ -303,7 +329,7 @@ El cuadro de texto se actualiza en la interfaz de usuario solo cuando se represe
 
 El uso de `@bind` con la propiedad `CurrentValue` (`<input @bind="CurrentValue" />`) es esencialmente equivalente a lo siguiente:
 
-```cshtml
+```razor
 <input value="@CurrentValue"
     @onchange="@((ChangeEventArgs __e) => CurrentValue = 
         __e.Value.ToString())" />
@@ -317,7 +343,7 @@ Cuando se representa el componente, el `value` del elemento de entrada procede d
 
 Además de controlar los eventos de `onchange` con sintaxis de `@bind`, se puede enlazar una propiedad o un campo mediante otros eventos mediante la especificación de un atributo de [`@bind-value`](xref:mvc/views/razor#bind) con un parámetro de `event` ([`@bind-value:event`](xref:mvc/views/razor#bind)). En el siguiente ejemplo se enlaza la propiedad `CurrentValue` del evento `oninput`:
 
-```cshtml
+```razor
 <input @bind-value="CurrentValue" @bind-value:event="oninput" />
 
 @code {
@@ -335,7 +361,7 @@ Considere el caso siguiente:
 
 * Un elemento `<input>` se enlaza a un tipo `int` con un valor inicial de `123`:
 
-  ```cshtml
+  ```razor
   <input @bind="MyProperty" />
 
   @code {
@@ -386,7 +412,7 @@ Para obtener información sobre cómo establecer la referencia cultural del usua
 
 El enlace de datos funciona con cadenas de formato <xref:System.DateTime> mediante [`@bind:format`](xref:mvc/views/razor#bind). Otras expresiones de formato, como los formatos de moneda o número, no están disponibles en este momento.
 
-```cshtml
+```razor
 <input @bind="StartDate" @bind:format="yyyy-MM-dd" />
 
 @code {
@@ -416,7 +442,7 @@ El enlace reconoce los parámetros de componente, donde `@bind-{property}` puede
 
 El siguiente componente secundario (`ChildComponent`) tiene un parámetro de componente `Year` y una devolución de llamada `YearChanged`:
 
-```cshtml
+```razor
 <h2>Child Component</h2>
 
 <p>Year: @Year</p>
@@ -434,7 +460,7 @@ El siguiente componente secundario (`ChildComponent`) tiene un parámetro de com
 
 El siguiente componente primario utiliza `ChildComponent` y enlaza el parámetro `ParentYear` desde el elemento primario al parámetro `Year` en el componente secundario:
 
-```cshtml
+```razor
 @page "/ParentComponent"
 
 <h1>Parent Component</h1>
@@ -486,13 +512,13 @@ El parámetro `Year` es enlazable porque tiene un evento Companion `YearChanged`
 
 Por Convención, `<ChildComponent @bind-Year="ParentYear" />` es esencialmente equivalente a escribir:
 
-```cshtml
+```razor
 <ChildComponent @bind-Year="ParentYear" @bind-Year:event="YearChanged" />
 ```
 
 En general, una propiedad se puede enlazar a un controlador de eventos correspondiente mediante `@bind-property:event` atributo. Por ejemplo, la propiedad `MyProp` se puede enlazar a `MyEventHandler` mediante los dos atributos siguientes:
 
-```cshtml
+```razor
 <MyComponent @bind-MyProp="MyValue" @bind-MyProp:event="MyEventHandler" />
 ```
 
@@ -502,7 +528,7 @@ Los componentes de Razor proporcionan características de control de eventos. Pa
 
 El código siguiente llama al método `UpdateHeading` cuando el botón está seleccionado en la interfaz de usuario:
 
-```cshtml
+```razor
 <button class="btn btn-primary" @onclick="UpdateHeading">
     Update heading
 </button>
@@ -517,7 +543,7 @@ El código siguiente llama al método `UpdateHeading` cuando el botón está sel
 
 El código siguiente llama al método `CheckChanged` cuando se cambia la casilla en la interfaz de usuario:
 
-```cshtml
+```razor
 <input type="checkbox" class="form-check-input" @onchange="CheckChanged" />
 
 @code {
@@ -532,7 +558,7 @@ Los controladores de eventos también pueden ser asincrónicos y devolver un <xr
 
 En el ejemplo siguiente, se llama a `UpdateHeading` de forma asincrónica cuando se selecciona el botón:
 
-```cshtml
+```razor
 <button class="btn btn-primary" @onclick="UpdateHeading">
     Update heading
 </button>
@@ -572,13 +598,13 @@ Para obtener información sobre las propiedades y el comportamiento de control d
 
 También se pueden usar expresiones lambda:
 
-```cshtml
+```razor
 <button @onclick="@(e => Console.WriteLine("Hello, world!"))">Say hello</button>
 ```
 
 A menudo resulta cómodo cerrar los valores adicionales, como al recorrer en iteración un conjunto de elementos. En el ejemplo siguiente se crean tres botones, cada uno de los cuales llama a `UpdateHeading` pasar un argumento de evento (`MouseEventArgs`) y su número de botón (`buttonNumber`) cuando se selecciona en la interfaz de usuario:
 
-```cshtml
+```razor
 <h2>@message</h2>
 
 @for (var i = 1; i < 4; i++)
@@ -609,13 +635,36 @@ A menudo resulta cómodo cerrar los valores adicionales, como al recorrer en ite
 
 Un escenario común con los componentes anidados es el deseo de ejecutar el método de un componente primario cuando se produce un evento de componente secundario&mdash;por ejemplo, cuando se produce un evento de `onclick` en el elemento secundario. Para exponer eventos entre componentes, use una `EventCallback`. Un componente primario puede asignar un método de devolución de llamada al `EventCallback`de un componente secundario.
 
-En el `ChildComponent` de la aplicación de ejemplo se muestra cómo se configura un controlador de `onclick` de un botón para recibir un `EventCallback` delegado de la `ParentComponent`del ejemplo. El `EventCallback` se escribe con `MouseEventArgs`, que es adecuado para un evento de `onclick` desde un dispositivo periférico:
+En el `ChildComponent` de la aplicación de ejemplo (*Components/ChildComponent. Razor*) se muestra cómo se configura el controlador de `onclick` de un botón para recibir un `EventCallback` delegado de la `ParentComponent`del ejemplo. El `EventCallback` se escribe con `MouseEventArgs`, que es adecuado para un evento de `onclick` desde un dispositivo periférico:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=5-7,17-18)]
+[!code-razor[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
-El `ParentComponent` establece el `EventCallback<T>` del elemento secundario en su método `ShowMessage`:
+El `ParentComponent` establece el `EventCallback<T>` del elemento secundario en su método `ShowMessage`.
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=6,16-19)]
+*Pages/ParentComponent. Razor*:
+
+```razor
+@page "/ParentComponent"
+
+<h1>Parent-child example</h1>
+
+<ChildComponent Title="Panel Title from Parent"
+                OnClick="@ShowMessage">
+    Content of the child component is supplied
+    by the parent component.
+</ChildComponent>
+
+<p><b>@messageText</b></p>
+
+@code {
+    private string messageText;
+
+    private void ShowMessage(MouseEventArgs e)
+    {
+        messageText = $"Blaze a new trail with Blazor! ({e.ScreenX}, {e.ScreenY})";
+    }
+}
+```
 
 Cuando el botón está seleccionado en el `ChildComponent`:
 
@@ -624,7 +673,7 @@ Cuando el botón está seleccionado en el `ChildComponent`:
 
 `EventCallback` y `EventCallback<T>` permiten los delegados asincrónicos. `EventCallback<T>` tiene un tipo seguro y requiere un tipo de argumento específico. `EventCallback` tiene un tipo débil y permite cualquier tipo de argumento.
 
-```cshtml
+```razor
 <p><b>@messageText</b></p>
 
 @{ var message = "Default Text"; }
@@ -655,7 +704,7 @@ Use el atributo de directiva de [`@on{EVENT}:preventDefault`](xref:mvc/views/raz
 
 Cuando se selecciona una clave en un dispositivo de entrada y el foco del elemento está en un cuadro de texto, un explorador muestra normalmente el carácter de la tecla en el cuadro de texto. En el ejemplo siguiente, el comportamiento predeterminado se evita especificando el atributo de directiva de `@onkeypress:preventDefault`. El contador se incrementa y la clave **+** no se captura en el valor del elemento `<input>`:
 
-```cshtml
+```razor
 <input value="@_count" @onkeypress="KeyHandler" @onkeypress:preventDefault />
 
 @code {
@@ -675,7 +724,7 @@ Especificar el `@on{EVENT}:preventDefault` atributo sin un valor es equivalente 
 
 El valor del atributo también puede ser una expresión. En el ejemplo siguiente, `_shouldPreventDefault` es un campo `bool` establecido en `true` o `false`:
 
-```cshtml
+```razor
 <input @onkeypress:preventDefault="_shouldPreventDefault" />
 ```
 
@@ -687,7 +736,7 @@ Use el atributo de directiva de [`@on{EVENT}:stopPropagation`](xref:mvc/views/ra
 
 En el ejemplo siguiente, al activar la casilla se impide que los eventos de clic de la segunda `<div>` secundaria se propaguen al `<div>`primario:
 
-```cshtml
+```razor
 <label>
     <input @bind="_stopPropagation" type="checkbox" />
     Stop Propagation
@@ -728,7 +777,7 @@ El siguiente componente de `PasswordField` (*PasswordField. Razor*):
 * Establece el valor de un elemento de `<input>` en una propiedad `Password`.
 * Expone los cambios de la propiedad `Password` a un componente primario con un [EventCallback](#eventcallback).
 
-```cshtml
+```razor
 Password: 
 
 <input @oninput="OnPasswordChanged" 
@@ -765,7 +814,7 @@ Password:
 
 El componente de `PasswordField` se usa en otro componente:
 
-```cshtml
+```razor
 <PasswordField @bind-Password="password" />
 
 @code {
@@ -780,7 +829,7 @@ Para realizar comprobaciones o errores de captura en la contraseña en el ejempl
 
 En el ejemplo siguiente se proporcionan comentarios inmediatos al usuario si se usa un espacio en el valor de la contraseña:
 
-```cshtml
+```razor
 Password: 
 
 <input @oninput="OnPasswordChanged" 
@@ -844,7 +893,7 @@ Las referencias de componente proporcionan una manera de hacer referencia a una 
 * Agregue un atributo [`@ref`](xref:mvc/views/razor#ref) al componente secundario.
 * Defina un campo con el mismo tipo que el componente secundario.
 
-```cshtml
+```razor
 <MyLoginDialog @ref="loginDialog" ... />
 
 @code {
@@ -891,7 +940,7 @@ public class NotifierService
 
 Uso de la `NotifierService` para actualizar un componente:
 
-```cshtml
+```razor
 @page "/"
 @inject NotifierService Notifier
 @implements IDisposable
@@ -975,7 +1024,7 @@ Normalmente, tiene sentido usar `@key` cada vez que se representa una lista (por
 
 También puede usar `@key` para evitar que Blazor conserven un subárbol de elementos o componentes cuando cambie un objeto:
 
-```cshtml
+```razor
 <div @key="currentPerson">
     ... content that depends on currentPerson ...
 </div>
@@ -1004,17 +1053,39 @@ El enrutamiento en Blazor se consigue proporcionando una plantilla de ruta a cad
 
 Cuando se compila un archivo de Razor con una directiva de `@page`, a la clase generada se le asigna un <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> que especifica la plantilla de ruta. En tiempo de ejecución, el enrutador busca clases de componentes con un `RouteAttribute` y representa el componente que tiene una plantilla de ruta que coincide con la dirección URL solicitada.
 
-Se pueden aplicar varias plantillas de ruta a un componente. El siguiente componente responde a las solicitudes de `/BlazorRoute` y `/DifferentBlazorRoute`:
+Se pueden aplicar varias plantillas de ruta a un componente. El siguiente componente responde a las solicitudes de `/BlazorRoute` y `/DifferentBlazorRoute`.
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
+*Pages/BlazorRoute. Razor*:
+
+```razor
+@page "/BlazorRoute"
+@page "/DifferentBlazorRoute"
+
+<h1>Blazor routing</h1>
+```
 
 ## <a name="route-parameters"></a>Parámetros de ruta
 
 Los componentes pueden recibir parámetros de ruta de la plantilla de ruta proporcionada en la Directiva de `@page`. El enrutador usa parámetros de ruta para rellenar los parámetros de componente correspondientes.
 
-*Componente de parámetro de ruta*:
+*Pages/RouteParameter. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/RouteParameter.razor?name=snippet_RouteParameter)]
+```razor
+@page "/RouteParameter"
+@page "/RouteParameter/{text}"
+
+<h1>Blazor is @Text!</h1>
+
+@code {
+    [Parameter]
+    public string Text { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Text = Text ?? "fantastic";
+    }
+}
+```
 
 Los parámetros opcionales no se admiten, por lo que se aplican dos directivas de `@page` en el ejemplo anterior. El primero permite la navegación al componente sin un parámetro. La segunda Directiva de `@page` toma el parámetro `{text}` Route y asigna el valor a la propiedad `Text`.
 
@@ -1033,7 +1104,7 @@ En el ejemplo siguiente se muestra el componente de `Counter` predeterminado con
 
 *Counter. Razor*:
 
-```cshtml
+```razor
 @page "/counter"
 
 <h1>Counter</h1>
@@ -1056,7 +1127,7 @@ El componente de `Counter` también se puede crear con un archivo de código sub
 
 *Counter. Razor*:
 
-```cshtml
+```razor
 @page "/counter"
 
 <h1>Counter</h1>
@@ -1095,7 +1166,7 @@ La [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/maste
 
 *Pages/BlazorRocks. Razor*:
 
-```cshtml
+```razor
 @page "/BlazorRocks"
 @inherits BlazorRocksBase
 
@@ -1135,7 +1206,7 @@ Los componentes definidos en un espacio de nombres diferente se incluyen en el �
 
 Si existe otro componente, `NavMenu.razor`, en la carpeta *BlazorSample/Shared/* , el componente se puede utilizar en `Index.razor` con la siguiente instrucción `@using`:
 
-```cshtml
+```razor
 @using BlazorSample.Shared
 
 This is the Index page.
@@ -1145,7 +1216,7 @@ This is the Index page.
 
 También se puede hacer referencia a los componentes mediante sus nombres completos, que no requieren la directiva [`@using`](xref:mvc/views/razor#using) :
 
-```cshtml
+```razor
 This is the Index page.
 
 <BlazorSample.Shared.NavMenu></BlazorSample.Shared.NavMenu>
@@ -1164,7 +1235,7 @@ Los atributos de elemento HTML se representan condicionalmente según el valor d
 
 En el ejemplo siguiente, `IsCompleted` determina si `checked` se representa en el marcado del elemento:
 
-```cshtml
+```razor
 <input type="checkbox" checked="@IsCompleted" />
 
 @code {
@@ -1221,11 +1292,11 @@ Un componente con plantilla se define especificando uno o más parámetros de co
 
 `TableTemplate` componente:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/TableTemplate.razor)]
+[!code-razor[](common/samples/3.x/BlazorWebAssemblySample/Components/TableTemplate.razor)]
 
 Cuando se usa un componente con plantilla, los parámetros de plantilla se pueden especificar utilizando los elementos secundarios que coinciden con los nombres de los parámetros (`TableHeader` y `RowTemplate` en el ejemplo siguiente):
 
-```cshtml
+```razor
 <TableTemplate Items="pets">
     <TableHeader>
         <th>ID</th>
@@ -1242,7 +1313,7 @@ Cuando se usa un componente con plantilla, los parámetros de plantilla se puede
 
 Los argumentos de los componentes de tipo `RenderFragment<T>` pasados como elementos tienen un parámetro implícito denominado `context` (por ejemplo, en el ejemplo de código anterior, `@context.PetId`), pero puede cambiar el nombre del parámetro mediante el atributo `Context` en el elemento secundario. En el ejemplo siguiente, el atributo `Context` del elemento `RowTemplate` especifica el parámetro `pet`:
 
-```cshtml
+```razor
 <TableTemplate Items="pets">
     <TableHeader>
         <th>ID</th>
@@ -1257,7 +1328,7 @@ Los argumentos de los componentes de tipo `RenderFragment<T>` pasados como eleme
 
 También puede especificar el atributo de `Context` en el elemento de componente. El atributo de `Context` especificado se aplica a todos los parámetros de plantilla especificados. Esto puede ser útil si desea especificar el nombre del parámetro de contenido para el contenido secundario implícito (sin ningún elemento secundario de ajuste). En el ejemplo siguiente, el atributo `Context` aparece en el elemento `TableTemplate` y se aplica a todos los parámetros de plantilla:
 
-```cshtml
+```razor
 <TableTemplate Items="pets" Context="pet">
     <TableHeader>
         <th>ID</th>
@@ -1274,11 +1345,11 @@ También puede especificar el atributo de `Context` en el elemento de componente
 
 Los componentes con plantilla suelen tener tipos genéricos. Por ejemplo, se puede usar un componente de `ListViewTemplate` genérico para representar valores de `IEnumerable<T>`. Para definir un componente genérico, utilice la directiva [`@typeparam`](xref:mvc/views/razor#typeparam) para especificar parámetros de tipo:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ListViewTemplate.razor)]
+[!code-razor[](common/samples/3.x/BlazorWebAssemblySample/Components/ListViewTemplate.razor)]
 
 Cuando se usan componentes de tipo genérico, el parámetro de tipo se infiere si es posible:
 
-```cshtml
+```razor
 <ListViewTemplate Items="pets">
     <ItemTemplate Context="pet">
         <li>@pet.Name</li>
@@ -1288,7 +1359,7 @@ Cuando se usan componentes de tipo genérico, el parámetro de tipo se infiere s
 
 De lo contrario, el parámetro de tipo se debe especificar explícitamente mediante un atributo que coincida con el nombre del parámetro de tipo. En el ejemplo siguiente, `TItem="Pet"` especifica el tipo:
 
-```cshtml
+```razor
 <ListViewTemplate Items="pets" TItem="Pet">
     <ItemTemplate Context="pet">
         <li>@pet.Name</li>
@@ -1319,7 +1390,7 @@ Por ejemplo, la aplicación de ejemplo especifica información de tema (`ThemeIn
 
 `CascadingValuesParametersLayout` componente:
 
-```cshtml
+```razor
 @inherits LayoutComponentBase
 @using BlazorSample.UIThemeClasses
 
@@ -1349,7 +1420,7 @@ En la aplicación de ejemplo, el componente `CascadingValuesParametersTheme` enl
 
 `CascadingValuesParametersTheme` componente:
 
-```cshtml
+```razor
 @page "/cascadingvaluesparameterstheme"
 @layout CascadingValuesParametersLayout
 @using BlazorSample.UIThemeClasses
@@ -1385,7 +1456,7 @@ En la aplicación de ejemplo, el componente `CascadingValuesParametersTheme` enl
 
 Para poner en cascada varios valores del mismo tipo en el mismo subárbol, proporcione una cadena de `Name` única para cada componente `CascadingValue` y su `CascadingParameter`correspondiente. En el ejemplo siguiente, dos componentes de `CascadingValue` en cascada son instancias diferentes de `MyCascadingType` por nombre:
 
-```cshtml
+```razor
 <CascadingValue Value=@ParentCascadeParameter1 Name="CascadeParam1">
     <CascadingValue Value=@ParentCascadeParameter2 Name="CascadeParam2">
         ...
@@ -1404,7 +1475,7 @@ Para poner en cascada varios valores del mismo tipo en el mismo subárbol, propo
 
 En un componente descendiente, los parámetros en cascada reciben sus valores de los valores en cascada correspondientes del componente antecesor por nombre:
 
-```cshtml
+```razor
 ...
 
 @code {
@@ -1426,31 +1497,53 @@ La aplicación de ejemplo tiene una interfaz `ITab` que las pestañas implementa
 
 El componente `CascadingValuesParametersTabSet` usa el componente `TabSet`, que contiene varios componentes `Tab`:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/CascadingValuesParametersTabSet.razor?name=snippet_TabSet)]
+```razor
+<TabSet>
+    <Tab Title="First tab">
+        <h4>Greetings from the first tab!</h4>
+
+        <label>
+            <input type="checkbox" @bind="showThirdTab" />
+            Toggle third tab
+        </label>
+    </Tab>
+    <Tab Title="Second tab">
+        <h4>The second tab says Hello World!</h4>
+    </Tab>
+
+    @if (showThirdTab)
+    {
+        <Tab Title="Third tab">
+            <h4>Welcome to the disappearing third tab!</h4>
+            <p>Toggle this tab from the first tab.</p>
+        </Tab>
+    }
+</TabSet>
+```
 
 Los componentes de `Tab` secundarios no se pasan explícitamente como parámetros a la `TabSet`. En su lugar, los componentes secundarios `Tab` forman parte del contenido secundario del `TabSet`. Sin embargo, el `TabSet` todavía necesita saber sobre cada componente `Tab` para que pueda representar los encabezados y la pestaña activa. Para habilitar esta coordinación sin necesidad de código adicional, el componente de `TabSet` *puede proporcionarse como un valor en cascada* que los componentes de `Tab` descendientes recogen.
 
 `TabSet` componente:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/TabSet.razor)]
+[!code-razor[](common/samples/3.x/BlazorWebAssemblySample/Components/TabSet.razor)]
 
 Los componentes de `Tab` descendientes capturan el `TabSet` contenedor como un parámetro en cascada, por lo que los componentes de `Tab` se agregan a los `TabSet` y coordenadas en los que la pestaña está activa.
 
 `Tab` componente:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/Tab.razor)]
+[!code-razor[](common/samples/3.x/BlazorWebAssemblySample/Components/Tab.razor)]
 
 ## <a name="razor-templates"></a>Plantillas de Razor
 
 Los fragmentos de representación se pueden definir mediante la sintaxis de plantilla de Razor. Las plantillas de Razor son una manera de definir un fragmento de la interfaz de usuario y suponer el siguiente formato:
 
-```cshtml
+```razor
 @<{HTML tag}>...</{HTML tag}>
 ```
 
 En el ejemplo siguiente se muestra cómo especificar los valores de `RenderFragment` y `RenderFragment<T>` y las plantillas de representación directamente en un componente. Los fragmentos de representación también se pueden pasar como argumentos a [componentes con plantilla](#templated-components).
 
-```cshtml
+```razor
 @timeTemplate
 
 @petTemplate(new Pet { Name = "Rex" })
@@ -1484,7 +1577,7 @@ Salida representada del código anterior:
 
 Tenga en cuenta el siguiente componente de `PetDetails`, que se puede integrar manualmente en otro componente:
 
-```cshtml
+```razor
 <h2>Pet Details Component</h2>
 
 <p>@PetDetailsQuote</p>
@@ -1500,7 +1593,7 @@ En el ejemplo siguiente, el bucle del método `CreateComponent` genera tres comp
 
 `BuiltContent` componente:
 
-```cshtml
+```razor
 @page "/BuiltContent"
 
 <h1>Build a component</h1>
@@ -1539,9 +1632,9 @@ los archivos de `.razor` de Blazor siempre se compilan. Esta es potencialmente u
 
 Un ejemplo clave de estas mejoras implican *los números de secuencia*. Los números de secuencia indican al tiempo de ejecución los resultados de los que proceden las líneas de código distintas y ordenadas. El motor en tiempo de ejecución utiliza esta información para generar diferencias de árbol eficientes en el tiempo lineal, que es mucho más rápido de lo que suele ser posible para un algoritmo de comparación de árboles generales.
 
-Considere el siguiente archivo de `.razor` simple:
+Considere el siguiente archivo de componente de Razor ( *. Razor*):
 
-```cshtml
+```razor
 @if (someFlag)
 {
     <text>First</text>
@@ -1704,7 +1797,7 @@ public class CultureController : Controller
 
 El siguiente componente muestra un ejemplo de cómo realizar la redirección inicial cuando el usuario selecciona una referencia cultural:
 
-```cshtml
+```razor
 @inject NavigationManager NavigationManager
 
 <h3>Select your language</h3>

@@ -5,17 +5,17 @@ description: Obtenga información acerca de cómo mitigar las amenazas de seguri
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/server
-ms.openlocfilehash: 5cf83a4dd255959e8840fca3a8194b5b4e2ad0a8
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 2d644b84b304a31ad0debc16164ad155c7f7da65
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963876"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944287"
 ---
 # <a name="secure-aspnet-core-opno-locblazor-server-apps"></a>Protección de aplicaciones de ASP.NET Core Blazor Server
 
@@ -159,7 +159,7 @@ Blazor eventos de servidor son asincrónicos, por lo que se pueden enviar varios
 
 Considere un componente de contador que debe permitir que un usuario incremente un contador un máximo de tres veces. El botón para incrementar el contador se basa condicionalmente en el valor de `count`:
 
-```cshtml
+```razor
 <p>Count: @count<p>
 
 @if (count < 3)
@@ -180,7 +180,7 @@ Considere un componente de contador que debe permitir que un usuario incremente 
 
 Un cliente puede enviar uno o varios eventos de incremento antes de que el marco de trabajo genere una nueva representación de este componente. El resultado es que el usuario puede incrementar el `count` *en tres horas* , ya que la interfaz de usuario no quita el botón con la suficiente rapidez. En el ejemplo siguiente se muestra la manera correcta de lograr el límite de tres `count` incrementos:
 
-```cshtml
+```razor
 <p>Count: @count<p>
 
 @if (count < 3)
@@ -208,7 +208,7 @@ Al agregar la comprobación de `if (count < 3) { ... }` dentro del controlador, 
 
 Si una devolución de llamada de evento invoca una operación de ejecución prolongada, como la recuperación de datos de una base de datos o un servicio externo, considere la posibilidad de usar una protección. La protección puede impedir que el usuario pueda poner en cola varias operaciones mientras la operación está en curso con comentarios visuales. El código de componente siguiente establece `isLoading` en `true` mientras `GetForecastAsync` obtiene los datos del servidor. Mientras `isLoading` se `true`, el botón está deshabilitado en la interfaz de usuario:
 
-```cshtml
+```razor
 @page "/fetchdata"
 @using BlazorServerSample.Data
 @inject WeatherForecastService ForecastService
@@ -235,7 +235,7 @@ Si una devolución de llamada de evento invoca una operación de ejecución prol
 
 Además de usar una protección como se describe en la sección [protección contra varias distribuciones](#guard-against-multiple-dispatches) , considere la posibilidad de usar un <xref:System.Threading.CancellationToken> para cancelar operaciones de ejecución prolongada cuando se desecha el componente. Este enfoque tiene la ventaja adicional de evitar *usar-After-Dispose* en los componentes:
 
-```cshtml
+```razor
 @implements IDisposable
 
 ...
@@ -291,8 +291,8 @@ El error del lado cliente no incluye la pila de llamadas y no proporciona detall
 
 Habilitar errores detallados con:
 
-* `CircuitOptions.DetailedErrors`Operador
-* `DetailedErrors` clave de configuración. Por ejemplo, establezca la variable de entorno `ASPNETCORE_DETAILEDERRORS` en un valor de `true`.
+* `CircuitOptions.DetailedErrors`.
+* Clave de configuración de `DetailedErrors`. Por ejemplo, establezca la variable de entorno `ASPNETCORE_DETAILEDERRORS` en un valor de `true`.
 
 > [!WARNING]
 > Exponer información de errores a los clientes de Internet es un riesgo de seguridad que siempre debe evitarse.

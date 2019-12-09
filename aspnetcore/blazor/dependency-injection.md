@@ -9,12 +9,12 @@ ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/dependency-injection
-ms.openlocfilehash: 17dd0f927064ae7c2b1e3e439fd93e2cb220a5a4
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: aad6cfee500b5cb502470f6a4a7cb5756df09dc4
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879778"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943789"
 ---
 # <a name="aspnet-core-opno-locblazor-dependency-injection"></a>ASP.NET Core Blazor la inserción de dependencias
 
@@ -84,7 +84,7 @@ Use varias instrucciones `@inject` para insertar distintos servicios.
 
 En el ejemplo siguiente se muestra cómo utilizar `@inject`. El servicio que implementa `Services.IDataAccess` se inserta en el `DataRepository`de propiedades del componente. Observe cómo el código solo usa la abstracción `IDataAccess`:
 
-[!code-cshtml[](dependency-injection/samples_snapshot/3.x/CustomerList.razor?highlight=2-3,23)]
+[!code-razor[](dependency-injection/samples_snapshot/3.x/CustomerList.razor?highlight=2-3,23)]
 
 Internamente, la propiedad generada (`DataRepository`) utiliza el atributo `InjectAttribute`. Normalmente, este atributo no se usa directamente. Si se requiere una clase base para los componentes y las propiedades insertadas también son necesarias para la clase base, agregue manualmente el `InjectAttribute`:
 
@@ -100,7 +100,7 @@ public class ComponentBase : IComponent
 
 En los componentes derivados de la clase base, no se requiere la Directiva `@inject`. La `InjectAttribute` de la clase base es suficiente:
 
-```cshtml
+```razor
 @page "/demo"
 @inherits ComponentBase
 
@@ -135,7 +135,7 @@ En ASP.NET Core aplicaciones, el ámbito de los servicios de ámbito suele ser l
 
 Para limitar los servicios a la duración de un componente, puede usar las clases base `OwningComponentBase` y `OwningComponentBase<TService>`. Estas clases base exponen una propiedad `ScopedServices` de tipo `IServiceProvider` que resuelven los servicios cuyo ámbito es la duración del componente. Para crear un componente que herede de una clase base en Razor, use la Directiva `@inherits`.
 
-```cshtml
+```razor
 @page "/users"
 @attribute [Authorize]
 @inherits OwningComponentBase<Data.ApplicationDbContext>
