@@ -4,14 +4,14 @@ author: blowdart
 description: Obtenga información acerca de cómo configurar la autenticación de certificados en ASP.NET Core para IIS y HTTP. sys.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
-ms.date: 11/14/2019
+ms.date: 12/09/2019
 uid: security/authentication/certauth
-ms.openlocfilehash: 2ed3e88adf3bdb7528f47492b6eb5792f99f20d8
-ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
+ms.openlocfilehash: 38ee8a6767191bb3eee4286e49b96162b14d9889
+ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155007"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74959065"
 ---
 # <a name="configure-certificate-authentication-in-aspnet-core"></a>Configurar la autenticación de certificados en ASP.NET Core
 
@@ -28,7 +28,7 @@ La autenticación de certificados es un escenario con estado que se usa principa
 
 Una alternativa a la autenticación de certificados en entornos en los que se usan servidores proxy y equilibradores de carga es Active Directory Federated Services (ADFS) con OpenID Connect (OIDC).
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 Adquiera un certificado HTTPS, aplíquelo y [Configure el host](#configure-your-host-to-require-certificates) para que requiera certificados.
 
@@ -43,7 +43,7 @@ public void ConfigureServices(IServiceCollection services)
 {
     services.AddAuthentication(
         CertificateAuthenticationDefaults.AuthenticationScheme)
-            .AddCertificate();
+        .AddCertificate();
     // All the other service configuration.
 }
 
@@ -194,19 +194,21 @@ public static void Main(string[] args)
 public static IHostBuilder CreateHostBuilder(string[] args)
 {
     return Host.CreateDefaultBuilder(args)
-               .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                    webBuilder.ConfigureKestrel(o =>
-                    {
-                        o.ConfigureHttpsDefaults(o => o.ClientCertificateMode = ClientCertificateMode.RequireCertificate);
-                    });
-                });
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+            webBuilder.ConfigureKestrel(o =>
+            {
+                o.ConfigureHttpsDefaults(o => 
+            o.ClientCertificateMode = 
+                ClientCertificateMode.RequireCertificate);
+            });
+        });
 }
 ```
 
 > [!NOTE]
-> Los extremos creados mediante una llamada a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **antes** de llamar a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> no tendrán aplicados los valores predeterminados.
+> Los puntos de conexión que se crean mediante una llamada a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **antes** de llamar a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> no tendrán aplicados los valores predeterminados.
 
 ### <a name="iis"></a>IIS
 
@@ -234,14 +236,13 @@ En Azure Web Apps, el certificado se pasa como un encabezado de solicitud person
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    // ...
-    
     services.AddCertificateForwarding(options =>
     {
         options.CertificateHeader = "X-ARR-ClientCert";
         options.HeaderConverter = (headerValue) =>
         {
             X509Certificate2 clientCertificate = null;
+        
             if(!string.IsNullOrWhiteSpace(headerValue))
             {
                 byte[] bytes = StringToByteArray(headerValue);
@@ -257,8 +258,12 @@ private static byte[] StringToByteArray(string hex)
 {
     int NumberChars = hex.Length;
     byte[] bytes = new byte[NumberChars / 2];
+
     for (int i = 0; i < NumberChars; i += 2)
+    {
         bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+    }
+
     return bytes;
 }
 ```
@@ -269,7 +274,7 @@ A continuación, el método `Startup.Configure` agrega el middleware. se llama a
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
     ...
-    
+
     app.UseRouting();
 
     app.UseCertificateForwarding();
@@ -295,8 +300,11 @@ namespace AspNetCoreCertificateAuthApi
     {
         public bool ValidateCertificate(X509Certificate2 clientCertificate)
         {
-            // Do not hardcode passwords in production code, use thumbprint or key vault
-            var cert = new X509Certificate2(Path.Combine("sts_dev_cert.pfx"), "1234");
+            // Do not hardcode passwords in production code
+            // Use thumbprint or key vault
+            var cert = new X509Certificate2(
+                Path.Combine("sts_dev_cert.pfx"), "1234");
+
             if (clientCertificate.Thumbprint == cert.Thumbprint)
             {
                 return true;
@@ -317,11 +325,12 @@ private async Task<JsonDocument> GetApiDataAsync()
 {
     try
     {
-        // Do not hardcode passwords in production code, use thumbprint or key vault
-        var cert = new X509Certificate2(Path.Combine(_environment.ContentRootPath, "sts_dev_cert.pfx"), "1234");
-
+        // Do not hardcode passwords in production code
+        // Use thumbprint or key vault
+        var cert = new X509Certificate2(
+            Path.Combine(_environment.ContentRootPath, 
+                "sts_dev_cert.pfx"), "1234");
         var client = _clientFactory.CreateClient();
-
         var request = new HttpRequestMessage()
         {
             RequestUri = new Uri("https://localhost:44379/api/values"),
@@ -339,7 +348,9 @@ private async Task<JsonDocument> GetApiDataAsync()
             return data;
         }
 
-        throw new ApplicationException($"Status code: {response.StatusCode}, Error: {response.ReasonPhrase}");
+        throw new ApplicationException(
+            $"Status code: {response.StatusCode}, " +
+            $"Error: {response.ReasonPhrase}");
     }
     catch (Exception e)
     {
