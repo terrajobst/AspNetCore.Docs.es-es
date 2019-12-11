@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo funciona el enlace de modelos en ASP.NET Core y cómo personalizar su comportamiento.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
-ms.date: 11/15/2019
+ms.date: 11/21/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: a025419a5b4d2c2e3e5c5a7850df281ddd3164ea
-ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
+ms.openlocfilehash: a49fec38a6d38bbd33e9461cbcceb39bfe810f5c
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155041"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717291"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Enlace de modelos en ASP.NET Core
 
@@ -83,18 +83,18 @@ De forma predeterminada, las propiedades no se enlazan para las solicitudes HTTP
 
 De forma predeterminada, el enlace de modelos obtiene datos en forma de pares clave-valor de los siguientes orígenes de una solicitud HTTP:
 
-1. Campos de formulario 
+1. Campos de formulario
 1. El cuerpo de la solicitud (para [controladores que tienen el atributo [ApiController]](xref:web-api/index#binding-source-parameter-inference)).
 1. Datos de ruta
 1. Parámetros de cadena de consulta
-1. Archivos cargados 
+1. Archivos cargados
 
-Para cada parámetro o propiedad de destino, se examinan los orígenes en el orden indicado en esta lista. Hay algunas excepciones:
+Para cada parámetro o propiedad de destino, se examinan los orígenes en el orden indicado en la lista anterior. Hay algunas excepciones:
 
 * Los datos de ruta y los valores de cadena de consulta solo se usan para tipos simples.
 * Los archivos cargados solo se enlazan a tipos de destino que implementan `IFormFile` o `IEnumerable<IFormFile>`.
 
-Si el comportamiento predeterminado no proporciona los resultados adecuados, puede usar uno de los atributos siguientes para especificar el origen que se va a usar para cualquier destino dado. 
+Si el origen predeterminado no es correcto, use uno de los atributos siguientes para especificar el origen:
 
 * [[FromQuery]](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute): obtiene valores de la cadena de consulta. 
 * [[FromRoute]](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute): obtiene valores de los datos de ruta.
@@ -114,9 +114,34 @@ Estos atributos:
 
 ### <a name="frombody-attribute"></a>Atributo [FromBody]
 
-Los datos del cuerpo de la solicitud se analizan mediante formateadores de entrada específicos para el tipo de contenido de la solicitud. Los formateadores de entrada se explican [más adelante en este artículo](#input-formatters).
+Aplique el atributo `[FromBody]` a un parámetro para rellenar sus propiedades desde el cuerpo de una solicitud HTTP. El runtime de ASP.NET Core delega la responsabilidad de leer el cuerpo al formateador de entrada. Los formateadores de entrada se explican [más adelante en este artículo](#input-formatters).
 
-No aplique `[FromBody]` a más de un parámetro por método de acción. El runtime de ASP.NET Core delega la responsabilidad de leer la secuencia de solicitudes al formateador de entrada. Una vez que se ha leído la secuencia de solicitudes, deja de estar disponible para una nueva lectura con el fin de enlazar otros parámetros `[FromBody]`.
+Cuando se aplica `[FromBody]` a un parámetro de tipo complejo, se omiten los atributos de origen de enlace aplicados a sus propiedades. Por ejemplo, la acción `Create` siguiente especifica que su parámetro `pet` se rellena a partir del cuerpo:
+
+```csharp
+public ActionResult<Pet> Create([FromBody] Pet pet)
+```
+
+La clase `Pet` especifica que su propiedad `Breed` se rellena a partir de un parámetro de cadena de consulta:
+
+```csharp
+public class Pet
+{
+    public string Name { get; set; }
+
+    [FromQuery] // Attribute is ignored.
+    public string Breed { get; set; }
+}
+```
+
+En el ejemplo anterior:
+
+* El atributo `[FromQuery]` se ignora.
+* La propiedad `Breed` no se rellena desde un parámetro de cadena de consulta. 
+
+Los formateadores de entrada solo leen el cuerpo y no entienden los atributos de origen de enlace. Si se encuentra un valor adecuado en el cuerpo, ese valor se usa para rellenar la propiedad `Breed`.
+
+No aplique `[FromBody]` a más de un parámetro por método de acción. Una vez que un formateador de entrada ha leído la secuencia de solicitudes, deja de estar disponible para una nueva lectura con el fin de enlazar otros parámetros `[FromBody]`.
 
 ### <a name="additional-sources"></a>Orígenes adicionales
 
@@ -355,6 +380,27 @@ Para los destinos `Dictionary`, el enlace de modelos busca coincidencias con *no
 
   * selectedCourses["1050"]="Chemistry"
   * selectedCourses["2000"]="Economics"
+
+<a name="glob"></a>
+
+## <a name="globalization-behavior-of-model-binding-route-data-and-query-strings"></a>Comportamiento de globalización del enlace de modelos datos de ruta y cadenas de consulta
+
+El proveedor de valores de ruta de ASP.NET Core y el proveedor de valores de cadena de consulta:
+
+* Tratan los valores como referencia cultural de todos los idiomas.
+* Esperan que las direcciones URL sean independientes de la referencia cultural.
+
+Por el contrario, los valores procedentes de datos de formulario se someten a una conversión que tiene en cuenta la referencia cultural. Esto es así por diseño, para que las direcciones URL se puedan compartir entre configuraciones regionales.
+
+Para que el proveedor de valores de ruta de ASP.NET Core y el proveedor de valores de cadena de consulta se sometan a una conversión dependiente de la referencia cultural:
+
+* Heredan de <xref:Microsoft.AspNetCore.Mvc.ModelBinding.IValueProviderFactory>.
+* Copie el código de [QueryStringValueProviderFactory](https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs) o [RouteValueValueProviderFactory](https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/ModelBinding/RouteValueProviderFactory.cs)
+* Reemplace el [valor de referencia cultural](https://github.com/aspnet/AspNetCore/blob/e625fe29b049c60242e8048b4ea743cca65aa7b5/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs#L30) pasado al constructor de proveedor de valores con [CultureInfo.CurrentCulture](xref:System.Globalization.CultureInfo.CurrentCulture)
+* Reemplace el generador de proveedores de valor predeterminado en las opciones de MVC por el nuevo:
+
+[!code-csharp[](model-binding/samples/StartupMB.cs?name=snippet)]
+[!code-csharp[](model-binding/samples/StartupMB.cs?name=snippet1)]
 
 ## <a name="special-data-types"></a>Tipos de datos especiales
 

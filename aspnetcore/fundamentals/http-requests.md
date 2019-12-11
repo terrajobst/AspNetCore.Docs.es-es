@@ -4,14 +4,14 @@ author: stevejgordon
 description: Obtenga información sobre cómo usar la interfaz IHttpClientFactory para administrar instancias de HttpClient lógicas en ASP.NET Core.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 10/27/2019
+ms.date: 11/27/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: a963833acfa12889c8ae3dac443962682e1cb931
-ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
+ms.openlocfilehash: f33444b8fc08dc022da7700af53a218600290162
+ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73190584"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74733926"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Realización de solicitudes HTTP mediante IHttpClientFactory en ASP.NET Core
 
@@ -288,6 +288,35 @@ Normalmente, las instancias de `HttpClient` se pueden trata como objetos de .NET
 
 Mantener una sola instancia de `HttpClient` activa durante un período prolongado es un patrón común que se utiliza antes de la concepción de `IHttpClientFactory`. Este patrón se convierte en innecesario tras la migración a `IHttpClientFactory`.
 
+### <a name="alternatives-to-ihttpclientfactory"></a>Alternativas a IHttpClientFactory
+
+El uso de `IHttpClientFactory` en una aplicación habilitada para la inserción de dependencias evita lo siguiente:
+
+* Problemas de agotamiento de recursos mediante la agrupación de instancias de `HttpMessageHandler`.
+* Problemas de DNS obsoletos al recorrer las instancias de `HttpMessageHandler` a intervalos regulares.
+
+Existen formas alternativas de solucionar los problemas anteriores mediante una instancia de <xref:System.Net.Http.SocketsHttpHandler> de larga duración.
+
+- Cree una instancia de `SocketsHttpHandler` al iniciar la aplicación y úsela para la vida útil de la aplicación.
+- Configure <xref:System.Net.Http.SocketsHttpHandler.PooledConnectionLifetime> con un valor adecuado en función de los tiempos de actualización de DNS.
+- Cree instancias de `HttpClient` mediante `new HttpClient(handler, dispostHandler: false)` según sea necesario.
+
+Los enfoques anteriores solucionan los problemas de administración de recursos que `IHttpClientFactory` resuelve de forma similar.
+
+- `SocketsHttpHandler` comparte las conexiones entre las instancias de `HttpClient`. Este uso compartido impide el agotamiento del socket.
+- `SocketsHttpHandler` recorre las conexiones según `PooledConnectionLifetime` para evitar problemas de DNS obsoletos.
+
+### <a name="cookies"></a>Cookies
+
+Las instancias de `HttpMessageHandler` agrupadas generan objetos `CookieContainer` que se comparten. El uso compartido de objetos `CookieContainer` no previsto suele generar código incorrecto. En el caso de las aplicaciones que requieren cookies, tenga en cuenta lo siguiente:
+
+ - Deshabilitar el control automático de las cookies
+ - Evitar `IHttpClientFactory`
+
+Llame a <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.ConfigurePrimaryHttpMessageHandler*> para deshabilitar el control automático de cookies:
+
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet13)]
+
 ## <a name="logging"></a>Registro
 
 Los clientes que se han creado a través de `IHttpClientFactory` registran mensajes de registro de todas las solicitudes. Habilite el nivel de información adecuado en la configuración del registro para ver los mensajes de registro predeterminados. El registro de más información, como el registro de encabezados de solicitud, solo se incluye en el nivel de seguimiento.
@@ -361,7 +390,7 @@ Se puede registrar un `IHttpClientFactory` llamando al método de extensión `Ad
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet1)]
 
-Una vez registrado, el código puede aceptar una interfaz `IHttpClientFactory` en cualquier parte donde se puedan insertar servicios por medio de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection). El `IHttpClientFactory` se puede usar para crear una instancia de `HttpClient`:
+Una vez registrado, el código puede aceptar una interfaz `IHttpClientFactory` en cualquier parte donde se puedan insertar servicios por medio de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection). `IHttpClientFactory` se puede usar para crear una instancia de `HttpClient`:
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Pages/BasicUsage.cshtml.cs?name=snippet1&highlight=9-12,21)]
 
@@ -481,7 +510,7 @@ Para crear un controlador, defina una clase que se derive de <xref:System.Net.Ht
 
 El código anterior define un controlador básico. Comprueba si se ha incluido un encabezado `X-API-KEY` en la solicitud. Si no está presente, puede evitar la llamada HTTP y devolver una respuesta adecuada.
 
-Durante el registro, se pueden agregar uno o varios controladores a la configuración de un `HttpClient`. Esta tarea se realiza a través de métodos de extensión en <xref:Microsoft.Extensions.DependencyInjection.IHttpClientBuilder>.
+Durante el registro, se pueden agregar uno o varios controladores a la configuración de una instancia de `HttpClient`. Esta tarea se realiza a través de métodos de extensión en <xref:Microsoft.Extensions.DependencyInjection.IHttpClientBuilder>.
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet5)]
 
@@ -560,6 +589,35 @@ No hace falta eliminar el cliente, ya que se cancelan las solicitudes salientes 
 
 Mantener una sola instancia de `HttpClient` activa durante un período prolongado es un patrón común que se utiliza antes de la concepción de `IHttpClientFactory`. Este patrón se convierte en innecesario tras la migración a `IHttpClientFactory`.
 
+### <a name="alternatives-to-ihttpclientfactory"></a>Alternativas a IHttpClientFactory
+
+El uso de `IHttpClientFactory` en una aplicación habilitada para la inserción de dependencias evita lo siguiente:
+
+* Problemas de agotamiento de recursos mediante la agrupación de instancias de `HttpMessageHandler`.
+* Problemas de DNS obsoletos al recorrer las instancias de `HttpMessageHandler` a intervalos regulares.
+
+Existen formas alternativas de solucionar los problemas anteriores mediante una instancia de <xref:System.Net.Http.SocketsHttpHandler> de larga duración.
+
+- Cree una instancia de `SocketsHttpHandler` al iniciar la aplicación y úsela para la vida útil de la aplicación.
+- Configure <xref:System.Net.Http.SocketsHttpHandler.PooledConnectionLifetime> con un valor adecuado en función de los tiempos de actualización de DNS.
+- Cree instancias de `HttpClient` mediante `new HttpClient(handler, dispostHandler: false)` según sea necesario.
+
+Los enfoques anteriores solucionan los problemas de administración de recursos que `IHttpClientFactory` resuelve de forma similar.
+
+- `SocketsHttpHandler` comparte las conexiones entre las instancias de `HttpClient`. Este uso compartido impide el agotamiento del socket.
+- `SocketsHttpHandler` recorre las conexiones según `PooledConnectionLifetime` para evitar problemas de DNS obsoletos.
+
+### <a name="cookies"></a>Cookies
+
+Las instancias de `HttpMessageHandler` agrupadas generan objetos `CookieContainer` que se comparten. El uso compartido de objetos `CookieContainer` no previsto suele generar código incorrecto. En el caso de las aplicaciones que requieren cookies, tenga en cuenta lo siguiente:
+
+ - Deshabilitar el control automático de las cookies
+ - Evitar `IHttpClientFactory`
+
+Llame a <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.ConfigurePrimaryHttpMessageHandler*> para deshabilitar el control automático de cookies:
+
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet13)]
+
 ## <a name="logging"></a>Registro
 
 Los clientes que se han creado a través de `IHttpClientFactory` registran mensajes de registro de todas las solicitudes. Habilite el nivel de información adecuado en la configuración del registro para ver los mensajes de registro predeterminados. El registro de más información, como el registro de encabezados de solicitud, solo se incluye en el nivel de seguimiento.
@@ -637,7 +695,7 @@ Se puede registrar un `IHttpClientFactory` llamando al método de extensión `Ad
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet1)]
 
-Una vez registrado, el código puede aceptar una interfaz `IHttpClientFactory` en cualquier parte donde se puedan insertar servicios por medio de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection). El `IHttpClientFactory` se puede usar para crear una instancia de `HttpClient`:
+Una vez registrado, el código puede aceptar una interfaz `IHttpClientFactory` en cualquier parte donde se puedan insertar servicios por medio de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection). `IHttpClientFactory` se puede usar para crear una instancia de `HttpClient`:
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Pages/BasicUsage.cshtml.cs?name=snippet1&highlight=9-12,21)]
 
@@ -757,7 +815,7 @@ Para crear un controlador, defina una clase que se derive de <xref:System.Net.Ht
 
 El código anterior define un controlador básico. Comprueba si se ha incluido un encabezado `X-API-KEY` en la solicitud. Si no está presente, puede evitar la llamada HTTP y devolver una respuesta adecuada.
 
-Durante el registro, se pueden agregar uno o varios controladores a la configuración de un `HttpClient`. Esta tarea se realiza a través de métodos de extensión en <xref:Microsoft.Extensions.DependencyInjection.IHttpClientBuilder>.
+Durante el registro, se pueden agregar uno o varios controladores a la configuración de una instancia de `HttpClient`. Esta tarea se realiza a través de métodos de extensión en <xref:Microsoft.Extensions.DependencyInjection.IHttpClientBuilder>.
 
 [!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet5)]
 
@@ -838,6 +896,35 @@ La duración de controlador predeterminada es dos minutos. El valor predetermina
 No hace falta eliminar el cliente, ya que se cancelan las solicitudes salientes y la instancia de `HttpClient` determinada no se puede usar después de llamar a <xref:System.IDisposable.Dispose*>. `IHttpClientFactory` realiza un seguimiento y elimina los recursos que usan las instancias de `HttpClient`. Normalmente, las instancias de `HttpClient` pueden tratarse como objetos de .NET que no requieren eliminación.
 
 Mantener una sola instancia de `HttpClient` activa durante un período prolongado es un patrón común que se utiliza antes de la concepción de `IHttpClientFactory`. Este patrón se convierte en innecesario tras la migración a `IHttpClientFactory`.
+
+### <a name="alternatives-to-ihttpclientfactory"></a>Alternativas a IHttpClientFactory
+
+El uso de `IHttpClientFactory` en una aplicación habilitada para la inserción de dependencias evita lo siguiente:
+
+* Problemas de agotamiento de recursos mediante la agrupación de instancias de `HttpMessageHandler`.
+* Problemas de DNS obsoletos al recorrer las instancias de `HttpMessageHandler` a intervalos regulares.
+
+Existen formas alternativas de solucionar los problemas anteriores mediante una instancia de <xref:System.Net.Http.SocketsHttpHandler> de larga duración.
+
+- Cree una instancia de `SocketsHttpHandler` al iniciar la aplicación y úsela para la vida útil de la aplicación.
+- Configure <xref:System.Net.Http.SocketsHttpHandler.PooledConnectionLifetime> con un valor adecuado en función de los tiempos de actualización de DNS.
+- Cree instancias de `HttpClient` mediante `new HttpClient(handler, dispostHandler: false)` según sea necesario.
+
+Los enfoques anteriores solucionan los problemas de administración de recursos que `IHttpClientFactory` resuelve de forma similar.
+
+- `SocketsHttpHandler` comparte las conexiones entre las instancias de `HttpClient`. Este uso compartido impide el agotamiento del socket.
+- `SocketsHttpHandler` recorre las conexiones según `PooledConnectionLifetime` para evitar problemas de DNS obsoletos.
+
+### <a name="cookies"></a>Cookies
+
+Las instancias de `HttpMessageHandler` agrupadas generan objetos `CookieContainer` que se comparten. El uso compartido de objetos `CookieContainer` no previsto suele generar código incorrecto. En el caso de las aplicaciones que requieren cookies, tenga en cuenta lo siguiente:
+
+ - Deshabilitar el control automático de las cookies
+ - Evitar `IHttpClientFactory`
+
+Llame a <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.ConfigurePrimaryHttpMessageHandler*> para deshabilitar el control automático de cookies:
+
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet13)]
 
 ## <a name="logging"></a>Registro
 

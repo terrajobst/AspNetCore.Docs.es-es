@@ -7,32 +7,32 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: mvc/controllers/testing
-ms.openlocfilehash: 7f4fcb1a5d6e9959c751ebe24e41b39ee05a5819
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 449d8791962e4233d599f364b2e8c922f0975d2f
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799501"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681102"
 ---
-# <a name="test-controller-logic-in-aspnet-core"></a>Probar la lógica del controlador en ASP.NET Core
+# <a name="unit-test-controller-logic-in-aspnet-core"></a>Lógica del controlador de pruebas unitarias en ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/)
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Los [controles](xref:mvc/controllers/actions) desempeñan un rol fundamental en cualquier aplicación de ASP.NET Core MVC. Por tanto, debe tener la seguridad de que los controladores se comportan según lo previsto. Las pruebas automatizadas pueden detectar errores antes de que la aplicación se implemente en un entorno de producción.
-
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
-
-## <a name="unit-tests-of-controller-logic"></a>Pruebas unitarias de la lógica del controlador
-
 Las [pruebas unitarias](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) implican probar una parte de una aplicación de forma aislada con respecto a su infraestructura y dependencias. Cuando se realizan pruebas unitarias de la lógica de controlador, solo se comprueba el contenido de una única acción, no el comportamiento de sus dependencias o del marco en sí.
+
+## <a name="unit-testing-controllers"></a>Controladores de pruebas unitarias
 
 Configure pruebas unitarias de las acciones del controlador para centrarse en el comportamiento del controlador. Una prueba unitaria del controlador evita escenarios como [filtros](xref:mvc/controllers/filters), [enrutamiento](xref:fundamentals/routing) y [enlace de modelos](xref:mvc/models/model-binding). Las pruebas que abarcan las interacciones entre los componentes que colectivamente responden a una solicitud se controlan mediante *pruebas de integración*. Para más información sobre las pruebas de integración, vea <xref:test/integration-tests>.
 
 Si va a escribir filtros personalizados y rutas, realice pruebas unitarias en ellos de forma aislada, no como parte de las pruebas de una acción de controlador concreta.
 
-Para demostrar las pruebas unitarias del controlador, revise el siguiente controlador en la aplicación de ejemplo. El controlador Home muestra una lista de sesiones de lluvia de ideas y permite crear nuevas sesiones de lluvia de ideas con una solicitud POST:
+Para demostrar las pruebas unitarias del controlador, revise el siguiente controlador en la aplicación de ejemplo. 
+
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+
+El controlador Home muestra una lista de sesiones de lluvia de ideas y permite crear nuevas sesiones de lluvia de ideas con una solicitud POST:
 
 [!code-csharp[](testing/samples/3.x/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?name=snippet_HomeController&highlight=1,5,10,31-32)]
 

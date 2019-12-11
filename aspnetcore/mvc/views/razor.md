@@ -3,14 +3,14 @@ title: Referencia de sintaxis de Razor para ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre la sintaxis de marcado de Razor para insertar código basado en servidor en páginas web.
 ms.author: riande
-ms.date: 09/28/2019
+ms.date: 11/09/2019
 uid: mvc/views/razor
-ms.openlocfilehash: d8d686c23ea61950947798f213c9846058f1812e
-ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
+ms.openlocfilehash: dea1cd8986757b0bafab9ba9e8aa358a57a6b5eb
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896897"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317406"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Referencia de sintaxis de Razor para ASP.NET Core
 
@@ -721,11 +721,31 @@ En los [componentes de Razor](xref:blazor/components), `@using` también control
 
 El enlace de datos en los componentes se logra mediante el atributo `@bind`. Para más información, consulte <xref:blazor/components#data-binding>.
 
-### <a name="onevent"></a>\@on{event}
+### <a name="onevent"></a>\@on{EVENT}
 
 *Este escenario solo se aplica a los componentes de Razor (.razor).*
 
 Razor proporciona características de control de eventos para componentes. Para más información, consulte <xref:blazor/components#event-handling>.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.1"
+
+### <a name="oneventpreventdefault"></a>\@on{EVENT}:preventDefault
+
+*Este escenario solo se aplica a los componentes de Razor (.razor).*
+
+Impide la acción predeterminada para el evento.
+
+### <a name="oneventstoppropagation"></a>\@on{EVENT}:stopPropagation
+
+*Este escenario solo se aplica a los componentes de Razor (.razor).*
+
+Detiene la propagación de eventos para el evento.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
 
 ### <a name="key"></a>\@key
 

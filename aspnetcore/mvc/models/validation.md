@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre la validación de modelos en ASP.NET Core MVC y Razor Pages.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/19/2019
+ms.date: 11/21/2019
 uid: mvc/models/validation
-ms.openlocfilehash: 1277cac231bab6b56657793ed78dbc4cfb7d9704
-ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
+ms.openlocfilehash: 19f71799e958e2761832c91cec6762a6d391d2b5
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74239866"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317425"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Validación de modelos en ASP.NET Core MVC y Razor Pages
 
@@ -208,7 +208,7 @@ La validación se detiene cuando se alcanza el número máximo de errores (200 d
 
 ## <a name="maximum-recursion"></a>Recursividad máxima
 
-<xref:Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor> recorre el gráfico de objetos del modelo que se está validando. En el caso de los modelos profundos o infinitamente recursivos, la validación podría causar un desbordamiento de pila. [MvcOptions.MaxValidationDepth](xref:Microsoft.AspNetCore.Mvc.MvcOptions.MaxValidationDepth) proporciona una manera de detener pronto la validación si la recursividad del visitante supera la profundidad configurada. El valor predeterminado de `MvcOptions.MaxValidationDepth` es 200.
+<xref:Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor> recorre el gráfico de objetos del modelo que se está validando. En el caso de los modelos profundos o infinitamente recursivos, la validación podría causar un desbordamiento de pila. [MvcOptions.MaxValidationDepth](xref:Microsoft.AspNetCore.Mvc.MvcOptions.MaxValidationDepth) proporciona una manera de detener pronto la validación si la recursividad del visitante supera la profundidad configurada. El valor predeterminado de `MvcOptions.MaxValidationDepth` es 32.
 
 ## <a name="automatic-short-circuit"></a>Cortocircuito automático
 
@@ -569,7 +569,7 @@ La validación se detiene cuando se alcanza el número máximo de errores (200 d
 
 ## <a name="maximum-recursion"></a>Recursividad máxima
 
-<xref:Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor> recorre el gráfico de objetos del modelo que se está validando. En el caso de los modelos muy profundos o infinitamente recursivos, la validación podría causar un desbordamiento de pila. [MvcOptions.MaxValidationDepth](xref:Microsoft.AspNetCore.Mvc.MvcOptions.MaxValidationDepth) proporciona una manera de detener pronto la validación si la recursividad del visitante supera la profundidad configurada. El valor predeterminado de `MvcOptions.MaxValidationDepth` es 200 cuando se ejecuta con `CompatibilityVersion.Version_2_2` o una versión posterior. Para las versiones anteriores, el valor es NULL, lo que significa que no hay restricción de profundidad.
+<xref:Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor> recorre el gráfico de objetos del modelo que se está validando. En el caso de los modelos muy profundos o infinitamente recursivos, la validación podría causar un desbordamiento de pila. [MvcOptions.MaxValidationDepth](xref:Microsoft.AspNetCore.Mvc.MvcOptions.MaxValidationDepth) proporciona una manera de detener pronto la validación si la recursividad del visitante supera la profundidad configurada. El valor predeterminado de `MvcOptions.MaxValidationDepth` es 32 cuando se ejecuta con `CompatibilityVersion.Version_2_2` o una versión posterior. Para las versiones anteriores, el valor es NULL, lo que significa que no hay restricción de profundidad.
 
 ## <a name="automatic-short-circuit"></a>Cortocircuito automático
 

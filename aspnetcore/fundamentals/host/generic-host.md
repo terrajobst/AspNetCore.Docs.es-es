@@ -5,14 +5,14 @@ description: Obtenga información sobre el host genérico .NET Core, que es resp
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 12/02/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: f14917ad924e2c762a14c2cb5f51391d4be06e7b
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: 2ed4af109b5ccd303a03a0d9167649dda7793126
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72378751"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717027"
 ---
 # <a name="net-generic-host"></a>Host genérico de .NET
 
@@ -129,7 +129,7 @@ La implementación de <xref:Microsoft.Extensions.Hosting.IHostLifetime> controla
 
 `Microsoft.Extensions.Hosting.Internal.ConsoleLifetime` es la implementación predeterminada de `IHostLifetime`. `ConsoleLifetime`:
 
-* escucha Ctrl+C/SIGINT o SIGTERM y llama a <xref:Microsoft.Extensions.Hosting.IApplicationLifetime.StopApplication*> para iniciar el proceso de cierre.
+* escucha Ctrl+C/SIGINT o SIGTERM, y llama a <xref:Microsoft.Extensions.Hosting.IHostApplicationLifetime.StopApplication*> para iniciar el proceso de cierre.
 * Desbloquea extensiones como [RunAsync](#runasync) y [WaitForShutdownAsync](#waitforshutdownasync).
 
 ## <a name="ihostenvironment"></a>IHostEnvironment
@@ -140,9 +140,7 @@ Permite insertar el servicio <xref:Microsoft.Extensions.Hosting.IHostEnvironment
 * [EnvironmentName](#environmentname)
 * [ContentRootPath](#contentrootpath)
 
-Las aplicaciones web implementan la interfaz de `IWebHostEnvironment`, que hereda `IHostEnvironment` y agrega:
-
-* [WebRootPath](#webroot)
+Las aplicaciones web implementan la interfaz `IWebHostEnvironment`, que hereda `IHostEnvironment` y agrega [WebRootPath](#webroot).
 
 ## <a name="host-configuration"></a>Configuración de host
 
@@ -226,7 +224,7 @@ Host.CreateDefaultBuilder(args)
 
 [HostOptions.ShutdownTimeout](xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*) establece el tiempo de espera para <xref:Microsoft.Extensions.Hosting.IHost.StopAsync*>. El valor predeterminado es cinco segundos.  Durante el período de tiempo de espera, el host:
 
-* Activa [IHostApplicationLifetime.ApplicationStopping](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime.applicationstopping).
+* Activa [IHostApplicationLifetime.ApplicationStopping](/dotnet/api/microsoft.aspnetcore.hosting.ihostapplicationlifetime.applicationstopping).
 * Trata de detener los servicios hospedados y registra los errores que se producen en los servicios que no se puedan detener.
 
 Si el período de tiempo de espera expira antes de que todos los servicios hospedados se hayan detenido, los servicios activos que queden se detendrán cuando se cierre la aplicación. Los servicios se detienen aun cuando no hayan terminado de procesarse. Si los servicios requieren más tiempo para detenerse, aumente el valor de tiempo de espera.
