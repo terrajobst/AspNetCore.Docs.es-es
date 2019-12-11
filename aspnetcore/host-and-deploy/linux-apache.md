@@ -5,14 +5,14 @@ description: Aprenda a configurar Apache como servidor proxy inverso en CentOS p
 monikerRange: '>= aspnetcore-2.1'
 ms.author: shboyer
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 12/02/2019
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: fce91db736908e433ba6803319aa8984bb68a554
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 730ed1847ec5728657d56db3ccf0f1f5fab6b5dd
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73659884"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717369"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hospedar ASP.NET Core en Linux con Apache
 
@@ -24,10 +24,13 @@ Mediante esta guía, aprenda a configurar [Apache](https://httpd.apache.org/) co
 
 * Servidor que ejecute CentOS 7, con una cuenta de usuario estándar con privilegios sudo.
 * Tener .NET Core Runtime instalado en el servidor.
-   1. Vaya a la [página de descargas de .NET Core](https://www.microsoft.com/net/download/all).
-   1. Seleccione el tiempo de ejecución más reciente que no sea versión preliminar en la lista **Runtime**.
-   1. Seleccione y siga las instrucciones relativas a CentOS/Oracle.
+   1. Visite la página [Descargar .NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+   1. Seleccione la versión más reciente de .NET Core que no sea de versión preliminar.
+   1. Descargue el runtime más reciente que no sea de versión preliminar en la tabla en **Ejecutar aplicaciones: runtime**.
+   1. Seleccione el vínculo **Instrucciones del administrador de paquetes** de Linux y siga las instrucciones de CentOS.
 * Disponer de una aplicación de ASP.NET Core existente.
+
+En cualquier momento futuro tras actualizar el marco de trabajo compartido, reinicie las aplicaciones ASP.NET Core que hospeda el servidor.
 
 ## <a name="publish-and-copy-over-the-app"></a>Publicar y copiar en la aplicación
 
@@ -316,7 +319,7 @@ rich rules:
 
 **Configuración de la aplicación para conexiones locales seguras (HTTPS)**
 
-El comando [dotnet run](/dotnet/core/tools/dotnet-run) usa el archivo *Properties/launchSettings.json* de la aplicación, que configura la aplicación para que escuche en las direcciones URL proporcionadas por la propiedad `applicationUrl` (por ejemplo, `https://localhost:5001;http://localhost:5000`).
+El comando [dotnet run](/dotnet/core/tools/dotnet-run) usa el archivo *Properties/launchSettings.json* de la aplicación, que configura la aplicación para que escuche en las direcciones URL proporcionadas por la propiedad `applicationUrl` (por ejemplo, `https://localhost:5001; http://localhost:5000`).
 
 Configure la aplicación para que use un certificado en el desarrollo para el comando `dotnet run` o el entorno de desarrollo (F5 o CTRL+F5 en Visual Studio Code) mediante uno de los siguientes enfoques:
 
@@ -380,6 +383,10 @@ sudo systemctl restart httpd
 ```
 
 ## <a name="additional-apache-suggestions"></a>Sugerencias adicionales de Apache
+
+### <a name="restart-apps-with-shared-framework-updates"></a>Reinicio de aplicaciones con actualizaciones de marco compartidas
+
+Después de actualizar el marco de trabajo compartido en el servidor, reinicie las aplicaciones ASP.NET Core que hospeda el servidor.
 
 ### <a name="additional-headers"></a>Encabezados adicionales
 
