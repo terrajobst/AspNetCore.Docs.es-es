@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/18/2019
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 4192bab8acef7c4f7bdf1ac481c468cd0a835420
-ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
+ms.openlocfilehash: 46cfff905636dc0d50fcde5e781ce47fb6d85cc0
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74239790"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880384"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Patrón de opciones en ASP.NET Core
 
@@ -168,7 +168,7 @@ La inserción de opciones se muestra en el ejemplo &num;4 en la aplicación de e
 
 Inserte <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> en:
 
-* Una instancia de Razor Pages o una vista de MVC con la directiva [@inject](xref:mvc/views/razor#inject) de Razor.
+* Una instancia de Razor Pages o una vista de MVC con la directiva [`@inject`](xref:mvc/views/razor#inject) de Razor.
 * Un modelo de página o vista.
 
 En el ejemplo siguiente de la aplicación de ejemplo, inserte <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> en un modelo de página (*Pages/Index.cshtml.cs*):
@@ -592,7 +592,7 @@ La inserción de opciones se muestra en el ejemplo &num;4 en la aplicación de e
 
 Inserte <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> en:
 
-* Una instancia de Razor Pages o una vista de MVC con la directiva [@inject](xref:mvc/views/razor#inject) de Razor.
+* Una instancia de Razor Pages o una vista de MVC con la directiva [`@inject`](xref:mvc/views/razor#inject) de Razor.
 * Un modelo de página o vista.
 
 En el ejemplo siguiente de la aplicación de ejemplo, inserte <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> en un modelo de página (*Pages/Index.cshtml.cs*):

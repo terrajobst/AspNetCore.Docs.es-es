@@ -5,17 +5,17 @@ description: Aprenda a hospedar e implementar una aplicación Blazor Server con 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: b688d000f26c9b230d9fdee8423b3194145fe1aa
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: d45d355eabc53fc90bcda4cb7be22fb6a9f04541
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317294"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944339"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Hospedaje e implementación de Blazor Server
 
@@ -109,7 +109,7 @@ metadata:
 
 [La interoperabilidad de JS](xref:blazor/javascript-interop) se puede usar para medir la latencia de red, como se muestra en el ejemplo siguiente:
 
-```cshtml
+```razor
 @inject IJSRuntime JS
 
 @if (latency is null)

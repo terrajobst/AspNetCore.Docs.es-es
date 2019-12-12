@@ -1,17 +1,17 @@
 ---
 title: Páginas de ayuda de ASP.NET Core Web API con Swagger/Open API
-author: rsuter
+author: RicoSuter
 description: En este tutorial se proporciona una guía sobre cómo incorporar Swagger para generar documentación y páginas de ayuda para una aplicación de API web.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 09/20/2018
+ms.date: 12/07/2019
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 06a942ca213c7c0a58932494be0ed23cb6896d48
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 4408e02996b958bf009903aa1e4eeda9ad4f457c
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856090"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944088"
 ---
 # <a name="aspnet-core-web-api-help-pages-with-swagger--openapi"></a>Páginas de ayuda de ASP.NET Core Web API con Swagger/Open API
 
@@ -102,11 +102,11 @@ El elemento principal del flujo de Swagger es la especificación de Swagger, que
 }
 ```
 
-## <a name="swagger-ui"></a>Swagger UI
+## <a name="swagger-ui"></a>Interfaz de usuario de Swagger
 
 La [interfaz de usuario de Swagger](https://swagger.io/swagger-ui/) es una interfaz de usuario basada en Internet que proporciona información sobre el servicio por medio de la especificación de Swagger generada. Swashbuckle y NSwag incluyen una versión insertada de la interfaz de usuario de Swagger, de modo que se puede hospedar en una aplicación ASP.NET Core realizando una llamada de registro de middleware. La interfaz de usuario web tiene este aspecto:
 
-![Swagger UI](web-api-help-pages-using-swagger/_static/swagger-ui.png)
+![Interfaz de usuario de Swagger](web-api-help-pages-using-swagger/_static/swagger-ui.png)
 
 Todos los métodos de acción públicos aplicados a los controladores se pueden probar desde la interfaz de usuario. Haga clic en un nombre de método para expandir la sección. Agregue todos los parámetros necesarios y haga clic en **Try it out!** (¡Pruébelo!).
 

@@ -4,7 +4,7 @@
 
 En el proyecto RazorPagesMovie, cree una carpeta denominada *Data*. Agregue la clase `RazorPagesMovieContext` siguiente a la carpeta *Data*:
 
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Data/RazorPagesMovieContext.cs)]
 
 El código anterior crea una propiedad `DbSet` para el conjunto de entidades. En la terminología de Entity Framework, un conjunto de entidades suele corresponderse con una tabla de base de datos, mientras que una entidad lo hace con una fila de la tabla.
 
@@ -29,7 +29,7 @@ Agregue una cadena de conexión al archivo *appsettings.json*, tal como se muest
 Agregue las instrucciones `using` siguientes en la parte superior de *Startup.cs*:
 
 ```csharp
-using RazorPagesMovie.Models;
+using RazorPagesMovie.Data;
 using Microsoft.EntityFrameworkCore;
 ```
 

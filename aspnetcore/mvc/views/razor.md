@@ -3,20 +3,20 @@ title: Referencia de sintaxis de Razor para ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre la sintaxis de marcado de Razor para insertar código basado en servidor en páginas web.
 ms.author: riande
-ms.date: 11/09/2019
+ms.date: 12/05/2019
 uid: mvc/views/razor
-ms.openlocfilehash: dea1cd8986757b0bafab9ba9e8aa358a57a6b5eb
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: baac0ac38a0781cb9c16689cf3e29526b602d8da
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317406"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944257"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Referencia de sintaxis de Razor para ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Luke Latham](https://github.com/guardrex), [Taylor Mullen](https://twitter.com/ntaylormullen) y [Dan Vicarel](https://github.com/Rabadash8820)
 
-Razor es una sintaxis de marcado para insertar código basado en servidor en páginas web. La sintaxis de Razor combina marcado de Razor, C# y HTML. Los archivos que contienen sintaxis de Razor suelen tener la extensión de archivo *.cshtml*. Razor también se encuentra en los archivos de los [componentes de Razor](xref:blazor/components) ( *.razor*).
+Razor es una sintaxis de marcado para insertar código basado en servidor en páginas web. La sintaxis de Razor combina marcado de Razor, C# y HTML. Los archivos que contienen sintaxis de Razor suelen tener la extensión de archivo *.cshtml*. Razor también se encuentra en los archivos de los [componentes de Razor](xref:blazor/components) (*.razor*).
 
 ## <a name="rendering-html"></a>Representación de HTML
 
@@ -461,13 +461,13 @@ La directiva `@attribute` agrega el atributo especificado a la clase de la pági
 
 El bloque `@code` habilita un [componente de Razor](xref:blazor/components) para que agregue miembros de C# (campos, propiedades y métodos) a un componente:
 
-```cshtml
+```razor
 @code {
     // C# members (fields, properties, and methods)
 }
 ```
 
-En el caso de los componentes de Razor, `@code` es un alias de [@functions](#functions) y se recomienda en lugar de `@functions`. Se permite emplear más de un bloque `@code`.
+En el caso de los componentes de Razor, `@code` es un alias de [`@functions`](#functions) y se recomienda en lugar de `@functions`. Se permite emplear más de un bloque `@code`.
 
 ::: moniker-end
 
@@ -487,7 +487,7 @@ En los [componentes de Razor](xref:blazor/components), use `@code` en lugar de `
 
 ::: moniker-end
 
-Por ejemplo:
+Por ejemplo: 
 
 [!code-cshtml[](razor/sample/Views/Home/Contact6.cshtml)]
 
@@ -874,9 +874,9 @@ Hay tres directivas que pertenecen a los [asistentes de etiquetas](xref:mvc/view
 
 | Directiva | Función |
 | --------- | -------- |
-| [@addTagHelper](xref:mvc/views/tag-helpers/intro#add-helper-label) | Pone los asistentes de etiquetas a disposición de una vista. |
-| [@removeTagHelper](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | Quita los asistentes de etiquetas agregadas anteriormente desde una vista. |
-| [@tagHelperPrefix](xref:mvc/views/tag-helpers/intro#prefix-razor-directives-label) | Especifica una cadena de prefijo de etiqueta para permitir la compatibilidad con el asistente de etiquetas y hacer explícito su uso. |
+| [`@addTagHelper`](xref:mvc/views/tag-helpers/intro#add-helper-label) | Pone los asistentes de etiquetas a disposición de una vista. |
+| [`@removeTagHelper`](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | Quita los asistentes de etiquetas agregadas anteriormente desde una vista. |
+| [`@tagHelperPrefix`](xref:mvc/views/tag-helpers/intro#prefix-razor-directives-label) | Especifica una cadena de prefijo de etiqueta para permitir la compatibilidad con el asistente de etiquetas y hacer explícito su uso. |
 
 ## <a name="razor-reserved-keywords"></a>Palabras clave reservadas de Razor
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/04/2019
 uid: mvc/models/file-uploads
-ms.openlocfilehash: b57ad4fe62de38085c11d7026d278cc6e0c565ce
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 20e58660185a3055e06e92d9136e80e2394a470d
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963154"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881071"
 ---
 # <a name="upload-files-in-aspnet-core"></a>Carga de archivos en ASP.NET Core
 
@@ -183,7 +183,7 @@ El ejemplo siguiente es análogo al ejemplo anterior, salvo en que:
 Para realizar la solicitud POST en JavaScript para los clientes que [no admiten Fetch API](https://caniuse.com/#feat=fetch), use uno de estos enfoques:
 
 * Use un Fetch Polyfill (por ejemplo, [window.fetch polyfill (github/fetch)](https://github.com/github/fetch)).
-* Use `XMLHttpRequest`. Por ejemplo:
+* Use `XMLHttpRequest`. Por ejemplo: 
 
   ```javascript
   <script>
@@ -456,7 +456,7 @@ El análisis de archivos exige recursos del servidor en escenarios de gran volum
 
 ### <a name="file-extension-validation"></a>Validación de la extensión del archivo
 
-La extensión del archivo cargado debe comprobarse con una lista de extensiones permitidas. Por ejemplo:
+La extensión del archivo cargado debe comprobarse con una lista de extensiones permitidas. Por ejemplo: 
 
 ```csharp
 private string[] permittedExtensions = { ".txt", ".pdf" };
@@ -686,7 +686,7 @@ public class BufferedSingleFileUploadPhysicalModel : PageModel
 }
 ```
 
-El `RequestSizeLimitAttribute` también se puede aplicar con la directiva [@attribute](xref:mvc/views/razor#attribute) de Razor:
+El `RequestSizeLimitAttribute` también se puede aplicar con la directiva [`@attribute`](xref:mvc/views/razor#attribute) de Razor:
 
 ```cshtml
 @attribute [RequestSizeLimitAttribute(52428800)]
@@ -912,7 +912,7 @@ El ejemplo siguiente es análogo al ejemplo anterior, salvo en que:
 Para realizar la solicitud POST en JavaScript para los clientes que [no admiten Fetch API](https://caniuse.com/#feat=fetch), use uno de estos enfoques:
 
 * Use un Fetch Polyfill (por ejemplo, [window.fetch polyfill (github/fetch)](https://github.com/github/fetch)).
-* Use `XMLHttpRequest`. Por ejemplo:
+* Use `XMLHttpRequest`. Por ejemplo: 
 
   ```javascript
   <script>
@@ -1185,7 +1185,7 @@ El análisis de archivos exige recursos del servidor en escenarios de gran volum
 
 ### <a name="file-extension-validation"></a>Validación de la extensión del archivo
 
-La extensión del archivo cargado debe comprobarse con una lista de extensiones permitidas. Por ejemplo:
+La extensión del archivo cargado debe comprobarse con una lista de extensiones permitidas. Por ejemplo: 
 
 ```csharp
 private string[] permittedExtensions = { ".txt", ".pdf" };
