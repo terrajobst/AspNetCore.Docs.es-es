@@ -5,17 +5,17 @@ description: Comprenda Blazor los modelos de hospedaje de webassembly y Blazor S
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/hosting-models
-ms.openlocfilehash: a017737eacd93ac776afe7ee8024eed602d7edcc
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 7676d16bddf146ea38619ed35c5e32c5bce731de
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317225"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943776"
 ---
 # <a name="aspnet-core-opno-locblazor-hosting-models"></a>Modelos de hospedaje de Blazor de ASP.NET Core
 
@@ -31,7 +31,7 @@ Para crear un proyecto para los modelos de hospedaje descritos en este artículo
 
 El modelo de hospedaje principal de Blazor se está ejecutando en el lado cliente en el explorador de webassembly. La aplicación Blazor, sus dependencias y el entorno de ejecución de .NET se descargan en el explorador. La aplicación se ejecuta directamente en el subproceso de interfaz de usuario del explorador. Las actualizaciones de la interfaz de usuario y el control de eventos se producen dentro del mismo proceso. Los recursos de la aplicación se implementan como archivos estáticos en un servidor web o servicio capaz de servir contenido estático a los clientes.
 
-![[! Operador. Webassembly NO-LOC (increíble)]: [! Operador. NO-LOC (increíble): la aplicación se ejecuta en un subproceso de interfaz de usuario dentro del explorador.](hosting-models/_static/blazor-webassembly.png)
+![[! Operador. Webassembly NO-LOC (extraordinaria): El [! Operador. NO-LOC (increíble): la aplicación se ejecuta en un subproceso de interfaz de usuario dentro del explorador.](hosting-models/_static/blazor-webassembly.png)
 
 Para crear una aplicación Blazor mediante el modelo de hospedaje del lado cliente, use la plantilla de **aplicación de WebassembleBlazor** ([dotnet New blazorwasm](/dotnet/core/tools/dotnet-new)).
 
@@ -142,7 +142,7 @@ Una aplicación de Blazor Server se representa en respuesta a la primera solicit
 
 Se recomienda usar [Azure SignalR Service](/azure/azure-signalr) para las aplicaciones Blazor Server. El servicio permite el escalado vertical de una aplicación Blazor Server a un gran número de conexiones SignalR simultáneas. Las sesiones permanentes están habilitadas para el servicio Azure SignalR estableciendo la opción de `ServerStickyMode` o el valor de configuración del servicio en `Required`. Para obtener más información, consulta <xref:host-and-deploy/blazor/server#signalr-configuration>.
 
-Cuando se usa IIS, las sesiones permanentes se habilitan con el enrutamiento de solicitud de aplicaciones. Para obtener más información, consulte [equilibrio de carga http con enrutamiento de solicitud de aplicaciones](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
+Cuando se usa IIS, las sesiones permanentes se habilitan con el enrutamiento de solicitud de aplicaciones. Para más información, vea [Equilibrio de carga HTTP mediante el enrutamiento de solicitud de aplicaciones](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
 
 #### <a name="reflect-the-connection-state-in-the-ui"></a>Reflejar el estado de conexión en la interfaz de usuario
 
@@ -150,7 +150,7 @@ Cuando el cliente detecta que se ha perdido la conexión, se muestra al usuario 
 
 Para personalizar la interfaz de usuario, defina un elemento con un `id` de `components-reconnect-modal` en la `<body>` de la página de Razor de *_Host. cshtml* :
 
-```html
+```cshtml
 <div id="components-reconnect-modal">
     ...
 </div>
@@ -222,7 +222,7 @@ las aplicaciones de Blazor Server se configuran de forma predeterminada para pre
 
 No se admite la representación de componentes de servidor desde una página HTML estática.
 
-Cuando se `ServerPrerendered`la `RenderMode`, el componente se representa inicialmente estáticamente como parte de la página. Una vez que el explorador vuelve a establecer una conexión con el servidor, el componente se *vuelve*a representar y el componente ahora es interactivo. Si hay un [método de ciclo de vida](xref:blazor/components#lifecycle-methods) para inicializar el componente (`OnInitialized{Async}`), el método se ejecuta *dos veces*:
+Cuando se `ServerPrerendered`la `RenderMode`, el componente se representa inicialmente estáticamente como parte de la página. Una vez que el explorador vuelve a establecer una conexión con el servidor, el componente se *vuelve*a representar y el componente ahora es interactivo. Si el método de ciclo de vida [{Async} inicializado](xref:blazor/lifecycle#component-initialization-methods) para inicializar el componente está presente, el método se ejecuta *dos veces*:
 
 * Cuando el componente se representa de forma estática.
 * Una vez establecida la conexión al servidor.
@@ -323,7 +323,7 @@ La siguiente página de Razor representa un componente de `Counter`:
 
 ### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Representación de componentes no interactivos desde páginas y vistas de Razor
 
-En la siguiente página de Razor, el componente de `MyComponent` se representa estáticamente con un valor inicial que se especifica mediante un formulario:
+En la siguiente página de Razor, el componente de `Counter` se representa estáticamente con un valor inicial que se especifica mediante un formulario:
 
 ::: moniker range=">= aspnetcore-3.1"
 
@@ -356,7 +356,7 @@ En la siguiente página de Razor, el componente de `MyComponent` se representa e
     <button type="submit">Set initial value</button>
 </form>
 
-@(await Html.RenderComponentAsync<MyComponent>(RenderMode.Static, 
+@(await Html.RenderComponentAsync<Counter>(RenderMode.Static, 
     new { InitialValue = InitialValue }))
 
 @code {
