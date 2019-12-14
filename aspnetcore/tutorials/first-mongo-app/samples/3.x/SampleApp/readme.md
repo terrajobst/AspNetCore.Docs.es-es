@@ -8,77 +8,77 @@ products:
 - aspnet-core
 - vs
 urlFragment: aspnetcore-webapi-mongodb
-ms.openlocfilehash: 402b25f3f7c1644a52832b5c8566269773932e95
-ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
+ms.openlocfilehash: 01f9cf237dcf2a9b95c181c2cb87ef9f59102244
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69886297"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881171"
 ---
-# <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a><span data-ttu-id="89395-102">Creación de una API Web con ASP.NET Core y MongoDB</span><span class="sxs-lookup"><span data-stu-id="89395-102">Create a web API with ASP.NET Core and MongoDB</span></span>
+# <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a><span data-ttu-id="89189-102">Creación de una API Web con ASP.NET Core y MongoDB</span><span class="sxs-lookup"><span data-stu-id="89189-102">Create a web API with ASP.NET Core and MongoDB</span></span>
 
-<span data-ttu-id="89395-103">En este tutorial se crea una API web que realiza operaciones de creación, lectura, actualización y eliminación (CRUD) en una base de datos NoSQL de [MongoDB](https://www.mongodb.com/what-is-mongodb).</span><span class="sxs-lookup"><span data-stu-id="89395-103">This tutorial creates a web API that performs Create, Read, Update, and Delete (CRUD) operations on a [MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL database.</span></span>
+<span data-ttu-id="89189-103">En este tutorial se crea una API web que realiza operaciones de creación, lectura, actualización y eliminación (CRUD) en una base de datos NoSQL de [MongoDB](https://www.mongodb.com/what-is-mongodb).</span><span class="sxs-lookup"><span data-stu-id="89189-103">This tutorial creates a web API that performs Create, Read, Update, and Delete (CRUD) operations on a [MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL database.</span></span>
 
-<span data-ttu-id="89395-104">En este tutorial aprenderá a:</span><span class="sxs-lookup"><span data-stu-id="89395-104">In this tutorial, you learn how to:</span></span>
+<span data-ttu-id="89189-104">En este tutorial aprenderá a:</span><span class="sxs-lookup"><span data-stu-id="89189-104">In this tutorial, you learn how to:</span></span>
 
-* <span data-ttu-id="89395-105">Configurar MongoDB</span><span class="sxs-lookup"><span data-stu-id="89395-105">Configure MongoDB</span></span>
-* <span data-ttu-id="89395-106">Crear una base de datos de MongoDB</span><span class="sxs-lookup"><span data-stu-id="89395-106">Create a MongoDB database</span></span>
-* <span data-ttu-id="89395-107">Definir un esquema y una colección de MongoDB</span><span class="sxs-lookup"><span data-stu-id="89395-107">Define a MongoDB collection and schema</span></span>
-* <span data-ttu-id="89395-108">Realizar operaciones de CRUD de MongoDB desde una API web</span><span class="sxs-lookup"><span data-stu-id="89395-108">Perform MongoDB CRUD operations from a web API</span></span>
-* <span data-ttu-id="89395-109">Personalizar la serialización de JSON</span><span class="sxs-lookup"><span data-stu-id="89395-109">Customize JSON serialization</span></span>
+* <span data-ttu-id="89189-105">Configurar MongoDB</span><span class="sxs-lookup"><span data-stu-id="89189-105">Configure MongoDB</span></span>
+* <span data-ttu-id="89189-106">Crear una base de datos de MongoDB</span><span class="sxs-lookup"><span data-stu-id="89189-106">Create a MongoDB database</span></span>
+* <span data-ttu-id="89189-107">Definir un esquema y una colección de MongoDB</span><span class="sxs-lookup"><span data-stu-id="89189-107">Define a MongoDB collection and schema</span></span>
+* <span data-ttu-id="89189-108">Realizar operaciones de CRUD de MongoDB desde una API web</span><span class="sxs-lookup"><span data-stu-id="89189-108">Perform MongoDB CRUD operations from a web API</span></span>
+* <span data-ttu-id="89189-109">Personalizar la serialización de JSON</span><span class="sxs-lookup"><span data-stu-id="89189-109">Customize JSON serialization</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="89395-110">Requisitos previos</span><span class="sxs-lookup"><span data-stu-id="89395-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="89189-110">Requisitos previos</span><span class="sxs-lookup"><span data-stu-id="89189-110">Prerequisites</span></span>
 
-* [<span data-ttu-id="89395-111">.NET Core SDK 3.0 o posterior</span><span class="sxs-lookup"><span data-stu-id="89395-111">.NET Core SDK 3.0 or later</span></span>](https://www.microsoft.com/net/download/all)
-* <span data-ttu-id="89395-112">[Versión preliminar de Visual Studio 2019](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=community&ch=pre&rel=16&utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019preview) con la carga de trabajo **ASP.NET y desarrollo web**</span><span class="sxs-lookup"><span data-stu-id="89395-112">[Visual Studio 2019 Preview](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=community&ch=pre&rel=16&utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019preview) with the **ASP.NET and web development** workload</span></span>
-* [<span data-ttu-id="89395-113">MongoDB</span><span class="sxs-lookup"><span data-stu-id="89395-113">MongoDB</span></span>](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
+* [<span data-ttu-id="89189-111">.NET Core SDK 3.0 o posterior</span><span class="sxs-lookup"><span data-stu-id="89189-111">.NET Core SDK 3.0 or later</span></span>](https://www.microsoft.com/net/download/all)
+* <span data-ttu-id="89189-112">[Versión preliminar de Visual Studio 2019](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=community&ch=pre&rel=16&utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019preview) con la carga de trabajo **ASP.NET y desarrollo web**</span><span class="sxs-lookup"><span data-stu-id="89189-112">[Visual Studio 2019 Preview](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=community&ch=pre&rel=16&utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019preview) with the **ASP.NET and web development** workload</span></span>
+* [<span data-ttu-id="89189-113">MongoDB</span><span class="sxs-lookup"><span data-stu-id="89189-113">MongoDB</span></span>](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 
-## <a name="configure-mongodb"></a><span data-ttu-id="89395-114">Configurar MongoDB</span><span class="sxs-lookup"><span data-stu-id="89395-114">Configure MongoDB</span></span>
+## <a name="configure-mongodb"></a><span data-ttu-id="89189-114">Configurar MongoDB</span><span class="sxs-lookup"><span data-stu-id="89189-114">Configure MongoDB</span></span>
 
-<span data-ttu-id="89395-115">Si usa Windows, MongoDB está instalado en *C:\\Archivos de programa\\MongoDB* de forma predeterminada.</span><span class="sxs-lookup"><span data-stu-id="89395-115">If using Windows, MongoDB is installed at *C:\\Program Files\\MongoDB* by default.</span></span> <span data-ttu-id="89395-116">Agregue *C:\\Archivos de programa\\MongoDB\\Server\\\<número_versión>\\bin* a la variable de entorno `Path`.</span><span class="sxs-lookup"><span data-stu-id="89395-116">Add *C:\\Program Files\\MongoDB\\Server\\\<version_number>\\bin* to the `Path` environment variable.</span></span> <span data-ttu-id="89395-117">Este cambio permite el acceso a MongoDB desde cualquier lugar en el equipo de desarrollo.</span><span class="sxs-lookup"><span data-stu-id="89395-117">This change enables MongoDB access from anywhere on your development machine.</span></span>
+<span data-ttu-id="89189-115">Si usa Windows, MongoDB está instalado en *C:\\Archivos de programa\\MongoDB* de forma predeterminada.</span><span class="sxs-lookup"><span data-stu-id="89189-115">If using Windows, MongoDB is installed at *C:\\Program Files\\MongoDB* by default.</span></span> <span data-ttu-id="89189-116">Agregue *C:\\Archivos de programa\\MongoDB\\Server\\\<número_versión>\\bin* a la variable de entorno `Path`.</span><span class="sxs-lookup"><span data-stu-id="89189-116">Add *C:\\Program Files\\MongoDB\\Server\\\<version_number>\\bin* to the `Path` environment variable.</span></span> <span data-ttu-id="89189-117">Este cambio permite el acceso a MongoDB desde cualquier lugar en el equipo de desarrollo.</span><span class="sxs-lookup"><span data-stu-id="89189-117">This change enables MongoDB access from anywhere on your development machine.</span></span>
 
-<span data-ttu-id="89395-118">Use el Shell de mongo en los pasos siguientes para crear una base de datos, hacer colecciones y almacenar documentos.</span><span class="sxs-lookup"><span data-stu-id="89395-118">Use the mongo Shell in the following steps to create a database, make collections, and store documents.</span></span> <span data-ttu-id="89395-119">Para obtener más información sobre los comandos de Shell de mongo, consulte [Working with the mongo Shell](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell) (Trabajo con el shell de Mongo).</span><span class="sxs-lookup"><span data-stu-id="89395-119">For more information on mongo Shell commands, see [Working with the mongo Shell](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell).</span></span>
+<span data-ttu-id="89189-118">Use el Shell de mongo en los pasos siguientes para crear una base de datos, hacer colecciones y almacenar documentos.</span><span class="sxs-lookup"><span data-stu-id="89189-118">Use the mongo Shell in the following steps to create a database, make collections, and store documents.</span></span> <span data-ttu-id="89189-119">Para obtener más información sobre los comandos de Shell de mongo, consulte [Working with the mongo Shell](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell) (Trabajo con el shell de Mongo).</span><span class="sxs-lookup"><span data-stu-id="89189-119">For more information on mongo Shell commands, see [Working with the mongo Shell](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell).</span></span>
 
-1. <span data-ttu-id="89395-120">Elija un directorio en el equipo de desarrollo para almacenar los datos.</span><span class="sxs-lookup"><span data-stu-id="89395-120">Choose a directory on your development machine for storing the data.</span></span> <span data-ttu-id="89395-121">Por ejemplo, *C:\\BooksData* en Windows.</span><span class="sxs-lookup"><span data-stu-id="89395-121">For example, *C:\\BooksData* on Windows.</span></span> <span data-ttu-id="89395-122">Si no existe el directorio, créelo.</span><span class="sxs-lookup"><span data-stu-id="89395-122">Create the directory if it doesn't exist.</span></span> <span data-ttu-id="89395-123">El shell de mongo no crea nuevos directorios.</span><span class="sxs-lookup"><span data-stu-id="89395-123">The mongo Shell doesn't create new directories.</span></span>
-1. <span data-ttu-id="89395-124">Abra un shell de comandos.</span><span class="sxs-lookup"><span data-stu-id="89395-124">Open a command shell.</span></span> <span data-ttu-id="89395-125">Ejecute el comando siguiente para conectarse a MongoDB en el puerto predeterminado 27017.</span><span class="sxs-lookup"><span data-stu-id="89395-125">Run the following command to connect to MongoDB on default port 27017.</span></span> <span data-ttu-id="89395-126">No olvide reemplazar `<data_directory_path>` por el directorio que eligió en el paso anterior.</span><span class="sxs-lookup"><span data-stu-id="89395-126">Remember to replace `<data_directory_path>` with the directory you chose in the previous step.</span></span>
+1. <span data-ttu-id="89189-120">Elija un directorio en el equipo de desarrollo para almacenar los datos.</span><span class="sxs-lookup"><span data-stu-id="89189-120">Choose a directory on your development machine for storing the data.</span></span> <span data-ttu-id="89189-121">Por ejemplo, *C:\\BooksData* en Windows.</span><span class="sxs-lookup"><span data-stu-id="89189-121">For example, *C:\\BooksData* on Windows.</span></span> <span data-ttu-id="89189-122">Si no existe el directorio, créelo.</span><span class="sxs-lookup"><span data-stu-id="89189-122">Create the directory if it doesn't exist.</span></span> <span data-ttu-id="89189-123">El shell de mongo no crea nuevos directorios.</span><span class="sxs-lookup"><span data-stu-id="89189-123">The mongo Shell doesn't create new directories.</span></span>
+1. <span data-ttu-id="89189-124">Abra un shell de comandos.</span><span class="sxs-lookup"><span data-stu-id="89189-124">Open a command shell.</span></span> <span data-ttu-id="89189-125">Ejecute el comando siguiente para conectarse a MongoDB en el puerto predeterminado 27017.</span><span class="sxs-lookup"><span data-stu-id="89189-125">Run the following command to connect to MongoDB on default port 27017.</span></span> <span data-ttu-id="89189-126">No olvide reemplazar `<data_directory_path>` por el directorio que eligió en el paso anterior.</span><span class="sxs-lookup"><span data-stu-id="89189-126">Remember to replace `<data_directory_path>` with the directory you chose in the previous step.</span></span>
 
     ```console
     mongod --dbpath <data_directory_path>
     ```
 
-1. <span data-ttu-id="89395-127">Abra otra instancia del shell de comandos.</span><span class="sxs-lookup"><span data-stu-id="89395-127">Open another command shell instance.</span></span> <span data-ttu-id="89395-128">Conéctese a la base de datos de prueba de forma predeterminada ejecutando el comando siguiente:</span><span class="sxs-lookup"><span data-stu-id="89395-128">Connect to the default test database by running the following command:</span></span>
+1. <span data-ttu-id="89189-127">Abra otra instancia del shell de comandos.</span><span class="sxs-lookup"><span data-stu-id="89189-127">Open another command shell instance.</span></span> <span data-ttu-id="89189-128">Conéctese a la base de datos de prueba de forma predeterminada ejecutando el comando siguiente:</span><span class="sxs-lookup"><span data-stu-id="89189-128">Connect to the default test database by running the following command:</span></span>
 
     ```console
     mongo
     ```
 
-1. <span data-ttu-id="89395-129">Ejecute lo siguiente en un shell de comandos:</span><span class="sxs-lookup"><span data-stu-id="89395-129">Run the following in a command shell:</span></span>
+1. <span data-ttu-id="89189-129">Ejecute lo siguiente en un shell de comandos:</span><span class="sxs-lookup"><span data-stu-id="89189-129">Run the following in a command shell:</span></span>
 
     ```console
     use BookstoreDb
     ```
 
-    <span data-ttu-id="89395-130">Si aún no existe, se crea una base de datos denominada *BookstoreDb*.</span><span class="sxs-lookup"><span data-stu-id="89395-130">If it doesn't already exist, a database named *BookstoreDb* is created.</span></span> <span data-ttu-id="89395-131">Si la base de datos existe, su conexión se abre para las transacciones.</span><span class="sxs-lookup"><span data-stu-id="89395-131">If the database does exist, its connection is opened for transactions.</span></span>
+    <span data-ttu-id="89189-130">Si aún no existe, se crea una base de datos denominada *BookstoreDb*.</span><span class="sxs-lookup"><span data-stu-id="89189-130">If it doesn't already exist, a database named *BookstoreDb* is created.</span></span> <span data-ttu-id="89189-131">Si la base de datos existe, su conexión se abre para las transacciones.</span><span class="sxs-lookup"><span data-stu-id="89189-131">If the database does exist, its connection is opened for transactions.</span></span>
 
-1. <span data-ttu-id="89395-132">Cree una colección `Books` con el comando siguiente:</span><span class="sxs-lookup"><span data-stu-id="89395-132">Create a `Books` collection using following command:</span></span>
+1. <span data-ttu-id="89189-132">Cree una colección `Books` con el comando siguiente:</span><span class="sxs-lookup"><span data-stu-id="89189-132">Create a `Books` collection using following command:</span></span>
 
     ```console
     db.createCollection('Books')
     ```
 
-    <span data-ttu-id="89395-133">Se muestra el siguiente resultado:</span><span class="sxs-lookup"><span data-stu-id="89395-133">The following result is displayed:</span></span>
+    <span data-ttu-id="89189-133">Se muestra el siguiente resultado:</span><span class="sxs-lookup"><span data-stu-id="89189-133">The following result is displayed:</span></span>
 
     ```console
     { "ok" : 1 }
     ```
 
-1. <span data-ttu-id="89395-134">Defina un esquema para la colección `Books` e inserte dos documentos con el comando siguiente:</span><span class="sxs-lookup"><span data-stu-id="89395-134">Define a schema for the `Books` collection and insert two documents using the following command:</span></span>
+1. <span data-ttu-id="89189-134">Defina un esquema para la colección `Books` e inserte dos documentos con el comando siguiente:</span><span class="sxs-lookup"><span data-stu-id="89189-134">Define a schema for the `Books` collection and insert two documents using the following command:</span></span>
 
     ```console
     db.Books.insertMany([{'Name':'Design Patterns','Price':54.93,'Category':'Computers','Author':'Ralph Johnson'}, {'Name':'Clean Code','Price':43.15,'Category':'Computers','Author':'Robert C. Martin'}])
     ```
 
-    <span data-ttu-id="89395-135">Se muestra el siguiente resultado:</span><span class="sxs-lookup"><span data-stu-id="89395-135">The following result is displayed:</span></span>
+    <span data-ttu-id="89189-135">Se muestra el siguiente resultado:</span><span class="sxs-lookup"><span data-stu-id="89189-135">The following result is displayed:</span></span>
 
     ```console
     {
@@ -91,15 +91,15 @@ ms.locfileid: "69886297"
     ```
 
   > [!NOTE]
-  > <span data-ttu-id="89395-136">Los identificadores que se muestran en este artículo no coinciden con los que se mostrarán cuando ejecute este ejemplo.</span><span class="sxs-lookup"><span data-stu-id="89395-136">The ID's shown in this article will not match the IDs when you run this sample.</span></span>
+  > <span data-ttu-id="89189-136">Los identificadores que se muestran en este artículo no coinciden con los que se mostrarán cuando ejecute este ejemplo.</span><span class="sxs-lookup"><span data-stu-id="89189-136">The ID's shown in this article will not match the IDs when you run this sample.</span></span>
 
-1. <span data-ttu-id="89395-137">Vea los documentos en la base de datos mediante el comando siguiente:</span><span class="sxs-lookup"><span data-stu-id="89395-137">View the documents in the database using the following command:</span></span>
+1. <span data-ttu-id="89189-137">Vea los documentos en la base de datos mediante el comando siguiente:</span><span class="sxs-lookup"><span data-stu-id="89189-137">View the documents in the database using the following command:</span></span>
 
     ```console
     db.Books.find({}).pretty()
     ```
 
-    <span data-ttu-id="89395-138">Se muestra el siguiente resultado:</span><span class="sxs-lookup"><span data-stu-id="89395-138">The following result is displayed:</span></span>
+    <span data-ttu-id="89189-138">Se muestra el siguiente resultado:</span><span class="sxs-lookup"><span data-stu-id="89189-138">The following result is displayed:</span></span>
 
     ```console
     {
@@ -118,26 +118,26 @@ ms.locfileid: "69886297"
     }
     ```
 
-    <span data-ttu-id="89395-139">El esquema agrega una propiedad `_id` generada automáticamente del tipo `ObjectId` para cada documento.</span><span class="sxs-lookup"><span data-stu-id="89395-139">The schema adds an autogenerated `_id` property of type `ObjectId` for each document.</span></span>
+    <span data-ttu-id="89189-139">El esquema agrega una propiedad `_id` generada automáticamente del tipo `ObjectId` para cada documento.</span><span class="sxs-lookup"><span data-stu-id="89189-139">The schema adds an autogenerated `_id` property of type `ObjectId` for each document.</span></span>
 
-<span data-ttu-id="89395-140">La base de datos está lista.</span><span class="sxs-lookup"><span data-stu-id="89395-140">The database is ready.</span></span> <span data-ttu-id="89395-141">Puede empezar a crear la API web de ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="89395-141">You can start creating the ASP.NET Core web API.</span></span>
+<span data-ttu-id="89189-140">La base de datos está lista.</span><span class="sxs-lookup"><span data-stu-id="89189-140">The database is ready.</span></span> <span data-ttu-id="89189-141">Puede empezar a crear la API web de ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="89189-141">You can start creating the ASP.NET Core web API.</span></span>
 
-## <a name="create-the-aspnet-core-web-api-project"></a><span data-ttu-id="89395-142">Creación de un proyecto de API web de ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="89395-142">Create the ASP.NET Core web API project</span></span>
+## <a name="create-the-aspnet-core-web-api-project"></a><span data-ttu-id="89189-142">Creación de un proyecto de API web de ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="89189-142">Create the ASP.NET Core web API project</span></span>
 
-1. <span data-ttu-id="89395-143">Vaya a **Archivo** > **Nuevo** > **Proyecto**.</span><span class="sxs-lookup"><span data-stu-id="89395-143">Go to **File** > **New** > **Project**.</span></span>
-1. <span data-ttu-id="89395-144">Seleccione el tipo de proyecto **Aplicación web de ASP.NET Core** y, luego, **Siguiente**.</span><span class="sxs-lookup"><span data-stu-id="89395-144">Select the **ASP.NET Core Web Application** project type, and select **Next**.</span></span>
-1. <span data-ttu-id="89395-145">Denomine el proyecto *BooksApi* y seleccione **Crear**.</span><span class="sxs-lookup"><span data-stu-id="89395-145">Name the project *BooksApi*, and select **Create**.</span></span>
-1. <span data-ttu-id="89395-146">Seleccione **.NET Core** como plataforma de destino y **ASP.NET Core 3.0**.</span><span class="sxs-lookup"><span data-stu-id="89395-146">Select the **.NET Core** target framework and **ASP.NET Core 3.0**.</span></span> <span data-ttu-id="89395-147">Seleccione la plantilla de proyecto **API** y, luego, **Crear**.</span><span class="sxs-lookup"><span data-stu-id="89395-147">Select the **API** project template, and select **Create**.</span></span>
-1. <span data-ttu-id="89395-148">Visite la [galería de NuGet: MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) para determinar la última versión estable del controlador .NET para MongoDB.</span><span class="sxs-lookup"><span data-stu-id="89395-148">Visit the [NuGet Gallery: MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) to determine the latest stable version of the .NET driver for MongoDB.</span></span> <span data-ttu-id="89395-149">En la ventana **Consola del Administrador de paquetes**, desplácese hasta la raíz del proyecto.</span><span class="sxs-lookup"><span data-stu-id="89395-149">In the **Package Manager Console** window, navigate to the project root.</span></span> <span data-ttu-id="89395-150">Ejecute el siguiente comando para instalar el controlador .NET para MongoDB:</span><span class="sxs-lookup"><span data-stu-id="89395-150">Run the following command to install the .NET driver for MongoDB:</span></span>
+1. <span data-ttu-id="89189-143">Vaya a **Archivo** > **Nuevo** > **Proyecto**.</span><span class="sxs-lookup"><span data-stu-id="89189-143">Go to **File** > **New** > **Project**.</span></span>
+1. <span data-ttu-id="89189-144">Seleccione el tipo de proyecto **Aplicación web de ASP.NET Core** y, luego, **Siguiente**.</span><span class="sxs-lookup"><span data-stu-id="89189-144">Select the **ASP.NET Core Web Application** project type, and select **Next**.</span></span>
+1. <span data-ttu-id="89189-145">Denomine el proyecto *BooksApi* y seleccione **Crear**.</span><span class="sxs-lookup"><span data-stu-id="89189-145">Name the project *BooksApi*, and select **Create**.</span></span>
+1. <span data-ttu-id="89189-146">Seleccione **.NET Core** como plataforma de destino y **ASP.NET Core 3.0**.</span><span class="sxs-lookup"><span data-stu-id="89189-146">Select the **.NET Core** target framework and **ASP.NET Core 3.0**.</span></span> <span data-ttu-id="89189-147">Seleccione la plantilla de proyecto **API** y, luego, **Crear**.</span><span class="sxs-lookup"><span data-stu-id="89189-147">Select the **API** project template, and select **Create**.</span></span>
+1. <span data-ttu-id="89189-148">Visite la [galería de NuGet: MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) para determinar la última versión estable del controlador .NET para MongoDB.</span><span class="sxs-lookup"><span data-stu-id="89189-148">Visit the [NuGet Gallery: MongoDB.Driver](https://www.nuget.org/packages/MongoDB.Driver/) to determine the latest stable version of the .NET driver for MongoDB.</span></span> <span data-ttu-id="89189-149">En la ventana **Consola del Administrador de paquetes**, desplácese hasta la raíz del proyecto.</span><span class="sxs-lookup"><span data-stu-id="89189-149">In the **Package Manager Console** window, navigate to the project root.</span></span> <span data-ttu-id="89189-150">Ejecute el siguiente comando para instalar el controlador .NET para MongoDB:</span><span class="sxs-lookup"><span data-stu-id="89189-150">Run the following command to install the .NET driver for MongoDB:</span></span>
 
     ```powershell
     Install-Package MongoDB.Driver -Version {VERSION}
     ```
 
-## <a name="add-an-entity-model"></a><span data-ttu-id="89395-151">Adición de un modelo de entidad</span><span class="sxs-lookup"><span data-stu-id="89395-151">Add an entity model</span></span>
+## <a name="add-an-entity-model"></a><span data-ttu-id="89189-151">Adición de un modelo de entidad</span><span class="sxs-lookup"><span data-stu-id="89189-151">Add an entity model</span></span>
 
-1. <span data-ttu-id="89395-152">Agregue un directorio *Modelos* a la raíz del proyecto.</span><span class="sxs-lookup"><span data-stu-id="89395-152">Add a *Models* directory to the project root.</span></span>
-1. <span data-ttu-id="89395-153">Agregue una clase `Book` al directorio *Modelos* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="89395-153">Add a `Book` class to the *Models* directory with the following code:</span></span>
+1. <span data-ttu-id="89189-152">Agregue un directorio *Modelos* a la raíz del proyecto.</span><span class="sxs-lookup"><span data-stu-id="89189-152">Add a *Models* directory to the project root.</span></span>
+1. <span data-ttu-id="89189-153">Agregue una clase `Book` al directorio *Modelos* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="89189-153">Add a `Book` class to the *Models* directory with the following code:</span></span>
 
     ```csharp
     using MongoDB.Bson;
@@ -163,17 +163,17 @@ ms.locfileid: "69886297"
     }
     ```
 
-    <span data-ttu-id="89395-154">En la clase anterior, se requiere la propiedad `Id`</span><span class="sxs-lookup"><span data-stu-id="89395-154">In the preceding class, the `Id` property:</span></span>
+    <span data-ttu-id="89189-154">En la clase anterior, se requiere la propiedad `Id`</span><span class="sxs-lookup"><span data-stu-id="89189-154">In the preceding class, the `Id` property:</span></span>
 
-    * <span data-ttu-id="89395-155">para asignar el objeto de Common Language Runtime (CLR) a la colección de MongoDB.</span><span class="sxs-lookup"><span data-stu-id="89395-155">Is required for mapping the Common Language Runtime (CLR) object to the MongoDB collection.</span></span>
-    * <span data-ttu-id="89395-156">Se anota con [[BsonId]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonIdAttribute.htm) para designar esta propiedad como clave principal del documento.</span><span class="sxs-lookup"><span data-stu-id="89395-156">Is annotated with [[BsonId]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonIdAttribute.htm) to designate this property as the document's primary key.</span></span>
-    * <span data-ttu-id="89395-157">Se anota con [[BsonRepresentation(BsonType.ObjectId)]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonRepresentationAttribute.htm) para permitir que el parámetro pase como tipo `string` en lugar de como una estructura [ObjectId](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_ObjectId.htm).</span><span class="sxs-lookup"><span data-stu-id="89395-157">Is annotated with [[BsonRepresentation(BsonType.ObjectId)]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonRepresentationAttribute.htm) to allow passing the parameter as type `string` instead of an [ObjectId](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_ObjectId.htm) structure.</span></span> <span data-ttu-id="89395-158">Mongo controla la conversión de `string` a `ObjectId`.</span><span class="sxs-lookup"><span data-stu-id="89395-158">Mongo handles the conversion from `string` to `ObjectId`.</span></span>
+    * <span data-ttu-id="89189-155">para asignar el objeto de Common Language Runtime (CLR) a la colección de MongoDB.</span><span class="sxs-lookup"><span data-stu-id="89189-155">Is required for mapping the Common Language Runtime (CLR) object to the MongoDB collection.</span></span>
+    * <span data-ttu-id="89189-156">para anotarla con [`[BsonId]`](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonIdAttribute.htm) a fin de designarla como clave principal del documento.</span><span class="sxs-lookup"><span data-stu-id="89189-156">Is annotated with [`[BsonId]`](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonIdAttribute.htm) to designate this property as the document's primary key.</span></span>
+    * <span data-ttu-id="89189-157">para anotarla con [`[BsonRepresentation(BsonType.ObjectId)]`](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonRepresentationAttribute.htm) a fin de permitir que se pase el parámetro como tipo `string` en lugar de una estructura [ObjectId](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_ObjectId.htm).</span><span class="sxs-lookup"><span data-stu-id="89189-157">Is annotated with [`[BsonRepresentation(BsonType.ObjectId)]`](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonRepresentationAttribute.htm) to allow passing the parameter as type `string` instead of an [ObjectId](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_ObjectId.htm) structure.</span></span> <span data-ttu-id="89189-158">Mongo controla la conversión de `string` a `ObjectId`.</span><span class="sxs-lookup"><span data-stu-id="89189-158">Mongo handles the conversion from `string` to `ObjectId`.</span></span>
 
-    <span data-ttu-id="89395-159">La propiedad `BookName` se anota con el atributo [[BsonElement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm).</span><span class="sxs-lookup"><span data-stu-id="89395-159">The `BookName` property is annotated with the [[BsonElement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm) attribute.</span></span> <span data-ttu-id="89395-160">El valor `Name` del atributo representa el nombre de propiedad en la colección de MongoDB.</span><span class="sxs-lookup"><span data-stu-id="89395-160">The attribute's value of `Name` represents the property name in the MongoDB collection.</span></span>
+    <span data-ttu-id="89189-159">La propiedad `BookName` se anota con el atributo [`[BsonElement]`](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm).</span><span class="sxs-lookup"><span data-stu-id="89189-159">The `BookName` property is annotated with the [`[BsonElement]`](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm) attribute.</span></span> <span data-ttu-id="89189-160">El valor `Name` del atributo representa el nombre de propiedad en la colección de MongoDB.</span><span class="sxs-lookup"><span data-stu-id="89189-160">The attribute's value of `Name` represents the property name in the MongoDB collection.</span></span>
 
-## <a name="add-a-configuration-model"></a><span data-ttu-id="89395-161">Adición de un modelo configuración</span><span class="sxs-lookup"><span data-stu-id="89395-161">Add a configuration model</span></span>
+## <a name="add-a-configuration-model"></a><span data-ttu-id="89189-161">Adición de un modelo configuración</span><span class="sxs-lookup"><span data-stu-id="89189-161">Add a configuration model</span></span>
 
-1. <span data-ttu-id="89395-162">Agregue los siguientes valores de configuración de base de datos a *appsettings.json*:</span><span class="sxs-lookup"><span data-stu-id="89395-162">Add the following database configuration values to *appsettings.json*:</span></span>
+1. <span data-ttu-id="89189-162">Agregue los siguientes valores de configuración de base de datos a *appsettings.json*:</span><span class="sxs-lookup"><span data-stu-id="89189-162">Add the following database configuration values to *appsettings.json*:</span></span>
 
     ```javascript
     {
@@ -185,7 +185,7 @@ ms.locfileid: "69886297"
 
     ```
 
-1. <span data-ttu-id="89395-163">Agregue un archivo *BookstoreDatabaseSettings.cs* al directorio *Models* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="89395-163">Add a *BookstoreDatabaseSettings.cs* file to the *Models* directory with the following code:</span></span>
+1. <span data-ttu-id="89189-163">Agregue un archivo *BookstoreDatabaseSettings.cs* al directorio *Models* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="89189-163">Add a *BookstoreDatabaseSettings.cs* file to the *Models* directory with the following code:</span></span>
 
     ```csharp
     namespace BooksApi.Models
@@ -206,9 +206,9 @@ ms.locfileid: "69886297"
     }
     ```
 
-    <span data-ttu-id="89395-164">La clase anterior `BookstoreDatabaseSettings` se utiliza para almacenar los valores de propiedad `BookstoreDatabaseSettings` del archivo *appsettings.json*.</span><span class="sxs-lookup"><span data-stu-id="89395-164">The preceding `BookstoreDatabaseSettings` class is used to store the *appsettings.json* file's `BookstoreDatabaseSettings` property values.</span></span> <span data-ttu-id="89395-165">Los nombres de las propiedades de JSON y C# son iguales para facilitar el proceso de asignación.</span><span class="sxs-lookup"><span data-stu-id="89395-165">The JSON and C# property names are named identically to ease the mapping process.</span></span>
+    <span data-ttu-id="89189-164">La clase anterior `BookstoreDatabaseSettings` se utiliza para almacenar los valores de propiedad `BookstoreDatabaseSettings` del archivo *appsettings.json*.</span><span class="sxs-lookup"><span data-stu-id="89189-164">The preceding `BookstoreDatabaseSettings` class is used to store the *appsettings.json* file's `BookstoreDatabaseSettings` property values.</span></span> <span data-ttu-id="89189-165">Los nombres de las propiedades de JSON y C# son iguales para facilitar el proceso de asignación.</span><span class="sxs-lookup"><span data-stu-id="89189-165">The JSON and C# property names are named identically to ease the mapping process.</span></span>
 
-1. <span data-ttu-id="89395-166">Agregue el código resaltado siguiente a `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="89395-166">Add the following highlighted code to `Startup.ConfigureServices`:</span></span>
+1. <span data-ttu-id="89189-166">Agregue el código resaltado siguiente a `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="89189-166">Add the following highlighted code to `Startup.ConfigureServices`:</span></span>
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -223,21 +223,21 @@ ms.locfileid: "69886297"
     }
     ```
 
-    <span data-ttu-id="89395-167">En el código anterior:</span><span class="sxs-lookup"><span data-stu-id="89395-167">In the preceding code:</span></span>
+    <span data-ttu-id="89189-167">En el código anterior:</span><span class="sxs-lookup"><span data-stu-id="89189-167">In the preceding code:</span></span>
 
-    * <span data-ttu-id="89395-168">La instancia de configuración a la que la sección `BookstoreDatabaseSettings` del archivo *appsettings.json* enlaza está registrada en el contenedor de inserción de dependencias (DI).</span><span class="sxs-lookup"><span data-stu-id="89395-168">The configuration instance to which the *appsettings.json* file's `BookstoreDatabaseSettings` section binds is registered in the Dependency Injection (DI) container.</span></span> <span data-ttu-id="89395-169">Por ejemplo, una propiedad `ConnectionString` del objeto `BookstoreDatabaseSettings` se rellena con la propiedad `BookstoreDatabaseSettings:ConnectionString` en *appsettings.json*.</span><span class="sxs-lookup"><span data-stu-id="89395-169">For example, a `BookstoreDatabaseSettings` object's `ConnectionString` property is populated with the `BookstoreDatabaseSettings:ConnectionString` property in *appsettings.json*.</span></span>
-    * <span data-ttu-id="89395-170">La interfaz `IBookstoreDatabaseSettings` se registra en la inserción de dependencias con una [duración de servicio](xref:fundamentals/dependency-injection#service-lifetimes) de tipo singleton.</span><span class="sxs-lookup"><span data-stu-id="89395-170">The `IBookstoreDatabaseSettings` interface is registered in DI with a singleton [service lifetime](xref:fundamentals/dependency-injection#service-lifetimes).</span></span> <span data-ttu-id="89395-171">Cuando se inserta, la instancia de la interfaz se resuelve en un objeto `BookstoreDatabaseSettings`.</span><span class="sxs-lookup"><span data-stu-id="89395-171">When injected, the interface instance resolves to a `BookstoreDatabaseSettings` object.</span></span>
+    * <span data-ttu-id="89189-168">La instancia de configuración a la que la sección `BookstoreDatabaseSettings` del archivo *appsettings.json* enlaza está registrada en el contenedor de inserción de dependencias (DI).</span><span class="sxs-lookup"><span data-stu-id="89189-168">The configuration instance to which the *appsettings.json* file's `BookstoreDatabaseSettings` section binds is registered in the Dependency Injection (DI) container.</span></span> <span data-ttu-id="89189-169">Por ejemplo, una propiedad `ConnectionString` del objeto `BookstoreDatabaseSettings` se rellena con la propiedad `BookstoreDatabaseSettings:ConnectionString` en *appsettings.json*.</span><span class="sxs-lookup"><span data-stu-id="89189-169">For example, a `BookstoreDatabaseSettings` object's `ConnectionString` property is populated with the `BookstoreDatabaseSettings:ConnectionString` property in *appsettings.json*.</span></span>
+    * <span data-ttu-id="89189-170">La interfaz `IBookstoreDatabaseSettings` se registra en la inserción de dependencias con una [duración de servicio](xref:fundamentals/dependency-injection#service-lifetimes) de tipo singleton.</span><span class="sxs-lookup"><span data-stu-id="89189-170">The `IBookstoreDatabaseSettings` interface is registered in DI with a singleton [service lifetime](xref:fundamentals/dependency-injection#service-lifetimes).</span></span> <span data-ttu-id="89189-171">Cuando se inserta, la instancia de la interfaz se resuelve en un objeto `BookstoreDatabaseSettings`.</span><span class="sxs-lookup"><span data-stu-id="89189-171">When injected, the interface instance resolves to a `BookstoreDatabaseSettings` object.</span></span>
 
-1. <span data-ttu-id="89395-172">Agregue el código siguiente en la parte superior del archivo *Startup.cs* para resolver las referencias a `BookstoreDatabaseSettings` y `IBookstoreDatabaseSettings`:</span><span class="sxs-lookup"><span data-stu-id="89395-172">Add the following code to the top of *Startup.cs* to resolve the `BookstoreDatabaseSettings` and `IBookstoreDatabaseSettings` references:</span></span>
+1. <span data-ttu-id="89189-172">Agregue el código siguiente en la parte superior del archivo *Startup.cs* para resolver las referencias a `BookstoreDatabaseSettings` y `IBookstoreDatabaseSettings`:</span><span class="sxs-lookup"><span data-stu-id="89189-172">Add the following code to the top of *Startup.cs* to resolve the `BookstoreDatabaseSettings` and `IBookstoreDatabaseSettings` references:</span></span>
 
     ```csharp
     using BooksApi.Models;
     ```
 
-## <a name="add-a-crud-operations-service"></a><span data-ttu-id="89395-173">Adición de un servicio de operaciones CRUD</span><span class="sxs-lookup"><span data-stu-id="89395-173">Add a CRUD operations service</span></span>
+## <a name="add-a-crud-operations-service"></a><span data-ttu-id="89189-173">Adición de un servicio de operaciones CRUD</span><span class="sxs-lookup"><span data-stu-id="89189-173">Add a CRUD operations service</span></span>
 
-1. <span data-ttu-id="89395-174">Agregue un directorio *Servicios* a la raíz del proyecto.</span><span class="sxs-lookup"><span data-stu-id="89395-174">Add a *Services* directory to the project root.</span></span>
-1. <span data-ttu-id="89395-175">Agregue una clase `BookService` al directorio *Servicios* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="89395-175">Add a `BookService` class to the *Services* directory with the following code:</span></span>
+1. <span data-ttu-id="89189-174">Agregue un directorio *Servicios* a la raíz del proyecto.</span><span class="sxs-lookup"><span data-stu-id="89189-174">Add a *Services* directory to the project root.</span></span>
+1. <span data-ttu-id="89189-175">Agregue una clase `BookService` al directorio *Servicios* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="89189-175">Add a `BookService` class to the *Services* directory with the following code:</span></span>
 
     ```csharp
     using BooksApi.Models;
@@ -283,9 +283,9 @@ ms.locfileid: "69886297"
     }
     ```
 
-    <span data-ttu-id="89395-176">En el código anterior, se recuperó una instancia de `IBookstoreDatabaseSettings` de la inserción de dependencias mediante la inserción de un constructor.</span><span class="sxs-lookup"><span data-stu-id="89395-176">In the preceding code, an `IBookstoreDatabaseSettings` instance is retrieved from DI via constructor injection.</span></span> <span data-ttu-id="89395-177">Esta técnica proporciona acceso a los valores de configuración de *appsettings.json* que se agregaron en la sección [Adición de un modelo de configuración](#add-a-configuration-model).</span><span class="sxs-lookup"><span data-stu-id="89395-177">This technique provides access to the *appsettings.json* configuration values that were added in the [Add a configuration model](#add-a-configuration-model) section.</span></span>
+    <span data-ttu-id="89189-176">En el código anterior, se recuperó una instancia de `IBookstoreDatabaseSettings` de la inserción de dependencias mediante la inserción de un constructor.</span><span class="sxs-lookup"><span data-stu-id="89189-176">In the preceding code, an `IBookstoreDatabaseSettings` instance is retrieved from DI via constructor injection.</span></span> <span data-ttu-id="89189-177">Esta técnica proporciona acceso a los valores de configuración de *appsettings.json* que se agregaron en la sección [Adición de un modelo de configuración](#add-a-configuration-model).</span><span class="sxs-lookup"><span data-stu-id="89189-177">This technique provides access to the *appsettings.json* configuration values that were added in the [Add a configuration model](#add-a-configuration-model) section.</span></span>
 
-1. <span data-ttu-id="89395-178">Agregue el código resaltado siguiente a `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="89395-178">Add the following highlighted code to `Startup.ConfigureServices`:</span></span>
+1. <span data-ttu-id="89189-178">Agregue el código resaltado siguiente a `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="89189-178">Add the following highlighted code to `Startup.ConfigureServices`:</span></span>
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -302,18 +302,18 @@ ms.locfileid: "69886297"
     }
     ```
 
-    <span data-ttu-id="89395-179">En el código anterior, la clase `BookService` se registra con inserción de dependencias para admitir la inserción del constructor en las clases de consumo.</span><span class="sxs-lookup"><span data-stu-id="89395-179">In the preceding code, the `BookService` class is registered with DI to support constructor injection in consuming classes.</span></span> <span data-ttu-id="89395-180">La duración de servicio de tipo singleton es la más adecuada porque `BookService` toma una dependencia directa sobre `MongoClient`.</span><span class="sxs-lookup"><span data-stu-id="89395-180">The singleton service lifetime is most appropriate because `BookService` takes a direct dependency on `MongoClient`.</span></span> <span data-ttu-id="89395-181">Según las [instrucciones oficiales de reutilización de cliente Mongo](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use), `MongoClient` debe registrarse en la inserción de dependencias con una duración de servicio de tipo singleton.</span><span class="sxs-lookup"><span data-stu-id="89395-181">Per the official [Mongo Client reuse guidelines](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use), `MongoClient` should be registered in DI with a singleton service lifetime.</span></span>
+    <span data-ttu-id="89189-179">En el código anterior, la clase `BookService` se registra con inserción de dependencias para admitir la inserción del constructor en las clases de consumo.</span><span class="sxs-lookup"><span data-stu-id="89189-179">In the preceding code, the `BookService` class is registered with DI to support constructor injection in consuming classes.</span></span> <span data-ttu-id="89189-180">La duración de servicio de tipo singleton es la más adecuada porque `BookService` toma una dependencia directa sobre `MongoClient`.</span><span class="sxs-lookup"><span data-stu-id="89189-180">The singleton service lifetime is most appropriate because `BookService` takes a direct dependency on `MongoClient`.</span></span> <span data-ttu-id="89189-181">Según las [instrucciones oficiales de reutilización de cliente Mongo](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use), `MongoClient` debe registrarse en la inserción de dependencias con una duración de servicio de tipo singleton.</span><span class="sxs-lookup"><span data-stu-id="89189-181">Per the official [Mongo Client reuse guidelines](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use), `MongoClient` should be registered in DI with a singleton service lifetime.</span></span>
 
-1. <span data-ttu-id="89395-182">Agregue el código siguiente en la parte superior del archivo *Startup.cs* para resolver la referencia a `BookService`:</span><span class="sxs-lookup"><span data-stu-id="89395-182">Add the following code to the top of *Startup.cs* to resolve the `BookService` reference:</span></span>
+1. <span data-ttu-id="89189-182">Agregue el código siguiente en la parte superior del archivo *Startup.cs* para resolver la referencia a `BookService`:</span><span class="sxs-lookup"><span data-stu-id="89189-182">Add the following code to the top of *Startup.cs* to resolve the `BookService` reference:</span></span>
 
 
     ```csharp
     using BooksApi.Services;
     ```
 
-<span data-ttu-id="89395-183">La clase`BookService` usa los miembros `MongoDB.Driver` siguientes para realizar operaciones CRUD en la base de datos:</span><span class="sxs-lookup"><span data-stu-id="89395-183">The `BookService` class uses the following `MongoDB.Driver` members to perform CRUD operations against the database:</span></span>
+<span data-ttu-id="89189-183">La clase`BookService` usa los miembros `MongoDB.Driver` siguientes para realizar operaciones CRUD en la base de datos:</span><span class="sxs-lookup"><span data-stu-id="89189-183">The `BookService` class uses the following `MongoDB.Driver` members to perform CRUD operations against the database:</span></span>
 
-* <span data-ttu-id="89395-184">[MongoClient](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoClient.htm): lee la instancia del servidor para realizar operaciones de base de datos.</span><span class="sxs-lookup"><span data-stu-id="89395-184">[MongoClient](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoClient.htm) &ndash; Reads the server instance for performing database operations.</span></span> <span data-ttu-id="89395-185">Se proporciona la cadena de conexión de MongoDB al constructor de esta clase:</span><span class="sxs-lookup"><span data-stu-id="89395-185">The constructor of this class is provided the MongoDB connection string:</span></span>
+* <span data-ttu-id="89189-184">[MongoClient](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoClient.htm): lee la instancia del servidor para realizar operaciones de base de datos.</span><span class="sxs-lookup"><span data-stu-id="89189-184">[MongoClient](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoClient.htm) &ndash; Reads the server instance for performing database operations.</span></span> <span data-ttu-id="89189-185">Se proporciona la cadena de conexión de MongoDB al constructor de esta clase:</span><span class="sxs-lookup"><span data-stu-id="89189-185">The constructor of this class is provided the MongoDB connection string:</span></span>
 
     ```csharp
     public BookService(IBookstoreDatabaseSettings settings)
@@ -325,20 +325,20 @@ ms.locfileid: "69886297"
     }
     ```
 
-* <span data-ttu-id="89395-186">[IMongoDatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm): representa la base de datos de Mongo para realizar operaciones.</span><span class="sxs-lookup"><span data-stu-id="89395-186">[IMongoDatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm) &ndash; Represents the Mongo database for performing operations.</span></span> <span data-ttu-id="89395-187">Este tutorial usa el método genérico [GetCollection\<TDocument>(collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) en la interfaz para tener acceso a los datos de una colección específica.</span><span class="sxs-lookup"><span data-stu-id="89395-187">This tutorial uses the generic [GetCollection\<TDocument>(collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) method on the interface to gain access to data in a specific collection.</span></span> <span data-ttu-id="89395-188">Realice las operaciones CRUD en la colección después de llamar a este método.</span><span class="sxs-lookup"><span data-stu-id="89395-188">Perform CRUD operations against the collection after this method is called.</span></span> <span data-ttu-id="89395-189">En la llamada al método `GetCollection<TDocument>(collection)`:</span><span class="sxs-lookup"><span data-stu-id="89395-189">In the `GetCollection<TDocument>(collection)` method call:</span></span>
-  * <span data-ttu-id="89395-190">`collection` representa el nombre de la colección.</span><span class="sxs-lookup"><span data-stu-id="89395-190">`collection` represents the collection name.</span></span>
-  * <span data-ttu-id="89395-191">`TDocument` representa el tipo de objeto CLR almacenado en la colección.</span><span class="sxs-lookup"><span data-stu-id="89395-191">`TDocument` represents the CLR object type stored in the collection.</span></span>
+* <span data-ttu-id="89189-186">[IMongoDatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm): representa la base de datos de Mongo para realizar operaciones.</span><span class="sxs-lookup"><span data-stu-id="89189-186">[IMongoDatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm) &ndash; Represents the Mongo database for performing operations.</span></span> <span data-ttu-id="89189-187">Este tutorial usa el método genérico [GetCollection\<TDocument>(collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) en la interfaz para tener acceso a los datos de una colección específica.</span><span class="sxs-lookup"><span data-stu-id="89189-187">This tutorial uses the generic [GetCollection\<TDocument>(collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) method on the interface to gain access to data in a specific collection.</span></span> <span data-ttu-id="89189-188">Realice las operaciones CRUD en la colección después de llamar a este método.</span><span class="sxs-lookup"><span data-stu-id="89189-188">Perform CRUD operations against the collection after this method is called.</span></span> <span data-ttu-id="89189-189">En la llamada al método `GetCollection<TDocument>(collection)`:</span><span class="sxs-lookup"><span data-stu-id="89189-189">In the `GetCollection<TDocument>(collection)` method call:</span></span>
+  * <span data-ttu-id="89189-190">`collection` representa el nombre de la colección.</span><span class="sxs-lookup"><span data-stu-id="89189-190">`collection` represents the collection name.</span></span>
+  * <span data-ttu-id="89189-191">`TDocument` representa el tipo de objeto CLR almacenado en la colección.</span><span class="sxs-lookup"><span data-stu-id="89189-191">`TDocument` represents the CLR object type stored in the collection.</span></span>
 
-<span data-ttu-id="89395-192">`GetCollection<TDocument>(collection)` devuelve un objeto [MongoCollection](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoCollection.htm) que representa la colección.</span><span class="sxs-lookup"><span data-stu-id="89395-192">`GetCollection<TDocument>(collection)` returns a [MongoCollection](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoCollection.htm) object representing the collection.</span></span> <span data-ttu-id="89395-193">En este tutorial, se invocan los métodos siguientes en la colección:</span><span class="sxs-lookup"><span data-stu-id="89395-193">In this tutorial, the following methods are invoked on the collection:</span></span>
+<span data-ttu-id="89189-192">`GetCollection<TDocument>(collection)` devuelve un objeto [MongoCollection](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoCollection.htm) que representa la colección.</span><span class="sxs-lookup"><span data-stu-id="89189-192">`GetCollection<TDocument>(collection)` returns a [MongoCollection](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoCollection.htm) object representing the collection.</span></span> <span data-ttu-id="89189-193">En este tutorial, se invocan los métodos siguientes en la colección:</span><span class="sxs-lookup"><span data-stu-id="89189-193">In this tutorial, the following methods are invoked on the collection:</span></span>
 
-* <span data-ttu-id="89395-194">[DeleteOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_DeleteOne.htm): elimina un único documento que cumpla los criterios de búsqueda proporcionados.</span><span class="sxs-lookup"><span data-stu-id="89395-194">[DeleteOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_DeleteOne.htm) &ndash; Deletes a single document matching the provided search criteria.</span></span>
-* <span data-ttu-id="89395-195">[Find\<TDocument>](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollectionExtensions_Find__1_1.htm): devuelve todos los documentos de la colección que cumplen los criterios de búsqueda indicados.</span><span class="sxs-lookup"><span data-stu-id="89395-195">[Find\<TDocument>](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollectionExtensions_Find__1_1.htm) &ndash; Returns all documents in the collection matching the provided search criteria.</span></span>
-* <span data-ttu-id="89395-196">[InsertOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne.htm): inserta el objeto proporcionado como un nuevo documento en la colección.</span><span class="sxs-lookup"><span data-stu-id="89395-196">[InsertOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne.htm) &ndash; Inserts the provided object as a new document in the collection.</span></span>
-* <span data-ttu-id="89395-197">[ReplaceOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_ReplaceOne.htm): reemplaza un único documento que cumpla los criterios de búsqueda indicados por el objeto proporcionado.</span><span class="sxs-lookup"><span data-stu-id="89395-197">[ReplaceOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_ReplaceOne.htm) &ndash; Replaces the single document matching the provided search criteria with the provided object.</span></span>
+* <span data-ttu-id="89189-194">[DeleteOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_DeleteOne.htm): elimina un único documento que cumpla los criterios de búsqueda proporcionados.</span><span class="sxs-lookup"><span data-stu-id="89189-194">[DeleteOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_DeleteOne.htm) &ndash; Deletes a single document matching the provided search criteria.</span></span>
+* <span data-ttu-id="89189-195">[Find\<TDocument>](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollectionExtensions_Find__1_1.htm): devuelve todos los documentos de la colección que cumplen los criterios de búsqueda indicados.</span><span class="sxs-lookup"><span data-stu-id="89189-195">[Find\<TDocument>](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollectionExtensions_Find__1_1.htm) &ndash; Returns all documents in the collection matching the provided search criteria.</span></span>
+* <span data-ttu-id="89189-196">[InsertOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne.htm): inserta el objeto proporcionado como un nuevo documento en la colección.</span><span class="sxs-lookup"><span data-stu-id="89189-196">[InsertOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne.htm) &ndash; Inserts the provided object as a new document in the collection.</span></span>
+* <span data-ttu-id="89189-197">[ReplaceOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_ReplaceOne.htm): reemplaza un único documento que cumpla los criterios de búsqueda indicados por el objeto proporcionado.</span><span class="sxs-lookup"><span data-stu-id="89189-197">[ReplaceOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_ReplaceOne.htm) &ndash; Replaces the single document matching the provided search criteria with the provided object.</span></span>
 
-## <a name="add-a-controller"></a><span data-ttu-id="89395-198">Incorporación de un controlador</span><span class="sxs-lookup"><span data-stu-id="89395-198">Add a controller</span></span>
+## <a name="add-a-controller"></a><span data-ttu-id="89189-198">Incorporación de un controlador</span><span class="sxs-lookup"><span data-stu-id="89189-198">Add a controller</span></span>
 
-<span data-ttu-id="89395-199">Agregue una clase `BooksController` al directorio *Controladores* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="89395-199">Add a `BooksController` class to the *Controllers* directory with the following code:</span></span>
+<span data-ttu-id="89189-199">Agregue una clase `BooksController` al directorio *Controladores* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="89189-199">Add a `BooksController` class to the *Controllers* directory with the following code:</span></span>
 
 ```csharp
 using BooksApi.Models;
@@ -417,17 +417,17 @@ namespace BooksApi.Controllers
 }
 ```
 
-<span data-ttu-id="89395-200">El controlador de API web anterior:</span><span class="sxs-lookup"><span data-stu-id="89395-200">The preceding web API controller:</span></span>
+<span data-ttu-id="89189-200">El controlador de API web anterior:</span><span class="sxs-lookup"><span data-stu-id="89189-200">The preceding web API controller:</span></span>
 
-* <span data-ttu-id="89395-201">Usa la clase `BookService` para realizar operaciones CRUD.</span><span class="sxs-lookup"><span data-stu-id="89395-201">Uses the `BookService` class to perform CRUD operations.</span></span>
-* <span data-ttu-id="89395-202">Contiene métodos de acción para admitir las solicitudes GET, POST, PUT y DELETE de HTTP.</span><span class="sxs-lookup"><span data-stu-id="89395-202">Contains action methods to support GET, POST, PUT, and DELETE HTTP requests.</span></span>
-* <span data-ttu-id="89395-203">Llama a <xref:System.Web.Http.ApiController.CreatedAtRoute*> en el método de acción `Create` para devolver una respuesta [HTTP 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).</span><span class="sxs-lookup"><span data-stu-id="89395-203">Calls <xref:System.Web.Http.ApiController.CreatedAtRoute*> in the `Create` action method to return an [HTTP 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) response.</span></span> <span data-ttu-id="89395-204">El código de estado 201 es la respuesta estándar para un método HTTP POST que crea un recurso en el servidor.</span><span class="sxs-lookup"><span data-stu-id="89395-204">Status code 201 is the standard response for an HTTP POST method that creates a new resource on the server.</span></span> <span data-ttu-id="89395-205">`CreatedAtRoute` también agrega un encabezado `Location` a la respuesta.</span><span class="sxs-lookup"><span data-stu-id="89395-205">`CreatedAtRoute` also adds a `Location` header to the response.</span></span> <span data-ttu-id="89395-206">El encabezado `Location` especifica el identificador URI del libro recién creado.</span><span class="sxs-lookup"><span data-stu-id="89395-206">The `Location` header specifies the URI of the newly created book.</span></span>
+* <span data-ttu-id="89189-201">Usa la clase `BookService` para realizar operaciones CRUD.</span><span class="sxs-lookup"><span data-stu-id="89189-201">Uses the `BookService` class to perform CRUD operations.</span></span>
+* <span data-ttu-id="89189-202">Contiene métodos de acción para admitir las solicitudes GET, POST, PUT y DELETE de HTTP.</span><span class="sxs-lookup"><span data-stu-id="89189-202">Contains action methods to support GET, POST, PUT, and DELETE HTTP requests.</span></span>
+* <span data-ttu-id="89189-203">Llama a <xref:System.Web.Http.ApiController.CreatedAtRoute*> en el método de acción `Create` para devolver una respuesta [HTTP 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).</span><span class="sxs-lookup"><span data-stu-id="89189-203">Calls <xref:System.Web.Http.ApiController.CreatedAtRoute*> in the `Create` action method to return an [HTTP 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) response.</span></span> <span data-ttu-id="89189-204">El código de estado 201 es la respuesta estándar para un método HTTP POST que crea un recurso en el servidor.</span><span class="sxs-lookup"><span data-stu-id="89189-204">Status code 201 is the standard response for an HTTP POST method that creates a new resource on the server.</span></span> <span data-ttu-id="89189-205">`CreatedAtRoute` también agrega un encabezado `Location` a la respuesta.</span><span class="sxs-lookup"><span data-stu-id="89189-205">`CreatedAtRoute` also adds a `Location` header to the response.</span></span> <span data-ttu-id="89189-206">El encabezado `Location` especifica el identificador URI del libro recién creado.</span><span class="sxs-lookup"><span data-stu-id="89189-206">The `Location` header specifies the URI of the newly created book.</span></span>
 
-## <a name="test-the-web-api"></a><span data-ttu-id="89395-207">Prueba de la API web</span><span class="sxs-lookup"><span data-stu-id="89395-207">Test the web API</span></span>
+## <a name="test-the-web-api"></a><span data-ttu-id="89189-207">Prueba de la API web</span><span class="sxs-lookup"><span data-stu-id="89189-207">Test the web API</span></span>
 
-1. <span data-ttu-id="89395-208">Compile y ejecute la aplicación.</span><span class="sxs-lookup"><span data-stu-id="89395-208">Build and run the app.</span></span>
+1. <span data-ttu-id="89189-208">Compile y ejecute la aplicación.</span><span class="sxs-lookup"><span data-stu-id="89189-208">Build and run the app.</span></span>
 
-1. <span data-ttu-id="89395-209">Vaya a `http://localhost:<port>/api/books` para probar el método de acción `Get` sin parámetros del controlador.</span><span class="sxs-lookup"><span data-stu-id="89395-209">Navigate to `http://localhost:<port>/api/books` to test the controller's parameterless `Get` action method.</span></span> <span data-ttu-id="89395-210">Se muestra la siguiente respuesta JSON:</span><span class="sxs-lookup"><span data-stu-id="89395-210">The following JSON response is displayed:</span></span>
+1. <span data-ttu-id="89189-209">Vaya a `http://localhost:<port>/api/books` para probar el método de acción `Get` sin parámetros del controlador.</span><span class="sxs-lookup"><span data-stu-id="89189-209">Navigate to `http://localhost:<port>/api/books` to test the controller's parameterless `Get` action method.</span></span> <span data-ttu-id="89189-210">Se muestra la siguiente respuesta JSON:</span><span class="sxs-lookup"><span data-stu-id="89189-210">The following JSON response is displayed:</span></span>
 
     ```json
     [
@@ -448,7 +448,7 @@ namespace BooksApi.Controllers
     ]
     ```
 
-1. <span data-ttu-id="89395-211">Vaya a `http://localhost:<port>/api/books/{id here}` para probar el método de acción `Get` sobrecargado del controlador.</span><span class="sxs-lookup"><span data-stu-id="89395-211">Navigate to `http://localhost:<port>/api/books/{id here}` to test the controller's overloaded `Get` action method.</span></span> <span data-ttu-id="89395-212">Se muestra la siguiente respuesta JSON:</span><span class="sxs-lookup"><span data-stu-id="89395-212">The following JSON response is displayed:</span></span>
+1. <span data-ttu-id="89189-211">Vaya a `http://localhost:<port>/api/books/{id here}` para probar el método de acción `Get` sobrecargado del controlador.</span><span class="sxs-lookup"><span data-stu-id="89189-211">Navigate to `http://localhost:<port>/api/books/{id here}` to test the controller's overloaded `Get` action method.</span></span> <span data-ttu-id="89189-212">Se muestra la siguiente respuesta JSON:</span><span class="sxs-lookup"><span data-stu-id="89189-212">The following JSON response is displayed:</span></span>
 
     ```json
     {
@@ -460,18 +460,18 @@ namespace BooksApi.Controllers
     }
     ```
 
-## <a name="configure-json-serialization-options"></a><span data-ttu-id="89395-213">Configuración de las opciones de serialización de JSON</span><span class="sxs-lookup"><span data-stu-id="89395-213">Configure JSON serialization options</span></span>
+## <a name="configure-json-serialization-options"></a><span data-ttu-id="89189-213">Configuración de las opciones de serialización de JSON</span><span class="sxs-lookup"><span data-stu-id="89189-213">Configure JSON serialization options</span></span>
 
-<span data-ttu-id="89395-214">Hay dos detalles que cambiar sobre las respuestas JSON devueltas en la sección [Prueba de la API web](#test-the-web-api):</span><span class="sxs-lookup"><span data-stu-id="89395-214">There are two details to change about the JSON responses returned in the [Test the web API](#test-the-web-api) section:</span></span>
+<span data-ttu-id="89189-214">Hay dos detalles que cambiar sobre las respuestas JSON devueltas en la sección [Prueba de la API web](#test-the-web-api):</span><span class="sxs-lookup"><span data-stu-id="89189-214">There are two details to change about the JSON responses returned in the [Test the web API](#test-the-web-api) section:</span></span>
 
-* <span data-ttu-id="89395-215">Las mayúsculas y minúsculas Camel predeterminadas de los nombres de propiedad se deben cambiar para que coincidan con el uso de mayúsculas y minúsculas de Pascal de los nombres de propiedad del objeto CLR.</span><span class="sxs-lookup"><span data-stu-id="89395-215">The property names' default camel casing should be changed to match the Pascal casing of the CLR object's property names.</span></span>
-* <span data-ttu-id="89395-216">La propiedad `bookName` se debe devolver como `Name`.</span><span class="sxs-lookup"><span data-stu-id="89395-216">The `bookName` property should be returned as `Name`.</span></span>
+* <span data-ttu-id="89189-215">Las mayúsculas y minúsculas Camel predeterminadas de los nombres de propiedad se deben cambiar para que coincidan con el uso de mayúsculas y minúsculas de Pascal de los nombres de propiedad del objeto CLR.</span><span class="sxs-lookup"><span data-stu-id="89189-215">The property names' default camel casing should be changed to match the Pascal casing of the CLR object's property names.</span></span>
+* <span data-ttu-id="89189-216">La propiedad `bookName` se debe devolver como `Name`.</span><span class="sxs-lookup"><span data-stu-id="89189-216">The `bookName` property should be returned as `Name`.</span></span>
 
-<span data-ttu-id="89395-217">Para satisfacer los requisitos anteriores, realice los cambios siguientes:</span><span class="sxs-lookup"><span data-stu-id="89395-217">To satisfy the preceding requirements, make the following changes:</span></span>
+<span data-ttu-id="89189-217">Para satisfacer los requisitos anteriores, realice los cambios siguientes:</span><span class="sxs-lookup"><span data-stu-id="89189-217">To satisfy the preceding requirements, make the following changes:</span></span>
 
-1. <span data-ttu-id="89395-218">JSON.NET se ha quitado de la plataforma compartida de ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="89395-218">JSON.NET has been removed from ASP.NET shared framework.</span></span> <span data-ttu-id="89395-219">Agregue una referencia de paquete a [Microsoft.AspNetCore.Mvc.NewtonsoftJson](https://nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson).</span><span class="sxs-lookup"><span data-stu-id="89395-219">Add a package reference to [Microsoft.AspNetCore.Mvc.NewtonsoftJson](https://nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson).</span></span>
+1. <span data-ttu-id="89189-218">JSON.NET se ha quitado de la plataforma compartida de ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="89189-218">JSON.NET has been removed from ASP.NET shared framework.</span></span> <span data-ttu-id="89189-219">Agregue una referencia de paquete a [Microsoft.AspNetCore.Mvc.NewtonsoftJson](https://nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson).</span><span class="sxs-lookup"><span data-stu-id="89189-219">Add a package reference to [Microsoft.AspNetCore.Mvc.NewtonsoftJson](https://nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson).</span></span>
 
-1. <span data-ttu-id="89395-220">En `Startup.ConfigureServices`, cambie el código resaltado siguiente en la llamada al método `AddMvc`:</span><span class="sxs-lookup"><span data-stu-id="89395-220">In `Startup.ConfigureServices`, chain the following highlighted code on to the `AddMvc` method call:</span></span>
+1. <span data-ttu-id="89189-220">En `Startup.ConfigureServices`, cambie el código resaltado siguiente en la llamada al método `AddMvc`:</span><span class="sxs-lookup"><span data-stu-id="89189-220">In `Startup.ConfigureServices`, chain the following highlighted code on to the `AddMvc` method call:</span></span>
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -489,9 +489,9 @@ namespace BooksApi.Controllers
     }
     ```
 
-    <span data-ttu-id="89395-221">Con el cambio anterior, los nombres de propiedad de la respuesta JSON serializada de la API web coinciden con sus nombres de propiedad correspondientes en el tipo de objeto CLR.</span><span class="sxs-lookup"><span data-stu-id="89395-221">With the preceding change, property names in the web API's serialized JSON response match their corresponding property names in the CLR object type.</span></span> <span data-ttu-id="89395-222">Por ejemplo, la propiedad `Author` de la clase `Book` se serializa como `Author`.</span><span class="sxs-lookup"><span data-stu-id="89395-222">For example, the `Book` class's `Author` property serializes as `Author`.</span></span>
+    <span data-ttu-id="89189-221">Con el cambio anterior, los nombres de propiedad de la respuesta JSON serializada de la API web coinciden con sus nombres de propiedad correspondientes en el tipo de objeto CLR.</span><span class="sxs-lookup"><span data-stu-id="89189-221">With the preceding change, property names in the web API's serialized JSON response match their corresponding property names in the CLR object type.</span></span> <span data-ttu-id="89189-222">Por ejemplo, la propiedad `Author` de la clase `Book` se serializa como `Author`.</span><span class="sxs-lookup"><span data-stu-id="89189-222">For example, the `Book` class's `Author` property serializes as `Author`.</span></span>
 
-1. <span data-ttu-id="89395-223">En *Models/Book.cs*, anote la propiedad `BookName` con el atributo [[JsonProperty]](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonPropertyAttribute.htm) siguiente:</span><span class="sxs-lookup"><span data-stu-id="89395-223">In *Models/Book.cs*, annotate the `BookName` property with the following [[JsonProperty]](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonPropertyAttribute.htm) attribute:</span></span>
+1. <span data-ttu-id="89189-223">En *Models/Book.cs*, anote la propiedad `BookName` con el atributo [`[JsonProperty]`](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonPropertyAttribute.htm) siguiente:</span><span class="sxs-lookup"><span data-stu-id="89189-223">In *Models/Book.cs*, annotate the `BookName` property with the following [`[JsonProperty]`](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonPropertyAttribute.htm) attribute:</span></span>
 
     ```csharp
     [BsonElement("Name")]
@@ -499,19 +499,19 @@ namespace BooksApi.Controllers
     public string BookName { get; set; }
     ```
 
-    <span data-ttu-id="89395-224">El valor `Name` del atributo `[JsonProperty]` representa el nombre de propiedad en la respuesta JSON serializada de la API web.</span><span class="sxs-lookup"><span data-stu-id="89395-224">The `[JsonProperty]` attribute's value of `Name` represents the property name in the web API's serialized JSON response.</span></span>
+    <span data-ttu-id="89189-224">El valor `Name` del atributo `[JsonProperty]` representa el nombre de propiedad en la respuesta JSON serializada de la API web.</span><span class="sxs-lookup"><span data-stu-id="89189-224">The `[JsonProperty]` attribute's value of `Name` represents the property name in the web API's serialized JSON response.</span></span>
 
-1. <span data-ttu-id="89395-225">Agregue el código siguiente en la parte superior del archivo *Models/Book.cs* para resolver la referencia al atributo `[JsonProperty]`:</span><span class="sxs-lookup"><span data-stu-id="89395-225">Add the following code to the top of *Models/Book.cs* to resolve the `[JsonProperty]` attribute reference:</span></span>
+1. <span data-ttu-id="89189-225">Agregue el código siguiente en la parte superior del archivo *Models/Book.cs* para resolver la referencia al atributo `[JsonProperty]`:</span><span class="sxs-lookup"><span data-stu-id="89189-225">Add the following code to the top of *Models/Book.cs* to resolve the `[JsonProperty]` attribute reference:</span></span>
 
     ```csharp
     using Newtonsoft.Json;
     ```
 
-1. <span data-ttu-id="89395-226">Repita los pasos definidos en la sección [Prueba de la API web](#test-the-web-api).</span><span class="sxs-lookup"><span data-stu-id="89395-226">Repeat the steps defined in the [Test the web API](#test-the-web-api) section.</span></span> <span data-ttu-id="89395-227">Observe la diferencia en los nombres de propiedad JSON.</span><span class="sxs-lookup"><span data-stu-id="89395-227">Notice the difference in JSON property names.</span></span>
+1. <span data-ttu-id="89189-226">Repita los pasos definidos en la sección [Prueba de la API web](#test-the-web-api).</span><span class="sxs-lookup"><span data-stu-id="89189-226">Repeat the steps defined in the [Test the web API](#test-the-web-api) section.</span></span> <span data-ttu-id="89189-227">Observe la diferencia en los nombres de propiedad JSON.</span><span class="sxs-lookup"><span data-stu-id="89189-227">Notice the difference in JSON property names.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="89395-228">Pasos siguientes</span><span class="sxs-lookup"><span data-stu-id="89395-228">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="89189-228">Pasos siguientes</span><span class="sxs-lookup"><span data-stu-id="89189-228">Next steps</span></span>
 
-<span data-ttu-id="89395-229">Para obtener más información sobre la creación de las API web de ASP.NET Core, consulte los siguientes recursos:</span><span class="sxs-lookup"><span data-stu-id="89395-229">For more information on building ASP.NET Core web APIs, see the following resources:</span></span>
+<span data-ttu-id="89189-229">Para obtener más información sobre la creación de las API web de ASP.NET Core, consulte los siguientes recursos:</span><span class="sxs-lookup"><span data-stu-id="89189-229">For more information on building ASP.NET Core web APIs, see the following resources:</span></span>
 
-* [<span data-ttu-id="89395-230">Versión de YouTube de este artículo</span><span class="sxs-lookup"><span data-stu-id="89395-230">YouTube version of this article</span></span>](https://www.youtube.com/watch?v=7uJt_sOenyo&feature=youtu.be)
-* [<span data-ttu-id="89395-231">Creación de API web con ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="89395-231">Create web APIs with ASP.NET Core</span></span>](https://docs.microsoft.com/aspnet/core/web-api/index?view=aspnetcore-3.0)
+* [<span data-ttu-id="89189-230">Versión de YouTube de este artículo</span><span class="sxs-lookup"><span data-stu-id="89189-230">YouTube version of this article</span></span>](https://www.youtube.com/watch?v=7uJt_sOenyo&feature=youtu.be)
+* [<span data-ttu-id="89189-231">Creación de API web con ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="89189-231">Create web APIs with ASP.NET Core</span></span>](https://docs.microsoft.com/aspnet/core/web-api/index?view=aspnetcore-3.0)
