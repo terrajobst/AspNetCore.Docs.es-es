@@ -4,17 +4,17 @@ author: rick-anderson
 description: Obtenga información sobre las nuevas características de ASP.NET Core 3.1.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.1
-ms.openlocfilehash: 634c6937089a0a0fe1f862a83771aff65a1f8418
-ms.sourcegitcommit: 5974e3e66dab3398ecf2324fbb82a9c5636f70de
+ms.openlocfilehash: 89c676b96ef66f648544a8a884593bdafa3876de
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74778848"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944231"
 ---
 # <a name="whats-new-in-aspnet-core-31"></a>Novedades de ASP.NET Core 3.1
 
@@ -28,7 +28,7 @@ Ahora los componentes de Razor se generan como clases parciales. El código de u
 
 En Blazor con ASP.NET Core 3.0, los componentes se representaban en páginas y vistas mediante una aplicación auxiliar de HTML (`Html.RenderComponentAsync`). En ASP.NET Core 3.1, un componente se representa desde una página o vista con el nuevo asistente de etiquetas de componente:
 
-```razor
+```cshtml
 <component type="typeof(Counter)" render-mode="ServerPrerendered" />
 ```
 
@@ -47,7 +47,7 @@ Para más información, vea [Integración de componentes en aplicaciones de Razo
 
 ## <a name="support-for-shared-queues-in-httpsys"></a>Compatibilidad con las colas compartidas en HTTP.sys
 
-[HTTP.sys](xref:fundamentals/servers/httpsys) admite la creación de colas de solicitudes anónimas. En ASP.NET Core 3.1, se ha agregado la capacidad de crear o adjuntar a una cola de solicitudes de HTTP.sys con nombre existente. La operación de crear o adjuntar a una cola de solicitudes de HTTP.sys con nombre existente habilita escenarios en los que el proceso del controlador HTTP.Sys propietario de la cola es independiente del proceso del cliente de escucha. Esta independencia permite conservar las conexiones existentes y las solicitudes en cola entre los reinicios del proceso del cliente de escucha:
+[HTTP.sys](xref:fundamentals/servers/httpsys) admite la creación de colas de solicitudes anónimas. En ASP.NET Core 3.1, hemos agregado la capacidad de crear o adjuntar contenido a una cola de solicitudes existente de HTTP.sys con nombre. La operación de crear o adjuntar contenido a una cola de solicitudes existente de HTTP.sys con nombre habilita escenarios en los que el proceso del controlador HTTP.Sys propietario de la cola es independiente del proceso del cliente de escucha. Esta independencia permite conservar las conexiones existentes y las solicitudes en cola entre los reinicios del proceso del cliente de escucha:
 
 [!code-csharp[](sample/Program.cs?name=snippet)]
 

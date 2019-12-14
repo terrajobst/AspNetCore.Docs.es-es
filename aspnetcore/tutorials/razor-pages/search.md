@@ -3,14 +3,14 @@ title: Agregar búsqueda a páginas de Razor de ASP.NET Core
 author: rick-anderson
 description: Muestra cómo agregar la búsqueda a páginas de Razor de ASP.NET Core
 ms.author: riande
-ms.date: 7/23/2019
+ms.date: 12/05/2019
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 1eeb3aa86f2a6928b6d0b368c90e4760a66a6c6e
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 8228207b0f37a6923b29891ac3115dd0be115501
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334065"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881333"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>Agregar búsqueda a páginas de Razor de ASP.NET Core
 
@@ -26,7 +26,7 @@ Agregue las siguientes propiedades resaltadas a *Pages/Movies/Index.cshtml.cs*:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
 
-* `SearchString`: contiene el texto que los usuarios escriben en el cuadro de texto de búsqueda. El elemento `SearchString` está decorado con el atributo [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute). `[BindProperty]` enlaza los valores del formulario y las cadenas de consulta con el mismo nombre que la propiedad. `(SupportsGet = true)` se necesita para el enlace de las solicitudes GET.
+* `SearchString`: contiene el texto que los usuarios escriben en el cuadro de texto de búsqueda. `SearchString` tiene el atributo [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute). `[BindProperty]` enlaza los valores del formulario y las cadenas de consulta con el mismo nombre que la propiedad. `(SupportsGet = true)` se necesita para el enlace de las solicitudes GET.
 * `Genres`: contiene la lista de géneros. `Genres` permite al usuario seleccionar un género de la lista. `SelectList` requiere `using Microsoft.AspNetCore.Mvc.Rendering;`.
 * `MovieGenre`: contiene el género concreto que selecciona el usuario (por ejemplo, "Western").
 * `Genres` y `MovieGenre` se utilizan posteriormente en este tutorial.
@@ -129,7 +129,7 @@ Agregue las siguientes propiedades resaltadas a *Pages/Movies/Index.cshtml.cs*:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
 
-* `SearchString`: contiene el texto que los usuarios escriben en el cuadro de texto de búsqueda. El elemento `SearchString` está decorado con el atributo [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute). `[BindProperty]` enlaza los valores del formulario y las cadenas de consulta con el mismo nombre que la propiedad. `(SupportsGet = true)` se necesita para el enlace de las solicitudes GET.
+* `SearchString`: contiene el texto que los usuarios escriben en el cuadro de texto de búsqueda. `SearchString` tiene el atributo [`[BindProperty]`](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute). `[BindProperty]` enlaza los valores del formulario y las cadenas de consulta con el mismo nombre que la propiedad. `(SupportsGet = true)` se necesita para el enlace de las solicitudes GET.
 * `Genres`: contiene la lista de géneros. `Genres` permite al usuario seleccionar un género de la lista. `SelectList` requiere `using Microsoft.AspNetCore.Mvc.Rendering;`.
 * `MovieGenre`: contiene el género concreto que selecciona el usuario (por ejemplo, "Western").
 * `Genres` y `MovieGenre` se utilizan posteriormente en este tutorial.

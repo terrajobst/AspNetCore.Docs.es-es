@@ -3,14 +3,14 @@ title: Vistas de ASP.NET Core MVC
 author: ardalis
 description: Obtenga información sobre la forma en que las vistas controlan la presentación de datos de la aplicación y la interacción del usuario en ASP.NET Core MVC.
 ms.author: riande
-ms.date: 04/03/2019
+ms.date: 12/05/2019
 uid: mvc/views/overview
-ms.openlocfilehash: 5e56c6bb18cb5d2389c11eb3e4aa9869228da47d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: f636908ee36d0af6e92875876240cb8712dd2ccc
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64891350"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881029"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Vistas de ASP.NET Core MVC
 
@@ -43,7 +43,7 @@ Las vistas separan el marcado de la interfaz de usuario de otras partes de la ap
 
 ## <a name="creating-a-view"></a>Creación de una vista
 
-Las vistas que son específicas de un controlador se crean en la carpeta *Views/[nombreDelControlador]*. Las vistas compartidas entre controladores se colocan en la carpeta *Views/Shared*. Para crear una vista, agregue un archivo nuevo y asígnele el mismo nombre que a la acción del controlador asociada con la extensión de archivo *.cshtml*. Para crear una vista que se corresponda con la acción *About* del controlador *Home*, cree un archivo *About.cshtml* en la carpeta *Views/Home*:
+Las vistas que son específicas de un controlador se crean en la carpeta *Views/[nombreDelControlador]* . Las vistas compartidas entre controladores se colocan en la carpeta *Views/Shared*. Para crear una vista, agregue un archivo nuevo y asígnele el mismo nombre que a la acción del controlador asociada con la extensión de archivo *.cshtml*. Para crear una vista que se corresponda con la acción *About* del controlador *Home*, cree un archivo *About.cshtml* en la carpeta *Views/Home*:
 
 [!code-cshtml[](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
@@ -87,7 +87,7 @@ El método del asistente `View` tiene varias sobrecargas. También puede especif
 
 Cuando una acción devuelve una vista, tiene lugar un proceso llamado *detección de vista*. Este proceso determina qué archivo de vista se utiliza en función del nombre de la vista. 
 
-El comportamiento predeterminado del método `View` (`return View();`) es devolver una vista con el mismo nombre que el método de acción desde el que se llama. Por ejemplo, el nombre de método *About* `ActionResult` del controlador se usa para buscar un archivo de vista denominado *About.cshtml*. En primer lugar, el runtime busca la vista en la carpeta *Views/[nombreDelControlador]*. Si no encuentra una vista que coincida, busca la vista en la carpeta *Shared*.
+El comportamiento predeterminado del método `View` (`return View();`) es devolver una vista con el mismo nombre que el método de acción desde el que se llama. Por ejemplo, el nombre de método *About* `ActionResult` del controlador se usa para buscar un archivo de vista denominado *About.cshtml*. En primer lugar, el runtime busca la vista en la carpeta *Views/[nombreDelControlador]* . Si no encuentra una vista que coincida, busca la vista en la carpeta *Shared*.
 
 Da igual si se devuelve implícitamente `ViewResult` con `return View();` o si se pasa explícitamente el nombre de la vista al método `View` con `return View("<ViewName>");`. En ambos casos, la detección de vista busca un archivo de vista coincidente en este orden:
 
@@ -252,9 +252,9 @@ Trabajar con los datos en una vista:
 
 **Atributo ViewData**
 
-Otro método en el que se usa [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) es [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Los valores de las propiedades de controladores o modelos de página de Razor completadas con `[ViewData]` se almacenan y cargan desde el diccionario.
+Otro método en el que se usa [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) es [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Los valores de las propiedades de controladores o modelos de página de Razor marcados con el atributo `[ViewData]` se almacenan y cargan desde el diccionario.
 
-En el siguiente ejemplo, el controlador Home contiene una propiedad `Title` completada con `[ViewData]`. El método `About` establece el título de la vista About:
+En el siguiente ejemplo, el controlador Home contiene una propiedad `Title` marcada con `[ViewData]`. El método `About` establece el título de la vista About:
 
 ```csharp
 public class HomeController : Controller

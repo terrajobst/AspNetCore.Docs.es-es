@@ -3,14 +3,14 @@ title: Control de solicitudes con controladores en ASP.NET Core MVC
 author: ardalis
 description: ''
 ms.author: riande
-ms.date: 07/03/2017
+ms.date: 12/05/2019
 uid: mvc/controllers/actions
-ms.openlocfilehash: 952e4dbb2c4343ca87ace1535e4a5968faf088cf
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 715a73863513870d1cbd522e75013d41830da1e7
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64890260"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881104"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Control de solicitudes con controladores en ASP.NET Core MVC
 
@@ -23,13 +23,15 @@ Los controladores, las acciones y los resultados de acciones son una parte funda
 Los controladores se usan para definir y agrupar un conjunto de acciones. Una acción (o *método de acción*) es un método en un controlador que controla las solicitudes. Los controladores agrupan lógicamente acciones similares. Esta agregación de acciones permite aplicar de forma colectiva conjuntos comunes de reglas, como el enrutamiento, el almacenamiento en caché y la autorización. Las solicitudes se asignan a acciones mediante el [enrutamiento](xref:mvc/controllers/routing).
 
 Por convención, las clases de controlador:
+
 * Residen en la carpeta *Controllers* del nivel de raíz del proyecto.
 * Heredan de `Microsoft.AspNetCore.Mvc.Controller`.
 
 Un controlador es una clase instanciable en la que se cumple al menos una de las siguientes condiciones:
-* El nombre de clase tiene el sufijo "Controller".
-* La clase hereda de una clase cuyo nombre tiene el sufijo "Controller".
-* La clase está decorada con el atributo `[Controller]`.
+
+* El nombre de clase tiene el sufijo `Controller`.
+* La clase se hereda de una clase cuyo nombre tiene el sufijo `Controller`.
+* El atributo `[Controller]` se aplica a la clase.
 
 Una clase de controlador no debe tener asociado un atributo `[NonController]`.
 
@@ -43,7 +45,7 @@ El controlador es una abstracción de *nivel de interfaz de usuario*. Se encarga
 
 ## <a name="defining-actions"></a>Definir acciones
 
-Los métodos públicos de un controlador, excepto los que están decorados con el atributo `[NonAction]`, son acciones. Los parámetros de las acciones están enlazados a los datos de la solicitud y se validan mediante el [enlace de modelos](xref:mvc/models/model-binding). La validación de modelos se lleva a cabo para todo lo que está enlazado a un modelo. El valor de la propiedad `ModelState.IsValid` indica si el enlace de modelos y la validación se han realizado correctamente.
+Los métodos públicos de un controlador, excepto los que incluyen el atributo `[NonAction]`, son acciones. Los parámetros de las acciones están enlazados a los datos de la solicitud y se validan mediante el [enlace de modelos](xref:mvc/models/model-binding). La validación de modelos se lleva a cabo para todo lo que está enlazado a un modelo. El valor de la propiedad `ModelState.IsValid` indica si el enlace de modelos y la validación se han realizado correctamente.
 
 Los métodos de acción deben contener lógica para asignar una solicitud a una cuestión empresarial. Normalmente las cuestiones empresariales se deben representar como servicios a los que el controlador obtiene acceso mediante la [inserción de dependencias](xref:mvc/controllers/dependency-injection). Después, las acciones asignan el resultado de la acción empresarial a un estado de aplicación.
 

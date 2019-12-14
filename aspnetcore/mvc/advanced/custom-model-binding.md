@@ -3,14 +3,14 @@ title: Enlace de modelos personalizado en ASP.NET Core
 author: ardalis
 description: Obtenga información sobre cómo el enlace de modelos permite que las acciones de controlador funcionen directamente con tipos de modelos en ASP.NET Core.
 ms.author: riande
-ms.date: 11/13/2018
+ms.date: 12/05/2019
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: b2fbe6a9f11315d1fb8863fbf62e8929c7ff3fc2
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: 625cc6c9ca5a2c22d028ea25f8fc0d942b71f12d
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71186885"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881128"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Enlace de modelos personalizado en ASP.NET Core
 
@@ -38,7 +38,7 @@ Las cadenas codificadas con base64 se pueden usar para representar datos binario
 
 En la siguiente imagen se muestra una pequeña porción de la cadena codificada:
 
-![dotnet bot codificada](custom-model-binding/images/encoded-bot.png "dotnet bot codificada")
+![dotnet bot codificado](custom-model-binding/images/encoded-bot.png "dotnet bot codificado")
 
 Siga las instrucciones del [archivo Léame del ejemplo](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) para convertir la cadena codificada con base64 en un archivo.
 
@@ -124,7 +124,7 @@ Al evaluar enlazadores de modelos, la colección de proveedores se examina en or
 
 En la siguiente imagen se muestran los enlazadores de modelos predeterminados en el depurador.
 
-![enlazadores de modelos predeterminados](custom-model-binding/images/default-model-binders.png "enlazadores de modelos predeterminados")
+![Enlazadores de modelos predeterminados](custom-model-binding/images/default-model-binders.png "enlazadores de modelos predeterminados")
 
 Si su proveedor se agrega al final de la colección, puede ocurrir que se llame a un enlazador de modelos integrado antes que al suyo. En este ejemplo, el proveedor personalizado se agrega al principio de la colección para procurar que se use en los argumentos de acción de `Author`.
 
@@ -147,4 +147,4 @@ Los enlazadores de modelos personalizados deben caracterizarse por lo siguiente:
 
 - No deben tratar de establecer códigos de estado ni devolver resultados (por ejemplo, 404 No encontrado). Los errores que se produzcan en un enlace de modelos se deben controlar con un [filtro de acciones](xref:mvc/controllers/filters) o con la lógica del propio método de acción.
 - Son realmente útiles para eliminar el código repetitivo y las cuestiones transversales de los métodos de acción.
-- No se deben usar en general para convertir una cadena en un tipo personalizado. Para ello, [`TypeConverter`](/dotnet/api/system.componentmodel.typeconverter) suele ser una mejor opción.
+- No se deben usar en general para convertir una cadena en un tipo personalizado. Para ello, [TypeConverter](/dotnet/api/system.componentmodel.typeconverter) suele ser una mejor opción.

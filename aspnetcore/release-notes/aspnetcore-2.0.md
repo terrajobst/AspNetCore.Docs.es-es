@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre las nuevas características de ASP.NET Core 2.0.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 12/05/2019
 uid: aspnetcore-2.0
-ms.openlocfilehash: dac5a48042a71774cb884e30a166be68bee69691
-ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
+ms.openlocfilehash: 452ccd76eece55cb5cf38fe39781f2f64dd5d466
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048113"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880873"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novedades de ASP.NET Core 2.0
 
@@ -104,7 +104,7 @@ var entityTag = new EntityTagHeaderValue("\"MyCalculatedEtagValue\"");
 return File(data, "text/plain", "downloadName.txt", lastModified: DateTime.UtcNow.AddSeconds(-5), entityTag: entityTag);
 ```
 
-Al archivo devuelto a los visitantes se incorporarán los encabezados HTTP adecuados para los valores `ETag` y `LastModified`.
+El archivo devuelto a los visitantes incluye los encabezados HTTP adecuados para los valores `ETag` y `LastModified`.
 
 Si un visitante de la aplicación solicita el contenido con un encabezado de solicitud de intervalo, ASP.NET Core reconoce la solicitud y controla ese encabezado. Si el contenido solicitado se puede entregar de forma parcial, ASP.NET Core lo omite debidamente y solo devuelve el conjunto de bytes solicitado. No es necesario que escriba ningún controlador especial en los métodos para adaptar o controlar esta característica, ya que se controla automáticamente.
 

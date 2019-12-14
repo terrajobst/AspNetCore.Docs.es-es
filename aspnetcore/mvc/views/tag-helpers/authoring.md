@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo crear asistentes de etiquetas en ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/29/2019
+ms.date: 12/05/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: f0c7e114583b2ca2e681c507bef3487c863d8cd0
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: e8b62d795f6444e6dd79e27ace687d5db4db86de
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589871"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880997"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Crear asistentes de etiquetas en ASP.NET Core
 
@@ -117,7 +117,7 @@ Este enfoque funciona para el atributo "href" siempre y cuando no exista actualm
 <a name="self-closing"></a>
 
    > [!NOTE]
-   > Si escribe la etiqueta de correo electrónico como de autocierre (`<email mail-to="Rick" />`), la salida final también será de autocierre. Para habilitar la capacidad de escribir la etiqueta únicamente con una etiqueta de apertura (`<email mail-to="Rick">`) debe decorar la clase con lo siguiente:
+   > Si escribe la etiqueta de correo electrónico como de autocierre (`<email mail-to="Rick" />`), la salida final también será de autocierre. Para habilitar la capacidad de escribir la etiqueta únicamente con una etiqueta de apertura (`<email mail-to="Rick">`), debe marcar la clase con lo siguiente:
    >
    > [!code-csharp[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailVoid.cs?highlight=1&range=6-10)]
 

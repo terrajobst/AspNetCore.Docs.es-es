@@ -4,16 +4,16 @@ author: rick-anderson
 description: Obtenga información sobre las nuevas características de ASP.NET Core 2.2.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: aspnetcore-2.2
-ms.openlocfilehash: fca653158c95e7c1a11f25f4076830fe3e7e93ae
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 8995a514ea2e5016da85952d0f0beaf396a5d639
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963133"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880844"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>Novedades de ASP.NET Core 2.2
 
@@ -57,7 +57,12 @@ Para obtener más información, consulte [Comprobaciones de estado en ASP.NET Co
 
 ASP.NET Core 2.2 es compatible con HTTP/2.
 
-HTTP/2 es una revisión completa del protocolo HTTP. Entre las características más importantes de HTTP/2 destacan la compresión de encabezados y las secuencias totalmente multiplexadas a través de una sola conexión. Aunque HTTP/2 conserva la semántica de HTTP (encabezados y métodos HTTP, etc.), la manera de entramar y enviar estos datos es una diferencia importante respecto a HTTP/1.x.
+HTTP/2 es una revisión completa del protocolo HTTP. Las características destacadas de HTTP/2 incluyen:
+
+* Compatibilidad con la compresión de encabezados.
+* Secuencias totalmente multiplexadas en una sola conexión.
+
+Aunque HTTP/2 conserva la semántica de HTTP (por ejemplo, encabezados y métodos HTTP), la manera de entramar y enviar los datos entre el cliente y el servidor es una diferencia importante respecto a HTTP/1.x.
 
 Como consecuencia de este cambio en las tramas, los servidores y los clientes deben negociar la versión del protocolo que se va a utilizar. La negociación de protocolo de capa de aplicación (ALPN) es una extensión TLS que permite que el servidor y el cliente negocien la versión del protocolo que se va a utilizar como parte de su protocolo de enlace TLS. Aunque es posible que el servidor y el cliente conozcan previamente el protocolo, los principales exploradores admiten ALPN como la única forma de establecer una conexión HTTP/2.
 

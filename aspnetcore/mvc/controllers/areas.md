@@ -3,14 +3,14 @@ title: Áreas de ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre las áreas, una característica de ASP.NET MVC que se usa para organizar funciones relacionadas en un grupo como un espacio de nombres independiente (para el enrutamiento) y una estructura de carpetas (para las vistas).
 ms.author: riande
-ms.date: 08/16/2019
+ms.date: 12/05/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 9065aa23a537add5a9376472e4f4478e9d4149bd
-ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
+ms.openlocfilehash: 7e02a21361e0e2148b29a3ae0f1ba25e68239e13
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70024744"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881112"
 ---
 # <a name="areas-in-aspnet-core"></a>Áreas de ASP.NET Core
 
@@ -34,7 +34,7 @@ Si va a usar Razor Pages, consulte [Áreas con Razor Pages](#areas-with-razor-pa
 Una aplicación web ASP.NET Core típica en la que se usen áreas, controladores y vistas contiene lo siguiente:
 
 * Una [estructura de carpetas de área](#area-folder-structure).
-* Controladores decorados con el atributo [&lbrack;Area&rbrack;](#attribute) para asociar el controlador con el área:
+* Controladores con el atributo [`[Area]`](#attribute) para asociar el controlador con el área:
 
   [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]
 

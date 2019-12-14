@@ -3,14 +3,14 @@ title: Crear servicios back-end para aplicaciones móviles nativas con ASP.NET C
 author: ardalis
 description: Obtenga información sobre cómo crear servicios back-end con ASP.NET Core MVC que admitan aplicaciones móviles nativas.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 12/05/2019
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: b50d2593d7dc4b89472033898373e3a22fc9a7a3
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 38ac69bfe9d99d6d61f96fde92d86fd752ebbb6b
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64883960"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881158"
 ---
 # <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>Crear servicios back-end para aplicaciones móviles nativas con ASP.NET Core
 
@@ -108,7 +108,7 @@ Puede probar el nuevo método de API con una variedad de herramientas, como [Pos
 
 ### <a name="creating-items"></a>Crear elementos
 
-Por convención, la creación de elementos de datos se asigna al verbo HTTP POST. El método `Create` tiene un atributo `[HttpPost]` aplicado y acepta una instancia `ToDoItem`. Puesto que el argumento `item` se pasará en el cuerpo de la solicitud POST, este parámetro se decora con el atributo `[FromBody]`.
+Por convención, la creación de elementos de datos se asigna al verbo HTTP POST. El método `Create` tiene un atributo `[HttpPost]` aplicado y acepta una instancia `ToDoItem`. Puesto que el argumento `item` se pasa en el cuerpo de la solicitud POST, este parámetro especifica el atributo `[FromBody]`.
 
 Dentro del método, se comprueba la validez del elemento y si existió anteriormente en el almacén de datos y, si no hay problemas, se agrega mediante el repositorio. Al comprobar `ModelState.IsValid` se realiza una [validación de modelos](../mvc/models/validation.md), y debe realizarse en cada método de API que acepte datos proporcionados por usuario.
 

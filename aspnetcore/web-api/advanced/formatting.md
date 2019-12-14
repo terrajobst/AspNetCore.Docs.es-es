@@ -4,14 +4,14 @@ author: ardalis
 description: Obtenga información sobre cómo dar formato a datos de respuesta en ASP.NET Core Web API.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 8/22/2019
+ms.date: 12/05/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 78fe620ea8fdd681a276253f77939bcb2a56ebb9
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: cab383053751598b882f3716943d3d9392c56f4a
+ms.sourcegitcommit: 29ace642ca0e1f0b48a18d66de266d8811df2b83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391288"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74987957"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Aplicación de formato a datos de respuesta en ASP.NET Core Web API
 
@@ -118,7 +118,7 @@ Los formateadores XML que se implementan mediante <xref:System.Xml.Serialization
 
 El código anterior serializa los resultados mediante `XmlSerializer`.
 
-Cuando se usa el código anterior, los métodos de controlador deben devolver el formato adecuado en función del encabezado `Accept` de la solicitud.
+Cuando se usa el código anterior, los métodos de controlador devuelven el formato adecuado en función del encabezado `Accept` de la solicitud.
 
 ### <a name="configure-systemtextjson-based-formatters"></a>Configuración de formateadores basados en System.Text.Json
 

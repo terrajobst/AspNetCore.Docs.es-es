@@ -1,18 +1,18 @@
 ---
-title: Elementos de aplicación en ASP.NET Core
+title: Uso compartido de controladores, vistas, Razor Pages y mucho más con los elementos de aplicación en ASP.NET Core
 author: rick-anderson
 description: Uso compartido de controladores, vistas, Razor Pages y mucho más con los elementos de aplicación en ASP.NET Core
 ms.author: riande
-ms.date: 11/10/2019
+ms.date: 11/11/2019
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 92c408adfad8af3dfd2572b625ae28ef24f64948
-ms.sourcegitcommit: a7bbe3890befead19440075b05b9674351f98872
+ms.openlocfilehash: a102511478c40ae64aada919fee7072c3027ddcd
+ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905761"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74959000"
 ---
-# <a name="share-controllers-views-razor-pages-and-more-with-application-parts-in-aspnet-core"></a>Uso compartido de controladores, vistas, Razor Pages y mucho más con los elementos de aplicación en ASP.NET Core
+# <a name="share-controllers-views-razor-pages-and-more-with-application-parts"></a>Uso compartido de controladores, vistas, Razor Pages y mucho más con los elementos de aplicación
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -20,89 +20,53 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-Un *elemento de aplicación* es una abstracción sobre los recursos de una aplicación. Los elementos de aplicación permiten a ASP.NET Core detectar controladores, componentes de vista, aplicaciones auxiliares de etiquetas, Razor Pages, orígenes de compilación de Razor, etc. [AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) is un elemento de aplicación. `AssemblyPart` encapsula una referencia de ensamblado y expone los tipos y las referencias de compilación.
+Un *elemento de aplicación* es una abstracción sobre los recursos de una aplicación. Los elementos de aplicación permiten a ASP.NET Core detectar controladores, componentes de vista, aplicaciones auxiliares de etiquetas, Razor Pages, orígenes de compilación de Razor, etc. <xref:Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPart> es un elemento de una aplicación. `AssemblyPart` encapsula una referencia de ensamblado y expone los tipos y las referencias de compilación.
 
-Los *proveedores de características* trabajan con los elementos de aplicación para rellenar las características de una aplicación de ASP.NET Core. El caso de uso principal de los elementos de aplicación es configurar una aplicación para detectar (o evitar cargar) características de ASP.NET Core de un ensamblado. Por ejemplo, puede que desee compartir la funcionalidad común entre varias aplicaciones. Mediante el uso de elementos de aplicación, puede compartir un ensamblado (DLL) que contenga controladores, vistas, Razor Pages, orígenes de compilación de Razor, aplicaciones auxiliares de etiquetas y mucho más con varias aplicaciones. Es preferible compartir un ensamblado a duplicar el código en varios proyectos.
+Los [proveedores de características](#fp) trabajan con los elementos de aplicación para rellenar las características de una aplicación de ASP.NET Core. El caso de uso principal de los elementos de aplicación es configurar una aplicación para detectar (o evitar cargar) características de ASP.NET Core de un ensamblado. Por ejemplo, puede que desee compartir la funcionalidad común entre varias aplicaciones. Mediante el uso de elementos de aplicación, puede compartir un ensamblado (DLL) que contenga controladores, vistas, Razor Pages, orígenes de compilación de Razor, aplicaciones auxiliares de etiquetas y mucho más con varias aplicaciones. Es preferible compartir un ensamblado a duplicar el código en varios proyectos.
 
 Las aplicaciones ASP.NET Core cargan características de <xref:System.Web.WebPages.ApplicationPart>. La clase <xref:Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPart> representa un elemento de aplicación que está respaldado por un ensamblado.
 
 ## <a name="load-aspnet-core-features"></a>Carga de características de ASP.NET Core
 
-Use las clases `ApplicationPart` y `AssemblyPart` para detectar y cargar características de ASP.NET Core (controladores, componentes de vista, etc.). <xref:Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartManager> realiza un seguimiento de los elementos de aplicación y los proveedores de características disponibles. `ApplicationPartManager` se configura en `Startup.ConfigureServices`:
+Use las clases <xref:Microsoft.AspNetCore.Mvc.ApplicationParts> y <xref:Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPart> para detectar y cargar características de ASP.NET Core (controladores, componentes de vista, etc.). <xref:Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartManager> realiza un seguimiento de los elementos de aplicación y los proveedores de características disponibles. `ApplicationPartManager` se configura en `Startup.ConfigureServices`:
 
-[!code-csharp[](./app-parts/sample1/WebAppParts/Startup.cs?name=snippet)]
+[!code-csharp[](./app-parts/3.0sample1/WebAppParts/Startup.cs?name=snippet)]
 
 El código siguiente proporciona un enfoque alternativo para configurar `ApplicationPartManager` mediante `AssemblyPart`:
 
-[!code-csharp[](./app-parts/sample1/WebAppParts/Startup2.cs?name=snippet)]
+[!code-csharp[](./app-parts/3.0sample1/WebAppParts/Startup2.cs?name=snippet)]
 
-Los dos ejemplos de código anteriores cargan `SharedController` de un ensamblado. `SharedController` no está en el proyecto de la aplicación. Vea la descarga de ejemplo de la [solución WebAppParts](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample1/WebAppParts).
+Los dos ejemplos de código anteriores cargan `SharedController` de un ensamblado. `SharedController` no se encuentra en el proyecto de la aplicación. Vea la descarga de ejemplo de la [solución WebAppParts](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/3.0sample1/WebAppParts).
 
 ### <a name="include-views"></a>Inclusión de vistas
 
-Para incluir vistas en el ensamblado:
-
-* Agregue el marcado siguiente al archivo de proyecto compartido:
-
-  ```csproj
-  <ItemGroup>
-      <EmbeddedResource Include="Views\**\*.cshtml" />
-  </ItemGroup>
-  ```
-
-* Agregue <xref:Microsoft.Extensions.FileProviders.EmbeddedFileProvider> a <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine>:
-
-  [!code-csharp[](./app-parts/sample1/WebAppParts/StartupViews.cs?name=snippet&highlight=3-7)]
+Use una [biblioteca de clases de Razor](xref:razor-pages/ui-class) para incluir vistas en el ensamblado.
 
 ### <a name="prevent-loading-resources"></a>Impedimento de la carga de los recursos
 
 Los elementos de aplicación se pueden usar para *evitar* la carga de recursos en un ensamblado o ubicación en concreto. Agregue o quite miembros de la colección <xref:Microsoft.AspNetCore.Mvc.ApplicationParts> para ocultar los recursos o hacer que estos estén disponibles. El orden de las entradas de la colección `ApplicationParts` es irrelevante. Configure `ApplicationPartManager` antes de usarlo para configurar los servicios en el contenedor. Por ejemplo, configure `ApplicationPartManager` antes de invocar a `AddControllersAsServices`. Llame a `Remove` en la colección `ApplicationParts` para quitar un recurso.
 
-En el código siguiente se usa <xref:Microsoft.AspNetCore.Mvc.ApplicationParts> para quitar `MyDependentLibrary` de la aplicación: [!code-csharp[](./app-parts/sample1/WebAppParts/StartupRm.cs?name=snippet)]
-
 `ApplicationPartManager` incluye elementos para:
 
 * El ensamblado de la aplicación y los ensamblados dependientes.
+* `Microsoft.AspNetCore.Mvc.ApplicationParts.CompiledRazorAssemblyPart`
+* `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation`
 * `Microsoft.AspNetCore.Mvc.TagHelpers`.
 * `Microsoft.AspNetCore.Mvc.Razor`.
 
-## <a name="application-feature-providers"></a>Proveedores de características de la aplicación
+<a name="fp"></a>
+
+## <a name="feature-providers"></a>Proveedores de características
 
 Los proveedores de características de la aplicación examinan los elementos de aplicación y proporcionan características para esos elementos. Existen proveedores de características integrados para las siguientes características de ASP.NET Core:
 
-* [Controladores](/dotnet/api/microsoft.aspnetcore.mvc.controllers.controllerfeatureprovider)
-* [Asistentes de etiquetas](/dotnet/api/microsoft.aspnetcore.mvc.razor.taghelpers.taghelperfeatureprovider)
-* [Componentes de vista](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)
+* <xref:Microsoft.AspNetCore.Mvc.Controllers.ControllerFeatureProvider>
+* <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers.TagHelperFeatureProvider>
+* <xref:Microsoft.AspNetCore.Mvc.Razor.Compilation.MetadataReferenceFeatureProvider>
+* <xref:Microsoft.AspNetCore.Mvc.Razor.Compilation.ViewsFeatureProvider>
+* `internal class` [RazorCompiledItemFeatureProvider](https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Razor/src/ApplicationParts/RazorCompiledItemFeatureProvider.cs#L14)
 
 Los proveedores de características heredan de <xref:Microsoft.AspNetCore.Mvc.ApplicationParts.IApplicationFeatureProvider`1>, donde `T` es el tipo de la característica. Los proveedores de características se pueden implementar para cualquiera de los tipos de características enumerados anteriormente. El orden de los proveedores de características en `ApplicationPartManager.FeatureProviders` puede afectar al comportamiento en tiempo de ejecución. Los proveedores agregados posteriormente pueden reaccionar ante las acciones realizadas por los proveedores agregados anteriormente.
-
-### <a name="generic-controller-feature"></a>característica de controlador genérico
-
-ASP.NET Core omite los [controladores genéricos](/dotnet/csharp/programming-guide/generics/generic-classes). Un controlador genérico tiene un parámetro de tipo (por ejemplo, `MyController<T>`). En el ejemplo siguiente se agregan instancias de controlador genérico para una lista especificada de tipos:
-
-[!code-csharp[](./app-parts/sample2/AppPartsSample/GenericControllerFeatureProvider.cs?name=snippet)]
-
-Los tipos se definen en `EntityTypes.Types`:
-
-[!code-csharp[](./app-parts/sample2/AppPartsSample/Models/EntityTypes.cs?name=snippet)]
-
-El proveedor de características se agrega en `Startup`:
-
-[!code-csharp[](./app-parts/sample2/AppPartsSample/Startup.cs?name=snippet)]
-
-Los nombres de controlador genérico utilizados para el enrutamiento tienen el formato *GenericController`1[Widget]* en lugar de *Widget*. El siguiente atributo modifica el nombre para coincidir con el tipo genérico usado por el controlador:
-
-[!code-csharp[](./app-parts/sample2/AppPartsSample/GenericControllerNameConvention.cs)]
-
-La clase `GenericController`:
-
-[!code-csharp[](./app-parts/sample2/AppPartsSample/GenericController.cs)]
-
-Por ejemplo, si se solicita una dirección URL de `https://localhost:5001/Sprocket`, se obtiene la siguiente respuesta:
-
-```text
-Hello from a generic Sprocket controller.
-```
 
 ### <a name="display-available-features"></a>muestra de las características disponibles
 
@@ -129,6 +93,14 @@ Tag Helpers:
 View Components:
     - SampleViewComponent
 ```
+
+## <a name="discovery-in-application-parts"></a>Detección en elementos de aplicaciones
+
+Los errores HTTP 404 no son frecuentes cuando se usan elementos de aplicaciones para el desarrollo. Normalmente, estos errores se producen porque falta un requisito esencial sobre cómo se detectan los elementos de aplicaciones. Si la aplicación devuelve un error HTTP 404, verifique que se cumplen los siguientes requisitos:
+
+* La configuración `applicationName` debe establecerse en el ensamblado raíz que se usa para la detección. El ensamblado raíz que se usa para la detección suele ser el ensamblado del punto de entrada.
+* El ensamblado raíz debe tener una referencia a las partes que se usan para la detección. La referencia puede ser directa o transitiva.
+* El ensamblado raíz debe hacer referencia al SDK web. El marco tiene una lógica que marca atributos en el ensamblado raíz que se usan para la detección.
 
 ::: moniker-end
 
@@ -158,19 +130,7 @@ Los dos ejemplos de código anteriores cargan `SharedController` de un ensamblad
 
 ### <a name="include-views"></a>Inclusión de vistas
 
-Para incluir vistas en el ensamblado:
-
-* Agregue el marcado siguiente al archivo de proyecto compartido:
-
-  ```csproj
-  <ItemGroup>
-      <EmbeddedResource Include="Views\**\*.cshtml" />
-  </ItemGroup>
-  ```
-
-* Agregue <xref:Microsoft.Extensions.FileProviders.EmbeddedFileProvider> a <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine>:
-
-  [!code-csharp[](./app-parts/sample1/WebAppParts/StartupViews.cs?name=snippet&highlight=3-7)]
+Use una [biblioteca de clases de Razor](xref:razor-pages/ui-class) para incluir vistas en el ensamblado.
 
 ### <a name="prevent-loading-resources"></a>Impedimento de la carga de los recursos
 
@@ -193,34 +153,6 @@ Los proveedores de características de la aplicación examinan los elementos de 
 * [Componentes de vista](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponents.viewcomponentfeatureprovider)
 
 Los proveedores de características heredan de <xref:Microsoft.AspNetCore.Mvc.ApplicationParts.IApplicationFeatureProvider`1>, donde `T` es el tipo de la característica. Los proveedores de características se pueden implementar para cualquiera de los tipos de características enumerados anteriormente. El orden de los proveedores de características en `ApplicationPartManager.FeatureProviders` puede afectar al comportamiento en tiempo de ejecución. Los proveedores agregados posteriormente pueden reaccionar ante las acciones realizadas por los proveedores agregados anteriormente.
-
-### <a name="generic-controller-feature"></a>característica de controlador genérico
-
-ASP.NET Core omite los [controladores genéricos](/dotnet/csharp/programming-guide/generics/generic-classes). Un controlador genérico tiene un parámetro de tipo (por ejemplo, `MyController<T>`). En el ejemplo siguiente se agregan instancias de controlador genérico para una lista especificada de tipos:
-
-[!code-csharp[](./app-parts/sample2/AppPartsSample/GenericControllerFeatureProvider.cs?name=snippet)]
-
-Los tipos se definen en `EntityTypes.Types`:
-
-[!code-csharp[](./app-parts/sample2/AppPartsSample/Models/EntityTypes.cs?name=snippet)]
-
-El proveedor de características se agrega en `Startup`:
-
-[!code-csharp[](./app-parts/sample2/AppPartsSample/Startup.cs?name=snippet)]
-
-Los nombres de controlador genérico utilizados para el enrutamiento tienen el formato *GenericController`1[Widget]* en lugar de *Widget*. El siguiente atributo modifica el nombre para coincidir con el tipo genérico usado por el controlador:
-
-[!code-csharp[](./app-parts/sample2/AppPartsSample/GenericControllerNameConvention.cs)]
-
-La clase `GenericController`:
-
-[!code-csharp[](./app-parts/sample2/AppPartsSample/GenericController.cs)]
-
-Por ejemplo, si se solicita una dirección URL de `https://localhost:5001/Sprocket`, se obtiene la siguiente respuesta:
-
-```text
-Hello from a generic Sprocket controller.
-```
 
 ### <a name="display-available-features"></a>muestra de las características disponibles
 
@@ -247,5 +179,14 @@ Tag Helpers:
 View Components:
     - SampleViewComponent
 ```
+
+## <a name="discovery-in-application-parts"></a>Detección en elementos de aplicaciones
+
+Los errores HTTP 404 no son frecuentes cuando se usan elementos de aplicaciones para el desarrollo. Normalmente, estos errores se producen porque falta un requisito esencial sobre cómo se detectan los elementos de aplicaciones. Si la aplicación devuelve un error HTTP 404, verifique que se cumplen los siguientes requisitos:
+
+* La configuración `applicationName` debe establecerse en el ensamblado raíz que se usa para la detección. El ensamblado raíz que se usa para la detección suele ser el ensamblado del punto de entrada.
+* El ensamblado raíz debe tener una referencia a las partes que se usan para la detección. La referencia puede ser directa o transitiva.
+* El ensamblado raíz debe hacer referencia al SDK web.
+  * El marco de ASP.NET Core tiene una lógica de compilación personalizada que marca atributos en el ensamblado raíz que se usan para la detección.
 
 ::: moniker-end

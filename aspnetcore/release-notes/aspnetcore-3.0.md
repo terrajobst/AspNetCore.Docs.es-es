@@ -4,17 +4,17 @@ author: rick-anderson
 description: Obtenga información sobre las nuevas características de ASP.NET Core 3.0.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.0
-ms.openlocfilehash: c3dde383507ec919f82b5268ddbf23911c3d24f8
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 4ade13c38880c9915ec590297f2a43548ca400a8
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963122"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880826"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Novedades de ASP.NET Core 3.0
 
@@ -182,7 +182,7 @@ En el código anterior, `DomainRestrictedRequirement` actúa como `IAuthorizatio
 * Inspeccionar el contexto en el que se llama al método Hub.
 * Tomar decisiones sobre cómo permitir que el usuario ejecute métodos Hub individuales.
 
-Los métodos Hub individuales se pueden decorar con el nombre de la directiva que el código comprueba en tiempo de ejecución. Cuando los clientes intentan llamar a métodos Hub individuales, el controlador `DomainRestrictedRequirement` se ejecuta y controla el acceso a los métodos. En función de la forma en que `DomainRestrictedRequirement` controla el acceso:
+Los métodos Hub individuales se pueden marcar con el nombre de la directiva que el código comprueba en tiempo de ejecución. Cuando los clientes intentan llamar a métodos Hub individuales, el controlador `DomainRestrictedRequirement` se ejecuta y controla el acceso a los métodos. En función de la forma en que `DomainRestrictedRequirement` controla el acceso:
 
 * Todos los usuarios que han iniciado sesión pueden llamar al método `SendMessage`.
 * Solo los usuarios que han iniciado sesión con una dirección de correo electrónico `@jabbr.net` pueden ver los historiales de los usuarios.
@@ -319,8 +319,8 @@ Para agregar Json.NET a ASP.NET Core 3.0, consulte [Adición de compatibilidad c
 
 La lista siguiente contiene las nuevas directivas de Razor:
 
-* [@attribute](xref:mvc/views/razor#attribute) &ndash; La directiva `@attribute` aplica el atributo especificado a la clase de la página o vista generada. Por ejemplo: `@attribute [Authorize]`.
-* [@implements](xref:mvc/views/razor#implements) &ndash; La directiva `@implements` implementa una interfaz para la clase generada. Por ejemplo: `@implements IDisposable`.
+* [`@attribute`](xref:mvc/views/razor#attribute) &ndash; La directiva `@attribute` aplica el atributo especificado a la clase de la página o vista generada. Por ejemplo: `@attribute [Authorize]`.
+* [`@implements`](xref:mvc/views/razor#implements) &ndash; La directiva `@implements` implementa una interfaz para la clase generada. Por ejemplo: `@implements IDisposable`.
 
 ## <a name="identityserver4-supports-authentication-and-authorization-for-web-apis-and-spas"></a>IdentityServer4 admite la autenticación y la autorización de SPA y API web
 
