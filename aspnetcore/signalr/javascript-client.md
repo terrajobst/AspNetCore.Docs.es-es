@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/javascript-client
-ms.openlocfilehash: 926160a41c82853d83890f0d52b14d7d5561a990
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: eaf737642cdbd7ab2b1b5c16538b47a70cddd332
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963769"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354699"
 ---
 # <a name="aspnet-core-opno-locsignalr-javascript-client"></a>ASP.NET Core SignalR cliente de JavaScript
 
@@ -35,7 +35,7 @@ La biblioteca de cliente de JavaScript de SignalR se entrega como un paquete [NP
   npm install @microsoft/signalr
   ```
 
-NPM instala el contenido del paquete en la carpeta de *@microsoft\signalr\dist\browserde\\de node_modules* . Cree una nueva carpeta denominada *signalr* en la carpeta *wwwroot\\lib* . Copie el archivo *signalr. js* en la carpeta *wwwroot\lib\signalr* .
+NPM instala el contenido del paquete en el *node_modules\\@microsoft\signalr\dist\browser* carpeta. Cree una nueva carpeta denominada *signalr* en la carpeta *wwwroot\\lib* . Copie el archivo *signalr. js* en la carpeta *wwwroot\lib\signalr* .
 
 ::: moniker-end
 
@@ -46,7 +46,7 @@ NPM instala el contenido del paquete en la carpeta de *@microsoft\signalr\dist\b
   npm install @aspnet/signalr
   ```
 
-NPM instala el contenido del paquete en la carpeta de *@aspnet\signalr\dist\browserde\\de node_modules* . Cree una nueva carpeta denominada *signalr* en la carpeta *wwwroot\\lib* . Copie el archivo *signalr. js* en la carpeta *wwwroot\lib\signalr* .
+NPM instala el contenido del paquete en el *node_modules\\@aspnet\signalr\dist\browser* carpeta. Cree una nueva carpeta denominada *signalr* en la carpeta *wwwroot\\lib* . Copie el archivo *signalr. js* en la carpeta *wwwroot\lib\signalr* .
 
 ::: moniker-end
 
@@ -109,7 +109,7 @@ SignalR determina el método de cliente al que se debe llamar haciendo coincidir
 > [!NOTE]
 > Como procedimiento recomendado, llame al método [Start](/javascript/api/%40aspnet/signalr/hubconnection#start) en el `HubConnection` después de `on`. Esto garantiza que los controladores se registren antes de que se reciban los mensajes.
 
-## <a name="error-handling-and-logging"></a>Control de errores y registro
+## <a name="error-handling-and-logging"></a>Registro y control de errores
 
 Encadenar un método `catch` al final del método `start` para controlar los errores del lado cliente. Use `console.error` para generar errores en la consola del explorador.
 
@@ -236,15 +236,16 @@ const connection = new signalR.HubConnectionBuilder()
     .withUrl("/chatHub")
     .withAutomaticReconnect({
         nextRetryDelayInMilliseconds: retryContext => {
-          if (retryContext.elapsedMilliseconds < 60000) {
-            // If we've been reconnecting for less than 60 seconds so far,
-            // wait between 0 and 10 seconds before the next reconnect attempt.
-            return Math.random() * 10000;
-          } else {
-            // If we've been reconnecting for more than 60 seconds so far, stop reconnecting.
-            return null;
-          }
-        })
+            if (retryContext.elapsedMilliseconds < 60000) {
+                // If we've been reconnecting for less than 60 seconds so far,
+                // wait between 0 and 10 seconds before the next reconnect attempt.
+                return Math.random() * 10000;
+            } else {
+                // If we've been reconnecting for more than 60 seconds so far, stop reconnecting.
+                return null;
+            }
+        }
+    })
     .build();
 ```
 

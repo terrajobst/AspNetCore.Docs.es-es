@@ -3,14 +3,14 @@ title: La autenticación de Facebook, Google y proveedores externos sin ASP.NET 
 author: rick-anderson
 description: Explicación del uso de Facebook, Google, Twitter, etc. autenticación de usuarios de cuentas sin ASP.NET Core identidad.
 ms.author: riande
-ms.date: 11/19/2019
+ms.date: 12/10/2019
 uid: security/authentication/social/social-without-identity
-ms.openlocfilehash: 680ea091dcc5ed7f94879b5d277e8be7e5abeb7b
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 612964ec9ed4975cdc81780dda3bac6cce96037f
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289118"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359063"
 ---
 # <a name="use-social-sign-in-provider-authentication-without-aspnet-core-identity"></a>Usar la autenticación de proveedor de inicio de sesión social sin ASP.NET Core identidad
 
@@ -27,7 +27,7 @@ Este ejemplo utiliza la [autenticación de Google](xref:security/authentication/
 * [Autenticación con Twitter](xref:security/authentication/twitter-logins)
 * [Otros proveedores](xref:security/authentication/otherlogins)
 
-## <a name="configuration"></a>Configuración
+## <a name="configuration"></a>Configuración de
 
 En el método `ConfigureServices`, configure los esquemas de autenticación de la aplicación con los métodos <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*>, <xref:Microsoft.Extensions.DependencyInjection.CookieExtensions.AddCookie*>y <xref:Microsoft.Extensions.DependencyInjection.GoogleExtensions.AddGoogle*>:
 
@@ -47,7 +47,7 @@ En `Startup.Configure`, llame a `UseAuthentication` y `UseAuthorization` entre l
 
 [!code-csharp[](social-without-identity/samples_snapshot/3.x/Startup.cs?name=snippet2&highlight=3-4)]
 
-Para obtener más información acerca de los esquemas de autenticación y la autenticación de cookies, consulte <xref:security/authentication/cookie>.
+Para obtener más información sobre los esquemas de autenticación, vea [conceptos de autenticación](xref:security/authentication/index#authentication-concepts). Para obtener más información acerca de la autenticación de cookies, consulte <xref:security/authentication/cookie>.
 
 ## <a name="apply-authorization"></a>Aplicar autorización
 
@@ -82,7 +82,7 @@ Este ejemplo utiliza la [autenticación de Google](xref:security/authentication/
 * [Autenticación con Twitter](xref:security/authentication/twitter-logins)
 * [Otros proveedores](xref:security/authentication/otherlogins)
 
-## <a name="configuration"></a>Configuración
+## <a name="configuration"></a>Configuración de
 
 En el método `ConfigureServices`, configure los esquemas de autenticación de la aplicación con los métodos `AddAuthentication`, `AddCookie`y `AddGoogle`:
 
@@ -102,7 +102,7 @@ En el método `Configure`, llame al método `UseAuthentication` para invocar el 
 
 [!code-csharp[](social-without-identity/samples_snapshot/2.x/Startup.cs?name=snippet2)]
 
-Para obtener más información acerca de los esquemas de autenticación y la autenticación de cookies, consulte <xref:security/authentication/cookie>.
+Para obtener más información sobre los esquemas de autenticación, vea [conceptos de autenticación](xref:security/authentication/index#authentication-concepts). Para obtener más información acerca de la autenticación de cookies, consulte <xref:security/authentication/cookie>.
 
 ## <a name="apply-authorization"></a>Aplicar autorización
 

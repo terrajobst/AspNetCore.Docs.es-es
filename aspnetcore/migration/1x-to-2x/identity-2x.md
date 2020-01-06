@@ -1,36 +1,36 @@
 ---
-title: Migrar de autenticación e identidad a ASP.NET Core 2.0
+title: Migración de la autenticación y la identidad a ASP.NET Core 2,0
 author: scottaddie
-description: En este artículo se describe los pasos más comunes para migrar la autenticación de ASP.NET Core 1.x y la identidad a ASP.NET Core 2.0.
+description: En este artículo se describen los pasos más comunes para migrar la autenticación de ASP.NET Core 1. x y la identidad a ASP.NET Core 2,0.
 ms.author: scaddie
 ms.date: 06/21/2019
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: c83356e12fa5ae581b369265b9d857b08445ed51
-ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
+ms.openlocfilehash: f3817fa1808c331f7e167618e3bb00d68ad08571
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313743"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355179"
 ---
-# <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Migrar de autenticación e identidad a ASP.NET Core 2.0
+# <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Migración de la autenticación y la identidad a ASP.NET Core 2,0
 
 Por [Scott Addie](https://github.com/scottaddie) y [Hao Kung](https://github.com/HaoK)
 
-ASP.NET Core 2.0 tiene un nuevo modelo para la autenticación y [identidad](xref:security/authentication/identity) que simplifica la configuración mediante el uso de servicios. Las aplicaciones de ASP.NET Core 1.x que utilizan la autenticación o Identity se pueden actualizar para usar el nuevo modelo, tal como se describe a continuación.
+ASP.NET Core 2,0 tiene un nuevo modelo de autenticación e [identidad](xref:security/authentication/identity) que simplifica la configuración mediante el uso de servicios. ASP.NET Core 1. x las aplicaciones que usan autenticación o identidad pueden actualizarse para usar el nuevo modelo, tal y como se describe a continuación.
 
-## <a name="update-namespaces"></a>Actualice los espacios de nombres
+## <a name="update-namespaces"></a>Actualizar espacios de nombres
 
-En la versión 1.x, las clases como `IdentityRole` y `IdentityUser` se encontraron en el `Microsoft.AspNetCore.Identity.EntityFrameworkCore` espacio de nombres.
+En 1. x, se encontraron clases como `IdentityRole` y `IdentityUser` en el espacio de nombres `Microsoft.AspNetCore.Identity.EntityFrameworkCore`.
 
-En 2.0, la <xref:Microsoft.AspNetCore.Identity> espacio de nombres se convirtió en el nuevo lugar para varias de estas clases. Con el código de identidad de forma predeterminada, las clases afectados incluyen `ApplicationUser` y `Startup`. Ajustar su `using` instrucciones para resolver las referencias afectadas.
+En 2,0, el espacio de nombres de <xref:Microsoft.AspNetCore.Identity> se convirtió en el nuevo inicio de algunas de estas clases. Con el código de identidad predeterminado, las clases afectadas incluyen `ApplicationUser` y `Startup`. Ajuste las instrucciones de `using` para resolver las referencias afectadas.
 
 <a name="auth-middleware"></a>
 
 ## <a name="authentication-middleware-and-services"></a>Middleware de autenticación y servicios
 
-En los proyectos de 1.x, la autenticación se configura a través de middleware. Se invoca un método de middleware para cada esquema de autenticación que desea admitir.
+En los proyectos de 1. x, la autenticación se configura mediante middleware. Se invoca un método de middleware para cada esquema de autenticación que desee admitir.
 
-El siguiente ejemplo de 1.x configura la autenticación de Facebook con identidad en *Startup.cs*:
+En el siguiente ejemplo de 1. x se configura la autenticación de Facebook con la identidad en *Startup.CS*:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -49,9 +49,9 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory)
 }
 ```
 
-En los 2.0 proyectos, la autenticación se configura a través de servicios. Cada esquema de autenticación está registrado en el `ConfigureServices` método *Startup.cs*. El `UseIdentity` método se reemplaza por `UseAuthentication`.
+En los proyectos de 2,0, la autenticación se configura a través de los servicios. Cada esquema de autenticación se registra en el método `ConfigureServices` de *Startup.CS*. El método `UseIdentity` se reemplaza con `UseAuthentication`.
 
-El siguiente ejemplo 2.0 configura la autenticación de Facebook con identidad en *Startup.cs*:
+En el siguiente ejemplo de 2,0 se configura la autenticación de Facebook con la identidad en *Startup.CS*:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -74,23 +74,23 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
 }
 ```
 
-El `UseAuthentication` método agrega un componente de middleware de autenticación único, que es responsable de la autenticación automática y la administración de las solicitudes de autenticación remota. Reemplaza todos los componentes de middleware individuales con un componente de middleware única y común.
+El método `UseAuthentication` agrega un componente de middleware de autenticación única, que es responsable de la autenticación automática y el control de las solicitudes de autenticación remota. Reemplaza todos los componentes de middleware individuales por un único componente común de middleware.
 
-A continuación se muestran 2.0 instrucciones de migración para cada esquema de autenticación principales.
+A continuación se muestran 2,0 instrucciones de migración para cada esquema de autenticación principal.
 
 ### <a name="cookie-based-authentication"></a>Autenticación basada en cookies
 
-Seleccione una de las dos opciones siguientes y realice los cambios necesarios en *Startup.cs*:
+Seleccione una de las dos opciones siguientes y realice los cambios necesarios en *Startup.CS*:
 
-1. Uso de cookies con identidad
-    - Reemplace `UseIdentity` con `UseAuthentication` en el `Configure` método:
+1. Usar cookies con identidad
+    - Reemplace `UseIdentity` por `UseAuthentication` en el método `Configure`:
 
         ```csharp
         app.UseAuthentication();
         ```
 
-    - Invocar el `AddIdentity` método en el `ConfigureServices` método para agregar los servicios de autenticación de cookies.
-    - Si lo desea, invocar el `ConfigureApplicationCookie` o `ConfigureExternalCookie` método en el `ConfigureServices` método ajustar la configuración de la cookie de identidad.
+    - Invoque el método `AddIdentity` en el método `ConfigureServices` para agregar los servicios de autenticación de cookies.
+    - Opcionalmente, invoque el método `ConfigureApplicationCookie` o `ConfigureExternalCookie` en el método `ConfigureServices` para ajustar la configuración de la cookie de identidad.
 
         ```csharp
         services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -101,13 +101,13 @@ Seleccione una de las dos opciones siguientes y realice los cambios necesarios e
         ```
 
 2. Usar cookies sin identidad
-    - Reemplace el `UseCookieAuthentication` llame al método el `Configure` método con `UseAuthentication`:
+    - Reemplace la llamada al método `UseCookieAuthentication` en el método `Configure` con `UseAuthentication`:
 
         ```csharp
         app.UseAuthentication();
         ```
 
-    - Invocar el `AddAuthentication` y `AddCookie` métodos en el `ConfigureServices` método:
+    - Invocar los métodos `AddAuthentication` y `AddCookie` en el método `ConfigureServices`:
 
         ```csharp
         // If you don't want the cookie to be automatically authenticated and assigned to HttpContext.User,
@@ -120,16 +120,16 @@ Seleccione una de las dos opciones siguientes y realice los cambios necesarios e
                 });
         ```
 
-### <a name="jwt-bearer-authentication"></a>Autenticación de portador JWT
+### <a name="jwt-bearer-authentication"></a>Autenticación de portador de JWT
 
-Realice los siguientes cambios en *Startup.cs*:
-- Reemplace el `UseJwtBearerAuthentication` llame al método el `Configure` método con `UseAuthentication`:
+Realice los cambios siguientes en *Startup.CS*:
+- Reemplace la llamada al método `UseJwtBearerAuthentication` en el método `Configure` con `UseAuthentication`:
 
     ```csharp
     app.UseAuthentication();
     ```
 
-- Invocar el `AddJwtBearer` método en el `ConfigureServices` método:
+- Invoque el método `AddJwtBearer` en el método `ConfigureServices`:
 
     ```csharp
     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -140,19 +140,19 @@ Realice los siguientes cambios en *Startup.cs*:
             });
     ```
 
-    Este fragmento de código no usa la identidad, por lo que se debe establecer el esquema predeterminado pasando `JwtBearerDefaults.AuthenticationScheme` a la `AddAuthentication` método.
+    Este fragmento de código no utiliza la identidad, por lo que el esquema predeterminado se debe establecer pasando `JwtBearerDefaults.AuthenticationScheme` al método `AddAuthentication`.
 
 ### <a name="openid-connect-oidc-authentication"></a>Autenticación de OpenID Connect (OIDC)
 
-Realice los siguientes cambios en *Startup.cs*:
+Realice los cambios siguientes en *Startup.CS*:
 
-- Reemplace el `UseOpenIdConnectAuthentication` llame al método el `Configure` método con `UseAuthentication`:
+- Reemplace la llamada al método `UseOpenIdConnectAuthentication` en el método `Configure` con `UseAuthentication`:
 
     ```csharp
     app.UseAuthentication();
     ```
 
-- Invocar el `AddOpenIdConnect` método en el `ConfigureServices` método:
+- Invoque el método `AddOpenIdConnect` en el método `ConfigureServices`:
 
     ```csharp
     services.AddAuthentication(options =>
@@ -168,7 +168,7 @@ Realice los siguientes cambios en *Startup.cs*:
     });
     ```
 
-- Reemplace el `PostLogoutRedirectUri` propiedad en el `OpenIdConnectOptions` acción con `SignedOutRedirectUri`:
+- Reemplace la propiedad `PostLogoutRedirectUri` en la acción `OpenIdConnectOptions` por `SignedOutRedirectUri`:
 
     ```csharp
     .AddOpenIdConnect(options =>
@@ -179,14 +179,14 @@ Realice los siguientes cambios en *Startup.cs*:
     
 ### <a name="facebook-authentication"></a>Autenticación con Facebook
 
-Realice los siguientes cambios en *Startup.cs*:
-- Reemplace el `UseFacebookAuthentication` llame al método el `Configure` método con `UseAuthentication`:
+Realice los cambios siguientes en *Startup.CS*:
+- Reemplace la llamada al método `UseFacebookAuthentication` en el método `Configure` con `UseAuthentication`:
 
     ```csharp
     app.UseAuthentication();
     ```
 
-- Invocar el `AddFacebook` método en el `ConfigureServices` método:
+- Invoque el método `AddFacebook` en el método `ConfigureServices`:
 
     ```csharp
     services.AddAuthentication()
@@ -199,14 +199,14 @@ Realice los siguientes cambios en *Startup.cs*:
 
 ### <a name="google-authentication"></a>Autenticación con Google
 
-Realice los siguientes cambios en *Startup.cs*:
-- Reemplace el `UseGoogleAuthentication` llame al método el `Configure` método con `UseAuthentication`:
+Realice los cambios siguientes en *Startup.CS*:
+- Reemplace la llamada al método `UseGoogleAuthentication` en el método `Configure` con `UseAuthentication`:
 
     ```csharp
     app.UseAuthentication();
     ```
 
-- Invocar el `AddGoogle` método en el `ConfigureServices` método:
+- Invoque el método `AddGoogle` en el método `ConfigureServices`:
 
     ```csharp
     services.AddAuthentication()
@@ -217,16 +217,18 @@ Realice los siguientes cambios en *Startup.cs*:
             });
     ```
 
-### <a name="microsoft-account-authentication"></a>Autenticación de Microsoft Account
+### <a name="microsoft-account-authentication"></a>Autenticación de Cuenta de Microsoft
 
-Realice los siguientes cambios en *Startup.cs*:
-- Reemplace el `UseMicrosoftAccountAuthentication` llame al método el `Configure` método con `UseAuthentication`:
+Para obtener más información sobre la autenticación de cuenta de Microsoft, consulte [este problema de github](https://github.com/aspnet/AspNetCore.Docs/issues/14455).
+
+Realice los cambios siguientes en *Startup.CS*:
+- Reemplace la llamada al método `UseMicrosoftAccountAuthentication` en el método `Configure` con `UseAuthentication`:
 
     ```csharp
     app.UseAuthentication();
     ```
 
-- Invocar el `AddMicrosoftAccount` método en el `ConfigureServices` método:
+- Invoque el método `AddMicrosoftAccount` en el método `ConfigureServices`:
 
     ```csharp
     services.AddAuthentication()
@@ -239,14 +241,14 @@ Realice los siguientes cambios en *Startup.cs*:
 
 ### <a name="twitter-authentication"></a>Autenticación con Twitter
 
-Realice los siguientes cambios en *Startup.cs*:
-- Reemplace el `UseTwitterAuthentication` llame al método el `Configure` método con `UseAuthentication`:
+Realice los cambios siguientes en *Startup.CS*:
+- Reemplace la llamada al método `UseTwitterAuthentication` en el método `Configure` con `UseAuthentication`:
 
     ```csharp
     app.UseAuthentication();
     ```
 
-- Invocar el `AddTwitter` método en el `ConfigureServices` método:
+- Invoque el método `AddTwitter` en el método `ConfigureServices`:
 
     ```csharp
     services.AddAuthentication()
@@ -257,19 +259,19 @@ Realice los siguientes cambios en *Startup.cs*:
             });
     ```
 
-### <a name="setting-default-authentication-schemes"></a>Esquemas de autenticación predeterminado de configuración
+### <a name="setting-default-authentication-schemes"></a>Establecer esquemas de autenticación predeterminados
 
-En la versión 1.x, el `AutomaticAuthenticate` y `AutomaticChallenge` propiedades de la [AuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) clase base se pensada para establecerse en un esquema de autenticación único. No había una buena manera para exigir esto.
+En 1. x, las propiedades `AutomaticAuthenticate` y `AutomaticChallenge` de la clase base [AuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) se debían establecer en un esquema de autenticación único. No había una buena manera de aplicar esto.
 
-Se han quitado en 2.0, estas dos propiedades como propiedades en cada `AuthenticationOptions` instancia. Se pueden configurar en el `AddAuthentication` llamada al método dentro de la `ConfigureServices` método *Startup.cs*:
+En 2,0, estas dos propiedades se han quitado como propiedades en la instancia individual de `AuthenticationOptions`. Se pueden configurar en la llamada al método `AddAuthentication` dentro del método `ConfigureServices` de *Startup.CS*:
 
 ```csharp
 services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
 ```
 
-En el fragmento de código anterior, el esquema predeterminado se establece en `CookieAuthenticationDefaults.AuthenticationScheme` ("Cookies").
+En el fragmento de código anterior, el esquema predeterminado se establece en `CookieAuthenticationDefaults.AuthenticationScheme` ("cookies").
 
-Como alternativa, use una versión sobrecargada de la `AddAuthentication` método para establecer más de una propiedad. En el siguiente ejemplo de método sobrecargado, el esquema predeterminado se establece en `CookieAuthenticationDefaults.AuthenticationScheme`. También se puede especificar el esquema de autenticación dentro de la persona `[Authorize]` atributos o las directivas de autorización.
+También puede usar una versión sobrecargada del método `AddAuthentication` para establecer más de una propiedad. En el siguiente ejemplo de método sobrecargado, el esquema predeterminado se establece en `CookieAuthenticationDefaults.AuthenticationScheme`. El esquema de autenticación se puede especificar también dentro de los atributos de `[Authorize]` individuales o de las directivas de autorización.
 
 ```csharp
 services.AddAuthentication(options =>
@@ -279,36 +281,36 @@ services.AddAuthentication(options =>
 });
 ```
 
-Definir un esquema predeterminado de 2.0 si se cumple una de las condiciones siguientes:
-- Desea que el usuario para iniciar sesión automáticamente
-- Usa el `[Authorize]` las directivas de autorización o el atributo sin especificar esquemas
+Defina un esquema predeterminado en 2,0 si se cumple alguna de las siguientes condiciones:
+- Quiere que el usuario inicie sesión automáticamente
+- El atributo `[Authorize]` o las directivas de autorización se usan sin especificar esquemas.
 
-Una excepción a esta regla es la `AddIdentity` método. Este método agrega las cookies para usted y establece el valor predeterminado autenticarse y Desafíe a esquemas para la cookie de aplicación `IdentityConstants.ApplicationScheme`. Además, Establece el esquema predeterminado de inicio de sesión a la cookie externa `IdentityConstants.ExternalScheme`.
+Una excepción a esta regla es el método `AddIdentity`. Este método agrega cookies automáticamente y establece los esquemas de autenticación y desafío predeterminados en la cookie de aplicación `IdentityConstants.ApplicationScheme`. Además, establece el esquema de inicio de sesión predeterminado en la `IdentityConstants.ExternalScheme`de cookies externa.
 
 <a name="obsolete-interface"></a>
 
-## <a name="use-httpcontext-authentication-extensions"></a>Usar las extensiones de autenticación de HttpContext
+## <a name="use-httpcontext-authentication-extensions"></a>Uso de extensiones de autenticación HttpContext
 
-El `IAuthenticationManager` interfaz es el punto de entrada principal en el sistema de autenticación 1.x. Se ha reemplazado por un nuevo conjunto de `HttpContext` métodos de extensión en el `Microsoft.AspNetCore.Authentication` espacio de nombres.
+La interfaz de `IAuthenticationManager` es el punto de entrada principal en el sistema de autenticación 1. x. Se ha reemplazado por un nuevo conjunto de métodos de extensión `HttpContext` en el espacio de nombres `Microsoft.AspNetCore.Authentication`.
 
-Por ejemplo, los proyectos de 1.x referencia un `Authentication` propiedad:
+Por ejemplo, los proyectos de 1. x hacen referencia a una propiedad `Authentication`:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
-En los 2.0 proyectos, importe el `Microsoft.AspNetCore.Authentication` espacio de nombres y elimine el `Authentication` referencias de propiedad:
+En los proyectos de 2,0, importe el espacio de nombres `Microsoft.AspNetCore.Authentication` y elimine las referencias de propiedad `Authentication`:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
 <a name="windows-auth-changes"></a>
 
-## <a name="windows-authentication-httpsys--iisintegration"></a>Autenticación de Windows (HTTP.sys / IISIntegration)
+## <a name="windows-authentication-httpsys--iisintegration"></a>Autenticación de Windows (HTTP. sys/IISIntegration)
 
-Hay dos variaciones de autenticación de Windows:
+Hay dos variaciones de la autenticación de Windows:
 
-* El host sólo permite que los usuarios autenticados. Esta variación no se ve afectada por los cambios de 2.0.
-* El host permite tanto anónimos y los usuarios autenticados. Esta variación se ve afectada por los cambios de 2.0. Por ejemplo, la aplicación debe permitir que los usuarios anónimos en el [IIS](xref:host-and-deploy/iis/index) o [HTTP.sys](xref:fundamentals/servers/httpsys) capas pero autorizar a los usuarios en el nivel de controlador. En este escenario, establezca el esquema predeterminado el `Startup.ConfigureServices` método.
+* El host solo permite usuarios autenticados. Esta variación no se ve afectada por los cambios 2,0.
+* El host permite usuarios anónimos y autenticados. Esta variación se ve afectada por los cambios 2,0. Por ejemplo, la aplicación debe permitir usuarios anónimos en la capa de [IIS](xref:host-and-deploy/iis/index) o [http. sys](xref:fundamentals/servers/httpsys) , pero autorizar a los usuarios en el nivel de controlador. En este escenario, establezca el esquema predeterminado en el método `Startup.ConfigureServices`.
 
-  Para [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/), Establece el esquema predeterminado en `IISDefaults.AuthenticationScheme`:
+  Para [Microsoft. AspNetCore. Server. IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/), establezca el esquema predeterminado en `IISDefaults.AuthenticationScheme`:
 
   ```csharp
   using Microsoft.AspNetCore.Server.IISIntegration;
@@ -316,7 +318,7 @@ Hay dos variaciones de autenticación de Windows:
   services.AddAuthentication(IISDefaults.AuthenticationScheme);
   ```
 
-  Para [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/), Establece el esquema predeterminado en `HttpSysDefaults.AuthenticationScheme`:
+  En el caso de [Microsoft. AspNetCore. Server. https](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/), establezca el esquema predeterminado en `HttpSysDefaults.AuthenticationScheme`:
 
   ```csharp
   using Microsoft.AspNetCore.Server.HttpSys;
@@ -324,43 +326,43 @@ Hay dos variaciones de autenticación de Windows:
   services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
   ```
 
-  No se pudo establecer el esquema predeterminado que impide que la solicitud authorize (desafío) funcione con la siguiente excepción:
+  Si no se establece el esquema predeterminado, se impide que la solicitud de autorización (desafío) funcione con la siguiente excepción:
 
-  > `System.InvalidOperationException`: No se especificó ningún authenticationScheme y no había ningún DefaultChallengeScheme encuentra.
+  > `System.InvalidOperationException`: no se especificó authenticationScheme y no se encontró ningún DefaultChallengeScheme.
 
-Para obtener más información, consulta <xref:security/authentication/windowsauth>.
+Para obtener más información, vea <xref:security/authentication/windowsauth>.
 
 <a name="identity-cookie-options"></a>
 
 ## <a name="identitycookieoptions-instances"></a>Instancias de IdentityCookieOptions
 
-Un efecto secundario de los 2.0 cambios es el cambio a denominado opciones en lugar de las instancias de las opciones de cookie. Se quita la capacidad para personalizar los nombres de esquema de cookie de identidad.
+Un efecto secundario de los cambios 2,0 es el cambio al uso de opciones con nombre en lugar de instancias de opciones de cookie. Se quita la capacidad de personalizar los nombres de esquema de cookies de identidad.
 
-Por ejemplo, use los proyectos de 1.x [inserción del constructor](xref:mvc/controllers/dependency-injection#constructor-injection) para pasar un `IdentityCookieOptions` parámetro en *AccountController.cs* y *ManageController.cs*. El esquema de autenticación externo cookie se obtiene acceso desde la instancia proporcionada:
+Por ejemplo, los proyectos de 1. x usan la [inserción de constructores](xref:mvc/controllers/dependency-injection#constructor-injection) para pasar un parámetro `IdentityCookieOptions` a *AccountController.CS* y *ManageController.CS*. Se tiene acceso al esquema de autenticación de cookies externa desde la instancia de proporcionada:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AccountControllerConstructor&highlight=4,11)]
 
-La inyección de constructor mencionados anteriormente se convierte en innecesaria en los 2.0 proyectos y el `_externalCookieScheme` se puede eliminar el campo:
+La inserción de constructores mencionada no es necesaria en los proyectos 2,0 y el campo `_externalCookieScheme` se puede eliminar:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AccountControllerConstructor)]
 
-los proyectos de 1.x usa el `_externalCookieScheme` campo como sigue:
+los proyectos de 1. x usaron el campo `_externalCookieScheme` como se indica a continuación:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
-En los 2.0 proyectos, reemplace el código anterior con el siguiente. El `IdentityConstants.ExternalScheme` constante se puede usar directamente.
+En proyectos de 2,0, reemplace el código anterior por lo siguiente. La constante `IdentityConstants.ExternalScheme` se puede utilizar directamente.
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
-Resolver recién agregada `SignOutAsync` llamar importando el espacio de nombres siguiente:
+Resuelva la llamada a `SignOutAsync` recién agregada importando el siguiente espacio de nombres:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationImport)]
 
 <a name="navigation-properties"></a>
 
-## <a name="add-identityuser-poco-navigation-properties"></a>Agregar propiedades de navegación IdentityUser POCO
+## <a name="add-identityuser-poco-navigation-properties"></a>Agregar propiedades de navegación POCO IdentityUser
 
-Las propiedades de la base de navegación de Entity Framework (EF) Core `IdentityUser` POCO (objeto CRL estándar) se han quitado. Si el proyecto de 1.x usa estas propiedades, agregarlos manualmente al proyecto 2.0:
+Se han quitado las propiedades de navegación básicas de Entity Framework (EF) de la base `IdentityUser` POCO (objeto CLR anterior). Si el proyecto 1. x usó estas propiedades, agréguelas de nuevo al proyecto 2,0:
 
 ```csharp
 /// <summary>
@@ -379,7 +381,7 @@ public virtual ICollection<IdentityUserClaim<int>> Claims { get; } = new List<Id
 public virtual ICollection<IdentityUserLogin<int>> Logins { get; } = new List<IdentityUserLogin<int>>();
 ```
 
-Para evitar duplicadas claves externas al ejecutar migraciones de EF Core, agregue lo siguiente a su `IdentityDbContext` clase `OnModelCreating` método (después de que el `base.OnModelCreating();` llamar):
+Para evitar que se dupliquen claves externas al ejecutar EF Core migraciones, agregue lo siguiente al método de la clase `IdentityDbContext` "`OnModelCreating` (después de la llamada a `base.OnModelCreating();`):
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder builder)
@@ -414,33 +416,33 @@ protected override void OnModelCreating(ModelBuilder builder)
 
 <a name="synchronous-method-removal"></a>
 
-## <a name="replace-getexternalauthenticationschemes"></a>Reemplace GetExternalAuthenticationSchemes
+## <a name="replace-getexternalauthenticationschemes"></a>Reemplazar GetExternalAuthenticationSchemes
 
-El método sincrónico `GetExternalAuthenticationSchemes` quitó una versión asincrónica. los proyectos de 1.x tienen el siguiente código *Controllers/ManageController.cs*:
+El método sincrónico `GetExternalAuthenticationSchemes` se quitó en favor de una versión asincrónica. los proyectos de 1. x tienen el código siguiente en *Controllers/ManageController. CS*:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemes)]
 
-Este método aparece en *Views/Account/Login.cshtml* demasiado:
+Este método aparece también en *views/Account/login. cshtml* :
 
 [!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Account/Login.cshtml?name=snippet_GetExtAuthNSchemes&highlight=2)]
 
-En los 2.0 proyectos, utilice el <xref:Microsoft.AspNetCore.Identity.SignInManager`1.GetExternalAuthenticationSchemesAsync*> método. El cambio en *ManageController.cs* es similar al código siguiente:
+En los proyectos de 2,0, use el método <xref:Microsoft.AspNetCore.Identity.SignInManager`1.GetExternalAuthenticationSchemesAsync*>. El cambio en *ManageController.CS* es similar al código siguiente:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemesAsync)]
 
-En *Login.cshtml*, `AuthenticationScheme` propiedad accede en la `foreach` bucle cambia a `Name`:
+En *login. cshtml*, la propiedad `AuthenticationScheme` a la que se tiene acceso en el bucle de `foreach` cambia a `Name`:
 
 [!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Views/Account/Login.cshtml?name=snippet_GetExtAuthNSchemesAsync&highlight=2,19)]
 
 <a name="property-change"></a>
 
-## <a name="manageloginsviewmodel-property-change"></a>Cambio de propiedad ManageLoginsViewModel
+## <a name="manageloginsviewmodel-property-change"></a>Cambio de la propiedad ManageLoginsViewModel
 
-Un `ManageLoginsViewModel` objeto se usa en el `ManageLogins` acción de *ManageController.cs*. En de los proyectos de 1.x, el objeto `OtherLogins` propiedad de valor devuelto es de tipo `IList<AuthenticationDescription>`. Este tipo de valor devuelto requiere una importación de `Microsoft.AspNetCore.Http.Authentication`:
+Se usa un objeto `ManageLoginsViewModel` en la acción `ManageLogins` de *ManageController.CS*. En los proyectos de 1. x, el tipo de valor devuelto de la propiedad `OtherLogins` del objeto es `IList<AuthenticationDescription>`. Este tipo de valor devuelto requiere una importación de `Microsoft.AspNetCore.Http.Authentication`:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Models/ManageViewModels/ManageLoginsViewModel.cs?name=snippet_ManageLoginsViewModel&highlight=2,11)]
 
-En los 2.0 proyectos, se cambia el tipo de valor devuelto a `IList<AuthenticationScheme>`. Este nuevo tipo de valor devuelto es necesario sustituir la `Microsoft.AspNetCore.Http.Authentication` importar con un `Microsoft.AspNetCore.Authentication` importar.
+En los proyectos de 2,0, el tipo de valor devuelto cambia a `IList<AuthenticationScheme>`. Este nuevo tipo de valor devuelto requiere reemplazar el `Microsoft.AspNetCore.Http.Authentication` importación con un `Microsoft.AspNetCore.Authentication` importar.
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Models/ManageViewModels/ManageLoginsViewModel.cs?name=snippet_ManageLoginsViewModel&highlight=2,11)]
 
@@ -448,4 +450,4 @@ En los 2.0 proyectos, se cambia el tipo de valor devuelto a `IList<Authenticatio
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-Para obtener más información, consulte el [discusión Auth 2.0](https://github.com/aspnet/Security/issues/1338) problema en GitHub.
+Para obtener más información, consulte el problema [de la explicación sobre Auth 2,0](https://github.com/aspnet/Security/issues/1338) en github.

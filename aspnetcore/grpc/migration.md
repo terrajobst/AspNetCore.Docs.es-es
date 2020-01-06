@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/25/2019
 uid: grpc/migration
-ms.openlocfilehash: c4c07808540c9af370bfa253e8154a8a19f0f3de
-ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
+ms.openlocfilehash: 451171a041f7bbb3711babd73d2fa2e245aadd28
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73634065"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355138"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Migración de gRPC Services desde C-Core a ASP.NET Core
 
@@ -82,7 +82,7 @@ Las aplicaciones basadas en C-Core configuran HTTPS mediante la [propiedad Serve
 
 ## <a name="grpc-interceptors-vs-middleware"></a>interceptores de gRPC frente a middleware
 
-ASP.NET Core [middleware](xref:fundamentals/middleware/index) ofrece funcionalidades similares en comparación con los interceptores de aplicaciones gRPC basadas en C-Core. ASP.NET Core middleware y los interceptores son conceptualmente similares. Ambos
+ASP.NET Core [middleware](xref:fundamentals/middleware/index) ofrece funcionalidades similares en comparación con los interceptores de aplicaciones gRPC basadas en C-Core. ASP.NET Core middleware y los interceptores son conceptualmente similares. Ambos:
 
 * Se usan para construir una canalización que controla una solicitud gRPC.
 * Permita que el trabajo se realice antes o después del siguiente componente en la canalización.
@@ -97,7 +97,8 @@ diferencias entre el interceptor de gRPC y el middleware ASP.NET Core:
   * Proporcionar acceso a:
     * El mensaje deserializado que se envía a una llamada.
     * Mensaje que se devuelve desde la llamada antes de que se serialice.
-* Middleware
+  * Puede detectar y controlar las excepciones que se producen desde gRPC Services.
+* Middleware:
   * Se ejecuta antes que los interceptores de gRPC.
   * Opera en los mensajes HTTP/2 subyacentes.
   * Solo puede obtener acceso a los bytes de las secuencias de solicitud y respuesta.

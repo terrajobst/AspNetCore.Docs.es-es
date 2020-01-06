@@ -6,16 +6,18 @@ ms.author: casoper
 ms.date: 12/05/2019
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 0c7e8a1db924bdedf29468bf6b8cc17f03962c6d
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 9b18b19838a2d25944a2498b6eec1677e56b12cc
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880738"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358266"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticación en web API con Azure Active Directory B2C en ASP.NET Core
 
 Por [Cam Soper](https://twitter.com/camsoper)
+
+<!-- Next update remove screenshots. They become obsolete too soon and are more work to update -->
 
 [Azure B2C de Active Directory](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) es una solución de administración de identidades de nube para aplicaciones web y móviles. El servicio proporciona autenticación para las aplicaciones hospedadas en la nube y locales. Tipos de autenticación incluyen cuentas individuales, las cuentas de redes sociales y federados cuentas de empresa. B2C de Azure AD también proporciona la autenticación multifactor con una configuración mínima.
 
@@ -56,7 +58,7 @@ Utilice los siguientes valores:
 
 | Configuración de                       | {2&gt;Value&lt;2}               | Notas                                                                                  |
 |-------------------------------|---------------------|----------------------------------------------------------------------------------------|
-| **Nombre**                      | *{Nombre de la API}*        | Escriba un **nombre** para la aplicación que describe la aplicación a los consumidores.                     |
+| **Name**                      | *{Nombre de la API}*        | Escriba un **nombre** para la aplicación que describe la aplicación a los consumidores.                     |
 | **Incluir aplicación web o API web** | Sí                 |                                                                                        |
 | **Permitir flujo implícito**       | Sí                 |                                                                                        |
 | **Dirección URL de respuesta**                 | `https://localhost` | Direcciones URL de respuesta son puntos de conexión donde Azure AD B2C devolverá los tokens que solicita la aplicación. |
@@ -112,7 +114,7 @@ Utilice los siguientes valores:
 
 | Configuración de                       | {2&gt;Value&lt;2}                            | Notas                           |
 |-------------------------------|----------------------------------|---------------------------------|
-| **Nombre**                      | Postman                          |                                 |
+| **Name**                      | Postman                          |                                 |
 | **Incluir aplicación web o API web** | Sí                              |                                 |
 | **Permitir flujo implícito**       | Sí                              |                                 |
 | **Dirección URL de respuesta**                 | `https://getpostman.com/postman` |                                 |

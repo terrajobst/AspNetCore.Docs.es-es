@@ -5,16 +5,16 @@ description: Obtenga información sobre cómo crear y usar componentes de Razor,
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/28/2019
 no-loc:
 - Blazor
 uid: blazor/components
-ms.openlocfilehash: a79202565f45b4d26e280427892ea16b33f3f853
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 87f21d84c17e5bbd1247bb955acee81384b890e7
+ms.sourcegitcommit: 47d453f34b6fd0179119c572cb8be64c5365cbb6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943867"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75597907"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -357,7 +357,7 @@ A diferencia de `onchange`, que se activa cuando el elemento pierde el foco, `on
 
 Cuando un usuario proporciona un valor que no se pueda analizar a un elemento DataBound, el valor no analizable se revierte automáticamente a su valor anterior cuando se desencadena el evento de enlace.
 
-Considere el caso siguiente:
+Considere el siguiente escenario:
 
 * Un elemento `<input>` se enlaza a un tipo `int` con un valor inicial de `123`:
 
@@ -1624,7 +1624,8 @@ En el ejemplo siguiente, el bucle del método `CreateComponent` genera tres comp
 }
 ```
 
-> ! ATENCIÓN Los tipos de `Microsoft.AspNetCore.Components.RenderTree` permiten el procesamiento de los *resultados* de las operaciones de representación. Estos son los detalles internos de la implementación del marco de Blazor. Estos tipos se deben considerar *inestables* y estar sujetos a cambios en futuras versiones.
+> [!WARNING]
+> Los tipos de `Microsoft.AspNetCore.Components.RenderTree` permiten el procesamiento de los *resultados* de las operaciones de representación. Estos son los detalles internos de la implementación del marco de Blazor. Estos tipos se deben considerar *inestables* y estar sujetos a cambios en futuras versiones.
 
 ### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>Los números de secuencia se relacionan con los números de línea de código y no el orden de ejecución
 
@@ -1729,7 +1730,7 @@ Para obtener más información y ejemplos, vea <xref:fundamentals/localization>.
 
 ### <a name="configure-the-linker-for-internationalization-opno-locblazor-webassembly"></a>Configurar el enlazador para la internacionalización (Blazor webassembly)
 
-De forma predeterminada, la configuración del enlazador de Blazorpara Blazor aplicaciones webassembly quita información de internacionalización, excepto para las configuraciones regionales solicitadas explícitamente. Para obtener más información e instrucciones sobre cómo controlar el comportamiento del enlazador, vea <xref:host-and-deploy/blazor/configure-linker#configure-the-linker-for-internationalization>.
+De forma predeterminada, la configuración del enlazador de Blazor para aplicaciones WebAssembly de Blazor quita información de internacionalización, excepto para las configuraciones regionales solicitadas de forma explícita. Para obtener más información e instrucciones sobre cómo controlar el comportamiento del enlazador, vea <xref:host-and-deploy/blazor/configure-linker#configure-the-linker-for-internationalization>.
 
 ### <a name="cookies"></a>Cookies
 

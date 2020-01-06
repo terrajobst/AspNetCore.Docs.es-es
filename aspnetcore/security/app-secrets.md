@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: security/app-secrets
-ms.openlocfilehash: ef5cb120c15d349be744c401bd518e026ddf11e9
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 9b36ae64fbe277cd81ed22ba7b21b0a035082dbd
+ms.sourcegitcommit: c815a9465e7b1bab44ce1643ec345b33e6cf1598
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880783"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75606797"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Almacenamiento seguro de secretos de aplicación en el desarrollo en ASP.NET Core
 
@@ -19,7 +19,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://gith
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/app-secrets/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-En este documento se explican técnicas para almacenar y recuperar datos confidenciales durante el desarrollo de una aplicación ASP.NET Core. Nunca almacene contraseñas u otros datos confidenciales en el código fuente. Los secretos de producción no deben usarse para el desarrollo o las pruebas. Los secretos no deben implementarse con la aplicación. En su lugar, los secretos deben estar disponibles en el entorno de producción a través de un medio controlado como variables de entorno, Azure Key Vault, etc. Puede almacenar y proteger los secretos de prueba y producción de Azure con el [proveedor de configuración de Azure Key Vault](xref:security/key-vault-configuration).
+En este documento se explican técnicas para almacenar y recuperar datos confidenciales durante el desarrollo de una aplicación ASP.NET Core en una máquina de desarrollo. Nunca almacene contraseñas u otros datos confidenciales en el código fuente. Los secretos de producción no deben usarse para el desarrollo o las pruebas. Los secretos no deben implementarse con la aplicación. En su lugar, los secretos deben estar disponibles en el entorno de producción a través de un medio controlado como variables de entorno, Azure Key Vault, etc. Puede almacenar y proteger los secretos de prueba y producción de Azure con el [proveedor de configuración de Azure Key Vault](xref:security/key-vault-configuration).
 
 ## <a name="environment-variables"></a>Variables de entorno
 
@@ -410,5 +410,6 @@ No secrets configured for this application.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
+* Vea [este problema](https://github.com/aspnet/AspNetCore.Docs/issues/16328) para obtener información sobre cómo obtener acceso a Secret Manager desde IIS.
 * <xref:fundamentals/configuration/index>
 * <xref:security/key-vault-configuration>

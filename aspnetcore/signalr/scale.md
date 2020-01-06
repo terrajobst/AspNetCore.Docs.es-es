@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 no-loc:
 - SignalR
 uid: signalr/scale
-ms.openlocfilehash: 7fc767939996a489174be949742637030924616d
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 6506430202870ba9de2f8eb6f33d79c7c1fbbbd4
+ms.sourcegitcommit: e7d4fe6727d423f905faaeaa312f6c25ef844047
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963749"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608072"
 ---
 # <a name="aspnet-core-opno-locsignalr-hosting-and-scaling"></a>Hospedaje y escalado de SignalR de ASP.NET Core
 
@@ -52,7 +52,7 @@ Para evitar que SignalR uso de recursos provoque errores en otras aplicaciones W
 
 Para evitar que SignalR uso de recursos provoque errores en una aplicación SignalR, escale horizontalmente para limitar el número de conexiones que un servidor tiene que controlar.
 
-## <a name="scale-out"></a>Escalar
+## <a name="scale-out"></a>Escalado horizontal de
 
 Una aplicación que usa SignalR debe realizar un seguimiento de todas sus conexiones, lo que crea problemas para una granja de servidores. Agregue un servidor y obtenga las nuevas conexiones que los otros servidores no conocen. Por ejemplo, SignalR en cada servidor del diagrama siguiente no es consciente de las conexiones en los otros servidores. Cuando SignalR en uno de los servidores desea enviar un mensaje a todos los clientes, el mensaje solo se dirige a los clientes conectados a ese servidor.
 
@@ -60,7 +60,7 @@ Una aplicación que usa SignalR debe realizar un seguimiento de todas sus conexi
 
 Las opciones para resolver este problema son el [servicio Azure SignalR](#azure-signalr-service) y el [backplane Redis](#redis-backplane).
 
-## <a name="azure-opno-locsignalr-service"></a>Servicio Azure SignalR
+## <a name="azure-opno-locsignalr-service"></a>Azure SignalR Service
 
 El servicio Azure SignalR es un proxy en lugar de un plano posterior. Cada vez que un cliente inicia una conexión al servidor, el cliente se redirige para conectarse al servicio. Ese proceso se ilustra en el diagrama siguiente:
 
@@ -90,9 +90,24 @@ El backplane de Redis es el enfoque de escalado horizontal recomendado para las 
 
 Las ventajas del servicio Azure SignalR que se han indicado anteriormente son inconvenientes para el backplane de Redis:
 
-* Las sesiones permanentes, también conocidas como [afinidad de cliente](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity), son necesarias. Una vez que se inicia una conexión en un servidor, la conexión tiene que permanecer en ese servidor.
+* Las sesiones permanentes, también conocidas como [afinidad de cliente](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity), son necesarias, excepto cuando se cumplen las **dos** condiciones siguientes:
+  * Todos los clientes están configurados para usar **solo** WebSockets.
+  * La [opción SkipNegotiation](xref:signalr/configuration#configure-additional-options) está habilitada en la configuración del cliente. 
+   Una vez que se inicia una conexión en un servidor, la conexión tiene que permanecer en ese servidor.
 * Una aplicación SignalR debe escalarse horizontalmente en función del número de clientes, incluso si se envían pocos mensajes.
 * Una aplicación SignalR usa significativamente más recursos de conexión que una aplicación web sin SignalR.
+
+## <a name="iis-limitations-on-windows-client-os"></a>Limitaciones de IIS en el sistema operativo de cliente Windows
+
+Windows 10 y Windows 8. x son sistemas operativos cliente. IIS en los sistemas operativos cliente tiene un límite de 10 conexiones simultáneas. las conexiones de SignalRson:
+
+* Transitorios y reestablecidos con frecuencia.
+* **No** se elimina inmediatamente cuando ya no se usa.
+
+Las condiciones anteriores hacen que sea probable que alcance el límite de 10 conexiones en un sistema operativo cliente. Cuando se usa un sistema operativo de cliente para el desarrollo, se recomienda:
+
+* Evite IIS.
+* Use Kestrel o IIS Express como destinos de implementación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

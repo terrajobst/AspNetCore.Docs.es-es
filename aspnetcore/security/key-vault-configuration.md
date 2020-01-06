@@ -5,14 +5,14 @@ description: Aprenda a usar el proveedor de configuración de Azure Key Vault pa
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/14/2019
+ms.date: 12/16/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: e0e55d40734e0cb6e3e1afe1c708ec47c6f43054
-ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
+ms.openlocfilehash: 37ba756cc4170c145d2ab1f9f0a465057cc826c1
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155174"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358713"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault proveedor de configuración en ASP.NET Core
 
@@ -73,9 +73,9 @@ Las instrucciones que se proporcionan en la guía de [Inicio rápido: establecer
 
 1. Abra Azure Cloud Shell con cualquiera de los métodos siguientes en el [Azure portal](https://portal.azure.com/):
 
-   * Seleccione **pruébelo** en la esquina superior derecha de un bloque de código. Use la cadena de búsqueda "CLI de Azure" en el cuadro de texto.
+   * Seleccione **Probarlo** en la esquina superior derecha de un bloque de código. Use la cadena de búsqueda "CLI de Azure" en el cuadro de texto.
    * Abra Cloud Shell en el explorador con el botón **iniciar Cloud Shell** .
-   * Seleccione el botón **Cloud Shell** en el menú de la esquina superior derecha del Azure portal.
+   * Seleccione el botón **Cloud Shell** en el menú de la esquina superior derecha de Azure Portal.
 
    Para obtener más información, consulte [interfaz de la línea de comandos de Azure (CLI)](/cli/azure/) e [información general de Azure Cloud Shell](/azure/cloud-shell/overview).
 
@@ -90,7 +90,7 @@ Las instrucciones que se proporcionan en la guía de [Inicio rápido: establecer
 1. Cree un almacén de claves en el grupo de recursos con el siguiente comando, donde `{KEY VAULT NAME}` es el nombre del nuevo almacén de claves y `{LOCATION}` es la región de Azure (Datacenter):
 
    ```azure-cli
-   az keyvault create --name "{KEY VAULT NAME}" --resource-group "{RESOURCE GROUP NAME}" --location {LOCATION}
+   az keyvault create --name {KEY VAULT NAME} --resource-group "{RESOURCE GROUP NAME}" --location {LOCATION}
    ```
 
 1. Cree secretos en el almacén de claves como pares de nombre y valor.
@@ -100,13 +100,13 @@ Las instrucciones que se proporcionan en la guía de [Inicio rápido: establecer
    Los siguientes secretos son para su uso con la aplicación de ejemplo. Los valores incluyen un sufijo `_prod` para distinguirlos de los valores de sufijo `_dev` cargados en el entorno de desarrollo de los secretos de usuario. Reemplace `{KEY VAULT NAME}` por el nombre del almacén de claves que creó en el paso anterior:
 
    ```azure-cli
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "SecretName" --value "secret_value_1_prod"
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "Section--SecretName" --value "secret_value_2_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "SecretName" --value "secret_value_1_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "Section--SecretName" --value "secret_value_2_prod"
    ```
 
 ## <a name="use-application-id-and-x509-certificate-for-non-azure-hosted-apps"></a>Usar el identificador de aplicación y el certificado X. 509 para aplicaciones no hospedadas en Azure
 
-Configure Azure AD, Azure Key Vault y la aplicación para que use un identificador de aplicación Azure Active Directory y un certificado X. 509 para autenticarse en un almacén de claves **cuando la aplicación se hospeda fuera de Azure**. Para obtener más información, vea [acerca de las claves, los secretos y los certificados](/azure/key-vault/about-keys-secrets-and-certificates).
+Configure Azure AD, Azure Key Vault y la aplicación para que use un identificador de aplicación Azure Active Directory y un certificado X. 509 para autenticarse en un almacén de claves **cuando la aplicación se hospeda fuera de Azure**. Para más información, consulte el artículo [About keys, secrets, and certificates](/azure/key-vault/about-keys-secrets-and-certificates) (Claves, secretos y certificados).
 
 > [!NOTE]
 > Aunque el uso de un identificador de aplicación y un certificado X. 509 es compatible con las aplicaciones hospedadas en Azure, se recomienda usar [identidades administradas para los recursos de Azure](#use-managed-identities-for-azure-resources) al hospedar una aplicación en Azure. Las identidades administradas no requieren el almacenamiento de un certificado en la aplicación o en el entorno de desarrollo.
@@ -124,10 +124,10 @@ La aplicación de ejemplo usa un identificador de aplicación y un certificado X
 1. Almacene el nombre del almacén de claves, el identificador de la aplicación y la huella digital del certificado en el archivo *appSettings. JSON* de la aplicación.
 1. Vaya a **almacenes de claves** en el Azure portal.
 1. Seleccione el almacén de claves que creó en el [almacenamiento de secretos en el entorno de producción con Azure Key Vault](#secret-storage-in-the-production-environment-with-azure-key-vault) sección.
-1. Seleccione **directivas de acceso**.
+1. Seleccione **Directivas de acceso**.
 1. Seleccione **Agregar Directiva de acceso**.
 1. Abra los **permisos de secreto** y proporcione la aplicación con los permisos **Get** y **List** .
-1. Seleccione **seleccionar entidad** de seguridad y seleccione la aplicación registrada por nombre. Seleccione el botón **seleccionar** .
+1. Seleccione **seleccionar entidad** de seguridad y seleccione la aplicación registrada por nombre. Seleccione el botón **Seleccionar**.
 1. Seleccione **Aceptar**.
 1. Seleccione **Guardar**.
 1. Implemente la aplicación.
@@ -177,7 +177,7 @@ Al ejecutar la aplicación, se muestran los valores de secreto cargados en una p
 
 ## <a name="use-managed-identities-for-azure-resources"></a>Uso de identidades administradas para los recursos de Azure
 
-**Una aplicación implementada en Azure** puede aprovechar las [identidades administradas de los recursos de Azure](/azure/active-directory/managed-identities-azure-resources/overview), lo que permite que la aplicación se autentique con Azure Key Vault mediante la autenticación de Azure ad sin credenciales (identificador de aplicación y contraseña/secreto de cliente). almacenado en la aplicación.
+**Una aplicación implementada en Azure** puede aprovechar las [identidades administradas para los recursos de Azure](/azure/active-directory/managed-identities-azure-resources/overview), lo que permite que la aplicación se autentique con Azure Key Vault mediante la autenticación de Azure ad sin credenciales (identificador de aplicación y contraseña/secreto de cliente) almacenadas en la aplicación.
 
 La aplicación de ejemplo usa identidades administradas para los recursos de Azure cuando la instrucción `#define` en la parte superior del archivo *Program.CS* se establece en `Managed`.
 
@@ -190,7 +190,7 @@ Una aplicación implementada en Azure App Service se registra automáticamente c
 Con CLI de Azure y el identificador de objeto de la aplicación, proporcione la aplicación con los permisos `list` y `get` para acceder al almacén de claves:
 
 ```azure-cli
-az keyvault set-policy --name '{KEY VAULT NAME}' --object-id {OBJECT ID} --secret-permissions get list
+az keyvault set-policy --name {KEY VAULT NAME} --object-id {OBJECT ID} --secret-permissions get list
 ```
 
 **Reinicie la aplicación** con CLI de Azure, PowerShell o el Azure portal.
@@ -243,7 +243,7 @@ config.AddAzureKeyVault(
     });
 ```
 
-| Propiedad.         | Descripción |
+| La propiedad         | Descripción |
 | ---------------- | ----------- |
 | `Client`         | <xref:Microsoft.Azure.KeyVault.KeyVaultClient> que se va a usar para recuperar valores. |
 | `Manager`        | <xref:Microsoft.Extensions.Configuration.AzureKeyVault.IKeyVaultSecretManager> instancia usada para controlar la carga de secretos. |
@@ -304,8 +304,8 @@ Cuando se implementa este enfoque:
 1. Los secretos se guardan en Azure Key Vault mediante los siguientes comandos de CLI de Azure:
 
    ```azure-cli
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5000-AppSecret" --value "5.0.0.0_secret_value_prod"
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5100-AppSecret" --value "5.1.0.0_secret_value_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "5000-AppSecret" --value "5.0.0.0_secret_value_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "5100-AppSecret" --value "5.1.0.0_secret_value_prod"
    ```
 
 1. Cuando se ejecuta la aplicación, se cargan los secretos del almacén de claves. El secreto de cadena de `5000-AppSecret` coincide con la versión de la aplicación especificada en el archivo de proyecto de la aplicación (`5.0.0.0`).
@@ -350,7 +350,7 @@ Examine la siguiente configuración de proveedor de registro de [Serilog](https:
 
 La configuración que se muestra en el archivo JSON anterior se almacena en Azure Key Vault mediante la notación de doble guión (`--`) y los segmentos numéricos:
 
-| Key | Valor |
+| Key | {2&gt;Value&lt;2} |
 | --- | ----- |
 | `Serilog--WriteTo--0--Name` | `AzureTableStorage` |
 | `Serilog--WriteTo--0--Args--storageTableName` | `logs` |

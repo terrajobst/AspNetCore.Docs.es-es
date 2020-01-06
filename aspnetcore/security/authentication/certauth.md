@@ -4,14 +4,14 @@ author: blowdart
 description: Obtenga información acerca de cómo configurar la autenticación de certificados en ASP.NET Core para IIS y HTTP. sys.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
-ms.date: 12/09/2019
+ms.date: 01/02/2020
 uid: security/authentication/certauth
-ms.openlocfilehash: 38ee8a6767191bb3eee4286e49b96162b14d9889
-ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
+ms.openlocfilehash: 9c175439c0313d62c75898f1af097774b06f353a
+ms.sourcegitcommit: e7d4fe6727d423f905faaeaa312f6c25ef844047
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74959065"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608150"
 ---
 # <a name="configure-certificate-authentication-in-aspnet-core"></a>Configurar la autenticación de certificados en ASP.NET Core
 
@@ -28,7 +28,7 @@ La autenticación de certificados es un escenario con estado que se usa principa
 
 Una alternativa a la autenticación de certificados en entornos en los que se usan servidores proxy y equilibradores de carga es Active Directory Federated Services (ADFS) con OpenID Connect (OIDC).
 
-## <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 Adquiera un certificado HTTPS, aplíquelo y [Configure el host](#configure-your-host-to-require-certificates) para que requiera certificados.
 
@@ -63,23 +63,33 @@ El controlador de `CertificateAuthenticationOptions` tiene algunas validaciones 
 
 ### <a name="allowedcertificatetypes--chained-selfsigned-or-all-chained--selfsigned"></a>AllowedCertificateTypes = encadenado, SelfSigned o todos (encadenado | SelfSigned
 
-Esta comprobación valida que solo se permite el tipo de certificado adecuado.
+Valor predeterminado: `CertificateTypes.Chained`
+
+Esta comprobación valida que solo se permite el tipo de certificado adecuado. Si la aplicación usa certificados autofirmados, esta opción debe establecerse en `CertificateTypes.All` o `CertificateTypes.SelfSigned`.
 
 ### <a name="validatecertificateuse"></a>ValidateCertificateUse
+
+Valor predeterminado: `true`
 
 Esta comprobación valida que el certificado presentado por el cliente tiene el uso mejorado de clave (EKU) de autenticación del cliente o no tiene ningún EKU. Como indican las especificaciones, si no se especifica ningún EKU, se considera que todos los EKU son válidos.
 
 ### <a name="validatevalidityperiod"></a>ValidateValidityPeriod
 
+Valor predeterminado: `true`
+
 Esta comprobación valida que el certificado está dentro de su período de validez. En cada solicitud, el controlador garantiza que un certificado que era válido cuando se presentó no ha expirado durante su sesión actual.
 
 ### <a name="revocationflag"></a>RevocationFlag
+
+Valor predeterminado: `X509RevocationFlag.ExcludeRoot`
 
 Marca que especifica en qué certificados de la cadena se comprueba la revocación.
 
 Las comprobaciones de revocación solo se realizan cuando el certificado está encadenado a un certificado raíz.
 
 ### <a name="revocationmode"></a>RevocationMode
+
+Valor predeterminado: `X509RevocationMode.Online`
 
 Marca que especifica cómo se realizan las comprobaciones de revocación.
 
@@ -208,7 +218,7 @@ public static IHostBuilder CreateHostBuilder(string[] args)
 ```
 
 > [!NOTE]
-> Los puntos de conexión que se crean mediante una llamada a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **antes** de llamar a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> no tendrán aplicados los valores predeterminados.
+> Los extremos creados mediante una llamada a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **antes** de llamar a <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> no tendrán aplicados los valores predeterminados.
 
 ### <a name="iis"></a>IIS
 
@@ -376,6 +386,9 @@ Get-ChildItem -Path cert:\localMachine\my\"The thumbprint..." | Export-PfxCertif
 
 Export-Certificate -Cert cert:\localMachine\my\"The thumbprint..." -FilePath root_ca_dev_damienbod.crt
 ```
+
+> [!NOTE]
+> El valor del parámetro `-DnsName` debe coincidir con el destino de implementación de la aplicación. Por ejemplo, "localhost" para el desarrollo.
 
 #### <a name="install-in-the-trusted-root"></a>Instalación en la raíz de confianza
 
