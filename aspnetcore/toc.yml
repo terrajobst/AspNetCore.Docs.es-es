@@ -314,7 +314,7 @@
           uid: blazor/handle-errors
         - name: Depuración
           uid: blazor/debug
-        - name: Llamada a una API de web
+        - name: Llamada a una API web
           uid: blazor/call-web-api
         - name: Hospedaje e implementación
           items:
@@ -326,8 +326,6 @@
               uid: host-and-deploy/blazor/server
             - name: Configurar el enlazador
               uid: host-and-deploy/blazor/configure-linker
-        - name: Muestras
-          href: 'https://github.com/aspnet/samples/tree/master/samples/aspnetcore/blazor'
     - name: Desarrollo del lado del cliente
       items:
         - name: Aplicaciones de una sola página
@@ -612,7 +610,7 @@
       uid: test/integration-tests
     - name: Pruebas de esfuerzo y carga
       uid: test/loadtests
-    - name: Solucionar problemas
+    - name: Solución de problemas y depuración
       uid: test/troubleshoot
     - name: Registro
       uid: fundamentals/logging/index
@@ -885,15 +883,15 @@
             - name: Información general
               uid: security/authentication/azure-active-directory/index
             - name: Integración de Azure AD en una aplicación web
-              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/'
+              href: 'https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial'
             - name: Integración de AAD B2C en una aplicación web
               uid: security/authentication/azure-ad-b2c
             - name: Integración de Azure AD B2C en una API web
               uid: security/authentication/azure-ad-b2c-webapi
             - name: Llamada a una API web desde WPF
-              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/'
+              href: 'https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore'
             - name: Llamada a una API web en una aplicación web con Azure AD
-              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/'
+              href: 'https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore'
         - name: Protección de aplicaciones de ASP.NET Core con IdentityServer4
           href: 'https://identityserver4.readthedocs.io/'
         - name: Protección de aplicaciones de ASP.NET Core con la autenticación de Azure App Service (autenticación sencilla)
@@ -1101,6 +1099,9 @@
       uid: fundamentals/host/hosted-services
     - name: Ensamblados de inicio de hospedaje
       uid: fundamentals/configuration/platform-specific-configuration
+    - name: ASP.NET Core en bibliotecas de clases
+      displayName: shared framework
+      uid: fundamentals/target-aspnetcore
     - name: Metapaquete Microsoft.AspNetCore
       uid: fundamentals/metapackage-app
     - name: Metapaquete Microsoft.AspNetCore.All

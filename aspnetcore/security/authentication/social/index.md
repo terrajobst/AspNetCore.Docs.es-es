@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/21/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 627ca483d60514d85e38c0e346ff5aef64ad9fee
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 06ce9c72f43955345efb61afed2538158810005f
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034308"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358074"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticación con Facebook, Google y proveedores externos en ASP.NET Core
 
@@ -45,7 +45,7 @@ Para ver ejemplos de cómo los inicios de sesión de las redes sociales pueden c
 
 * Cambie los directorios (`cd`) a una carpeta que contenga el proyecto.
 
-* En Windows, ejecute el siguiente comando:
+* En Windows, ejecute el comando siguiente:
 
   ```dotnetcli
   dotnet new webapp -o WebApp1 -au Individual -uld
@@ -111,8 +111,7 @@ Para crear una contraseña e iniciar sesión con el correo electrónico establec
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Consulte [esta incidencia de GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/10563) para obtener información sobre cómo personalizar los botones de inicio de sesión.
 * En este artículo se introdujo la autenticación externa y se explicaron los requisitos previos necesarios para agregar inicios de sesión externos a la aplicación de ASP.NET Core.
-
 * Páginas de referencia específicas del proveedor para configurar los inicios de sesión para los proveedores requeridos por la aplicación.
-
-* Le recomendamos que conserve los datos adicionales sobre el usuario y sus tokens de acceso y actualización. Para más información, consulte <xref:security/authentication/social/additional-claims>.
+* Le recomendamos que conserve los datos adicionales sobre el usuario y sus tokens de acceso y actualización. Para obtener más información, vea <xref:security/authentication/social/additional-claims>.

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/04/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 49d598330948c5f4a137c534094e14ed5e01e27c
-ms.sourcegitcommit: f4cd3828e26e6d549ba8d0c36a17be35ad9e5a51
+ms.openlocfilehash: e1c50c4592b21d56ed813dac43204d63f1bfe46c
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825486"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359353"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registros en .NET Core y ASP.NET Core
 
@@ -989,14 +989,14 @@ Use la herramienta de seguimiento de dotnet para recopilar un seguimiento de una
 
    En plataformas que no sean Windows, agregue la opción `-f speedscope` para cambiar el formato del archivo de seguimiento de salida a `speedscope`.
 
-   | Palabra clave | DESCRIPCIÓN |
+   | Palabra clave | Descripción |
    | :-----: | ----------- |
    | 1       | Registre los eventos meta sobre el elemento `LoggingEventSource`. No registre eventos de `ILogger`). |
    | 2       | Activa el evento `Message` cuando se llama a `ILogger.Log()`. Proporciona la información mediante programación (sin formato). |
    | 4       | Activa el evento `FormatMessage` cuando se llama a `ILogger.Log()`. Proporciona la versión de cadena con formato de la información. |
    | 8       | Activa el evento `MessageJson` cuando se llama a `ILogger.Log()`. Proporciona una representación JSON de los argumentos. |
 
-   | Nivel de evento | DESCRIPCIÓN     |
+   | Nivel de evento | Descripción     |
    | :---------: | --------------- |
    | 0           | `LogAlways`     |
    | 1           | `Critical`      |
@@ -1030,7 +1030,7 @@ Para obtener más información, consulte:
 * [Seguimiento de la utilidad de análisis de rendimiento (dotnet-trace)](https://github.com/dotnet/diagnostics/blob/master/documentation/dotnet-trace-instructions.md) (documentación del repositorio de GitHub sobre diagnóstico y dotnet)
 * [Clase LoggingEventSource](xref:Microsoft.Extensions.Logging.EventSource.LoggingEventSource) (Explorador de API de .NET)
 * <xref:System.Diagnostics.Tracing.EventLevel>
-* [Origen de referencia LoggingEventSource (3.0)](https://github.com/aspnet/Extensions/blob/release/3.0/src/Logging/Logging.EventSource/src/LoggingEventSource.cs). Para obtener el origen de referencia de otra versión, cambie la rama a `release/{Version}`, donde `{Version}` corresponde a la versión de ASP.NET Core que desee.
+* [Origen de referencia LoggingEventSource (3.0)](https://github.com/aspnet/Extensions/blob/release/3.0/src/Logging/Logging.EventSource/src/LoggingEventSource.cs): para obtener el origen de referencia de otra versión, cambie la rama a `release/{Version}`, donde `{Version}` corresponde a la versión de ASP.NET Core deseada.
 * [Perfview](#perfview): es útil para ver los seguimientos de origen del evento.
 
 #### <a name="perfview"></a>Perfview
@@ -1053,9 +1053,19 @@ logging.AddEventLog();
 
 Las [sobrecargas de AddEventLog](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions) permiten pasar <xref:Microsoft.Extensions.Logging.EventLog.EventLogSettings>. Si es `null` o no se especifica, se usa la siguiente configuración predeterminada:
 
-* `LogName`&ndash; "Aplicación"
-* `SourceName` &ndash; ".NET Runtime"
-* `MachineName` &ndash; equipo local
+* `LogName`: "Aplicación"
+* `SourceName`: "Entorno de ejecución .NET"
+* `MachineName`: equipo local
+
+Los eventos se registran para el [Nivel de advertencia y superior](#log-level). Para registrar eventos inferiores a `Warning`, establezca el nivel de registro de forma explícita. Por ejemplo, agregue lo siguiente al archivo *appsettings.json*:
+
+```json
+"EventLog": {
+  "LogLevel": {
+    "Default": "Information"
+  }
+}
+```
 
 ### <a name="tracesource-provider"></a>Proveedor TraceSource
 
@@ -1142,7 +1152,7 @@ El proveedor de paquete [Microsoft.Extensions.Logging.ApplicationInsights](https
 
 El proveedor de registro se incluye como dependencia de [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), que es el paquete que proporciona toda la telemetría disponible para ASP.NET Core. Si usa este paquete, no tiene que instalar el proveedor de paquete.
 
-No use el paquete [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) &mdash;que es para ASP.NET 4.x.
+No use el paquete [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)&mdash;que es para ASP.NET 4.x.
 
 Para obtener más información, vea los siguientes recursos:
 
