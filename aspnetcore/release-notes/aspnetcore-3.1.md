@@ -9,12 +9,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.1
-ms.openlocfilehash: 89c676b96ef66f648544a8a884593bdafa3876de
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 06c1d2596bff34bbfe3b55e782ea2d24321dd839
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944231"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722757"
 ---
 # <a name="whats-new-in-aspnet-core-31"></a>Novedades de ASP.NET Core 3.1
 
@@ -38,7 +38,7 @@ Ahora, las aplicaciones de Blazor Server pueden pasar parámetros a componentes 
 
 Por ejemplo, se puede realizar la representación previa de un componente `Counter` con una cantidad de incremento (`IncrementAmount`):
 
-```razor
+```cshtml
 <component type="typeof(Counter)" render-mode="ServerPrerendered" 
     param-IncrementAmount="10" />
 ```
@@ -53,7 +53,7 @@ Para más información, vea [Integración de componentes en aplicaciones de Razo
 
 ## <a name="breaking-changes-for-samesite-cookies"></a>Cambios importantes en las cookies de SameSite
 
-El comportamiento de las cookies de SameSite ha cambiado para reflejar los próximos cambios del explorador. Esto puede afectar a escenarios de autenticación como AzureAd, OpenIdConnect o WsFederation. Para más información, consulte <xref:security/samesite>.
+El comportamiento de las cookies de SameSite ha cambiado para reflejar los próximos cambios del explorador. Esto puede afectar a escenarios de autenticación como AzureAd, OpenIdConnect o WsFederation. Para obtener más información, vea <xref:security/samesite>.
 
 ## <a name="prevent-default-actions-for-events-in-opno-locblazor-apps"></a>Impedir acciones predeterminadas para eventos en aplicaciones Blazor
 

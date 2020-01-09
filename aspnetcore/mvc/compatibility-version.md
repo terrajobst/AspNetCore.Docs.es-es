@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 9/25/2019
 uid: mvc/compatibility-version
-ms.openlocfilehash: 35e3b6acba2bc9a0b863bd6d1e96365328b5f169
-ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
+ms.openlocfilehash: b29e2ee49aaf0f557f1acd0cf03e9e82d5ea0105
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256162"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357736"
 ---
 # <a name="compatibility-version-for-aspnet-core-mvc"></a>Versión de compatibilidad para ASP.NET Core MVC
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-::: moniker range="= aspnetcore-3.0"
+::: moniker range=">= aspnetcore-3.0"
 
 El método <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> es una operación inefectiva para las aplicaciones ASP.NET Core 3.0. Es decir, llamar a `SetCompatibilityVersion` con cualquier valor de <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion> no tiene ningún impacto en la aplicación.
 

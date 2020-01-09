@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo usar SQL Server LocalDB o SQLite e
 ms.author: riande
 ms.date: 8/16/2019
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: de392f4220cf0182d02a20f387164d2f4b184b58
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: d556f07111fb2022a1c2f1a066459566e302835d
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72289081"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722781"
 ---
 # <a name="work-with-sql-in-aspnet-core"></a>Trabajo con SQL en ASP.NET Core
 
@@ -231,7 +231,7 @@ Elimine todos los registros de la base de datos (para que se ejecute el método 
 
 La aplicación muestra los datos inicializados.
 
-![La aplicación Movie de MVC se abre en Microsoft Edge y muestra datos de la película](working-with-sql/_static/m55.png)
+![La aplicación Movie de MVC se abre en Microsoft Edge y muestra datos de la película](working-with-sql/_static/m55_mac.png)
 
 > [!div class="step-by-step"]
 > [Anterior](adding-model.md)
