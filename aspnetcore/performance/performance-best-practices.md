@@ -8,12 +8,12 @@ ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: performance/performance-best-practices
-ms.openlocfilehash: bd30776d527b4ac9f44005e9f5d03fec7cfda2e6
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: c74adf7479d176c41dc26c7e77acfc3dc9cdcb88
+ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880917"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75693965"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>Procedimientos recomendados de ASP.NET Core rendimiento
 
@@ -44,7 +44,7 @@ Un problema de rendimiento común en ASP.NET Core aplicaciones es el bloqueo de 
 **Sí**:
 
 * Establecer [rutas de acceso de código activas](#understand-hot-code-paths) de forma asincrónica.
-* Llame a las API de acceso a datos y operaciones de ejecución prolongada de forma asincrónica si hay disponible una API asincrónica. Una vez más, no use [Task. Run](/dotnet/api/system.threading.tasks.task.run) para hacer que una API de synchronus sea asincrónica.
+* Llame a las API de acceso a datos, e/s y de ejecución prolongada de forma asincrónica si hay disponible una API asincrónica. **No** use [Task. Run](/dotnet/api/system.threading.tasks.task.run) para hacer que una API de synchronus sea asincrónica.
 * Hacer que las acciones del controlador o de la página de Razor sean asincrónicas. Toda la pila de llamadas es asincrónica para beneficiarse de los patrones [Async/Await](/dotnet/csharp/programming-guide/concepts/async/) .
 
 Se puede usar un generador de perfiles, como [PerfView](https://github.com/Microsoft/perfview), para buscar subprocesos que se agregan con frecuencia al [grupo de subprocesos](/windows/desktop/procthread/thread-pools). El evento `Microsoft-Windows-DotNETRuntime/ThreadPoolWorkerThread/Start` indica que un subproceso se ha agregado al grupo de subprocesos. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc)  -->
@@ -67,7 +67,7 @@ Los problemas de memoria, como el anterior, se pueden diagnosticar revisando las
 
 Para obtener más información, consulte recolección [de elementos no utilizados y rendimiento](/dotnet/standard/garbage-collection/performance).
 
-## <a name="optimize-data-access"></a>Optimizar el acceso a datos
+## <a name="optimize-data-access-and-io"></a>Optimizar el acceso a datos y la e/s
 
 Las interacciones con un almacén de datos y otros servicios remotos suelen ser las partes más lentas de una aplicación ASP.NET Core. Leer y escribir datos de forma eficaz es fundamental para lograr un buen rendimiento.
 
