@@ -7,18 +7,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/08/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: f58d92634ce1ef6110533d56c40b7520dda90514
-ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
+ms.openlocfilehash: 31a5e47d772e7416646c4d83c3209d7d2b254199
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73897049"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829171"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Autenticación y autorización para spa
 
 ASP.NET Core 3,0 o posterior ofrece autenticación en aplicaciones de una sola página (Spa) mediante la compatibilidad con la autorización de la API. ASP.NET Core identidad para autenticar y almacenar usuarios se combina con [IdentityServer](https://identityserver.io/) para implementar Open ID Connect.
 
-Se ha agregado un parámetro de autenticación a las plantillas de proyecto **angular** y **reAct** que es similar al parámetro de autenticación de la **aplicación web (modelo de vista de modelos)** (MVC) y **aplicación web** (Razor pages) plantillas de proyecto. Los valores de parámetro permitidos son **None** y **individual**. En este momento, la plantilla de proyecto **reAct. js y Redux** no admite el parámetro de autenticación.
+Se ha agregado un parámetro de autenticación a las plantillas de proyecto **angular** y **reAct** que es similar al parámetro de autenticación en las plantillas de proyecto **aplicación web (controlador de vista de modelos)** (MVC) y **aplicación web** (Razor pages). Los valores de parámetro permitidos son **None** y **individual**. En este momento, la plantilla de proyecto **reAct. js y Redux** no admite el parámetro de autenticación.
 
 ## <a name="create-an-app-with-api-authorization-support"></a>Creación de una aplicación con compatibilidad con la autorización de API
 
@@ -42,7 +42,7 @@ El comando anterior crea una aplicación ASP.NET Core con un directorio *ClientA
 
 En las secciones siguientes se describen las adiciones al proyecto cuando se incluye compatibilidad con la autenticación:
 
-### <a name="startup-class"></a>Startup (clase)
+### <a name="startup-class"></a>Clase Startup
 
 La clase `Startup` tiene las siguientes adiciones:
 
@@ -95,7 +95,7 @@ Este método auxiliar configura un esquema de directiva para la aplicación como
 
 ### <a name="weatherforecastcontroller"></a>WeatherForecastController
 
-En el archivo *Controllers\WeatherForecastController.CS* , observe el atributo `[Authorize]` aplicado a la clase que indica que el usuario debe ser autorizado en función de la directiva predeterminada para tener acceso al recurso. La Directiva de autorización predeterminada está configurada para usar el esquema de autenticación predeterminado, que se configura mediante `AddIdentityServerJwt` al esquema de directivas mencionado anteriormente, lo que hace que el `JwtBearerHandler` configurado por este método auxiliar sea el controlador predeterminado para las solicitudes a la aplicación.
+En el archivo *Controllers\WeatherForecastController.CS* , observe el atributo `[Authorize]` aplicado a la clase que indica que el usuario debe ser autorizado en función de la directiva predeterminada para tener acceso al recurso. La Directiva de autorización predeterminada está configurada para usar el esquema de autenticación predeterminado, que se configura mediante `AddIdentityServerJwt` al esquema de directivas mencionado anteriormente, lo que hace que el `JwtBearerHandler` configurado por dicho método auxiliar sea el controlador predeterminado para las solicitudes a la aplicación.
 
 ### <a name="applicationdbcontext"></a>ApplicationDbContext
 
@@ -121,7 +121,7 @@ En el archivo *appSettings. JSON* de la raíz del proyecto, hay una nueva secci�
 }
 ```
 
-### <a name="appsettingsdevelopmentjson"></a>appSettings. Desarrollo. JSON
+### <a name="appsettingsdevelopmentjson"></a>appsettings.Development.json
 
 En el *appSettings. Archivo Development. JSON* de la raíz del proyecto, hay una sección `IdentityServer` que describe la clave que se usa para firmar los tokens. Al realizar la implementación en producción, es necesario aprovisionar e implementar una clave junto con la aplicación, como se explica en la sección [implementación en producción](#deploy-to-production) .
 

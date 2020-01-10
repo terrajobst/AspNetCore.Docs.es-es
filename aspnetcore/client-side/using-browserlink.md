@@ -4,28 +4,34 @@ author: ncarandini
 description: Explica cómo el vínculo del explorador es una característica de Visual Studio que vincula el entorno de desarrollo con uno o más exploradores Web.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 11/12/2019
+ms.date: 01/09/2020
 no-loc:
 - SignalR
 uid: client-side/using-browserlink
-ms.openlocfilehash: b21b698d49e72b559cd9cd3753c48a38c99db24d
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 19cc3c2ed91bd9e05df3c036123c78ecbf81fcc0
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962782"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828275"
 ---
 # <a name="browser-link-in-aspnet-core"></a>Vínculo del explorador en ASP.NET Core
 
 Por [Nicolò Carandini](https://github.com/ncarandini), [Mike Wasson](https://github.com/MikeWasson)y [Tom Dykstra](https://github.com/tdykstra)
 
-Vínculo del explorador es una característica de Visual Studio que crea un canal de comunicación entre el entorno de desarrollo y uno o varios exploradores Web. Puede usar el vínculo del explorador para actualizar la aplicación web en varios exploradores a la vez, lo que resulta útil para las pruebas entre exploradores.
+El vínculo del explorador es una característica de Visual Studio. Crea un canal de comunicación entre el entorno de desarrollo y uno o varios exploradores Web. Puede usar el vínculo del explorador para actualizar la aplicación web en varios exploradores a la vez, lo que resulta útil para las pruebas entre exploradores.
 
 ## <a name="browser-link-setup"></a>Configuración del vínculo del explorador
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-3.0"
 
-Al convertir un proyecto ASP.NET Core 2,0 en ASP.NET Core 2,1 y pasar al [metapaquete Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app), instale el paquete [Microsoft. VisualStudio. Web. BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/) para la funcionalidad BrowserLink. De forma predeterminada, las plantillas de proyecto de ASP.NET Core 2,1 usan el metapaquete `Microsoft.AspNetCore.App`.
+Agregue el paquete [Microsoft. VisualStudio. Web. BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/) al proyecto. Para los proyectos de ASP.NET Core Razor Pages o MVC, habilite también la compilación en tiempo de ejecución de los archivos Razor ( *. cshtml*) como se describe en <xref:mvc/views/view-compilation>. Sintaxis Razor cambios solo se aplican cuando se ha habilitado la compilación en tiempo de ejecución.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+Al convertir un proyecto ASP.NET Core 2,0 en ASP.NET Core 2,1 y pasar al [metapaquete Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app), instale el paquete [Microsoft. VisualStudio. Web. BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/) para la funcionalidad de vínculo de explorador. De forma predeterminada, las plantillas de proyecto de ASP.NET Core 2,1 usan el metapaquete `Microsoft.AspNetCore.App`.
 
 ::: moniker-end
 
@@ -37,33 +43,19 @@ Las plantillas de proyecto **aplicación web**ASP.net Core 2,0, **vacía**y **AP
 
 ::: moniker range="<= aspnetcore-1.1"
 
-La plantilla de proyecto de **aplicación web** de ASP.net Core 1. x tiene una referencia de paquete para el paquete [Microsoft. VisualStudio. Web. BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/) . Los proyectos de plantilla de **API Web** o **vacíos** requieren que se agregue una referencia de paquete a `Microsoft.VisualStudio.Web.BrowserLink`.
-
-Dado que se trata de una característica de Visual Studio, la manera más fácil de agregar el paquete a un proyecto de plantilla de **API Web** o **vacío** es abrir la **consola del administrador de paquetes** (**Ver** > otra consola del **Administrador de paquetes**de **Windows** >) y ejecutar el siguiente comando:
-
-```console
-install-package Microsoft.VisualStudio.Web.BrowserLink
-```
-
-Como alternativa, puede usar el **Administrador de paquetes NuGet**. Haga clic con el botón derecho en el nombre del proyecto en **Explorador de soluciones** y elija **administrar paquetes NuGet**:
-
-![Abrir el administrador de paquetes NuGet](using-browserlink/_static/open-nuget-package-manager.png)
-
-Busque e instale el paquete:
-
-![Agregar paquete con el administrador de paquetes NuGet](using-browserlink/_static/add-package-with-nuget-package-manager.png)
+La plantilla de proyecto de **aplicación web** de ASP.net Core 1. x tiene una referencia de paquete para el paquete [Microsoft. VisualStudio. Web. BrowserLink](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.BrowserLink/) . Otros tipos de proyectos requieren que agregue una referencia de paquete a `Microsoft.VisualStudio.Web.BrowserLink`.
 
 ::: moniker-end
 
-### <a name="configuration"></a>Configuración
+### <a name="configuration"></a>Configuración de
 
-En el método `Startup.Configure`:
+Llame a `UseBrowserLink` en el método `Startup.Configure`:
 
 ```csharp
 app.UseBrowserLink();
 ```
 
-Normalmente, el código está dentro de un bloque `if` que solo habilita el vínculo del explorador en el entorno de desarrollo, como se muestra aquí:
+Normalmente, la llamada `UseBrowserLink` se coloca dentro de un bloque `if` que solo habilita el vínculo del explorador en el entorno de desarrollo. Por ejemplo:
 
 ```csharp
 if (env.IsDevelopment())
@@ -73,7 +65,7 @@ if (env.IsDevelopment())
 }
 ```
 
-Para obtener más información, consulte [Uso de varios entornos](xref:fundamentals/environments).
+Para obtener más información, vea <xref:fundamentals/environments>.
 
 ## <a name="how-to-use-browser-link"></a>Cómo usar el vínculo del explorador
 
@@ -85,11 +77,8 @@ En el control de barra de herramientas de vínculo del explorador, puede:
 
 * Actualice la aplicación web en varios exploradores a la vez.
 * Abra el **Panel vínculo del explorador**.
-* Habilitar o deshabilitar el **vínculo del explorador**. Nota: el vínculo del explorador está deshabilitado de forma predeterminada en Visual Studio 2017 (15,3).
+* Habilitar o deshabilitar el **vínculo del explorador**. Nota: el vínculo del explorador está deshabilitado de forma predeterminada en Visual Studio.
 * Habilitar o deshabilitar [la sincronización automática de CSS](#enable-or-disable-css-auto-sync).
-
-> [!NOTE]
-> Algunos complementos de Visual Studio, especialmente el *paquete de extensiones web 2015* y el *paquete de extensión web 2017*, ofrecen funcionalidad ampliada para el vínculo del explorador, pero algunas de las características adicionales no funcionan con proyectos de ASP.net Core.
 
 ## <a name="refresh-the-web-app-in-several-browsers-at-once"></a>Actualización de la aplicación web en varios exploradores a la vez
 
@@ -97,11 +86,11 @@ Para elegir un solo explorador Web para iniciar al iniciar el proyecto, use el m
 
 ![Menú desplegable F5](using-browserlink/_static/debug-target-dropdown-menu.png)
 
-Para abrir varios exploradores a la vez, elija **examinar con...** en la lista desplegable. Mantenga presionada la tecla CTRL para seleccionar los exploradores que desee y, a continuación, haga clic en **examinar**:
+Para abrir varios exploradores a la vez, elija **examinar con...** en la lista desplegable. Mantenga presionada la tecla <kbd>Ctrl</kbd> para seleccionar los exploradores que desee y, a continuación, haga clic en **examinar**:
 
 ![Abrir muchos exploradores a la vez](using-browserlink/_static/open-many-browsers-at-once.png)
 
-Esta es una captura de pantalla que muestra Visual Studio con la vista de índice abierta y dos exploradores abiertos:
+En la captura de pantalla siguiente se muestra Visual Studio con la vista de índice abierta y dos exploradores abiertos:
 
 ![Ejemplo de sincronización con dos exploradores](using-browserlink/_static/sync-with-two-browsers-example.png)
 
@@ -117,19 +106,19 @@ El vínculo del explorador también funciona con los exploradores que se inician
 
 ### <a name="the-browser-link-dashboard"></a>Panel de vínculos del explorador
 
-Abra el panel vínculo del explorador en el menú desplegable del vínculo del explorador para administrar la conexión con exploradores abiertos:
+Abra la ventana **Panel de vínculos del explorador** en el menú desplegable del vínculo del explorador para administrar la conexión con exploradores abiertos:
 
-![Open-browserslink-Dashboard](using-browserlink/_static/open-browserlink-dashboard.png)
+![open-browserslink-dashboard](using-browserlink/_static/open-browserlink-dashboard.png)
 
-Si no hay ningún explorador conectado, puede iniciar una sesión que no sea de depuración seleccionando el vínculo *ver en el explorador* :
+Si no hay ningún explorador conectado, puede iniciar una sesión que no sea de depuración seleccionando el vínculo **ver en el explorador** :
 
-![browserlink-panel-sin conexiones](using-browserlink/_static/browserlink-dashboard-no-connections.png)
+![browserlink-dashboard-no-connections](using-browserlink/_static/browserlink-dashboard-no-connections.png)
 
 De lo contrario, los exploradores conectados se muestran con la ruta de acceso a la página que se muestra en cada explorador:
 
-![browserlink-Dashboard-dos conexiones](using-browserlink/_static/browserlink-dashboard-two-connections.png)
+![browserlink-dashboard-two-connections](using-browserlink/_static/browserlink-dashboard-two-connections.png)
 
-Si lo desea, puede hacer clic en el nombre de un explorador de la lista para actualizar ese explorador único.
+También puede hacer clic en un nombre de explorador individual para actualizar solo ese explorador.
 
 ### <a name="enable-or-disable-browser-link"></a>Habilitar o deshabilitar el vínculo del explorador
 
@@ -141,7 +130,7 @@ Cuando se habilita la sincronización automática de CSS, los exploradores conec
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-El vínculo del explorador usa SignalR para crear un canal de comunicación entre Visual Studio y el explorador. Cuando el vínculo del explorador está habilitado, Visual Studio actúa como un servidor de SignalR al que se pueden conectar varios clientes (exploradores). El vínculo del explorador también registra un componente de middleware en la canalización de solicitudes ASP.NET Core. Este componente inserta referencias de `<script>` especiales en cada solicitud de página del servidor. Puede ver las referencias de script seleccionando **Ver código fuente** en el explorador y desplazándose hasta el final del contenido de la etiqueta `<body>`:
+El vínculo del explorador usa [SignalR](xref:signalr/introduction) para crear un canal de comunicación entre Visual Studio y el explorador. Cuando el vínculo del explorador está habilitado, Visual Studio actúa como un servidor de SignalR al que se pueden conectar varios clientes (exploradores). El vínculo del explorador también registra un componente de middleware en la canalización de solicitudes ASP.NET Core. Este componente inserta referencias de `<script>` especiales en cada solicitud de página del servidor. Puede ver las referencias de script seleccionando **Ver código fuente** en el explorador y desplazándose hasta el final del contenido de la etiqueta `<body>`:
 
 ```html
     <!-- Visual Studio Browser Link -->

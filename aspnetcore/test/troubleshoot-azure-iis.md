@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/20/2019
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: 49a0f59fb6930235de10c726f3695f2a5352efb2
-ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
+ms.openlocfilehash: b0f5d44f153a095a6108a12ee91f4cc46fe0a0de
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74251963"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829015"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Solucionar problemas de ASP.NET Core en Azure App Service e IIS
 
@@ -86,7 +86,7 @@ Este error se produce dentro del código de la aplicación durante el inicio o m
 
 El proceso de trabajo no funciona. La aplicación no se inicia.
 
-El [módulo ASP.net Core](xref:host-and-deploy/aspnet-core-module) no puede encontrar el CLR de .net Core y encontrar el controlador de solicitud en proceso (*aspnetcorev2_inprocess. dll*). Compruebe que:
+El [módulo ASP.net Core](xref:host-and-deploy/aspnet-core-module) no puede encontrar el CLR de .net Core y encontrar el controlador de solicitud en proceso (*aspnetcorev2_inprocess. dll*). Compruebe lo siguiente:
 
 * Que la aplicación tiene como destino el paquete de NuGet [Microsoft.AspNetCore.Server.IIS](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IIS) o el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 * Que la versión del marco compartido de ASP.NET Core que la aplicación tiene como destino esté instalada en el equipo de destino.
@@ -109,7 +109,7 @@ Error desconocido al cargar los componentes del [módulo de ASP.net Core](xref:h
 
 * Póngase en contacto con el [equipo de soporte técnico de Microsoft](https://support.microsoft.com/oas/default.aspx?prid=15832) (seleccione **Herramientas de desarrollo** y, después, **ASP.NET Core**).
 * Formule una pregunta en Stack Overflow.
-* Registre un problema en nuestro [repositorio de GitHub](https://github.com/aspnet/AspNetCore).
+* Registre un problema en nuestro [repositorio de GitHub](https://github.com/dotnet/AspNetCore).
 
 ### <a name="50030-in-process-startup-failure"></a>500.30 Error de inicio en proceso
 
@@ -332,7 +332,7 @@ Deshabilite el registro de stdout una vez haya solucionado los problemas:
 1. Establezca **stdoutLogEnabled** en `false`.
 1. Seleccione **Save** (Guardar) para guardar el archivo.
 
-Para obtener más información, consulta <xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection>.
+Para obtener más información, vea <xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection>.
 
 > [!WARNING]
 > La imposibilidad de deshabilitar el registro de stdout puede dar lugar a un error de la aplicación o del servidor. No hay ningún límite en el tamaño del archivo de registro ni en el número de archivos de registro creados. Use únicamente el registro de stdout para solucionar problemas de inicio de la aplicación.
@@ -363,7 +363,7 @@ Para deshabilitar el registro de depuración mejorado, realice cualquiera de las
 * Quite localmente la `<handlerSettings>` del archivo *web.config* y vuelva a implementar la aplicación.
 * Use la consola de Kudu para editar el archivo *web.config* y quite la sección `<handlerSettings>`. Guarde el archivo.
 
-Para obtener más información, consulta <xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs>.
+Para obtener más información, vea <xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs>.
 
 > [!WARNING]
 > Si no deshabilita el registro de depuración, es posible que se produzcan errores en la aplicación o el servidor. No hay ningún límite para el tamaño del archivo de registro. Use únicamente el registro de depuración para solucionar problemas de inicio de la aplicación.
@@ -477,7 +477,7 @@ Deshabilite el registro de stdout una vez haya solucionado los problemas:
 1. Establezca **stdoutLogEnabled** en `false`.
 1. Guarde el archivo.
 
-Para obtener más información, consulta <xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection>.
+Para obtener más información, vea <xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection>.
 
 > [!WARNING]
 > La imposibilidad de deshabilitar el registro de stdout puede dar lugar a un error de la aplicación o del servidor. No hay ningún límite en el tamaño del archivo de registro ni en el número de archivos de registro creados.
@@ -501,13 +501,13 @@ Agregue la siguiente configuración de controlador al archivo *Web. config* de l
 
 Confirme que la ruta de acceso especificada para el registro exista y que la identidad del grupo de aplicaciones tenga permisos de escritura en la ubicación.
 
-Para obtener más información, consulta <xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs>.
+Para obtener más información, vea <xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs>.
 
 ::: moniker-end
 
 ### <a name="enable-the-developer-exception-page"></a>Habilitación de la página de excepciones para el desarrollador
 
-La variable de entorno `ASPNETCORE_ENVIRONMENT` [ se puede agregar a web.config](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) para ejecutar la aplicación en el entorno de desarrollo. Siempre y cuando el entorno no se invalide al inicio de la aplicación con `UseEnvironment` en el generador de host, la configuración de la variable de entorno permite que aparezca la [página de excepciones del desarrollador](xref:fundamentals/error-handling) cuando se ejecuta la aplicación.
+[Se puede Agregar la variable de entorno `ASPNETCORE_ENVIRONMENT` a Web. config](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) para ejecutar la aplicación en el entorno de desarrollo. Siempre y cuando el entorno no se invalide al inicio de la aplicación con `UseEnvironment` en el generador de host, la configuración de la variable de entorno permite que aparezca la [página de excepciones del desarrollador](xref:fundamentals/error-handling) cuando se ejecuta la aplicación.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -633,6 +633,6 @@ A veces se produce un error en una aplicación que funciona inmediatamente despu
 * [ASP.NET Core de depuración remota en un equipo remoto de IIS en Visual Studio 2017](/visualstudio/debugger/remote-debugging-aspnet-on-a-remote-iis-computer)
 * [Información sobre cómo depurar con Visual Studio](/visualstudio/debugger/getting-started-with-the-debugger)
 
-### <a name="visual-studio-code-documentation"></a>Visual Studio Code documentación
+### <a name="visual-studio-code-documentation"></a>Documentación de Visual Studio Code
 
 * [Depuración con Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging)

@@ -3,14 +3,14 @@ title: Artículos basados en proyectos de ASP.NET Core creados con cuentas de us
 author: rick-anderson
 description: Descubra artículos basados en ASP.NET Core proyectos creados con cuentas de usuario individuales.
 ms.author: riande
-ms.date: 11/30/2017
+ms.date: 12/11/2019
 uid: security/authentication/individual
-ms.openlocfilehash: 91c5665dc50124b3ba09bdcfbf3ba501f684c604
-ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
+ms.openlocfilehash: 7ef0d5eabded61d04fb9fe7be384a663ad7ea5f4
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73463037"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828716"
 ---
 # <a name="articles-based-on-aspnet-core-projects-created-with-individual-user-accounts"></a>Artículos basados en proyectos de ASP.NET Core creados con cuentas de usuario individuales
 
@@ -36,7 +36,7 @@ dotnet new razor -au Individual
 
 ::: moniker-end
 
-Consulte [este problema de github para la](https://github.com/aspnet/AspNetCore/issues/5833) autenticación de API Web.
+Consulte [este problema de github para la](https://github.com/dotnet/AspNetCore/issues/5833) autenticación de API Web.
 
 <a name="no"></a>
 
@@ -56,6 +56,32 @@ Proyectos creados sin autenticación:
 La autenticación de Windows se especifica para las nuevas aplicaciones web en el CLI de .NET Core con la opción `-au Windows`. En Visual Studio, el cuadro de diálogo **cambiar autenticación** proporciona las opciones de **autenticación de Windows** .
 
 Si se selecciona autenticación de Windows, la aplicación se configura para usar el [módulo IIS de autenticación de Windows](xref:host-and-deploy/iis/modules). La autenticación de Windows está pensada para sitios web de la intranet.
+
+## <a name="dotnet-new-webapp-authentication-options"></a>Opciones de autenticación de dotnet New webapp
+
+En la tabla siguiente se muestran las opciones de autenticación disponibles para las nuevas aplicaciones web:
+
+| Opción | Tipo de autenticación | Vínculo para más información |
+ | ----------------- | ------------ | ---------- |
+| Ninguno            |  Sin autenticación | | 
+| Individual      |  Autenticación individual | <xref:security/authentication/identity>
+| IndividualB2C   |  Autenticación individual hospedada en la nube con Azure AD B2C | [Azure AD B2C](/azure/active-directory-b2c/) |
+| SingleOrg       |  Autenticación de la organización para un solo inquilino | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
+| MultiOrg        |  Autenticación de la organización para varios inquilinos | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
+| Portal         |  Autenticación de Windows | [Autenticación de Windows](xref:security/authentication/windowsauth)
+
+## <a name="visual-studio-new-webapp-authentication-options"></a>Opciones de autenticación nuevas de Visual Studio
+
+En la tabla siguiente se muestran las opciones de autenticación disponibles al crear una nueva aplicación web con Visual Studio:
+
+| Opción | Tipo de autenticación | Vínculo para más información |
+ | ----------------- | ------------ | ---------- |
+| Ninguno            |  Sin autenticación | | 
+| Cuentas de usuario individuales/almacenar cuentas de usuario en la aplicación |  Autenticación individual | <xref:security/authentication/identity> |
+| Cuentas de usuario individuales/conectarse a un almacén de usuario existente en la nube |  Autenticación individual hospedada en la nube con Azure AD B2C | [Azure AD B2C](/azure/active-directory-b2c/) |
+| Nube profesional o educativa/organización única  |  Autenticación de la organización para un solo inquilino | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
+| Nube profesional o educativa/varias organizaciones |  Autenticación de la organización para varios inquilinos | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
+| Portal         |  Autenticación de Windows | [Autenticación de Windows](xref:security/authentication/windowsauth)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: 1242ec9f71f4a26b07f9a56a2a960bf315b56ccf
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: c46f50a418cf630980ac2ba94407e4370d36e7d5
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880013"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828937"
 ---
 # <a name="migrate-from-aspnet-core-1x-to-20"></a>Migración de ASP.NET Core 1.x a 2.0
 
@@ -42,7 +42,7 @@ Los proyectos para .NET Framework deben usar el TFM de una versión mayor o igua
 > [!NOTE]
 > .NET Core 2.0 ofrece un área expuesta mucho mayor que .NET Core 1.x. Si el destino es .NET Framework solo porque faltan API en .NET Core 1.x, el uso de .NET Core 2.0 como destino es probable que dé resultado.
 
-Si el archivo de proyecto contiene `<RuntimeFrameworkVersion>1.{sub-version}</RuntimeFrameworkVersion>`, consulte [este problema de GitHub](https://github.com/aspnet/AspNetCore/issues/3221#issuecomment-413094268).
+Si el archivo de proyecto contiene `<RuntimeFrameworkVersion>1.{sub-version}</RuntimeFrameworkVersion>`, consulte [este problema de GitHub](https://github.com/dotnet/AspNetCore/issues/3221#issuecomment-413094268).
 
 <a name="global-json"></a>
 

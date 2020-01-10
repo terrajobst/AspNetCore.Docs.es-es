@@ -5,14 +5,14 @@ description: Este artículo contiene vínculos a recursos de implementación y h
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 12/16/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: f9fc6e706046165c142e19ca38d97ac21914dc9b
-ms.sourcegitcommit: a104ba258ae7c0b3ee7c6fa7eaea1ddeb8b6eb73
+ms.openlocfilehash: 51d82d1deadb3d2adbdccd39c8d949e3f9f812fd
+ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74478762"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75693848"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -87,13 +87,13 @@ Cuando una configuración de aplicación se crea o modifica en Azure Portal y el
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Cuando una aplicación usa el [host genérico](xref:fundamentals/host/generic-host), no se cargan variables de entorno en la configuración de una aplicación de manera predeterminada y es el desarrollador el que debe agregar al proveedor de configuración. El desarrollador determina el prefijo de variable de entorno cuando se agrega el proveedor de configuración. Para más información, consulte <xref:fundamentals/host/generic-host> y el [proveedor de configuración de variables de entorno](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+Cuando una aplicación usa el [host genérico](xref:fundamentals/host/generic-host), las variables de entorno se cargan en la configuración de la aplicación cuando se llama a <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> para compilar el host. Para más información, consulte <xref:fundamentals/host/generic-host> y el [proveedor de configuración de variables de entorno](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Cuando una aplicación compila el host mediante [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), en las variables de entorno que configuran el host se usa el prefijo `ASPNETCORE_`. Para más información, consulte <xref:fundamentals/host/web-host> y el [proveedor de configuración de variables de entorno](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+Cuando una aplicación usa el [host web](xref:fundamentals/host/web-host), las variables de entorno se cargan en la configuración de la aplicación cuando se llama a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> para compilar el host. Para más información, consulte <xref:fundamentals/host/web-host> y el [proveedor de configuración de variables de entorno](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 ::: moniker-end
 
@@ -143,17 +143,19 @@ Al realizar un intercambio entre ranuras de implementación, cualquier sistema q
 * Almacén SQL
 * Redis Cache
 
-Para más información, consulte <xref:security/data-protection/implementation/key-storage-providers>.
+Para obtener más información, vea <xref:security/data-protection/implementation/key-storage-providers>.
 <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>
 
-## <a name="deploy-aspnet-core-30-to-azure-app-service"></a>Implementar ASP.NET Core 3.0 en Azure App Service
+## <a name="deploy-an-aspnet-core-app-that-uses-a-net-core-preview"></a>Implementación de una aplicación ASP.NET Core que usa una versión preliminar de .NET Core
 
-ASP.NET Core 3.0 se admite en Azure App Service. Para implementar una versión preliminar de una versión de .NET Core posterior a .NET Core 3.0, use una de las técnicas siguientes. Estos enfoques también se usan cuando el entorno de ejecución está disponible pero el SDK no se ha instalado en Azure App Service.
+Para implementar una aplicación que usa una versión preliminar de .NET Core, consulte los siguientes recursos. Estos enfoques también se usan cuando el entorno de ejecución está disponible pero el SDK no se ha instalado en Azure App Service.
 
 * [Especificación del SDK de .NET Core con Azure Pipelines](#specify-the-net-core-sdk-version-using-azure-pipelines)
-* [Implementación de la versión preliminar de una aplicación independiente](#deploy-a-self-contained-preview-app).
-* [Uso de Docker con Web Apps para contenedores](#use-docker-with-web-apps-for-containers).
-* [Instalación de la extensión de sitio de versión preliminar](#install-the-preview-site-extension).
+* [Implementación de la versión preliminar de una aplicación independiente](#deploy-a-self-contained-preview-app)
+* [Usar Docker con Web Apps para contenedores](#use-docker-with-web-apps-for-containers)
+* [Instalación de la extensión de sitio de versión preliminar](#install-the-preview-site-extension)
+
+Consulte el [panel ASP.NET Core en App Service](https://aspnetcoreon.azurewebsites.net/) para ver la versión de ASP.NET Core disponible en Azure App Service.
 
 ### <a name="specify-the-net-core-sdk-version-using-azure-pipelines"></a>Especificación de la versión del SDK de .NET Core con Azure Pipelines
 

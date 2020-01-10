@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la plataforma de registro pro
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/04/2019
+ms.date: 01/08/2020
 uid: fundamentals/logging/index
-ms.openlocfilehash: e1c50c4592b21d56ed813dac43204d63f1bfe46c
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: d9ef6694b6c0b0a88b13d60915be6e04ebdffb28
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359353"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829054"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registros en .NET Core y ASP.NET Core
 
@@ -22,7 +22,7 @@ Por [Tom Dykstra](https://github.com/tdykstra) y [Steve Smith](https://ardalis.c
 
 ::: moniker range=">= aspnetcore-3.0"
 
-La mayoría de los ejemplos de código que se muestran en este artículo son de aplicaciones de ASP.NET Core. Las partes específicas de registro de estos fragmentos de código son válidas para cualquier aplicación de .NET Core que use el [host genérico](xref:fundamentals/host/generic-host). Para obtener información sobre cómo usar el host genérico en aplicaciones de consola que no sean de web, vea [Servicios hospedados](xref:fundamentals/host/hosted-services).
+La mayoría de los ejemplos de código que se muestran en este artículo son de aplicaciones de ASP.NET Core. Las partes específicas de registro de estos fragmentos de código son válidas para cualquier aplicación de .NET Core que use el [host genérico](xref:fundamentals/host/generic-host). Para ver un ejemplo de cómo usar el host genérico en una aplicación de consola que no sea web, vea el archivo *Program.cs* de la [aplicación de ejemplo de tareas en segundo plano](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples) (<xref:fundamentals/host/hosted-services>).
 
 El código de registro para las aplicaciones sin un host genérico es distinto en la forma en que se [agregan los proveedores](#add-providers) y [se crean los registradores](#create-logs). Los ejemplos de código que no sean de host se muestran en esas secciones del artículo.
 

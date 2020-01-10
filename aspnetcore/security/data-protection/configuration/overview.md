@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: cda510d0f8211641e3544b53ded79878d717cc58
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: c0846aca4bb663b1d562ab0c877fefba02da460f
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358415"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829041"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Configuración de la protección de datos de ASP.NET Core
 
@@ -389,7 +389,7 @@ Al hospedar en un contenedor de [Docker](/dotnet/standard/microservices-architec
 
 ## <a name="persisting-keys-with-redis"></a>Persistencia de claves con Redis
 
-Solo se deben usar las versiones de Redis compatibles con la [persistencia de datos de Redis](/azure/azure-cache-for-redis/cache-how-to-premium-persistence) para almacenar claves. [Azure BLOB Storage](/azure/storage/blobs/storage-blobs-introduction) es persistente y se puede usar para almacenar claves. Para más información, consulte [este problema de GitHub](https://github.com/aspnet/AspNetCore/issues/13476).
+Solo se deben usar las versiones de Redis compatibles con la [persistencia de datos de Redis](/azure/azure-cache-for-redis/cache-how-to-premium-persistence) para almacenar claves. [Azure BLOB Storage](/azure/storage/blobs/storage-blobs-introduction) es persistente y se puede usar para almacenar claves. Para más información, consulte [este problema de GitHub](https://github.com/dotnet/AspNetCore/issues/13476).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET C
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/26/2019
+ms.date: 01/06/2020
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: de1b3e270ccd90bde741975de38a224e557f1a08
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: 8e0475e3e18688c7d4344661826290d15a2443c0
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717421"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829197"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -139,13 +139,33 @@ Para obtener más información sobre el hospedaje, consulte [Hospedaje en ASP.NE
 
 ### <a name="enable-the-iisintegration-components"></a>Habilitación de los componentes de integración con IIS
 
-Un archivo *Program.cs* típico llama a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> para iniciar la configuración de un host que permite la integración con IIS:
+::: moniker range=">= aspnetcore-3.0"
+
+Al compilar un host en `CreateHostBuilder` (*Program.cs*), llame a <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> para permitir la integración de IIS:
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        ...
+```
+
+Para más información sobre `CreateDefaultBuilder`, consulte <xref:fundamentals/host/generic-host#default-builder-settings>.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Al compilar un host en `CreateWebHostBuilder` (*Program.cs*), llame a <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> para permitir la integración de IIS:
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     WebHost.CreateDefaultBuilder(args)
         ...
 ```
+
+Para más información sobre `CreateDefaultBuilder`, consulte <xref:fundamentals/host/web-host#set-up-a-host>.
+
+::: moniker-end
 
 ### <a name="iis-options"></a>Opciones de IIS
 
@@ -233,7 +253,7 @@ Para evitar que el SDK web transforme el archivo *web.config*, use la propiedad 
 </PropertyGroup>
 ```
 
-Al deshabilitar el SDK web para la transformación del archivo, el desarrollador debe establecer el elemento *processPath* y los *argumentos* manualmente. Para más información, consulte <xref:host-and-deploy/aspnet-core-module>.
+Al deshabilitar el SDK web para la transformación del archivo, el desarrollador debe establecer el elemento *processPath* y los *argumentos* manualmente. Para obtener más información, vea <xref:host-and-deploy/aspnet-core-module>.
 
 ### <a name="webconfig-file-location"></a>Ubicación del archivo web.config
 
@@ -324,11 +344,11 @@ Para obtener una versión anterior del instalador:
 
 1. Ejecute el instalador en el servidor. Los parámetros siguientes están disponibles cuando se ejecuta el instalador desde un shell de comandos de administrador:
 
-   * `OPT_NO_ANCM=1` &ndash; Omita la instalación del módulo de ASP.NET Core.
-   * `OPT_NO_RUNTIME=1` &ndash; Omita la instalación del entorno de ejecución de .NET Core. Se usa si el servidor solo hospeda [implementaciones autocontenidas (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
-   * `OPT_NO_SHAREDFX=1` &ndash; Omita la instalación del marco compartido de ASP.NET (entorno de ejecución de ASP.NET). Se usa si el servidor solo hospeda [implementaciones autocontenidas (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
-   * `OPT_NO_X86=1` &ndash; Omita la instalación de entornos de ejecución x86. Utilice este parámetro cuando sepa que no va a hospedar aplicaciones de 32 bits. Si hay alguna posibilidad de que vaya a hospedar aplicaciones de 32 bits y 64 bits en el futuro, no use este parámetro e instale ambos entornos de ejecución.
-   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; Deshabilite la comprobación para usar una configuración compartida de IIS cuando la configuración compartida (*applicationHost.config*) esté en la misma máquina que la instalación de IIS. *Solo disponible para ASP.NET Core 2.2 o instaladores del conjunto de hospedaje posteriores.* Para más información, consulte <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
+   * `OPT_NO_ANCM=1`: omite la instalación del módulo de ASP.NET Core.
+   * `OPT_NO_RUNTIME=1`: omite la instalación del entorno de ejecución de .NET Core. Se usa si el servidor solo hospeda [implementaciones autocontenidas (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
+   * `OPT_NO_SHAREDFX=1`: omite la instalación del marco compartido de ASP.NET (entorno de ejecución de ASP.NET). Se usa si el servidor solo hospeda [implementaciones autocontenidas (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
+   * `OPT_NO_X86=1` &ndash; omite la instalación de entornos de ejecución x86. Utilice este parámetro cuando sepa que no va a hospedar aplicaciones de 32 bits. Si hay alguna posibilidad de que vaya a hospedar aplicaciones de 32 bits y 64 bits en el futuro, no use este parámetro e instale ambos entornos de ejecución.
+   * `OPT_NO_SHARED_CONFIG_CHECK=1`: deshabilita la comprobación para usar una configuración compartida de IIS cuando la configuración compartida (*applicationHost.config*) esté en la misma máquina que la instalación de IIS. *Solo disponible para ASP.NET Core 2.2 o instaladores del conjunto de hospedaje posteriores.* Para obtener más información, vea <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
 1. Reinicie el sistema o ejecute los comandos siguientes en un shell de comandos:
 
    ```console
@@ -462,7 +482,7 @@ Para configurar la protección de datos en IIS para conservar el conjunto de cla
 
   Las claves de protección de datos que las aplicaciones de ASP.NET usan se almacenan en el Registro externo a las aplicaciones. Para conservar las claves de una determinada aplicación, cree claves del Registro para el grupo de aplicaciones.
 
-  En las instalaciones independientes de IIS que no son de granja de servidores web, puede usar el [script de PowerShell Provision-AutoGenKeys.ps1 de protección de datos](https://github.com/aspnet/AspNetCore/blob/master/src/DataProtection/Provision-AutoGenKeys.ps1) para cada grupo de aplicaciones usado con una aplicación de ASP.NET Core. Este script crea una clave del Registro en el registro HKLM que solo es accesible a la cuenta de proceso de trabajo del grupo de aplicaciones de la aplicación. Las claves se cifran en reposo mediante DPAPI con una clave de equipo.
+  En las instalaciones independientes de IIS que no son de granja de servidores web, puede usar el [script de PowerShell Provision-AutoGenKeys.ps1 de protección de datos](https://github.com/dotnet/AspNetCore/blob/master/src/DataProtection/Provision-AutoGenKeys.ps1) para cada grupo de aplicaciones usado con una aplicación de ASP.NET Core. Este script crea una clave del Registro en el registro HKLM que solo es accesible a la cuenta de proceso de trabajo del grupo de aplicaciones de la aplicación. Las claves se cifran en reposo mediante DPAPI con una clave de equipo.
 
   En escenarios de granja de servidores web, una aplicación puede configurarse para usar una ruta de acceso UNC para almacenar su conjunto de claves de protección de datos. De forma predeterminada, las claves de protección de datos no se cifran. Asegúrese de que los permisos de archivo de un recurso compartido de red se limitan a la cuenta de Windows bajo la que se ejecuta la aplicación. Puede usar un certificado X509 para proteger las claves en reposo. Considere un mecanismo que permita a los usuarios cargar certificados: coloque los certificados en el almacén de certificados de confianza del usuario y asegúrese de que están disponibles en todos los equipos en los que se ejecuta la aplicación del usuario. Vea [Configurar la protección de datos en ASP.NET Core](xref:security/data-protection/configuration/overview) para más información.
 
@@ -678,7 +698,7 @@ Para una aplicación de ASP.NET Core que tiene como destino .NET Framework, las 
 
 Cuando se hospeda en IIS mediante la versión 2 del módulo de ASP.NET Core:
 
-* [Módulo de inicialización de aplicaciones](#application-initialization-module) &ndash; las aplicaciones hospedadas [dentro de proceso](#in-process-hosting-model) o [fuera de proceso](#out-of-process-hosting-model) se pueden configurar para iniciarse de forma automática en un reinicio de proceso de trabajo o un reinicio de servidor.
+* [Módulo de inicialización de aplicaciones](#application-initialization-module): las aplicaciones hospedadas [dentro de proceso](#in-process-hosting-model) o [fuera de proceso](#out-of-process-hosting-model) se pueden configurar para iniciarse de forma automática en un reinicio de proceso de trabajo o un reinicio de servidor.
 * [Tiempo de espera de inactividad](#idle-timeout): las aplicaciones hospedadas [dentro de proceso](#in-process-hosting-model) se pueden configurar para que no tengan tiempo de espera durante períodos de inactividad.
 
 ### <a name="application-initialization-module"></a>Módulo de inicialización de aplicaciones
