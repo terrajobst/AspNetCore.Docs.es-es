@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 12/16/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 51d82d1deadb3d2adbdccd39c8d949e3f9f812fd
-ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
+ms.openlocfilehash: 286d73d732b146fef15bbfc309caeb214cdbbe0d
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75693848"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829184"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -192,7 +192,7 @@ Siga las instrucciones de la sección [Implementación de la aplicación indepen
 
 ### <a name="install-the-preview-site-extension"></a>Instalación de la extensión de sitio de versión preliminar
 
-Si tiene algún problema al usar la extensión de sitio de versión preliminar, abra una [incidencia en aspnet/AspNetCore](https://github.com/aspnet/AspNetCore/issues).
+Si tiene algún problema al usar la extensión de sitio de versión preliminar, abra una [incidencia de dotnet/AspNetCore](https://github.com/dotnet/AspNetCore/issues).
 
 1. En Azure Portal, vaya a App Service.
 1. Seleccione la aplicación web.
