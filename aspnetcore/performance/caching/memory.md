@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/2/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 1114d154ed1af09958df63ae718712177bbf6db0
-ms.sourcegitcommit: 09f4a5ded39cc8204576fe801d760bd8b611f3aa
+ms.openlocfilehash: eb40026bc9686357cc7cfb8a99f127a3b433cb70
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611443"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866038"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Almacenar en memoria caché en ASP.NET Core
 
@@ -31,13 +31,13 @@ Las sesiones no permanentes en una granja de servidores Web requieren una [cach�
 
 La caché en memoria puede almacenar cualquier objeto. La interfaz de caché distribuida se limita a `byte[]`. Los elementos de caché del almacén de caché distribuida y en memoria como pares de clave y valor.
 
-## <a name="systemruntimecachingmemorycache"></a>System. Runtime. Caching/MemoryCache
+## <a name="systemruntimecachingmemorycache"></a>System.Runtime.Caching/MemoryCache
 
 <xref:System.Runtime.Caching>/<xref:System.Runtime.Caching.MemoryCache> ([paquete NuGet](https://www.nuget.org/packages/System.Runtime.Caching/)) se puede usar con:
 
 * .NET Standard 2,0 o posterior.
 * Cualquier [implementación de .net](/dotnet/standard/net-standard#net-implementation-support) que tenga como destino .net Standard 2,0 o posterior. Por ejemplo, ASP.NET Core 2,0 o posterior.
-* .NET Framework 4,5 o posterior.
+* .NET Framework 4.5 o superior.
 
 [Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/)/`IMemoryCache` (que se describe en este artículo) se recomienda en `System.Runtime.Caching`/`MemoryCache` porque está mejor integrado en ASP.net Core. Por ejemplo, `IMemoryCache` funciona de forma nativa con la [inserción de dependencias](xref:fundamentals/dependency-injection)de ASP.net Core.
 
@@ -154,7 +154,7 @@ Los elementos anclados con <xref:Microsoft.Extensions.Caching.Memory.CacheItemPr
 
 [!code-csharp[](memory/3.0sample/RPcache/Pages/TestCache.cshtml.cs?name=snippet3)]
 
-Consulte [código fuente compacto en github](https://github.com/aspnet/Extensions/blob/v3.0.0-preview8.19405.4/src/Caching/Memory/src/MemoryCache.cs#L382-L393) para obtener más información.
+Consulte [código fuente compacto en github](https://github.com/dotnet/extensions/blob/v3.0.0-preview8.19405.4/src/Caching/Memory/src/MemoryCache.cs#L382-L393) para obtener más información.
 
 ## <a name="cache-dependencies"></a>Dependencias de caché
 
@@ -208,13 +208,13 @@ Las sesiones no permanentes en una granja de servidores Web requieren una [cach�
 
 La caché en memoria puede almacenar cualquier objeto. La interfaz de caché distribuida se limita a `byte[]`. Los elementos de caché del almacén de caché distribuida y en memoria como pares de clave y valor.
 
-## <a name="systemruntimecachingmemorycache"></a>System. Runtime. Caching/MemoryCache
+## <a name="systemruntimecachingmemorycache"></a>System.Runtime.Caching/MemoryCache
 
 <xref:System.Runtime.Caching>/<xref:System.Runtime.Caching.MemoryCache> ([paquete NuGet](https://www.nuget.org/packages/System.Runtime.Caching/)) se puede usar con:
 
 * .NET Standard 2,0 o posterior.
 * Cualquier [implementación de .net](/dotnet/standard/net-standard#net-implementation-support) que tenga como destino .net Standard 2,0 o posterior. Por ejemplo, ASP.NET Core 2,0 o posterior.
-* .NET Framework 4,5 o posterior.
+* .NET Framework 4.5 o superior.
 
 [Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/)/`IMemoryCache` (que se describe en este artículo) se recomienda en `System.Runtime.Caching`/`MemoryCache` porque está mejor integrado en ASP.net Core. Por ejemplo, `IMemoryCache` funciona de forma nativa con la [inserción de dependencias](xref:fundamentals/dependency-injection)de ASP.net Core.
 
@@ -326,7 +326,7 @@ Los elementos anclados con <xref:Microsoft.Extensions.Caching.Memory.CacheItemPr
 
 [!code-csharp[](memory/3.0sample/RPcache/Pages/TestCache.cshtml.cs?name=snippet3)]
 
-Consulte [código fuente compacto en github](https://github.com/aspnet/Extensions/blob/v3.0.0-preview8.19405.4/src/Caching/Memory/src/MemoryCache.cs#L382-L393) para obtener más información.
+Consulte [código fuente compacto en github](https://github.com/dotnet/extensions/blob/v3.0.0-preview8.19405.4/src/Caching/Memory/src/MemoryCache.cs#L382-L393) para obtener más información.
 
 ## <a name="cache-dependencies"></a>Dependencias de caché
 
