@@ -9,12 +9,12 @@ ms.date: 12/09/2019
 no-loc:
 - Blazor
 uid: blazor/get-started
-ms.openlocfilehash: e368ecaf931d392de7e52ec2d5a2dfd171c2c86f
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 554f4daff92a0839ee7679287a4618e9b51e0fe5
+ms.sourcegitcommit: 925cdbd94613243f33bc7613a62ea34006219931
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943772"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921309"
 ---
 # <a name="get-started-with-aspnet-core-opno-locblazor"></a>Introducción a ASP.NET Core Blazor
 
@@ -30,7 +30,7 @@ Introducción a Blazor:
 
 1. Opcionalmente, instale la plantilla [Blazor Webassembly](xref:blazor/hosting-models#blazor-webassembly) :
    * Instale el [SDK de .net Core 3,1 o posterior (versión preliminar)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-   * Ejecute el siguiente comando en un shell de comandos. [Microsoft. AspNetCore.Blazor. ](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/)El paquete de plantillas tiene una versión preliminar mientras Blazor Webassembly está en versión preliminar.
+   * Ejecute el siguiente comando en un shell de comandos. [Microsoft.AspNetCore.Blazor.](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/)El paquete de plantillas tiene una versión preliminar mientras Blazor Webassembly está en versión preliminar.
 
    ```dotnetcli
    dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.1.0-preview4.19579.2
@@ -85,7 +85,7 @@ Introducción a Blazor:
 
    # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
-   1 \. Instale [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/). Cambie el [canal de actualización a vista previa](/visualstudio/mac/install-preview).
+   1 \. Instale [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/).
 
    2 \. Seleccione **archivo** > **nueva solución** o cree un **nuevo proyecto**.
 
@@ -135,7 +135,7 @@ Introducción a Blazor:
 
 1. Opcionalmente, instale la plantilla [Blazor Webassembly](xref:blazor/hosting-models#blazor-webassembly) :
    * Instale el [SDK de .net Core 3,1 o posterior (versión preliminar)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-   * Ejecute el siguiente comando en un shell de comandos. [Microsoft. AspNetCore.Blazor. ](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/)El paquete de plantillas tiene una versión preliminar mientras Blazor Webassembly está en versión preliminar.
+   * Ejecute el siguiente comando en un shell de comandos. [Microsoft.AspNetCore.Blazor.](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/)El paquete de plantillas tiene una versión preliminar mientras Blazor Webassembly está en versión preliminar.
 
    ```dotnetcli
    dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.1.0-preview4.19579.2
@@ -238,7 +238,7 @@ Introducción a Blazor:
 
 Hay varias páginas disponibles en las pestañas de la barra lateral:
 
-* Página principal
+* Página de inicio de
 * Contador
 * Capturar datos
 
@@ -253,7 +253,7 @@ Una solicitud de `/counter` en el explorador, tal y como se especifica en la Dir
 Cada vez que se selecciona el botón **click me** :
 
 * Se desencadena el evento `onclick`.
-* Se llama al método `IncrementCount` .
+* Se llama al método `IncrementCount`.
 * Se incrementa el `currentCount`.
 * El componente se representará de nuevo.
 
@@ -265,7 +265,7 @@ Agregar un componente a otro componente mediante la sintaxis HTML. Por ejemplo, 
 
 [!code-razor[](get-started/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
-Ejecute la aplicación. La Página principal tiene su propio contador proporcionado por el componente de `Counter`.
+Ejecutar la aplicación. La Página principal tiene su propio contador proporcionado por el componente de `Counter`.
 
 Los parámetros de componente se especifican mediante atributos o [contenido secundario](xref:blazor/components#child-content), que permiten establecer propiedades en el componente secundario. Para agregar un parámetro al componente de `Counter`, actualice el bloque de `@code` del componente:
 
@@ -282,7 +282,7 @@ Especifique el `IncrementAmount` en el elemento `<Counter>` del componente de `I
 
 [!code-razor[](get-started/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-Ejecute la aplicación. El componente de `Index` tiene su propio contador que se incrementa en diez cada vez que se selecciona el botón **click me** . El componente de `Counter` (*Counter. Razor*) en `/counter` continúa aumentando en uno.
+Ejecutar la aplicación. El componente de `Index` tiene su propio contador que se incrementa en diez cada vez que se selecciona el botón **click me** . El componente de `Counter` (*Counter. Razor*) en `/counter` continúa aumentando en uno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
