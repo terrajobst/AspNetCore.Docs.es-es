@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo diagnosticar problemas con las imp
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/20/2019
+ms.date: 01/10/2020
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: b0f5d44f153a095a6108a12ee91f4cc46fe0a0de
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 23c90c33d197d26d1c4ad758449e318e20ef3760
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829015"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75952152"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Solucionar problemas de ASP.NET Core en Azure App Service e IIS
 
@@ -433,7 +433,7 @@ Para más información, consulte [Habilitación del registro de diagnóstico par
 
 Acceda al registro de eventos de la aplicación:
 
-1. Abra el menú Inicio, busque **Visor de eventos** y luego seleccione la aplicación **Visor de eventos**.
+1. Abra el menú Inicio, busque *visor de eventos*y seleccione la aplicación **visor de eventos** .
 1. En **Visor de eventos**, abra el nodo **Registros de Windows**.
 1. Seleccione **Aplicación** para abrir el registro de eventos de la aplicación.
 1. Busque los errores asociados a la aplicación objeto del error. Los errores tienen un valor de *Módulo AspNetCore de IIS* o *Módulo AspNetCore de IIS Express* en la columna *Origen*.
@@ -597,10 +597,10 @@ El volcado de memoria se puede analizar de varias maneras. Para obtener más inf
 
 ## <a name="clear-package-caches"></a>Borrar cachés de paquetes
 
-A veces se produce un error en una aplicación que funciona inmediatamente después de actualizar el SDK de .NET Core en el equipo de desarrollo o cambiar las versiones de paquete dentro de la aplicación. En algunos casos, los paquetes incoherentes pueden interrumpir una aplicación al realizar actualizaciones importantes. La mayoría de estos problemas puede corregirse siguiendo estas instrucciones:
+Una aplicación en funcionamiento puede producir un error inmediatamente después de actualizar el SDK de .NET Core en el equipo de desarrollo o de cambiar las versiones de paquete dentro de la aplicación. En algunos casos, los paquetes incoherentes pueden interrumpir una aplicación al realizar actualizaciones importantes. La mayoría de estos problemas puede corregirse siguiendo estas instrucciones:
 
 1. Elimine las carpetas *bin* y *obj*.
-1. Borre las memorias caché de paquetes ejecutando `dotnet nuget locals all --clear` desde un shell de comandos.
+1. Borre las memorias caché de paquetes mediante la ejecución de [dotnet Nuget locals todo--claro](/dotnet/core/tools/dotnet-nuget-locals) desde un shell de comandos.
 
    La desactivación de las memorias caché de paquetes también se puede realizar con la herramienta [Nuget. exe](https://www.nuget.org/downloads) y ejecutar el `nuget locals all -clear`de comandos. *nuget.exe* no es una instalación agrupada con el sistema operativo de escritorio de Windows y se debe obtener de forma independiente en el [sitio web de NuGet](https://www.nuget.org/downloads).
 
