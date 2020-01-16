@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la API de configuración para
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/04/2019
+ms.date: 01/13/2020
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 9f0ad2791e504a0ff46daad07054b6bf909a546a
-ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
+ms.openlocfilehash: 09ef06f179e34cd7f4f04ac30c3b5dd95d058244
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73634076"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75951891"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configuración en ASP.NET Core
 
@@ -21,7 +21,7 @@ Por [Luke Latham](https://github.com/guardrex)
 La configuración de la aplicación en ASP.NET Core se basa en pares clave-valor establecidos por *proveedores de configuración*. Los proveedores de configuración leen los datos de configuración en los pares clave-valor de distintos orígenes de configuración:
 
 * Azure Key Vault
-* Azure App Configuration
+* Configuración de aplicaciones de Azure
 * Argumentos de la línea de comandos
 * Proveedores personalizados (instalados o creados)
 * Archivos de directorio
@@ -47,7 +47,7 @@ Los ejemplos de código que siguen y en la aplicación de ejemplo utilizan el es
 using Microsoft.Extensions.Configuration;
 ```
 
-El *patrón de opciones* es una extensión de los conceptos de configuración que se describen en este tema. Las opciones usan clases para representar grupos de configuraciones relacionadas. Para más información, consulte <xref:fundamentals/configuration/options>.
+El *patrón de opciones* es una extensión de los conceptos de configuración que se describen en este tema. Las opciones usan clases para representar grupos de configuraciones relacionadas. Para obtener más información, vea <xref:fundamentals/configuration/options>.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
@@ -111,7 +111,7 @@ Para obtener más información, vea los temas siguientes:
 * <xref:fundamentals/environments>
 * <xref:security/app-secrets> &ndash; Se incluyen recomendaciones sobre el uso de variables de entorno para almacenar información confidencial. El Administrador de secretos usa el proveedor de configuración de archivo para almacenar secretos de usuario en un archivo JSON del sistema local. El proveedor de configuración de archivo se describe más adelante en este tema.
 
-[Azure Key Vault](https://azure.microsoft.com/services/key-vault/) almacena de forma segura secretos de aplicación para aplicaciones de ASP.NET Core. Para más información, consulte <xref:security/key-vault-configuration>.
+[Azure Key Vault](https://azure.microsoft.com/services/key-vault/) almacena de forma segura secretos de aplicación para aplicaciones de ASP.NET Core. Para obtener más información, vea <xref:security/key-vault-configuration>.
 
 ## <a name="hierarchical-configuration-data"></a>Datos de configuración jerárquica
 
@@ -149,7 +149,9 @@ Al iniciar la aplicación, los orígenes de configuración se leen en el orden e
 
 Los proveedores de configuración que implementan la detección de cambios tienen la capacidad de volver a cargar la configuración cuando se cambia una configuración subyacente. Por ejemplo, el proveedor de configuración de archivos (descrito más adelante en este tema) y el [proveedor de configuración de Azure Key Vault](xref:security/key-vault-configuration) implementan la detección de cambios.
 
-<xref:Microsoft.Extensions.Configuration.IConfiguration> está disponible en el contenedor de [inserción de dependencias (DI)](xref:fundamentals/dependency-injection) de la aplicación. <xref:Microsoft.Extensions.Configuration.IConfiguration> se puede insertar en <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> de Razor Pages para obtener la configuración de la clase:
+<xref:Microsoft.Extensions.Configuration.IConfiguration> está disponible en el contenedor de [inserción de dependencias (DI)](xref:fundamentals/dependency-injection) de la aplicación. <xref:Microsoft.Extensions.Configuration.IConfiguration> se puede insertar en <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> de Razor Pages o <xref:Microsoft.AspNetCore.Mvc.Controller> de MVC para obtener la configuración de la clase.
+
+En los ejemplos siguientes, se usa el campo `_config` para tener acceso a los valores de configuración:
 
 ```csharp
 public class IndexModel : PageModel
@@ -160,9 +162,18 @@ public class IndexModel : PageModel
     {
         _config = config;
     }
+}
+```
 
-    // The _config local variable is used to obtain configuration 
-    // throughout the class.
+```csharp
+public class HomeController : Controller
+{
+    private readonly IConfiguration _config;
+
+    public HomeController(IConfiguration config)
+    {
+        _config = config;
+    }
 }
 ```
 
@@ -177,7 +188,7 @@ Las claves de configuración adoptan las convenciones siguientes:
 * Claves jerárquicas
   * Dentro de la API de configuración, un separador de dos puntos (`:`) funciona en todas las plataformas.
   * En las variables de entorno, puede que un separador de dos puntos no funcione en todas las plataformas. Todas las plataformas admiten un carácter de subrayado doble (`__`), que se convierte automáticamente en un signo de dos puntos.
-  * En Azure Key Vault, las claves jerárquicas usan `--` (dos guiones) como separador. Debe proporcionar código para reemplazar los guiones por dos puntos cuando los secretos se cargan en la configuración de la aplicación.
+  * En Azure Key Vault, las claves jerárquicas usan `--` (dos guiones) como separador. Escriba código para reemplazar los guiones por dos puntos cuando los secretos se carguen en la configuración de la aplicación.
 * <xref:Microsoft.Extensions.Configuration.ConfigurationBinder> admite enlazar matrices a objetos con los índices de matriz en las claves de configuración. El enlace de matriz se describe en la sección [Enlace de una matriz a una clase](#bind-an-array-to-a-class).
 
 ### <a name="values"></a>Valores
@@ -194,7 +205,7 @@ La siguiente tabla muestra los proveedores de configuración disponibles para la
 | Proveedor | Proporciona la configuración de&hellip; |
 | -------- | ----------------------------------- |
 | [Proveedor de configuración de Azure Key Vault](xref:security/key-vault-configuration) (temas de *Seguridad*) | Azure Key Vault |
-| [Proveedor de Azure App Configuration](/azure/azure-app-configuration/quickstart-aspnet-core-app) (documentación de Azure) | Azure App Configuration |
+| [Proveedor de Azure App Configuration](/azure/azure-app-configuration/quickstart-aspnet-core-app) (documentación de Azure) | Configuración de aplicaciones de Azure |
 | [Proveedor de configuración de línea de comandos](#command-line-configuration-provider) | Parámetros de la línea de comandos |
 | [Proveedor de configuración personalizada](#custom-configuration-provider) | Origen personalizado |
 | [Proveedor de configuración de variables de entorno](#environment-variables-configuration-provider) | Variables de entorno |
@@ -203,7 +214,7 @@ La siguiente tabla muestra los proveedores de configuración disponibles para la
 | [Proveedor de configuración de memoria](#memory-configuration-provider) | Colecciones en memoria |
 | [Secretos de usuario (Administrador de secretos)](xref:security/app-secrets) (temas de *Seguridad*) | Archivo en el directorio del perfil de usuario |
 
-Los orígenes de configuración se leen en el orden en que se especifican sus proveedores de configuración en el inicio. En este tema, los proveedores de configuración se describen en orden alfabético y no en el orden en que el código podría organizarlos. Ordene los proveedores de configuración en el código para cumplir con sus prioridades relacionadas con los orígenes de configuración subyacentes.
+Los orígenes de configuración se leen en el orden en que se especifican sus proveedores de configuración en el inicio. En este tema, los proveedores de configuración se describen en orden alfabético y no en el orden en el que el código los organiza. Ordene los proveedores de configuración en el código para cumplir con las prioridades relacionadas con los orígenes de configuración subyacentes que la aplicación necesita.
 
 Esta es una secuencia típica de proveedores de configuración:
 
@@ -215,7 +226,7 @@ Esta es una secuencia típica de proveedores de configuración:
 
 Una práctica común es colocar el proveedor de configuración de línea de comandos al final en una serie de proveedores para permitir que los argumentos de la línea de comandos reemplacen la configuración establecida por el resto de los proveedores.
 
-La secuencia anterior de proveedores se usa al inicializar un nuevo generador de host con `CreateDefaultBuilder`. Para obtener más información, vea la sección [Configuración predeterminada](#default-configuration).
+La secuencia de proveedores anterior se usa cuando se inicializa un nuevo generador de host con `CreateDefaultBuilder`. Para obtener más información, vea la sección [Configuración predeterminada](#default-configuration).
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -374,7 +385,7 @@ dotnet run CommandLineKey1= CommandLineKey2=value2
 
 ### <a name="switch-mappings"></a>Asignaciones de modificador
 
-Las asignaciones de modificador admiten la lógica de sustitución de nombres de clave. Cuando crea manualmente la configuración con <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>, puede proporcionar un diccionario de reemplazos de modificador al método <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>.
+Las asignaciones de modificador admiten la lógica de sustitución de nombres de clave. Al crear manualmente la configuración con <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>, proporcione un diccionario de reemplazos de modificador al método <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>.
 
 Cuando se usa el diccionario de asignaciones de modificador, se comprueba en el diccionario si una clave coincide con la clave proporcionada por un argumento de línea de comandos. Si la clave de la línea de comandos se encuentra en el diccionario, se devuelve el valor del diccionario (el reemplazo de la clave) para establecer el par clave-valor en la configuración de la aplicación. Se requiere una asignación de conmutador para cualquier clave de línea de comandos precedida por un solo guion (`-`).
 
@@ -433,7 +444,7 @@ Para activar la configuración de variables de entorno, llame al método de exte
 
 [!INCLUDE[](~/includes/environmentVarableColon.md)]
 
-[Azure App Service](https://azure.microsoft.com/services/app-service/) permite establecer las variables de entorno en Azure Portal que pueden invalidar la configuración de la aplicación mediante el proveedor de configuración de variables de entorno. Para más información, consulte [Aplicaciones de Azure: Invalidación de la configuración de la aplicación mediante Azure Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
+[Azure App Service](https://azure.microsoft.com/services/app-service/) permite establecer variables de entorno en Azure Portal que pueden invalidar la configuración de la aplicación mediante el proveedor de configuración de variables de entorno. Para más información, consulte [Aplicaciones de Azure: Invalidación de la configuración de la aplicación mediante Azure Portal](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -456,19 +467,16 @@ Para activar la configuración de variables de entorno, llame al método de exte
 
 El proveedor de configuración de variables de entorno se llama una vez establecida la configuración desde los secretos de usuario y los archivos *appsettings*. Llamar al proveedor en esta posición permite que la lectura de las variables de entorno en tiempo de ejecución invaliden la configuración establecida por los secretos de usuario y los archivos *appsettings*.
 
-Si tiene que proporcionar la configuración de la aplicación desde variables de entorno adicionales, llame a los proveedores adicionales de la aplicación en `ConfigureAppConfiguration` y llame a `AddEnvironmentVariables` con el prefijo.
+Para proporcionar la configuración de la aplicación desde variables de entorno adicionales, llame a los proveedores adicionales de la aplicación en `ConfigureAppConfiguration` y llame a `AddEnvironmentVariables` con el prefijo:
 
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
 {
-    // Call additional providers here as needed.
-    // Call AddEnvironmentVariables last if you need to allow
-    // environment variables to override values from other 
-    // providers.
     config.AddEnvironmentVariables(prefix: "PREFIX_");
 })
-}
 ```
+
+Llame a `AddEnvironmentVariables` en último lugar para permitir que las variables de entorno con el prefijo especificado invaliden los valores de otros proveedores.
 
 **Ejemplo**
 
@@ -479,7 +487,7 @@ La aplicación de ejemplo aprovecha el método de conveniencia estático `Create
 
 Para mantener un número adecuado de variables de entorno en la lista representada por la aplicación, la aplicación filtrará las variables de entorno. Vea el archivo *Pages/Index.cshtml.cs* de la aplicación de ejemplo.
 
-Si quiere exponer todas las variables de entorno disponibles para la aplicación, cambie `FilteredConfiguration` en *Pages/Index.cshtml.cs* a lo siguiente:
+Para exponer todas las variables de entorno disponibles para la aplicación, cambie `FilteredConfiguration` en *Pages/Index.cshtml.cs* por lo siguiente:
 
 ```csharp
 FilteredConfiguration = _config.AsEnumerable();
@@ -591,10 +599,10 @@ Las sobrecargas permiten especificar:
 * Si la configuración se recarga si el archivo cambia.
 * <xref:Microsoft.Extensions.FileProviders.IFileProvider> que se usa para acceder al archivo.
 
-Se llama automáticamente a `AddJsonFile` dos veces al inicializar un nuevo generador de host con `CreateDefaultBuilder`. Se llama al método para cargar la configuración desde:
+Se llama automáticamente a `AddJsonFile` dos veces cuando un nuevo generador de host se inicializa con `CreateDefaultBuilder`. Se llama al método para cargar la configuración desde:
 
-* *appsettings.json* &ndash; Este archivo se lee primero. La versión del entorno del archivo puede invalidar los valores que proporciona el archivo *appsettings.json*.
-* *appsettings.{Environment}.json* &ndash; La versión del entorno del archivo se carga en función de [IHostingEnvironment.EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*).
+* *appsettings.json*: este archivo se lee primero. La versión del entorno del archivo puede invalidar los valores que proporciona el archivo *appsettings.json*.
+* *appsettings.{Environment}.json*: la versión del entorno del archivo se carga en función de [IHostingEnvironment.EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*).
 
 Para obtener más información, vea la sección [Configuración predeterminada](#default-configuration).
 
@@ -618,17 +626,47 @@ Llame a `ConfigureAppConfiguration` al crear el host para especificar la configu
 
 **Ejemplo**
 
-La aplicación de ejemplo aprovecha el método de conveniencia estático `CreateDefaultBuilder` para crear el host, que incluye una llamada a `AddJsonFile`. La configuración se carga desde *appsettings.json* y *appsettings.{Environment}.json*.
+La aplicación de ejemplo aprovecha el método de conveniencia estático `CreateDefaultBuilder` para crear el host, que incluye una llamada a `AddJsonFile`:
+
+::: moniker range=">= aspnetcore-3.0"
+
+* La primera llamada a `AddJsonFile` carga la configuración desde *appsettings.json*:
+
+  [!code-json[](index/samples/3.x/ConfigurationSample/appsettings.json)]
+
+* La segunda llamada a `AddJsonFile` carga la configuración desde *appsettings.{Environment}.json*. Para *appsettings.Development.json* en la aplicación de ejemplo, se carga el siguiente archivo:
+
+  [!code-json[](index/samples/3.x/ConfigurationSample/appsettings.Development.json)]
 
 1. Ejecute la aplicación de ejemplo. Abra un explorador a la aplicación en `http://localhost:5000`.
-1. Observe que la salida contiene los pares clave-valor para la configuración que se muestra en la tabla según el entorno. Las claves de configuración de registro usan dos puntos (`:`) como separador jerárquico.
+1. La salida contiene pares clave-valor para la configuración basada en el entorno de la aplicación. El nivel de registro de la clave `Logging:LogLevel:Default` es `Debug` al ejecutar la aplicación en el entorno de desarrollo.
+1. Vuelva a ejecutar la aplicación de ejemplo en el entorno de producción:
+   1. Abra el archivo *Properties/launchSettings.json*.
+   1. En el perfil de `ConfigurationSample`, cambie el valor de la variable de entorno de `ASPNETCORE_ENVIRONMENT` por `Production`.
+   1. Guarde el archivo y ejecute la aplicación con `dotnet run` en un shell de comandos.
+1. La configuración de *appsettings.Development.json* ya no invalida la configuración de *appsettings.json*. El nivel de registro de la clave `Logging:LogLevel:Default` es `Information`.
 
-| Key                        | Valor de desarrollo | Valor de producción |
-| -------------------------- | :---------------: | :--------------: |
-| Logging:LogLevel:System    | Información       | Información      |
-| Logging:LogLevel:Microsoft | Información       | Información      |
-| Logging:LogLevel:Default   | Depuración             | Error            |
-| AllowedHosts               | *                 | *                |
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+* La primera llamada a `AddJsonFile` carga la configuración desde *appsettings.json*:
+
+  [!code-json[](index/samples/2.x/ConfigurationSample/appsettings.json)]
+
+* La segunda llamada a `AddJsonFile` carga la configuración desde *appsettings.{Environment}.json*. Para *appsettings.Development.json* en la aplicación de ejemplo, se carga el siguiente archivo:
+
+  [!code-json[](index/samples/2.x/ConfigurationSample/appsettings.Development.json)]
+
+1. Ejecute la aplicación de ejemplo. Abra un explorador a la aplicación en `http://localhost:5000`.
+1. La salida contiene pares clave-valor para la configuración basada en el entorno de la aplicación. El nivel de registro de la clave `Logging:LogLevel:Default` es `Debug` al ejecutar la aplicación en el entorno de desarrollo.
+1. Vuelva a ejecutar la aplicación de ejemplo en el entorno de producción:
+   1. Abra el archivo *Properties/launchSettings.json*.
+   1. En el perfil de `ConfigurationSample`, cambie el valor de la variable de entorno de `ASPNETCORE_ENVIRONMENT` por `Production`.
+   1. Guarde el archivo y ejecute la aplicación con `dotnet run` en un shell de comandos.
+1. La configuración de *appsettings.Development.json* ya no invalida la configuración de *appsettings.json*. El nivel de registro de la clave `Logging:LogLevel:Default` es `Warning`.
+
+::: moniker-end
 
 ### <a name="xml-configuration-provider"></a>Proveedor de configuración XML
 
@@ -883,7 +921,7 @@ Dados los datos de ejemplo, `sectionExists` es `false` porque no hay una secció
 
 ## <a name="bind-to-a-class"></a>Enlace a una clase
 
-La configuración se puede enlazar a clases que representan grupos de configuraciones relacionadas a través del *patrón de opciones*. Para más información, consulte <xref:fundamentals/configuration/options>.
+La configuración se puede enlazar a clases que representan grupos de configuraciones relacionadas a través del *patrón de opciones*. Para obtener más información, vea <xref:fundamentals/configuration/options>.
 
 Los valores de configuración se devuelven como cadenas, pero llamar a <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> permite la construcción de objetos [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object).
 
@@ -1315,7 +1353,7 @@ En una vista de MVC:
 
 ## <a name="add-configuration-from-an-external-assembly"></a>Agregar configuración a partir de un ensamblado externo
 
-Una implementación de <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> permite agregar mejoras a una aplicación al iniciarla a partir de un ensamblado externo fuera de la clase `Startup` de esta. Para más información, consulte <xref:fundamentals/configuration/platform-specific-configuration>.
+Una implementación de <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> permite agregar mejoras a una aplicación al iniciarla a partir de un ensamblado externo fuera de la clase `Startup` de esta. Para obtener más información, vea <xref:fundamentals/configuration/platform-specific-configuration>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

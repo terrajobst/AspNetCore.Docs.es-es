@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar entornos de hospedaje e
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/index
-ms.openlocfilehash: 8c7c131ca328f3118c45e822d6d5c86f0d44001f
-ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
+ms.openlocfilehash: ffc1f0b649e24e5e4a0bca2fc36a0b0c25460238
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803271"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75951796"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hospedaje e implementación de ASP.NET Core
 
@@ -32,7 +32,7 @@ La carpeta *publish* contiene uno o varios archivos de ensamblado de aplicacione
 
 Se puede publicar una aplicación .NET Core como *implementación independiente* o *implementación dependiente del marco*. Si la aplicación es independiente, los archivos de ensamblado que contienen el entorno de ejecución .NET se incluyen en la carpeta *publish*. Si la aplicación es dependiente del marco, los archivos del tiempo de ejecución .NET no se incluyen porque la aplicación tiene una referencia a una versión de .NET que está instalada en el servidor. El modelo de implementación predeterminado es dependiente del marco. Para más información, vea [Implementación de aplicaciones .NET Core](/dotnet/core/deploying/).
 
-Además de los archivos *.exe* y *.dll*, la carpeta *publish* de una aplicación ASP.NET Core suele contener archivos de configuración, recursos estáticos y vistas de MVC. Para más información, consulte <xref:host-and-deploy/directory-structure>.
+Además de los archivos *.exe* y *.dll*, la carpeta *publish* de una aplicación ASP.NET Core suele contener archivos de configuración, recursos estáticos y vistas de MVC. Para obtener más información, vea <xref:host-and-deploy/directory-structure>.
 
 ## <a name="set-up-a-process-manager"></a>Configurar un administrador de procesos
 
@@ -77,17 +77,19 @@ Para las implementaciones en Internet Information Services (IIS) con la configur
 
 Para obtener más información sobre la configuración del hospedaje de aplicaciones de ASP.NET Core en un entorno de granja de servidores web (por ejemplo, para implementar varias instancias de la aplicación para escalabilidad), consulte <xref:host-and-deploy/web-farm>.
 
+## <a name="host-on-docker"></a>Host en Docker
+
+Para obtener más información, vea <xref:host-and-deploy/docker/index>.
+
 ::: moniker range=">= aspnetcore-2.2"
 
 ## <a name="perform-health-checks"></a>Realización de comprobaciones de estado
 
-Use middleware de comprobación de estado para realizar comprobaciones de estado en una aplicación y sus dependencias. Para más información, consulte <xref:host-and-deploy/health-checks>.
+Use middleware de comprobación de estado para realizar comprobaciones de estado en una aplicación y sus dependencias. Para obtener más información, vea <xref:host-and-deploy/health-checks>.
 
 ::: moniker-end
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* <xref:host-and-deploy/docker/index>
 * <xref:test/troubleshoot>
 * [Hospedaje de ASP.NET](https://dotnet.microsoft.com/apps/aspnet/hosting)
-

@@ -8,12 +8,12 @@ ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: aspnetcore-2.1
-ms.openlocfilehash: d969b4caab44e3e50b3a0202b25864921d6d01dc
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 57fe6c4e32ad666987c782fac75ddb19e3d3b5c7
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880855"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829145"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>Novedades de ASP.NET Core 2.1
 
@@ -169,7 +169,7 @@ Razor Pages ya admite las [áreas](xref:mvc/controllers/areas). Para ver un ejem
 
 El método <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> permite a una aplicación participar o no en los cambios de comportamiento importantes incorporados en ASP.NET Core MVC 2.1 o una versión posterior.
 
-Para más información, consulte <xref:mvc/compatibility-version>.
+Para obtener más información, vea <xref:mvc/compatibility-version>.
 
 ## <a name="migrate-from-20-to-21"></a>Migración de 2.0 a 2.1
 
@@ -177,4 +177,4 @@ Vea [Migrate from ASP.NET Core 2.0 to 2.1](xref:migration/20_21) (Migración de 
 
 ## <a name="additional-information"></a>Información adicional
 
-Para ver la lista completa de cambios, vea las [notas de la versión de ASP.NET Core 2.1](https://github.com/aspnet/Home/releases/tag/2.1.0).
+Para ver la lista completa de cambios, vea las [notas de la versión de ASP.NET Core 2.1](https://github.com/dotnet/aspnetcore/releases/tag/2.1.0).
