@@ -5,12 +5,12 @@ description: Obtenga información sobre las nuevas características de ASP.NET C
 ms.author: riande
 ms.date: 12/18/2018
 uid: aspnetcore-1.1
-ms.openlocfilehash: df9fd6bda00ac5f5516f40507001463fd7d0b92e
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 0b1c4eb467dd13a7654229b3ed76dd14e984e94b
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828508"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355225"
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>Novedades de ASP.NET Core 1.1
 
@@ -33,5 +33,5 @@ ASP.NET Core 1.1 cuenta con más características que ASP.NET Core 1.0. Por l
 
 ## <a name="additional-information"></a>Información adicional
 
-- [Notas de la versión de ASP.NET Core 1.1.0](https://github.com/dotnet/aspnetcore/releases/tag/1.1.0)
+- [Notas de la versión de ASP.NET Core 1.1.0](https://github.com/aspnet/Home/releases/tag/1.1.0)
 - Para estar en contacto con el progreso y los planes del equipo de desarrollo de ASP.NET Core, sintonice [ASP.NET Community Standup](https://live.asp.net/).

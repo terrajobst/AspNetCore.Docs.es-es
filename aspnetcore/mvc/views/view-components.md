@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: 8df070b580b6125db6616b33a81f3ffebad69f3a
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: a4583d49eb0b42f1fa6e3d8c444d263cba34da79
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828924"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356849"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componentes de vista en ASP.NET Core
 
@@ -337,7 +337,7 @@ La firma del método de `PriorityList.Invoke` es sincrónica, pero Razor busca y
 
 ## <a name="all-view-component-parameters-are-required"></a>Todos los parámetros de componente de vista son obligatorios
 
-Cada parámetro de un componente de vista es un atributo obligatorio. Consulte [este problema de GitHub](https://github.com/dotnet/AspNetCore/issues/5011). Si se omite algún parámetro:
+Cada parámetro de un componente de vista es un atributo obligatorio. Consulte [este problema de GitHub](https://github.com/aspnet/AspNetCore/issues/5011). Si se omite algún parámetro:
 
 * La firma del método `InvokeAsync` no coincidirá, por lo que el método no se ejecutará.
 * ViewComponent no representará ningún marcado.
