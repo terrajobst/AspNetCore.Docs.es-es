@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/05/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: c46e7322e86c2836a15bd0720995a8634bb185be
-ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
+ms.openlocfilehash: fabc6df07d2d7beaa546b189bb7527f626fc669d
+ms.sourcegitcommit: 47d453f34b6fd0179119c572cb8be64c5365cbb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73634010"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75597946"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -107,7 +107,7 @@ Esta interfaz se implementa mediante un tipo concreto, `MyDependency`:
 El contenedor resuelve `ILogger<TCategoryName>` aprovechando las ventajas de los [tipos abiertos (genéricos)](/dotnet/csharp/language-reference/language-specification/types#open-and-closed-types), lo que elimina la necesidad de registrar todos los [tipos construidos (genéricos)](/dotnet/csharp/language-reference/language-specification/types#constructed-types):
 
 ```csharp
-services.AddSingleton(typeof(ILogger<T>), typeof(Logger<T>));
+services.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
 ```
 
 En la aplicación de ejemplo, el servicio `IMyDependency` está registrado con el tipo concreto `MyDependency`. El registro abarca la duración del servicio como la duración de una única solicitud. Las [duraciones del servicio](#service-lifetimes) se describen más adelante en este tema.
@@ -176,7 +176,7 @@ public void Configure(IApplicationBuilder app, IOptions<MyOptions> options)
 }
 ```
 
-Para más información, consulte <xref:fundamentals/startup>.
+Para obtener más información, vea <xref:fundamentals/startup>.
 
 ## <a name="framework-provided-services"></a>Servicios proporcionados por el marco de trabajo
 
@@ -259,7 +259,7 @@ Los servicios de duración transitoria (<xref:Microsoft.Extensions.DependencyInj
 Los servicios de duración con ámbito (<xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped*>) se crean una vez por solicitud del cliente (conexión).
 
 > [!WARNING]
-> Si usa un servicio con ámbito en un middleware, inserte el servicio en el método `Invoke` o `InvokeAsync`. No lo inserte a través de la inserción de constructores, porque ello hace que el servicio se comporte como un singleton. Para más información, consulte <xref:fundamentals/middleware/write#per-request-middleware-dependencies>.
+> Si usa un servicio con ámbito en un middleware, inserte el servicio en el método `Invoke` o `InvokeAsync`. No lo inserte a través de la inserción de constructores, porque ello hace que el servicio se comporte como un singleton. Para obtener más información, vea <xref:fundamentals/middleware/write#per-request-middleware-dependencies>.
 
 ### <a name="singleton"></a>Singleton
 
@@ -320,7 +320,7 @@ services.TryAddEnumerable(ServiceDescriptor.Singleton<IMyDep1, MyDep>());
 Los servicios se pueden resolver mediante dos mecanismos:
 
 * <xref:System.IServiceProvider>
-* <xref:Microsoft.Extensions.DependencyInjection.ActivatorUtilities>: permite la creación de objetos sin registrar el servicio en el contenedor de inserción de dependencias. `ActivatorUtilities` se utiliza con abstracciones orientadas al usuario, como asistentes de etiquetas, controladores MVC y enlazadores de modelos.
+* <xref:Microsoft.Extensions.DependencyInjection.ActivatorUtilities> &ndash; Permite la creación de objetos sin registrar el servicio en el contenedor de inserción de dependencias. `ActivatorUtilities` se utiliza con abstracciones orientadas al usuario, como asistentes de etiquetas, controladores MVC y enlazadores de modelos.
 
 Los constructores pueden aceptar argumentos que no se proporcionan mediante la inserción de dependencias, pero los argumentos deben asignar valores predeterminados.
 
@@ -553,7 +553,7 @@ El proveedor de servicios raíz se crea cuando se llama a <xref:Microsoft.Extens
 
 De la eliminación de los servicios con ámbito se encarga el contenedor que los creó. Si un servicio con ámbito se crea en el contenedor raíz, su vigencia sube a la del singleton, ya que solo lo puede eliminar el contenedor raíz cuando la aplicación o el servidor se cierran. Al validar los ámbitos de servicio, este tipo de situaciones se detectan cuando se llama a `BuildServiceProvider`.
 
-Para más información, consulte <xref:fundamentals/host/web-host#scope-validation>.
+Para obtener más información, vea <xref:fundamentals/host/web-host#scope-validation>.
 
 ## <a name="request-services"></a>Servicios de solicitud
 

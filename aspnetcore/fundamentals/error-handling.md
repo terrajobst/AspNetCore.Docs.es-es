@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: 162972043a90fc8cc45aed52b5fa80ade3e11f39
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: c20d8757eef80fdbb73b1b7a9933a3c0be9bb8ed
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880059"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358982"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Controlar errores en ASP.NET Core
 
@@ -84,6 +84,8 @@ Una alternativa a una [página del controlador de excepciones personalizada](#ex
 Este es un ejemplo del uso de una expresión lambda para el control de excepciones:
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_HandlerPageLambda)]
+
+En el código anterior, se agrega `await context.Response.WriteAsync(new string(' ', 512));` para que el explorador Internet Explorer muestre el mensaje de error en lugar de un mensaje de error de IE. Para más información, consulte [este problema de GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/16144).
 
 > [!WARNING]
 > **No** proporcione información de errores confidencial de <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> o <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> a los clientes. Proporcionar información de los errores es un riesgo para la seguridad.
@@ -204,7 +206,7 @@ La capa de hospedaje puede mostrar una página de error para un error de inicio 
 * El proceso de dotnet se bloquea.
 * No se muestra ninguna página de error si el servidor HTTP es [Kestrel](xref:fundamentals/servers/kestrel).
 
-Si se ejecuta en [IIS](/iis), en Azure App Service o en [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) devuelve un *error de proceso 502.5* si el proceso no se puede iniciar. Para más información, consulte <xref:test/troubleshoot-azure-iis>.
+Si se ejecuta en [IIS](/iis), en Azure App Service o en [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), el [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) devuelve un *error de proceso 502.5* si el proceso no se puede iniciar. Para obtener más información, vea <xref:test/troubleshoot-azure-iis>.
 
 ## <a name="database-error-page"></a>Página de error de la base de datos
 
@@ -221,7 +223,7 @@ if (env.IsDevelopment())
 
 ## <a name="exception-filters"></a>Filtros de excepciones
 
-En las aplicaciones de MVC, los filtros de excepciones se pueden configurar globalmente, o bien por controlador o por acción. En las aplicaciones de Razor Pages, se pueden configurar a nivel global o por modelo de página. Estos filtros controlan todas las excepciones no controladas que se hayan producido durante la ejecución de una acción de controlador o de otro filtro. Para más información, consulte <xref:mvc/controllers/filters#exception-filters>.
+En las aplicaciones de MVC, los filtros de excepciones se pueden configurar globalmente, o bien por controlador o por acción. En las aplicaciones de Razor Pages, se pueden configurar a nivel global o por modelo de página. Estos filtros controlan todas las excepciones no controladas que se hayan producido durante la ejecución de una acción de controlador o de otro filtro. Para obtener más información, vea <xref:mvc/controllers/filters#exception-filters>.
 
 > [!TIP]
 > Los filtros de excepciones son útiles para interceptar las excepciones que se producen en las acciones de MVC, pero no son tan flexibles como el middleware de control de excepciones. Se recomienda usar el middleware. Use filtros únicamente cuando deba realizar el control de errores de manera diferente según la acción de MVC elegida.

@@ -5,14 +5,14 @@ description: Descubra cómo usar el patrón de opciones para representar grupos 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/18/2019
+ms.date: 01/07/2019
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 46cfff905636dc0d50fcde5e781ce47fb6d85cc0
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 98fe30fbc424dd51ce8f8319b7ce959fd755c480
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880384"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722744"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Patrón de opciones en ASP.NET Core
 
@@ -54,7 +54,7 @@ Los escenarios [posteriores a la configuración](#options-post-configuration) le
 
 ## <a name="general-options-configuration"></a>Configuración de opciones generales
 
-La configuración de opciones generales se muestra en el ejemplo &num;1 en la aplicación de ejemplo.
+La configuración de opciones generales se muestra en el ejemplo 1 en la aplicación de ejemplo.
 
 Una clase de opciones debe ser no abstracta con un constructor público sin parámetros. La siguiente clase, `MyOptions`, tiene dos propiedades: `Option1` y `Option2`. Configurar los valores predeterminados es opcional, pero el constructor de clases en el ejemplo siguiente establece el valor predeterminado de `Option1`. `Option2` tiene un valor predeterminado que se establece al inicializar la propiedad directamente (*Models/MyOptions.cs*):
 
@@ -98,7 +98,7 @@ option1 = value1_from_json, option2 = -1
 
 ## <a name="configure-simple-options-with-a-delegate"></a>Configurar opciones simples con un delegado
 
-La configuración de opciones simples con un delegado se muestra como ejemplo &num;2 en la aplicación de ejemplo.
+La configuración de opciones simples con un delegado se muestra como ejemplo 2 en la aplicación de ejemplo.
 
 Use un delegado para establecer los valores de opciones. La aplicación de ejemplo usa la clase `MyOptionsWithDelegateConfig` (*Models/MyOptionsWithDelegateConfig.cs*):
 
@@ -116,7 +116,7 @@ En el código siguiente, un segundo servicio <xref:Microsoft.Extensions.Options.
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Pages/Index.cshtml.cs?name=snippet_Example2)]
 
-Puede agregar varios proveedores de configuración. Los proveedores de configuración están disponibles en paquetes de NuGet y se aplican en el orden en que están registrados. Para más información, consulte <xref:fundamentals/configuration/index>.
+Puede agregar varios proveedores de configuración. Los proveedores de configuración están disponibles en paquetes de NuGet y se aplican en el orden en que están registrados. Para obtener más información, vea <xref:fundamentals/configuration/index>.
 
 Cada llamada a <xref:Microsoft.Extensions.Options.IConfigureOptions%601.Configure*> agrega un servicio <xref:Microsoft.Extensions.Options.IConfigureOptions%601> al contenedor de servicios. En el ejemplo anterior, los valores de `Option1` y `Option2` se especifican en *appSettings.json*, pero los valores de `Option1` y `Option2` se reemplazan por el delegado configurado.
 
@@ -128,7 +128,7 @@ delegate_option1 = value1_configured_by_delegate, delegate_option2 = 500
 
 ## <a name="suboptions-configuration"></a>Configuración de subopciones
 
-La configuración de subopciones se muestra en el ejemplo &num;3 en la aplicación de ejemplo.
+La configuración de subopciones se muestra en el ejemplo 3 en la aplicación de ejemplo.
 
 Las aplicaciones deben crear clases de opciones que pertenezcan a grupos específicos de escenarios (clases) en la aplicación. Los elementos de la aplicación que requieran valores de configuración deben acceder solamente a los valores de configuración que usen.
 
@@ -164,7 +164,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 ## <a name="options-injection"></a>Inserción de opciones
 
-La inserción de opciones se muestra en el ejemplo &num;4 en la aplicación de ejemplo.
+La inserción de opciones se muestra en el ejemplo 4 en la aplicación de ejemplo.
 
 Inserte <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> en:
 
@@ -189,7 +189,7 @@ Cuando se ejecuta la aplicación, se muestran los valores de opciones en la pág
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Volver a cargar los datos de configuración con IOptionsSnapshot
 
-El procedimiento de volver a cargar los datos de configuración con <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> se muestra en el ejemplo &num;5 en la aplicación de ejemplo.
+El procedimiento de volver a cargar los datos de configuración con <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> se muestra en el ejemplo 5 en la aplicación de ejemplo.
 
 Al usar <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601>, cuando se accede a las opciones y se las almacena en caché durante la vigencia de la solicitud, se calculan una vez por solicitud.
 
@@ -220,9 +220,9 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>Compatibilidad de opciones con nombre con IConfigureNamedOptions
 
-La compatibilidad de opciones con nombre con <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> se muestra en el ejemplo &num;6 de la aplicación de ejemplo.
+La compatibilidad de opciones con nombre con <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> se muestra en el ejemplo 6 de la aplicación de ejemplo.
 
-La compatibilidad con las *opciones con nombre* permite a la aplicación distinguir entre las configuraciones de opciones con nombre. En la aplicación de ejemplo, las opciones con nombre se declaran con [OptionsServiceCollectionExtensions.Configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), que llama al método de extensión [ConfigureNamedOptions\<TOptions>.Configure](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*):
+La compatibilidad con las opciones con nombre permite a la aplicación distinguir entre las configuraciones de opciones con nombre. En la aplicación de ejemplo, las opciones con nombre se declaran con [OptionsServiceCollectionExtensions.Configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), que llama al método de extensión [ConfigureNamedOptions\<TOptions>.Configure](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*). Las opciones con nombre distinguen mayúsculas de minúsculas.
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 
@@ -283,7 +283,7 @@ services.AddOptions<MyOptions>("optionalName")
 
 Hay dos formas de acceder a otros servicios desde la inserción de dependencias durante la configuración de opciones:
 
-* Si se pasa un delegado de configuración a [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) en [OptionsBuilder\<TOptions>](xref:Microsoft.Extensions.Options.OptionsBuilder`1). [OptionsBuilder\<TOptions>](xref:Microsoft.Extensions.Options.OptionsBuilder`1) proporciona sobrecargas de [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) que permiten usar hasta cinco servicios para configurar las opciones:
+* Si se pasa un delegado de configuración a [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) en [OptionsBuilder\<TOptions>](xref:Microsoft.Extensions.Options.OptionsBuilder`1). `OptionsBuilder<TOptions>` proporciona sobrecargas de [Configure](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) que permiten usar hasta cinco servicios para configurar las opciones:
 
   ```csharp
   services.AddOptions<MyOptions>("optionalName")
@@ -478,7 +478,7 @@ Los escenarios [posteriores a la configuración](#options-post-configuration) le
 
 ## <a name="general-options-configuration"></a>Configuración de opciones generales
 
-La configuración de opciones generales se muestra en el ejemplo &num;1 en la aplicación de ejemplo.
+La configuración de opciones generales se muestra en el ejemplo 1 en la aplicación de ejemplo.
 
 Una clase de opciones debe ser no abstracta con un constructor público sin parámetros. La siguiente clase, `MyOptions`, tiene dos propiedades: `Option1` y `Option2`. Configurar los valores predeterminados es opcional, pero el constructor de clases en el ejemplo siguiente establece el valor predeterminado de `Option1`. `Option2` tiene un valor predeterminado que se establece al inicializar la propiedad directamente (*Models/MyOptions.cs*):
 
@@ -522,7 +522,7 @@ option1 = value1_from_json, option2 = -1
 
 ## <a name="configure-simple-options-with-a-delegate"></a>Configurar opciones simples con un delegado
 
-La configuración de opciones simples con un delegado se muestra como ejemplo &num;2 en la aplicación de ejemplo.
+La configuración de opciones simples con un delegado se muestra como ejemplo 2 en la aplicación de ejemplo.
 
 Use un delegado para establecer los valores de opciones. La aplicación de ejemplo usa la clase `MyOptionsWithDelegateConfig` (*Models/MyOptionsWithDelegateConfig.cs*):
 
@@ -540,7 +540,7 @@ En el código siguiente, un segundo servicio <xref:Microsoft.Extensions.Options.
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?name=snippet_Example2)]
 
-Puede agregar varios proveedores de configuración. Los proveedores de configuración están disponibles en paquetes de NuGet y se aplican en el orden en que están registrados. Para más información, consulte <xref:fundamentals/configuration/index>.
+Puede agregar varios proveedores de configuración. Los proveedores de configuración están disponibles en paquetes de NuGet y se aplican en el orden en que están registrados. Para obtener más información, vea <xref:fundamentals/configuration/index>.
 
 Cada llamada a <xref:Microsoft.Extensions.Options.IConfigureOptions%601.Configure*> agrega un servicio <xref:Microsoft.Extensions.Options.IConfigureOptions%601> al contenedor de servicios. En el ejemplo anterior, los valores de `Option1` y `Option2` se especifican en *appSettings.json*, pero los valores de `Option1` y `Option2` se reemplazan por el delegado configurado.
 
@@ -552,7 +552,7 @@ delegate_option1 = value1_configured_by_delegate, delegate_option2 = 500
 
 ## <a name="suboptions-configuration"></a>Configuración de subopciones
 
-La configuración de subopciones se muestra en el ejemplo &num;3 en la aplicación de ejemplo.
+La configuración de subopciones se muestra en el ejemplo 3 en la aplicación de ejemplo.
 
 Las aplicaciones deben crear clases de opciones que pertenezcan a grupos específicos de escenarios (clases) en la aplicación. Los elementos de la aplicación que requieran valores de configuración deben acceder solamente a los valores de configuración que usen.
 
@@ -588,7 +588,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 ## <a name="options-injection"></a>Inserción de opciones
 
-La inserción de opciones se muestra en el ejemplo &num;4 en la aplicación de ejemplo.
+La inserción de opciones se muestra en el ejemplo 4 en la aplicación de ejemplo.
 
 Inserte <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> en:
 
@@ -613,7 +613,7 @@ Cuando se ejecuta la aplicación, se muestran los valores de opciones en la pág
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Volver a cargar los datos de configuración con IOptionsSnapshot
 
-El procedimiento de volver a cargar los datos de configuración con <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> se muestra en el ejemplo &num;5 en la aplicación de ejemplo.
+El procedimiento de volver a cargar los datos de configuración con <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> se muestra en el ejemplo 5 en la aplicación de ejemplo.
 
 Al usar <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601>, cuando se accede a las opciones y se las almacena en caché durante la vigencia de la solicitud, se calculan una vez por solicitud.
 
@@ -644,9 +644,9 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>Compatibilidad de opciones con nombre con IConfigureNamedOptions
 
-La compatibilidad de opciones con nombre con <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> se muestra en el ejemplo &num;6 de la aplicación de ejemplo.
+La compatibilidad de opciones con nombre con <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> se muestra en el ejemplo 6 de la aplicación de ejemplo.
 
-La compatibilidad con las *opciones con nombre* permite a la aplicación distinguir entre las configuraciones de opciones con nombre. En la aplicación de ejemplo, las opciones con nombre se declaran con [OptionsServiceCollectionExtensions.Configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), que llama al método de extensión [ConfigureNamedOptions\<TOptions>.Configure](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*):
+La compatibilidad con las opciones con nombre permite a la aplicación distinguir entre las configuraciones de opciones con nombre. En la aplicación de ejemplo, las opciones con nombre se declaran con [OptionsServiceCollectionExtensions.Configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), que llama al método de extensión [ConfigureNamedOptions\<TOptions>.Configure](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*). Las opciones con nombre distinguen mayúsculas de minúsculas.
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 
@@ -900,7 +900,7 @@ Los escenarios [posteriores a la configuración](#options-post-configuration) le
 
 ## <a name="general-options-configuration"></a>Configuración de opciones generales
 
-La configuración de opciones generales se muestra en el ejemplo &num;1 en la aplicación de ejemplo.
+La configuración de opciones generales se muestra en el ejemplo 1 en la aplicación de ejemplo.
 
 Una clase de opciones debe ser no abstracta con un constructor público sin parámetros. La siguiente clase, `MyOptions`, tiene dos propiedades: `Option1` y `Option2`. Configurar los valores predeterminados es opcional, pero el constructor de clases en el ejemplo siguiente establece el valor predeterminado de `Option1`. `Option2` tiene un valor predeterminado que se establece al inicializar la propiedad directamente (*Models/MyOptions.cs*):
 
@@ -944,7 +944,7 @@ option1 = value1_from_json, option2 = -1
 
 ## <a name="configure-simple-options-with-a-delegate"></a>Configurar opciones simples con un delegado
 
-La configuración de opciones simples con un delegado se muestra como ejemplo &num;2 en la aplicación de ejemplo.
+La configuración de opciones simples con un delegado se muestra como ejemplo 2 en la aplicación de ejemplo.
 
 Use un delegado para establecer los valores de opciones. La aplicación de ejemplo usa la clase `MyOptionsWithDelegateConfig` (*Models/MyOptionsWithDelegateConfig.cs*):
 
@@ -962,7 +962,7 @@ En el código siguiente, un segundo servicio <xref:Microsoft.Extensions.Options.
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?name=snippet_Example2)]
 
-Puede agregar varios proveedores de configuración. Los proveedores de configuración están disponibles en paquetes de NuGet y se aplican en el orden en que están registrados. Para más información, consulte <xref:fundamentals/configuration/index>.
+Puede agregar varios proveedores de configuración. Los proveedores de configuración están disponibles en paquetes de NuGet y se aplican en el orden en que están registrados. Para obtener más información, vea <xref:fundamentals/configuration/index>.
 
 Cada llamada a <xref:Microsoft.Extensions.Options.IConfigureOptions%601.Configure*> agrega un servicio <xref:Microsoft.Extensions.Options.IConfigureOptions%601> al contenedor de servicios. En el ejemplo anterior, los valores de `Option1` y `Option2` se especifican en *appSettings.json*, pero los valores de `Option1` y `Option2` se reemplazan por el delegado configurado.
 
@@ -974,7 +974,7 @@ delegate_option1 = value1_configured_by_delegate, delegate_option2 = 500
 
 ## <a name="suboptions-configuration"></a>Configuración de subopciones
 
-La configuración de subopciones se muestra en el ejemplo &num;3 en la aplicación de ejemplo.
+La configuración de subopciones se muestra en el ejemplo 3 en la aplicación de ejemplo.
 
 Las aplicaciones deben crear clases de opciones que pertenezcan a grupos específicos de escenarios (clases) en la aplicación. Los elementos de la aplicación que requieran valores de configuración deben acceder solamente a los valores de configuración que usen.
 
@@ -1010,7 +1010,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 ## <a name="options-provided-by-a-view-model-or-with-direct-view-injection"></a>Opciones proporcionadas por un modelo de vista o con inserción de vista directa
 
-Las opciones proporcionadas por un modelo de vista o de inserción de vista directa se muestran en el ejemplo &num;4 en la aplicación de ejemplo.
+Las opciones proporcionadas por un modelo de vista o de inserción de vista directa se muestran en el ejemplo 4 en la aplicación de ejemplo.
 
 Las opciones se pueden suministrar en un modelo de vista o insertando <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> directamente en una vista (*Pages/Index.cshtml.cs*):
 
@@ -1030,7 +1030,7 @@ Cuando se ejecuta la aplicación, se muestran los valores de opciones en la pág
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Volver a cargar los datos de configuración con IOptionsSnapshot
 
-El procedimiento de volver a cargar los datos de configuración con <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> se muestra en el ejemplo &num;5 en la aplicación de ejemplo.
+El procedimiento de volver a cargar los datos de configuración con <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> se muestra en el ejemplo 5 en la aplicación de ejemplo.
 
 <xref:Microsoft.Extensions.Options.IOptionsSnapshot%601> admite volver a cargar opciones con la mínima sobrecarga de procesamiento.
 
@@ -1058,9 +1058,9 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>Compatibilidad de opciones con nombre con IConfigureNamedOptions
 
-La compatibilidad de opciones con nombre con <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> se muestra en el ejemplo &num;6 de la aplicación de ejemplo.
+La compatibilidad de opciones con nombre con <xref:Microsoft.Extensions.Options.IConfigureNamedOptions%601> se muestra en el ejemplo 6 de la aplicación de ejemplo.
 
-La compatibilidad con las *opciones con nombre* permite a la aplicación distinguir entre las configuraciones de opciones con nombre. En la aplicación de ejemplo, las opciones con nombre se declaran con [OptionsServiceCollectionExtensions.Configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), que llama al método de extensión [ConfigureNamedOptions\<TOptions>.Configure](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*):
+La compatibilidad con las opciones con nombre permite a la aplicación distinguir entre las configuraciones de opciones con nombre. En la aplicación de ejemplo, las opciones con nombre se declaran con [OptionsServiceCollectionExtensions.Configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), que llama al método de extensión [ConfigureNamedOptions\<TOptions>.Configure](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*). Las opciones con nombre distinguen mayúsculas de minúsculas.
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 

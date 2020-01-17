@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 4377d7d1895b80b3c98a5b480c0f42820f11fbb8
-ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
+ms.openlocfilehash: 3bf930d19684e84365f0ff0255fccd2939fb3f39
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74959117"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354919"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Tutorial: Creación de una API web con ASP.NET Core
 
@@ -36,7 +36,7 @@ Al final, tendrá una API web que pueda administrar los elementos "to-do" almace
 
 En este tutorial se crea la siguiente API:
 
-|API | DESCRIPCIÓN | Cuerpo de la solicitud | Cuerpo de la respuesta |
+|API | Descripción | Cuerpo de la solicitud | Cuerpo de la respuesta |
 |--- | ---- | ---- | ---- |
 |GET /api/TodoItems | Obtener todas las tareas pendientes | Ninguna | Matriz de tareas pendientes|
 |GET /api/TodoItems/{id} | Obtener un elemento por identificador | None | Tarea pendiente|
@@ -102,7 +102,7 @@ En el diagrama siguiente, se muestra el diseño de la aplicación.
 
   ![macOS: Nueva solución](first-web-api-mac/_static/sln.png)
 
-* Seleccione **.NET Core** > **Aplicación** > **API** > **Siguiente**.
+* Seleccione **.NET Core** > **Aplicación** > **API** > **Siguiente**.
 
   ![Cuadro de diálogo de nuevo proyecto de macOS](first-web-api-mac/_static/1.png)
   
@@ -267,7 +267,7 @@ El código anterior:
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Haga clic con el botón derecho en la carpeta *Controllers*.
-* Seleccione **Agregar** > **Nuevo elemento con scaffold**.
+* Seleccione **Agregar** > **Nuevo elemento con scaffolding**.
 * Seleccione **Controlador de API con acciones mediante Entity Framework** y, después, seleccione **Agregar**.
 * En el cuadro de diálogo **Add API Controller with actions, using Entity Framework** (Agregar controlador de API con acciones mediante Entity Framework):
 
@@ -451,8 +451,6 @@ Examine el método `DeleteTodoItem`:
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_Delete)]
 
-La respuesta de `DeleteTodoItem` es [204 (Sin contenido)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
-
 ### <a name="test-the-deletetodoitem-method"></a>Prueba del método DeleteTodoItem
 
 Use Postman para eliminar una tarea pendiente:
@@ -463,7 +461,7 @@ Use Postman para eliminar una tarea pendiente:
 
 ## <a name="call-the-web-api-with-javascript"></a>Llamar a la API web con JavaScript
 
-Vea [Tutorial: Llamada a una API web de ASP.NET Core con JavaScript](xref:tutorials/web-api-javascript).
+Consulte [Tutorial: Llamada a una API web de ASP.NET Core con JavaScript](xref:tutorials/web-api-javascript).
 
 ::: moniker-end
 
@@ -487,7 +485,7 @@ Al final, tendrá una API web que pueda administrar las tareas "pendientes" alma
 
 En este tutorial se crea la siguiente API:
 
-|API | DESCRIPCIÓN | Cuerpo de la solicitud | Cuerpo de la respuesta |
+|API | Descripción | Cuerpo de la solicitud | Cuerpo de la respuesta |
 |--- | ---- | ---- | ---- |
 |GET /api/TodoItems | Obtener todas las tareas pendientes | Ninguna | Matriz de tareas pendientes|
 |GET /api/TodoItems/{id} | Obtener un elemento por identificador | None | Tarea pendiente|
@@ -547,7 +545,7 @@ En el diagrama siguiente, se muestra el diseño de la aplicación.
 
   ![macOS: Nueva solución](first-web-api-mac/_static/sln.png)
 
-* Seleccione **.NET Core** > **Aplicación** > **API** > **Siguiente**.
+* Seleccione **.NET Core** > **Aplicación** > **API** > **Siguiente**.
 
   ![Cuadro de diálogo de nuevo proyecto de macOS](first-web-api-mac/_static/1.png)
   

@@ -5,14 +5,14 @@ description: Descubra cómo el enrutamiento de ASP.NET Core es responsable de as
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/24/2019
+ms.date: 12/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: be4493cc927bd5437a2c9dab00b6a555756195bb
-ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.openlocfilehash: 462f34664540b92ba6758224a722c7ca8f9c8de0
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416131"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829067"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -20,7 +20,7 @@ Por [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/
 
 ::: moniker range=">= aspnetcore-3.0"
 
-El enrutamiento es responsable de asignar URI de solicitud a los puntos de conexión y de distribuir las solicitudes entrantes a esos puntos de conexión. Las rutas se definen en la aplicación y se configuran cuando se inicia la aplicación. Una ruta puede extraer opcionalmente valores de la dirección URL contenida en la solicitud, que se pueden usar para procesar las solicitudes. Con la información de ruta de la aplicación, el enrutamiento también puede generar direcciones URL que se asignan a puntos de conexión.
+El enrutamiento es responsable de asignar URI de solicitud a los puntos de conexión y de distribuir las solicitudes entrantes a esos puntos de conexión. Las rutas se definen en la aplicación y se configuran cuando se inicia la aplicación. Una ruta puede extraer opcionalmente valores de la dirección URL contenida en la solicitud, que se pueden usar para procesar las solicitudes. Con la información de ruta de la aplicación, el enrutamiento también puede generar direcciones URL que se asignan a puntos de conexión. Muchas aplicaciones no necesitan agregar rutas más allá de lo que proporcionan las plantillas. Las plantillas de ASP.NET Core para controladores y Razor Pages configuran puntos de conexión de ruta. Si necesita agregar puntos de conexión de ruta personalizados, los puntos de conexión personalizados se pueden configurar junto con los puntos de conexión de ruta generados por la plantilla.
 
 > [!IMPORTANT]
 > En este documento se describe el enrutamiento de ASP.NET Core de bajo nivel. Para obtener información sobre el enrutamiento de ASP.NET Core MVC, vea <xref:mvc/controllers/routing>. Para obtener más información sobre las convenciones de enrutamiento en Razor Pages, consulte <xref:razor-pages/razor-pages-conventions>.
@@ -115,7 +115,7 @@ Se llama a <xref:Microsoft.AspNetCore.Routing.LinkGenerator> con una dirección.
 
 Los métodos proporcionados por <xref:Microsoft.AspNetCore.Routing.LinkGenerator> admiten funciones estándar de generación de vínculos para cualquier tipo de dirección. La forma más útil de usar el generador de vínculos es a través de métodos de extensión que realicen operaciones para un tipo de dirección específica.
 
-| Método de extensión | DESCRIPCIÓN |
+| Método de extensión | Descripción |
 | ---------------- | ----------- |
 | <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetPathByAddress*> | Genera un URI con una ruta de acceso absoluta en función de los valores proporcionados. |
 | <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetUriByAddress*> | Genera un URI absoluto en función de los valores proporcionados.             |
@@ -126,6 +126,22 @@ Los métodos proporcionados por <xref:Microsoft.AspNetCore.Routing.LinkGenerator
 > * Use los métodos de extensión `GetUri*` con precaución en una configuración de aplicación en la que no se valide el encabezado `Host` de las solicitudes entrantes. Si no se valida el encabezado `Host` de las solicitudes entrantes, la entrada de la solicitud que no sea de confianza se puede devolver al cliente en los URI de una página o vista. Se recomienda que todas las aplicaciones de producción configuren su servidor para validar el encabezado `Host` en función de valores válidos conocidos.
 >
 > * Use <xref:Microsoft.AspNetCore.Routing.LinkGenerator> con precaución en el middleware junto con `Map` o `MapWhen`. `Map*` cambia la ruta de acceso base de la solicitud que se ejecuta, lo que afecta a la salida de la generación de vínculos. Todas las API de <xref:Microsoft.AspNetCore.Routing.LinkGenerator> permiten especificar una ruta de acceso base. Especifique siempre una ruta de acceso base vacía para deshacer el efecto de `Map*` en la generación de vínculos.
+
+## <a name="endpoint-routing"></a>Enrutamiento de puntos de conexión
+
+* Un punto de conexión de ruta tiene una plantilla, metadatos y un delegado de solicitud que sirve a la respuesta del punto de conexión. Los metadatos se usan para implementar cuestiones transversales según las directivas y la configuración asociada a cada punto de conexión. Por ejemplo, un middleware de autorización puede consultar la colección de metadatos del punto de conexión de una [directiva de autorización](xref:security/authorization/policies#applying-policies-to-mvc-controllers).
+* El enrutamiento de puntos de conexión se integra con middleware mediante dos métodos de extensión:
+  * [UseRouting](xref:Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseRouting*) agrega coincidencia de rutas a la canalización de middleware. Debe ser anterior a cualquier middleware que tenga en cuenta la ruta, como la autorización, la ejecución del punto de conexión, etc.
+  * [UseEndpoints](xref:Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseEndpoints*) agrega la ejecución del punto de conexión a la canalización de middleware. Ejecuta el delegado de solicitud que sirve a la respuesta del punto de conexión.
+  `UseEndpoints` también es donde se configuran los puntos de conexión de ruta que la aplicación puede ejecutar y hacer coincidir. Por ejemplo, <xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapRazorPages*>, <xref:Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers*>, <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapGet*> y <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapPost*>.
+* Las aplicaciones usan los métodos auxiliares de ASP.NET Core para configurar sus rutas. Los marcos de ASP.NET Core proporcionan métodos auxiliares como <xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapRazorPages*>, <xref:Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers*> y `MapHub<THub>`. También hay métodos auxiliares para configurar sus propios puntos de conexión de ruta personalizados: <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapGet*>, <xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions.MapPost*> y [MapVerb](xref:Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions). 
+* El enrutamiento de puntos de conexión también admite puntos de conexión que cambian después de que se haya iniciado una aplicación. Para que esto sea compatible con la aplicación o con el marco de ASP.NET Core, se debe crear y registrar un <xref:Microsoft.AspNetCore.Routing.EndpointDataSource> personalizado. Se trata de una característica avanzada y, por lo general, no es necesaria. Habitualmente, los puntos de conexión se configuran en el inicio y son estáticos durante la vigencia de la aplicación. La carga de la configuración de ruta desde un archivo o base de datos en el inicio no es dinámica.
+
+En el código siguiente se muestra un ejemplo básico de enrutamiento de punto de conexión:
+
+[!code-csharp[](routing/samples/3.x/Startup.cs?name=snippet)]
+
+Consulte [Coincidencia de dirección URL](#url-matching) en este documento para más información sobre el enrutamiento de puntos de conexión.
 
 ## <a name="endpoint-routing-differences-from-earlier-versions-of-routing"></a>Diferencias de enrutamiento de puntos de conexión con respecto a versiones anteriores del enrutamiento
 
@@ -588,8 +604,8 @@ La generación de vínculos solo genera un vínculo para esta ruta si se proporc
 
 ## <a name="complex-segments"></a>Segmentos complejos
 
-Los segmentos complejos (por ejemplo, `[Route("/x{token}y")]`), se procesan buscando coincidencias de literales de derecha a izquierda de un modo no expansivo. Consulte [este código](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) para obtener una explicación detallada de cómo se comparan los segmentos complejos. El [código de ejemplo](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) no se usa en ASP.NET Core, pero proporciona una buena explicación de los segmentos complejos.
-<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/aspnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
+Los segmentos complejos (por ejemplo, `[Route("/x{token}y")]`), se procesan buscando coincidencias de literales de derecha a izquierda de un modo no expansivo. Consulte [este código](https://github.com/dotnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) para obtener una explicación detallada de cómo se comparan los segmentos complejos. El [código de ejemplo](https://github.com/dotnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) no se usa en ASP.NET Core, pero proporciona una buena explicación de los segmentos complejos.
+<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/dotnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
 -->
 
 ## <a name="configuring-endpoint-metadata"></a>Configuración de metadatos de punto de conexión
@@ -597,7 +613,7 @@ Los segmentos complejos (por ejemplo, `[Route("/x{token}y")]`), se procesan busc
 Los vínculos siguientes proporcionan información sobre la configuración de metadatos de punto de conexión:
 
 * [Habilitación de CORS con enrutamiento de punto de conexión](xref:security/cors#enable-cors-with-endpoint-routing)
-* [Ejemplo de IAuthorizationPolicyProvider](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Security/samples/CustomPolicyProvider) con un atributo `[MinimumAgeAuthorize]` personalizado
+* [Ejemplo de IAuthorizationPolicyProvider](https://github.com/dotnet/AspNetCore/tree/release/3.0/src/Security/samples/CustomPolicyProvider) con un atributo `[MinimumAgeAuthorize]` personalizado
 * [Autenticación de pruebas con el atributo [Authorize]](xref:security/authentication/identity#test-identity)
 * <xref:Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions.RequireAuthorization*>
 * [Selección del esquema con el atributo [Authorize]](xref:security/authorization/limitingidentitybyscheme#selecting-the-scheme-with-the-authorize-attribute)
@@ -776,7 +792,7 @@ Se llama a <xref:Microsoft.AspNetCore.Routing.LinkGenerator> con una dirección.
 
 Los métodos proporcionados por <xref:Microsoft.AspNetCore.Routing.LinkGenerator> admiten funciones estándar de generación de vínculos para cualquier tipo de dirección. La forma más útil de usar el generador de vínculos es a través de métodos de extensión que realicen operaciones para un tipo de dirección específica.
 
-| Método de extensión   | DESCRIPCIÓN                                                         |
+| Método de extensión   | Descripción                                                         |
 | ------------------ | ------------------------------------------------------------------- |
 | <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetPathByAddress*> | Genera un URI con una ruta de acceso absoluta en función de los valores proporcionados. |
 | <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetUriByAddress*> | Genera un URI absoluto en función de los valores proporcionados.             |
@@ -1249,8 +1265,8 @@ La generación de vínculos solo genera un vínculo para esta ruta si se proporc
 
 ## <a name="complex-segments"></a>Segmentos complejos
 
-Los segmentos complejos (por ejemplo, `[Route("/x{token}y")]`), se procesan buscando coincidencias de literales de derecha a izquierda de un modo no expansivo. Consulte [este código](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) para obtener una explicación detallada de cómo se comparan los segmentos complejos. El [código de ejemplo](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) no se usa en ASP.NET Core, pero proporciona una buena explicación de los segmentos complejos.
-<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/aspnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
+Los segmentos complejos (por ejemplo, `[Route("/x{token}y")]`), se procesan buscando coincidencias de literales de derecha a izquierda de un modo no expansivo. Consulte [este código](https://github.com/dotnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) para obtener una explicación detallada de cómo se comparan los segmentos complejos. El [código de ejemplo](https://github.com/dotnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) no se usa en ASP.NET Core, pero proporciona una buena explicación de los segmentos complejos.
+<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/dotnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
 -->
 
 ::: moniker-end
@@ -1665,8 +1681,8 @@ La generación de vínculos solo genera un vínculo para esta ruta si se proporc
 
 ## <a name="complex-segments"></a>Segmentos complejos
 
-Los segmentos complejos (por ejemplo, `[Route("/x{token}y")]`), se procesan buscando coincidencias de literales de derecha a izquierda de un modo no expansivo. Consulte [este código](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) para obtener una explicación detallada de cómo se comparan los segmentos complejos. El [código de ejemplo](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) no se usa en ASP.NET Core, pero proporciona una buena explicación de los segmentos complejos.
-<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/aspnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
+Los segmentos complejos (por ejemplo, `[Route("/x{token}y")]`), se procesan buscando coincidencias de literales de derecha a izquierda de un modo no expansivo. Consulte [este código](https://github.com/dotnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) para obtener una explicación detallada de cómo se comparan los segmentos complejos. El [código de ejemplo](https://github.com/dotnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) no se usa en ASP.NET Core, pero proporciona una buena explicación de los segmentos complejos.
+<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/dotnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
 -->
 
 ::: moniker-end

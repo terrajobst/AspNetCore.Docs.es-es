@@ -19,7 +19,7 @@
 
   [!INCLUDE[](~/includes/trustCertMac.md)]
 
-* En Visual Studio, presione **Alt-Cmd-ENTRAR** para realizar la ejecución sin el depurador. O bien, en la barra de menús, vaya a **Ejecutar > Iniciar sin depurar**.
+* En Visual Studio, presione **Opt-Cmd-ENTRAR** para realizar la ejecución sin el depurador. O bien, en la barra de menús, vaya a **Ejecutar > Iniciar sin depurar**.
 
   Visual Studio iniciará [Kestrel](xref:fundamentals/servers/kestrel) y un explorador, y se desplazará a `http://localhost:5001`.
 

@@ -8,12 +8,12 @@ ms.date: 11/21/2019
 no-loc:
 - SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: a7c99c9e79647995886aec5b3a91584fd2f24451
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 9094a1d391c087a6f58aa9dd66e3697a79f4af86
+ms.sourcegitcommit: ef1720cb733908f36a54825d84c3461c5280bdbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317485"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75737521"
 ---
 # <a name="use-aspnet-core-opno-locsignalr-with-typescript-and-webpack"></a>Uso de ASP.NET Core SignalR con TypeScript and Webpack
 
@@ -271,6 +271,8 @@ Confirme que la aplicación funciona con los pasos siguientes.
 
 ::: moniker range="< aspnetcore-3.0"
 
+## <a name="prerequisites"></a>Requisitos previos
+
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) con la carga de trabajo **ASP.NET y desarrollo web**
@@ -433,7 +435,7 @@ Actualmente, en la aplicación se muestra un formulario simple para enviar mensa
 1. Ejecute el comando siguiente en la raíz del proyecto:
 
     ```console
-    npm install @microsoft/signalr
+    npm install @aspnet/signalr
     ```
 
     El comando anterior instala el [cliente TypeScript de SignalR](https://www.npmjs.com/package/@microsoft/signalr), que permite al cliente enviar mensajes al servidor.

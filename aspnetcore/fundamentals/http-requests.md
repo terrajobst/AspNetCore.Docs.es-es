@@ -2,16 +2,17 @@
 title: Realización de solicitudes HTTP mediante IHttpClientFactory en ASP.NET Core
 author: stevejgordon
 description: Obtenga información sobre cómo usar la interfaz IHttpClientFactory para administrar instancias de HttpClient lógicas en ASP.NET Core.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/27/2019
+ms.date: 12/16/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: f33444b8fc08dc022da7700af53a218600290162
-ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
+ms.openlocfilehash: 482f8e28c23c621cecaf9ce111d89e9166ea6d85
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74733926"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722731"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Realización de solicitudes HTTP mediante IHttpClientFactory en ASP.NET Core
 
@@ -190,7 +191,7 @@ public class ValuesController : ControllerBase
     * el almacenamiento en caché
     * el control de errores
     * la serialización
-    * logging
+    * el registro
 
 Para crear un controlador de delegación:
 
@@ -299,7 +300,7 @@ Existen formas alternativas de solucionar los problemas anteriores mediante una 
 
 - Cree una instancia de `SocketsHttpHandler` al iniciar la aplicación y úsela para la vida útil de la aplicación.
 - Configure <xref:System.Net.Http.SocketsHttpHandler.PooledConnectionLifetime> con un valor adecuado en función de los tiempos de actualización de DNS.
-- Cree instancias de `HttpClient` mediante `new HttpClient(handler, dispostHandler: false)` según sea necesario.
+- Cree instancias de `HttpClient` mediante `new HttpClient(handler, disposeHandler: false)` según sea necesario.
 
 Los enfoques anteriores solucionan los problemas de administración de recursos que `IHttpClientFactory` resuelve de forma similar.
 
@@ -357,6 +358,7 @@ En el ejemplo siguiente:
 * [Uso de HttpClientFactory para implementar solicitudes HTTP resistentes](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)
 * [Implementación de reintentos de llamada HTTP con retroceso exponencial con HttpClientFactory y las directivas de Polly](/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly)
 * [Implementación del patrón de interruptor](/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-circuit-breaker-pattern)
+* [Procedimiento para serializar y deserializar JSON en .NET](/dotnet/standard/serialization/system-text-json-how-to)
 
 ::: moniker-end
 
@@ -600,7 +602,7 @@ Existen formas alternativas de solucionar los problemas anteriores mediante una 
 
 - Cree una instancia de `SocketsHttpHandler` al iniciar la aplicación y úsela para la vida útil de la aplicación.
 - Configure <xref:System.Net.Http.SocketsHttpHandler.PooledConnectionLifetime> con un valor adecuado en función de los tiempos de actualización de DNS.
-- Cree instancias de `HttpClient` mediante `new HttpClient(handler, dispostHandler: false)` según sea necesario.
+- Cree instancias de `HttpClient` mediante `new HttpClient(handler, disposeHandler: false)` según sea necesario.
 
 Los enfoques anteriores solucionan los problemas de administración de recursos que `IHttpClientFactory` resuelve de forma similar.
 
@@ -661,7 +663,7 @@ En el ejemplo siguiente:
 
 ::: moniker-end
 
-::: moniker range="<= aspnetcore-2.1"
+::: moniker range="= aspnetcore-2.1"
 
 Por [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak) y [Steve Gordon](https://github.com/stevejgordon)
 
@@ -908,7 +910,7 @@ Existen formas alternativas de solucionar los problemas anteriores mediante una 
 
 - Cree una instancia de `SocketsHttpHandler` al iniciar la aplicación y úsela para la vida útil de la aplicación.
 - Configure <xref:System.Net.Http.SocketsHttpHandler.PooledConnectionLifetime> con un valor adecuado en función de los tiempos de actualización de DNS.
-- Cree instancias de `HttpClient` mediante `new HttpClient(handler, dispostHandler: false)` según sea necesario.
+- Cree instancias de `HttpClient` mediante `new HttpClient(handler, disposeHandler: false)` según sea necesario.
 
 Los enfoques anteriores solucionan los problemas de administración de recursos que `IHttpClientFactory` resuelve de forma similar.
 

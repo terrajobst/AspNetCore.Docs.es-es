@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 4c96815461898ce9273f953f083143d8b50d406e
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: bcd36509fe42da0a79b9243d17701f40e066a212
+ms.sourcegitcommit: 077b45eceae044475f04c1d7ef2d153d7c0515a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259409"
+ms.lasthandoff: 12/29/2019
+ms.locfileid: "75542690"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Tutorial: Uso de la característica de migraciones: ASP.NET MVC con EF Core
 
@@ -104,7 +104,7 @@ Si creó la migración inicial cuando la base de datos ya existía, se genera el
 
 Las migraciones crean una *instantánea* del esquema de la base de datos actual en *Migrations/SchoolContextModelSnapshot.cs*. Cuando se agrega una migración, EF determina qué ha cambiado mediante la comparación del modelo de datos con el archivo de instantánea.
 
-Cuando elimine una migración, use el comando [dotnet ef migrations remove](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove). `dotnet ef migrations remove` elimina la migración y garantiza que la instantánea se restablece correctamente.
+Use el comando [dotnet ef migrations remove](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove) para quitar una migración. `dotnet ef migrations remove` elimina la migración y garantiza que la instantánea se restablece correctamente. Si `dotnet ef migrations remove` produce un error, use `dotnet ef migrations remove -v` para obtener más información sobre el error.
 
 Vea [Migraciones en entornos de equipo](/ef/core/managing-schemas/migrations/teams) para más información sobre cómo se usa el archivo de instantánea.
 
@@ -116,7 +116,7 @@ En la ventana de comandos, escriba el comando siguiente para crear la base de da
 dotnet ef database update
 ```
 
-El resultado del comando es similar al comando `migrations add`, con la excepción de que verá registros para los comandos SQL que configuran la base de datos. La mayoría de los registros se omite en la siguiente salida de ejemplo. Si prefiere no ver este nivel de detalle en los mensajes de registro, puede cambiarlo en el archivo *appsettings.Development.json*. Para más información, consulte <xref:fundamentals/logging/index>.
+El resultado del comando es similar al comando `migrations add`, con la excepción de que verá registros para los comandos SQL que configuran la base de datos. La mayoría de los registros se omite en la siguiente salida de ejemplo. Si prefiere no ver este nivel de detalle en los mensajes de registro, puede cambiarlo en el archivo *appsettings.Development.json*. Para obtener más información, vea <xref:fundamentals/logging/index>.
 
 ```text
 info: Microsoft.EntityFrameworkCore.Infrastructure[10403]

@@ -5,14 +5,14 @@ description: Obtenga información sobre Kestrel, el servidor web multiplataforma
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/14/2019
+ms.date: 12/26/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 6fba6689f72f7a565e28d80f6770765ab097cf11
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 9fbf0ec93634100fccef279fc7cad92cb1420e84
+ms.sourcegitcommit: 991442dfb16ef08a0aae05bc79f9e9a2d819c587
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289107"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75492599"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web Kestrel en ASP.NET Core
 
@@ -135,15 +135,30 @@ Siga **uno** de estos procedimientos:
 * Configure Kestrel en `Startup.ConfigureServices`:
 
   1. Inserte una instancia de `IConfiguration` en la clase `Startup`. En el ejemplo siguiente se da por supuesto que la configuración insertada está asignada a la propiedad `Configuration`.
-  2. En `Startup.ConfigureServices`, cargue la sección de configuración `Kestrel` en la configuración de Kestrel.
+  2. En `Startup.ConfigureServices`, cargue la sección de configuración `Kestrel` en la configuración de Kestrel:
 
      ```csharp
-     // using Microsoft.Extensions.Configuration
-
-     public void ConfigureServices(IServiceCollection services)
+     using Microsoft.Extensions.Configuration
+     
+     public class Startup
      {
-         services.Configure<KestrelServerOptions>(
-             Configuration.GetSection("Kestrel"));
+         public Startup(IConfiguration configuration)
+         {
+             Configuration = configuration;
+         }
+
+         public IConfiguration Configuration { get; }
+
+         public void ConfigureServices(IServiceCollection services)
+         {
+             services.Configure<KestrelServerOptions>(
+                 Configuration.GetSection("Kestrel"));
+         }
+
+         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+         {
+             ...
+         }
      }
      ```
 
@@ -343,7 +358,7 @@ Para más información sobre otras opciones y límites de Kestrel, vea:
 * <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits>
 * <xref:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions>
 
-## <a name="endpoint-configuration"></a>Configuración del punto de conexión
+## <a name="endpoint-configuration"></a>Configuración de punto de conexión
 
 ASP.NET Core enlaza de forma predeterminada a:
 
@@ -357,7 +372,7 @@ Especifique direcciones URL mediante los siguientes elementos:
 * La clave de configuración de host `urls`.
 * El método de extensión `UseUrls`.
 
-El valor que estos métodos suministran puede ser uno o más puntos de conexión HTTP y HTTPS (este último, si hay disponible un certificado predeterminado). Configure el valor como una lista separada por punto y coma (por ejemplo, `"Urls": "http://localhost:8000; http://localhost:8001"`).
+El valor que estos métodos suministran puede ser uno o más puntos de conexión HTTP y HTTPS (este último, si hay disponible un certificado predeterminado). Configure el valor como una lista separada por punto y coma (por ejemplo, `"Urls": "http://localhost:8000;http://localhost:8001"`).
 
 Para más información sobre estos enfoques, consulte [Direcciones URL del servidor](xref:fundamentals/host/web-host#server-urls) e [Invalidar la configuración](xref:fundamentals/host/web-host#override-configuration).
 
@@ -421,7 +436,7 @@ Configure Kestrel para que use HTTPS.
 
 Extensiones de `ListenOptions.UseHttps`:
 
-* `UseHttps`: configure Kestrel para que use HTTPS con el certificado predeterminado. Produce una excepción si no hay ningún certificado predeterminado configurado.
+* `UseHttps` &ndash; Configure Kestrel para que use HTTPS con el certificado predeterminado. Produce una excepción si no hay ningún certificado predeterminado configurado.
 * `UseHttps(string fileName)`
 * `UseHttps(string fileName, string password)`
 * `UseHttps(string fileName, string password, Action<HttpsConnectionAdapterOptions> configureOptions)`
@@ -532,7 +547,7 @@ Notas sobre el esquema:
 * El parámetro `Url` es necesario en cada punto de conexión. El formato de este parámetro es el mismo que el del parámetro de configuración `Urls` de nivel superior, excepto por el hecho de que está limitado a un único valor.
 * En vez de agregarse, estos puntos de conexión reemplazan a los que están definidos en la configuración `Urls` de nivel superior. Los puntos de conexión definidos en el código a través de `Listen` son acumulativos con respecto a los puntos de conexión definidos en la sección de configuración.
 * La sección `Certificate` es opcional. Si la sección `Certificate` no se especifica, se usan los valores predeterminados definidos en escenarios anteriores. Si no hay valores predeterminados disponibles, el servidor produce una excepción y no se inicia.
-* La sección `Certificate` admite certificados tanto **Path**&ndash;**Password** como **Subject**&ndash;**Store**.
+* La sección `Certificate` admite certificadostanto **Path**&ndash;**Password** como **Subject**&ndash;**Store**.
 * Se puede definir el número de puntos de conexión que se quiera de esta manera, siempre y cuando no produzcan conflictos de puerto.
 * `options.Configure(context.Configuration.GetSection("{SECTION}"))` devuelve un `KestrelConfigurationLoader` con un método `.Endpoint(string name, listenOptions => { })` que se puede usar para complementar la configuración de un punto de conexión configurado:
 
@@ -637,7 +652,7 @@ webBuilder.ConfigureKestrel(serverOptions =>
 
 El método <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> se enlaza a un socket TCP y una expresión lambda de opciones permite configurar un certificado X.509:
 
-[!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_TCPSocket&highlight=9-16)]
+[!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_TCPSocket&highlight=12-18)]
 
 En el ejemplo se configura HTTPS para un punto de conexión con <xref:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions>. Use la misma API para configurar otras opciones de Kestrel para puntos de conexión específicos.
 
@@ -668,7 +683,7 @@ Configure puntos de conexión con los siguientes métodos:
 * <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseUrls*>
 * El argumento de la línea de comandos `--urls`
 * La clave de configuración de host `urls`
-* Variable de entorno `ASPNETCORE_URLS`
+* La variable de entorno `ASPNETCORE_URLS`
 
 Estos métodos son útiles para que el código funcione con servidores que no sean de Kestrel. Sin embargo, tenga en cuenta las siguientes limitaciones:
 
@@ -697,8 +712,8 @@ Restricciones de TLS para HTTP/2:
 * Renegociación deshabilitada
 * Compresión deshabilitada
 * Tamaños de intercambio de claves efímeras mínimos:
-  * Curva elíptica Diffie-Hellman (ECDHE) &lbrack;[RFC4492](https://www.ietf.org/rfc/rfc4492.txt)&rbrack;; 224 bits como mínimo
-  * Campo finito Diffie-Hellman (DHE) &lbrack;`TLS12`&rbrack;; 2048 bits como mínimo
+  * Curva elíptica Diffie-Hellman (ECDHE) &lbrack;[RFC4492](https://www.ietf.org/rfc/rfc4492.txt)&rbrack; &ndash;; 224 bits como mínimo
+  * Campo finito Diffie-Hellman (DHE) &lbrack;`TLS12`&rbrack; &ndash;; 2048 bits como mínimo
 * Conjunto de cifrado no restringido
 
 `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack;`TLS-ECDHE`&rbrack; con la curva elíptica P-256 &lbrack;`FIPS186`&rbrack; es compatible de forma predeterminada.
@@ -1039,7 +1054,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
-Si la aplicación no llama a `CreateDefaultBuilder` para configurar el host, llame a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*> **antes** de llamar a `ConfigureKestrel`:
+Si la aplicación no llama a `CreateDefaultBuilder` para configurar el host, llame a <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>**antes** de llamar a `ConfigureKestrel`:
 
 ```csharp
 public static void Main(string[] args)
@@ -1089,15 +1104,30 @@ Siga **uno** de estos procedimientos:
 * Configure Kestrel en `Startup.ConfigureServices`:
 
   1. Inserte una instancia de `IConfiguration` en la clase `Startup`. En el ejemplo siguiente se da por supuesto que la configuración insertada está asignada a la propiedad `Configuration`.
-  2. En `Startup.ConfigureServices`, cargue la sección de configuración `Kestrel` en la configuración de Kestrel.
+  2. En `Startup.ConfigureServices`, cargue la sección de configuración `Kestrel` en la configuración de Kestrel:
 
      ```csharp
-     // using Microsoft.Extensions.Configuration
-
-     public void ConfigureServices(IServiceCollection services)
+     using Microsoft.Extensions.Configuration
+     
+     public class Startup
      {
-         services.Configure<KestrelServerOptions>(
-             Configuration.GetSection("Kestrel"));
+         public Startup(IConfiguration configuration)
+         {
+             Configuration = configuration;
+         }
+
+         public IConfiguration Configuration { get; }
+
+         public void ConfigureServices(IServiceCollection services)
+         {
+             services.Configure<KestrelServerOptions>(
+                 Configuration.GetSection("Kestrel"));
+         }
+
+         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+         {
+             ...
+         }
      }
      ```
 
@@ -1310,7 +1340,7 @@ Para más información sobre otras opciones y límites de Kestrel, vea:
 * <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits>
 * <xref:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions>
 
-## <a name="endpoint-configuration"></a>Configuración del punto de conexión
+## <a name="endpoint-configuration"></a>Configuración de punto de conexión
 
 ASP.NET Core enlaza de forma predeterminada a:
 
@@ -1324,7 +1354,7 @@ Especifique direcciones URL mediante los siguientes elementos:
 * La clave de configuración de host `urls`.
 * El método de extensión `UseUrls`.
 
-El valor que estos métodos suministran puede ser uno o más puntos de conexión HTTP y HTTPS (este último, si hay disponible un certificado predeterminado). Configure el valor como una lista separada por punto y coma (por ejemplo, `"Urls": "http://localhost:8000; http://localhost:8001"`).
+El valor que estos métodos suministran puede ser uno o más puntos de conexión HTTP y HTTPS (este último, si hay disponible un certificado predeterminado). Configure el valor como una lista separada por punto y coma (por ejemplo, `"Urls": "http://localhost:8000;http://localhost:8001"`).
 
 Para más información sobre estos enfoques, consulte [Direcciones URL del servidor](xref:fundamentals/host/web-host#server-urls) e [Invalidar la configuración](xref:fundamentals/host/web-host#override-configuration).
 
@@ -1395,7 +1425,7 @@ Configure Kestrel para que use HTTPS.
 
 Extensiones de `ListenOptions.UseHttps`:
 
-* `UseHttps`: configure Kestrel para que use HTTPS con el certificado predeterminado. Produce una excepción si no hay ningún certificado predeterminado configurado.
+* `UseHttps` &ndash; Configure Kestrel para que use HTTPS con el certificado predeterminado. Produce una excepción si no hay ningún certificado predeterminado configurado.
 * `UseHttps(string fileName)`
 * `UseHttps(string fileName, string password)`
 * `UseHttps(string fileName, string password, Action<HttpsConnectionAdapterOptions> configureOptions)`
@@ -1506,7 +1536,7 @@ Notas sobre el esquema:
 * El parámetro `Url` es necesario en cada punto de conexión. El formato de este parámetro es el mismo que el del parámetro de configuración `Urls` de nivel superior, excepto por el hecho de que está limitado a un único valor.
 * En vez de agregarse, estos puntos de conexión reemplazan a los que están definidos en la configuración `Urls` de nivel superior. Los puntos de conexión definidos en el código a través de `Listen` son acumulativos con respecto a los puntos de conexión definidos en la sección de configuración.
 * La sección `Certificate` es opcional. Si la sección `Certificate` no se especifica, se usan los valores predeterminados definidos en escenarios anteriores. Si no hay valores predeterminados disponibles, el servidor produce una excepción y no se inicia.
-* La sección `Certificate` admite certificados tanto **Path**&ndash;**Password** como **Subject**&ndash;**Store**.
+* La sección `Certificate` admite certificadostanto **Path**&ndash;**Password** como **Subject**&ndash;**Store**.
 * Se puede definir el número de puntos de conexión que se quiera de esta manera, siempre y cuando no produzcan conflictos de puerto.
 * `options.Configure(context.Configuration.GetSection("{SECTION}"))` devuelve un `KestrelConfigurationLoader` con un método `.Endpoint(string name, listenOptions => { })` que se puede usar para complementar la configuración de un punto de conexión configurado:
 
@@ -1651,7 +1681,7 @@ Configure puntos de conexión con los siguientes métodos:
 * <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseUrls*>
 * El argumento de la línea de comandos `--urls`
 * La clave de configuración de host `urls`
-* Variable de entorno `ASPNETCORE_URLS`
+* La variable de entorno `ASPNETCORE_URLS`
 
 Estos métodos son útiles para que el código funcione con servidores que no sean de Kestrel. Sin embargo, tenga en cuenta las siguientes limitaciones:
 
@@ -1680,8 +1710,8 @@ Restricciones de TLS para HTTP/2:
 * Renegociación deshabilitada
 * Compresión deshabilitada
 * Tamaños de intercambio de claves efímeras mínimos:
-  * Curva elíptica Diffie-Hellman (ECDHE) &lbrack;[RFC4492](https://www.ietf.org/rfc/rfc4492.txt)&rbrack;; 224 bits como mínimo
-  * Campo finito Diffie-Hellman (DHE) &lbrack;`TLS12`&rbrack;; 2048 bits como mínimo
+  * Curva elíptica Diffie-Hellman (ECDHE) &lbrack;[RFC4492](https://www.ietf.org/rfc/rfc4492.txt)&rbrack; &ndash;; 224 bits como mínimo
+  * Campo finito Diffie-Hellman (DHE) &lbrack;`TLS12`&rbrack; &ndash;; 2048 bits como mínimo
 * Conjunto de cifrado no restringido
 
 `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack;`TLS-ECDHE`&rbrack; con la curva elíptica P-256 &lbrack;`FIPS186`&rbrack; es compatible de forma predeterminada.
@@ -1979,15 +2009,30 @@ Siga **uno** de estos procedimientos:
 * Configure Kestrel en `Startup.ConfigureServices`:
 
   1. Inserte una instancia de `IConfiguration` en la clase `Startup`. En el ejemplo siguiente se da por supuesto que la configuración insertada está asignada a la propiedad `Configuration`.
-  2. En `Startup.ConfigureServices`, cargue la sección de configuración `Kestrel` en la configuración de Kestrel.
+  2. En `Startup.ConfigureServices`, cargue la sección de configuración `Kestrel` en la configuración de Kestrel:
 
      ```csharp
-     // using Microsoft.Extensions.Configuration
-
-     public void ConfigureServices(IServiceCollection services)
+     using Microsoft.Extensions.Configuration
+     
+     public class Startup
      {
-         services.Configure<KestrelServerOptions>(
-             Configuration.GetSection("Kestrel"));
+         public Startup(IConfiguration configuration)
+         {
+             Configuration = configuration;
+         }
+
+         public IConfiguration Configuration { get; }
+
+         public void ConfigureServices(IServiceCollection services)
+         {
+             services.Configure<KestrelServerOptions>(
+                 Configuration.GetSection("Kestrel"));
+         }
+
+         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+         {
+             ...
+         }
      }
      ```
 
@@ -2157,7 +2202,7 @@ Para más información sobre otras opciones y límites de Kestrel, vea:
 * <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits>
 * <xref:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions>
 
-## <a name="endpoint-configuration"></a>Configuración del punto de conexión
+## <a name="endpoint-configuration"></a>Configuración de punto de conexión
 
 ASP.NET Core enlaza de forma predeterminada a:
 
@@ -2171,7 +2216,7 @@ Especifique direcciones URL mediante los siguientes elementos:
 * La clave de configuración de host `urls`.
 * El método de extensión `UseUrls`.
 
-El valor que estos métodos suministran puede ser uno o más puntos de conexión HTTP y HTTPS (este último, si hay disponible un certificado predeterminado). Configure el valor como una lista separada por punto y coma (por ejemplo, `"Urls": "http://localhost:8000; http://localhost:8001"`).
+El valor que estos métodos suministran puede ser uno o más puntos de conexión HTTP y HTTPS (este último, si hay disponible un certificado predeterminado). Configure el valor como una lista separada por punto y coma (por ejemplo, `"Urls": "http://localhost:8000;http://localhost:8001"`).
 
 Para más información sobre estos enfoques, consulte [Direcciones URL del servidor](xref:fundamentals/host/web-host#server-urls) e [Invalidar la configuración](xref:fundamentals/host/web-host#override-configuration).
 
@@ -2241,7 +2286,7 @@ Configure Kestrel para que use HTTPS.
 
 Extensiones de `ListenOptions.UseHttps`:
 
-* `UseHttps`: configure Kestrel para que use HTTPS con el certificado predeterminado. Produce una excepción si no hay ningún certificado predeterminado configurado.
+* `UseHttps` &ndash; Configure Kestrel para que use HTTPS con el certificado predeterminado. Produce una excepción si no hay ningún certificado predeterminado configurado.
 * `UseHttps(string fileName)`
 * `UseHttps(string fileName, string password)`
 * `UseHttps(string fileName, string password, Action<HttpsConnectionAdapterOptions> configureOptions)`
@@ -2352,7 +2397,7 @@ Notas sobre el esquema:
 * El parámetro `Url` es necesario en cada punto de conexión. El formato de este parámetro es el mismo que el del parámetro de configuración `Urls` de nivel superior, excepto por el hecho de que está limitado a un único valor.
 * En vez de agregarse, estos puntos de conexión reemplazan a los que están definidos en la configuración `Urls` de nivel superior. Los puntos de conexión definidos en el código a través de `Listen` son acumulativos con respecto a los puntos de conexión definidos en la sección de configuración.
 * La sección `Certificate` es opcional. Si la sección `Certificate` no se especifica, se usan los valores predeterminados definidos en escenarios anteriores. Si no hay valores predeterminados disponibles, el servidor produce una excepción y no se inicia.
-* La sección `Certificate` admite certificados tanto **Path**&ndash;**Password** como **Subject**&ndash;**Store**.
+* La sección `Certificate` admite certificadostanto **Path**&ndash;**Password** como **Subject**&ndash;**Store**.
 * Se puede definir el número de puntos de conexión que se quiera de esta manera, siempre y cuando no produzcan conflictos de puerto.
 * `options.Configure(context.Configuration.GetSection("{SECTION}"))` devuelve un `KestrelConfigurationLoader` con un método `.Endpoint(string name, listenOptions => { })` que se puede usar para complementar la configuración de un punto de conexión configurado:
 
@@ -2546,7 +2591,7 @@ Configure puntos de conexión con los siguientes métodos:
 * <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseUrls*>
 * El argumento de la línea de comandos `--urls`
 * La clave de configuración de host `urls`
-* Variable de entorno `ASPNETCORE_URLS`
+* La variable de entorno `ASPNETCORE_URLS`
 
 Estos métodos son útiles para que el código funcione con servidores que no sean de Kestrel. Sin embargo, tenga en cuenta las siguientes limitaciones:
 

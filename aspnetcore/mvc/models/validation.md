@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre la validación de modelos en ASP.NET Core MVC y Razor Pages.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/15/2019
 uid: mvc/models/validation
-ms.openlocfilehash: 7a6017141eb1016128c4a135c187479717580bb5
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 042a9933e561de4957f6332bdff3c4f09d2e119b
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881035"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355263"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Validación de modelos en ASP.NET Core MVC y Razor Pages
 
@@ -58,7 +58,7 @@ Estos son algunos de los atributos de validación integrados:
 * `[Required]`: valida que el campo no sea NULL. Consulte el [atributo `[Required]`](#required-attribute) para obtener más información sobre el comportamiento de este atributo.
 * `[StringLength]`: valida que un valor de propiedad de cadena no supere un límite de longitud especificado.
 * `[Url]`: valida que la propiedad tenga un formato de URL.
-* `[Remote]`: valida la entrada en el cliente mediante una llamada a un método de acción en el servidor. Consulte el `[`atributo [Remote]](#remote-attribute) para obtener más información sobre el comportamiento de este atributo.
+* `[Remote]`: valida la entrada en el cliente mediante una llamada a un método de acción en el servidor. Consulte el [atributo `[Remote]`](#remote-attribute) para obtener más información sobre el comportamiento de este atributo.
 
 En el espacio de nombres [System.ComponentModel.DataAnnotations](xref:System.ComponentModel.DataAnnotations) encontrará una lista completa de atributos de validación.
 
@@ -372,7 +372,7 @@ Otras opciones para deshabilitar la validación del lado cliente:
 * Convierta en comentario la referencia a `_ValidationScriptsPartial` en todos los archivos *.cshtml*.
 * Quite el contenido del archivo *Pages\Shared\_ValidationScriptsPartial.cshtml*.
 
-El enfoque anterior no impedirá la validación del lado cliente de la biblioteca de clases de Razor de identidad de ASP.NET Core. Para más información, consulte <xref:security/authentication/scaffold-identity>.
+El enfoque anterior no impedirá la validación del lado cliente de la biblioteca de clases de Razor de identidad de ASP.NET Core. Para obtener más información, vea <xref:security/authentication/scaffold-identity>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -423,6 +423,8 @@ Entre los atributos de validación integrados se incluyen:
 * `[StringLength]`: valida que un valor de propiedad de cadena no supere un límite de longitud especificado.
 * `[Url]`: valida que la propiedad tenga un formato de URL.
 * `[Remote]`: valida la entrada en el cliente mediante una llamada a un método de acción en el servidor. Consulte el [atributo `[Remote]`](#remote-attribute) para obtener más información sobre el comportamiento de este atributo.
+
+Cuando se usa el atributo `[RegularExpression]` con la validación del lado cliente, la regex se ejecuta en JavaScript en el cliente. Esto significa que se usará el comportamiento de coincidencia de [ECMAScript](/dotnet/standard/base-types/regular-expression-options#ecmascript-matching-behavior). Para más información, consulte [este problema de GitHub](https://github.com/dotnet/corefx/issues/42487).
 
 En el espacio de nombres [System.ComponentModel.DataAnnotations](xref:System.ComponentModel.DataAnnotations) encontrará una lista completa de atributos de validación.
 

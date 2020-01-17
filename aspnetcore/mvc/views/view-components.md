@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo se usan los componentes de vista en ASP.NET Core y cómo agregarlos a las aplicaciones.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/14/2019
+ms.date: 12/18/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: e6990368519857a27b291d7d565c09072f23f1b0
-ms.sourcegitcommit: 7001657c00358b082734ba4273693b9b3ed35d2a
+ms.openlocfilehash: 8df070b580b6125db6616b33a81f3ffebad69f3a
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68670082"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828924"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componentes de vista en ASP.NET Core
 
@@ -42,7 +42,7 @@ Los componentes de vista están diseñados para cualquier lugar que tenga lógic
 
 Un componente de vista consta de dos partes: la clase (normalmente derivada de [ViewComponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)) y el resultado que devuelve (por lo general, una vista). Al igual que los controladores, un componente de vista puede ser un POCO, pero la mayoría de los desarrolladores prefieren aprovechar las ventajas que ofrecen los métodos y las propiedades disponibles al derivar de `ViewComponent`.
 
-Al estudiar si los componentes de visualización cumplen las especificaciones de una aplicación, considere la posibilidad de usar los componentes de Razor en su lugar. Los componentes de Razor también combinan el marcado con código de C# para producir unidades de interfaz de usuario reutilizables. Los componentes de Razor están diseñados para ofrecer productividad a los desarrolladores mediante elementos de composición y lógica de interfaz de usuario del lado cliente. Para más información, consulte <xref:blazor/components>.
+Al estudiar si los componentes de visualización cumplen las especificaciones de una aplicación, considere la posibilidad de usar los componentes de Razor en su lugar. Los componentes de Razor también combinan el marcado con código de C# para producir unidades de interfaz de usuario reutilizables. Los componentes de Razor están diseñados para ofrecer productividad a los desarrolladores mediante elementos de composición y lógica de interfaz de usuario del lado cliente. Para obtener más información, vea <xref:blazor/components>.
 
 ## <a name="creating-a-view-component"></a>Crear un componente de vista
 
@@ -87,6 +87,14 @@ La ruta de búsqueda se aplica a los proyectos que utilizan controladores y vist
 El nombre de vista predeterminado para un componente de vista es *Default*, lo que significa que el archivo de vista normalmente se denominará *Default.cshtml*. Puede especificar un nombre de vista diferente al crear el resultado del componente de vista o al llamar al método `View`.
 
 Se recomienda que asigne el nombre *Default.cshtml* al archivo de vista y use la ruta de acceso *Views/Shared/Components/{Nombre de componente de vista}/{Nombre de vista}* . El componente de vista `PriorityList` usado en este ejemplo usa *Views/Shared/Components/PriorityList/Default.cshtml* para la vista del componente de vista.
+
+### <a name="customize-the-view-search-path"></a>Personalización de la ruta de acceso de la búsqueda de la vista
+
+Para personalizar la ruta de acceso de la búsqueda de la vista, modifique la colección <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.ViewLocationFormats> de Razor. Por ejemplo, para buscar vistas dentro de la ruta de acceso "/Components/{Nombre del componente de la vista}/{Nombre de la vista}", agregue un elemento nuevo a la colección:
+
+[!code-cs[](view-components/samples_snapshot/2.x/Startup.cs?name=snippet_ViewLocationFormats&highlight=4)]
+
+En el código anterior, el marcador de posición "{0}" representa la ruta de acceso "Components/{Nombre del componente de la vista}/{Nombre de la vista}".
 
 ## <a name="invoking-a-view-component"></a>Invocar un componente de vista
 
@@ -329,7 +337,7 @@ La firma del método de `PriorityList.Invoke` es sincrónica, pero Razor busca y
 
 ## <a name="all-view-component-parameters-are-required"></a>Todos los parámetros de componente de vista son obligatorios
 
-Cada parámetro de un componente de vista es un atributo obligatorio. Consulte [este problema de GitHub](https://github.com/aspnet/AspNetCore/issues/5011). Si se omite algún parámetro:
+Cada parámetro de un componente de vista es un atributo obligatorio. Consulte [este problema de GitHub](https://github.com/dotnet/AspNetCore/issues/5011). Si se omite algún parámetro:
 
 * La firma del método `InvokeAsync` no coincidirá, por lo que el método no se ejecutará.
 * ViewComponent no representará ningún marcado.

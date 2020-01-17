@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar las comprobaciones de e
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/13/2019
+ms.date: 12/15/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 4a4606a58178018f0d71d467d4c8b6c9982c09dc
-ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
+ms.openlocfilehash: dfd26b775b6c6a1af0108d34981d7ec3737980dd
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74115995"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356130"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Comprobaciones de estado en ASP.NET Core
 
@@ -221,7 +221,7 @@ app.UseEndpoints(endpoints =>
 
 ### <a name="enable-cross-origin-requests-cors"></a>Habilitar solicitudes entre orígenes (CORS)
 
-Aunque no se suelen realizar comprobaciones de estado manualmente desde un explorador, el middleware de CORS se puede habilitar mediante una llamada a `RequireCors` en los puntos de conexión de las comprobaciones de estado. Una sobrecarga `RequireCors` acepta un delegado del generador de directivas CORS (`CorsPolicyBuilder`) o un nombre de directiva. Si no se proporciona una directiva, se usa la directiva CORS predeterminada. Para más información, consulte <xref:security/cors>.
+Aunque no se suelen realizar comprobaciones de estado manualmente desde un explorador, el middleware de CORS se puede habilitar mediante una llamada a `RequireCors` en los puntos de conexión de las comprobaciones de estado. Una sobrecarga `RequireCors` acepta un delegado del generador de directivas CORS (`CorsPolicyBuilder`) o un nombre de directiva. Si no se proporciona una directiva, se usa la directiva CORS predeterminada. Para obtener más información, vea <xref:security/cors>.
 
 ## <a name="health-check-options"></a>Opciones de comprobación de estado
 
@@ -300,9 +300,7 @@ app.UseEndpoints(endpoints =>
 
 ### <a name="customize-output"></a>Personalización del resultado
 
-La opción <xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResponseWriter> obtiene o establece un delegado que se usa para escribir la respuesta.
-
-En `Startup.Configure`:
+En `Startup.Configure`, establezca la opción [HealthCheckOptions.ResponseWriter](xref:Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResponseWriter) en un delegado para escribir la respuesta:
 
 ```csharp
 app.UseEndpoints(endpoints =>
@@ -314,27 +312,19 @@ app.UseEndpoints(endpoints =>
 });
 ```
 
-El delegado predeterminado escribe una respuesta de texto no cifrado mínima con el valor de cadena [HealthReport.Status](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthReport.Status). El siguiente delegado personalizado, `WriteResponse`, genera una respuesta JSON personalizada:
+El delegado predeterminado escribe una respuesta de texto no cifrado mínima con el valor de cadena [HealthReport.Status](xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthReport.Status). Los siguientes delegados personalizados generan una respuesta JSON personalizada.
 
-```csharp
-private static Task WriteResponse(HttpContext httpContext, HealthReport result)
-{
-    httpContext.Response.ContentType = "application/json";
+En el primer ejemplo de la aplicación de ejemplo se muestra cómo usar <xref:System.Text.Json?displayProperty=fullName>:
 
-    var json = new JObject(
-        new JProperty("status", result.Status.ToString()),
-        new JProperty("results", new JObject(result.Entries.Select(pair =>
-            new JProperty(pair.Key, new JObject(
-                new JProperty("status", pair.Value.Status.ToString()),
-                new JProperty("description", pair.Value.Description),
-                new JProperty("data", new JObject(pair.Value.Data.Select(
-                    p => new JProperty(p.Key, p.Value))))))))));
-    return httpContext.Response.WriteAsync(
-        json.ToString(Formatting.Indented));
-}
-```
+[!code-csharp[](health-checks/samples/3.x/HealthChecksSample/CustomWriterStartup.cs?name=snippet_WriteResponse_SystemTextJson)]
 
-El sistema de comprobaciones de estado no ofrece compatibilidad integrada con formatos de retorno JSON complejos porque el formato es específico del sistema de supervisión elegido. No dude en personalizar `JObject` en el ejemplo anterior según sea sus necesidades.
+En el segundo ejemplo se muestra cómo usar [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/):
+
+[!code-csharp[](health-checks/samples/3.x/HealthChecksSample/CustomWriterStartup.cs?name=snippet_WriteResponse_NewtonSoftJson)]
+
+En la aplicación de ejemplo, convierta en comentario la [directiva de preprocesador](xref:index#preprocessor-directives-in-sample-code) `SYSTEM_TEXT_JSON` en *CustomWriterStartup.cs* para habilitar la versión `Newtonsoft.Json` de `WriteResponse`.
+
+La API de comprobaciones de estado no ofrece compatibilidad integrada con formatos de retorno JSON complejos porque el formato es específico del sistema de supervisión elegido. Personalice la respuesta en los ejemplos anteriores según sea necesario. Para más información sobre la serialización de JSON con `System.Text.Json`, consulte [Procedimiento para serializar y deserializar JSON en .NET](/dotnet/standard/serialization/system-text-json-how-to).
 
 ## <a name="database-probe"></a>Sondeo de bases de datos
 
@@ -531,11 +521,11 @@ La aplicación de ejemplo muestra una comprobación de estado de memoria con un 
 
 Registre los servicios de comprobación de estado con <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> de `Startup.ConfigureServices`. En lugar de pasar la comprobación de estado a <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddCheck*> para habilitarla, `MemoryHealthCheck` se registra como servicio. Todos los servicios registrados de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck> están disponibles para los servicios de comprobación de estado y middleware. Se recomienda registrar los servicios de comprobación de estado como los servicios de Singleton.
 
-En la aplicación de ejemplo (*CustomWriterStartup.cs*):
+En *CustomWriterStartup.cs* de la aplicación de ejemplo:
 
 [!code-csharp[](health-checks/samples/3.x/HealthChecksSample/CustomWriterStartup.cs?name=snippet_ConfigureServices&highlight=4)]
 
-Se crea un punto de conexión de comprobación de estado llamando a `MapHealthChecks` en `Startup.Configure`. Se proporciona un delegado de `WriteResponse` a la propiedad `ResponseWriter` para generar una respuesta JSON personalizada al ejecutarse la comprobación de estado:
+Se crea un punto de conexión de comprobación de estado llamando a `MapHealthChecks` en `Startup.Configure`. Se proporciona un delegado `WriteResponse` a la propiedad <Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions.ResponseWriter> para generar una respuesta JSON personalizada cuando se ejecuta la comprobación de estado:
 
 ```csharp
 app.UseEndpoints(endpoints =>
@@ -547,9 +537,7 @@ app.UseEndpoints(endpoints =>
 }
 ```
 
-El método `WriteResponse` da a `CompositeHealthCheckResult` el formato de objeto JSON y suspende el resultado de JSON para la respuesta de comprobación de estado:
-
-[!code-csharp[](health-checks/samples/3.x/HealthChecksSample/CustomWriterStartup.cs?name=snippet_WriteResponse)]
+El delegado `WriteResponse` da a `CompositeHealthCheckResult` el formato de objeto JSON y suspende el resultado de JSON para la respuesta de comprobación de estado. Para más información, consulte la sección [Personalización del resultado](#customize-output).
 
 Para ejecutar el sondeo basado en métrica con el resultado de un escritor de respuesta personalizada mediante la aplicación de ejemplo, ejecute el comando siguiente desde la carpeta del proyecto en un shell de comandos:
 
@@ -756,8 +744,8 @@ Task PublishAsync(HealthReport report, CancellationToken cancellationToken);
 
 <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions> le permiten establecer:
 
-* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Delay> &ndash; El retraso inicial aplicado tras iniciarse la aplicación antes de ejecutar instancias de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>. El retraso se aplica una vez durante el inicio y no se aplica a las iteraciones posteriores. El valor predeterminado es cinco segundos.
-* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Period> &ndash; El período de ejecución de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>. El valor predeterminado es 30 segundos.
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Delay>&ndash; El retraso inicial aplicado tras iniciarse la aplicación antes de ejecutar instancias de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>. El retraso se aplica una vez durante el inicio y no se aplica a las iteraciones posteriores. El valor predeterminado es cinco segundos.
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Period>&ndash; El período de ejecución de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>. El valor predeterminado es 30 segundos.
 * <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Predicate> &ndash; Si <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Predicate> es `null` (valor predeterminado), el servicio de publicador de la comprobación de estado ejecuta todas las comprobaciones de estado registradas. Para ejecutar un subconjunto de comprobaciones de estado, proporcione una función que filtre el conjunto de comprobaciones. El predicado se evalúa cada período.
 * <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Timeout> &ndash; El tiempo de expiración para ejecutar las comprobaciones de estado para todas las instancias de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>. Use <xref:System.Threading.Timeout.InfiniteTimeSpan> para ejecutar sin tiempo de expiración. El valor predeterminado es 30 segundos.
 
@@ -795,7 +783,7 @@ app.UseEndpoints(endpoints =>
 });
 ```
 
-Para más información, consulte <xref:fundamentals/middleware/index#use-run-and-map>.
+Para obtener más información, vea <xref:fundamentals/middleware/index#use-run-and-map>.
 
 ::: moniker-end
 
@@ -1431,8 +1419,8 @@ Task PublishAsync(HealthReport report, CancellationToken cancellationToken);
 
 <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions> le permiten establecer:
 
-* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Delay> &ndash; El retraso inicial aplicado tras iniciarse la aplicación antes de ejecutar instancias de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>. El retraso se aplica una vez durante el inicio y no se aplica a las iteraciones posteriores. El valor predeterminado es cinco segundos.
-* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Period> &ndash; El período de ejecución de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>. El valor predeterminado es 30 segundos.
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Delay>&ndash; El retraso inicial aplicado tras iniciarse la aplicación antes de ejecutar instancias de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>. El retraso se aplica una vez durante el inicio y no se aplica a las iteraciones posteriores. El valor predeterminado es cinco segundos.
+* <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Period>&ndash; El período de ejecución de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>. El valor predeterminado es 30 segundos.
 * <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Predicate> &ndash; Si <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Predicate> es `null` (valor predeterminado), el servicio de publicador de la comprobación de estado ejecuta todas las comprobaciones de estado registradas. Para ejecutar un subconjunto de comprobaciones de estado, proporcione una función que filtre el conjunto de comprobaciones. El predicado se evalúa cada período.
 * <xref:Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherOptions.Timeout> &ndash; El tiempo de expiración para ejecutar las comprobaciones de estado para todas las instancias de <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheckPublisher>. Use <xref:System.Threading.Timeout.InfiniteTimeSpan> para ejecutar sin tiempo de expiración. El valor predeterminado es 30 segundos.
 
@@ -1483,6 +1471,6 @@ app.MapWhen(
 app.UseMvc();
 ```
 
-Para más información, consulte <xref:fundamentals/middleware/index#use-run-and-map>.
+Para obtener más información, vea <xref:fundamentals/middleware/index#use-run-and-map>.
 
 ::: moniker-end

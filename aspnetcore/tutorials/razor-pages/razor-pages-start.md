@@ -5,12 +5,12 @@ description: Esta serie de tutoriales muestra cómo usar Razor Pages en ASP.NET 
 ms.author: riande
 ms.date: 11/12/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: b651437b698d01310f90c5f14832616c1896e6c0
-ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
+ms.openlocfilehash: 6e1d58ccd83f7d7c1083dc2bf9ce7476650812a1
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74959104"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75723036"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Tutorial: Introducción a Razor Pages en ASP.NET Core
 
@@ -100,18 +100,13 @@ Al final de este tutorial, tendrá una aplicación web de Razor Pages que compi
 
   ![Cuadro de diálogo de nuevo proyecto de macOS](razor-pages-start/_static/webapp.png)
 
-* En el cuadro de diálogo **Configure your new ASP.NET Core Web API** (Configurar la nueva API web de ASP.NET Core), establezca la **plataforma de destino** en **.NET Core 3.1**.
+* En el cuadro de diálogo **Configure your new Web Application** (Configurar la nueva aplicación web), establezca el **marco de destino** en **.NET Core 3.1**.
 
-  ![Selección de .NET Core 3.0 de macOS](razor-pages-start/_static/targetframework3.png)
+  ![Selección de .NET Core 3.1 de macOS](razor-pages-start/_static/targetframework3.png)
 
 * Asigne el nombre **RazorPagesMovie** al proyecto y, después, seleccione **Crear**.
 
   ![nameproj](razor-pages-start/_static/RazorPagesMovie.png)
-
-
-## <a name="open-the-project"></a>Abrir el proyecto
-
-En Visual Studio, seleccione **Archivo > Abrir** y elija el archivo *RazorPagesMovie.csproj*.
 
 <!-- End of VS tabs -->
 
@@ -132,23 +127,23 @@ Contiene Razor Pages y los archivos auxiliares. Cada página de Razor se compone
 * Archivo *.cshtml* que contiene el marcado HTML con código C# que usa la sintaxis Razor.
 * Archivo *. cshtml.cs* que contiene C# código que controla los eventos de página.
 
-Los archivos auxiliares tienen nombres que comienzan con un carácter de subrayado. Por ejemplo, el archivo *_Layout.cshtml* configura los elementos de la interfaz de usuario comunes a todas las páginas. Este archivo configura el menú de navegación de la parte superior de la página y el aviso de copyright de la parte inferior de la página. Para más información, consulte <xref:mvc/views/layout>.
+Los archivos auxiliares tienen nombres que comienzan con un carácter de subrayado. Por ejemplo, el archivo *_Layout.cshtml* configura los elementos de la interfaz de usuario comunes a todas las páginas. Este archivo configura el menú de navegación de la parte superior de la página y el aviso de copyright de la parte inferior de la página. Para obtener más información, vea <xref:mvc/views/layout>.
 
 ### <a name="wwwroot-folder"></a>Carpeta wwwroot
 
-Contiene los archivos estáticos, como los archivos HTML, los archivos de JavaScript y los archivos CSS. Para más información, consulte <xref:fundamentals/static-files>.
+Contiene los archivos estáticos, como los archivos HTML, los archivos de JavaScript y los archivos CSS. Para obtener más información, vea <xref:fundamentals/static-files>.
 
 ### <a name="appsettingsjson"></a>appSettings.json
 
-Contiene los datos de configuración, como las cadenas de conexión. Para más información, consulte <xref:fundamentals/configuration/index>.
+Contiene los datos de configuración, como las cadenas de conexión. Para obtener más información, vea <xref:fundamentals/configuration/index>.
 
 ### <a name="programcs"></a>Program.cs
 
-Contiene el punto de entrada del programa. Para más información, consulte <xref:fundamentals/host/generic-host>.
+Contiene el punto de entrada del programa. Para obtener más información, vea <xref:fundamentals/host/generic-host>.
 
 ### <a name="startupcs"></a>Startup.cs
 
-Contiene código que configura el comportamiento de la aplicación. Para más información, consulte <xref:fundamentals/startup>.
+Contiene código que configura el comportamiento de la aplicación. Para obtener más información, vea <xref:fundamentals/startup>.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -242,19 +237,21 @@ Al final de este tutorial, tendrá una aplicación web de Razor Pages que compi
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
-Desde un terminal, ejecute este comando:
+* Seleccione **Archivo** > **Nueva solución**.
 
-<!-- TODO: update these instruction once mac support 2.2 projects -->
+![macOS: Nueva solución](../first-mvc-app/start-mvc/_static/new_project_vsmac.png)
 
-```dotnetcli
-dotnet new webapp -o RazorPagesMovie
-```
+* Seleccione **.NET Core** > **Aplicación** > **Aplicación web** > **Siguiente**.
 
-Los comandos anteriores utilizan la [CLI de .NET Core](/dotnet/core/tools/dotnet) para crear un proyecto de Razor Pages.
+  ![Cuadro de diálogo de nuevo proyecto de macOS](razor-pages-start/_static/webapp.png)
 
-## <a name="open-the-project"></a>Abrir el proyecto
+* En el cuadro de diálogo **Configure your new ASP.NET Core Web API** (Configurar la nueva API web de ASP.NET Core), establezca la **plataforma de destino** en **.NET Core 3.1**.
 
-En Visual Studio, seleccione **Archivo > Abrir** y elija el archivo *RazorPagesMovie.csproj*.
+  ![Selección de .NET Core 3.0 de macOS](razor-pages-start/_static/targetframework3.png)
+
+* Asigne el nombre **RazorPagesMovie** al proyecto y, después, seleccione **Crear**.
+
+  ![nameproj](razor-pages-start/_static/RazorPagesMovie.png)
 
 <!-- End of VS tabs -->
 
@@ -331,23 +328,23 @@ Contiene Razor Pages y los archivos auxiliares. Cada página de Razor se compone
 * Archivo *.cshtml* que contiene el marcado HTML con código C# que usa la sintaxis Razor.
 * Archivo *. cshtml.cs* que contiene C# código que controla los eventos de página.
 
-Los archivos auxiliares tienen nombres que comienzan con un carácter de subrayado. Por ejemplo, el archivo *_Layout.cshtml* configura los elementos de la interfaz de usuario comunes a todas las páginas. Este archivo configura el menú de navegación de la parte superior de la página y el aviso de copyright de la parte inferior de la página. Para más información, consulte <xref:mvc/views/layout>.
+Los archivos auxiliares tienen nombres que comienzan con un carácter de subrayado. Por ejemplo, el archivo *_Layout.cshtml* configura los elementos de la interfaz de usuario comunes a todas las páginas. Este archivo configura el menú de navegación de la parte superior de la página y el aviso de copyright de la parte inferior de la página. Para obtener más información, vea <xref:mvc/views/layout>.
 
 ### <a name="wwwroot-folder"></a>Carpeta wwwroot
 
-Contiene los archivos estáticos, como los archivos HTML, los archivos de JavaScript y los archivos CSS. Para más información, consulte <xref:fundamentals/static-files>.
+Contiene los archivos estáticos, como los archivos HTML, los archivos de JavaScript y los archivos CSS. Para obtener más información, vea <xref:fundamentals/static-files>.
 
 ### <a name="appsettingsjson"></a>appSettings.json
 
-Contiene los datos de configuración, como las cadenas de conexión. Para más información, consulte <xref:fundamentals/configuration/index>.
+Contiene los datos de configuración, como las cadenas de conexión. Para obtener más información, vea <xref:fundamentals/configuration/index>.
 
 ### <a name="programcs"></a>Program.cs
 
-Contiene el punto de entrada del programa. Para más información, consulte <xref:fundamentals/host/generic-host>.
+Contiene el punto de entrada del programa. Para obtener más información, vea <xref:fundamentals/host/generic-host>.
 
 ### <a name="startupcs"></a>Startup.cs
 
-Contiene código que configura el comportamiento de la aplicación, como, por ejemplo, si se requiere consentimiento para las cookies. Para más información, consulte <xref:fundamentals/startup>.
+Contiene código que configura el comportamiento de la aplicación, como, por ejemplo, si se requiere consentimiento para las cookies. Para obtener más información, vea <xref:fundamentals/startup>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

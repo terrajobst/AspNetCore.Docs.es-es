@@ -5,12 +5,12 @@ description: Agregue un modelo a una aplicación sencilla de ASP.NET Core.
 ms.author: riande
 ms.date: 8/15/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 2fac37e7069fb2a464d4de1da8912197f7adf8a8
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 5d4251a2577111324aa2cfb715c41e3ecad5a9d1
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73761097"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722807"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Agregar un modelo a una aplicación de ASP.NET Core MVC
 
@@ -32,9 +32,13 @@ En este tutorial, se escriben primero las clases del modelo y EF Core crea la ba
 
 Haga clic con el botón derecho en la carpeta *Models* > **Agregar** > **Clase**. Asigne el nombre *Movie.cs* al archivo.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Agregue un archivo denominado *Movie.cs* a la carpeta *Models*.
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+
+Haga clic con el botón derecho en la carpeta *Models* > **Agregar** > **Nueva clase** > **Clase vacía**. Asigne el nombre *Movie.cs* al archivo.
 
 ---
 
@@ -55,7 +59,7 @@ Los elementos [DataAnnotations](/dotnet/api/system.componentmodel.dataannotation
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** > **Consola del administrador de paquetes** (PMC).
+En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes** (PMC).
 
 ![Menú de PMC](~/tutorials/first-mvc-app/adding-model/_static/pmc.png)
 
@@ -67,9 +71,26 @@ Install-Package Microsoft.EntityFrameworkCore.SqlServer
 
 El comando anterior agrega el proveedor de SQL Server de EF Core. El paquete de proveedor instala el paquete de EF Core como una dependencia. Los paquetes adicionales se instalan de forma automática en el paso de scaffolding más adelante en el tutorial.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/add-EF-NuGet-SQLite-CLI.md)]
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+
+En el menú **Proyecto**, seleccione **Administrar paquetes NuGet**.
+
+En el campo de **búsqueda** de la esquina superior derecha, escriba `Microsoft.EntityFrameworkCore.SQLite` y presione la tecla **Entrar** para realizar la búsqueda. Seleccione el paquete NuGet correspondiente y presione el botón **Agregar paquete**.
+
+![Adición del paquete NuGet de Entity Framework Core](~/tutorials/first-mvc-app-mac/adding-model/_static/add-nuget-packages.png)
+
+Se mostrará el cuadro de diálogo **Seleccionar los proyectos**, con el proyecto `MvcMovie` seleccionado. Presione el botón **Aceptar**.
+
+Se mostrará un cuadro de diálogo **Aceptación de licencia**. Revise las licencias como quiera y, a continuación, haga clic en el botón **Aceptar**.
+
+Repita los pasos anteriores para instalar los paquetes NuGet siguientes:
+ * `Microsoft.VisualStudio.Web.CodeGeneration.Design`
+ * `Microsoft.EntityFrameworkCore.SqlServer`
+ * `Microsoft.EntityFrameworkCore.Design`
 
 ---
 
@@ -138,7 +159,7 @@ Use la herramienta de scaffolding para crear páginas de creación, lectura, act
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta *Controladores* **> Agregar > Nuevo elemento con scaffold**.
+En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta *Controladores***> Agregar > Nuevo elemento con scaffold**.
 
 ![vista del paso anterior](adding-model/_static/add_controller21.png)
 
@@ -208,7 +229,7 @@ Use la característica [Migraciones](xref:data/ef-mvc/migrations) de EF Core par
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** > **Consola del administrador de paquetes** (PMC).
+En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes** (PMC).
 
 En PCM, escriba los siguientes comandos:
 
@@ -409,7 +430,7 @@ En esta sección se aplica scaffolding al modelo de película; es decir, la herr
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta *Controladores* **> Agregar > Nuevo elemento con scaffold**.
+En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta *Controladores***> Agregar > Nuevo elemento con scaffold**.
 
 ![vista del paso anterior](adding-model/_static/add_controller21.png)
 
@@ -524,7 +545,7 @@ En esta sección, se completan las tareas siguientes:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** > **Consola del administrador de paquetes** (PMC).
+1. En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes** (PMC).
 
    ![Menú de PMC](~/tutorials/first-mvc-app/adding-model/_static/pmc.png)
 
@@ -537,7 +558,7 @@ En esta sección, se completan las tareas siguientes:
 
    El comando `Add-Migration` genera el código para crear el esquema de base de datos inicial.
 
-   El esquema de la base de datos se basa en el modelo especificado en la clase `MvcMovieContext`. El argumento `Initial` es el nombre de la migración. Se puede usar cualquier nombre, pero, por convención, se utiliza uno que describa la migración. Para más información, consulte <xref:data/ef-mvc/migrations>.
+   El esquema de la base de datos se basa en el modelo especificado en la clase `MvcMovieContext`. El argumento `Initial` es el nombre de la migración. Se puede usar cualquier nombre, pero, por convención, se utiliza uno que describa la migración. Para obtener más información, vea <xref:data/ef-mvc/migrations>.
 
    El comando `Update-Database` ejecuta el método `Up` en el archivo *Migrations/{time-stamp}_InitialCreate.cs*, con lo que se crea la base de datos.
 
@@ -689,6 +710,6 @@ Como el objeto `Model` es fuertemente tipado (como un objeto `IEnumerable<Movie>
 
 > [!div class="step-by-step"]
 > [Anterior: Agregar una vista](adding-view.md)
-> [Siguiente: Trabajar con SQL](working-with-sql.md)
+> [Siguiente: Trabajar con una base de datos](working-with-sql.md)
 
 ::: moniker-end

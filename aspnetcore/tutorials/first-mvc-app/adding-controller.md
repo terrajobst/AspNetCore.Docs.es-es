@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo agregar un controlador a una senci
 ms.author: riande
 ms.date: 08/05/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: 1c54959130f3a9959d4d4fdb8dcaa0d37ee2f046
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: fe0c1d3c066d6ab20387391e15c3a7cfe684c61e
+ms.sourcegitcommit: 077b45eceae044475f04c1d7ef2d153d7c0515a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68820054"
+ms.lasthandoff: 12/29/2019
+ms.locfileid: "75542708"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Agregar un controlador a una aplicación de ASP.NET Core MVC
 
@@ -108,7 +108,7 @@ Ejecute la aplicación y navegue a:
 
 Reemplace `{PORT}` por el número de puerto. Puede probar distintos valores para `name` y `numtimes` en la dirección URL. El sistema de [enlace de modelos](xref:mvc/models/model-binding) de MVC asigna automáticamente los parámetros con nombre de la cadena de consulta en la barra de direcciones a los parámetros del método. Vea [Model Binding](xref:mvc/models/model-binding) (Enlace de modelos) para más información.
 
-![Ventana del explorador que muestra una respuesta de la aplicación de Hello Rick, NumTimes is: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
+![Ventana del explorador que muestra una respuesta de la aplicación de Hello Rick, NumTimes es\: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
 En la ilustración anterior, el segmento de dirección URL (`Parameters`) no se usa, y los parámetros `name` y `numTimes` se pasan como [cadenas de consulta](https://wikipedia.org/wiki/Query_string). El `?` (signo de interrogación) en la dirección URL anterior es un separador y le siguen las cadenas de consulta. El carácter `&` separa las cadenas de consulta.
 
@@ -227,7 +227,7 @@ Ejecute la aplicación y navegue a:
 
 Reemplace `{PORT}` por el número de puerto. Puede probar distintos valores para `name` y `numtimes` en la dirección URL. El sistema de [enlace de modelos](xref:mvc/models/model-binding) de MVC asigna automáticamente los parámetros con nombre de la cadena de consulta en la barra de direcciones a los parámetros del método. Vea [Model Binding](xref:mvc/models/model-binding) (Enlace de modelos) para más información.
 
-![Ventana del explorador que muestra una respuesta de la aplicación de Hello Rick, NumTimes is: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
+![Ventana del explorador que muestra una respuesta de la aplicación de Hello Rick, NumTimes es\: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
 En la ilustración anterior, el segmento de dirección URL (`Parameters`) no se usa, y los parámetros `name` y `numTimes` se pasan como [cadenas de consulta](https://wikipedia.org/wiki/Query_string). El `?` (signo de interrogación) en la dirección URL anterior es un separador y le siguen las cadenas de consulta. El carácter `&` separa las cadenas de consulta.
 

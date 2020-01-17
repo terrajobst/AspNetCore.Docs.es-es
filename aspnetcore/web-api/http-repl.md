@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la herramienta global HTTP RE
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/02/2019
+ms.date: 12/11/2019
 uid: web-api/http-repl
-ms.openlocfilehash: c6e3ab5685b5bd0b154d20585fb0d187f81da641
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: 34ec2b2eb511f33e1263cdad4a338183a3e4b83a
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717170"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356167"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Prueba de las API web HTTP REPL
 
@@ -690,8 +690,9 @@ Para emitir una solicitud HTTP DELETE, realice lo siguiente:
         "data": "Strawberry"
       }
     ]
+    ```
 
-1. Run the `delete` command on an endpoint that supports it:
+1. Ejecute el comando `delete` en un punto de conexión que lo admita:
 
     ```console
     https://localhost:5001/fruits~ delete 2

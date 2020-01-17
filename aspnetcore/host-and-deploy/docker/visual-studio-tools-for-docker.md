@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 5faf0be19448d8272901bf018357da63bbe22d4b
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: cecec09d3d58a84a7c15630e41d23facdb9b236e
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308076"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356155"
 ---
 # <a name="visual-studio-container-tools-with-aspnet-core"></a>Herramientas de contenedor de Visual Studio con ASP.NET Core
 
@@ -90,10 +90,10 @@ Visual Studio 2017, versiones 15.8 o posteriores, permite agregar una solución 
 
 Las herramientas de contenedor de Visual Studio agregan un proyecto *docker-compose* a la solución con los archivos siguientes:
 
-* *docker-compose.dcproj*: archivo que representa el proyecto. Incluye un elemento `<DockerTargetOS>` en el que se especifica el sistema operativo que se utilizará.
-* *.dockerignore*: contiene una lista de los patrones de archivos y directorios que se excluirán al generar un contexto de compilación.
-* *docker-compose.yml*: archivo base de [Docker Compose](https://docs.docker.com/compose/overview/) que se utiliza para definir la colección de imágenes compilada y ejecutada con `docker-compose build` y `docker-compose run`, respectivamente.
-* *docker-compose.override.yml*: archivo opcional que Docker Compose lee y que contiene las invalidaciones de configuración de los servicios. Visual Studio ejecuta `docker-compose -f "docker-compose.yml" -f "docker-compose.override.yml"` para combinar estos archivos.
+* *docker-compose.dcproj* &ndash; Archivo que representa el proyecto. Incluye un elemento `<DockerTargetOS>` en el que se especifica el sistema operativo que se utilizará.
+* *.dockerignore* &ndash; Contiene una lista de los patrones de archivos y directorios que se excluirán al generar un contexto de compilación.
+* *docker-compose.yml* &ndash; Archivo base de [Docker Compose](https://docs.docker.com/compose/overview/) que se utiliza para definir la colección de imágenes compilada y ejecutada con `docker-compose build` y `docker-compose run`, respectivamente.
+* *docker-compose.override.yml* &ndash; Archivo opcional que Docker Compose lee y que contiene las invalidaciones de configuración de los servicios. Visual Studio ejecuta `docker-compose -f "docker-compose.yml" -f "docker-compose.override.yml"` para combinar estos archivos.
 
 El archivo *docker-compose.yml* hace referencia al nombre de la imagen que se crea al ejecutar el proyecto:
 
@@ -107,6 +107,8 @@ Si quiere un comportamiento diferente basado en la configuración de compilació
 
 Con los archivos de invalidación específicos de la configuración, puede especificar distintos valores de configuración (por ejemplo, variables de entorno o puntos de entrada) para las configuraciones de compilación de depuración y lanzamiento.
 
+Para que Docker Compose muestre una opción para su ejecución en Visual Studio, el proyecto de Docker debe ser el proyecto de inicio.
+
 ### <a name="service-fabric"></a>Service Fabric
 
 Además de los [requisitos previos](#prerequisites) base, la solución de orquestación de [Service Fabric](/azure/service-fabric/) presenta los siguientes requisitos previos:
@@ -118,7 +120,7 @@ Service Fabric no admite la ejecución de contenedores de Linux en el clúster d
 
 Las herramientas de contenedor de Visual Studio permiten realizar las siguientes tareas:
 
-* Agregar un proyecto **Aplicación de Service Fabric** *&lt;nombre_proyecto&gt;Aplicación* a la solución.
+* Agrega un proyecto *&lt;nombre_de_proyecto&gt;Aplicación* **Aplicación de Service Fabric** a la solución.
 * Agregar un *Dockerfile* y un archivo *.dockerignore* al proyecto de ASP.NET Core. Si el proyecto de ASP.NET Core ya contiene un *Dockerfile*, se le cambiará el nombre a *Dockerfile.original*. A continuación, se creará un nuevo *Dockerfile* similar al siguiente:
 
     [!code-dockerfile[](visual-studio-tools-for-docker/samples/2.1/HelloDockerTools/Dockerfile)]
@@ -131,7 +133,7 @@ Las herramientas de contenedor de Visual Studio permiten realizar las siguientes
 
 Para obtener más información, consulte [Implementación de una aplicación .NET de un contenedor de Windows en Azure Service Fabric](/azure/service-fabric/service-fabric-host-app-in-a-container).
 
-## <a name="debug"></a>Depurar
+## <a name="debug"></a>Depuración
 
 Seleccione **Docker** en la lista desplegable de depuración de la barra de herramientas y empiece a depurar la aplicación. La vista **Docker** de la ventana **Salida** muestra las acciones siguientes en curso:
 

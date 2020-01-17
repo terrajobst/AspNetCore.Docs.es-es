@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo funciona el enlace de modelos en ASP.NET Core y cómo personalizar su comportamiento.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
-ms.date: 11/21/2019
+ms.date: 12/18/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: da6cc25e0bbb1b2301529b34eab4c91f9ccb46eb
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: d36e42ef2517068ade3f874dc62cc7587ee3ca98
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944300"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355672"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Enlace de modelos en ASP.NET Core
 
@@ -34,7 +34,7 @@ Los controladores y Razor Pages trabajan con datos procedentes de solicitudes HT
 
 Imagine que tiene el siguiente método de acción:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Controllers/PetsController.cs?name=snippet_DogsOnly)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Controllers/PetsController.cs?name=snippet_DogsOnly)]
 
 Y que la aplicación recibe una solicitud con esta dirección URL:
 
@@ -67,19 +67,19 @@ El enlace de modelos intenta encontrar valores para los tipos de destinos siguie
 
 Se puede aplicar a una propiedad pública de un controlador o una clase `PageModel` para hacer que el enlace de modelos tenga esa propiedad como destino:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Edit.cshtml.cs?name=snippet_BindProperty&highlight=3-4)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Edit.cshtml.cs?name=snippet_BindProperty&highlight=3-4)]
 
 ### <a name="bindpropertiesattribute"></a>Atributo [BindProperties]
 
 Disponible en ASP.NET 2.1 Core y versiones posteriores.  Se pueden aplicar a un controlador o una clase `PageModel` para indicar al enlace de modelos que seleccione como destino todas las propiedades públicas de la clase:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Create.cshtml.cs?name=snippet_BindProperties&highlight=1-2)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Create.cshtml.cs?name=snippet_BindProperties&highlight=1-2)]
 
 ### <a name="model-binding-for-http-get-requests"></a>Enlace de modelos para solicitudes HTTP GET
 
 De forma predeterminada, las propiedades no se enlazan para las solicitudes HTTP GET. Normalmente, todo lo que necesita para una solicitud GET es un parámetro de id. de registro. El id. de registro se usa para buscar el elemento en la base de datos. Por tanto, no es necesario enlazar una propiedad que contiene una instancia del modelo. En escenarios donde quiera propiedades enlazadas a datos de las solicitudes GET, establezca la propiedad `SupportsGet` en `true`:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Index.cshtml.cs?name=snippet_SupportsGet)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Index.cshtml.cs?name=snippet_SupportsGet)]
 
 ## <a name="sources"></a>Orígenes
 
@@ -108,11 +108,11 @@ Estos atributos:
 
 * Se agregan de forma individual a las propiedades del modelo (no a la clase de modelo), como en el ejemplo siguiente:
 
-  [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Models/Instructor.cs?name=snippet_FromQuery&highlight=5-6)]
+  [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/Instructor.cs?name=snippet_FromQuery&highlight=5-6)]
 
 * Opcionalmente, acepte un valor de nombre de modelo en el constructor. Esta opción se proporciona en caso de que el nombre de la propiedad no coincida con el valor de la solicitud. Por ejemplo, es posible que el valor de la solicitud sea un encabezado con un guion en el nombre, como en el ejemplo siguiente:
 
-  [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Index.cshtml.cs?name=snippet_FromHeader)]
+  [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Index.cshtml.cs?name=snippet_FromHeader)]
 
 ### <a name="frombody-attribute"></a>Atributo [FromBody]
 
@@ -153,9 +153,9 @@ Los *proveedores de valores* proporcionan datos de origen al sistema de enlace d
 * Cree una clase que implemente `IValueProviderFactory`.
 * Registre la clase de generador en `Startup.ConfigureServices`.
 
-En la aplicación de ejemplo se incluye un [proveedor de valores](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProvider.cs) y un [generador](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProviderFactory.cs) que obtiene valores de cookies. Este es el código de registro de `Startup.ConfigureServices`:
+En la aplicación de ejemplo se incluye un [proveedor de valores](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProvider.cs) y un [generador](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProviderFactory.cs) que obtiene valores de cookies. Este es el código de registro de `Startup.ConfigureServices`:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=3)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=4)]
 
 En el código mostrado, el proveedor de valor personalizado se coloca después de todos los proveedores de valor integrados.  Para que sea el primero en la lista, llame a `Insert(0, new CookieValueProviderFactory())` en lugar de a `Add`.
 
@@ -180,7 +180,7 @@ En un controlador de API que tenga el atributo `[ApiController]`, el estado de m
 
 En una página de Razor, se vuelve a mostrar la página con un mensaje de error:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/Instructors/Create.cshtml.cs?name=snippet_HandleMBError&highlight=3-6)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/Instructors/Create.cshtml.cs?name=snippet_HandleMBError&highlight=3-6)]
 
 La validación del lado cliente detecta la mayoría de los datos incorrectos que en otros casos se enviarían a un formulario de Razor Pages. Esta validación dificulta que se pueda desencadenar el código resaltado anterior. En la aplicación de ejemplo se incluye un botón **Submit with Invalid Date** (Enviar con fecha no válida) que agrega datos incorrectos al campo **Hire Date** (Fecha de contratación) y envía el formulario. Este botón muestra cómo funciona el código para volver a mostrar la página cuando se producen errores de conversión de datos.
 
@@ -276,13 +276,13 @@ Existen varios atributos integrados para controlar el enlace de modelos de tipos
 
 Solo se puede aplicar a propiedades del modelo, no a parámetros de método. Hace que el enlace de modelos agregue un error de estado de modelo si no se puede realizar el enlace para la propiedad de un modelo. Por ejemplo:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Models/InstructorWithCollection.cs?name=snippet_BindRequired&highlight=8-9)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/InstructorWithCollection.cs?name=snippet_BindRequired&highlight=8-9)]
 
 ### <a name="bindnever-attribute"></a>Atributo [BindNever]
 
 Solo se puede aplicar a propiedades del modelo, no a parámetros de método. Impide que el enlace de modelos establezca la propiedad de un modelo. Por ejemplo:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Models/InstructorWithDictionary.cs?name=snippet_BindNever&highlight=3-4)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/InstructorWithDictionary.cs?name=snippet_BindNever&highlight=3-4)]
 
 ### <a name="bind-attribute"></a>Atributo [Bind]
 
@@ -401,8 +401,8 @@ Para que el proveedor de valores de ruta de ASP.NET Core y el proveedor de valo
 * Reemplace el [valor de referencia cultural](https://github.com/aspnet/AspNetCore/blob/e625fe29b049c60242e8048b4ea743cca65aa7b5/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs#L30) pasado al constructor de proveedor de valores con [CultureInfo.CurrentCulture](xref:System.Globalization.CultureInfo.CurrentCulture)
 * Reemplace el generador de proveedores de valor predeterminado en las opciones de MVC por el nuevo:
 
-[!code-csharp[](model-binding/samples_snapshot/2.x/Startup.cs?name=snippet)]
-[!code-csharp[](model-binding/samples_snapshot/2.x/Startup.cs?name=snippet1)]
+[!code-csharp[](model-binding/samples_snapshot/3.x/Startup.cs?name=snippet)]
+[!code-csharp[](model-binding/samples_snapshot/3.x/Startup.cs?name=snippet1)]
 
 ## <a name="special-data-types"></a>Tipos de datos especiales
 
@@ -432,7 +432,7 @@ Para usar los formateadores de entrada XML integrados:
 
 * En `Startup.ConfigureServices`, llame a <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions.AddXmlSerializerFormatters*> o a <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions.AddXmlDataContractSerializerFormatters*>.
 
-  [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=9)]
+  [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=10)]
 
 * Aplique el atributo `Consumes` a las clases de controlador o los métodos de acción que deben esperar XML en el cuerpo de la solicitud.
 
@@ -444,27 +444,52 @@ Para usar los formateadores de entrada XML integrados:
 
   Para más información, vea [Introducción de la serialización XML](/dotnet/standard/serialization/introducing-xml-serialization).
 
+### <a name="customize-model-binding-with-input-formatters"></a>Personalización del enlace de modelos con formateadores de entrada
+
+Un formateador de entrada asume toda la responsabilidad de leer datos del cuerpo de la solicitud. Para personalizar este proceso, configure las API que usa el formateador de entrada. En esta sección se describe cómo personalizar el formateador de entrada basado en `System.Text.Json` para entender un tipo personalizado denominado `ObjectId`. 
+
+Considere el modelo siguiente, que contiene una propiedad `ObjectId` denominada `Id`:
+
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/ModelWithObjectId.cs?name=snippet_Class&highlight=3)]
+
+Para personalizar el proceso de enlace de modelos al usar `System.Text.Json`, cree una clase derivada de <xref:System.Text.Json.Serialization.JsonConverter%601>:
+
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/JsonConverters/ObjectIdConverter.cs?name=snippet_Class)]
+
+Para usar un convertidor personalizado, aplique el atributo <xref:System.Text.Json.Serialization.JsonConverterAttribute> al tipo. En el ejemplo siguiente, el tipo `ObjectId` se configura con `ObjectIdConverter` como su convertidor personalizado:
+
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/ObjectId.cs?name=snippet_Class&highlight=1)]
+
+Para más información, consulte [Procedimientos para escribir convertidores personalizados](/dotnet/standard/serialization/system-text-json-converters-how-to).
+
 ## <a name="exclude-specified-types-from-model-binding"></a>Exclusión de tipos especificados del enlace de modelos
 
 El comportamiento del enlace de modelos y los sistemas de validación se controla mediante [ModelMetadata](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.modelmetadata). Puede personalizar `ModelMetadata` mediante la adición de un proveedor de detalles a [MvcOptions.ModelMetadataDetailsProviders](xref:Microsoft.AspNetCore.Mvc.MvcOptions.ModelMetadataDetailsProviders). Los proveedores de detalles integrados están disponibles para deshabilitar el enlace de modelos o la validación para tipos especificados.
 
 Para deshabilitar el enlace de modelos en todos los modelos de un tipo especificado, agregue una instancia de <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.ExcludeBindingMetadataProvider> en `Startup.ConfigureServices`. Por ejemplo, para deshabilitar el enlace de modelos en todos los modelos del tipo `System.Version`:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=4-5)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=5-6)]
 
 Para deshabilitar la validación en propiedades de un tipo especificado, agregue una instancia de <xref:Microsoft.AspNetCore.Mvc.ModelBinding.SuppressChildValidationMetadataProvider> en `Startup.ConfigureServices`. Por ejemplo, para deshabilitar la validación en las propiedades de tipo `System.Guid`:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=6-7)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=7-8)]
 
 ## <a name="custom-model-binders"></a>Enlazadores de modelos personalizados
 
 Puede ampliar el enlace de modelos si escribe un enlazador de modelos personalizado y usa el atributo `[ModelBinder]` para seleccionarlo para un destino concreto. Más información sobre el [enlace de modelos personalizados](xref:mvc/advanced/custom-model-binding).
 
-## <a name="manual-model-binding"></a>Enlace de modelos manual
+## <a name="manual-model-binding"></a>Enlace de modelos manual 
 
 El enlace de modelos se puede invocar de forma manual mediante el método <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*>. El método se define en las clases `ControllerBase` y `PageModel`. Las sobrecargas de método permiten especificar el prefijo y el proveedor de valores que se van a usar. El método devuelve `false` si se produce un error en el enlace de modelos. Por ejemplo:
 
-[!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/InstructorsWithCollection/Create.cshtml.cs?name=snippet_TryUpdate&highlight=1-4)]
+[!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/InstructorsWithCollection/Create.cshtml.cs?name=snippet_TryUpdate&highlight=1-4)]
+
+<xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*> usa proveedores de valor para obtener datos del cuerpo del formulario, la cadena de consulta y los datos de ruta. `TryUpdateModelAsync` suele ser: 
+
+* Se usa con aplicaciones de Razor Pages y MVC con controladores y vistas para evitar el exceso de publicación.
+* No se usa con una API web a menos que se consuma a partir de datos de formulario, cadenas de consulta y datos de ruta. Los puntos de conexión de la API web que consumen JSON usan [formateadores de entrada](#input-formatters) para deserializar el cuerpo de la solicitud en un objeto.
+
+Para más información, consulte [TryUpdateModelAsync](xref:data/ef-rp/crud#TryUpdateModelAsync).
 
 ## <a name="fromservices-attribute"></a>Atributo [FromServices]
 

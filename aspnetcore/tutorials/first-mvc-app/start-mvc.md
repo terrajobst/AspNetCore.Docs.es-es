@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo empezar a usar ASP.NET Core MVC.
 ms.author: riande
 ms.date: 10/16/2019
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 0c8c59a5c59c8a70985dc8463c80f9569a00621f
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 901257efdfbc7b36249233745175f5ed253da2c7
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73761239"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722904"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>Introducción a ASP.NET Core MVC
 
@@ -38,15 +38,15 @@ Al final, tendrá una aplicación que le permitirá administrar y mostrar datos 
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-[!INCLUDE[](~/includes/net-core-prereqs-vs-3.0.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-vs-3.1.md)]
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-[!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-vsc-3.1.md)]
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
-[!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-mac-3.1.md)]
 
 ---
 
@@ -98,11 +98,9 @@ Para realizar el tutorial debe estar familiarizado con VS Code. Para más inform
 
   ![Cuadro de diálogo de nuevo proyecto de macOS](./start-mvc/_static/new_project_mvc_vsmac.png)
 
-* En el cuadro de diálogo **Configurar la nueva API web de ASP.NET Core**, establezca el **Marco de trabajo de destino** de **.NET Core 3.0**.
+* En el cuadro de diálogo **Configurar la nueva API web de ASP.NET Core**, establezca el **Marco de trabajo de destino** de **.NET Core 3.1**.
 
-<!-- 
-  ![macOS .NET Core 2.2 selection](./start-mvc/_static/new_project_22_vsmac.png)
--->
+  ![Selección de .NET Core 3.1 de macOS](./start-mvc/_static/new_project_31_vsmac.png)
 
 * Asigne el nombre **MvcMovie** al proyecto y, después, seleccione **Crear**.
 
