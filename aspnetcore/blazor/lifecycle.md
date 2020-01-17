@@ -2,19 +2,20 @@
 title: Ciclo de vida de ASP.NET Core Blazor
 author: guardrex
 description: Aprenda a usar los métodos de ciclo de vida de los componentes de Razor en ASP.NET Core aplicaciones Blazor.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
+- SignalR
 uid: blazor/lifecycle
-ms.openlocfilehash: e600e7c7a6a8c646a655520bd5c127f2cd662753
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: df5bb676df59b538179a69978040521c4ee78ed1
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944036"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146373"
 ---
 # <a name="aspnet-core-opno-locblazor-lifecycle"></a>Ciclo de vida de ASP.NET Core Blazor
 
@@ -26,26 +27,23 @@ El marco de Blazor incluye métodos de ciclo de vida sincrónicos y asincrónico
 
 ### <a name="component-initialization-methods"></a>Métodos de inicialización de componentes
 
-<xref:Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync*> y <xref:Microsoft.AspNetCore.Components.ComponentBase.OnInitialized*> ejecutar código que inicializa un componente. Solo se llama a estos métodos una vez cuando se crea una instancia del componente en primer lugar.
+<xref:Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync*> y <xref:Microsoft.AspNetCore.Components.ComponentBase.OnInitialized*> se invocan cuando se inicializa el componente después de haber recibido sus parámetros iniciales de su componente primario. Utilice `OnInitializedAsync` cuando el componente realiza una operación asincrónica y debe actualizarse cuando se complete la operación. Solo se llama a estos métodos una vez cuando se crea una instancia del componente en primer lugar.
 
-Para realizar una operación asincrónica, use `OnInitializedAsync` y la palabra clave `await` en la operación:
-
-```csharp
-protected override async Task OnInitializedAsync()
-{
-    await ...
-}
-```
-
-> [!NOTE]
-> El trabajo asincrónico durante la inicialización del componente debe producirse durante el evento del ciclo de vida de `OnInitializedAsync`.
-
-En el caso de una operación sincrónica, utilice `OnInitialized`:
+En el caso de una operación sincrónica, invalide `OnInitialized`:
 
 ```csharp
 protected override void OnInitialized()
 {
     ...
+}
+```
+
+Para realizar una operación asincrónica, invalide `OnInitializedAsync` y use la palabra clave `await` en la operación:
+
+```csharp
+protected override async Task OnInitializedAsync()
+{
+    await ...
 }
 ```
 
@@ -70,7 +68,12 @@ Si no se invoca `base.SetParametersAync`, el código personalizado puede interpr
 
 ### <a name="after-parameters-are-set"></a>Después de establecer los parámetros
 
-se llama a <xref:Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync*> y <xref:Microsoft.AspNetCore.Components.ComponentBase.OnParametersSet*> cuando un componente ha recibido parámetros de su elemento primario y los valores se asignan a las propiedades. Estos métodos se ejecutan después de la inicialización del componente y cada vez que se especifican nuevos valores de parámetro:
+se llama a <xref:Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync*> y <xref:Microsoft.AspNetCore.Components.ComponentBase.OnParametersSet*>:
+
+* Cuando el componente se inicializa y ha recibido su primer conjunto de parámetros de su componente primario.
+* Cuando el componente primario vuelve a presentar y proporciona:
+  * Solo se conocen tipos inmutables primitivos de los que se ha cambiado al menos un parámetro.
+  * Cualquier parámetro de tipo complejo. El marco de trabajo no puede saber si los valores de un parámetro de tipo complejo se han mutado internamente, por lo que trata el conjunto de parámetros como modificado.
 
 ```csharp
 protected override async Task OnParametersSetAsync()
@@ -160,7 +163,7 @@ En el `FetchData` componente de las plantillas de Blazor, `OnInitializedAsync` s
 
 Si un componente implementa <xref:System.IDisposable>, se llama al [método Dispose](/dotnet/standard/garbage-collection/implementing-dispose) cuando se quita el componente de la interfaz de usuario. El siguiente componente utiliza `@implements IDisposable` y el método `Dispose`:
 
-```csharp
+```razor
 @using System
 @implements IDisposable
 

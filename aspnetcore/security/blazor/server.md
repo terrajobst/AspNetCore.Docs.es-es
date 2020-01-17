@@ -2,20 +2,20 @@
 title: Protección de aplicaciones de ASP.NET Core Blazor Server
 author: guardrex
 description: Obtenga información acerca de cómo mitigar las amenazas de seguridad para las aplicaciones de Blazor Server.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/server
-ms.openlocfilehash: 2d644b84b304a31ad0debc16164ad155c7f7da65
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: d87aac02137681e62cf8f5cbd4dc8b0be6f8431e
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944287"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146308"
 ---
 # <a name="secure-aspnet-core-opno-locblazor-server-apps"></a>Protección de aplicaciones de ASP.NET Core Blazor Server
 
@@ -144,7 +144,7 @@ No confíe en llamadas de JavaScript a métodos de .NET. Cuando un método .NET 
   * Evite pasar datos proporcionados por el usuario en parámetros a llamadas de JavaScript. Si pasar datos en parámetros es absolutamente necesario, asegúrese de que el código de JavaScript controla el paso de los datos sin introducir vulnerabilidades de [scripting entre sitios (XSS)](#cross-site-scripting-xss) . Por ejemplo, no escriba los datos proporcionados por el usuario en el Document Object Model (DOM) estableciendo la propiedad `innerHTML` de un elemento. Considere la posibilidad de usar la [Directiva de seguridad de contenido (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP) para deshabilitar `eval` y otras primitivas de JavaScript no seguras.
 * Evite implementar la distribución personalizada de las invocaciones de .NET sobre la implementación de distribución del marco. Exponer métodos .NET en el explorador es un escenario avanzado, no recomendado para el desarrollo de Blazor general.
 
-### <a name="events"></a>Events
+### <a name="events"></a>eventos
 
 Los eventos proporcionan un punto de entrada a una aplicación de Blazor Server. Las mismas reglas para proteger los puntos de conexión de las aplicaciones web se aplican al control de eventos en las aplicaciones de Blazor Server. Un cliente malintencionado puede enviar cualquier dato que desee enviar como carga para un evento.
 
@@ -206,7 +206,7 @@ Al agregar la comprobación de `if (count < 3) { ... }` dentro del controlador, 
 
 ### <a name="guard-against-multiple-dispatches"></a>Protección contra varios envíos
 
-Si una devolución de llamada de evento invoca una operación de ejecución prolongada, como la recuperación de datos de una base de datos o un servicio externo, considere la posibilidad de usar una protección. La protección puede impedir que el usuario pueda poner en cola varias operaciones mientras la operación está en curso con comentarios visuales. El código de componente siguiente establece `isLoading` en `true` mientras `GetForecastAsync` obtiene los datos del servidor. Mientras `isLoading` se `true`, el botón está deshabilitado en la interfaz de usuario:
+Si una devolución de llamada de evento invoca de forma asincrónica una operación de ejecución prolongada, como la recuperación de datos de una base de datos o un servicio externo, considere la posibilidad de usar una protección. La protección puede impedir que el usuario pueda poner en cola varias operaciones mientras la operación está en curso con comentarios visuales. El código de componente siguiente establece `isLoading` en `true` mientras `GetForecastAsync` obtiene los datos del servidor. Mientras `isLoading` se `true`, el botón está deshabilitado en la interfaz de usuario:
 
 ```razor
 @page "/fetchdata"
@@ -230,6 +230,8 @@ Si una devolución de llamada de evento invoca una operación de ejecución prol
     }
 }
 ```
+
+El patrón de protección que se muestra en el ejemplo anterior funciona si la operación en segundo plano se ejecuta de forma asincrónica con el `async`-`await` patrón.
 
 ### <a name="cancel-early-and-avoid-use-after-dispose"></a>CANCELAR pronto y evitar usar-After-Dispose
 
@@ -292,7 +294,7 @@ El error del lado cliente no incluye la pila de llamadas y no proporciona detall
 Habilitar errores detallados con:
 
 * `CircuitOptions.DetailedErrors`.
-* Clave de configuración de `DetailedErrors`. Por ejemplo, establezca la variable de entorno `ASPNETCORE_DETAILEDERRORS` en un valor de `true`.
+* `DetailedErrors` clave de configuración. Por ejemplo, establezca la variable de entorno `ASPNETCORE_DETAILEDERRORS` en un valor de `true`.
 
 > [!WARNING]
 > Exponer información de errores a los clientes de Internet es un riesgo de seguridad que siempre debe evitarse.
