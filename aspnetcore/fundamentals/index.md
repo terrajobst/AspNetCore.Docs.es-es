@@ -5,14 +5,14 @@ description: Obtenga información sobre los conceptos básicos para crear aplica
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 01/15/2020
 uid: fundamentals/index
-ms.openlocfilehash: 7173a732a04bf3e598adef298fa9120c15dd52fb
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 3fbfc7c4c0d5e568339bc00a7cbe84a3932acf1f
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799370"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146360"
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
@@ -33,7 +33,7 @@ Aquí tiene una clase `Startup` de ejemplo:
 
 [!code-csharp[](index/snapshots/2.x/Startup1.cs?highlight=3,12)]
 
-Para más información, consulte <xref:fundamentals/startup>.
+Para obtener más información, vea <xref:fundamentals/startup>.
 
 ## <a name="dependency-injection-services"></a>Inserción de dependencias (servicios)
 
@@ -45,7 +45,7 @@ Aquí tiene una clase que usa DI para obtener un objeto de contexto de Entity Fr
 
 Aunque DI está integrada, está diseñada para permitirle conectar un contenedor de inversión de control (IoC) de terceros si lo prefiere.
 
-Para más información, consulte <xref:fundamentals/dependency-injection>.
+Para obtener más información, vea <xref:fundamentals/dependency-injection>.
 
 ## <a name="middleware"></a>Software intermedio
 
@@ -59,7 +59,7 @@ El código resaltado en el ejemplo siguiente configura la canalización de contr
 
 ASP.NET Core incluye una gran variedad de software intermedio integrado. Además, puede escribir software intermedio personalizado.
 
-Para más información, consulte <xref:fundamentals/middleware/index>.
+Para obtener más información, vea <xref:fundamentals/middleware/index>.
 
 ## <a name="host"></a>administrador de flujos de trabajo
 
@@ -87,7 +87,7 @@ Los métodos `CreateDefaultBuilder` y `ConfigureWebHostDefaults` configuran un h
 * Cargue la configuración de *appsettings.json*, *appsettings.[nombre del entorno].json*, las variables de entorno, los argumentos de línea de comandos y otros orígenes de configuración.
 * Envíe la salida de registro a la consola y los proveedores de depuración.
 
-Para más información, consulte <xref:fundamentals/host/generic-host>.
+Para obtener más información, vea <xref:fundamentals/host/generic-host>.
 
 ::: moniker-end
 
@@ -105,7 +105,7 @@ El métodos `CreateDefaultBuilder` configura un host con opciones de uso común,
 * Cargue la configuración de *appsettings.json*, *appsettings.[nombre del entorno].json*, las variables de entorno, los argumentos de línea de comandos y otros orígenes de configuración.
 * Envíe la salida de registro a la consola y los proveedores de depuración.
 
-Para más información, consulte <xref:fundamentals/host/web-host>.
+Para obtener más información, vea <xref:fundamentals/host/web-host>.
 
 ::: moniker-end
 
@@ -160,7 +160,7 @@ ASP.NET Core proporciona la implementación de servidor multiplataforma *Kestrel
 
 ::: moniker-end
 
-Para más información, consulte <xref:fundamentals/servers/index>.
+Para obtener más información, vea <xref:fundamentals/servers/index>.
 
 ## <a name="configuration"></a>Configuración
 
@@ -170,7 +170,7 @@ Por ejemplo, puede especificar que la configuración procede de *appsettings.jso
 
 Para administrar los datos de configuración confidencial como las contraseñas, ASP.NET Core proporciona una [herramienta de administrador secreto](xref:security/app-secrets). Para los secretos de producción, se recomienda [Azure Key Vault](xref:security/key-vault-configuration).
 
-Para más información, consulte <xref:fundamentals/configuration/index>.
+Para obtener más información, vea <xref:fundamentals/configuration/index>.
 
 ## <a name="options"></a>Opciones
 
@@ -187,7 +187,7 @@ var options = new WebSocketOptions
 app.UseWebSockets(options);
 ```
 
-Para más información, consulte <xref:fundamentals/configuration/options>.
+Para obtener más información, vea <xref:fundamentals/configuration/options>.
 
 ## <a name="environments"></a>Entornos
 
@@ -197,7 +197,7 @@ El siguiente ejemplo de código desde la clase `Startup` configura la aplicació
 
 [!code-csharp[](index/snapshots/2.x/Startup2.cs?highlight=3-6)]
 
-Para más información, consulte <xref:fundamentals/environments>.
+Para obtener más información, vea <xref:fundamentals/environments>.
 
 ## <a name="logging"></a>Registro
 
@@ -219,13 +219,13 @@ Aquí tiene un código de ejemplo que usa un objeto `ILogger`, con la inserción
 
 La interfaz `ILogger` le permite pasar cualquier número de campos para el proveedor de registro. Los campos habitualmente se usan para construir una cadena de mensaje, pero el proveedor también puede enviarlos como campos independientes o almacén de datos. Esta característica permite a los proveedores de registro implementar el [registro semántico, también conocido como registro estructurado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Para más información, consulte <xref:fundamentals/logging/index>.
+Para obtener más información, vea <xref:fundamentals/logging/index>.
 
 ## <a name="routing"></a>Enrutamiento
 
 Una *ruta* es un patrón de dirección URL que se asigna a un controlador. El controlador normalmente es una página de Razor, un método de acción en un controlador MVC o un software intermedio. El enrutamiento de ASP.NET Core le permite controlar las direcciones URL usadas por la aplicación.
 
-Para más información, consulte <xref:fundamentals/routing>.
+Para obtener más información, vea <xref:fundamentals/routing>.
 
 ## <a name="error-handling"></a>Control de errores
 
@@ -236,7 +236,7 @@ ASP.NET Core tiene características integradas para controlar los errores, tales
 * Páginas de códigos de estado estáticos
 * Control de excepciones de inicio
 
-Para más información, consulte <xref:fundamentals/error-handling>.
+Para obtener más información, vea <xref:fundamentals/error-handling>.
 
 ## <a name="make-http-requests"></a>Realización de solicitudes HTTP
 
@@ -248,7 +248,7 @@ Una implementación de `IHttpClientFactory` está disponible para crear instanci
 * Administra la agrupación y duración de las instancias de `HttpClientMessageHandler` subyacentes para evitar los problemas de DNS que suelen producirse al administrar las duraciones de `HttpClient` manualmente.
 * Agrega una experiencia de registro configurable (a través de `ILogger`) en todas las solicitudes enviadas a través de los clientes creados por Factory.
 
-Para más información, consulte <xref:fundamentals/http-requests>.
+Para obtener más información, vea <xref:fundamentals/http-requests>.
 
 ## <a name="content-root"></a>Raíz del contenido
 
@@ -271,13 +271,13 @@ Durante el desarrollo:
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Se puede especificar una ruta raíz de contenido alternativa al [crear el host](#host). Para más información, consulte <xref:fundamentals/host/generic-host#contentrootpath>.
+Se puede especificar una ruta raíz de contenido alternativa al [crear el host](#host). Para obtener más información, vea <xref:fundamentals/host/generic-host#contentrootpath>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Se puede especificar una ruta raíz de contenido alternativa al [crear el host](#host). Para más información, consulte <xref:fundamentals/host/web-host#content-root>.
+Se puede especificar una ruta raíz de contenido alternativa al [crear el host](#host). Para obtener más información, vea <xref:fundamentals/host/web-host#content-root>.
 
 ::: moniker-end
 
@@ -293,7 +293,7 @@ De forma predeterminada, los archivos estáticos se atienden solo desde el direc
 
 ::: moniker range=">= aspnetcore-3.0"
 
-El valor predeterminado de la ruta de acceso de la raíz web es *{raíz del contenido}/wwwroot*, pero se puede especificar una raíz web diferente [al crear el host](#host). Para más información, consulte <xref:fundamentals/host/generic-host#webroot>.
+El valor predeterminado de la ruta de acceso de la raíz web es *{raíz del contenido}/wwwroot*, pero se puede especificar una raíz web diferente [al crear el host](#host). Para obtener más información, vea <xref:fundamentals/host/generic-host#webroot>.
 
 ::: moniker-end
 
@@ -311,6 +311,12 @@ Evite la publicación de archivos en *wwwroot* con el [\<Content> elemento de pr
 </ItemGroup>
 ```
 
+::: moniker range=">= aspnetcore-3.0"
+
+Para evitar la publicación de recursos de identidad estáticos en la raíz web, consulte <xref:security/authentication/identity#prevent-publish-of-static-identity-assets>.
+
+::: moniker-end
+
 En los archivos de Razor ( *.cshtml*), la virgulilla `~/` apunta a la raíz web. Una ruta de acceso que empieza por `~/` se conoce como *ruta de acceso virtual*.
 
-Para más información, consulte <xref:fundamentals/static-files>.
+Para obtener más información, vea <xref:fundamentals/static-files>.

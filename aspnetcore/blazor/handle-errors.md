@@ -2,20 +2,20 @@
 title: Control de errores en las aplicaciones de Blazor de ASP.NET Core
 author: guardrex
 description: Descubra cómo ASP.NET Core Blazor cómo Blazor administra las excepciones no controladas y cómo desarrollar aplicaciones que detecten y controlen los errores.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: d73eb9a0dd0ec7a4bec4b7b9aeaaa4a9ee888bce
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: fe4cc13b1efb8c70c9632f032626aa938fb65ea3
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943711"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76159955"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Control de errores en las aplicaciones de Blazor de ASP.NET Core
 
@@ -23,11 +23,9 @@ Por [Steve Sanderson](https://github.com/SteveSandersonMS)
 
 En este artículo se describe cómo Blazor administra las excepciones no controladas y cómo desarrollar las aplicaciones que detectan y controlan los errores.
 
-::: moniker range=">= aspnetcore-3.1"
-
 ## <a name="detailed-errors-during-development"></a>Errores detallados durante el desarrollo
 
-Cuando una aplicación Blazor no funciona correctamente durante el desarrollo, recibir información detallada del error de la aplicación ayuda a solucionar el problema. Cuando se produce un error, Blazor aplicaciones muestran una barra dorada en la parte inferior de la pantalla:
+Cuando una aplicación Blazor no funciona correctamente durante el desarrollo, recibir información detallada del error de la aplicación ayuda a solucionar el problema. Cuando se produce un error, en las aplicaciones Blazor se muestra una barra dorada en la parte inferior de la pantalla:
 
 * Durante el desarrollo, la barra dorada le dirige a la consola del explorador, donde puede ver la excepción.
 * En producción, la barra dorada informa al usuario de que se ha producido un error y recomienda actualizar el explorador.
@@ -58,8 +56,6 @@ En una aplicación de Blazor Server, personalice la experiencia en el archivo *p
 ```
 
 Los estilos incluidos en las plantillas de Blazor ocultan el elemento `blazor-error-ui` y, a continuación, se muestra cuando se produce un error.
-
-::: moniker-end
 
 ## <a name="how-the-opno-locblazor-framework-reacts-to-unhandled-exceptions"></a>Cómo reacciona el marco de Blazor a las excepciones no controladas
 
@@ -213,8 +209,6 @@ Cuando un circuito finaliza porque un usuario se ha desconectado y el marco est�
 
 ### <a name="prerendering"></a>Representación previa
 
-::: moniker range=">= aspnetcore-3.1"
-
 Blazor componentes se pueden representarse mediante la aplicación auxiliar de etiquetas `Component` de modo que su marca HTML representada se devuelva como parte de la solicitud HTTP inicial del usuario. Esto funciona de la siguiente manera:
 
 * Crear un circuito nuevo para todos los componentes prerepresentados que forman parte de la misma página.
@@ -229,27 +223,6 @@ Si algún componente produce una excepción no controlada durante la representac
 En circunstancias normales, cuando se produce un error en la representación previa, la generación y representación del componente no tiene sentido, ya que no se puede representar un componente de trabajo.
 
 Para tolerar los errores que pueden producirse durante la representación previa, la lógica de control de errores debe colocarse dentro de un componente que pueda producir excepciones. Use instrucciones [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro. En lugar de ajustar la aplicación auxiliar de etiquetas `Component` en una instrucción `try-catch`, coloque la lógica de control de errores en el componente representado por la aplicación auxiliar de etiquetas `Component`.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-Blazor componentes se pueden representar con `Html.RenderComponentAsync` de modo que su marcado HTML representado se devuelva como parte de la solicitud HTTP inicial del usuario. Esto funciona de la siguiente manera:
-
-* Crear un circuito nuevo para todos los componentes prerepresentados que forman parte de la misma página.
-* Generar el código HTML inicial.
-* Tratamiento del circuito como `disconnected` hasta que el explorador del usuario establece una conexión de SignalR al mismo servidor. Cuando se establece la conexión, se reanuda la interactividad en el circuito y se actualiza el marcado HTML de los componentes.
-
-Si algún componente produce una excepción no controlada durante la representación previa, por ejemplo, durante un método de ciclo de vida o en la lógica de representación:
-
-* La excepción es grave para el circuito.
-* La excepción se inicia en la pila de llamadas de la llamada `Html.RenderComponentAsync`. Por lo tanto, se produce un error en toda la solicitud HTTP a menos que el código del desarrollador detecte la excepción explícitamente.
-
-En circunstancias normales, cuando se produce un error en la representación previa, la generación y representación del componente no tiene sentido, ya que no se puede representar un componente de trabajo.
-
-Para tolerar los errores que pueden producirse durante la representación previa, la lógica de control de errores debe colocarse dentro de un componente que pueda producir excepciones. Use instrucciones [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro. En lugar de encapsular la llamada a `RenderComponentAsync` en una instrucción de `try-catch`, coloque la lógica de control de errores en el componente representado por `RenderComponentAsync`.
-
-::: moniker-end
 
 ## <a name="advanced-scenarios"></a>Escenarios avanzados
 

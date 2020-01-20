@@ -2,19 +2,20 @@
 title: Administración de estado de Blazor de ASP.NET Core
 author: guardrex
 description: Obtenga información sobre cómo conservar el estado en las aplicaciones de Blazor Server.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
+- SignalR
 uid: blazor/state-management
-ms.openlocfilehash: 7351ee2438c6adf675b8aa5e8ecdb1b2da7b4f23
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: ffb32a4f274a30f2a5ceed9cbf193285e85bab4c
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943932"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160150"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>Administración de estado de Blazor de ASP.NET Core
 
@@ -241,17 +242,7 @@ Durante la representación previa:
 
 Una manera de resolver el error es deshabilitar la representación previa. Esta suele ser la mejor opción si la aplicación hace un uso intensivo del almacenamiento basado en explorador. La representación previa agrega complejidad y no aprovecha la aplicación porque la aplicación no puede representar de ningún contenido útil hasta que `localStorage` o `sessionStorage` estén disponibles.
 
-::: moniker range=">= aspnetcore-3.1"
-
 Para deshabilitar la representación previa, abra el archivo *pages/_Host. cshtml* y cambie la llamada a `render-mode` de la aplicación auxiliar de etiquetas `Component` a `Server`.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-Para deshabilitar la representación previa, abra el archivo *pages/_Host. cshtml* y cambie la llamada a `Html.RenderComponentAsync<App>(RenderMode.Server)`.
-
-::: moniker-end
 
 La representación previa puede ser útil para otras páginas que no utilizan `localStorage` o `sessionStorage`. Para mantener habilitada la pregeneración, postergue la operación de carga hasta que el explorador esté conectado al circuito. El siguiente es un ejemplo para almacenar un valor de contador:
 
