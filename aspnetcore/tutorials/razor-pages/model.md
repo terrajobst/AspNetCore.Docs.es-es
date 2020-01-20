@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo agregar clases para administrar pe
 ms.author: riande
 ms.date: 12/05/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 0934c94236b507f2f57200ded4344a71c483d356
-ms.sourcegitcommit: 5fe17e54f7e4267a2fdecc6f9aa1d41166cecc34
+ms.openlocfilehash: fa5be8f3a222a7c186409faa2f48e43347df637a
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75737863"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829301"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core
 
@@ -47,8 +47,8 @@ Haga clic con el botón derecho en la carpeta *Models*. Seleccione **Agregar** >
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
-* En el Panel de solución, haga clic con el botón derecho en el proyecto **RazorPagesMovie** y seleccione **Agregar** > **Nueva carpeta...**. Asigne a la carpeta el nombre *Models*.
-* Haga clic con el botón derecho en la carpeta *Modelos* y, luego, seleccione **Agregar** > **Nuevo archivo...**.
+* En el Panel de solución, haga clic con el botón derecho en el proyecto **RazorPagesMovie** y seleccione **Agregar** > **Nueva carpeta...** . Asigne a la carpeta el nombre *Models*.
+* Haga clic con el botón derecho en la carpeta *Modelos* y, luego, seleccione **Agregar** > **Nuevo archivo...** .
 * En el cuadro de diálogo **Nuevo archivo**:
 
   * Seleccione **General** en el panel izquierdo.
@@ -80,9 +80,9 @@ En el cuadro de diálogo **Agregar scaffold**, seleccione **Páginas de Razor qu
 
 ![Imagen de las instrucciones anteriores.](model/_static/add_scaffold.png)
 
-Complete el cuadro de diálogo para **agregar páginas de Razor Pages que usan Entity Framework (CRUD)**:
+Complete el cuadro de diálogo para **agregar páginas de Razor Pages que usan Entity Framework (CRUD)** :
 
-* En la lista desplegable **Clase de modelo**, seleccione **Movie (RazorPagesMovie.Models)**.
+* En la lista desplegable **Clase de modelo**, seleccione **Movie (RazorPagesMovie.Models)** .
 * En la fila **Clase de contexto de datos**, seleccione el signo **+** (más) y cambie el nombre generado de RazorPagesMovie.**Models**.RazorPagesMovieContext a RazorPagesMovie.**Data**.RazorPagesMovieContext. [Este cambio](https://developercommunity.visualstudio.com/content/problem/652166/aspnet-core-ef-scaffolder-uses-incorrect-namespace.html) no es necesario. Crea la clase de contexto de datos con el espacio de nombres correcto.
 * Seleccione **Agregar**.
 
@@ -125,7 +125,7 @@ Cree una carpeta *Pages/Movies*:
 * Haga clic con el botón derecho en la carpeta *Páginas* > **Agregar** > **Nueva carpeta**.
 * Asigne a la carpeta el nombre *Movies*.
 
-Haga clic con el botón derecho en la carpeta *Pages/Movies* > **Agregar** > **Nuevo scaffolding...**.
+Haga clic con el botón derecho en la carpeta *Pages/Movies* > **Agregar** > **Nuevo scaffolding...** .
 
 ![Imagen de las instrucciones anteriores.](model/_static/scaMac.png)
 
@@ -133,15 +133,25 @@ En el cuadro de diálogo **Nuevo scaffolding**, seleccione **Páginas de Razor q
 
 ![Imagen de las instrucciones anteriores.](model/_static/add_scaffoldMac.png)
 
-Complete el cuadro de diálogo para **agregar páginas de Razor Pages que usan Entity Framework (CRUD)**:
+Complete el cuadro de diálogo para **agregar páginas de Razor Pages que usan Entity Framework (CRUD)** :
 
-* En la lista desplegable **Clase de modelo**, seleccione o escriba **Movie (RazorPagesMovie.Models)**.
+* En la lista desplegable **Clase de modelo**, seleccione o escriba **Movie (RazorPagesMovie.Models)** .
 * En la fila **Clase de contexto de datos**, escriba el nombre de la nueva clase, RazorPagesMovie.**Data**.RazorPagesMovieContext. [Este cambio](https://developercommunity.visualstudio.com/content/problem/652166/aspnet-core-ef-scaffolder-uses-incorrect-namespace.html) no es necesario. Crea la clase de contexto de datos con el espacio de nombres correcto.
 * Seleccione **Agregar**.
 
 ![Imagen de las instrucciones anteriores.](model/_static/arpMac.png)
 
 El archivo *appsettings.json* se actualiza con la cadena de conexión que se usa para conectarse a una base de datos local.
+
+### <a name="add-ef-tools"></a>Incorporación de herramientas de EF
+
+Ejecute el siguiente comando de la CLI de .NET Core:
+
+```dotnetcli
+dotnet tool install --global dotnet-ef
+```
+
+El comando anterior incorpora las herramientas de Entity Framework Core para la CLI de .NET Core.
 
 ---
 
@@ -350,14 +360,14 @@ En el cuadro de diálogo **Agregar scaffold**, seleccione **Páginas de Razor qu
 
 ![Imagen de las instrucciones anteriores.](model/_static/add_scaffold.png)
 
-Complete el cuadro de diálogo para **agregar páginas de Razor Pages que usan Entity Framework (CRUD)**:
+Complete el cuadro de diálogo para **agregar páginas de Razor Pages que usan Entity Framework (CRUD)** :
 <!-- In the next section, change 
 (plus) sign and accept the generated name 
 to use Data, it should not use models. That will make the namespace the same for the VS version and the CLI version
 -->
 
-* En la lista desplegable **Clase de modelo**, seleccione **Movie (RazorPagesMovie.Models)**.
-* En la fila **Clase de contexto de datos**, seleccione el signo más **+**, inicie sesión y acepte el nombre generado **RazorPagesMovie.Models.RazorPagesMovieContext**.
+* En la lista desplegable **Clase de modelo**, seleccione **Movie (RazorPagesMovie.Models)** .
+* En la fila **Clase de contexto de datos**, seleccione el signo más **+** , inicie sesión y acepte el nombre generado **RazorPagesMovie.Models.RazorPagesMovieContext**.
 * Seleccione **Agregar**.
 
 ![Imagen de las instrucciones anteriores.](model/_static/arp.png)
@@ -400,7 +410,7 @@ En el cuadro de diálogo **Agregar nuevos scaffolding**, seleccione **Páginas d
 
 ![Imagen de las instrucciones anteriores.](model/_static/add_scaffoldMac.png)
 
-Complete el cuadro de diálogo para **agregar páginas de Razor Pages que usan Entity Framework (CRUD)**:
+Complete el cuadro de diálogo para **agregar páginas de Razor Pages que usan Entity Framework (CRUD)** :
 
 * En la lista desplegable **Clase de modelo**, seleccione o escriba **Movie**.
 * En la fila **Clase de contexto de datos**, escriba o seleccione **RazorPagesMovieContext**. Se creará una nueva clase de contexto de la base de datos con el espacio de nombres correcto. En este caso, será **RazorPagesMovie.Models.RazorPagesMovieContext**.

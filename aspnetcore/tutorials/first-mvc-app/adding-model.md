@@ -3,14 +3,14 @@ title: Agregar un modelo a una aplicación de ASP.NET Core MVC
 author: rick-anderson
 description: Agregue un modelo a una aplicación sencilla de ASP.NET Core.
 ms.author: riande
-ms.date: 8/15/2019
+ms.date: 01/13/2020
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 5d4251a2577111324aa2cfb715c41e3ecad5a9d1
-ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
+ms.openlocfilehash: adf313418e82cc265304262f7a751273fa0e139f
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75722807"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75952107"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Agregar un modelo a una aplicación de ASP.NET Core MVC
 
@@ -50,8 +50,8 @@ La clase `Movie` contiene un campo `Id`, que la base de datos requiere para la c
 
 El atributo [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) de `ReleaseDate` especifica el tipo de los datos (`Date`). Con este atributo:
 
-  * El usuario no tiene que especificar información horaria en el campo de fecha.
-  * Solo se muestra la fecha, no información horaria.
+* El usuario no tiene que especificar información horaria en el campo de fecha.
+* Solo se muestra la fecha, no información horaria.
 
 Los elementos [DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) se tratan en un tutorial posterior.
 
@@ -88,9 +88,10 @@ Se mostrará el cuadro de diálogo **Seleccionar los proyectos**, con el proyect
 Se mostrará un cuadro de diálogo **Aceptación de licencia**. Revise las licencias como quiera y, a continuación, haga clic en el botón **Aceptar**.
 
 Repita los pasos anteriores para instalar los paquetes NuGet siguientes:
- * `Microsoft.VisualStudio.Web.CodeGeneration.Design`
- * `Microsoft.EntityFrameworkCore.SqlServer`
- * `Microsoft.EntityFrameworkCore.Design`
+
+* `Microsoft.VisualStudio.Web.CodeGeneration.Design`
+* `Microsoft.EntityFrameworkCore.SqlServer`
+* `Microsoft.EntityFrameworkCore.Design`
 
 ---
 
@@ -159,7 +160,7 @@ Use la herramienta de scaffolding para crear páginas de creación, lectura, act
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta *Controladores***> Agregar > Nuevo elemento con scaffold**.
+En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta *Controladores* **> Agregar > Nuevo elemento con scaffold**.
 
 ![vista del paso anterior](adding-model/_static/add_controller21.png)
 
@@ -192,13 +193,13 @@ La creación automática de estos archivos se conoce como *scaffolding*.
 * En Linux, exporte la ruta de acceso de la herramienta de scaffolding:
 
   ```console
-    export PATH=$HOME/.dotnet/tools:$PATH
+  export PATH=$HOME/.dotnet/tools:$PATH
   ```
 
 * Ejecute el siguiente comando:
 
   ```dotnetcli
-   dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+  dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
   ```
 
   [!INCLUDE [explains scaffold generated params](~/includes/mvc-intro/model4.md)]
@@ -210,7 +211,7 @@ La creación automática de estos archivos se conoce como *scaffolding*.
 * Ejecute el siguiente comando:
 
   ```dotnetcli
-   dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+  dotnet aspnet-codegenerator controller -name MoviesController -m Movie -dc MvcMovieContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
   ```
 
   [!INCLUDE [explains scaffold generated params](~/includes/mvc-intro/model4.md)]
@@ -233,7 +234,7 @@ En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** > *
 
 En PCM, escriba los siguientes comandos:
 
-```PMC
+```powershell
 Add-Migration InitialCreate
 Update-Database
 ```
@@ -263,7 +264,7 @@ dotnet ef database update
 
 * `ef database update`: actualiza la base de datos a la migración más reciente, que ha creado el comando anterior. El comando ejecuta el método `Up` en el archivo *Migrations/{marca de tiempo}_InitialCreate.cs*, que crea la base de datos.
 
-[!INCLUDE [ more information on the CLI tools for EF Core](~/includes/ef-cli.md)]
+[!INCLUDE [more information on the CLI tools for EF Core](~/includes/ef-cli.md)]
 
 ---
 
@@ -273,7 +274,7 @@ Examine el archivo de migración *Migrations/{marca de tiempo}_InitialCreate.cs*
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Migrations/20190805165915_InitialCreate.cs?name=snippet)]
 
- El método `Up` crea la tabla Movie y configura `Id` como la clave principal. El método `Down` revierte los cambios de esquema realizados por la migración `Up`.
+El método `Up` crea la tabla Movie y configura `Id` como la clave principal. El método `Down` revierte los cambios de esquema realizados por la migración `Up`.
 
 <a name="test"></a>
 
@@ -323,7 +324,11 @@ El constructor usa la [inserción de dependencias](xref:fundamentals/dependency-
 
 El constructor usa la [inserción de dependencias](xref:fundamentals/dependency-injection) para insertar el contexto de base de datos (`MvcMovieContext`) en el controlador. El contexto de base de datos se usa en cada uno de los métodos [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) del controlador.
 
-[!INCLUDE [use SQL Server in production](~/includes/RP/sqlitedev.md)]
+### <a name="use-sqlite-for-development-sql-server-for-production"></a>Uso de SQLite para desarrollo y SQL Server para producción
+
+Cuando se selecciona SQLite, el código generado por la plantilla está listo para desarrollo. En el código siguiente se muestra cómo insertar <xref:Microsoft.AspNetCore.Hosting.IWebHostEnvironment> en el inicio. `IWebHostEnvironment` se inserta para que `ConfigureServices` pueda usar SQLite en desarrollo y SQL Server en producción.
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/StartupDevProd.cs?name=snippet_StartupClass&highlight=5,10,16-28)]
 
 ---
 <!-- end of tabs --->
@@ -364,17 +369,17 @@ Si se encuentra una película, se pasa una instancia del modelo `Movie` a la vis
 
 ```csharp
 return View(movie);
-   ```
+```
 
 Examine el contenido del archivo *Views/Movies/Details.cshtml*:
 
-[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/DetailsOriginal.cshtml)]
+[!code-cshtml[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/DetailsOriginal.cshtml)]
 
 La instrucción `@model` de la parte superior del archivo de vista especifica el tipo de objeto que espera la vista. Cuando se ha creado el controlador de película, se ha incluido la siguiente instrucción `@model`:
 
-```HTML
+```cshtml
 @model MvcMovie.Models.Movie
-   ```
+```
 
 Esta directiva `@model` permite el acceso a la película que el controlador ha pasado a la vista. El objeto `Model` está fuertemente tipado. Por ejemplo, en la vista *Details.cshtml*, el código pasa cada campo de película a los asistentes de HTML `DisplayNameFor` y `DisplayFor` con el objeto `Model` fuertemente tipado. Los métodos `Create` y `Edit` y las vistas también pasan un objeto de modelo `Movie`.
 
@@ -386,11 +391,11 @@ Cuando se ha creado el controlador de películas, el scaffolding ha incluido la 
 
 <!-- Copy Index.cshtml to IndexOriginal.cshtml -->
 
-[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexOriginal.cshtml?range=1)]
+[!code-cshtml[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexOriginal.cshtml?range=1)]
 
 Esta directiva `@model` permite acceder a la lista de películas que el controlador pasó a la vista usando un objeto `Model` fuertemente tipado. Por ejemplo, en la vista *Index.cshtml*, el código recorre en bucle las películas con una instrucción `foreach` sobre el objeto `Model` fuertemente tipado:
 
-[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexOriginal.cshtml?highlight=1,31,34,37,40,43,46-48)]
+[!code-cshtml[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexOriginal.cshtml?highlight=1,31,34,37,40,43,46-48)]
 
 Como el objeto `Model` es fuertemente tipado (como un objeto `IEnumerable<Movie>`), cada elemento del bucle está tipado como `Movie`. Entre otras ventajas, esto implica que se obtiene la comprobación del código en tiempo de compilación.
 
@@ -430,7 +435,7 @@ En esta sección se aplica scaffolding al modelo de película; es decir, la herr
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta *Controladores***> Agregar > Nuevo elemento con scaffold**.
+En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta *Controladores* **> Agregar > Nuevo elemento con scaffold**.
 
 ![vista del paso anterior](adding-model/_static/add_controller21.png)
 

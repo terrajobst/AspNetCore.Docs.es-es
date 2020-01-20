@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo agregar un controlador a una senci
 ms.author: riande
 ms.date: 08/05/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: fe0c1d3c066d6ab20387391e15c3a7cfe684c61e
-ms.sourcegitcommit: 077b45eceae044475f04c1d7ef2d153d7c0515a8
+ms.openlocfilehash: fb670902b0dafa7dce2b3372e550095387844936
+ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2019
-ms.locfileid: "75542708"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914250"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Agregar un controlador a una aplicación de ASP.NET Core MVC
 
@@ -110,7 +110,7 @@ Reemplace `{PORT}` por el número de puerto. Puede probar distintos valores para
 
 ![Ventana del explorador que muestra una respuesta de la aplicación de Hello Rick, NumTimes es\: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
-En la ilustración anterior, el segmento de dirección URL (`Parameters`) no se usa, y los parámetros `name` y `numTimes` se pasan como [cadenas de consulta](https://wikipedia.org/wiki/Query_string). El `?` (signo de interrogación) en la dirección URL anterior es un separador y le siguen las cadenas de consulta. El carácter `&` separa las cadenas de consulta.
+En la imagen anterior, el segmento de dirección URL (`Parameters`) no se usa y los parámetros `name` y `numTimes` se pasan en la [cadena de consulta](https://wikipedia.org/wiki/Query_string). El `?` (signo de interrogación) en la dirección URL anterior es un separador y le sigue la cadena de consulta. El carácter `&` separa los pares campo-valor.
 
 Reemplace el método `Welcome` con el código siguiente:
 
@@ -229,7 +229,7 @@ Reemplace `{PORT}` por el número de puerto. Puede probar distintos valores para
 
 ![Ventana del explorador que muestra una respuesta de la aplicación de Hello Rick, NumTimes es\: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
-En la ilustración anterior, el segmento de dirección URL (`Parameters`) no se usa, y los parámetros `name` y `numTimes` se pasan como [cadenas de consulta](https://wikipedia.org/wiki/Query_string). El `?` (signo de interrogación) en la dirección URL anterior es un separador y le siguen las cadenas de consulta. El carácter `&` separa las cadenas de consulta.
+En la imagen anterior, el segmento de dirección URL (`Parameters`) no se usa y los parámetros `name` y `numTimes` se pasan en la [cadena de consulta](https://wikipedia.org/wiki/Query_string). El `?` (signo de interrogación) en la dirección URL anterior es un separador y le sigue la cadena de consulta. El carácter `&` separa los pares campo-valor.
 
 Reemplace el método `Welcome` con el código siguiente:
 
