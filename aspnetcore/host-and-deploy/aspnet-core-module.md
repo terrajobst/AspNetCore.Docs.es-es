@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo configurar el módulo de ASP.NET C
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: c9bbd36b8a55b837f6d78abf99215c5496895a39
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 75f4a158253dd3276ed37011d9aa73d82cad5b79
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799415"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75952018"
 ---
 # <a name="aspnet-core-module"></a>Módulo ASP.NET Core
 
@@ -173,7 +173,7 @@ Para obtener información sobre la configuración de aplicaciones secundarias de
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Atributos del elemento aspNetCore
 
-| Atributo | DESCRIPCIÓN | Default |
+| Atributo | Descripción | Default |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Atributo de cadena opcional.</p><p>Argumentos para el archivo ejecutable especificado en **processPath**.</p> | |
 | `disableStartUpErrorPage` | <p>Atributo Boolean opcional.</p><p>Si es true, la página **502.5 - Error en el proceso** se suprime, y tiene prioridad la página de código de estado 502 configurada en *web.config*.</p> | `false` |
@@ -188,7 +188,7 @@ Para obtener información sobre la configuración de aplicaciones secundarias de
 | `stdoutLogEnabled` | <p>Atributo Boolean opcional.</p><p>Si es true, **stdout** y **stderr** en el proceso especificado en **processPath** se redirigen al archivo especificado en **stdoutLogFile**.</p> | `false` |
 | `stdoutLogFile` | <p>Atributo de cadena opcional.</p><p>Especifica la ruta de acceso relativa o absoluta para la que se registran **stdout** y **stderr** desde el proceso especificado en **processPath**. Las rutas de acceso relativas son relativas a la raíz del sitio. Cualquier ruta de acceso que se inicia con `.` es relativa a la raíz del sitio y todas las demás rutas de acceso se tratan como absolutas. Al crearse el archivo de registro, el módulo crea las carpetas que se proporcionan en la ruta de acceso. Mediante delimitadores se agrega una marca de tiempo, un identificador de proceso y una extensión de archivo ( *.log*) al último segmento de la ruta de acceso **stdoutLogFile**. Si `.\logs\stdout` se proporciona como valor, se guarda un registro de ejemplo de stdout como *stdout_20180205194132_1934.log* en la carpeta *logs*, cuando se guarda el 5/2/2018 a las 19:41:32 con un identificador de proceso de 1934.</p> | `aspnetcore-stdout` |
 
-### <a name="set-environment-variables"></a>Establecimiento de variables de entorno
+### <a name="set-environment-variables"></a>Establecimiento de las variables de entorno
 
 Se pueden especificar variables de entorno para el proceso en el atributo `processPath`. Especifique una variable de entorno con el elemento secundario `<environmentVariable>` de un elemento de la colección `<environmentVariables>`. Las variables de entorno establecidas en esta sección tienen prioridad sobre las variables del entorno del sistema.
 
@@ -588,7 +588,7 @@ Para obtener información sobre la configuración de aplicaciones secundarias de
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Atributos del elemento aspNetCore
 
-| Atributo | DESCRIPCIÓN | Default |
+| Atributo | Descripción | Default |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Atributo de cadena opcional.</p><p>Argumentos para el archivo ejecutable especificado en **processPath**.</p> | |
 | `disableStartUpErrorPage` | <p>Atributo Boolean opcional.</p><p>Si es true, la página **502.5 - Error en el proceso** se suprime, y tiene prioridad la página de código de estado 502 configurada en *web.config*.</p> | `false` |
@@ -895,7 +895,7 @@ Para obtener información sobre la configuración de aplicaciones secundarias de
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Atributos del elemento aspNetCore
 
-| Atributo | DESCRIPCIÓN | Default |
+| Atributo | Descripción | Default |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Atributo de cadena opcional.</p><p>Argumentos para el archivo ejecutable especificado en **processPath**.</p>| |
 | `disableStartUpErrorPage` | <p>Atributo Boolean opcional.</p><p>Si es true, la página **502.5 - Error en el proceso** se suprime, y tiene prioridad la página de código de estado 502 configurada en *web.config*.</p> | `false` |
@@ -1046,5 +1046,6 @@ Los archivos se pueden encontrar mediante la búsqueda de *aspnetcore* en el arc
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * <xref:host-and-deploy/iis/index>
-* [Repositorio GitHub del módulo ASP.NET Core (origen de referencia)](https://github.com/aspnet/AspNetCoreModule)
+* <xref:host-and-deploy/azure-apps/index>
+* [Origen de la referencia del módulo de ASP.NET Core (rama maestra)](https://github.com/dotnet/aspnetcore/tree/master/src/Servers/IIS/AspNetCoreModuleV2) &ndash; Use la lista desplegable **Rama** para seleccionar una versión específica (por ejemplo, `release/3.1`).
 * <xref:host-and-deploy/iis/modules>

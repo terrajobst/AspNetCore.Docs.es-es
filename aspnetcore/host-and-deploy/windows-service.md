@@ -5,14 +5,14 @@ description: Aprenda a hospedar una aplicación ASP.NET Core en un servicio de W
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/30/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 014585cd1e170fc94f7f577e11ec19824e54572f
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 37fc0b7862db3280f9ade8d563feba28153ab79b
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73659845"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75951840"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hospedaje de ASP.NET Core en un servicio de Windows
 
@@ -49,7 +49,7 @@ La aplicación requiere una referencia de paquete para [Microsoft.Extensions.Hos
 Se llama a `IHostBuilder.UseWindowsService` al compilar el host. Si la aplicación se ejecuta como un servicio de Windows, el método:
 
 * Establece la vigencia del host en `WindowsServiceLifetime`.
-* Establece la [raíz del contenido](xref:fundamentals/index#content-root).
+* Establece la [raíz del contenido](xref:fundamentals/index#content-root) en [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory). Para obtener más información, consulte la sección [Directorio actual y raíz del contenido](#current-directory-and-content-root).
 * Habilita el registro en el registro de eventos con el nombre de la aplicación como nombre de origen predeterminado.
   * El nivel de registro puede configurarse con la clave `Logging:LogLevel:Default` en el archivo *appsettings.Production.json*.
   * Los administradores son los únicos que pueden crear nuevos orígenes de eventos. Cuando no se puede crear un origen de eventos con el nombre de la aplicación, se registra una advertencia para el origen *Aplicación* y los registros de eventos se deshabilitan.
@@ -196,13 +196,13 @@ Para crear una cuenta de usuario para un servicio, use el cmdlet [New-LocalUser]
 En la actualización de octubre de 2018 de Windows 10 (versión 1809/compilación 10.0.17763) o posterior:
 
 ```PowerShell
-New-LocalUser -Name {NAME}
+New-LocalUser -Name {SERVICE NAME}
 ```
 
 En el sistema operativo Windows anterior a la actualización de octubre de 2018 de Windows 10 (versión 1809/compilación 10.0.17763):
 
 ```console
-powershell -Command "New-LocalUser -Name {NAME}"
+powershell -Command "New-LocalUser -Name {SERVICE NAME}"
 ```
 
 Proporcione una [contraseña segura](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements) cuando se le solicite.
@@ -239,12 +239,12 @@ $accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule($acl
 $acl.SetAccessRule($accessRule)
 $acl | Set-Acl "{EXE PATH}"
 
-New-Service -Name {NAME} -BinaryPathName {EXE FILE PATH} -Credential {DOMAIN OR COMPUTER NAME\USER} -Description "{DESCRIPTION}" -DisplayName "{DISPLAY NAME}" -StartupType Automatic
+New-Service -Name {SERVICE NAME} -BinaryPathName {EXE FILE PATH} -Credential {DOMAIN OR COMPUTER NAME\USER} -Description "{DESCRIPTION}" -DisplayName "{DISPLAY NAME}" -StartupType Automatic
 ```
 
-* `{EXE PATH}`&ndash; Ruta de acceso a la carpeta de la aplicación en el host (por ejemplo, `d:\myservice`). No incluya el archivo ejecutable de la aplicación en la ruta de acceso. No se requiere una barra diagonal al final.
-* `{DOMAIN OR COMPUTER NAME\USER}` &ndash;Cuenta de usuario de servicio (por ejemplo, `Contoso\ServiceUser`).
-* `{NAME}` &ndash;Nombre de servicio (por ejemplo, `MyService`).
+* `{EXE PATH}` &ndash; Ruta de acceso a la carpeta de la aplicación en el host (por ejemplo, `d:\myservice`). No incluya el archivo ejecutable de la aplicación en la ruta de acceso. No se requiere una barra diagonal al final.
+* `{DOMAIN OR COMPUTER NAME\USER}` &ndash; Cuenta de usuario de servicio (por ejemplo, `Contoso\ServiceUser`).
+* `{SERVICE NAME}` &ndash; Nombre de servicio (por ejemplo, `MyService`).
 * `{EXE FILE PATH}` &ndash; Ruta de acceso del ejecutable de la aplicación (por ejemplo, `d:\myservice\myservice.exe`). Incluya el nombre de archivo del ejecutable con la extensión.
 * `{DESCRIPTION}` &ndash; Descripción del servicio (por ejemplo, `My sample service`).
 * `{DISPLAY NAME}` &ndash; Nombre para mostrar del servicio (por ejemplo, `My Service`).
@@ -254,7 +254,7 @@ New-Service -Name {NAME} -BinaryPathName {EXE FILE PATH} -Credential {DOMAIN OR 
 Inicie el servicio con el siguiente comando de PowerShell 6:
 
 ```powershell
-Start-Service -Name {NAME}
+Start-Service -Name {SERVICE NAME}
 ```
 
 Este comando tarda unos segundos en iniciar el servicio.
@@ -264,7 +264,7 @@ Este comando tarda unos segundos en iniciar el servicio.
 Para comprobar el estado de un servicio, use el siguiente comando de PowerShell 6:
 
 ```powershell
-Get-Service -Name {NAME}
+Get-Service -Name {SERVICE NAME}
 ```
 
 El estado se notifica como uno de los siguientes valores:
@@ -279,7 +279,7 @@ El estado se notifica como uno de los siguientes valores:
 Detenga un servicio con el siguiente comando de PowerShell 6:
 
 ```powershell
-Stop-Service -Name {NAME}
+Stop-Service -Name {SERVICE NAME}
 ```
 
 ### <a name="remove-a-service"></a>Eliminación de un servicio
@@ -287,7 +287,7 @@ Stop-Service -Name {NAME}
 Tras un breve intervalo para detener un servicio, elimine el servicio con el siguiente comando de PowerShell 6:
 
 ```powershell
-Remove-Service -Name {NAME}
+Remove-Service -Name {SERVICE NAME}
 ```
 
 ::: moniker range="< aspnetcore-3.0"
@@ -316,9 +316,9 @@ Para controlar los eventos <xref:Microsoft.AspNetCore.Hosting.WindowsServices.We
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Escenarios de servidor proxy y equilibrador de carga
 
-Los servicios que interactúan con las solicitudes de Internet o de una red corporativa y están detrás de un proxy o de un equilibrador de carga podrían requerir configuración adicional. Para más información, consulte <xref:host-and-deploy/proxy-load-balancer>.
+Los servicios que interactúan con las solicitudes de Internet o de una red corporativa y están detrás de un proxy o de un equilibrador de carga podrían requerir configuración adicional. Para obtener más información, vea <xref:host-and-deploy/proxy-load-balancer>.
 
-## <a name="configure-endpoints"></a>Configuración de extremos
+## <a name="configure-endpoints"></a>Configuración de puntos de conexión
 
 ASP.NET Core se enlaza a `http://localhost:5000` de forma predeterminada. Configure la dirección URL y el puerto estableciendo la variable de entorno `ASPNETCORE_URLS`.
 
@@ -341,6 +341,16 @@ El directorio de trabajo actual devuelto por una llamada a <xref:System.IO.Direc
 ### <a name="use-contentrootpath-or-contentrootfileprovider"></a>Uso de ContentRootPath o ContentRootFileProvider
 
 Use [IHostEnvironment.ContentRootPath](xref:Microsoft.Extensions.Hosting.IHostEnvironment.ContentRootPath) o <xref:Microsoft.Extensions.Hosting.IHostEnvironment.ContentRootFileProvider> para buscar los recursos de una aplicación.
+
+Cuando la aplicación se ejecuta como un servicio, <xref:Microsoft.Extensions.Hosting.WindowsServiceLifetimeHostBuilderExtensions.UseWindowsService*> establece la ruta de acceso <xref:Microsoft.Extensions.Hosting.IHostEnvironment.ContentRootPath> en [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory).
+
+Los archivos de configuración predeterminados de la aplicación, *appsettings.json* and *appsettings.{Entorno}.json*, se cargan desde la raíz del contenido de la aplicación mediante una llamada a [CreateDefaultBuilder durante la construcción del host](xref:fundamentals/host/generic-host#set-up-a-host).
+
+En el caso de otros archivos de configuración cargados por el código para desarrolladores en <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*>, no es necesario llamar a <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. En el ejemplo siguiente, el archivo *custom_settings.json* ya se encuentra en la raíz del contenido de la aplicación y se carga sin establecer explícitamente una ruta de acceso base:
+
+[!code-csharp[](windows-service/samples_snapshot/CustomSettingsExample.cs?highlight=13)]
+
+No intente usar <xref:System.IO.Directory.GetCurrentDirectory*> para obtener una ruta de acceso a recursos porque una aplicación de servicio de Windows devuelve la carpeta *C:\\WINDOWS\\system32* como su directorio actual.
 
 ::: moniker-end
 
@@ -367,6 +377,83 @@ CreateWebHostBuilder(args)
 ### <a name="store-a-services-files-in-a-suitable-location-on-disk"></a>Almacenamiento de los archivos de un servicio en una ubicación adecuada en el disco
 
 Especifique una ruta de acceso absoluta con <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> al utilizar un <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> a la carpeta que contiene los archivos.
+
+## <a name="troubleshoot"></a>Solucionar problemas
+
+Para solucionar problemas de una aplicación de servicio de Windows, consulte <xref:test/troubleshoot>.
+
+### <a name="common-errors"></a>Errores comunes
+
+* Se está usando una versión preliminar o antigua de PowerShell.
+* El servicio registrado no usa la salida **publicada** de la aplicación del comando [dotnet publish](/dotnet/core/tools/dotnet-publish). La salida del comando [dotnet build](/dotnet/core/tools/dotnet-build) no es compatible con la implementación de aplicaciones. Los recursos publicados se encuentran en cualquiera de las siguientes carpetas, según el tipo de implementación:
+  * *bin/Release/{PLATAFORMA DE DESTINO}/publish* (FDD)
+  * *bin/Release/{PLATAFORMA DE DESTINO}/{IDENTIFICADOR DE RUNTIME}/publish* (SCD)
+* El servicio no está en el estado EN EJECUCIÓN.
+* Las rutas de acceso a los recursos que usa la aplicación (por ejemplo, certificados) son incorrectas. La ruta de acceso base de un servicio de Windows es *c:\\Windows\\System32*.
+* El usuario no tiene derechos de *inicio de sesión como servicio*.
+* La contraseña del usuario ha expirado o se ha pasado incorrectamente al ejecutar el comando de PowerShell `New-Service`.
+* La aplicación requiere autenticación ASP.NET Core, pero no está configurada para conexiones seguras (HTTPS).
+* El puerto de la dirección URL de solicitud es incorrecto o no está configurado correctamente en la aplicación.
+
+### <a name="system-and-application-event-logs"></a>Registros de eventos del sistema y de aplicación
+
+Acceda a los registros de eventos del sistema y de aplicación:
+
+1. Abra el menú Inicio, busque *Visor de eventos* y seleccione la aplicación **Visor de eventos**.
+1. En **Visor de eventos**, abra el nodo **Registros de Windows**.
+1. Seleccione **Sistema** para abrir el registro de eventos del sistema. Seleccione **Aplicación** para abrir el registro de eventos de la aplicación.
+1. Busque los errores asociados a la aplicación objeto del error.
+
+### <a name="run-the-app-at-a-command-prompt"></a>Ejecución de la aplicación en un símbolo del sistema
+
+Muchos errores de inicio no generan información útil en el registro de eventos. La causa de algunos errores se puede encontrar mediante la ejecución de la aplicación en un símbolo del sistema en el sistema de hospedaje. Para registrar detalles adicionales de la aplicación, reduzca el [nivel de registro](xref:fundamentals/logging/index#log-level) o ejecute la aplicación en el [entorno de desarrollo](xref:fundamentals/environments).
+
+### <a name="clear-package-caches"></a>Borrado de memorias caché de paquetes
+
+Una aplicación en funcionamiento deja de ejecutarse inmediatamente después de actualizar el SDK de .NET Core en la máquina de desarrollo o de cambiar las versiones del paquete en la aplicación. En algunos casos, los paquetes incoherentes pueden interrumpir una aplicación al realizar actualizaciones importantes. La mayoría de estos problemas puede corregirse siguiendo estas instrucciones:
+
+1. Elimine las carpetas *bin* y *obj*.
+1. Borre las memorias caché del paquete ejecutando [dotnet nuget locals all --clear](/dotnet/core/tools/dotnet-nuget-locals) desde un shell de comandos.
+
+   Otra manera de borrar las memorias caché de paquetes es usando la herramienta [nuget.exe](https://www.nuget.org/downloads) y ejecutando el comando `nuget locals all -clear`. *nuget.exe* no es una instalación agrupada con el sistema operativo de escritorio de Windows y se debe obtener de forma independiente en el [sitio web de NuGet](https://www.nuget.org/downloads).
+
+1. Restaure el proyecto y vuelva a compilarlo.
+1. Elimine todos los archivos de la carpeta de implementación del servidor antes de volver a implementar la aplicación.
+
+### <a name="slow-or-hanging-app"></a>Aplicación lenta o bloqueada
+
+Un *volcado de memoria* es una instantánea de la memoria del sistema que puede ayudar a determinar la causa de un bloqueo de la aplicación, un error de inicio o una aplicación lenta.
+
+#### <a name="app-crashes-or-encounters-an-exception"></a>Bloqueo o excepción de la aplicación
+
+Obtenga y analice un volcado de memoria en [Informe de errores de Windows (WER)](/windows/desktop/wer/windows-error-reporting):
+
+1. Cree una carpeta para almacenar los archivos de volcado de memoria en `c:\dumps`.
+1. Ejecute el script [EnableDumps PowerShell](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/EnableDumps.ps1) con el nombre del archivo ejecutable de la aplicación:
+
+   ```console
+   .\EnableDumps {APPLICATION EXE} c:\dumps
+   ```
+
+1. Ejecute la aplicación en las condiciones que hacen que se produzca el bloqueo.
+1. Una vez que se haya producido el bloqueo, ejecute el [script DisableDumps de PowerShell](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/DisableDumps.ps1):
+
+   ```console
+   .\DisableDumps {APPLICATION EXE}
+   ```
+
+Después de que se bloquee la aplicación y se complete la recopilación del volcado de memoria, la aplicación puede finalizar con normalidad. El script de PowerShell configura WER de modo que recopile un máximo de cinco volcados de memoria por aplicación.
+
+> [!WARNING]
+> Los volcados de memoria pueden ocupar una gran cantidad de espacio en disco (hasta varios gigabytes cada uno).
+
+#### <a name="app-hangs-fails-during-startup-or-runs-normally"></a>La aplicación deja de responder, produce un error durante el inicio o se ejecuta con normalidad
+
+Si una aplicación *deja de responder* (se detiene, pero no se bloquea), produce un error durante el inicio o se ejecuta con normalidad, vea [User-Mode Dump Files: Choosing the Best Tool](/windows-hardware/drivers/debugger/user-mode-dump-files#choosing-the-best-tool) (Archivos de volcado de memoria en modo de usuario: selección de la mejor herramienta) para seleccionar una herramienta apropiada para generar el volcado de memoria.
+
+#### <a name="analyze-the-dump"></a>Análisis del volcado de memoria
+
+El volcado de memoria se puede analizar de varias maneras. Para obtener más información, vea [Analyzing a User-Mode Dump File](/windows-hardware/drivers/debugger/analyzing-a-user-mode-dump-file) (Análisis de un archivo de volcado de memoria en modo de usuario).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

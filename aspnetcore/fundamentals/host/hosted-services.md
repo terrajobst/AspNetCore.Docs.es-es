@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo implementar tareas en segundo plan
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/19/2019
+ms.date: 01/08/2020
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: da3c2679005714a3d82de94cf3bc3c809aa3500d
-ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
+ms.openlocfilehash: 49229b5db4d58f25f86425f8622d12c9107262bd
+ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74239731"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914207"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Tareas en segundo plano con servicios hospedados en ASP.NET Core
 
@@ -50,7 +50,7 @@ En el caso de las aplicaciones web que usan el SDK de `Microsoft.NET.Sdk.Web`, d
 
 La interfaz <xref:Microsoft.Extensions.Hosting.IHostedService> define dos métodos para los objetos administrados por el host:
 
-* [StartAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StartAsync*): `StartAsync` contiene la lógica para iniciar la tarea en segundo plano. Se llama a `StartAsync` *antes de que*:
+* [StartAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StartAsync*): `StartAsync` contiene la lógica para iniciar la tarea en segundo plano. Se llama a `StartAsync`*antes de que*:
 
   * La canalización de procesamiento de solicitudes de la aplicación está configurada (`Startup.Configure`).
   * El servidor se haya iniciado y [IApplicationLifetime.ApplicationStarted](xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime.ApplicationStarted*) se haya activado.
@@ -95,8 +95,8 @@ La interfaz <xref:Microsoft.Extensions.Hosting.IHostedService> define dos métod
 
   Para ampliar el tiempo de espera predeterminado de apagado de 5 segundos, establezca:
 
-  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> cuando se usa el host genérico. Para más información, consulte <xref:fundamentals/host/generic-host#shutdown-timeout>.
-  * Configuración de los valores de host de tiempo de espera de apagado cuando se usa el host web. Para más información, consulte <xref:fundamentals/host/web-host#shutdown-timeout>.
+  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> cuando se usa el host genérico. Para obtener más información, vea <xref:fundamentals/host/generic-host#shutdown-timeout>.
+  * Configuración de los valores de host de tiempo de espera de apagado cuando se usa el host web. Para obtener más información, vea <xref:fundamentals/host/web-host#shutdown-timeout>.
 
 El servicio hospedado se activa una vez al inicio de la aplicación y se cierra de manera estable cuando dicha aplicación se cierra. Si se produce un error durante la ejecución de una tarea en segundo plano, hay que llamar a `Dispose`, aun cuando no se haya llamado a `StopAsync`.
 
@@ -104,7 +104,7 @@ El servicio hospedado se activa una vez al inicio de la aplicación y se cierra 
 
 <xref:Microsoft.Extensions.Hosting.BackgroundService> es una clase base para implementar un <xref:Microsoft.Extensions.Hosting.IHostedService> de larga duración.
 
-Se llama a [ExecuteAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.BackgroundService.ExecuteAsync*) para ejecutar el servicio en segundo plano. La implementación devuelve <xref:System.Threading.Tasks.Task>, que representa toda la duración del servicio en segundo plano. No se inicia ningún servicio hasta que [ExecuteAsync se convierte en asincrónico](https://github.com/aspnet/Extensions/issues/2149), mediante una llamada a `await`. Evite realizar un trabajo de inicialización de bloqueo prolongado en `ExecuteAsync`. El host se bloquea en [StopAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.BackgroundService.StopAsync*) a la espera de que `ExecuteAsync` se complete.
+Se llama a [ExecuteAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.BackgroundService.ExecuteAsync*) para ejecutar el servicio en segundo plano. La implementación devuelve <xref:System.Threading.Tasks.Task>, que representa toda la duración del servicio en segundo plano. No se inicia ningún servicio hasta que [ExecuteAsync se convierte en asincrónico](https://github.com/dotnet/extensions/issues/2149), mediante una llamada a `await`. Evite realizar un trabajo de inicialización de bloqueo prolongado en `ExecuteAsync`. El host se bloquea en [StopAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.BackgroundService.StopAsync*) a la espera de que `ExecuteAsync` se complete.
 
 El token de cancelación se desencadena cuando se llama a [IHostedService.StopAsync](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*). La implementación de `ExecuteAsync` debe finalizar rápidamente cuando se active el token de cancelación para cerrar correctamente el servicio. De lo contrario, el servicio se cierra de manera abrupta durante el tiempo de expiración del cierre. Para más información, consulte la sección sobre la [interfaz IHostedService](#ihostedservice-interface).
 
@@ -112,7 +112,9 @@ El token de cancelación se desencadena cuando se llama a [IHostedService.StopAs
 
 Una tarea en segundo plano temporizada hace uso de la clase [System.Threading.Timer](xref:System.Threading.Timer). El temporizador activa el método `DoWork` de la tarea. El temporizador está deshabilitado en `StopAsync` y se desecha cuando el contenedor de servicios se elimina en `Dispose`:
 
-[!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/TimedHostedService.cs?name=snippet1&highlight=16-18,34,41)]
+[!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/TimedHostedService.cs?name=snippet1&highlight=16-17,34,41)]
+
+<xref:System.Threading.Timer> no espera a que finalicen las ejecuciones anteriores de `DoWork`, por lo que es posible que el enfoque mostrado no sea adecuado para todos los escenarios. [Interlocked.Increment](xref:System.Threading.Interlocked.Increment*) se usa para incrementar el contador de ejecución como una operación atómica, lo que garantiza que varios subprocesos no actualicen `executionCount` simultáneamente.
 
 El servicio se registra en `IHostBuilder.ConfigureServices` (*Program.cs*) con el método de extensión `AddHostedService`:
 
@@ -200,8 +202,8 @@ Los servicios hospedados implementan la interfaz <xref:Microsoft.Extensions.Host
 
   Para ampliar el tiempo de espera predeterminado de apagado de 5 segundos, establezca:
 
-  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> cuando se usa el host genérico. Para más información, consulte <xref:fundamentals/host/generic-host#shutdown-timeout>.
-  * Configuración de los valores de host de tiempo de espera de apagado cuando se usa el host web. Para más información, consulte <xref:fundamentals/host/web-host#shutdown-timeout>.
+  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> cuando se usa el host genérico. Para obtener más información, vea <xref:fundamentals/host/generic-host#shutdown-timeout>.
+  * Configuración de los valores de host de tiempo de espera de apagado cuando se usa el host web. Para obtener más información, vea <xref:fundamentals/host/web-host#shutdown-timeout>.
 
 El servicio hospedado se activa una vez al inicio de la aplicación y se cierra de manera estable cuando dicha aplicación se cierra. Si se produce un error durante la ejecución de una tarea en segundo plano, hay que llamar a `Dispose`, aun cuando no se haya llamado a `StopAsync`.
 
@@ -210,6 +212,8 @@ El servicio hospedado se activa una vez al inicio de la aplicación y se cierra 
 Una tarea en segundo plano temporizada hace uso de la clase [System.Threading.Timer](xref:System.Threading.Timer). El temporizador activa el método `DoWork` de la tarea. El temporizador está deshabilitado en `StopAsync` y se desecha cuando el contenedor de servicios se elimina en `Dispose`:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Services/TimedHostedService.cs?name=snippet1&highlight=15-16,30,37)]
+
+<xref:System.Threading.Timer> no espera a que finalicen las ejecuciones anteriores de `DoWork`, por lo que es posible que el enfoque mostrado no sea adecuado para todos los escenarios.
 
 El servicio se registra en `Startup.ConfigureServices` con el método de extensión `AddHostedService`:
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/04/2019
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 20e58660185a3055e06e92d9136e80e2394a470d
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: b5433576ff3e997e6d80201236be2d8463a52d07
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881071"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829236"
 ---
 # <a name="upload-files-in-aspnet-core"></a>Carga de archivos en ASP.NET Core
 
@@ -83,7 +83,7 @@ Las opciones de almacenamiento comunes para los archivos incluyen:
   * Los servicios suelen ofrecer una escalabilidad y resistencia mejoradas sobre las soluciones locales que normalmente están sujetas a únicos puntos de error.
   * Los servicios pueden tener un costo menor en escenarios de infraestructura de almacenamiento de gran tamaño.
 
-  Para obtener más información, vea [Inicio rápido: Uso de .NET para crear un blob en el almacenamiento de objetos](/azure/storage/blobs/storage-quickstart-blobs-dotnet). En el tema se muestra <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromFileAsync*>, pero se puede usar <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromStreamAsync*> para guardar un <xref:System.IO.FileStream> en el almacenamiento de blobs cuando se trabaja con un <xref:System.IO.Stream>.
+  Para obtener más información, vea [Inicio rápido: Use .NET para crear un blob en el almacenamiento de objetos](/azure/storage/blobs/storage-quickstart-blobs-dotnet). En el tema se muestra <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromFileAsync*>, pero se puede usar <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromStreamAsync*> para guardar un <xref:System.IO.FileStream> en el almacenamiento de blobs cuando se trabaja con un <xref:System.IO.Stream>.
 
 ## <a name="file-upload-scenarios"></a>Escenarios de carga de archivos
 
@@ -183,7 +183,7 @@ El ejemplo siguiente es análogo al ejemplo anterior, salvo en que:
 Para realizar la solicitud POST en JavaScript para los clientes que [no admiten Fetch API](https://caniuse.com/#feat=fetch), use uno de estos enfoques:
 
 * Use un Fetch Polyfill (por ejemplo, [window.fetch polyfill (github/fetch)](https://github.com/github/fetch)).
-* Use `XMLHttpRequest`. Por ejemplo: 
+* Use `XMLHttpRequest`. Por ejemplo:
 
   ```javascript
   <script>
@@ -292,7 +292,7 @@ foreach (var formFile in files)
 }
 ```
 
-La ruta de acceso pasada al <xref:System.IO.FileStream> *debe* incluir el nombre de archivo. Si no se proporciona el nombre de archivo, se produce una <xref:System.UnauthorizedAccessException> en tiempo de ejecución.
+La ruta de acceso pasada a <xref:System.IO.FileStream> *debe* incluir el nombre de archivo. Si no se proporciona el nombre de archivo, se produce una <xref:System.UnauthorizedAccessException> en tiempo de ejecución.
 
 Los archivos que se cargan usando la técnica <xref:Microsoft.AspNetCore.Http.IFormFile> se almacenan en búfer en memoria o en disco en el servidor web antes de procesarse. Dentro del método de acción, se puede tener acceso al contenido de <xref:Microsoft.AspNetCore.Http.IFormFile> como <xref:System.IO.Stream>. Además del sistema de archivos local, los archivos se pueden guardar en un recurso compartido de red o en un servicio de almacenamiento de archivos, como [Azure Blob Storage](/azure/visual-studio/vs-storage-aspnet5-getting-started-blobs).
 
@@ -448,7 +448,7 @@ La clase `FileHelpers` de la aplicación de ejemplo muestra varias comprobacione
 >
 > **No implemente nunca de manera indiscriminada el código de seguridad en una aplicación sin abordar estos requisitos.**
 
-### <a name="content-validation"></a>Validación del contenido
+### <a name="content-validation"></a>Pestaña Validación de contenido
 
 **Use una API de detección de virus/malware de terceros en el contenido cargado.**
 
@@ -456,7 +456,7 @@ El análisis de archivos exige recursos del servidor en escenarios de gran volum
 
 ### <a name="file-extension-validation"></a>Validación de la extensión del archivo
 
-La extensión del archivo cargado debe comprobarse con una lista de extensiones permitidas. Por ejemplo: 
+La extensión del archivo cargado debe comprobarse con una lista de extensiones permitidas. Por ejemplo:
 
 ```csharp
 private string[] permittedExtensions = { ".txt", ".pdf" };
@@ -716,7 +716,7 @@ El límite predeterminado de solicitudes (`maxAllowedContentLength`) es 30 000�
 
 Esto solo ocurre en IIS; este comportamiento no sucede de forma predeterminada cuando los archivos se hospedan en Kestrel. Para más información, consulte [Límites de solicitud \<requestLimits>](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/).
 
-Las limitaciones del módulo ASP.NET Core o la presencia del módulo de filtrado de solicitudes de IIS pueden limitar las cargas a 2 GB o 4 GB. Para más información, consulte el artículo que indica que [no se pueden cargar archivos con un tamaño superior a 2 GB (aspnet/AspNetCore #2711)](https://github.com/aspnet/AspNetCore/issues/2711).
+Las limitaciones del módulo ASP.NET Core o la presencia del módulo de filtrado de solicitudes de IIS pueden limitar las cargas a 2 GB o 4 GB. Para obtener más información, consulte el artículo que indica que [no se pueden cargar archivos con un tamaño superior a 2 GB (aspnet/AspNetCore #2711)](https://github.com/dotnet/AspNetCore/issues/2711).
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
@@ -812,7 +812,7 @@ Las opciones de almacenamiento comunes para los archivos incluyen:
   * Los servicios suelen ofrecer una escalabilidad y resistencia mejoradas sobre las soluciones locales que normalmente están sujetas a únicos puntos de error.
   * Los servicios pueden tener un costo menor en escenarios de infraestructura de almacenamiento de gran tamaño.
 
-  Para obtener más información, vea [Inicio rápido: Uso de .NET para crear un blob en el almacenamiento de objetos](/azure/storage/blobs/storage-quickstart-blobs-dotnet). En el tema se muestra <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromFileAsync*>, pero se puede usar <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromStreamAsync*> para guardar un <xref:System.IO.FileStream> en el almacenamiento de blobs cuando se trabaja con un <xref:System.IO.Stream>.
+  Para obtener más información, vea [Inicio rápido: Use .NET para crear un blob en el almacenamiento de objetos](/azure/storage/blobs/storage-quickstart-blobs-dotnet). En el tema se muestra <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromFileAsync*>, pero se puede usar <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromStreamAsync*> para guardar un <xref:System.IO.FileStream> en el almacenamiento de blobs cuando se trabaja con un <xref:System.IO.Stream>.
 
 ## <a name="file-upload-scenarios"></a>Escenarios de carga de archivos
 
@@ -912,7 +912,7 @@ El ejemplo siguiente es análogo al ejemplo anterior, salvo en que:
 Para realizar la solicitud POST en JavaScript para los clientes que [no admiten Fetch API](https://caniuse.com/#feat=fetch), use uno de estos enfoques:
 
 * Use un Fetch Polyfill (por ejemplo, [window.fetch polyfill (github/fetch)](https://github.com/github/fetch)).
-* Use `XMLHttpRequest`. Por ejemplo: 
+* Use `XMLHttpRequest`. Por ejemplo:
 
   ```javascript
   <script>
@@ -1021,7 +1021,7 @@ foreach (var formFile in files)
 }
 ```
 
-La ruta de acceso pasada al <xref:System.IO.FileStream> *debe* incluir el nombre de archivo. Si no se proporciona el nombre de archivo, se produce una <xref:System.UnauthorizedAccessException> en tiempo de ejecución.
+La ruta de acceso pasada a <xref:System.IO.FileStream> *debe* incluir el nombre de archivo. Si no se proporciona el nombre de archivo, se produce una <xref:System.UnauthorizedAccessException> en tiempo de ejecución.
 
 Los archivos que se cargan usando la técnica <xref:Microsoft.AspNetCore.Http.IFormFile> se almacenan en búfer en memoria o en disco en el servidor web antes de procesarse. Dentro del método de acción, se puede tener acceso al contenido de <xref:Microsoft.AspNetCore.Http.IFormFile> como <xref:System.IO.Stream>. Además del sistema de archivos local, los archivos se pueden guardar en un recurso compartido de red o en un servicio de almacenamiento de archivos, como [Azure Blob Storage](/azure/visual-studio/vs-storage-aspnet5-getting-started-blobs).
 
@@ -1177,7 +1177,7 @@ La clase `FileHelpers` de la aplicación de ejemplo muestra varias comprobacione
 >
 > **No implemente nunca de manera indiscriminada el código de seguridad en una aplicación sin abordar estos requisitos.**
 
-### <a name="content-validation"></a>Validación del contenido
+### <a name="content-validation"></a>Pestaña Validación de contenido
 
 **Use una API de detección de virus/malware de terceros en el contenido cargado.**
 
@@ -1185,7 +1185,7 @@ El análisis de archivos exige recursos del servidor en escenarios de gran volum
 
 ### <a name="file-extension-validation"></a>Validación de la extensión del archivo
 
-La extensión del archivo cargado debe comprobarse con una lista de extensiones permitidas. Por ejemplo: 
+La extensión del archivo cargado debe comprobarse con una lista de extensiones permitidas. Por ejemplo:
 
 ```csharp
 private string[] permittedExtensions = { ".txt", ".pdf" };
@@ -1438,7 +1438,7 @@ El límite predeterminado de solicitudes (`maxAllowedContentLength`) es 30 000�
 
 Esto solo ocurre en IIS; este comportamiento no sucede de forma predeterminada cuando los archivos se hospedan en Kestrel. Para más información, consulte [Límites de solicitud \<requestLimits>](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/).
 
-Las limitaciones del módulo ASP.NET Core o la presencia del módulo de filtrado de solicitudes de IIS pueden limitar las cargas a 2 GB o 4 GB. Para más información, consulte el artículo que indica que [no se pueden cargar archivos con un tamaño superior a 2 GB (aspnet/AspNetCore #2711)](https://github.com/aspnet/AspNetCore/issues/2711).
+Las limitaciones del módulo ASP.NET Core o la presencia del módulo de filtrado de solicitudes de IIS pueden limitar las cargas a 2 GB o 4 GB. Para obtener más información, consulte el artículo que indica que [no se pueden cargar archivos con un tamaño superior a 2 GB (aspnet/AspNetCore #2711)](https://github.com/dotnet/AspNetCore/issues/2711).
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 

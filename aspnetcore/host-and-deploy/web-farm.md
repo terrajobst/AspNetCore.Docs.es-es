@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo hospedar varias instancias de una 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: 16ec2162be8199857d0f2d0ff989ec4cdc6c3277
-ms.sourcegitcommit: 68d804d60e104c81fe77a87a9af70b5df2726f60
+ms.openlocfilehash: 5c13e9bc4c514f9b42871d55a430265c8ec2da23
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830703"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75951817"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Hospedaje de ASP.NET Core en una granja de servidores web
 
@@ -20,10 +20,10 @@ Por [Luke Latham](https://github.com/guardrex) y [Chris Ross](https://github.com
 
 Una *granja de servidores web* es un grupo de dos o más servidores web (o *nodos*) que hospedan varias instancias de una aplicación. Cuando llegan solicitudes de usuarios a una granja de servidores web, un *equilibrador de carga* las distribuye a los nodos de la granja de servidores web. Las granjas de servidores web mejoran lo siguiente:
 
-* **Confiabilidad y disponibilidad** &ndash; Cuando se produce un error en uno o más nodos, el equilibrador de carga puede enrutar las solicitudes a otros nodos en funcionamiento para continuar procesando las solicitudes.
-* **Capacidad y rendimiento** &ndash; Varios nodos pueden procesar más solicitudes que un solo servidor. El equilibrador de carga equilibra la carga de trabajo mediante la distribución de las solicitudes a los distintos nodos.
-* **Escalabilidad** &ndash; Cuando se requiere más o menos capacidad, es posible aumentar o disminuir la cantidad de nodos activos para coincidir con la carga de trabajo. Las tecnologías de plataforma de granjas de servidores web, como [Azure App Service](https://azure.microsoft.com/services/app-service/), pueden agregar o quitar nodos de manera automática si lo solicita el administrador del sistema o sin intervención humana.
-* **Mantenimiento** &ndash; Los nodos de una granja de servidores web se pueden basar en un conjunto de servicios compartidos, lo que facilita la administración del sistema. Por ejemplo, los nodos de una granja de servidores web pueden basarse en un servidor de base de datos única y una ubicación de red común para los recursos estáticos, como imágenes y archivos descargables.
+* **Confiabilidad y disponibilidad**: cuando se produce un error en uno o más nodos, el equilibrador de carga puede enrutar las solicitudes a otros nodos en funcionamiento para continuar procesando las solicitudes.
+* **Capacidad y rendimiento**: varios nodos pueden procesar más solicitudes que un solo servidor. El equilibrador de carga equilibra la carga de trabajo mediante la distribución de las solicitudes a los distintos nodos.
+* **Escalabilidad**: cuando se requiere más o menos capacidad, es posible aumentar o disminuir la cantidad de nodos activos para coincidir con la carga de trabajo. Las tecnologías de plataforma de granjas de servidores web, como [Azure App Service](https://azure.microsoft.com/services/app-service/), pueden agregar o quitar nodos de manera automática si lo solicita el administrador del sistema o sin intervención humana.
+* **Mantenimiento**: los nodos de una granja de servidores web se pueden basar en un conjunto de servicios compartidos, lo que facilita la administración del sistema. Por ejemplo, los nodos de una granja de servidores web pueden basarse en un servidor de base de datos única y una ubicación de red común para los recursos estáticos, como imágenes y archivos descargables.
 
 En este tema se describe la configuración y las dependencias de las aplicaciones de ASP.NET Core hospedadas en una granja de servidores web que se basan en los recursos compartidos.
 
@@ -52,7 +52,7 @@ Las aplicaciones usan el [sistema de protección de datos de ASP.NET Core](xref:
 
 ### <a name="caching"></a>Almacenamiento en memoria caché
 
-En un entorno de granja de servidores web, el mecanismo de almacenamiento en caché debe compartir elementos en caché en todos los nodos de la granja de servidores web. El almacenamiento en caché debe basarse en una instancia común de Redis Cache, en una base de datos SQL Server compartida o en una implementación de almacenamiento en caché personalizada que comparte los elementos en caché en toda la granja de servidores web. Para más información, consulte <xref:performance/caching/distributed>.
+En un entorno de granja de servidores web, el mecanismo de almacenamiento en caché debe compartir elementos en caché en todos los nodos de la granja de servidores web. El almacenamiento en caché debe basarse en una instancia común de Redis Cache, en una base de datos SQL Server compartida o en una implementación de almacenamiento en caché personalizada que comparte los elementos en caché en toda la granja de servidores web. Para obtener más información, vea <xref:performance/caching/distributed>.
 
 ## <a name="dependent-components"></a>Componentes dependientes
 
@@ -61,10 +61,10 @@ Los escenarios siguientes no requieren configuración adicional, pero dependen d
 | Escenario | Depende de &hellip; |
 | -------- | ------------------- |
 | Autenticación | Protección de datos (consulte <xref:security/data-protection/configuration/overview>).<br><br>Para obtener más información, vea <xref:security/authentication/cookie> y <xref:security/cookie-sharing>. |
-| identidad | Autenticación y configuración de base de datos.<br><br>Para más información, consulte <xref:security/authentication/identity>. |
+| identidad | Autenticación y configuración de base de datos.<br><br>Para obtener más información, vea <xref:security/authentication/identity>. |
 | Sesión | Protección de datos (cookies cifradas) (consulte <xref:security/data-protection/configuration/overview>) y almacenamiento en caché (consulte <xref:performance/caching/distributed>).<br><br>Para más información, consulte [Estado de sesión y aplicación: Estado de la sesión](xref:fundamentals/app-state#session-state). |
 | TempData | Protección de datos (cookies cifradas) (consulte <xref:security/data-protection/configuration/overview>) o sesión (consulte [Estado de sesión y aplicación: Estado de la sesión](xref:fundamentals/app-state#session-state)).<br><br>Para más información, consulte [Estado de sesión y aplicación: TempData](xref:fundamentals/app-state#tempdata). |
-| Antifalsificación | Protección de datos (consulte <xref:security/data-protection/configuration/overview>).<br><br>Para más información, consulte <xref:security/anti-request-forgery>. |
+| Antifalsificación | Protección de datos (consulte <xref:security/data-protection/configuration/overview>).<br><br>Para obtener más información, vea <xref:security/anti-request-forgery>. |
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
@@ -92,3 +92,4 @@ Si las aplicaciones de la granja de servidores web son capaces de responder a so
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Extensión de script personalizada para Windows](/azure/virtual-machines/extensions/custom-script-windows): descarga y ejecuta scripts en máquinas virtuales de Azure, lo que resulta útil para la configuración posterior a la implementación y la instalación de software.
+* <xref:host-and-deploy/proxy-load-balancer>

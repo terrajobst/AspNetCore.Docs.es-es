@@ -2,20 +2,20 @@
 title: Autenticación y autorización de ASP.NET Core Blazor
 author: guardrex
 description: Obtenga información sobre los escenarios de autenticación y autorización de Blazor.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/index
-ms.openlocfilehash: d3860a5e7f6ae5a3193d657b77fc593c9bd39131
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 2ce2cff8d3ab77f21181070b6f1e48c50561036c
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944205"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160293"
 ---
 # <a name="aspnet-core-opno-locblazor-authentication-and-authorization"></a>Autenticación y autorización de ASP.NET Core Blazor
 
@@ -32,7 +32,7 @@ Los escenarios de seguridad varían según si las aplicaciones son del servidor 
 
 Las aplicaciones de Blazor WebAssembly se ejecutan en el cliente. La autorización *solo* se utiliza para determinar qué opciones de la interfaz de usuario se van a mostrar. Dado que el usuario puede modificar u omitir las comprobaciones en el cliente, las aplicaciones de Blazor WebAssembly no pueden aplicar reglas de acceso de autorización.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticación
 
 Blazor usa los mecanismos de autenticación de ASP.NET Core existentes para establecer la identidad del usuario. El mecanismo exacto depende de la forma en la que se hospeda la aplicación de Blazor: el servidor de Blazor o Blazor WebAssembly.
 
@@ -51,7 +51,7 @@ Después de elegir la plantilla **Aplicación del servidor de Blazor** en el cua
 Se abre un cuadro de diálogo para ofrecer el mismo conjunto de mecanismos de autenticación disponibles para otros proyectos ASP.NET Core:
 
 * **Sin autenticación**
-* **Cuentas de usuario individuales**. Las cuentas de usuario se pueden almacenar:
+* **Cuentas de usuario individuales** &ndash;Las cuentas de usuario se pueden almacenar:
   * Dentro de la aplicación mediante el sistema de [identidad](xref:security/authentication/identity) de ASP.NET Core.
   * Con [Azure AD B2C](xref:security/authentication/azure-ad-b2c)
 * **Cuentas profesionales o educativas**
@@ -67,7 +67,7 @@ dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
 
 En la tabla siguiente se muestran los valores de autenticación permitidos (`{AUTHENTICATION}`).
 
-| Mecanismo de autenticación                                                                 | Valor de `{AUTHENTICATION}` |
+| Mecanismo de autenticación                                                                 | Valor de`{AUTHENTICATION}` |
 | ---------------------------------------------------------------------------------------- | :----------------------: |
 | Sin autenticación                                                                        | `None`                   |
 | Individual<br>Usuarios almacenados en la aplicación con la identidad de ASP.NET Core.                        | `Individual`             |
@@ -254,7 +254,7 @@ Configure el parámetro en cascada `Task<AuthenticationState>` mediante los comp
 </Router>
 ```
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>Autorización
 
 Cuando un usuario está autenticado, se aplican las reglas de *autorización* para controlar qué puede hacer el usuario.
 
@@ -316,7 +316,7 @@ Para la autorización basada en roles, utilice el parámetro `Roles`:
 </AuthorizeView>
 ```
 
-Para más información, consulte <xref:security/authorization/roles>.
+Para obtener más información, vea <xref:security/authorization/roles>.
 
 Para la autorización basada en directivas, utilice el parámetro `Policy`:
 
@@ -326,7 +326,7 @@ Para la autorización basada en directivas, utilice el parámetro `Policy`:
 </AuthorizeView>
 ```
 
-La autorización basada en notificaciones es un caso especial de autorización basada en directivas. Por ejemplo, puede definir una directiva que requiere que los usuarios tengan una notificación determinada. Para más información, consulte <xref:security/authorization/policies>.
+La autorización basada en notificaciones es un caso especial de autorización basada en directivas. Por ejemplo, puede definir una directiva que requiere que los usuarios tengan una notificación determinada. Para obtener más información, vea <xref:security/authorization/policies>.
 
 Estas API se pueden usar en las aplicaciones del servidor de Blazor o Blazor WebAssembly.
 
@@ -492,7 +492,7 @@ En aplicaciones de Blazor WebAssembly, las comprobaciones de autorización puede
 
 **Realice siempre las comprobaciones de autorización en el servidor dentro de cualquier punto de conexión de la API al que acceda su aplicación del lado cliente.**
 
-## <a name="troubleshoot-errors"></a>Solución de errores
+## <a name="troubleshoot-errors"></a>Solucionar problemas
 
 Errores comunes:
 

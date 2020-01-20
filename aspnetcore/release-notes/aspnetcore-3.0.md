@@ -9,12 +9,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.0
-ms.openlocfilehash: 4ade13c38880c9915ec590297f2a43548ca400a8
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 1dee9a7e1cc381547e7ece71f302f407223dc838
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880826"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829119"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Novedades de ASP.NET Core 3.0
 
@@ -38,7 +38,7 @@ Escenarios compatibles con el marco Blazor:
 * Compilar bibliotecas de componentes con bibliotecas de clases de Razor
 * Interoperabilidad de JavaScript
 
-Para más información, consulte <xref:blazor/index>.
+Para obtener más información, vea <xref:blazor/index>.
 
 ### <a name="opno-locblazor-server"></a>Servidor de Blazor
 
@@ -73,15 +73,15 @@ Los componentes de Blazor normalmente se crean mediante la sintaxis de Razor, un
 
 La funcionalidad gRPC en ASP.NET Core 3.0 incluye:
 
-* [Grpc.AspNetCore](https://www.nuget.org/packages/Grpc.AspNetCore) &ndash; Un marco ASP.NET Core para hospedar servicios de gRPC. gRPC en ASP.NET Core se integra con características de ASP.NET Core estándar como el registro, la inserción de dependencias (DI), la autenticación y la autorización.
-* [Grpc.Net.Client](https://www.nuget.org/packages/Grpc.Net.Client) &ndash; Un cliente de gRPC para .NET Core que se basa en la conocida clase `HttpClient`.
-* [Grpc.Net.ClientFactory](https://www.nuget.org/packages/Grpc.Net.ClientFactory) &ndash; Integración del cliente de gRPC con `HttpClientFactory`.
+* [Grpc.AspNetCore](https://www.nuget.org/packages/Grpc.AspNetCore): un marco ASP.NET Core para hospedar servicios de gRPC. gRPC en ASP.NET Core se integra con características de ASP.NET Core estándar como el registro, la inserción de dependencias (DI), la autenticación y la autorización.
+* [Grpc.Net.Client](https://www.nuget.org/packages/Grpc.Net.Client): un cliente de gRPC para .NET Core que se basa en la conocida clase `HttpClient`.
+* [Grpc.Net.ClientFactory](https://www.nuget.org/packages/Grpc.Net.ClientFactory): integración del cliente de gRPC con `HttpClientFactory`.
 
-Para más información, consulte <xref:grpc/index>.
+Para obtener más información, vea <xref:grpc/index>.
 
 ## SignalR
 
-Consulte [Actualización del código SignalR ](xref:migration/22-to-30#signalr) para ver las instrucciones de migración. SignalR ahora usa `System.Text.Json` para serializar o deserializar los mensajes JSON. Consulte [Cambiar a Newtonsoft.Json](xref:migration/22-to-30#switch-to-newtonsoftjson) para obtener instrucciones sobre cómo restaurar el serializador basado en `Newtonsoft.Json`.
+Consulte [Actualización del código SignalR](xref:migration/22-to-30#signalr) para ver las instrucciones de migración. SignalR ahora usa `System.Text.Json` para serializar o deserializar los mensajes JSON. Consulte [Cambiar a Newtonsoft.Json](xref:migration/22-to-30#switch-to-newtonsoftjson) para obtener instrucciones sobre cómo restaurar el serializador basado en `Newtonsoft.Json`.
 
 En los clientes de JavaScript y .NET para SignalR, se agregó compatibilidad para la reconexión automática. De forma predeterminada, el cliente intenta conectarse de nuevo inmediatamente y lo vuelve a intentar después de dos, diez y treinta segundos si es necesario. Si el cliente se vuelve a conectar correctamente, recibe un nuevo identificador de conexión. La reconexión automática es opcional:
 
@@ -365,7 +365,7 @@ Entre las opciones de autenticación de certificados se incluye la capacidad de:
 * Comprobar la revocación de certificados.
 * Comprobar que el certificado ofrecido tiene las marcas de uso correctas.
 
-Una entidad de seguridad de usuario predeterminada se construye a partir de las propiedades del certificado. La entidad de seguridad de usuario contiene un evento que permite complementar o reemplazar la entidad de seguridad. Para más información, consulte <xref:security/authentication/certauth>.
+Una entidad de seguridad de usuario predeterminada se construye a partir de las propiedades del certificado. La entidad de seguridad de usuario contiene un evento que permite complementar o reemplazar la entidad de seguridad. Para obtener más información, vea <xref:security/authentication/certauth>.
 
 La [autenticación de Windows](/windows-server/security/windows-authentication/windows-authentication-overview) se ha ampliado a Linux y macOS. En versiones anteriores, la autenticación de Windows se limitaba a [IIS](xref:host-and-deploy/iis/index) y [HttpSys](xref:fundamentals/servers/httpsys). En ASP.NET Core 3,0, [Kestrel](xref:fundamentals/servers/kestrel) tiene la capacidad de usar Negotiate, [Kerberos](/windows-server/security/kerberos/kerberos-authentication-overview) y [NTLM en Windows](/windows-server/security/kerberos/ntlm-overview), Linux y macOS para hosts unidos a un dominio de Windows. La compatibilidad con Kestrel de estos esquemas de autenticación se proporciona mediante el paquete [Microsoft.AspNetCore.Authentication.Negotiate NuGet](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Negotiate). Al igual que con los demás servicios de autenticación, configure la autenticación en toda la aplicación y luego configure el servicio:
 
@@ -391,7 +391,7 @@ Requisitos del host:
   * Los SPN se deben crear para el proceso web.
   * Los [archivos keytab](https://blogs.technet.microsoft.com/pie/2018/01/03/all-you-need-to-know-about-keytab-files/) se deben generar y configurar en la máquina host.
 
-Para más información, consulte <xref:security/authentication/windowsauth>.
+Para obtener más información, vea <xref:security/authentication/windowsauth>.
 
 ## <a name="template-changes"></a>Cambios en la plantilla
 
@@ -430,7 +430,7 @@ Todos los servicios se pueden seguir insertando directamente como argumentos en 
 * La ambigüedad entre encabezados y finalizadores se ha resuelto moviendo los encabezados finales a una nueva colección.
 * Las API de E/S síncronas, como `HttpRequest.Body.Read`, son una fuente común de ausencia de subprocesos que provocan bloqueos en la aplicación. En la versión 3.0, `AllowSynchronousIO` se ha deshabilitado de manera predeterminada.
 
-Para más información, consulte <xref:migration/22-to-30#kestrel>.
+Para obtener más información, vea <xref:migration/22-to-30#kestrel>.
 
 ## <a name="http2-enabled-by-default"></a>HTTP/2 habilitado de manera predeterminada.
 
@@ -454,7 +454,7 @@ El enrutamiento de puntos de conexión, que permite que los marcos (por ejemplo,
 * Los puntos finales pueden implementar una directiva, como CORS o la autorización, tanto en el middleware como en MVC.
 * Los filtros y atributos se pueden colocar en métodos en los controladores.
 
-Para más información, consulte <xref:fundamentals/routing#routing-basics>.
+Para obtener más información, vea <xref:fundamentals/routing#routing-basics>.
 
 ## <a name="health-checks"></a>Comprobaciones de estado
 
@@ -536,7 +536,7 @@ Los ensamblados más importantes que se han quitado del marco compartido de ASP.
 * [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) (Json.NET). Para agregar Json.NET a ASP.NET Core 3.0, consulte [Adición de compatibilidad con el formato JSON basado en Newtonsoft.Json](xref:web-api/advanced/formatting#add-newtonsoftjson-based-json-format-support). ASP.NET Core 3.0 presenta `System.Text.Json` para leer y escribir JSON. Para más información, consulte [Nueva serialización de JSON](#new-json-serialization).
 * [Entity Framework Core](/ef/core/)
 
-Para una lista completa de los ensamblados que se han quitado del marco compartido, consulte [Ensamblados quitados de Microsoft.AspNetCore.App 3.0](https://github.com/aspnet/AspNetCore/issues/3755). Para más información sobre la motivación de este cambio, consulte [Últimos cambios en Microsoft.AspNetCore.App en 3.0](https://github.com/aspnet/Announcements/issues/325) y [Un primer vistazo a los cambios que vienen en ASP.NET Core 3.0](https://devblogs.microsoft.com/aspnet/a-first-look-at-changes-coming-in-asp-net-core-3-0/).
+Para una lista completa de los ensamblados que se han quitado del marco compartido, consulte [Ensamblados quitados de Microsoft.AspNetCore.App 3.0](https://github.com/dotnet/AspNetCore/issues/3755). Para más información sobre la motivación de este cambio, consulte [Últimos cambios en Microsoft.AspNetCore.App en 3.0](https://github.com/aspnet/Announcements/issues/325) y [Un primer vistazo a los cambios que vienen en ASP.NET Core 3.0](https://devblogs.microsoft.com/aspnet/a-first-look-at-changes-coming-in-asp-net-core-3-0/).
 
 <!-- 
 ## Additional information

@@ -5,14 +5,14 @@ description: Descubra módulos activos e inactivos de IIS para aplicaciones ASP.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/12/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: eb6cedfc572b4ffea969b3583ea6ec44cae1f575
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: ca6cf349aa05db97e145f1cd0cae97a107761fd8
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970058"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75951815"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Módulos de IIS con ASP.NET Core
 
@@ -167,8 +167,7 @@ El Módulo de almacenamiento en caché de HTTP (`HttpCacheModule`) implementa la
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* <xref:host-and-deploy/iis/index>
 * [Introduction to IIS Architectures: Modules in IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#modules-in-iis) (Introducción a las arquitecturas de IIS: módulos de IIS)
 * [IIS Modules Overview](/iis/get-started/introduction-to-iis/iis-modules-overview) (Introducción a los módulos de IIS)
 * [Customizing IIS 7.0 Roles and Modules](https://technet.microsoft.com/library/cc627313.aspx) (Personalización de los roles y módulos de IIS 7.0)
-* [IIS `<system.webServer>`](/iis/configuration/system.webServer/)
+* [IIS \<system.webServer>](/iis/configuration/system.webServer/)

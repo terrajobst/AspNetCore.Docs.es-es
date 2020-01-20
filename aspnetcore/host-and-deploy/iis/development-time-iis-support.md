@@ -5,14 +5,14 @@ description: Descubra la compatibilidad con la depuración de aplicaciones ASP.N
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/26/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 2d2c8d8e4b39d18a3a727e2a2bdef3be566897c1
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 704a8dae9da904e4bbdfae0754a6fcdabee6dc82
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034142"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75952031"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Compatibilidad de IIS de tiempo de desarrollo en Visual Studio para ASP.NET Core
 
@@ -38,7 +38,7 @@ La instalación de IIS puede requerir un reinicio del sistema.
 
 IIS debe tener un sitio web configurado con lo siguiente:
 
-* **Nombre de host**: por lo general, el **Sitio web predeterminado** se usa con un **Nombre de host** de `localhost`. Sin embargo, sirve cualquier sitio web de IIS válido con un nombre de host único.
+* **Nombre de host**: por lo general, el **sitio web predeterminado** se usa con un **nombre de host** de `localhost`. Sin embargo, sirve cualquier sitio web de IIS válido con un nombre de host único.
 * **Enlace de sitio**
   * Para las aplicaciones que requieran HTTPS, cree un enlace al puerto 443 con un certificado. Por lo general, se usa el **certificado de desarrollo de IIS Express**, pero cualquier certificado válido sirve.
   * Para las aplicaciones que usan HTTP, confirme la existencia de un enlace al puerto 80 o cree un enlace a dicho puerto si se trata de un sitio nuevo.
@@ -58,7 +58,7 @@ IIS debe tener un sitio web configurado con lo siguiente:
 
 Para un nuevo proyecto que requiere HTTPS, seleccione la casilla **Configurar para HTTPS** en la ventana **Crear una aplicación web ASP.NET Core**. Al seleccionar la casilla, se agrega [redireccionamiento HTTPS y middleware HSTS](xref:security/enforcing-ssl) a la aplicación cuando esta se crea.
 
-Para un proyecto existente que requiere HTTPS, use el redireccionamiento HTTPS y el middleware HSTS en `Startup.Configure`. Para más información, consulte <xref:security/enforcing-ssl>.
+Para un proyecto existente que requiere HTTPS, use el redireccionamiento HTTPS y el middleware HSTS en `Startup.Configure`. Para obtener más información, vea <xref:security/enforcing-ssl>.
 
 Para un proyecto que usa HTTP, el [redireccionamiento HTTPS y el middleware HSTS](xref:security/enforcing-ssl) no se agregan a la aplicación. No se requiere ninguna configuración de la aplicación.
 
@@ -152,6 +152,4 @@ Si se usa un certificado de desarrollo que no es de confianza, el explorador pue
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Introducción al Administrador de IIS en IIS](/iis/get-started/getting-started-with-iis/getting-started-with-the-iis-manager-in-iis-7-and-iis-8)
-* <xref:host-and-deploy/iis/index>
-* <xref:host-and-deploy/aspnet-core-module>
 * <xref:security/enforcing-ssl>

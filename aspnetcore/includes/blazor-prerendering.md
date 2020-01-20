@@ -1,4 +1,15 @@
-Aunque se está preprocesando una aplicación de servidor increíbles, algunas acciones, como llamar a JavaScript, no son posibles porque no se ha establecido una conexión con el explorador. Es posible que los componentes tengan que representarse de forma diferente cuando se representen.
+---
+no-loc:
+- Blazor
+- SignalR
+ms.openlocfilehash: 5f3e22e04fe18149ec5a8acb42f42a8ef83a7664
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76159913"
+---
+Mientras que una aplicación de Blazor Server se está preprocesando, no es posible realizar ciertas acciones, como llamar a JavaScript, porque no se ha establecido una conexión con el explorador. Es posible que los componentes tengan que representarse de forma diferente cuando se representen.
 
 Para retrasar las llamadas de interoperabilidad de JavaScript hasta que se establezca la conexión con el explorador, puede usar el [evento del ciclo de vida del componente OnAfterRenderAsync](xref:blazor/lifecycle#after-component-render). Solo se llama a este evento después de que la aplicación se represente por completo y se establezca la conexión del cliente.
 
@@ -22,7 +33,7 @@ Para retrasar las llamadas de interoperabilidad de JavaScript hasta que se estab
 }
 ```
 
-Para el código de ejemplo anterior, proporcione una `setElementText` función de JavaScript dentro del elemento `<head>` de *wwwroot/index.html* (webassembly) o *pages/_Host. cshtml* (servidor increíble). Se llama a la función con `IJSRuntime.InvokeVoidAsync` y no devuelve un valor:
+Para el código de ejemplo anterior, proporcione una `setElementText` función JavaScript dentro del elemento `<head>` de *wwwroot/index.html* (Blazor webassembly) o *pages/_Host. cshtml* (Blazor Server). Se llama a la función con `IJSRuntime.InvokeVoidAsync` y no devuelve un valor:
 
 ```html
 <script>
@@ -31,7 +42,7 @@ Para el código de ejemplo anterior, proporcione una `setElementText` función d
 ```
 
 > [!WARNING]
-> En el ejemplo anterior se modifica el Document Object Model (DOM) directamente solo con fines de demostración. La modificación directa del DOM con JavaScript no se recomienda en la mayoría de los escenarios, ya que JavaScript puede interferir con el seguimiento de cambios de la extraordinaria.
+> En el ejemplo anterior se modifica el Document Object Model (DOM) directamente solo con fines de demostración. No se recomienda modificar directamente DOM con JavaScript en la mayoría de los escenarios, ya que JavaScript puede interferir con el seguimiento de cambios de Blazor.
 
 En el componente siguiente se muestra cómo usar la interoperabilidad de JavaScript como parte de la lógica de inicialización de un componente de una manera compatible con la representación previa. El componente muestra que es posible desencadenar una actualización de representación desde dentro `OnAfterRenderAsync`. El desarrollador debe evitar la creación de un bucle infinito en este escenario.
 
@@ -70,7 +81,7 @@ Set value via JS interop call:
 }
 ```
 
-Para el código de ejemplo anterior, proporcione una `setElementText` función de JavaScript dentro del elemento `<head>` de *wwwroot/index.html* (webassembly) o *pages/_Host. cshtml* (servidor increíble). Se llama a la función con `IJSRuntime.InvokeAsync` y devuelve un valor:
+Para el código de ejemplo anterior, proporcione una `setElementText` función JavaScript dentro del elemento `<head>` de *wwwroot/index.html* (Blazor webassembly) o *pages/_Host. cshtml* (Blazor Server). Se llama a la función con `IJSRuntime.InvokeAsync` y devuelve un valor:
 
 ```html
 <script>
@@ -82,4 +93,4 @@ Para el código de ejemplo anterior, proporcione una `setElementText` función d
 ```
 
 > [!WARNING]
-> En el ejemplo anterior se modifica el Document Object Model (DOM) directamente solo con fines de demostración. La modificación directa del DOM con JavaScript no se recomienda en la mayoría de los escenarios, ya que JavaScript puede interferir con el seguimiento de cambios de la extraordinaria.
+> En el ejemplo anterior se modifica el Document Object Model (DOM) directamente solo con fines de demostración. No se recomienda modificar directamente DOM con JavaScript en la mayoría de los escenarios, ya que JavaScript puede interferir con el seguimiento de cambios de Blazor.

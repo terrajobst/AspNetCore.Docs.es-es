@@ -5,16 +5,16 @@ description: Cree una aplicación Blazor paso a paso.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 01/13/2020
 no-loc:
 - Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 11ff540a70ebdb8baa0c7adb98cb1dfe27d91e50
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 8830dcf26b58b5f5fdd36b60298e7b365f99bdd9
+ms.sourcegitcommit: 925cdbd94613243f33bc7613a62ea34006219931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944192"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921291"
 ---
 # <a name="build-your-first-opno-locblazor-app"></a>Compilación de la primera aplicación Blazor
 
@@ -73,19 +73,19 @@ Incluya un componente en otro componente mediante una sintaxis HTML.
 
 Los componentes también pueden tener parámetros. Los parámetros de componente se definen mediante propiedades públicas en la clase de componentes con el atributo `[Parameter]`. Use atributos para especificar argumentos para un componente en el marcado.
 
-1. Actualice el código de C# `@code` del componente:
+1. Actualice el código de C# `@code` del componente de la siguiente forma:
 
    * Agregue una propiedad `IncrementAmount` pública con el atributo `[Parameter]`.
-   * Cambie el método `IncrementCount` para usar `IncrementAmount` al aumentar el valor de `currentCount`.
+   * Cambie el método `IncrementCount` para usar la propiedad `IncrementAmount` al aumentar el valor de `currentCount`.
 
    *Pages/Counter.razor*:
 
    [!code-razor[](build-your-first-blazor-app/samples_snapshot/3.x/Counter.razor?highlight=13,17)]
 
-<!-- Add back when supported.
-   > [!NOTE]
-   > From Visual Studio, you can quickly add a component parameter by using the `para` snippet. Type `para` and press the `Tab` key twice.
--->
+   <!-- Add back when supported.
+       > [!NOTE]
+       > From Visual Studio, you can quickly add a component parameter by using the `para` snippet. Type `para` and press the `Tab` key twice.
+   -->
 
 1. Especifique un parámetro `IncrementAmount` en el elemento `<Counter>` del componente `Index` mediante un atributo. Establezca el valor para incrementar el contador en diez.
 
