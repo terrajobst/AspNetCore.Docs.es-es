@@ -5,16 +5,16 @@ description: Obtenga información sobre cómo usar hubs en ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 01/16/2020
 no-loc:
 - SignalR
 uid: signalr/hubs
-ms.openlocfilehash: f95766cab84bddff2c7c62f30bce1e6d1e43deab
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: e5bc12c5ccafe2b5273d72e6bde0f631ca043428
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963795"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294627"
 ---
 # <a name="use-hubs-in-opno-locsignalr-for-aspnet-core"></a>Usar hubs en SignalR para ASP.NET Core
 
@@ -80,7 +80,7 @@ Puede especificar un tipo de valor devuelto y parámetros, incluidos tipos compl
 
 La clase `Hub` tiene una propiedad `Context` que contiene las siguientes propiedades con información sobre la conexión:
 
-| Propiedad. | Descripción |
+| La propiedad | Descripción |
 | ------ | ----------- |
 | `ConnectionId` | Obtiene el identificador único para la conexión, asignado por SignalR. Hay un identificador de conexión para cada conexión.|
 | `UserIdentifier` | Obtiene el [identificador de usuario](xref:signalr/groups). De forma predeterminada, SignalR usa el `ClaimTypes.NameIdentifier` de la `ClaimsPrincipal` asociada a la conexión como identificador de usuario. |
@@ -100,7 +100,7 @@ La clase `Hub` tiene una propiedad `Context` que contiene las siguientes propied
 
 La clase `Hub` tiene una propiedad `Clients` que contiene las siguientes propiedades para la comunicación entre el servidor y el cliente:
 
-| Propiedad. | Descripción |
+| La propiedad | Descripción |
 | ------ | ----------- |
 | `All` | Llama a un método en todos los clientes conectados |
 | `Caller` | Llama a un método en el cliente que invocó el método de concentrador. |
@@ -173,6 +173,8 @@ La API de SignalR hubs proporciona los métodos virtuales `OnConnectedAsync` y `
 Invalide el método virtual `OnDisconnectedAsync` para realizar acciones cuando un cliente se desconecte. Si el cliente se desconecta intencionadamente (llamando `connection.stop()`, por ejemplo), se `null`rá el parámetro `exception`. Sin embargo, si el cliente está desconectado debido a un error (por ejemplo, un error de red), el parámetro `exception` contendrá una excepción que describe el error.
 
 [!code-csharp[Handle disconnection](hubs/sample/hubs/chathub.cs?name=OnDisconnectedAsync)]
+
+[!INCLUDE[](~/includes/connectionid-signalr.md)]
 
 ## <a name="handle-errors"></a>Control de errores
 
