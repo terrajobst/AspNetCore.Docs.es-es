@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 3bf930d19684e84365f0ff0255fccd2939fb3f39
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 73e547b014d78dcbcbf1c887ebec16e0743d10b9
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354919"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294749"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Tutorial: Creación de una API web con ASP.NET Core
 
@@ -296,7 +296,6 @@ Los comandos anteriores:
 
 El código generado:
 
-* Define una clase de controlador de API sin métodos.
 * Marca la clase con el atributo [`[ApiController]`](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute). Este atributo indica que el controlador responde a las solicitudes de la API web. Para información sobre comportamientos específicos que permite el atributo, consulte <xref:web-api/index>.
 * Utiliza la inserción de dependencias para insertar el contexto de base de datos (`TodoContext`) en el controlador. El contexto de base de datos se usa en cada uno de los métodos [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) del controlador.
 
@@ -322,7 +321,7 @@ En este tutorial se usa Postman para probar la API web.
 * Inicie la aplicación web.
 * Inicie Postman.
 * Deshabilite **Comprobación del certificado SSL**.
-* En **Archivo** > **Configuración** (pestaña **General**), deshabilite **Comprobación del certificado SSL**.
+  * En **Archivo** > **Configuración** (pestaña **General**), deshabilite **Comprobación del certificado SSL**.
     > [!WARNING]
     > Vuelva a habilitar la comprobación del certificado SSL tras probar el controlador.
 

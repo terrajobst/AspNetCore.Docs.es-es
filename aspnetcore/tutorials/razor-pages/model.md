@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo agregar clases para administrar pe
 ms.author: riande
 ms.date: 12/05/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: fa5be8f3a222a7c186409faa2f48e43347df637a
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 9d9266ae08c7abe747d4497bbcf52778cf2e370e
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829301"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76268764"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core
 
@@ -112,6 +112,7 @@ El archivo *appsettings.json* se actualiza con la cadena de conexión que se usa
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
+  dotnet tool install --global dotnet-aspnet-codegenerator
   ```
 
 [!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]

@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Obtenga información sobre cómo las páginas de Razor de ASP.NET Core facilitan la programación de escenarios centrados en páginas y hacen que resulte más productiva que con MVC.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 12/05/2019
+ms.date: 01/18/2020
 uid: razor-pages/index
-ms.openlocfilehash: fbe6e307ff5f7388e91cc2276f22ae1672507587
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 69c9f09aa0e3dbdbe78720c573b5e1fc63464571
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880894"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294653"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -185,7 +185,7 @@ La propiedad `Customer` usa el atributo [`[BindProperty]`](xref:Microsoft.AspNet
 
 [!code-cs[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create.cshtml.cs?name=snippet_PageModel&highlight=15-16)]
 
-`[BindProperty]` **no** debe usarse en modelos que contengan propiedades que el cliente no debe cambiar. Para más información, consulte [Publicación excesiva](xref:data/ef-rp/crud#overposting).
+`[BindProperty]`**no** debe usarse en modelos que contengan propiedades que el cliente no debe cambiar. Para más información, consulte [Publicación excesiva](xref:data/ef-rp/crud#overposting).
 
 De forma predeterminada, Razor Pages enlaza propiedades solo con verbos que no sean `GET`. El enlace a propiedades elimina la necesidad de escribir código para convertir los datos HTTP en el tipo de modelo. Enlazar reduce el código al usar la misma propiedad para representar los campos de formulario (`<input asp-for="Customer.Name">`) y aceptar la entrada.
 
@@ -290,7 +290,7 @@ Al publicar el formulario de creación sin un valor de nombre, se muestra el men
 El atributo `[StringLength(10)]` genera `data-val-length-max="10"` en el código HTML representado. `data-val-length-max` impide que los exploradores superen la longitud máxima especificada al escribir. Si se usa una herramienta como [Fiddler](https://www.telerik.com/fiddler) para editar y reproducir la publicación:
 
 * Con el nombre de más de 10 caracteres.
-* Se devolverá el mensaje de error "El nombre del campo debe ser una cadena con una longitud máxima de 10 caracteres". .
+* Se devolverá el mensaje de error "El nombre del campo debe ser una cadena con una longitud máxima de 10 caracteres".  
 
 Considere el modelo `Movie` siguiente:
 
@@ -386,7 +386,7 @@ La directiva `@namespace` establece el espacio de nombres de la página. La dire
 
 Cuando la directiva `@namespace` se encuentra en *_ViewImports.cshtml*, el espacio de nombres especificado proporciona el prefijo del espacio de nombres generado en la página que importa la directiva `@namespace`. El resto del espacio de nombres generado (la parte del sufijo) es la ruta de acceso relativa separada por puntos entre la carpeta que contiene *_ViewImports.cshtml* y la carpeta que contiene la página.
 
-Por ejemplo, la clase `PageModel` *Pages/Customers/Edit.cshtml.cs* establece explícitamente el espacio de nombres:
+Por ejemplo, la clase `PageModel`*Pages/Customers/Edit.cshtml.cs* establece explícitamente el espacio de nombres:
 
 [!code-cs[](index/sample/RazorPagesContacts2/Pages/Customers/Edit.cshtml.cs?name=snippet_namespace)]
 
@@ -396,7 +396,7 @@ El archivo *Pages/_ViewImports.cshtml* establece el espacio de nombres siguiente
 
 El espacio de nombres generado para la página de Razor *Pages/Customers/Edit.cshtml* es el mismo que la clase `PageModel`.
 
-`@namespace` *también funciona con las vistas de Razor convencionales*.
+`@namespace` *también funciona con vistas de Razor convencionales.*
 
 Considere el archivo de vista *Pages/Create.cshtml*:
 
@@ -558,8 +558,6 @@ Use la directiva `@page` para:
 * Anexar parámetros a la ruta predeterminada de una página. Por ejemplo, un parámetro de identificador, `id`, puede ser necesario para una página con `@page "{id}"`.
 
 Se admite una ruta de acceso relativa raíz designada por una tilde (`~`) al principio de la ruta de acceso. Por ejemplo, `@page "~/Some/Other/Path"` es lo mismo que `@page "/Some/Other/Path"`.
-
-La cadena de consulta `?handler=JoinList` de la dirección URL se puede cambiar por un segmento de ruta `/JoinList`, para lo cual hay que especificar la plantilla de ruta `@page "{handler?}"`.
 
 Si no le gusta la cadena de consulta `?handler=JoinList` en la dirección URL, puede cambiar la ruta para poner el nombre del controlador en la parte de la ruta de la dirección URL. Para personalizar la ruta, se puede agregar una plantilla de ruta entre comillas dobles después de la directiva `@page`.
 
@@ -905,7 +903,7 @@ La directiva establece el espacio de nombres de la página. La directiva `@model
 
 Cuando la directiva `@namespace` se encuentra en *_ViewImports.cshtml*, el espacio de nombres especificado proporciona el prefijo del espacio de nombres generado en la página que importa la directiva `@namespace`. El resto del espacio de nombres generado (la parte del sufijo) es la ruta de acceso relativa separada por puntos entre la carpeta que contiene *_ViewImports.cshtml* y la carpeta que contiene la página.
 
-Por ejemplo, la clase `PageModel` *Pages/Customers/Edit.cshtml.cs* establece explícitamente el espacio de nombres:
+Por ejemplo, la clase `PageModel`*Pages/Customers/Edit.cshtml.cs* establece explícitamente el espacio de nombres:
 
 [!code-cs[](index/sample/RazorPagesContacts2/Pages/Customers/Edit.cshtml.cs?name=snippet_namespace)]
 
@@ -915,7 +913,7 @@ El archivo *Pages/_ViewImports.cshtml* establece el espacio de nombres siguiente
 
 El espacio de nombres generado para la página de Razor *Pages/Customers/Edit.cshtml* es el mismo que la clase `PageModel`.
 
-`@namespace` *también funciona con las vistas de Razor convencionales*.
+`@namespace` *también funciona con vistas de Razor convencionales.*
 
 El archivo de vista *Pages/Create.cshtml* original:
 
@@ -975,7 +973,7 @@ Para redirigir a una página en otra [área](xref:mvc/controllers/areas), especi
 RedirectToPage("/Index", new { area = "Services" });
 ```
 
-Para más información, consulte <xref:mvc/controllers/areas>.
+Para obtener más información, vea <xref:mvc/controllers/areas>.
 
 ## <a name="viewdata-attribute"></a>Atributo ViewData
 
@@ -1065,8 +1063,6 @@ Use la directiva `@page` para:
 * Anexar parámetros a la ruta predeterminada de una página. Por ejemplo, un parámetro de identificador, `id`, puede ser necesario para una página con `@page "{id}"`.
 
 Se admite una ruta de acceso relativa raíz designada por una tilde (`~`) al principio de la ruta de acceso. Por ejemplo, `@page "~/Some/Other/Path"` es lo mismo que `@page "/Some/Other/Path"`.
-
-La cadena de consulta `?handler=JoinList` de la dirección URL se puede cambiar por un segmento de ruta `/JoinList`, para lo cual hay que especificar la plantilla de ruta `@page "{handler?}"`.
 
 Si no le gusta la cadena de consulta `?handler=JoinList` en la dirección URL, puede cambiar la ruta para poner el nombre del controlador en la parte de la ruta de la dirección URL. Para personalizar la ruta, se puede agregar una plantilla de ruta entre comillas dobles después de la directiva `@page`.
 

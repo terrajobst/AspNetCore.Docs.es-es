@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo usar las imágenes de Docker de .NET Core publicadas desde el registro de Docker. Extraiga imágenes y cree las suyas propias.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 01/15/2020
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: 64503ed55438b24f2d3d87092107408ddcb515d7
-ms.sourcegitcommit: fcdf9aaa6c45c1a926bd870ed8f893bdb4935152
+ms.openlocfilehash: 5bed5e9a4a6109a45badcef7c0d4e03eb2312bf0
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165275"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146348"
 ---
 # <a name="docker-images-for-aspnet-core"></a>Imágenes de Docker para ASP.NET Core
 
@@ -269,4 +269,4 @@ ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 El repositorio de Git que contiene la aplicación de ejemplo también incluye documentación. Para información general de los recursos disponibles en el repositorio, consulte [el archivo Léame](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md). En concreto, vea cómo implementar HTTPS:
 
 > [!div class="nextstepaction"]
-> [Developing ASP.NET Core Applications with Docker over HTTPS](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/aspnetcore-docker-https-development.md) (Desarrollo de aplicaciones ASP.NET Core con Docker a través de HTTPS)
+> [Developing ASP.NET Core Applications with Docker over HTTPS](https://github.com/dotnet/dotnet-docker/blob/master/samples/run-aspnetcore-https-development.md) (Desarrollo de aplicaciones ASP.NET Core con Docker a través de HTTPS)
