@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/components
-ms.openlocfilehash: e73667925c04dd1b2360138343c4a2dcef0ee310
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 6643ccd0fdb62243427bb0972d8deb3f7b57079d
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160020"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726921"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -578,15 +578,15 @@ Los `EventArgs` admitidos se muestran en la tabla siguiente.
 | Event            | Clase                | Eventos y notas de DOM |
 | ---------------- | -------------------- | -------------------- |
 | Portapapeles        | `ClipboardEventArgs` | `oncut`, `oncopy`, `onpaste` |
-| Arrastrar             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` y `DataTransferItem` mantener los datos de los elementos arrastrados. |
+| Arrastre             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` y `DataTransferItem` mantener los datos de los elementos arrastrados. |
 | Error de :            | `ErrorEventArgs`     | `onerror` |
-| Event            | `EventArgs`          | *General*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Portapapeles*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Entrada*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Medios*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
+| Event            | `EventArgs`          | *General*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Portapapeles*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Entrada*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Soporte*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
 | Foco            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>No incluye compatibilidad con `relatedTarget`. |
 | Input            | `ChangeEventArgs`    | `onchange`, `oninput` |
 | Teclado         | `KeyboardEventArgs`  | `onkeydown`, `onkeypress`, `onkeyup` |
 | Mouse            | `MouseEventArgs`     | `onclick`, `oncontextmenu`, `ondblclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` |
-| Puntero    | `PointerEventArgs`   | `onpointerdown`, `onpointerup`, `onpointercancel`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `ongotpointercapture`, `onlostpointercapture` |
-| Rueda del ratón      | `WheelEventArgs`     | `onwheel`, `onmousewheel` |
+| Puntero del mouse    | `PointerEventArgs`   | `onpointerdown`, `onpointerup`, `onpointercancel`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `ongotpointercapture`, `onlostpointercapture` |
+| Rueda del mouse      | `WheelEventArgs`     | `onwheel`, `onmousewheel` |
 | Progreso         | `ProgressEventArgs`  | `onabort`, `onload`, `onloadend`, `onloadstart`, `onprogress`, `ontimeout` |
 | Entrada táctil            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave`, `ontouchcancel`<br><br>`TouchPoint` representa un único punto de contacto en un dispositivo con distinción de toque. |
 
@@ -603,7 +603,7 @@ También se pueden usar expresiones lambda:
 A menudo resulta cómodo cerrar los valores adicionales, como al recorrer en iteración un conjunto de elementos. En el ejemplo siguiente se crean tres botones, cada uno de los cuales llama a `UpdateHeading` pasar un argumento de evento (`MouseEventArgs`) y su número de botón (`buttonNumber`) cuando se selecciona en la interfaz de usuario:
 
 ```razor
-<h2>@message</h2>
+<h2>@_message</h2>
 
 @for (var i = 1; i < 4; i++)
 {
@@ -616,11 +616,11 @@ A menudo resulta cómodo cerrar los valores adicionales, como al recorrer en ite
 }
 
 @code {
-    private string message = "Select a button to learn its position.";
+    private string _message = "Select a button to learn its position.";
 
     private void UpdateHeading(MouseEventArgs e, int buttonNumber)
     {
-        message = $"You selected Button #{buttonNumber} at " +
+        _message = $"You selected Button #{buttonNumber} at " +
             $"mouse position: {e.ClientX} X {e.ClientY}.";
     }
 }
@@ -637,7 +637,7 @@ En el `ChildComponent` de la aplicación de ejemplo (*Components/ChildComponent.
 
 [!code-razor[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
-El `ParentComponent` establece el `EventCallback<T>` del elemento secundario en su método `ShowMessage`.
+El `ParentComponent` establece el `EventCallback<T>` (`OnClick`) del elemento secundario en su método `ShowMessage`.
 
 *Pages/ParentComponent. Razor*:
 
@@ -652,36 +652,28 @@ El `ParentComponent` establece el `EventCallback<T>` del elemento secundario en 
     by the parent component.
 </ChildComponent>
 
-<p><b>@messageText</b></p>
+<p><b>@_messageText</b></p>
 
 @code {
-    private string messageText;
+    private string _messageText;
 
     private void ShowMessage(MouseEventArgs e)
     {
-        messageText = $"Blaze a new trail with Blazor! ({e.ScreenX}, {e.ScreenY})";
+        _messageText = $"Blaze a new trail with Blazor! ({e.ScreenX}, {e.ScreenY})";
     }
 }
 ```
 
 Cuando el botón está seleccionado en el `ChildComponent`:
 
-* Se llama al método `ShowMessage` del `ParentComponent`. `messageText` se actualiza y se muestra en el `ParentComponent`.
+* Se llama al método `ShowMessage` del `ParentComponent`. `_messageText` se actualiza y se muestra en el `ParentComponent`.
 * No se requiere una llamada a [StateHasChanged](xref:blazor/lifecycle#state-changes) en el método de la devolución de llamada (`ShowMessage`). se llama a `StateHasChanged` automáticamente para rerepresentar el `ParentComponent`, del mismo modo que los eventos secundarios desencadenan la rerepresentación de componentes en los controladores de eventos que se ejecutan dentro del elemento secundario.
 
 `EventCallback` y `EventCallback<T>` permiten los delegados asincrónicos. `EventCallback<T>` tiene un tipo seguro y requiere un tipo de argumento específico. `EventCallback` tiene un tipo débil y permite cualquier tipo de argumento.
 
 ```razor
-<p><b>@messageText</b></p>
-
-@{ var message = "Default Text"; }
-
 <ChildComponent 
-    OnClick="@(async () => { await Task.Yield(); messageText = "Blaze It!"; })" />
-
-@code {
-    private string messageText;
-}
+    OnClick="@(async () => { await Task.Yield(); _messageText = "Blaze It!"; })" />
 ```
 
 Invocar un `EventCallback` o `EventCallback<T>` con `InvokeAsync` y esperar el <xref:System.Threading.Tasks.Task>:
@@ -776,7 +768,7 @@ Password:
 
 <input @oninput="OnPasswordChanged" 
        required 
-       type="@(showPassword ? "text" : "password")" 
+       type="@(_showPassword ? "text" : "password")" 
        value="@Password" />
 
 <button class="btn btn-primary" @onclick="ToggleShowPassword">
@@ -784,7 +776,7 @@ Password:
 </button>
 
 @code {
-    private bool showPassword;
+    private bool _showPassword;
 
     [Parameter]
     public string Password { get; set; }
@@ -801,7 +793,7 @@ Password:
 
     private void ToggleShowPassword()
     {
-        showPassword = !showPassword;
+        _showPassword = !_showPassword;
     }
 }
 ```
@@ -809,16 +801,16 @@ Password:
 El componente de `PasswordField` se usa en otro componente:
 
 ```razor
-<PasswordField @bind-Password="password" />
+<PasswordField @bind-Password="_password" />
 
 @code {
-    private string password;
+    private string _password;
 }
 ```
 
 Para realizar comprobaciones o errores de captura en la contraseña en el ejemplo anterior:
 
-* Cree un campo de respaldo para `Password` (`password` en el siguiente código de ejemplo).
+* Cree un campo de respaldo para `Password` (`_password` en el siguiente código de ejemplo).
 * Realice las comprobaciones o errores de captura en el establecedor de `Password`.
 
 En el ejemplo siguiente se proporcionan comentarios inmediatos al usuario si se usa un espacio en el valor de la contraseña:
@@ -828,36 +820,36 @@ Password:
 
 <input @oninput="OnPasswordChanged" 
        required 
-       type="@(showPassword ? "text" : "password")" 
+       type="@(_showPassword ? "text" : "password")" 
        value="@Password" />
 
 <button class="btn btn-primary" @onclick="ToggleShowPassword">
     Show password
 </button>
 
-<span class="text-danger">@validationMessage</span>
+<span class="text-danger">@_validationMessage</span>
 
 @code {
-    private bool showPassword;
-    private string password;
-    private string validationMessage;
+    private bool _showPassword;
+    private string _password;
+    private string _validationMessage;
 
     [Parameter]
     public string Password
     {
-        get { return password ?? string.Empty; }
+        get { return _password ?? string.Empty; }
         set
         {
-            if (password != value)
+            if (_password != value)
             {
                 if (value.Contains(' '))
                 {
-                    validationMessage = "Spaces not allowed!";
+                    _validationMessage = "Spaces not allowed!";
                 }
                 else
                 {
-                    password = value;
-                    validationMessage = string.Empty;
+                    _password = value;
+                    _validationMessage = string.Empty;
                 }
             }
         }
@@ -875,7 +867,7 @@ Password:
 
     private void ToggleShowPassword()
     {
-        showPassword = !showPassword;
+        _showPassword = !_showPassword;
     }
 }
 ```
@@ -888,22 +880,22 @@ Las referencias de componente proporcionan una manera de hacer referencia a una 
 * Defina un campo con el mismo tipo que el componente secundario.
 
 ```razor
-<MyLoginDialog @ref="loginDialog" ... />
+<MyLoginDialog @ref="_loginDialog" ... />
 
 @code {
-    private MyLoginDialog loginDialog;
+    private MyLoginDialog _loginDialog;
 
     private void OnSomething()
     {
-        loginDialog.Show();
+        _loginDialog.Show();
     }
 }
 ```
 
-Cuando se representa el componente, el campo de `loginDialog` se rellena con la instancia del componente secundario `MyLoginDialog`. Después, puede invocar métodos .NET en la instancia del componente.
+Cuando se representa el componente, el campo de `_loginDialog` se rellena con la instancia del componente secundario `MyLoginDialog`. Después, puede invocar métodos .NET en la instancia del componente.
 
 > [!IMPORTANT]
-> La variable `loginDialog` solo se rellena después de que el componente se represente y su salida incluye el elemento `MyLoginDialog`. Hasta ese momento, no hay nada que hacer referencia. Para manipular las referencias de componentes una vez finalizada la representación del componente, use los [métodos OnAfterRenderAsync o OnAfterRender](xref:blazor/lifecycle#after-component-render).
+> La variable `_loginDialog` solo se rellena después de que el componente se represente y su salida incluye el elemento `MyLoginDialog`. Hasta ese momento, no hay nada que hacer referencia. Para manipular las referencias de componentes una vez finalizada la representación del componente, use los [métodos OnAfterRenderAsync o OnAfterRender](xref:blazor/lifecycle#after-component-render).
 
 Al capturar referencias de componentes, use una sintaxis similar para [capturar referencias de elemento](xref:blazor/javascript-interop#capture-references-to-elements), no es una característica de [interoperabilidad de JavaScript](xref:blazor/javascript-interop) . Las referencias a componentes no se pasan al código JavaScript&mdash;solo se usan en código .NET.
 
@@ -939,10 +931,10 @@ Uso de la `NotifierService` para actualizar un componente:
 @inject NotifierService Notifier
 @implements IDisposable
 
-<p>Last update: @lastNotification.key = @lastNotification.value</p>
+<p>Last update: @_lastNotification.key = @_lastNotification.value</p>
 
 @code {
-    private (string key, int value) lastNotification;
+    private (string key, int value) _lastNotification;
 
     protected override void OnInitialized()
     {
@@ -953,7 +945,7 @@ Uso de la `NotifierService` para actualizar un componente:
     {
         await InvokeAsync(() =>
         {
-            lastNotification = (key, value);
+            _lastNotification = (key, value);
             StateHasChanged();
         });
     }
@@ -1101,16 +1093,16 @@ En el ejemplo siguiente se muestra el componente de `Counter` predeterminado con
 
 <h1>Counter</h1>
 
-<p>Current count: @currentCount</p>
+<p>Current count: @_currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    int currentCount = 0;
+    private int _currentCount = 0;
 
     void IncrementCount()
     {
-        currentCount++;
+        _currentCount++;
     }
 }
 ```
@@ -1124,7 +1116,7 @@ El componente de `Counter` también se puede crear con un archivo de código sub
 
 <h1>Counter</h1>
 
-<p>Current count: @currentCount</p>
+<p>Current count: @_currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 ```
@@ -1136,11 +1128,11 @@ namespace BlazorApp.Pages
 {
     public partial class Counter
     {
-        int currentCount = 0;
+        private int _currentCount = 0;
 
         void IncrementCount()
         {
-            currentCount++;
+            _currentCount++;
         }
     }
 }
@@ -1236,10 +1228,10 @@ Normalmente, las cadenas se representan mediante nodos de texto DOM, lo que sign
 En el ejemplo siguiente se muestra el uso del tipo de `MarkupString` para agregar un bloque de contenido HTML estático a la salida representada de un componente:
 
 ```html
-@((MarkupString)myMarkup)
+@((MarkupString)_myMarkup)
 
 @code {
-    private string myMarkup = 
+    private string _myMarkup = 
         "<p class='markup'>This is a <em>markup string</em>.</p>";
 }
 ```
@@ -1365,7 +1357,7 @@ Por ejemplo, la aplicación de ejemplo especifica información de tema (`ThemeIn
             <NavMenu />
         </div>
         <div class="col-sm-9">
-            <CascadingValue Value="theme">
+            <CascadingValue Value="_theme">
                 <div class="content px-4">
                     @Body
                 </div>
@@ -1375,7 +1367,7 @@ Por ejemplo, la aplicación de ejemplo especifica información de tema (`ThemeIn
 </div>
 
 @code {
-    private ThemeInfo theme = new ThemeInfo { ButtonClass = "btn-success" };
+    private ThemeInfo _theme = new ThemeInfo { ButtonClass = "btn-success" };
 }
 ```
 
@@ -1392,7 +1384,7 @@ En la aplicación de ejemplo, el componente `CascadingValuesParametersTheme` enl
 
 <h1>Cascading Values & Parameters</h1>
 
-<p>Current count: @currentCount</p>
+<p>Current count: @_currentCount</p>
 
 <p>
     <button class="btn" @onclick="IncrementCount">
@@ -1407,14 +1399,14 @@ En la aplicación de ejemplo, el componente `CascadingValuesParametersTheme` enl
 </p>
 
 @code {
-    private int currentCount = 0;
+    private int _currentCount = 0;
 
     [CascadingParameter]
     protected ThemeInfo ThemeInfo { get; set; }
 
     private void IncrementCount()
     {
-        currentCount++;
+        _currentCount++;
     }
 }
 ```
@@ -1422,14 +1414,14 @@ En la aplicación de ejemplo, el componente `CascadingValuesParametersTheme` enl
 Para poner en cascada varios valores del mismo tipo en el mismo subárbol, proporcione una cadena de `Name` única para cada componente `CascadingValue` y su `CascadingParameter`correspondiente. En el ejemplo siguiente, dos componentes de `CascadingValue` en cascada son instancias diferentes de `MyCascadingType` por nombre:
 
 ```razor
-<CascadingValue Value=@ParentCascadeParameter1 Name="CascadeParam1">
+<CascadingValue Value=@_parentCascadeParameter1 Name="CascadeParam1">
     <CascadingValue Value=@ParentCascadeParameter2 Name="CascadeParam2">
         ...
     </CascadingValue>
 </CascadingValue>
 
 @code {
-    private MyCascadingType ParentCascadeParameter1;
+    private MyCascadingType _parentCascadeParameter1;
 
     [Parameter]
     public MyCascadingType ParentCascadeParameter2 { get; set; }
@@ -1509,14 +1501,13 @@ Los fragmentos de representación se pueden definir mediante la sintaxis de plan
 En el ejemplo siguiente se muestra cómo especificar los valores de `RenderFragment` y `RenderFragment<T>` y las plantillas de representación directamente en un componente. Los fragmentos de representación también se pueden pasar como argumentos a [componentes con plantilla](#templated-components).
 
 ```razor
-@timeTemplate
+@_timeTemplate
 
-@petTemplate(new Pet { Name = "Rex" })
+@_petTemplate(new Pet { Name = "Rex" })
 
 @code {
-    private RenderFragment timeTemplate = @<p>The time is @DateTime.Now.</p>;
-    private RenderFragment<Pet> petTemplate = 
-        (pet) => @<p>Your pet's name is @pet.Name.</p>;
+    private RenderFragment _timeTemplate = @<p>The time is @DateTime.Now.</p>;
+    private RenderFragment<Pet> _petTemplate = (pet) => @<p>Pet: @pet.Name</p>;
 
     private class Pet
     {
@@ -1530,7 +1521,7 @@ Salida representada del código anterior:
 ```html
 <p>The time is 10/04/2018 01:26:52.</p>
 
-<p>Your pet's name is Rex.</p>
+<p>Pet: Rex</p>
 ```
 
 ## <a name="manual-rendertreebuilder-logic"></a>Lógica de RenderTreeBuilder manual
@@ -1775,8 +1766,6 @@ El siguiente componente muestra un ejemplo de cómo realizar la redirección ini
 </select>
 
 @code {
-    private double textNumber;
-
     private void OnSelected(ChangeEventArgs e)
     {
         var culture = (string)e.Value;

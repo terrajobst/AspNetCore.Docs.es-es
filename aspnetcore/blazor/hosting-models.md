@@ -11,12 +11,12 @@ no-loc:
 - SignalR
 - blazor.webassembly.js
 uid: blazor/hosting-models
-ms.openlocfilehash: c9521acf40317c90d1197660bfa516710263cfc9
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 2c66bede9c1e31b22fd1612fead556176d6f192b
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160046"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726866"
 ---
 # <a name="aspnet-core-opno-locblazor-hosting-models"></a>Modelos de hospedaje de Blazor de ASP.NET Core
 
@@ -32,7 +32,7 @@ Para crear un proyecto para los modelos de hospedaje descritos en este artículo
 
 El modelo de hospedaje principal de Blazor se está ejecutando en el lado cliente en el explorador de webassembly. La aplicación Blazor, sus dependencias y el entorno de ejecución de .NET se descargan en el explorador. La aplicación se ejecuta directamente en el subproceso de interfaz de usuario del explorador. Las actualizaciones de la interfaz de usuario y el control de eventos se producen dentro del mismo proceso. Los recursos de la aplicación se implementan como archivos estáticos en un servidor web o servicio capaz de servir contenido estático a los clientes.
 
-![[! Operador. Webassembly NO-LOC (increíble)]: [! Operador. NO-LOC (increíble)]: la aplicación se ejecuta en un subproceso de interfaz de usuario dentro del explorador.](hosting-models/_static/blazor-webassembly.png)
+![[! Operador. Webassembly NO-LOC (increíble)]: [! Operador. NO-LOC (increíble): la aplicación se ejecuta en un subproceso de interfaz de usuario dentro del explorador.](hosting-models/_static/blazor-webassembly.png)
 
 Para crear una aplicación Blazor mediante el modelo de hospedaje del lado cliente, use la plantilla de **aplicación de WebassembleBlazor** ([dotnet New blazorwasm](/dotnet/core/tools/dotnet-new)).
 
@@ -392,7 +392,7 @@ En el código siguiente se muestra una `WeatherForecastService` actualizada en u
 ```csharp
 public class WeatherForecastService
 {
-    private static readonly string[] Summaries = new[]
+    private static readonly string[] _summaries = new[]
     {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild",
         "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -423,7 +423,7 @@ public class WeatherForecastService
             {
                 Date = startDate.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Summary = _summaries[rng.Next(_summaries.Length)]
             }).ToArray();
         });
     }

@@ -5,14 +5,14 @@ description: Obtenga información sobre la compresión de respuesta y cómo usar
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 01/22/2020
 uid: performance/response-compression
-ms.openlocfilehash: 04b2ffd7047e8b127968adb5d40e0141365fb5fe
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: b8a84418a3258e9ac43b4eadd8564c0708590bce
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880910"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726965"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Compresión de respuesta en ASP.NET Core
 
@@ -80,7 +80,7 @@ Los algoritmos de compresión están sujetos a un equilibrio entre la velocidad 
 
 En la tabla siguiente se describen los encabezados implicados en la solicitud, el envío, el almacenamiento en caché y la recepción de contenido comprimido.
 
-| Header             | Role |
+| Header             | Rol |
 | ------------------ | ---- |
 | `Accept-Encoding`  | Se envía desde el cliente al servidor para indicar los esquemas de codificación de contenido aceptables para el cliente. |
 | `Content-Encoding` | Se envía desde el servidor al cliente para indicar la codificación del contenido en la carga. |
@@ -139,7 +139,7 @@ public class Startup
 
 Notas:
 
-* se debe llamar a `app.UseResponseCompression` antes de `app.UseMvc`.
+* se debe llamar a `app.UseResponseCompression` antes que cualquier software intermedio que comprime las respuestas. Para obtener más información, vea <xref:fundamentals/middleware/index#middleware-order>.
 * Use una herramienta como [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/)o [Postman](https://www.getpostman.com/) para establecer el encabezado de solicitud `Accept-Encoding` y estudiar los encabezados de respuesta, el tamaño y el cuerpo.
 
 Envíe una solicitud a la aplicación de ejemplo sin el encabezado `Accept-Encoding` y observe que la respuesta se ha descomprimido. Los encabezados `Content-Encoding` y `Vary` no están presentes en la respuesta.

@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/forms-validation
-ms.openlocfilehash: 6f6fdc13dbb754ecfe06025d496017d3c16951fe
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 2758bcbbc76c8a59716fe224dd2deb4ca8c06929
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76159968"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726885"
 ---
 # <a name="aspnet-core-opno-locblazor-forms-and-validation"></a>ASP.NET Core Blazor formularios y validación
 
@@ -39,17 +39,17 @@ public class ExampleModel
 Un formulario se define mediante el componente de `EditForm`. En el siguiente formulario se muestran los elementos, componentes y código Razor típicos:
 
 ```razor
-<EditForm Model="@exampleModel" OnValidSubmit="HandleValidSubmit">
+<EditForm Model="@_exampleModel" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
-    <InputText id="name" @bind-Value="exampleModel.Name" />
+    <InputText id="name" @bind-Value="_exampleModel.Name" />
 
     <button type="submit">Submit</button>
 </EditForm>
 
 @code {
-    private ExampleModel exampleModel = new ExampleModel();
+    private ExampleModel _exampleModel = new ExampleModel();
 
     private void HandleValidSubmit()
     {
@@ -60,9 +60,9 @@ Un formulario se define mediante el componente de `EditForm`. En el siguiente fo
 
 En el ejemplo anterior:
 
-* El formulario valida los datos proporcionados por el usuario en el campo `name` mediante la validación definida en el tipo de `ExampleModel`. El modelo se crea en el bloque `@code` del componente y se mantiene en un campo privado (`exampleModel`). El campo se asigna al atributo `Model` del elemento `<EditForm>`.
+* El formulario valida los datos proporcionados por el usuario en el campo `name` mediante la validación definida en el tipo de `ExampleModel`. El modelo se crea en el bloque `@code` del componente y se mantiene en un campo privado (`_exampleModel`). El campo se asigna al atributo `Model` del elemento `<EditForm>`.
 * `@bind-Value` enlaza el `InputText` del componente:
-  * Propiedad del modelo (`exampleModel.Name`) de la propiedad `Value` del componente de `InputText`.
+  * Propiedad del modelo (`_exampleModel.Name`) de la propiedad `Value` del componente de `InputText`.
   * Delegado de evento de cambio en la propiedad `ValueChanged` del componente de `InputText`.
 * El componente `DataAnnotationsValidator` adjunta la compatibilidad con la validación mediante anotaciones de datos.
 * El componente `ValidationSummary` resume los mensajes de validación.
@@ -124,26 +124,26 @@ El siguiente formulario valida los datos proporcionados por el usuario mediante 
 
 <h2>New Ship Entry Form</h2>
 
-<EditForm Model="@starship" OnValidSubmit="HandleValidSubmit">
+<EditForm Model="@_starship" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
     <p>
         <label>
             Identifier:
-            <InputText @bind-Value="starship.Identifier" />
+            <InputText @bind-Value="_starship.Identifier" />
         </label>
     </p>
     <p>
         <label>
             Description (optional):
-            <InputTextArea @bind-Value="starship.Description" />
+            <InputTextArea @bind-Value="_starship.Description" />
         </label>
     </p>
     <p>
         <label>
             Primary Classification:
-            <InputSelect @bind-Value="starship.Classification">
+            <InputSelect @bind-Value="_starship.Classification">
                 <option value="">Select classification ...</option>
                 <option value="Exploration">Exploration</option>
                 <option value="Diplomacy">Diplomacy</option>
@@ -154,19 +154,19 @@ El siguiente formulario valida los datos proporcionados por el usuario mediante 
     <p>
         <label>
             Maximum Accommodation:
-            <InputNumber @bind-Value="starship.MaximumAccommodation" />
+            <InputNumber @bind-Value="_starship.MaximumAccommodation" />
         </label>
     </p>
     <p>
         <label>
             Engineering Approval:
-            <InputCheckbox @bind-Value="starship.IsValidatedDesign" />
+            <InputCheckbox @bind-Value="_starship.IsValidatedDesign" />
         </label>
     </p>
     <p>
         <label>
             Production Date:
-            <InputDate @bind-Value="starship.ProductionDate" />
+            <InputDate @bind-Value="_starship.ProductionDate" />
         </label>
     </p>
 
@@ -180,7 +180,7 @@ El siguiente formulario valida los datos proporcionados por el usuario mediante 
 </EditForm>
 
 @code {
-    private Starship starship = new Starship();
+    private Starship _starship = new Starship();
 
     private void HandleValidSubmit()
     {
@@ -199,7 +199,7 @@ Observe el siguiente ejemplo:
 * Se ejecuta código adicional en función del resultado de la validación del lado cliente y del servidor mediante la comprobación de `isValid`.
 
 ```razor
-<EditForm EditContext="@editContext" OnSubmit="@HandleSubmit">
+<EditForm EditContext="@_editContext" OnSubmit="@HandleSubmit">
 
     ...
 
@@ -207,18 +207,18 @@ Observe el siguiente ejemplo:
 </EditForm>
 
 @code {
-    private Starship starship = new Starship();
-    private EditContext editContext;
+    private Starship _starship = new Starship();
+    private EditContext _editContext;
 
     protected override void OnInitialized()
     {
-        editContext = new EditContext(starship);
+        _editContext = new EditContext(_starship);
     }
 
     private async Task HandleSubmit()
     {
-        var isValid = editContext.Validate() && 
-            await ServerValidate(editContext);
+        var isValid = _editContext.Validate() && 
+            await ServerValidate(_editContext);
 
         if (isValid)
         {
@@ -258,7 +258,7 @@ Cree un componente con el marcado siguiente y use el componente tal como se usa 
 
 ## <a name="work-with-radio-buttons"></a>Trabajar con botones de radio
 
-Al trabajar con botones de radio en un formulario, el enlace de datos se controla de manera diferente que otros elementos, ya que los botones de radio se evalúan como un grupo. El valor de cada botón de radio es fijo, pero el valor del grupo de botones de radio es el valor del botón de radio seleccionado. El ejemplo siguiente muestra cómo:
+Al trabajar con botones de radio en un formulario, el enlace de datos se controla de manera diferente que otros elementos, ya que los botones de radio se evalúan como un grupo. El valor de cada botón de radio es fijo, pero el valor del grupo de botones de radio es el valor del botón de radio seleccionado. En el ejemplo siguiente se muestra cómo:
 
 * Controlar el enlace de datos para un grupo de botones de radio.
 * Admitir la validación mediante un componente de `InputRadio` personalizado.
@@ -311,14 +311,14 @@ En el siguiente `EditForm` se usa el componente de `InputRadio` anterior para ob
 
 <h1>Radio Button Group Test</h1>
 
-<EditForm Model="model" OnValidSubmit="HandleValidSubmit">
+<EditForm Model="_model" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
     @for (int i = 1; i <= 5; i++)
     {
         <label>
-            <InputRadio name="rate" SelectedValue="i" @bind-Value="model.Rating" />
+            <InputRadio name="rate" SelectedValue="i" @bind-Value="_model.Rating" />
             @i
         </label>
     }
@@ -326,10 +326,10 @@ En el siguiente `EditForm` se usa el componente de `InputRadio` anterior para ob
     <button type="submit">Submit</button>
 </EditForm>
 
-<p>You chose: @model.Rating</p>
+<p>You chose: @_model.Rating</p>
 
 @code {
-    private Model model = new Model();
+    private Model _model = new Model();
 
     private void HandleValidSubmit()
     {
@@ -364,13 +364,13 @@ El componente `ValidationSummary` resume todos los mensajes de validación, que 
 Los mensajes de validación de salida para un modelo específico con el parámetro `Model`:
   
 ```razor
-<ValidationSummary Model="@starship" />
+<ValidationSummary Model="@_starship" />
 ```
 
 En el componente de `ValidationMessage` se muestran los mensajes de validación de un campo específico, que es similar a la [aplicación auxiliar de etiquetas de mensaje de validación](xref:mvc/views/working-with-forms#the-validation-message-tag-helper). Especifique el campo para la validación con el atributo `For` y una expresión lambda que nombra la propiedad del modelo:
 
 ```razor
-<ValidationMessage For="@(() => starship.MaximumAccommodation)" />
+<ValidationMessage For="@(() => _starship.MaximumAccommodation)" />
 ```
 
 Los componentes `ValidationMessage` y `ValidationSummary` admiten atributos arbitrarios. Cualquier atributo que no coincida con un parámetro de componente se agrega al elemento `<div>` o `<ul>` generado.
@@ -411,7 +411,7 @@ Blazor proporciona compatibilidad para validar la entrada del formulario mediant
 Para validar el gráfico de objetos completo del modelo enlazado, incluidas las propiedades de tipo complejo y de colección, use el `ObjectGraphDataAnnotationsValidator` proporcionado por [Microsoft. AspNetCore.Blazorexperimental. DataAnnotations.](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.DataAnnotations.Validation) paquete de validación:
 
 ```razor
-<EditForm Model="@model" OnValidSubmit="HandleValidSubmit">
+<EditForm Model="@_model" OnValidSubmit="HandleValidSubmit">
     <ObjectGraphDataAnnotationsValidator />
     ...
 </EditForm>
@@ -462,34 +462,34 @@ Para habilitar y deshabilitar el botón Enviar en función de la validación del
 * Valide el formulario en la devolución de llamada del `OnFieldChanged` del contexto para habilitar y deshabilitar el botón de envío.
 
 ```razor
-<EditForm EditContext="@editContext">
+<EditForm EditContext="@_editContext">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
     ...
 
-    <button type="submit" disabled="@formInvalid">Submit</button>
+    <button type="submit" disabled="@_formInvalid">Submit</button>
 </EditForm>
 
 @code {
-    private Starship starship = new Starship();
-    private bool formInvalid = true;
-    private EditContext editContext;
+    private Starship _starship = new Starship();
+    private bool _formInvalid = true;
+    private EditContext _editContext;
 
     protected override void OnInitialized()
     {
-        editContext = new EditContext(starship);
+        _editContext = new EditContext(_starship);
 
-        editContext.OnFieldChanged += (_, __) =>
+        _editContext.OnFieldChanged += (_, __) =>
         {
-            formInvalid = !editContext.Validate();
+            _formInvalid = !_editContext.Validate();
             StateHasChanged();
         };
     }
 }
 ```
 
-En el ejemplo anterior, establezca `formInvalid` en `false` si:
+En el ejemplo anterior, establezca `_formInvalid` en `false` si:
 
 * El formulario se carga previamente con valores predeterminados válidos.
 * Desea habilitar el botón Enviar cuando se carga el formulario.
@@ -500,23 +500,23 @@ Un efecto secundario del enfoque anterior es que un componente de `ValidationSum
 * Haga que el componente de `ValidationSummary` esté visible cuando se seleccione el botón Enviar (por ejemplo, en un método de `HandleValidSubmit`).
 
 ```razor
-<EditForm EditContext="@editContext" OnValidSubmit="HandleValidSubmit">
+<EditForm EditContext="@_editContext" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
-    <ValidationSummary style="@displaySummary" />
+    <ValidationSummary style="@_displaySummary" />
 
     ...
 
-    <button type="submit" disabled="@formInvalid">Submit</button>
+    <button type="submit" disabled="@_formInvalid">Submit</button>
 </EditForm>
 
 @code {
-    private string displaySummary = "display:none";
+    private string _displaySummary = "display:none";
 
     ...
 
     private void HandleValidSubmit()
     {
-        displaySummary = "display:block";
+        _displaySummary = "display:block";
     }
 }
 ```
