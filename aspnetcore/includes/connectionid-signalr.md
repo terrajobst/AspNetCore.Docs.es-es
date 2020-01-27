@@ -1,0 +1,2 @@
+> [!WARNING]
+> <span data-ttu-id="a80b3-101">ADVERTENCIA de seguridad: exponer `ConnectionId` puede provocar la suplantación malintencionada si la versión del servidor o del cliente de Signalr es ASP.NET Core 2,2 o anterior.</span><span class="sxs-lookup"><span data-stu-id="a80b3-101">Security warning: Exposing `ConnectionId` can lead to malicious impersonation if the SignalR server or client version is ASP.NET Core 2.2 or earlier.</span></span>
