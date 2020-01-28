@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: bf035bc65f0f120f52e55effe4d413bfecdf735d
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 146a204509856186a2696b770cae2249d348fa34
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75952084"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726838"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -26,8 +26,19 @@ Para obtener una experiencia de tutorial en la publicación de una aplicación d
 
 Los siguientes sistemas operativos son compatibles:
 
+::: moniker range=">= aspnetcore-3.0"
+
+* Windows 7 o posterior
+* Windows Server 2012 R2 o versiones posteriores
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 * Windows 7 o posterior
 * Windows Server 2008 R2 o posterior
+
+::: moniker-end
 
 El [servidor HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominado WebListener) no funciona en una configuración de proxy inverso con IIS. Use el [servidor Kestrel](xref:fundamentals/servers/kestrel).
 

@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la API de configuración para
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 01/23/2020
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 09ef06f179e34cd7f4f04ac30c3b5dd95d058244
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 141ae5cda7672159032013cbda1ef4bfa7c142dd
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75951891"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726974"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configuración en ASP.NET Core
 
@@ -923,7 +923,7 @@ Dados los datos de ejemplo, `sectionExists` es `false` porque no hay una secció
 
 La configuración se puede enlazar a clases que representan grupos de configuraciones relacionadas a través del *patrón de opciones*. Para obtener más información, vea <xref:fundamentals/configuration/options>.
 
-Los valores de configuración se devuelven como cadenas, pero llamar a <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> permite la construcción de objetos [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object).
+Los valores de configuración se devuelven como cadenas, pero llamar a <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> permite la construcción de objetos [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object). El enlazador enlaza los valores con todas las propiedades de lectura o escritura públicas del tipo proporcionado. Los campos **no** se enlazan.
 
 La aplicación de ejemplo contiene un modelo `Starship` (*Models/Starship.cs*):
 
@@ -980,7 +980,7 @@ La aplicación de ejemplo llama a `GetSection` con la clave `starship`. Los pare
 
 ## <a name="bind-to-an-object-graph"></a>Enlazar a un gráfico de objetos
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> es capaz de enlazar todo un gráfico de objetos POCO.
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> es capaz de enlazar todo un gráfico de objetos POCO. Al igual que ocurre con el enlace de un objeto simple, solo se enlazan las propiedades públicas de lectura o escritura.
 
 El ejemplo contiene un modelo `TvShow` cuyo gráfico de objetos incluye las clases `Metadata` y `Actors` (*Models/TvShow.cs*):
 
