@@ -7,22 +7,21 @@ ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: a8909d391ae1a35e9c8155df767ab157701c8a51
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 04694f20c7142cc2917df25458e8e335ee933900
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259447"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76268770"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Tutorial: Introducción a EF Core en una aplicación web de ASP.NET Core MVC
 
-::: moniker range=">= aspnetcore-3.0"
+Este tutorial **no** se ha actualizado para ASP.NET Core 3.0. La versión de [Razor Pages](xref:data/ef-rp/intro) se ha actualizado. La mayoría de los cambios de código para ASP.NET Core 3.0 y la versión posterior de este tutorial:
 
-Este tutorial **no** se ha actualizado para ASP.NET Core 3.0. La versión de [Razor Pages](xref:data/ef-rp/intro) se ha actualizado. Para información sobre cuándo podría actualizarse, consulte [este problema de GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/13920).
+* Están en los archivos *Startup.cs* y *Program.cs*.
+* Se pueden encontrar en la [versión de Razor Pages](xref:data/ef-rp/intro). 
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
+Para información sobre cuándo podría actualizarse, consulte [este problema de GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/13920).
 
 [!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc.md)]
 
@@ -387,4 +386,3 @@ Pase al tutorial siguiente para obtener información sobre cómo realizar operac
 > [!div class="nextstepaction"]
 > [Implementación de la funcionalidad CRUD básica](crud.md)
 
-::: moniker-end

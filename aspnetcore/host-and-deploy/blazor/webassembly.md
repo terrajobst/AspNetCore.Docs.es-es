@@ -2,19 +2,20 @@
 title: Hospedaje e implementación de ASP.NET CoreBlazor WebAssembly
 author: guardrex
 description: Aprenda a hospedar e implementar una aplicación Blazor con ASP.NET Core, redes de entrega de contenido (CDN), servidores de archivos y páginas de GitHub.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
+- SignalR
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 0fcefc3f1e51beb7cc29aef6dd4f4b8557e61965
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 8ed95cdb96804e08c3f1273bbea8f64a8e4f173c
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963635"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160254"
 ---
 # <a name="host-and-deploy-aspnet-core-opno-locblazor-webassembly"></a>Hospedaje e implementación de ASP.NET CoreBlazor WebAssembly
 
@@ -36,8 +37,8 @@ Se admiten las estrategias de implementación siguientes:
 
 Enrutar las solicitudes de los componentes de página de una aplicación Blazor WebAssembly no es tan sencillo como enrutar las solicitudes de una aplicación Blazor Server hospedada. Se recomienda usar una aplicación Blazor WebAssembly con dos componentes:
 
-* *Main.razor* &ndash; se carga en la raíz de la aplicación y contiene un vínculo al componente `About` (`href="About"`).
-* *About.Razor* &ndash; componente `About`.
+* *Main.razor*: se carga en la raíz de la aplicación y contiene un vínculo al componente `About` (`href="About"`).
+* *About.razor*: el componente `About`.
 
 Cuando se solicita el documento predeterminado de la aplicación mediante la barra de direcciones del explorador (por ejemplo, `https://www.contoso.com/`):
 
@@ -81,11 +82,11 @@ Los recursos publicados se crean en la carpeta */bin/Release/{TARGET FRAMEWORK}/
 Cuando se publica un proyecto de Blazor, se crea un archivo *web.config* con la siguiente configuración de IIS:
 
 * Se establecen los tipos MIME de las siguientes extensiones de archivo:
-  * *.dll* &ndash; `application/octet-stream`
-  * *.json* &ndash; `application/json`
-  * *.wasm* &ndash; `application/wasm`
-  * *.woff* &ndash; `application/font-woff`
-  * *.woff2* &ndash; `application/font-woff`
+  * *.dll*: `application/octet-stream`
+  * *.json*: `application/json`
+  * *.wasm*: `application/wasm`
+  * *.woff*: `application/font-woff`
+  * *.woff2*: `application/font-woff`
 * Se habilita la compresión HTTP de los siguientes tipos MIME:
   * `application/octet-stream`
   * `application/wasm`
@@ -317,4 +318,4 @@ El argumento `--urls` establece las direcciones IP o las direcciones de host con
 
 ## <a name="configure-the-linker"></a>Configurar el enlazador
 
-Blazor realiza la vinculación de lenguaje intermedio (IL) en cada compilación para quitar el IL innecesario de los ensamblados de salida. La vinculación de ensamblados puede controlarse en la compilación. Para más información, consulte <xref:host-and-deploy/blazor/configure-linker>.
+Blazor realiza la vinculación de lenguaje intermedio (IL) en cada compilación para quitar el IL innecesario de los ensamblados de salida. La vinculación de ensamblados puede controlarse en la compilación. Para obtener más información, vea <xref:host-and-deploy/blazor/configure-linker>.

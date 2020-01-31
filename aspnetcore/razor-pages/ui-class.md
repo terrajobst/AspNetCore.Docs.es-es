@@ -3,15 +3,15 @@ title: Interfaz de usuario de Razor reutilizable en bibliotecas de clases con AS
 author: Rick-Anderson
 description: Explica cómo crear la interfaz de usuario Razor reutilizable con las vistas parciales en una biblioteca de clases en ASP.NET Core.
 ms.author: riande
-ms.date: 10/26/2019
+ms.date: 01/25/2020
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: b5235f4e31f6edd21fb410824fb215ab2d4a41b6
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: 420cc54701394673e2b442b1fdf999e421820fd5
+ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76727287"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76809125"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Crear una interfaz de usuario reutilizable mediante el proyecto de biblioteca de clases de Razor en ASP.NET Core
 
@@ -86,7 +86,7 @@ Supongamos que *RazorUIClassLib, compartidos o páginas* contiene dos archivos p
 
 ## <a name="create-an-rcl-with-static-assets"></a>Creación de un RCL con recursos estáticos
 
-Una RCL puede requerir recursos estáticos complementarios a los que puede hacer referencia la aplicación de consumo de RCL. ASP.NET Core permite crear RCLs que incluyen recursos estáticos que están disponibles para una aplicación de consumo.
+Una RCL puede requerir recursos estáticos complementarios a los que puede hacer referencia el RCL o la aplicación de consumo de RCL. ASP.NET Core permite crear RCLs que incluyen recursos estáticos que están disponibles para una aplicación de consumo.
 
 Para incluir los recursos complementarios como parte de un RCL, cree una carpeta *wwwroot* en la biblioteca de clases e incluya los archivos necesarios en esa carpeta.
 
@@ -127,7 +127,7 @@ Para incluir los archivos TypeScript en un RCL:
 
 ### <a name="consume-content-from-a-referenced-rcl"></a>Consumo de contenido de una RCL a la que se hace referencia
 
-Los archivos incluidos en la carpeta *wwwroot* del RCL se exponen a la aplicación que lo consume bajo el prefijo `_content/{LIBRARY NAME}/`. Por ejemplo, una biblioteca denominada *Razor. class. lib* da como resultado una ruta de acceso al contenido estático en `_content/Razor.Class.Lib/`. Al generar un paquete de NuGet y el nombre de ensamblado no es el mismo que el identificador de paquete, use el identificador de paquete para `{LIBRARY NAME}`.
+Los archivos incluidos en la carpeta *wwwroot* de RCL se exponen a RCL o a la aplicación de consumo en el prefijo `_content/{LIBRARY NAME}/`. Por ejemplo, una biblioteca denominada *Razor. class. lib* da como resultado una ruta de acceso al contenido estático en `_content/Razor.Class.Lib/`. Al generar un paquete de NuGet y el nombre de ensamblado no es el mismo que el identificador de paquete, use el identificador de paquete para `{LIBRARY NAME}`.
 
 La aplicación de consumo hace referencia a los recursos estáticos proporcionados por la biblioteca con `<script>`, `<style>`, `<img>`y otras etiquetas HTML. La aplicación de consumo debe tener habilitada la [compatibilidad con archivos estáticos](xref:fundamentals/static-files) en `Startup.Configure`:
 

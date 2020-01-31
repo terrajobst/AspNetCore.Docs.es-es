@@ -5,12 +5,12 @@ description: Agregue un modelo a una aplicación sencilla de ASP.NET Core.
 ms.author: riande
 ms.date: 01/13/2020
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: adf313418e82cc265304262f7a751273fa0e139f
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 12429f1f381788569615a2a40e1ca13c4b3cfb6e
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75952107"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727126"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Agregar un modelo a una aplicación de ASP.NET Core MVC
 
@@ -22,7 +22,7 @@ Estas clases se usan con [Entity Framework Core](/ef/core) (EF Core) para trabaj
 
 Las clases de modelo que se crean se conocen como clases POCO (del inglés "**p**lain **O**ld **C**LR **O**bjects", objetos CLR antiguos sin formato) porque no tienen ninguna dependencia de EF Core. Simplemente definen las propiedades de los datos que se almacenan en la base de datos.
 
-En este tutorial, se escriben primero las clases del modelo y EF Core crea la base de datos. Existe un enfoque alternativo que no trataremos aquí que consiste en generar clases de modelo a partir de una base de datos existente. Para más información sobre este enfoque, vea [ASP.NET Core - Existing Database](/ef/core/get-started/aspnetcore/existing-db) (ASP.NET Core - base de datos existente).
+En este tutorial, se escriben primero las clases del modelo y EF Core crea la base de datos.
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -160,7 +160,7 @@ Use la herramienta de scaffolding para crear páginas de creación, lectura, act
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta *Controladores* **> Agregar > Nuevo elemento con scaffold**.
+En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta *Controladores***> Agregar > Nuevo elemento con scaffold**.
 
 ![vista del paso anterior](adding-model/_static/add_controller21.png)
 
@@ -435,7 +435,7 @@ En esta sección se aplica scaffolding al modelo de película; es decir, la herr
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta *Controladores* **> Agregar > Nuevo elemento con scaffold**.
+En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta *Controladores***> Agregar > Nuevo elemento con scaffold**.
 
 ![vista del paso anterior](adding-model/_static/add_controller21.png)
 

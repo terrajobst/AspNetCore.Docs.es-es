@@ -2,20 +2,20 @@
 title: Hospedaje e implementación de ASP.NET Core Blazor Server
 author: guardrex
 description: Aprenda a hospedar e implementar una aplicación Blazor Server con ASP.NET Core.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: d45d355eabc53fc90bcda4cb7be22fb6a9f04541
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: c07cd05dd8e1c4384c6f8f019173b9b7a9a06fd0
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944339"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160228"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Hospedaje e implementación de Blazor Server
 
@@ -83,7 +83,7 @@ Se recomienda usar [Azure SignalR Service](/azure/azure-signalr) para las aplica
 
 1. Cree un perfil de publicación de aplicaciones de Azure en Visual Studio para la aplicación Blazor.
 1. Agregue la dependencia de **Azure SignalR Service** al perfil. Si la suscripción de Azure no tiene una instancia de Azure SignalR Service para asignarla a la aplicación, seleccione **Crear una instancia de Azure SignalR Service** para aprovisionar una nueva instancia de servicio.
-1. Publicar la aplicación en Azure
+1. Publicación de la aplicación en Azure.
 
 #### <a name="iis"></a>IIS
 

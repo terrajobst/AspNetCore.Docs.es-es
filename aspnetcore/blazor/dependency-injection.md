@@ -10,22 +10,22 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/dependency-injection
-ms.openlocfilehash: 6930d721f04fd5f7cad2ba472724497a157fda0f
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
-ms.translationtype: MT
+ms.openlocfilehash: fa6762522c831c7fbe2742dbfe4e25a377988e1e
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76159981"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76869569"
 ---
-# <a name="aspnet-core-opno-locblazor-dependency-injection"></a>ASP.NET Core Blazor la inserción de dependencias
+# <a name="aspnet-core-blazor-dependency-injection"></a>Inyección de dependencia de ASP.NET Core extraordinaria
 
 Por [Rainer Stropek](https://www.timecockpit.com)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor admite la [inserción de dependencias (di)](xref:fundamentals/dependency-injection). Las aplicaciones pueden usar servicios integrados mediante su inserción en componentes. Las aplicaciones también pueden definir y registrar servicios personalizados y hacer que estén disponibles en toda la aplicación a través de DI.
+El increíble es compatible con la [inserción de dependencias (di)](xref:fundamentals/dependency-injection). Las aplicaciones pueden usar servicios integrados mediante su inserción en componentes. Las aplicaciones también pueden definir y registrar servicios personalizados y hacer que estén disponibles en toda la aplicación a través de DI.
 
-DI es una técnica para tener acceso a los servicios configurados en una ubicación central. Esto puede ser útil en Blazor aplicaciones para:
+DI es una técnica para tener acceso a los servicios configurados en una ubicación central. Esto puede ser útil en aplicaciones increíbles para:
 
 * Compartir una única instancia de una clase de servicio entre varios componentes, conocido como servicio *Singleton* .
 * Desacoplar componentes de clases de servicio concretas mediante el uso de abstracciones de referencia. Por ejemplo, considere una interfaz `IDataAccess` para tener acceso a los datos de la aplicación. La interfaz se implementa mediante una clase de `DataAccess` concreta y se registra como un servicio en el contenedor de servicios de la aplicación. Cuando un componente usa DI para recibir una `IDataAccess` implementación, el componente no se acopla al tipo concreto. La implementación se puede intercambiar, quizás para una implementación ficticia en pruebas unitarias.
@@ -36,9 +36,9 @@ Los servicios predeterminados se agregan automáticamente a la colección de ser
 
 | Servicio | Período de duración | Descripción |
 | ------- | -------- | ----------- |
-| <xref:System.Net.Http.HttpClient> | Singleton | Proporciona métodos para enviar solicitudes HTTP y recibir respuestas HTTP de un recurso identificado por un URI.<br><br>La instancia de `HttpClient` en una aplicación Blazor webassembly usa el explorador para administrar el tráfico HTTP en segundo plano.<br><br>de forma predeterminada, las aplicaciones de Blazor Server no incluyen un `HttpClient` configurado como servicio. Proporcione una `HttpClient` a una aplicación de Blazor Server.<br><br>Para obtener más información, vea <xref:blazor/call-web-api>. |
-| `IJSRuntime` | Singleton (Blazor webassembly)<br>Ámbito (Blazor Server) | Representa una instancia de un Runtime de JavaScript en la que se envían las llamadas de JavaScript. Para obtener más información, vea <xref:blazor/javascript-interop>. |
-| `NavigationManager` | Singleton (Blazor webassembly)<br>Ámbito (Blazor Server) | Contiene aplicaciones auxiliares para trabajar con URI y el estado de navegación. Para obtener más información, vea [aplicaciones auxiliares de URI y de estado de navegación](xref:blazor/routing#uri-and-navigation-state-helpers). |
+| <xref:System.Net.Http.HttpClient> | Singleton | Proporciona métodos para enviar solicitudes HTTP y recibir respuestas HTTP de un recurso identificado por un URI.<br><br>La instancia de `HttpClient` en una aplicación de webassembly increíblemente ligera utiliza el explorador para administrar el tráfico HTTP en segundo plano.<br><br>Las aplicaciones de servidor increíbles no incluyen un `HttpClient` configurado como servicio de forma predeterminada. Proporcione una `HttpClient` a una aplicación de servidor más brillante.<br><br>Para obtener más información, vea <xref:blazor/call-web-api>. |
+| `IJSRuntime` | Singleton (webassembly increíblemente)<br>Con ámbito (servidor increíble) | Representa una instancia de un Runtime de JavaScript en la que se envían las llamadas de JavaScript. Para obtener más información, vea <xref:blazor/javascript-interop>. |
+| `NavigationManager` | Singleton (webassembly increíblemente)<br>Con ámbito (servidor increíble) | Contiene aplicaciones auxiliares para trabajar con URI y el estado de navegación. Para obtener más información, vea [aplicaciones auxiliares de URI y de estado de navegación](xref:blazor/routing#uri-and-navigation-state-helpers). |
 
 Un proveedor de servicios personalizado no proporciona automáticamente los servicios predeterminados que aparecen en la tabla. Si utiliza un proveedor de servicios personalizado y requiere cualquiera de los servicios que se muestran en la tabla, agregue los servicios necesarios al nuevo proveedor de servicios.
 

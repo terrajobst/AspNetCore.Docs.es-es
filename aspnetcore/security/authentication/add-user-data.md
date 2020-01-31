@@ -3,15 +3,15 @@ title: Agregar, descargar y eliminar datos de usuario a la identidad en un proye
 author: rick-anderson
 description: Obtenga información sobre cómo agregar datos de usuario personalizada para la identidad en un proyecto de ASP.NET Core. Eliminar datos de RGPD.
 ms.author: riande
-ms.date: 12/05/2019
+ms.date: 01/28/2020
 ms.custom: mvc, seodec18
 uid: security/authentication/add-user-data
-ms.openlocfilehash: f54df68834cd3e2493e558aaab9851f036f3f01b
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: e08c02e2e5d4a429aae10c59e7ae3ea48c975067
+ms.sourcegitcommit: c81ef12a1b6e6ac838e5e07042717cf492e6635b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880757"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885544"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Agregar, descargar y eliminar datos de usuario personalizado a la identidad en un proyecto de ASP.NET Core
 
@@ -40,7 +40,7 @@ Se crea el proyecto de ejemplo desde una aplicación web de páginas de Razor, p
 
 ::: moniker-end
 
-## <a name="create-a-razor-web-app"></a>Crear una aplicación web de Razor
+## <a name="create-a-razor-web-app"></a>Creación de una aplicación web de Razor
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -78,15 +78,15 @@ dotnet new webapp -o WebApp1
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Desde **el Explorador de soluciones**, haga doble clic en el proyecto > **agregar** > **nuevo elemento de scaffolding**.
-* En el panel izquierdo de la **agregar Scaffold** cuadro de diálogo, seleccione **identidad** > **agregar**.
-* En el **identidad de ADD** cuadro de diálogo, las siguientes opciones:
+* En el panel izquierdo del cuadro de diálogo **Agregar scaffold** , seleccione **Identity** > **Agregar**.
+* En el cuadro de diálogo **Agregar identidad** , las siguientes opciones:
   * Seleccione el archivo de diseño existente *~/Pages/Shared/_Layout.cshtml*
   * Seleccione los archivos siguientes para reemplazar:
     * **Cuenta/Register**
     * **Cuenta/administrar o índice**
   * Seleccione el **+** botón para crear un nuevo **clase de contexto de datos**. Acepte el tipo (**WebApp1.Models.WebApp1Context** si el proyecto se denomina **WebApp1**).
   * Seleccione el **+** botón para crear un nuevo **clase User**. Acepte el tipo (**WebApp1User** si el proyecto se denomina **WebApp1**) > **agregar**.
-* Seleccione **agregar**.
+* Seleccione **Agregar**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 

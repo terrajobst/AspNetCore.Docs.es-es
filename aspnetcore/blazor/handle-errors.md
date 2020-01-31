@@ -5,17 +5,17 @@ description: Descubra cómo ASP.NET Core Blazor cómo Blazor administra las exce
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/22/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: fe4cc13b1efb8c70c9632f032626aa938fb65ea3
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 7b5602d5ae5e58d1678762fe1cd2adec1f31c969
+ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76159955"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76809008"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Control de errores en las aplicaciones de Blazor de ASP.NET Core
 
@@ -112,7 +112,7 @@ Las excepciones no controladas anteriores se describen en las siguientes seccion
 Cuando Blazor crea una instancia de un componente:
 
 * Se invoca el constructor del componente.
-* Se invocan los constructores de cualquier servicio de DI no singleton proporcionado al constructor del componente mediante la directiva [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) o el atributo [`[Inject]`](xref:blazor/dependency-injection#request-a-service-in-a-component) . 
+* Se invocan los constructores de cualquier servicio de DI no singleton proporcionado al constructor del componente mediante la directiva [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) o el atributo [`[Inject]`](xref:blazor/dependency-injection#request-a-service-in-a-component) .
 
 Se produce un error en un circuito cuando cualquier constructor ejecutado o un establecedor para cualquier propiedad `[Inject]` produce una excepción no controlada. La excepción es grave porque el marco no puede crear una instancia del componente. Si la lógica del constructor puede producir excepciones, la aplicación debe interceptar las excepciones mediante una instrucción [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro.
 
@@ -165,7 +165,7 @@ Si el código de usuario no intercepta y controla la excepción, el marco de tra
 
 ### <a name="component-disposal"></a>Eliminación de componentes
 
-Un componente se puede quitar de la interfaz de usuario, por ejemplo, porque el usuario ha navegado a otra página. Cuando un componente que implementa <xref:System.IDisposable?displayProperty=fullName> se quita de la interfaz de usuario, el marco de trabajo llama al método de <xref:System.IDisposable.Dispose*> del componente. 
+Un componente se puede quitar de la interfaz de usuario, por ejemplo, porque el usuario ha navegado a otra página. Cuando un componente que implementa <xref:System.IDisposable?displayProperty=fullName> se quita de la interfaz de usuario, el marco de trabajo llama al método de <xref:System.IDisposable.Dispose*> del componente.
 
 Si el método `Dispose` del componente produce una excepción no controlada, la excepción es grave para el circuito. Si la lógica de eliminación puede producir excepciones, la aplicación debe interceptar las excepciones mediante una instrucción [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro.
 
@@ -192,16 +192,49 @@ Para obtener más información, vea <xref:blazor/javascript-interop>.
 
 ### <a name="circuit-handlers"></a>Controladores de circuito
 
-Blazor permite que el código defina un *controlador de circuito*, que recibe notificaciones cuando cambia el estado del circuito de un usuario. Se utilizan los siguientes Estados:
+Blazor Server permite al código definir un *controlador de circuito*, lo que permite ejecutar el código en los cambios realizados en el estado del circuito de un usuario. Un controlador de circuito se implementa derivando de `CircuitHandler` y registrando la clase en el contenedor de servicios de la aplicación. En el siguiente ejemplo de un controlador de circuito se realiza un seguimiento de las conexiones SignalR abiertas:
 
-* `initialized`
-* `connected`
-* `disconnected`
-* `disposed`
+```csharp
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components.Server.Circuits;
 
-Las notificaciones se administran registrando un servicio DI que hereda de la `CircuitHandler` clase base abstracta.
+public class TrackingCircuitHandler : CircuitHandler
+{
+    private HashSet<Circuit> _circuits = new HashSet<Circuit>();
 
-Si los métodos de un controlador de circuito personalizado producen una excepción no controlada, la excepción es grave para el circuito. Para tolerar excepciones en el código de un controlador o en métodos denominados, ajuste el código en una o varias instrucciones [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro.
+    public override Task OnConnectionUpAsync(Circuit circuit, 
+        CancellationToken cancellationToken)
+    {
+        _circuits.Add(circuit);
+
+        return Task.CompletedTask;
+    }
+
+    public override Task OnConnectionDownAsync(Circuit circuit, 
+        CancellationToken cancellationToken)
+    {
+        _circuits.Remove(circuit);
+
+        return Task.CompletedTask;
+    }
+
+    public int ConnectedCircuits => _circuits.Count;
+}
+```
+
+Los controladores de circuito se registran mediante DI. Las instancias con ámbito se crean por instancia de un circuito. Con el `TrackingCircuitHandler` en el ejemplo anterior, se crea un servicio singleton porque se debe realizar un seguimiento del estado de todos los circuitos:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    ...
+    services.AddSingleton<CircuitHandler, TrackingCircuitHandler>();
+}
+```
+
+Si los métodos de un controlador de circuito personalizado producen una excepción no controlada, la excepción es grave para el circuito de Blazor Server. Para tolerar excepciones en el código de un controlador o en métodos denominados, ajuste el código en una o varias instrucciones [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro.
 
 ### <a name="circuit-disposal"></a>Eliminación de circuitos
 
