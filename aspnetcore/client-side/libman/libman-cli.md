@@ -1,21 +1,21 @@
 ---
-title: Use la interfaz de la línea de comandos (CLI) de LibMan con ASP.NET Core
+title: Uso de la CLI de LibMan con ASP.NET Core
 author: scottaddie
-description: Aprenda a usar la interfaz de la línea de comandos (CLI) de LibMan en un proyecto de ASP.NET Core.
+description: Obtenga información sobre cómo usar la CLI de LibMan en un proyecto de ASP.NET Core.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: client-side/libman/libman-cli
-ms.openlocfilehash: 8b2b1e45ab4685482554ac439b0276e0cf381609
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 02d88d09805bd23a86ef924766373245fec7ff52
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962801"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928364"
 ---
-# <a name="use-the-libman-command-line-interface-cli-with-aspnet-core"></a>Use la interfaz de la línea de comandos (CLI) de LibMan con ASP.NET Core
+# <a name="use-the-libman-cli-with-aspnet-core"></a>Uso de la CLI de LibMan con ASP.NET Core
 
 Por [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -25,7 +25,7 @@ La CLI de [LibMan](xref:client-side/libman/index) es una herramienta multiplataf
 
 * [!INCLUDE [2.1-SDK](../../includes/2.1-SDK.md)]
 
-## <a name="installation"></a>Instalación
+## <a name="installation"></a>Instalación de
 
 Para instalar la CLI de LibMan:
 
@@ -43,7 +43,7 @@ dotnet tool install -g Microsoft.Web.LibraryManager.Cli --version 1.0.94-g606058
 
 En el ejemplo anterior, se instala una herramienta global de .NET Core desde el archivo *C:\Temp\Microsoft.Web.LibraryManager.CLI.1.0.94-g606058a278.nupkg* de la máquina local de Windows.
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Usage
 
 Después de la instalación correcta de la CLI, se puede usar el siguiente comando:
 

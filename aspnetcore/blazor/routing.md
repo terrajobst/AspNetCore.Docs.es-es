@@ -10,28 +10,28 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/routing
-ms.openlocfilehash: 0cd15f25ff7975cae3f63a739212aa23062ece23
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 32459f9f42220b01ce04e6444a9bb4a9592ee2da
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160163"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928284"
 ---
-# <a name="aspnet-core-opno-locblazor-routing"></a>Enrutamiento de Blazor de ASP.NET Core
+# <a name="aspnet-core-blazor-routing"></a>ASP.NET Core el enrutamiento más brillante
 
 Por [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Obtenga información acerca de cómo enrutar las solicitudes y cómo usar el componente `NavLink` para crear vínculos de navegación en Blazor aplicaciones.
+Obtenga información acerca de cómo enrutar las solicitudes y cómo usar el componente `NavLink` para crear vínculos de navegación en aplicaciones increíbles.
 
 ## <a name="aspnet-core-endpoint-routing-integration"></a>Integración del enrutamiento de puntos de conexión de ASP.NET Core
 
-Blazor servidor se integra en [ASP.net Core el enrutamiento del punto de conexión](xref:fundamentals/routing). Una aplicación ASP.NET Core está configurada para aceptar conexiones entrantes para componentes interactivos con `MapBlazorHub` en `Startup.Configure`:
+El servidor más rápido está integrado en [ASP.net Core enrutamiento de puntos de conexión](xref:fundamentals/routing). Una aplicación ASP.NET Core está configurada para aceptar conexiones entrantes para componentes interactivos con `MapBlazorHub` en `Startup.Configure`:
 
 [!code-csharp[](routing/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
-La configuración más habitual consiste en enrutar todas las solicitudes a una página de Razor, que actúa como el host para la parte del lado servidor de la aplicación Blazor Server. Por Convención, la página *host* se denomina normalmente *_Host. cshtml*. La ruta especificada en el archivo host se denomina *ruta de reserva* porque funciona con una prioridad baja en la coincidencia de rutas. La ruta de reserva se considera cuando otras rutas no coinciden. Esto permite que la aplicación use otros controladores y páginas sin interferir con la aplicación Blazor Server.
+La configuración más habitual consiste en enrutar todas las solicitudes a una página de Razor, que actúa como el host para la parte del lado servidor de la aplicación de servidor de la extraordinaria. Por Convención, la página *host* se denomina normalmente *_Host. cshtml*. La ruta especificada en el archivo host se denomina *ruta de reserva* porque funciona con una prioridad baja en la coincidencia de rutas. La ruta de reserva se considera cuando otras rutas no coinciden. Esto permite que la aplicación use otros controladores y páginas sin interferir con la aplicación de servidor increíblemente.
 
 ## <a name="route-templates"></a>Plantillas de ruta
 
@@ -48,14 +48,14 @@ El componente `Router` permite el enrutamiento a cada componente con una ruta es
 </Router>
 ```
 
-Cuando se compila un archivo *. Razor* con una directiva de `@page`, se proporciona a la clase generada un <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> que especifica la plantilla de ruta.
+Cuando se compila un archivo *. Razor* con una directiva de `@page`, se proporciona a la clase generada un <xref:Microsoft.AspNetCore.Components.RouteAttribute> que especifica la plantilla de ruta.
 
 En tiempo de ejecución, el componente `RouteView`:
 
 * Recibe el `RouteData` del `Router` junto con los parámetros deseados.
 * Representa el componente especificado con su diseño (o un diseño predeterminado opcional) mediante los parámetros especificados.
 
-Opcionalmente, puede especificar un parámetro de `DefaultLayout` con una clase de diseño que se usará para los componentes que no especifican un diseño. Las plantillas de Blazor predeterminadas especifican el componente `MainLayout`. *MainLayout. Razor* está en la carpeta *compartida* del proyecto de plantilla. Para obtener más información sobre los diseños, vea <xref:blazor/layouts>.
+Opcionalmente, puede especificar un parámetro de `DefaultLayout` con una clase de diseño que se usará para los componentes que no especifican un diseño. Las plantillas increíblemente predeterminadas especifican el componente `MainLayout`. *MainLayout. Razor* está en la carpeta *compartida* del proyecto de plantilla. Para obtener más información sobre los diseños, vea <xref:blazor/layouts>.
 
 Se pueden aplicar varias plantillas de ruta a un componente. El siguiente componente responde a las solicitudes de `/BlazorRoute` y `/DifferentBlazorRoute`:
 
@@ -67,7 +67,7 @@ Se pueden aplicar varias plantillas de ruta a un componente. El siguiente compon
 ```
 
 > [!IMPORTANT]
-> Para que las direcciones URL se resuelvan correctamente, la aplicación debe incluir una `<base>` etiqueta en su archivo *wwwroot/index.html* (Blazor webassembly) o *pages/_Host. cshtml* (Blazor Server) con la ruta de acceso base de la aplicación especificada en el atributo `href` (`<base href="/">`). Para obtener más información, vea <xref:host-and-deploy/blazor/index#app-base-path>.
+> Para que las direcciones URL se resuelvan correctamente, la aplicación debe incluir una `<base>` etiqueta en su archivo *wwwroot/index.html* (webassembly) o el archivo *pages/_Host. cshtml* (servidor increíble) con la ruta de acceso base de la aplicación especificada en el atributo `href` (`<base href="/">`). Para obtener más información, vea <xref:host-and-deploy/blazor/index#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>Proporcionar contenido personalizado cuando no se encuentra el contenido
 
@@ -153,7 +153,7 @@ Están disponibles las restricciones de ruta que se muestran en la tabla siguien
 
 ### <a name="routing-with-urls-that-contain-dots"></a>Enrutamiento con direcciones URL que contienen puntos
 
-En Blazor aplicaciones de servidor, la ruta predeterminada en *_Host. cshtml* es `/` (`@page "/"`). Una dirección URL de solicitud que contiene un punto (`.`) no coincide con la ruta predeterminada porque la dirección URL parece solicitar un archivo. Una aplicación Blazor devuelve una respuesta *404 no encontrada* para un archivo estático que no existe. Para usar rutas que contienen un punto, configure *_Host. cshtml* con la siguiente plantilla de ruta:
+En las aplicaciones de servidor increíbles, la ruta predeterminada en *_Host. cshtml* es `/` (`@page "/"`). Una dirección URL de solicitud que contiene un punto (`.`) no coincide con la ruta predeterminada porque la dirección URL parece solicitar un archivo. Una aplicación increíblemente alta devuelve una respuesta *404 no encontrada* para un archivo estático que no existe. Para usar rutas que contienen un punto, configure *_Host. cshtml* con la siguiente plantilla de ruta:
 
 ```cshtml
 @page "/{**path}"

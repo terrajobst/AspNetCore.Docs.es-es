@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/08/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: 31a5e47d772e7416646c4d83c3209d7d2b254199
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 623f739b17c0bed3ce929f562c9581ab26ecf5bc
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829171"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928561"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Autenticación y autorización para spa
 
@@ -42,7 +42,7 @@ El comando anterior crea una aplicación ASP.NET Core con un directorio *ClientA
 
 En las secciones siguientes se describen las adiciones al proyecto cuando se incluye compatibilidad con la autenticación:
 
-### <a name="startup-class"></a>Clase Startup
+### <a name="startup-class"></a>Startup (clase)
 
 La clase `Startup` tiene las siguientes adiciones:
 
@@ -285,9 +285,9 @@ En esta sección se describe la implementación de la aplicación en sitios web 
 }
 ```
 
-* La propiedad Name en el certificado corresponde al sujeto distintivo del certificado.
-* La ubicación del almacén representa dónde se debe cargar el certificado (`CurrentUser` o `LocalMachine`).
 * El nombre del almacén representa el nombre del almacén de certificados donde se almacena el certificado. En este caso, apunta al almacén de usuarios personales.
+* La ubicación del almacén representa dónde se debe cargar el certificado (`CurrentUser` o `LocalMachine`).
+* La propiedad Name en el certificado corresponde al sujeto distintivo del certificado.
 
 Para implementar en Azure websites, implemente la aplicación siguiendo los pasos descritos en [implementación de la aplicación en Azure](xref:tutorials/publish-to-azure-webapp-using-vs#deploy-the-app-to-azure) para crear los recursos de Azure necesarios e implementar la aplicación en producción.
 

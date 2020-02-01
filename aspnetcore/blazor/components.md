@@ -5,17 +5,17 @@ description: Obtenga información sobre cómo crear y usar componentes de Razor,
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/28/2019
+ms.date: 01/24/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/components
-ms.openlocfilehash: 6643ccd0fdb62243427bb0972d8deb3f7b57079d
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: d6ba60b20d21636c7f780a80d8fbdb152505a3a3
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76726921"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928257"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -23,11 +23,11 @@ Por [Luke Latham](https://github.com/guardrex) y [Daniel Roth](https://github.co
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-Blazor aplicaciones se compilan con *componentes*de. Un componente es un fragmento independiente de la interfaz de usuario (IU), como una página, un cuadro de diálogo o un formulario. Un componente incluye el marcado HTML y la lógica de procesamiento necesaria para insertar datos o responder a los eventos de la interfaz de usuario. Los componentes son flexibles y ligeros. Se pueden anidar, reutilizar y compartir entre proyectos.
+Las aplicaciones increíbles se compilan con *componentes*. Un componente es un fragmento independiente de la interfaz de usuario (IU), como una página, un cuadro de diálogo o un formulario. Un componente incluye el marcado HTML y la lógica de procesamiento necesaria para insertar datos o responder a los eventos de la interfaz de usuario. Los componentes son flexibles y ligeros. Se pueden anidar, reutilizar y compartir entre proyectos.
 
 ## <a name="component-classes"></a>Clases de componentes
 
-Los componentes se implementan en archivos de componentes de [Razor](xref:mvc/views/razor) ( *. Razor*) C# mediante una combinación de y el marcado HTML. Un componente de Blazor se conoce formalmente como un *componente de Razor*.
+Los componentes se implementan en archivos de componentes de [Razor](xref:mvc/views/razor) ( *. Razor*) C# mediante una combinación de y el marcado HTML. Un componente de extraordinariamente se conoce como *componente de Razor*.
 
 El nombre de un componente debe empezar con un carácter en mayúsculas. Por ejemplo, *MyCoolComponent. Razor* es válido y *MyCoolComponent. Razor* no es válido.
 
@@ -49,7 +49,7 @@ Los miembros de componente se pueden usar como parte de la lógica de representa
 }
 ```
 
-Una vez que el componente se representa inicialmente, el componente regenera su árbol de representación en respuesta a los eventos. a continuación, Blazor compara el nuevo árbol de representación con el anterior y aplica cualquier modificación a la Document Object Model del explorador (DOM).
+Una vez que el componente se representa inicialmente, el componente regenera su árbol de representación en respuesta a los eventos. Después compara el nuevo árbol de representación con el anterior y aplica las modificaciones realizadas en el Document Object Model del explorador (DOM).
 
 Los componentes son C# clases normales y se pueden colocar en cualquier parte dentro de un proyecto. Los componentes que generan páginas web normalmente residen en la carpeta *pages* . Los componentes que no son de página se colocan con frecuencia en la carpeta *compartida* o en una carpeta personalizada agregada al proyecto.
 
@@ -90,17 +90,17 @@ Para representar un componente de una página o vista, use la aplicación auxili
     param-IncrementAmount="10" />
 ```
 
-Se admite el paso de parámetros (por ejemplo, `IncrementAmount` en el ejemplo anterior).
+El tipo de parámetro debe ser serializable de JSON, lo que normalmente significa que el tipo debe tener un constructor predeterminado y las propiedades configurables. Por ejemplo, puede especificar un valor para `IncrementAmount` porque el tipo de `IncrementAmount` es un `int`, que es un tipo primitivo admitido por el serializador JSON.
 
 `RenderMode` configura si el componente:
 
 * Se representa en la página.
-* Se representa como HTML estático en la página o si incluye la información necesaria para arrancar una aplicación Blazor desde el agente de usuario.
+* Se representa como HTML estático en la página o si incluye la información necesaria para iniciar una aplicación extraordinaria desde el agente de usuario.
 
 | `RenderMode`        | Descripción |
 | ------------------- | ----------- |
-| `ServerPrerendered` | Representa el componente en código HTML estático e incluye un marcador para una aplicación de Blazor Server. Cuando se inicia el agente de usuario, este marcador se usa para arrancar una aplicación Blazor. |
-| `Server`            | Representa un marcador para una aplicación de Blazor Server. La salida del componente no está incluida. Cuando se inicia el agente de usuario, este marcador se usa para arrancar una aplicación Blazor. |
+| `ServerPrerendered` | Representa el componente en código HTML estático e incluye un marcador para una aplicación de servidor extraordinaria. Cuando se inicia el agente de usuario, este marcador se usa para arrancar una aplicación increíblemente alta. |
+| `Server`            | Representa un marcador para una aplicación de servidor extraordinaria. La salida del componente no está incluida. Cuando se inicia el agente de usuario, este marcador se usa para arrancar una aplicación increíblemente alta. |
 | `Static`            | Representa el componente en HTML estático. |
 
 Mientras que las páginas y las vistas pueden utilizar componentes, el opuesto no es cierto. Los componentes no pueden usar escenarios específicos de la página y de la vista, como vistas y secciones parciales. Para usar la lógica de la vista parcial en un componente, se debe factorizar la lógica de vista parcial en un componente.
@@ -108,6 +108,10 @@ Mientras que las páginas y las vistas pueden utilizar componentes, el opuesto n
 No se admite la representación de componentes de servidor desde una página HTML estática.
 
 Para obtener más información sobre cómo se representan los componentes, el estado del componente y la aplicación auxiliar de etiquetas `Component`, vea <xref:blazor/hosting-models>.
+
+## <a name="tag-helpers-arent-used-in-components"></a>Las aplicaciones auxiliares de etiquetas no se usan en los componentes
+
+Las [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) no se admiten en los componentes de Razor (archivos *. Razor* ). Para proporcionar una funcionalidad similar a la aplicación auxiliar de etiquetas, cree un componente con la misma funcionalidad que la aplicación auxiliar de etiquetas y use el componente en su lugar.
 
 ## <a name="use-components"></a>Uso de componentes
 
@@ -392,13 +396,13 @@ Los tipos de campo anteriores:
 * No puede contener texto de forma libre.
 * Proporcionar características de interacción con el usuario en función de la implementación del explorador.
 
-Los siguientes tipos de campo tienen requisitos de formato específicos y no se admiten actualmente en Blazor porque no son compatibles con todos los exploradores principales:
+Los siguientes tipos de campo tienen requisitos de formato específicos y no se admiten en estos momentos porque no son compatibles con todos los exploradores principales:
 
 * `datetime-local`
 * `month`
 * `week`
 
-`@bind` admite el parámetro `@bind:culture` para proporcionar un <xref:System.Globalization.CultureInfo?displayProperty=fullName> para analizar y dar formato a un valor. No se recomienda especificar una referencia cultural al usar los tipos de campo `date` y `number`. `date` y `number` tienen compatibilidad integrada con Blazor que proporciona la referencia cultural necesaria.
+`@bind` admite el parámetro `@bind:culture` para proporcionar un <xref:System.Globalization.CultureInfo?displayProperty=fullName> para analizar y dar formato a un valor. No se recomienda especificar una referencia cultural al usar los tipos de campo `date` y `number`. `date` y `number` tienen compatibilidad más ligera que proporciona la referencia cultural necesaria.
 
 Para obtener información sobre cómo establecer la referencia cultural del usuario, consulte la sección [Localización](#localization).
 
@@ -424,7 +428,7 @@ En el código anterior, el tipo de campo del elemento de `<input>` (`type`) tien
 
 El atributo `@bind:format` especifica el formato de fecha que se va a aplicar al `value` del elemento `<input>`. El formato también se usa para analizar el valor cuando se produce un evento `onchange`.
 
-No se recomienda especificar un formato para el tipo de campo `date` porque Blazor tiene compatibilidad integrada para dar formato a las fechas. A pesar de la recomendación, use solo el formato de fecha `yyyy-MM-dd` para que el enlace funcione correctamente si se proporciona un formato con el tipo de campo `date`:
+No se recomienda especificar un formato para el tipo de campo `date` porque el increíble tiene compatibilidad integrada para dar formato a las fechas. A pesar de la recomendación, use solo el formato de fecha `yyyy-MM-dd` para que el enlace funcione correctamente si se proporciona un formato con el tipo de campo `date`:
 
 ```razor
 <input type="date" @bind="StartDate" @bind:format="yyyy-MM-dd">
@@ -904,7 +908,7 @@ Al capturar referencias de componentes, use una sintaxis similar para [capturar 
 
 ## <a name="invoke-component-methods-externally-to-update-state"></a>Invocar métodos de componentes externamente para actualizar el estado
 
-Blazor usa un `SynchronizationContext` para aplicar un único subproceso lógico de ejecución. [Los métodos de ciclo de vida](xref:blazor/lifecycle) de un componente y las devoluciones de llamada de eventos que se producen en Blazor se ejecutan en esta `SynchronizationContext`. En caso de que un componente deba actualizarse en función de un evento externo, como un temporizador u otras notificaciones, use el método `InvokeAsync`, que se enviará al `SynchronizationContext`de Blazor.
+Increíble utiliza un `SynchronizationContext` para aplicar un único subproceso lógico de ejecución. [Los métodos de ciclo de vida](xref:blazor/lifecycle) de un componente y todas las devoluciones de llamada de evento que se producen con el método increíblemente se ejecutan en este `SynchronizationContext`. En caso de que un componente deba actualizarse en función de un evento externo, como un temporizador u otras notificaciones, use el método `InvokeAsync`, que se enviará al `SynchronizationContext`de la increíble.
 
 Por ejemplo, considere un *servicio de notificador* que puede notificar a cualquier componente de escucha del estado actualizado:
 
@@ -957,11 +961,11 @@ Uso de la `NotifierService` para actualizar un componente:
 }
 ```
 
-En el ejemplo anterior, `NotifierService` invoca el método de `OnNotify` del componente fuera del `SynchronizationContext`de Blazor. `InvokeAsync` se utiliza para cambiar al contexto correcto y poner en cola una representación.
+En el ejemplo anterior, `NotifierService` invoca el método de `OnNotify` del componente fuera del `SynchronizationContext`de la extraordinaria. `InvokeAsync` se utiliza para cambiar al contexto correcto y poner en cola una representación.
 
 ## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Usar \@clave para controlar la preservación de elementos y componentes
 
-Cuando se representa una lista de elementos o componentes, y los elementos o componentes cambian posteriormente, el algoritmo de comparación de Blazordebe decidir cuáles de los elementos o componentes anteriores se pueden conservar y cómo deben asignarse los objetos de modelo. Normalmente, este proceso es automático y se puede omitir, pero hay casos en los que puede que desee controlar el proceso.
+Cuando se representa una lista de elementos o componentes, y los elementos o componentes cambian posteriormente, el algoritmo de diferenciación de más increíble debe decidir cuáles de los elementos o componentes anteriores se pueden conservar y cómo deben asignarse los objetos de modelo. Normalmente, este proceso es automático y se puede omitir, pero hay casos en los que puede que desee controlar el proceso.
 
 Considere el ejemplo siguiente:
 
@@ -1008,7 +1012,7 @@ En algunos escenarios, el uso de `@key` minimiza la complejidad de la rerepresen
 
 Normalmente, tiene sentido usar `@key` cada vez que se representa una lista (por ejemplo, en un bloque de `@foreach`) y existe un valor adecuado para definir el `@key`.
 
-También puede usar `@key` para evitar que Blazor conserven un subárbol de elementos o componentes cuando cambie un objeto:
+También puede usar `@key` para evitar que un elemento o subárbol de componentes se conserven cuando cambia un objeto:
 
 ```razor
 <div @key="currentPerson">
@@ -1016,13 +1020,13 @@ También puede usar `@key` para evitar que Blazor conserven un subárbol de elem
 </div>
 ```
 
-Si `@currentPerson` cambia, la Directiva de `@key` atributo fuerza a Blazor a descartar toda la `<div>` y sus descendientes y volver a generar el subárbol dentro de la interfaz de usuario con nuevos elementos y componentes. Esto puede ser útil si necesita garantizar que no se conserva ningún estado de la interfaz de usuario cuando `@currentPerson` cambios.
+Si `@currentPerson` cambia, la Directiva de atributo de `@key` fuerza a increíblemente a descartar todo el `<div>` y sus descendientes y volver a generar el subárbol dentro de la interfaz de usuario con nuevos elementos y componentes. Esto puede ser útil si necesita garantizar que no se conserva ningún estado de la interfaz de usuario cuando `@currentPerson` cambios.
 
 ### <a name="when-not-to-use-key"></a>Cuándo no usar la clave \@
 
 Existe un costo de rendimiento al diferenciar con `@key`. El costo de rendimiento no es grande, pero solo especifica `@key` si el control del elemento o las reglas de conservación de componentes se benefician de la aplicación.
 
-Incluso si no se utiliza `@key`, Blazor conserva las instancias de componente y elemento secundario lo máximo posible. La única ventaja de utilizar `@key` es el control sobre *Cómo* se asignan las instancias de modelo a las instancias de componente conservadas, en lugar del algoritmo de diferenciación que selecciona la asignación.
+Incluso si no se utiliza `@key`, Increíblementeer conserva las instancias de elementos y componentes secundarios lo máximo posible. La única ventaja de utilizar `@key` es el control sobre *Cómo* se asignan las instancias de modelo a las instancias de componente conservadas, en lugar del algoritmo de diferenciación que selecciona la asignación.
 
 ### <a name="what-values-to-use-for-key"></a>Qué valores se deben usar para la clave de \@
 
@@ -1031,11 +1035,11 @@ Por lo general, tiene sentido proporcionar uno de los siguientes tipos de valor 
 * Instancias de objeto de modelo (por ejemplo, una instancia de `Person` como en el ejemplo anterior). Esto garantiza la conservación en función de la igualdad de la referencia de objeto.
 * Los identificadores únicos (por ejemplo, los valores de clave principal de tipo `int`, `string`o `Guid`).
 
-Asegúrese de que los valores usados para `@key` no entren en conflicto. Si se detectan valores en conflicto en el mismo elemento primario, Blazor produce una excepción porque no puede asignar de forma determinista elementos o componentes antiguos a nuevos elementos o componentes. Utilice solo valores distintos, como instancias de objeto o valores de clave principal.
+Asegúrese de que los valores usados para `@key` no entren en conflicto. Si se detectan valores en conflicto en el mismo elemento primario, el valor de la excepción extraordinaria produce una excepción porque no puede asignar de forma determinista los elementos o componentes antiguos a los nuevos elementos o componentes. Utilice solo valores distintos, como instancias de objeto o valores de clave principal.
 
 ## <a name="routing"></a>Enrutamiento
 
-El enrutamiento en Blazor se consigue proporcionando una plantilla de ruta a cada componente accesible en la aplicación.
+El enrutamiento en extraordinaria se consigue proporcionando una plantilla de ruta a cada componente accesible en la aplicación.
 
 Cuando se compila un archivo de Razor con una directiva de `@page`, a la clase generada se le asigna un <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> que especifica la plantilla de ruta. En tiempo de ejecución, el enrutador busca clases de componentes con un `RouteAttribute` y representa el componente que tiene una plantilla de ruta que coincide con la dirección URL solicitada.
 
@@ -1081,10 +1085,10 @@ La sintaxis de *los parámetros catch-all* (`*`/`**`), que capturan la ruta de a
 
 Los componentes de Razor se generan como clases parciales. Los componentes de Razor se crean mediante cualquiera de los métodos siguientes:
 
-* C#el código se define en un bloque [`@code`](xref:mvc/views/razor#code) con marcado HTML y código Razor en un único archivo. Blazor plantillas definen sus componentes de Razor mediante este enfoque.
+* C#el código se define en un bloque [`@code`](xref:mvc/views/razor#code) con marcado HTML y código Razor en un único archivo. Las plantillas extraordinarias definen sus componentes de Razor mediante este enfoque.
 * C#el código se coloca en un archivo de código subyacente definido como una clase parcial.
 
-En el ejemplo siguiente se muestra el componente de `Counter` predeterminado con un bloque de `@code` en una aplicación generada a partir de una plantilla de Blazor. El marcado HTML, el código Razor C# y el código se encuentran en el mismo archivo:
+En el siguiente ejemplo se muestra el componente de `Counter` predeterminado con un bloque de `@code` en una aplicación generada a partir de una plantilla extraordinaria. El marcado HTML, el código Razor C# y el código se encuentran en el mismo archivo:
 
 *Counter. Razor*:
 
@@ -1147,6 +1151,43 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.Web;
+```
+
+## <a name="specify-a-base-class"></a>Especificar una clase base
+
+La directiva [`@inherits`](xref:mvc/views/razor#inherits) se puede utilizar para especificar una clase base para un componente. En el ejemplo siguiente se muestra cómo un componente puede heredar una clase base, `BlazorRocksBase`, para proporcionar las propiedades y los métodos del componente. La clase base debe derivar de `ComponentBase`.
+
+*Pages/BlazorRocks. Razor*:
+
+```razor
+@page "/BlazorRocks"
+@inherits BlazorRocksBase
+
+<h1>@BlazorRocksText</h1>
+```
+
+*BlazorRocksBase.cs*:
+
+```csharp
+using Microsoft.AspNetCore.Components;
+
+namespace BlazorSample
+{
+    public class BlazorRocksBase : ComponentBase
+    {
+        public string BlazorRocksText { get; set; } = 
+            "Blazor rocks the browser!";
+    }
+}
+```
+
+## <a name="specify-an-attribute"></a>Especificar un atributo
+
+Los atributos se pueden especificar en los componentes de Razor con la directiva [`@attribute`](xref:mvc/views/razor#attribute) . En el ejemplo siguiente se aplica el atributo `[Authorize]` a la clase Component:
+
+```razor
+@page "/"
+@attribute [Authorize]
 ```
 
 ## <a name="import-components"></a>Importar componentes
@@ -1545,7 +1586,7 @@ Tenga en cuenta el siguiente componente de `PetDetails`, que se puede integrar m
 }
 ```
 
-En el ejemplo siguiente, el bucle del método `CreateComponent` genera tres componentes `PetDetails`. Al llamar a métodos `RenderTreeBuilder` para crear los componentes (`OpenComponent` y `AddAttribute`), los números de secuencia son números de línea de código fuente. El algoritmo de diferencia de Blazor se basa en los números de secuencia correspondientes a líneas de código distintas, no a invocaciones de llamada distintas. Al crear un componente con métodos de `RenderTreeBuilder`, codifique los argumentos para los números de secuencia. **El uso de un cálculo o un contador para generar el número de secuencia puede dar lugar a un rendimiento deficiente.** Para obtener más información, vea la sección [números de secuencia relacionados con números de línea de código y no orden de ejecución](#sequence-numbers-relate-to-code-line-numbers-and-not-execution-order) .
+En el ejemplo siguiente, el bucle del método `CreateComponent` genera tres componentes `PetDetails`. Al llamar a métodos `RenderTreeBuilder` para crear los componentes (`OpenComponent` y `AddAttribute`), los números de secuencia son números de línea de código fuente. El algoritmo de diferencia más increíble se basa en los números de secuencia correspondientes a líneas de código distintas, no a invocaciones de llamada distintas. Al crear un componente con métodos de `RenderTreeBuilder`, codifique los argumentos para los números de secuencia. **El uso de un cálculo o un contador para generar el número de secuencia puede dar lugar a un rendimiento deficiente.** Para obtener más información, vea la sección [números de secuencia relacionados con números de línea de código y no orden de ejecución](#sequence-numbers-relate-to-code-line-numbers-and-not-execution-order) .
 
 `BuiltContent` componente:
 
@@ -1581,11 +1622,11 @@ En el ejemplo siguiente, el bucle del método `CreateComponent` genera tres comp
 ```
 
 > [!WARNING]
-> Los tipos de `Microsoft.AspNetCore.Components.RenderTree` permiten el procesamiento de los *resultados* de las operaciones de representación. Estos son los detalles internos de la implementación del marco de Blazor. Estos tipos se deben considerar *inestables* y estar sujetos a cambios en futuras versiones.
+> Los tipos de `Microsoft.AspNetCore.Components.RenderTree` permiten el procesamiento de los *resultados* de las operaciones de representación. Estos son los detalles internos de la implementación de la plataforma más extraordinaria. Estos tipos se deben considerar *inestables* y estar sujetos a cambios en futuras versiones.
 
 ### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>Los números de secuencia se relacionan con los números de línea de código y no el orden de ejecución
 
-los archivos de `.razor` de Blazor siempre se compilan. Esta es potencialmente una gran ventaja para `.razor` porque el paso de compilación se puede usar para insertar información que mejoran el rendimiento de las aplicaciones en tiempo de ejecución.
+Los archivos `.razor` más increíbles siempre se compilan. Esta es potencialmente una gran ventaja para `.razor` porque el paso de compilación se puede usar para insertar información que mejoran el rendimiento de las aplicaciones en tiempo de ejecución.
 
 Un ejemplo clave de estas mejoras implican *los números de secuencia*. Los números de secuencia indican al tiempo de ejecución los resultados de los que proceden las líneas de código distintas y ordenadas. El motor en tiempo de ejecución utiliza esta información para generar diferencias de árbol eficientes en el tiempo lineal, que es mucho más rápido de lo que suele ser posible para un algoritmo de comparación de árboles generales.
 

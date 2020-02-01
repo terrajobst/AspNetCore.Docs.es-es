@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: 7b5602d5ae5e58d1678762fe1cd2adec1f31c969
-ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
+ms.openlocfilehash: b987513e5410e95ab632b9935d858b648838d94f
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76809008"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928266"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Control de errores en las aplicaciones de Blazor de ASP.NET Core
 
@@ -30,7 +30,9 @@ Cuando una aplicación Blazor no funciona correctamente durante el desarrollo, r
 * Durante el desarrollo, la barra dorada le dirige a la consola del explorador, donde puede ver la excepción.
 * En producción, la barra dorada informa al usuario de que se ha producido un error y recomienda actualizar el explorador.
 
-La interfaz de usuario para esta experiencia de control de errores forma parte de las plantillas de proyecto de Blazor. En una aplicación Blazor webassembly, personalice la experiencia en el archivo *wwwroot/index.html* :
+La interfaz de usuario para esta experiencia de control de errores forma parte de las plantillas de proyecto de Blazor.
+
+En una aplicación Blazor webassembly, personalice la experiencia en el archivo *wwwroot/index.html* :
 
 ```html
 <div id="blazor-error-ui">
@@ -57,7 +59,7 @@ En una aplicación de Blazor Server, personalice la experiencia en el archivo *p
 
 Los estilos incluidos en las plantillas de Blazor ocultan el elemento `blazor-error-ui` y, a continuación, se muestra cuando se produce un error.
 
-## <a name="how-the-opno-locblazor-framework-reacts-to-unhandled-exceptions"></a>Cómo reacciona el marco de Blazor a las excepciones no controladas
+## <a name="how-a-opno-locblazor-server-app-reacts-to-unhandled-exceptions"></a>Cómo reacciona una aplicación de Blazor Server a las excepciones no controladas
 
 Blazor Server es un marco con estado. Mientras los usuarios interactúan con una aplicación, mantienen una conexión con el servidor conocido como *circuito*. El circuito contiene instancias de componentes activas, además de muchos otros aspectos del estado, como:
 
@@ -101,9 +103,9 @@ El código de marco de trabajo y la aplicación pueden desencadenar excepciones 
 * [Controladores de eventos](#event-handlers)
 * [Eliminación de componentes](#component-disposal)
 * [Interoperabilidad de JavaScript](#javascript-interop)
-* [Controladores de circuito](#circuit-handlers)
-* [Eliminación de circuitos](#circuit-disposal)
-* [Representación previa](#prerendering)
+* [Controladores de circuitos de Blazor Server](#blazor-server-circuit-handlers)
+* [eliminación de circuitos de Blazor Server](#blazor-server-circuit-disposal)
+* [rerepresentación de Blazor Server](#blazor-server-prerendering)
 
 Las excepciones no controladas anteriores se describen en las siguientes secciones de este artículo.
 
@@ -114,7 +116,7 @@ Cuando Blazor crea una instancia de un componente:
 * Se invoca el constructor del componente.
 * Se invocan los constructores de cualquier servicio de DI no singleton proporcionado al constructor del componente mediante la directiva [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) o el atributo [`[Inject]`](xref:blazor/dependency-injection#request-a-service-in-a-component) .
 
-Se produce un error en un circuito cuando cualquier constructor ejecutado o un establecedor para cualquier propiedad `[Inject]` produce una excepción no controlada. La excepción es grave porque el marco no puede crear una instancia del componente. Si la lógica del constructor puede producir excepciones, la aplicación debe interceptar las excepciones mediante una instrucción [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro.
+Se produce un error en un circuito de Blazor Server cuando cualquier constructor ejecutado o un establecedor para cualquier propiedad `[Inject]` produce una excepción no controlada. La excepción es grave porque el marco no puede crear una instancia del componente. Si la lógica del constructor puede producir excepciones, la aplicación debe interceptar las excepciones mediante una instrucción [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro.
 
 ### <a name="lifecycle-methods"></a>Métodos de ciclo de vida
 
@@ -125,7 +127,7 @@ Durante la vigencia de un componente, Blazor invoca los siguientes [métodos de 
 * `ShouldRender` / `ShouldRenderAsync`
 * `OnAfterRender` / `OnAfterRenderAsync`
 
-Si cualquier método de ciclo de vida produce una excepción, de forma sincrónica o asincrónica, la excepción es grave para el circuito. Para que los componentes traten los errores de los métodos de ciclo de vida, agregue la lógica de control de errores.
+Si cualquier método de ciclo de vida produce una excepción, de forma sincrónica o asincrónica, la excepción es grave para un circuito de Blazor Server. Para que los componentes traten los errores de los métodos de ciclo de vida, agregue la lógica de control de errores.
 
 En el ejemplo siguiente, donde `OnParametersSetAsync` llama a un método para obtener un producto:
 
@@ -140,7 +142,7 @@ En el ejemplo siguiente, donde `OnParametersSetAsync` llama a un método para ob
 
 El marcado declarativo de un archivo de componente de `.razor` C# se compila en un método denominado `BuildRenderTree`. Cuando se representa un componente, `BuildRenderTree` ejecuta y genera una estructura de datos que describe los elementos, el texto y los componentes secundarios del componente representado.
 
-La lógica de representación puede producir una excepción. Un ejemplo de este escenario se produce cuando se evalúa `@someObject.PropertyName` pero `@someObject` es `null`. Una excepción no controlada producida por la lógica de representación es grave para el circuito.
+La lógica de representación puede producir una excepción. Un ejemplo de este escenario se produce cuando se evalúa `@someObject.PropertyName` pero `@someObject` es `null`. Una excepción no controlada producida por la lógica de representación es grave para un circuito de Blazor Server.
 
 Para evitar una excepción de referencia nula en la lógica de representación, busque un objeto `null` antes de tener acceso a sus miembros. En el ejemplo siguiente, no se tiene acceso a las propiedades de `person.Address` si `person.Address` se `null`:
 
@@ -159,7 +161,7 @@ El código del lado cliente desencadena invocaciones de código C# cuando se cre
 
 El código del controlador de eventos podría producir una excepción no controlada en estos escenarios.
 
-Si un controlador de eventos produce una excepción no controlada (por ejemplo, se produce un error en una consulta de base de datos), la excepción es grave para el circuito. Si la aplicación llama a código que podría dar error por motivos externos, Capture las excepciones mediante una instrucción [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro.
+Si un controlador de eventos produce una excepción no controlada (por ejemplo, se produce un error en una consulta de base de datos), la excepción es grave para un circuito de Blazor Server. Si la aplicación llama a código que podría dar error por motivos externos, Capture las excepciones mediante una instrucción [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro.
 
 Si el código de usuario no intercepta y controla la excepción, el marco de trabajo registra la excepción y finaliza el circuito.
 
@@ -167,7 +169,7 @@ Si el código de usuario no intercepta y controla la excepción, el marco de tra
 
 Un componente se puede quitar de la interfaz de usuario, por ejemplo, porque el usuario ha navegado a otra página. Cuando un componente que implementa <xref:System.IDisposable?displayProperty=fullName> se quita de la interfaz de usuario, el marco de trabajo llama al método de <xref:System.IDisposable.Dispose*> del componente.
 
-Si el método `Dispose` del componente produce una excepción no controlada, la excepción es grave para el circuito. Si la lógica de eliminación puede producir excepciones, la aplicación debe interceptar las excepciones mediante una instrucción [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro.
+Si el método `Dispose` del componente produce una excepción no controlada, la excepción es grave para un circuito de Blazor Server. Si la lógica de eliminación puede producir excepciones, la aplicación debe interceptar las excepciones mediante una instrucción [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro.
 
 Para obtener más información sobre la eliminación de componentes, consulte <xref:blazor/lifecycle#component-disposal-with-idisposable>.
 
@@ -177,20 +179,20 @@ Para obtener más información sobre la eliminación de componentes, consulte <x
 
 Las condiciones siguientes se aplican al control de errores con `InvokeAsync<T>`:
 
-* Si una llamada a `InvokeAsync<T>` produce un error sincrónicamente, se produce una excepción de .NET. Se puede producir un error en una llamada a `InvokeAsync<T>`, por ejemplo, porque no se pueden serializar los argumentos proporcionados. El código del desarrollador debe detectar la excepción. Si el código de la aplicación en un controlador de eventos o un método de ciclo de vida de componente no controla una excepción, la excepción resultante es grave para el circuito.
-* Si se produce un error en una llamada a `InvokeAsync<T>` de forma asincrónica, se produce un error en .NET <xref:System.Threading.Tasks.Task>. Una llamada a `InvokeAsync<T>` puede producir un error, por ejemplo, porque el código de JavaScript produce una excepción o devuelve un `Promise` que se ha completado como `rejected`. El código del desarrollador debe detectar la excepción. Si usa el operador [Await](/dotnet/csharp/language-reference/keywords/await) , considere la posibilidad de encapsular la llamada al método en una instrucción [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro. De lo contrario, el código que genera el error provoca una excepción no controlada que es grave para el circuito.
+* Si una llamada a `InvokeAsync<T>` produce un error sincrónicamente, se produce una excepción de .NET. Se puede producir un error en una llamada a `InvokeAsync<T>`, por ejemplo, porque no se pueden serializar los argumentos proporcionados. El código del desarrollador debe detectar la excepción. Si el código de la aplicación en un controlador de eventos o en un método de ciclo de vida de componente no controla una excepción, la excepción resultante es grave para un circuito de Blazor Server.
+* Si se produce un error en una llamada a `InvokeAsync<T>` de forma asincrónica, se produce un error en .NET <xref:System.Threading.Tasks.Task>. Una llamada a `InvokeAsync<T>` puede producir un error, por ejemplo, porque el código de JavaScript produce una excepción o devuelve un `Promise` que se ha completado como `rejected`. El código del desarrollador debe detectar la excepción. Si usa el operador [Await](/dotnet/csharp/language-reference/keywords/await) , considere la posibilidad de encapsular la llamada al método en una instrucción [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro. De lo contrario, el código que genera el error provoca una excepción no controlada que es grave para un circuito de Blazor Server.
 * De forma predeterminada, las llamadas a `InvokeAsync<T>` deben completarse en un período determinado o, de lo contrario, se agota el tiempo de espera de la llamada. El período de tiempo de espera predeterminado es de un minuto. El tiempo de espera protege el código contra una pérdida en la conectividad de red o código JavaScript que nunca devuelve un mensaje de finalización. Si se agota el tiempo de espera de la llamada, se produce un error en el `Task` resultante con un <xref:System.OperationCanceledException>. Capture y procese la excepción con el registro.
 
 Del mismo modo, el código de JavaScript puede iniciar llamadas a métodos .NET indicados por el atributo [`[JSInvokable]`](xref:blazor/javascript-interop#invoke-net-methods-from-javascript-functions) . Si estos métodos .NET producen una excepción no controlada:
 
-* La excepción no se trata como grave para el circuito.
+* La excepción no se trata como grave para un circuito de Blazor Server.
 * Se rechaza el `Promise` del lado de JavaScript.
 
 Tiene la opción de usar el código de control de errores en el lado de .NET o en el lado de JavaScript de la llamada al método.
 
 Para obtener más información, vea <xref:blazor/javascript-interop>.
 
-### <a name="circuit-handlers"></a>Controladores de circuito
+### <a name="opno-locblazor-server-circuit-handlers"></a>Controladores de circuitos de Blazor Server
 
 Blazor Server permite al código definir un *controlador de circuito*, lo que permite ejecutar el código en los cambios realizados en el estado del circuito de un usuario. Un controlador de circuito se implementa derivando de `CircuitHandler` y registrando la clase en el contenedor de servicios de la aplicación. En el siguiente ejemplo de un controlador de circuito se realiza un seguimiento de las conexiones SignalR abiertas:
 
@@ -236,11 +238,11 @@ public void ConfigureServices(IServiceCollection services)
 
 Si los métodos de un controlador de circuito personalizado producen una excepción no controlada, la excepción es grave para el circuito de Blazor Server. Para tolerar excepciones en el código de un controlador o en métodos denominados, ajuste el código en una o varias instrucciones [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con control de errores y registro.
 
-### <a name="circuit-disposal"></a>Eliminación de circuitos
+### <a name="opno-locblazor-server-circuit-disposal"></a>eliminación de circuitos de Blazor Server
 
 Cuando un circuito finaliza porque un usuario se ha desconectado y el marco está limpiando el estado del circuito, el marco de trabajo desecha el ámbito de DI del circuito. Al desechar el ámbito, se eliminan todos los servicios DI de ámbito de circuito que implementan <xref:System.IDisposable?displayProperty=fullName>. Si un servicio DI produce una excepción no controlada durante la eliminación, el marco de trabajo registra la excepción.
 
-### <a name="prerendering"></a>Representación previa
+### <a name="opno-locblazor-server-prerendering"></a>preprocesamiento de Blazor Server
 
 Blazor componentes se pueden representarse mediante la aplicación auxiliar de etiquetas `Component` de modo que su marca HTML representada se devuelva como parte de la solicitud HTTP inicial del usuario. Esto funciona de la siguiente manera:
 
@@ -274,7 +276,7 @@ Bucles infinitos durante la representación:
 * Hace que el proceso de representación continúe indefinidamente.
 * Es equivalente a crear un bucle sin terminar.
 
-En estos casos, el circuito afectado se bloquea y el subproceso normalmente intenta:
+En estos escenarios, se produce un error en un circuito de Blazor Server afectado y el subproceso normalmente intenta:
 
 * Consume el tiempo de CPU permitido por el sistema operativo, indefinidamente.
 * Consume una cantidad ilimitada de memoria del servidor. Consumir memoria ilimitada es equivalente al escenario en el que un bucle sin terminar agrega entradas a una colección en cada iteración.
