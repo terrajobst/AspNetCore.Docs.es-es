@@ -10,20 +10,20 @@ no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: cdcd62915b8f1bae26773ed91e55973527e158f6
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 263b85a3213c1da233e4c96095faaf39d0a8e13f
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160280"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726765"
 ---
-# <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>Configuración del enlazador de ASP.NET Core Blazor
+# <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>Configuración del enlazador de ASP.NET Core [!OP.NO-LOC(Blazor)]
 
 Por [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor realiza la vinculación de [lenguaje intermedio (IL)](/dotnet/standard/managed-code#intermediate-language--execution) durante una compilación para quitar el IL innecesario de los ensamblados de salida de la aplicación.
+[!OP.NO-LOC(Blazor)] realiza la vinculación de [lenguaje intermedio (IL)](/dotnet/standard/managed-code#intermediate-language--execution) durante una compilación para quitar el IL innecesario de los ensamblados de salida de la aplicación.
 
 Controle la vinculación del ensamblado con cualquiera de los enfoques siguientes:
 
@@ -55,7 +55,7 @@ Control de la vinculación por cada ensamblado al proporcionar un archivo de con
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-  This file specifies which parts of the BCL or Blazor packages must not be
+  This file specifies which parts of the BCL or [!OP.NO-LOC(Blazor)] packages must not be
   stripped by the IL Linker even if they aren't referenced by user code.
 -->
 <linker>
@@ -86,7 +86,7 @@ Para obtener más información, consulte [IL Linker: Syntax of xml descriptor](h
 
 ### <a name="configure-the-linker-for-internationalization"></a>Configuración del enlazador para la internacionalización
 
-De forma predeterminada, la configuración del enlazador de Blazor para aplicaciones WebAssembly de Blazor quita información de internacionalización, excepto para las configuraciones regionales solicitadas de forma explícita. Al quitar estos ensamblados se minimiza el tamaño de la aplicación.
+De forma predeterminada, la configuración del enlazador de [!OP.NO-LOC(Blazor)] para aplicaciones WebAssembly de [!OP.NO-LOC(Blazor)] quita información de internacionalización, excepto para las configuraciones regionales solicitadas de forma explícita. Al quitar estos ensamblados se minimiza el tamaño de la aplicación.
 
 Para controlar qué ensamblados de I18N se conservan, establezca la propiedad `<MonoLinkerI18NAssemblies>` de MSBuild en el archivo de proyecto:
 

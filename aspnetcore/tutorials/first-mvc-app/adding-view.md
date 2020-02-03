@@ -5,12 +5,12 @@ description: Agregar una vista a una aplicación sencilla de ASP.NET Core MVC
 ms.author: riande
 ms.date: 8/04/2019
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: de75c3b0651c0cda6629af786d7db9dc83bc4fef
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: a25233968f115c6e3a214d97cf2ca5ab81df8d83
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72288824"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76870433"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Agregar una vista a una aplicación de ASP.NET Core MVC
 
@@ -61,9 +61,9 @@ Agregue una vista `Index` para el `HelloWorldController`.
 * Haga clic con el botón derecho en la carpeta *Views/HelloWorld* y, luego, haga clic en **Agregar > Nuevo archivo**.
 * En el cuadro de diálogo **Nuevo archivo**:
 
-  * Seleccione **Web** en el panel izquierdo.
-  * Seleccione **Archivo HTML vacío** en el panel central.
-  * Escriba *Index.cshtml* en el cuadro **Nombre**.
+  * Seleccione **ASP .NET Core** en el panel izquierdo.
+  * Seleccione **Página de la vista de MVC** en el panel central.
+  * Escriba *Índice* en el cuadro **Nombre**.
   * Seleccione **Nuevo**.
 
 ![Cuadro de diálogo Agregar nuevo elemento](adding-view/_static/add_view_mac.png)
@@ -95,7 +95,7 @@ En el marcado anterior se realizan los cambios siguientes:
 * 3 apariciones de `MvcMovie` a `Movie App`.
 * El delimitador `<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MvcMovie</a>` a `<a class="navbar-brand" asp-controller="Movies" asp-action="Index">Movie App</a>`.
 
-En el marcado anterior, se omitieron el [atributo del asistente de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-area=""` y el valor de atributo porque esta aplicación no utiliza [Áreas](xref:mvc/controllers/areas).
+En el marcado anterior, se omitieron el `asp-area=""` [atributo del asistente de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) y el valor de atributo porque esta aplicación no utiliza [Áreas](xref:mvc/controllers/areas).
 
 **Nota**: El controlador `Movies` no se ha implementado. En este momento, el vínculo `Movie App` no es funcional.
 
@@ -250,7 +250,7 @@ En el marcado siguiente se muestran los cambios:
 
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Shared/_Layout.cshtml?highlight=6,24,51)]
 
-En el marcado anterior, se omitió el [atributo del asistente de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-area` porque esta aplicación no utiliza [Áreas](xref:mvc/controllers/areas).
+En el marcado anterior, se omitió el `asp-area` [atributo del asistente de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) porque esta aplicación no utiliza [Áreas](xref:mvc/controllers/areas).
 
 <!-- Routing has changed in 2.2, it's going to the last route.
 >[!WARNING]
