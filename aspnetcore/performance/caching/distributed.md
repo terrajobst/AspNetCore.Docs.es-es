@@ -32,7 +32,7 @@ La configuración de caché distribuida es específica de la implementación. En
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/distributed/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -194,7 +194,7 @@ Para configurar NCache:
 
 1. Instalación de [NuGet de código abierto de NCache](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/).
 1. Configure el clúster de caché en [Client. ncconf](https://www.alachisoft.com/resources/docs/ncache-oss/admin-guide/client-config.html).
-1. Agrega el código siguiente a `Startup.ConfigureServices`:
+1. Agregue el siguiente código a `Startup.ConfigureServices`:
 
    ```csharp
    services.AddNCacheDistributedCache(configuration =>    
@@ -254,7 +254,7 @@ A la hora de decidir qué implementación de <xref:Microsoft.Extensions.Caching.
 
 * Infraestructura existente
 * Requisitos de rendimiento
-* Cost
+* Coste
 * Experiencia del equipo
 
 Las soluciones de almacenamiento en caché suelen basarse en el almacenamiento en memoria para proporcionar una recuperación rápida de los datos almacenados en memoria caché, pero la memoria es un recurso limitado y se amplía de forma costosa. Almacene solo los datos usados habitualmente en una memoria caché.

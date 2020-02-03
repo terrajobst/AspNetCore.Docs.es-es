@@ -58,7 +58,7 @@ El código anterior:
 
 * Establece el nombre de la Directiva en "\_myAllowSpecificOrigins". El nombre de la Directiva es arbitrario.
 * Llama al método de extensión <xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*>, que habilita CORS.
-* Llama a <xref:Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions.AddCors*> con una [expresión lambda](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). La expresión lambda toma un objeto <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder>. [Las opciones de configuración](#cors-policy-options), como `WithOrigins`, se describen más adelante en este artículo.
+* Llama a <xref:Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions.AddCors*> con una [expresión lambda](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). La expresión lambda toma un objeto de <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder>. [Las opciones de configuración](#cors-policy-options), como `WithOrigins`, se describen más adelante en este artículo.
 
 La llamada al método <xref:Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions.AddCors*> agrega los servicios CORS al contenedor de servicio de la aplicación:
 
@@ -165,7 +165,7 @@ Use `[EnableCors]` para especificar la directiva predeterminada y `[EnableCors("
 El atributo `[EnableCors]` se puede aplicar a:
 
 * `PageModel` de página de Razor
-* Controlador
+* Controller
 * Método de acción del controlador
 
 Puede aplicar diferentes directivas al controlador/página-modelo/acción con el atributo `[EnableCors]`. Cuando el atributo `[EnableCors]` se aplica a un método Controllers/Page-Model/Action y CORS está habilitado en middleware, se aplican ambas directivas. Se recomienda no combinar directivas. Use el `[EnableCors]` atributo o middleware, no ambos en la misma aplicación.
@@ -190,10 +190,10 @@ En esta sección se describen las distintas opciones que se pueden establecer en
 
 * [Establecer los orígenes permitidos](#set-the-allowed-origins)
 * [Establecer los métodos HTTP permitidos](#set-the-allowed-http-methods)
-* [Establecer los encabezados de solicitudes permitidos](#set-the-allowed-request-headers)
+* [Establecer los encabezados de solicitud permitidos](#set-the-allowed-request-headers)
 * [Establecer los encabezados de respuesta expuestos](#set-the-exposed-response-headers)
 * [Credenciales en solicitudes entre orígenes](#credentials-in-cross-origin-requests)
-* [Establecer el tiempo de expiración de las comprobaciones preparatorias](#set-the-preflight-expiration-time)
+* [Establecer la hora de expiración de la comprobación previa](#set-the-preflight-expiration-time)
 
 se llama a <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions.AddPolicy*> en `Startup.ConfigureServices`. Para algunas opciones, puede resultar útil leer la sección [Cómo funciona CORS](#how-cors) en primer lugar.
 

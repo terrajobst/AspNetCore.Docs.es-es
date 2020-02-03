@@ -80,7 +80,7 @@ Los algoritmos de compresión están sujetos a un equilibrio entre la velocidad 
 
 En la tabla siguiente se describen los encabezados implicados en la solicitud, el envío, el almacenamiento en caché y la recepción de contenido comprimido.
 
-| Header             | Rol |
+| Encabezado             | Role |
 | ------------------ | ---- |
 | `Accept-Encoding`  | Se envía desde el cliente al servidor para indicar los esquemas de codificación de contenido aceptables para el cliente. |
 | `Content-Encoding` | Se envía desde el servidor al cliente para indicar la codificación del contenido en la carga. |
@@ -94,7 +94,7 @@ Explore las características del middleware de compresión de respuesta con la [
 * Compresión de las respuestas de la aplicación mediante gzip y proveedores de compresión personalizados.
 * Cómo agregar un tipo MIME a la lista predeterminada de tipos MIME para la compresión.
 
-## <a name="package"></a>Package
+## <a name="package"></a>Paquete
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -108,7 +108,7 @@ Para incluir el middleware en un proyecto, agregue una referencia al [metapaquet
 
 ::: moniker-end
 
-## <a name="configuration"></a>Configuración de
+## <a name="configuration"></a>Configuración
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -139,7 +139,7 @@ public class Startup
 
 Notas:
 
-* se debe llamar a `app.UseResponseCompression` antes que cualquier software intermedio que comprime las respuestas. Para obtener más información, vea <xref:fundamentals/middleware/index#middleware-order>.
+* se debe llamar a `app.UseResponseCompression` antes que cualquier software intermedio que comprime las respuestas. Para más información, consulte <xref:fundamentals/middleware/index#middleware-order>.
 * Use una herramienta como [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/)o [Postman](https://www.getpostman.com/) para establecer el encabezado de solicitud `Accept-Encoding` y estudiar los encabezados de respuesta, el tamaño y el cuerpo.
 
 Envíe una solicitud a la aplicación de ejemplo sin el encabezado `Accept-Encoding` y observe que la respuesta se ha descomprimido. Los encabezados `Content-Encoding` y `Vary` no están presentes en la respuesta.
@@ -204,9 +204,9 @@ Establezca el nivel de compresión con <xref:Microsoft.AspNetCore.ResponseCompre
 
 | Nivel de compresión | Descripción |
 | ----------------- | ----------- |
-| [CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel) | La compresión debe completarse tan pronto como sea posible, incluso si la salida resultante no se comprime de forma óptima. |
+| [CompressionLevel. más rápido](xref:System.IO.Compression.CompressionLevel) | La compresión debe completarse tan pronto como sea posible, incluso si la salida resultante no se comprime de forma óptima. |
 | [CompressionLevel. NoCompression](xref:System.IO.Compression.CompressionLevel) | No se debe realizar ninguna compresión. |
-| [CompressionLevel.Optimal](xref:System.IO.Compression.CompressionLevel) | Las respuestas se deben comprimir óptimamente, incluso si la compresión tarda más tiempo en completarse. |
+| [CompressionLevel. optimal](xref:System.IO.Compression.CompressionLevel) | Las respuestas se deben comprimir óptimamente, incluso si la compresión tarda más tiempo en completarse. |
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -267,9 +267,9 @@ Establezca el nivel de compresión con <xref:Microsoft.AspNetCore.ResponseCompre
 
 | Nivel de compresión | Descripción |
 | ----------------- | ----------- |
-| [CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel) | La compresión debe completarse tan pronto como sea posible, incluso si la salida resultante no se comprime de forma óptima. |
+| [CompressionLevel. más rápido](xref:System.IO.Compression.CompressionLevel) | La compresión debe completarse tan pronto como sea posible, incluso si la salida resultante no se comprime de forma óptima. |
 | [CompressionLevel. NoCompression](xref:System.IO.Compression.CompressionLevel) | No se debe realizar ninguna compresión. |
-| [CompressionLevel.Optimal](xref:System.IO.Compression.CompressionLevel) | Las respuestas se deben comprimir óptimamente, incluso si la compresión tarda más tiempo en completarse. |
+| [CompressionLevel. optimal](xref:System.IO.Compression.CompressionLevel) | Las respuestas se deben comprimir óptimamente, incluso si la compresión tarda más tiempo en completarse. |
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -352,7 +352,7 @@ Cuando una solicitud es un proxy por Nginx, se quita el encabezado `Accept-Encod
 
 Si tiene un módulo de compresión dinámica de IIS activo configurado en el nivel de servidor que quiere deshabilitar para una aplicación, deshabilite el módulo con una adición al archivo *Web. config* . Para más información, vea [Disabling IIS modules](xref:host-and-deploy/iis/modules#disabling-iis-modules) (Deshabilitación de módulos de IIS).
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Use una herramienta como [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/)o [Postman](https://www.getpostman.com/), que le permite establecer el encabezado de solicitud `Accept-Encoding` y estudiar los encabezados de respuesta, el tamaño y el cuerpo. De forma predeterminada, el middleware de compresión de respuesta comprime las respuestas que cumplen las condiciones siguientes:
 

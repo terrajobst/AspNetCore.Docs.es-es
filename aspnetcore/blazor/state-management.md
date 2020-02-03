@@ -75,10 +75,10 @@ Existen tres ubicaciones comunes para el estado persistente en una aplicación d
 
 ### <a name="server-side-in-a-database"></a>Lado servidor en una base de datos
 
-Para la persistencia de datos permanente o para cualquier dato que deba abarcar varios usuarios o dispositivos, una base de datos independiente del servidor es casi seguro la mejor opción. Entre las opciones se incluyen:
+Para la persistencia de datos permanente o para cualquier dato que deba abarcar varios usuarios o dispositivos, una base de datos independiente del servidor es casi seguro la mejor opción. Las opciones incluyen:
 
 * SQL Database relacional
-* Almacén de clave-valor
+* almacén de pares clave-valor
 * Almacén de blobs
 * Almacén de tabla
 
@@ -86,7 +86,7 @@ Una vez guardados los datos en la base de datos, un usuario puede iniciar un nue
 
 Para más información sobre las opciones de almacenamiento de datos de Azure, consulte la [documentación de Azure Storage](/azure/storage/) y [las bases](https://azure.microsoft.com/product-categories/databases/)de datos de Azure.
 
-### <a name="url"></a>Dirección URL
+### <a name="url"></a>URL
 
 Para los datos transitorios que representan el estado de navegación, modelo de los datos como parte de la dirección URL. Entre los ejemplos de estado modelado en la dirección URL se incluyen:
 
@@ -139,7 +139,7 @@ Un ejemplo de un paquete NuGet que proporciona [protección de datos](xref:secur
 > [!WARNING]
 > en este momento, `Microsoft.AspNetCore.ProtectedBrowserStorage` es un paquete experimental no compatible que no es adecuado para su uso en producción.
 
-### <a name="installation"></a>Instalación de
+### <a name="installation"></a>Instalación
 
 Para instalar el paquete de `Microsoft.AspNetCore.ProtectedBrowserStorage`:
 
@@ -195,7 +195,7 @@ protected override async Task OnInitializedAsync()
 }
 ```
 
-Si los parámetros del componente incluyen el estado de navegación, llame a `ProtectedSessionStore.GetAsync` y asigne el resultado en `OnParametersSetAsync`, no `OnInitializedAsync`. solo se llama a `OnInitializedAsync` una vez cuando se crea una instancia del componente en primer lugar. `OnInitializedAsync` no se llama de nuevo más tarde si el usuario navega a una dirección URL diferente y permanece en la misma página. Para obtener más información, vea <xref:blazor/lifecycle>.
+Si los parámetros del componente incluyen el estado de navegación, llame a `ProtectedSessionStore.GetAsync` y asigne el resultado en `OnParametersSetAsync`, no `OnInitializedAsync`. solo se llama a `OnInitializedAsync` una vez cuando se crea una instancia del componente en primer lugar. `OnInitializedAsync` no se llama de nuevo más tarde si el usuario navega a una dirección URL diferente y permanece en la misma página. Para más información, consulte <xref:blazor/lifecycle>.
 
 > [!WARNING]
 > Los ejemplos de esta sección solo funcionan si el servidor no tiene habilitada la representación previa. Con la representación previa habilitada, se genera un error similar al siguiente:
