@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/15/2020
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: a0e9603cbca8c7f5771b0acf1a60839dffc89d4e
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: b3e077aeac11e62d9e992884100476f7be35b59a
+ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146490"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972045"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Identidad de scaffolding en proyectos de ASP.NET Core
 
@@ -259,7 +259,7 @@ Se puede seguir un enfoque similar para escenarios de producción.
 
 ## <a name="prevent-publish-of-static-identity-assets"></a>Impedir la publicación de recursos de identidad estáticos
 
-Para evitar la publicación de recursos de identidad estáticos en la raíz Web, consulte <xref:security/authentication/identity#prevent-publish-of-static-identity-assets>.
+Para evitar la publicación de recursos de identidad estáticos en la raíz web, consulte <xref:security/authentication/identity#prevent-publish-of-static-identity-assets>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

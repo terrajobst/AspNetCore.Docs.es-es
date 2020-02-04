@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 11/04/2019
 uid: performance/caching/response
-ms.openlocfilehash: e20c197c7ce3334d4f4f0b917d1fc94174e6c615
-ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
+ms.openlocfilehash: ab5d1414ae72edade81ab55aef6b0fa5af30f0f4
+ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914198"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76971973"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Almacenamiento en caché de respuestas en ASP.NET Core
 
@@ -21,7 +21,7 @@ Por [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.co
 
 El almacenamiento en caché de respuestas reduce el número de solicitudes que un cliente o proxy realiza a un servidor Web. El almacenamiento en caché de respuestas también reduce la cantidad de trabajo que realiza el servidor web para generar una respuesta. El almacenamiento en caché de respuestas está controlado por encabezados que especifican cómo desea que el cliente, el proxy y el middleware almacenen en caché las respuestas.
 
-El [atributo ResponseCache](#responsecache-attribute) participa en el establecimiento de encabezados de caché de respuesta. Los clientes y los servidores proxy intermedios deben respetar los encabezados para almacenar en caché las respuestas en la [especificación HTTP 1,1 Caching](https://tools.ietf.org/html/rfc7234).
+El [atributo ResponseCache](#responsecache-attribute) participa en el establecimiento de encabezados de caché de respuesta. Los clientes y los servidores proxy intermedios deben respetar los encabezados para almacenar en caché las respuestas en la [especificación de almacenamiento en caché HTTP 1,1](https://tools.ietf.org/html/rfc7234).
 
 Para el almacenamiento en caché del lado servidor que sigue la especificación HTTP 1,1 Caching, utilice el [middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware). El middleware puede usar las propiedades de <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute> para influir en el comportamiento del almacenamiento en caché del servidor.
 
@@ -43,7 +43,7 @@ En la tabla siguiente se muestran otros encabezados de caché que desempeñan un
 
 | Header                                                     | Función |
 | ---------------------------------------------------------- | -------- |
-| [Edad](https://tools.ietf.org/html/rfc7234#section-5.1)     | Una estimación de la cantidad de tiempo en segundos transcurrido desde que se generó la respuesta o se validó correctamente en el servidor de origen. |
+| [Antig](https://tools.ietf.org/html/rfc7234#section-5.1)     | Una estimación de la cantidad de tiempo en segundos transcurrido desde que se generó la respuesta o se validó correctamente en el servidor de origen. |
 | [Expira](https://tools.ietf.org/html/rfc7234#section-5.3) | Hora a partir de la cual la respuesta se considera obsoleta. |
 | [Omiti](https://tools.ietf.org/html/rfc7234#section-5.4)  | Existe por compatibilidad con versiones anteriores de caché HTTP/1.0 para establecer el comportamiento de `no-cache`. Si el encabezado `Cache-Control` está presente, se omite el encabezado de `Pragma`. |
 | [Variaciones](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Especifica que no se debe enviar una respuesta almacenada en caché a menos que todos los campos de encabezado `Vary` coincidan en la solicitud original de la respuesta almacenada en caché y la nueva solicitud. |
