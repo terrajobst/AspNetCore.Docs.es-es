@@ -17,11 +17,11 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76726885"
 ---
-# <a name="aspnet-core-opno-locblazor-forms-and-validation"></a>ASP.NET Core Blazor formularios y validación
+# <a name="aspnet-core-opno-locblazor-forms-and-validation"></a>ASP.NET Core [!OP.NO-LOC(Blazor)] formularios y validación
 
 Por [Daniel Roth](https://github.com/danroth27) y [Luke Latham](https://github.com/guardrex)
 
-Los formularios y la validación se admiten en Blazor con [anotaciones de datos](xref:mvc/models/validation).
+Los formularios y la validación se admiten en [!OP.NO-LOC(Blazor)] con [anotaciones de datos](xref:mvc/models/validation).
 
 El siguiente tipo de `ExampleModel` define la lógica de validación mediante anotaciones de datos:
 
@@ -191,7 +191,7 @@ El siguiente formulario valida los datos proporcionados por el usuario mediante 
 
 En el `EditForm` se crea un `EditContext` como un [valor en cascada](xref:blazor/components#cascading-values-and-parameters) que realiza un seguimiento de los metadatos sobre el proceso de edición, incluidos los campos modificados y los mensajes de validación actuales. El `EditForm` también proporciona eventos útiles para envíos válidos y no válidos (`OnValidSubmit`, `OnInvalidSubmit`). También puede usar `OnSubmit` para desencadenar la validación y comprobar los valores de los campos con código de validación personalizado.
 
-Observe el siguiente ejemplo:
+En el ejemplo siguiente:
 
 * El método `HandleSubmit` se ejecuta cuando se selecciona el botón **Enviar** .
 * El formulario se valida mediante el `EditContext`del formulario.
@@ -258,7 +258,7 @@ Cree un componente con el marcado siguiente y use el componente tal como se usa 
 
 ## <a name="work-with-radio-buttons"></a>Trabajar con botones de radio
 
-Al trabajar con botones de radio en un formulario, el enlace de datos se controla de manera diferente que otros elementos, ya que los botones de radio se evalúan como un grupo. El valor de cada botón de radio es fijo, pero el valor del grupo de botones de radio es el valor del botón de radio seleccionado. En el ejemplo siguiente se muestra cómo:
+Al trabajar con botones de radio en un formulario, el enlace de datos se controla de manera diferente que otros elementos, ya que los botones de radio se evalúan como un grupo. El valor de cada botón de radio es fijo, pero el valor del grupo de botones de radio es el valor del botón de radio seleccionado. El ejemplo siguiente muestra cómo:
 
 * Controlar el enlace de datos para un grupo de botones de radio.
 * Admitir la validación mediante un componente de `InputRadio` personalizado.
@@ -398,11 +398,11 @@ private class MyCustomValidator : ValidationAttribute
 
 ### <a name="opno-locblazor-data-annotations-validation-package"></a>Blazor paquete de validación de anotaciones de datos
 
-[Microsoft. AspNetCore.Blazor. DataAnnotations. Validation](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.DataAnnotations.Validation) es un paquete que llena los huecos de experiencia de validación mediante el componente de `DataAnnotationsValidator`. El paquete es *experimental*actualmente.
+[Microsoft.AspNetCore.Blazor.DataAnnotations.Validation](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.DataAnnotations.Validation) es un paquete que llena los huecos de experiencia de validación mediante el componente de `DataAnnotationsValidator`. El paquete es *experimental*actualmente.
 
 ### <a name="compareproperty-attribute"></a>Atributo [CompareProperty]
 
-El <xref:System.ComponentModel.DataAnnotations.CompareAttribute> no funciona bien con el componente `DataAnnotationsValidator` porque no asocia el resultado de la validación con un miembro específico. Esto puede producir un comportamiento incoherente entre la validación de nivel de campo y el momento en que se valida todo el modelo en un envío. [Microsoft. AspNetCore.Blazor. DataAnnotations:](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.DataAnnotations.Validation) el paquete *experimental* de validación introduce un atributo de validación adicional, `ComparePropertyAttribute`, que soluciona estas limitaciones. En una aplicación Blazor, `[CompareProperty]` es un reemplazo directo del atributo `[Compare]`.
+El <xref:System.ComponentModel.DataAnnotations.CompareAttribute> no funciona bien con el componente `DataAnnotationsValidator` porque no asocia el resultado de la validación con un miembro específico. Esto puede producir un comportamiento incoherente entre la validación de nivel de campo y el momento en que se valida todo el modelo en un envío. [Microsoft.AspNetCore.Blazor.DataAnnotations:](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.DataAnnotations.Validation) el paquete *experimental* de validación introduce un atributo de validación adicional, `ComparePropertyAttribute`, que soluciona estas limitaciones. En una aplicación Blazor, `[CompareProperty]` es un reemplazo directo del atributo `[Compare]`.
 
 ### <a name="nested-models-collection-types-and-complex-types"></a>Modelos anidados, tipos de colección y tipos complejos
 

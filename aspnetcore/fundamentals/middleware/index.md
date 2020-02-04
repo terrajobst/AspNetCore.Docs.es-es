@@ -5,14 +5,14 @@ description: Obtenga información sobre el middleware de ASP.NET Core y la canal
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/19/2019
+ms.date: 02/02/2020
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 63566c1642e17ad333bb65b122330d11c4472aff
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 5c8e9e58ab222e482ef029f5099d0a8acd07d8a6
+ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355002"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972034"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware de ASP.NET Core
 
@@ -170,7 +170,7 @@ Las extensiones <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> se usan c
 
 En la siguiente tabla se muestran las solicitudes y las respuestas de `http://localhost:1234` con el código anterior.
 
-| Request             | Respuesta                     |
+| Solicitud             | Response                     |
 | ------------------- | ---------------------------- |
 | localhost:1234      | Saludos del delegado sin Map. |
 | localhost:1234/map1 | Prueba 1 de Map                   |
@@ -202,7 +202,7 @@ app.Map("/level1", level1App => {
 
 En la siguiente tabla se muestran las solicitudes y las respuestas de `http://localhost:1234` con el código anterior:
 
-| Request                       | Respuesta                     |
+| Solicitud                       | Response                     |
 | ----------------------------- | ---------------------------- |
 | localhost:1234                | Saludos del delegado sin Map. |
 | localhost:1234/?branch=master | Rama usada = master         |
@@ -217,7 +217,7 @@ En el ejemplo anterior, la respuesta "Hola desde la canalización principal." se
 
 ASP.NET Core incluye los componentes de software intermedio siguientes. En la columna *Orden* se proporcionan notas sobre la ubicación del middleware en la canalización de procesamiento de solicitudes, así como las condiciones con las que podría finalizar el procesamiento de solicitudes. Cuando un middleware cortocircuita la canalización de procesamiento de solicitudes e impide el procesamiento de una solicitud por parte de middleware descendente adicional, se llama *middleware de terminal*. Para más información sobre cómo cortocircuitar, consulte la sección [Creación de una canalización de middleware con IApplicationBuilder](#create-a-middleware-pipeline-with-iapplicationbuilder).
 
-| Software intermedio | Descripción | Ordenar |
+| Software intermedio | Descripción | Pedido de |
 | ---------- | ----------- | ----- |
 | [Autenticación](xref:security/authentication/identity) | Proporciona compatibilidad con autenticación. | Antes de que se necesite `HttpContext.User`. Terminal para devoluciones de llamadas OAuth. |
 | [Autorización](xref:Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.UseAuthorization*) | Proporciona compatibilidad con la autorización. | Inmediatamente después del middleware de autenticación. |
@@ -226,6 +226,7 @@ ASP.NET Core incluye los componentes de software intermedio siguientes. En la co
 | [Diagnóstico](xref:fundamentals/error-handling) | Varios middleware independientes que proporcionan una página de excepciones para el desarrollador, control de excepciones, páginas de códigos de estado y la página web predeterminada para las nuevas aplicaciones. | Antes de los componentes que generan errores. Terminal para excepciones o con el fin de proporcionar la página web predeterminada para las nuevas aplicaciones. |
 | [Encabezados reenviados](xref:host-and-deploy/proxy-load-balancer) | Reenvía encabezados con proxy a la solicitud actual. | Antes de los componentes que consumen los campos actualizados. Ejemplos: esquema, host, IP de cliente y método. |
 | [Comprobación de estado](xref:host-and-deploy/health-checks) | Comprueba el estado de una aplicación ASP.NET Core y sus dependencias, como la comprobación de disponibilidad de base de datos. | Terminal si una solicitud coincide con un punto de conexión de comprobación de estado. |
+| [Propagación de encabezados](xref:fundamentals/http-requests#header-propagation-middleware) | Permite propagar los encabezados HTTP de la solicitud entrante a las solicitudes del cliente HTTP salientes. |
 | [Invalidación del método HTTP](xref:Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions) | Permite que una solicitud POST entrante invalide el método. | Antes de los componentes que consumen el método actualizado. |
 | [Redireccionamiento de HTTPS](xref:security/enforcing-ssl#require-https) | Redirija todas las solicitudes HTTP a HTTPS. | Antes de los componentes que consumen la dirección URL. |
 | [Seguridad de transporte estricta de HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Middleware de mejora de seguridad que agrega un encabezado de respuesta especial. | Antes de que se envíen las respuestas y después de los componentes que modifican las solicitudes. Ejemplos: encabezados reenviados y reescritura de URL. |
@@ -235,7 +236,7 @@ ASP.NET Core incluye los componentes de software intermedio siguientes. En la co
 | [Compresión de respuesta](xref:performance/response-compression) | Proporciona compatibilidad con la compresión de respuestas. | Antes de los componentes que requieren compresión. |
 | [Localización de solicitudes](xref:fundamentals/localization) | Proporciona compatibilidad con ubicación. | Antes de los componentes que dependen de la ubicación. |
 | [Enrutamiento de punto de conexión](xref:fundamentals/routing) | Define y restringe las rutas de la solicitud. | Terminal para rutas que coincidan. |
-| [Sesión](xref:fundamentals/app-state) | Proporciona compatibilidad con la administración de sesiones de usuario. | Antes de los componentes que requieren Session. |
+| [De sesión](xref:fundamentals/app-state) | Proporciona compatibilidad con la administración de sesiones de usuario. | Antes de los componentes que requieren Session. |
 | [Archivos estáticos](xref:fundamentals/static-files) | Proporciona compatibilidad con la proporción de archivos estáticos y la exploración de directorios. | Si hay una solicitud que coincida con un archivo, será final. |
 | [Reescritura de URL](xref:fundamentals/url-rewriting) | Proporciona compatibilidad con la reescritura de direcciones URL y la redirección de solicitudes. | Antes de los componentes que consumen la dirección URL. |
 | [WebSockets](xref:fundamentals/websockets) | Habilita el protocolo WebSockets. | Antes de los componentes necesarios para aceptar solicitudes de WebSocket. |
@@ -380,7 +381,7 @@ Las extensiones <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> se usan c
 
 En la siguiente tabla se muestran las solicitudes y las respuestas de `http://localhost:1234` con el código anterior.
 
-| Request             | Respuesta                     |
+| Solicitud             | Response                     |
 | ------------------- | ---------------------------- |
 | localhost:1234      | Saludos del delegado sin Map. |
 | localhost:1234/map1 | Prueba 1 de Map                   |
@@ -395,7 +396,7 @@ Cuando se usa `Map`, los segmentos de ruta que coincidan se eliminan de `HttpReq
 
 En la siguiente tabla se muestran las solicitudes y las respuestas de `http://localhost:1234` con el código anterior.
 
-| Request                       | Respuesta                     |
+| Solicitud                       | Response                     |
 | ----------------------------- | ---------------------------- |
 | localhost:1234                | Saludos del delegado sin Map. |
 | localhost:1234/?branch=master | Rama usada = master         |
@@ -421,7 +422,7 @@ app.Map("/level1", level1App => {
 
 ASP.NET Core incluye los componentes de software intermedio siguientes. En la columna *Orden* se proporcionan notas sobre la ubicación del middleware en la canalización de procesamiento de solicitudes, así como las condiciones con las que podría finalizar el procesamiento de solicitudes. Cuando un middleware cortocircuita la canalización de procesamiento de solicitudes e impide el procesamiento de una solicitud por parte de middleware descendente adicional, se llama *middleware de terminal*. Para más información sobre cómo cortocircuitar, consulte la sección [Creación de una canalización de middleware con IApplicationBuilder](#create-a-middleware-pipeline-with-iapplicationbuilder).
 
-| Software intermedio | Descripción | Ordenar |
+| Software intermedio | Descripción | Pedido de |
 | ---------- | ----------- | ----- |
 | [Autenticación](xref:security/authentication/identity) | Proporciona compatibilidad con autenticación. | Antes de que se necesite `HttpContext.User`. Terminal para devoluciones de llamadas OAuth. |
 | [Directiva de cookies](xref:security/gdpr) | Realiza un seguimiento del consentimiento de los usuarios para almacenar información personal y aplica los estándares mínimos para los campos de las cookies, como `secure` y `SameSite`. | Antes del middleware que emite las cookies. Ejemplos: autenticación, sesión y MVC (TempData). |
@@ -438,7 +439,7 @@ ASP.NET Core incluye los componentes de software intermedio siguientes. En la co
 | [Compresión de respuesta](xref:performance/response-compression) | Proporciona compatibilidad con la compresión de respuestas. | Antes de los componentes que requieren compresión. |
 | [Localización de solicitudes](xref:fundamentals/localization) | Proporciona compatibilidad con ubicación. | Antes de los componentes que dependen de la ubicación. |
 | [Enrutamiento de punto de conexión](xref:fundamentals/routing) | Define y restringe las rutas de la solicitud. | Terminal para rutas que coincidan. |
-| [Sesión](xref:fundamentals/app-state) | Proporciona compatibilidad con la administración de sesiones de usuario. | Antes de los componentes que requieren Session. |
+| [De sesión](xref:fundamentals/app-state) | Proporciona compatibilidad con la administración de sesiones de usuario. | Antes de los componentes que requieren Session. |
 | [Archivos estáticos](xref:fundamentals/static-files) | Proporciona compatibilidad con la proporción de archivos estáticos y la exploración de directorios. | Si hay una solicitud que coincida con un archivo, será final. |
 | [Reescritura de URL](xref:fundamentals/url-rewriting) | Proporciona compatibilidad con la reescritura de direcciones URL y la redirección de solicitudes. | Antes de los componentes que consumen la dirección URL. |
 | [WebSockets](xref:fundamentals/websockets) | Habilita el protocolo WebSockets. | Antes de los componentes necesarios para aceptar solicitudes de WebSocket. |
