@@ -7,12 +7,12 @@ ms.author: stevesa
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/angular
-ms.openlocfilehash: 62654ca040be99de8063a63c7e4ac09cbb8564eb
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 150b2176eac2e68c1ef9ec6deabb087836ff84ce
+ms.sourcegitcommit: cb6015f737b6a93127016ab0f21b58e34b624ff3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080399"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77004271"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de Angular con ASP.NET Core
 
@@ -53,7 +53,7 @@ Now listening on: http://localhost:<port>
 
 Vaya a esta dirección URL en un explorador.
 
-La aplicación inicia en segundo plano una instancia del servidor de la CLI de Angular. Se registra un mensaje similar al siguiente: *Ng Live servidor de desarrollo está escuchando en localhost:&lt;otherport&gt;, abra el explorador en http://localhost:&lt; otherport&gt;/* . Omita este mensaje, no **es** la dirección URL de la aplicación combinada de ASP.NET Core y la CLI de Angular.
+La aplicación inicia en segundo plano una instancia del servidor de la CLI de Angular. Se registra un mensaje similar al siguiente: *El servidor de desarrollo de NG Live escucha en localhost:&lt;otherport&gt;, abra el explorador en http://localhost:&lt;otherport&gt;/* . Omita este mensaje, no **es** la dirección URL de la aplicación combinada de ASP.NET Core y la CLI de Angular.
 
 ---
 
@@ -61,7 +61,7 @@ La plantilla de proyecto crea una aplicación ASP.NET Core y una aplicación de 
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Adición de páginas, imágenes, estilos, módulos, etc.
 
-El directorio *ClientApp* contiene una aplicación estándar de la CLI de Angular. Consulte la [documentación de Angular](https://github.com/angular/angular-cli/wiki) para más información.
+El directorio *ClientApp* contiene una aplicación estándar de la CLI de Angular. Consulte la [documentación de Angular](https://https://angular.io) para más información.
 
 Existen pequeñas diferencias entre la aplicación de Angular creada con esta plantilla y la creada con la propia CLI de Angular (mediante `ng new`); sin embargo, las funcionalidades de la aplicación permanecen sin cambios. La aplicación creada con la plantilla contiene un diseño basado en [arranque](https://getbootstrap.com/) y un ejemplo de enrutamiento básico.
 
@@ -73,7 +73,7 @@ En un símbolo del sistema, cambie al subdirectorio *ClientApp*:
 cd ClientApp
 ```
 
-Si tiene instalada la herramienta `ng` globalmente, puede ejecutar cualquiera de sus comandos. Por ejemplo, puede ejecutar `ng lint`, `ng test`, o cualquiera de los otros [comandos de la CLI de Angular](https://github.com/angular/angular-cli/wiki#additional-commands). Si bien, no es necesario ejecutar `ng serve`, dado que la aplicación ASP.NET Core se ocupa de atender las partes del lado cliente y servidor de la aplicación. Internamente, usa `ng serve` en el desarrollo.
+Si tiene instalada la herramienta `ng` globalmente, puede ejecutar cualquiera de sus comandos. Por ejemplo, puede ejecutar `ng lint`, `ng test`, o cualquiera de los otros [comandos de la CLI de Angular](https://angular.io/cli). Si bien, no es necesario ejecutar `ng serve`, dado que la aplicación ASP.NET Core se ocupa de atender las partes del lado cliente y servidor de la aplicación. Internamente, usa `ng serve` en el desarrollo.
 
 Si no tiene instalada la herramienta `ng`, ejecute en su lugar `npm run ng`. Por ejemplo, puede ejecutar `npm run ng lint` o `npm run ng test`.
 
