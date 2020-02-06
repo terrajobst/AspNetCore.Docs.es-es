@@ -5,14 +5,14 @@ description: Aprenda cómo comenzar a trabajar con la plantilla de proyecto de a
 monikerRange: '>= aspnetcore-2.1'
 ms.author: stevesa
 ms.custom: mvc
-ms.date: 03/07/2019
+ms.date: 02/06/2020
 uid: spa/angular
-ms.openlocfilehash: 150b2176eac2e68c1ef9ec6deabb087836ff84ce
-ms.sourcegitcommit: cb6015f737b6a93127016ab0f21b58e34b624ff3
+ms.openlocfilehash: 11ad5d4c7cadcc582b3e288a331569f62f0b98ac
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77004271"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044856"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de Angular con ASP.NET Core
 
@@ -53,7 +53,7 @@ Now listening on: http://localhost:<port>
 
 Vaya a esta dirección URL en un explorador.
 
-La aplicación inicia en segundo plano una instancia del servidor de la CLI de Angular. Se registra un mensaje similar al siguiente: *El servidor de desarrollo de NG Live escucha en localhost:&lt;otherport&gt;, abra el explorador en http://localhost:&lt;otherport&gt;/* . Omita este mensaje, no **es** la dirección URL de la aplicación combinada de ASP.NET Core y la CLI de Angular.
+La aplicación inicia en segundo plano una instancia del servidor de la CLI de Angular. Se registra un mensaje similar al siguiente: *El servidor de desarrollo de NG Live escucha en localhost:&lt;otherport&gt;, abra el explorador en http://localhost:&lt;otherport&gt;/* . Omita este mensaje, no &mdash;es** la dirección URL de la aplicación combinada de ASP.NET Core y la CLI de Angular.
 
 ---
 
@@ -61,7 +61,7 @@ La plantilla de proyecto crea una aplicación ASP.NET Core y una aplicación de 
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Adición de páginas, imágenes, estilos, módulos, etc.
 
-El directorio *ClientApp* contiene una aplicación estándar de la CLI de Angular. Consulte la [documentación de Angular](https://https://angular.io) para más información.
+El directorio *ClientApp* contiene una aplicación estándar de la CLI de Angular. Consulte la [documentación de Angular](https://angular.io) para más información.
 
 Existen pequeñas diferencias entre la aplicación de Angular creada con esta plantilla y la creada con la propia CLI de Angular (mediante `ng new`); sin embargo, las funcionalidades de la aplicación permanecen sin cambios. La aplicación creada con la plantilla contiene un diseño basado en [arranque](https://getbootstrap.com/) y un ejemplo de enrutamiento básico.
 
@@ -77,7 +77,7 @@ Si tiene instalada la herramienta `ng` globalmente, puede ejecutar cualquiera de
 
 Si no tiene instalada la herramienta `ng`, ejecute en su lugar `npm run ng`. Por ejemplo, puede ejecutar `npm run ng lint` o `npm run ng test`.
 
-## <a name="install-npm-packages"></a>Instalar paquetes de npm
+## <a name="install-npm-packages"></a>Instalación de paquetes de npm
 
 Para instalar paquetes de npm de otro fabricante, use un símbolo del sistema en el subdirectorio *ClientApp*. Por ejemplo:
 
