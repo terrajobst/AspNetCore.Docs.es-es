@@ -5,17 +5,17 @@ description: Comprenda Blazor los modelos de hospedaje de webassembly y Blazor S
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/31/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/hosting-models
-ms.openlocfilehash: 145f385fd6c5d04510a4ac15a41b879591ab5caa
-ms.sourcegitcommit: c81ef12a1b6e6ac838e5e07042717cf492e6635b
+ms.openlocfilehash: 7b4d4aca0bc4650c31bc8e5c4a84ecbad6a49b09
+ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885529"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77034096"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Modelos de hospedaje increíblemente ASP.NET Core
 
@@ -35,7 +35,7 @@ El modelo de hospedaje principal de increíbles se está ejecutando en el lado c
 
 Para crear una aplicación increíblemente alta con el modelo de hospedaje de cliente, use la plantilla de **aplicación de Webassemble de extraordinarias** ([dotnet New blazorwasm](/dotnet/core/tools/dotnet-new)).
 
-Después de seleccionar la plantilla de **aplicación Webassembly** de increíble, tiene la opción de configurar la aplicación para usar un back-end de ASP.net Core activando la casilla **ASP.net Core hospedado** ([dotnet New blazorwasm--Hosted](/dotnet/core/tools/dotnet-new)). La aplicación ASP.NET Core envía la aplicación increíblemente a los clientes. La aplicación increíblemente webassembly puede interactuar con el servidor a través de la red mediante llamadas API Web o [signalr](xref:signalr/introduction).
+Después de seleccionar la plantilla de **aplicación Webassembly** de increíble, tiene la opción de configurar la aplicación para usar un back-end de ASP.net Core activando la casilla **ASP.net Core hospedado** ([dotnet New blazorwasm--Hosted](/dotnet/core/tools/dotnet-new)). La aplicación ASP.NET Core envía la aplicación increíblemente a los clientes. La aplicación increíblemente webassembly puede interactuar con el servidor a través de la red mediante llamadas API Web o [signalr](xref:signalr/introduction) (<xref:tutorials/signalr-blazor-webassembly>).
 
 Las plantillas incluyen el script de `blazor.webassembly.js` que controla:
 
@@ -222,7 +222,7 @@ Para admitir componentes de Razor enrutables en Razor Pages aplicaciones:
    ...
    ```
 
-   Al usar una carpeta personalizada para contener los componentes de la aplicación, agregue el espacio de nombres que representa la carpeta al archivo *pages/_ViewImports. cshtml* . Para obtener más información, vea <xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps>.
+   Al usar una carpeta personalizada para contener los componentes de la aplicación, agregue el espacio de nombres que representa la carpeta al archivo *pages/_ViewImports. cshtml* . Para más información, consulte <xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps>.
 
 #### <a name="use-routable-components-in-an-mvc-app"></a>Uso de componentes enrutables en una aplicación MVC
 
@@ -290,7 +290,7 @@ Para admitir componentes de Razor enrutables en aplicaciones MVC:
    ...
    ```
 
-   Al usar una carpeta personalizada para contener los componentes de la aplicación, agregue el espacio de nombres que representa la carpeta al archivo *views/_ViewImports. cshtml* . Para obtener más información, vea <xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps>.
+   Al usar una carpeta personalizada para contener los componentes de la aplicación, agregue el espacio de nombres que representa la carpeta al archivo *views/_ViewImports. cshtml* . Para más información, consulte <xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps>.
 
 ### <a name="circuits"></a>Circuitos
 
@@ -306,7 +306,7 @@ La latencia de la interfaz de usuario es el tiempo que tarda una acción iniciad
 
 En el caso de una aplicación de línea de negocio que está limitada a una red corporativa privada, el efecto en las percepciones de usuario de latencia debido a la latencia de red suele ser imperceptibles. En el caso de una aplicación implementada a través de Internet, la latencia puede ser apreciable para los usuarios, especialmente si los usuarios están ampliamente distribuidos geográficamente.
 
-El uso de memoria también puede contribuir a la latencia de la aplicación. El aumento del uso de memoria da como resultado la recolección frecuente de elementos no utilizados o la paginación de memoria en el disco, y ambos degradan el rendimiento de la aplicación y, por consiguiente, aumentan la latencia Para obtener más información, vea <xref:security/blazor/server>.
+El uso de memoria también puede contribuir a la latencia de la aplicación. El aumento del uso de memoria da como resultado la recolección frecuente de elementos no utilizados o la paginación de memoria en el disco, y ambos degradan el rendimiento de la aplicación y, por consiguiente, aumentan la latencia Para más información, consulte <xref:security/blazor/server>.
 
 Las aplicaciones de servidor increíbles deben optimizarse para minimizar la latencia de la interfaz de usuario, ya que se reduce la latencia de red y el uso de memoria. Para obtener información acerca de cómo medir la latencia de red, consulte <xref:host-and-deploy/blazor/server#measure-network-latency>. Para obtener más información sobre Signalr y increíble, consulte:
 
@@ -321,7 +321,7 @@ Las aplicaciones de servidor increíbles requieren una conexión activa al servi
 
 Una aplicación de servidor increíblemente representada como respuesta a la primera solicitud de cliente, que configura el estado de la interfaz de usuario en el servidor. Cuando el cliente intenta crear una conexión Signalr, el cliente debe volver a conectarse al mismo servidor. Las aplicaciones de servidor increíbles que usan más de un servidor back-end deben implementar *sesiones permanentes* para las conexiones de signalr.
 
-Se recomienda usar [Azure SignalR Service](/azure/azure-signalr) para aplicaciones de Blazor Server. El servicio permite el escalado vertical de una aplicación de Blazor Server a un gran número de conexiones simultáneas de SignalR. Las sesiones permanentes están habilitadas para el servicio Azure Signalr si se establece la opción de `ServerStickyMode` del servicio o el valor de configuración en `Required`. Para obtener más información, vea <xref:host-and-deploy/blazor/server#signalr-configuration>.
+Se recomienda usar [Azure SignalR Service](/azure/azure-signalr) para aplicaciones de Blazor Server. El servicio permite el escalado vertical de una aplicación de Blazor Server a un gran número de conexiones simultáneas de SignalR. Las sesiones permanentes están habilitadas para el servicio Azure Signalr si se establece la opción de `ServerStickyMode` del servicio o el valor de configuración en `Required`. Para más información, consulte <xref:host-and-deploy/blazor/server#signalr-configuration>.
 
 Cuando se usa IIS, las sesiones permanentes se habilitan con el enrutamiento de solicitud de aplicaciones. Para más información, vea [Equilibrio de carga HTTP mediante el enrutamiento de solicitud de aplicaciones](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
 
@@ -504,3 +504,4 @@ Para configurar el cliente de SignalR en el archivo *pages/_Host. cshtml* :
 
 * <xref:blazor/get-started>
 * <xref:signalr/introduction>
+* <xref:tutorials/signalr-blazor-webassembly>

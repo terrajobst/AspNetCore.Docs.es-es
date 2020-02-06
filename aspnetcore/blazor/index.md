@@ -5,17 +5,17 @@ description: Explore ASP.NET Core Blazor, una forma de compilar la interfaz de u
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 12/18/2019
+ms.date: 01/31/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/index
-ms.openlocfilehash: 9f43735fc02ba9f8da4ba27c8b5763d587b5429a
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 02c95c19ebfb5ea6ad722f9d49f4cddc7471f8e1
+ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76159929"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77034092"
 ---
 # <a name="introduction-to-aspnet-core-opno-locblazor"></a>Introducción a ASP.NET Core Blazor
 
@@ -152,6 +152,7 @@ Las API que no pueden aplicarse dentro de un explorador web (por ejemplo, para a
 
 * [WebAssembly](https://webassembly.org/)
 * <xref:blazor/hosting-models>
+* <xref:tutorials/signalr-blazor-webassembly>
 * [Guía de C#](/dotnet/csharp/)
 * <xref:mvc/views/razor>
 * [HTML](https://www.w3.org/html/)
