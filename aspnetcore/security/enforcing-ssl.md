@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: d7d4eece935bd83b69a6a5d81898012b99d73193
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 59883a8165040fa58edb2f6cf22d4d6b3abf6f3e
+ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828911"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074554"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Aplicación de HTTPS en ASP.NET Core
 
@@ -85,7 +85,7 @@ Código resaltado anterior:
 
 Se recomienda el uso de redirecciones temporales en lugar de redireccionamientos permanentes. El almacenamiento en caché de vínculos puede producir un comportamiento inestable en entornos de desarrollo. Si prefiere enviar un código de estado de redirección permanente cuando la aplicación se encuentra en un entorno que no es de desarrollo, consulte la sección [configuración de redirecciones permanentes en producción](#configure-permanent-redirects-in-production) . Se recomienda usar [HSTS](#http-strict-transport-security-protocol-hsts) para indicar a los clientes que solo se deben enviar solicitudes de recursos seguros a la aplicación (solo en producción).
 
-### <a name="port-configuration"></a>Configuración del puerto
+### <a name="port-configuration"></a>Configuración de puerto
 
 Un puerto debe estar disponible para que el middleware redirija una solicitud no segura a HTTPS. Si no hay ningún puerto disponible:
 
@@ -277,7 +277,7 @@ El código siguiente:
 ::: moniker-end
 
 
-* Establece el parámetro preload del encabezado STRICT-Transport-Security. La precarga no forma parte de la [especificación RFC HSTS](https://tools.ietf.org/html/rfc6797), pero es compatible con los exploradores Web para precargar sitios de HSTS en la instalación nueva. Para más información, vea [https://hstspreload.org/](https://hstspreload.org/).
+* Establece el parámetro preload del encabezado STRICT-Transport-Security. La precarga no forma parte de la [especificación RFC HSTS](https://tools.ietf.org/html/rfc6797), pero es compatible con los exploradores Web para precargar sitios de HSTS en la instalación nueva. Consulte [https://hstspreload.org/](https://hstspreload.org/) para obtener más información.
 * Habilita [includeSubDomain](https://tools.ietf.org/html/rfc6797#section-6.1.2), que aplica la Directiva HSTS para hospedar subdominios.
 * Establece explícitamente el parámetro Max-Age del encabezado STRICT-Transport-Security en 60 días. Si no se establece, el valor predeterminado es 30 días. Para obtener más información, vea la [Directiva Max-Age](https://tools.ietf.org/html/rfc6797#section-6.1.1) .
 * Agrega `example.com` a la lista de hosts que se van a excluir.
@@ -419,7 +419,7 @@ Vea [error de https mediante IIS Express (dotnet/AspNetCore #16892)](https://git
 
 ### <a name="iis-express-ssl-certificate-used-with-visual-studio"></a>IIS Express certificado SSL usado con Visual Studio
 
-Para solucionar problemas con el certificado de IIS Express, seleccione **reparar** en el instalador de Visual Studio.
+Para solucionar problemas con el certificado de IIS Express, seleccione **reparar** en el instalador de Visual Studio. Para más información, consulte [este problema de GitHub](https://github.com/dotnet/aspnetcore/issues/16892).
 
 ## <a name="additional-information"></a>Información adicional
 

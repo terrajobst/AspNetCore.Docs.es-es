@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Obtenga información sobre cómo funcionan los filtros y cómo se pueden usar en ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/1/2020
+ms.date: 02/04/2020
 uid: mvc/controllers/filters
-ms.openlocfilehash: 759c150e7f35f3f6a52947edc5ef41448dc227fe
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: c4bb9d5746e494106ead6ad5bbf972bbcc5a39f1
+ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828976"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77034070"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtros en ASP.NET Core
 
@@ -28,13 +28,16 @@ Los filtros integrados se encargan de tareas como las siguientes:
 
 Se pueden crear filtros personalizados que se encarguen de cuestiones transversales. Entre los ejemplos de cuestiones transversales se incluyen el control de errores, el almacenamiento en caché, la configuración, la autorización y el registro.  Los filtros evitan la duplicación de código. Así, por ejemplo, un filtro de excepción de control de errores puede consolidar el control de errores.
 
-Este documento se aplica a Razor Pages, a los controladores de API y a los controladores con vistas.
+Este documento se aplica a Razor Pages, a los controladores de API y a los controladores con vistas. Los filtros no funcionan directamente con [componentes de Razor](xref:blazor/components). Un filtro solo puede afectar indirectamente a un componente cuando:
+
+* El componente está insertado en una página o vista.
+* La página o el controlador o la vista utiliza el filtro.
 
 [Vea o descargue el ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
 
 ## <a name="how-filters-work"></a>Funcionamiento de los filtros
 
-Los filtros se ejecutan dentro de la *canalización de invocación de acciones de ASP.NET Core*, a veces denominada *canalización de filtro*.  La canalización de filtro se ejecuta después de que ASP.NET Core seleccione la acción que se va a ejecutar.
+Los filtros se ejecutan dentro de la *canalización de invocación de acciones de ASP.NET Core*, a veces denominada *canalización de filtro*. La canalización de filtro se ejecuta después de que ASP.NET Core seleccione la acción que se va a ejecutar.
 
 ![La solicitud se procesa a través de las fases Otro middleware, Middleware de enrutamiento, Selección de acción y Canalización de invocación de acción. El procesamiento de la solicitud continúa a la inversa, pasando por Selección de acción, Middleware de enrutamiento y varias fases de Otro middleware, antes de convertirse en una respuesta para enviarla al cliente.](filters/_static/filter-pipeline-1.png)
 
