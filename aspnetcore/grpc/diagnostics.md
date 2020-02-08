@@ -6,45 +6,53 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 09/23/2019
 uid: grpc/diagnostics
-ms.openlocfilehash: 7194e91b40a08c4a7ee619b8f207900af2683aa1
-ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
+ms.openlocfilehash: 17607b734e6d777de9516aa14e81c97f87b61023
+ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71250733"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074528"
 ---
-# <a name="logging-and-diagnostics-in-grpc-on-net"></a><span data-ttu-id="b1cdb-103">Registro y diagnóstico en gRPC en .NET</span><span class="sxs-lookup"><span data-stu-id="b1cdb-103">Logging and diagnostics in gRPC on .NET</span></span>
+# <a name="logging-and-diagnostics-in-grpc-on-net"></a><span data-ttu-id="47aa9-103">Registro y diagnóstico en gRPC en .NET</span><span class="sxs-lookup"><span data-stu-id="47aa9-103">Logging and diagnostics in gRPC on .NET</span></span>
 
-<span data-ttu-id="b1cdb-104">Por [James Newton-King](https://twitter.com/jamesnk)</span><span class="sxs-lookup"><span data-stu-id="b1cdb-104">By [James Newton-King](https://twitter.com/jamesnk)</span></span>
+<span data-ttu-id="47aa9-104">Por [James Newton-King](https://twitter.com/jamesnk)</span><span class="sxs-lookup"><span data-stu-id="47aa9-104">By [James Newton-King](https://twitter.com/jamesnk)</span></span>
 
-<span data-ttu-id="b1cdb-105">En este artículo se proporcionan instrucciones para recopilar diagnósticos de la aplicación de gRPC para ayudar a solucionar problemas.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-105">This article provides guidance for gathering diagnostics from your gRPC app to help troubleshoot issues.</span></span>
+<span data-ttu-id="47aa9-105">En este artículo se proporcionan instrucciones para recopilar diagnósticos de una aplicación de gRPC para ayudar a solucionar problemas.</span><span class="sxs-lookup"><span data-stu-id="47aa9-105">This article provides guidance for gathering diagnostics from a gRPC app to help troubleshoot issues.</span></span> <span data-ttu-id="47aa9-106">Temas cubiertos:</span><span class="sxs-lookup"><span data-stu-id="47aa9-106">Topics covered include:</span></span>
 
-## <a name="grpc-services-logging"></a><span data-ttu-id="b1cdb-106">registro de gRPC Services</span><span class="sxs-lookup"><span data-stu-id="b1cdb-106">gRPC services logging</span></span>
+* <span data-ttu-id="47aa9-107">Registros estructurados de **registro** escritos en el [registro de .net Core](xref:fundamentals/logging/index).</span><span class="sxs-lookup"><span data-stu-id="47aa9-107">**Logging** - Structured logs written to [.NET Core logging](xref:fundamentals/logging/index).</span></span> <span data-ttu-id="47aa9-108">los marcos de trabajo de aplicaciones usan <xref:Microsoft.Extensions.Logging.ILogger> para escribir registros y los usuarios para su propio registro en una aplicación.</span><span class="sxs-lookup"><span data-stu-id="47aa9-108"><xref:Microsoft.Extensions.Logging.ILogger> is used by app frameworks to write logs, and by users for their own logging in an app.</span></span>
+* <span data-ttu-id="47aa9-109">**Seguimiento** : eventos relacionados con una operación escrita mediante `DiaganosticSource` y `Activity`.</span><span class="sxs-lookup"><span data-stu-id="47aa9-109">**Tracing** - Events related to an operation written using `DiaganosticSource` and `Activity`.</span></span> <span data-ttu-id="47aa9-110">Los seguimientos del origen de diagnóstico se suelen usar para recopilar la telemetría de la aplicación mediante bibliotecas como [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) y [OpenTelemetry](https://github.com/open-telemetry/opentelemetry-dotnet).</span><span class="sxs-lookup"><span data-stu-id="47aa9-110">Traces from diagnostic source are commonly used to collect app telemetry by libraries such as [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) and [OpenTelemetry](https://github.com/open-telemetry/opentelemetry-dotnet).</span></span>
+* <span data-ttu-id="47aa9-111">**Métricas** : representación de medidas de datos a lo largo de intervalos de tiempo, por ejemplo, solicitudes por segundo.</span><span class="sxs-lookup"><span data-stu-id="47aa9-111">**Metrics** - Representation of data measures over intervals of time, for example, requests per second.</span></span> <span data-ttu-id="47aa9-112">Las métricas se emiten mediante `EventCounter` y se pueden observar mediante la herramienta de línea [de comandos dotnet-counters](https://docs.microsoft.com/dotnet/core/diagnostics/dotnet-counters) o con [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/eventcounters).</span><span class="sxs-lookup"><span data-stu-id="47aa9-112">Metrics are emitted using `EventCounter` and can be observed using [dotnet-counters](https://docs.microsoft.com/dotnet/core/diagnostics/dotnet-counters) command line tool or with [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/eventcounters).</span></span>
+
+## <a name="logging"></a><span data-ttu-id="47aa9-113">Registro</span><span class="sxs-lookup"><span data-stu-id="47aa9-113">Logging</span></span>
+
+<span data-ttu-id="47aa9-114">los servicios de gRPC y el cliente de gRPC escriben registros con el [registro de .net Core](xref:fundamentals/logging/index).</span><span class="sxs-lookup"><span data-stu-id="47aa9-114">gRPC services and the gRPC client write logs using [.NET Core logging](xref:fundamentals/logging/index).</span></span> <span data-ttu-id="47aa9-115">Los registros son un buen punto de partida cuando se necesita depurar un comportamiento inesperado en las aplicaciones.</span><span class="sxs-lookup"><span data-stu-id="47aa9-115">Logs are a good place to start when you need to debug unexpected behavior in your apps.</span></span>
+
+### <a name="grpc-services-logging"></a><span data-ttu-id="47aa9-116">registro de gRPC Services</span><span class="sxs-lookup"><span data-stu-id="47aa9-116">gRPC services logging</span></span>
 
 > [!WARNING]
-> <span data-ttu-id="b1cdb-107">Los registros del lado servidor pueden contener información confidencial de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-107">Server-side logs may contain sensitive information from your app.</span></span> <span data-ttu-id="b1cdb-108">No publique **nunca** los registros sin procesar de las aplicaciones de producción en foros públicos como github.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-108">**Never** post raw logs from production apps to public forums like GitHub.</span></span>
+> <span data-ttu-id="47aa9-117">Los registros del lado servidor pueden contener información confidencial de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="47aa9-117">Server-side logs may contain sensitive information from your app.</span></span> <span data-ttu-id="47aa9-118">No publique **nunca** los registros sin procesar de las aplicaciones de producción en foros públicos como github.</span><span class="sxs-lookup"><span data-stu-id="47aa9-118">**Never** post raw logs from production apps to public forums like GitHub.</span></span>
 
-<span data-ttu-id="b1cdb-109">Dado que los servicios de gRPC se hospedan en ASP.NET Core, usa el sistema de registro de ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-109">Since gRPC services are hosted on ASP.NET Core, it uses the ASP.NET Core logging system.</span></span> <span data-ttu-id="b1cdb-110">En la configuración predeterminada, gRPC registra muy poca información, pero esto puede configurarse.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-110">In the default configuration, gRPC logs very little information, but this can configured.</span></span> <span data-ttu-id="b1cdb-111">Consulte la documentación sobre el [registro de ASP.net Core](xref:fundamentals/logging/index#configuration) para obtener más información sobre la configuración del registro de ASP.net Core.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-111">See the documentation on [ASP.NET Core logging](xref:fundamentals/logging/index#configuration) for details on configuring ASP.NET Core logging.</span></span>
+<span data-ttu-id="47aa9-119">Dado que los servicios de gRPC se hospedan en ASP.NET Core, usa el sistema de registro de ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="47aa9-119">Since gRPC services are hosted on ASP.NET Core, it uses the ASP.NET Core logging system.</span></span> <span data-ttu-id="47aa9-120">En la configuración predeterminada, gRPC registra muy poca información, pero esto puede configurarse.</span><span class="sxs-lookup"><span data-stu-id="47aa9-120">In the default configuration, gRPC logs very little information, but this can configured.</span></span> <span data-ttu-id="47aa9-121">Consulte la documentación sobre el [registro de ASP.net Core](xref:fundamentals/logging/index#configuration) para obtener más información sobre la configuración del registro de ASP.net Core.</span><span class="sxs-lookup"><span data-stu-id="47aa9-121">See the documentation on [ASP.NET Core logging](xref:fundamentals/logging/index#configuration) for details on configuring ASP.NET Core logging.</span></span>
 
-<span data-ttu-id="b1cdb-112">gRPC agrega registros en la `Grpc` categoría.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-112">gRPC adds logs under the `Grpc` category.</span></span> <span data-ttu-id="b1cdb-113">Para habilitar registros detallados de gRPC, `Grpc` configure los prefijos en el `Debug` nivel del archivo *appSettings. JSON* agregando los siguientes `LogLevel` elementos a la subsección de: `Logging`</span><span class="sxs-lookup"><span data-stu-id="b1cdb-113">To enable detailed logs from gRPC, configure the `Grpc` prefixes to the `Debug` level in your *appsettings.json* file by adding the following items to the `LogLevel` sub-section in `Logging`:</span></span>
+<span data-ttu-id="47aa9-122">gRPC agrega registros en la categoría `Grpc`.</span><span class="sxs-lookup"><span data-stu-id="47aa9-122">gRPC adds logs under the `Grpc` category.</span></span> <span data-ttu-id="47aa9-123">Para habilitar registros detallados de gRPC, configure los prefijos de `Grpc` en el nivel de `Debug` del archivo *appSettings. JSON* agregando los siguientes elementos a la subsección `LogLevel` en `Logging`:</span><span class="sxs-lookup"><span data-stu-id="47aa9-123">To enable detailed logs from gRPC, configure the `Grpc` prefixes to the `Debug` level in your *appsettings.json* file by adding the following items to the `LogLevel` sub-section in `Logging`:</span></span>
 
 [!code-json[](diagnostics/sample/logging-config.json?highlight=7)]
 
-<span data-ttu-id="b1cdb-114">También puede configurarlo en *Startup.CS* con `ConfigureLogging`:</span><span class="sxs-lookup"><span data-stu-id="b1cdb-114">You can also configure this in *Startup.cs* with `ConfigureLogging`:</span></span>
+<span data-ttu-id="47aa9-124">También puede configurarlo en *Startup.CS* con `ConfigureLogging`:</span><span class="sxs-lookup"><span data-stu-id="47aa9-124">You can also configure this in *Startup.cs* with `ConfigureLogging`:</span></span>
 
 [!code-csharp[](diagnostics/sample/logging-config-code.cs?highlight=5)]
 
-<span data-ttu-id="b1cdb-115">Si no está usando la configuración basada en JSON, establezca el siguiente valor de configuración en el sistema de configuración:</span><span class="sxs-lookup"><span data-stu-id="b1cdb-115">If you aren't using JSON-based configuration, set the following configuration value in your configuration system:</span></span>
+<span data-ttu-id="47aa9-125">Si no está usando la configuración basada en JSON, establezca el siguiente valor de configuración en el sistema de configuración:</span><span class="sxs-lookup"><span data-stu-id="47aa9-125">If you aren't using JSON-based configuration, set the following configuration value in your configuration system:</span></span>
 
 * `Logging:LogLevel:Grpc` = `Debug`
 
-<span data-ttu-id="b1cdb-116">Consulte la documentación del sistema de configuración para determinar cómo especificar valores de configuración anidados.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-116">Check the documentation for your configuration system to determine how to specify nested configuration values.</span></span> <span data-ttu-id="b1cdb-117">Por ejemplo, al usar variables de entorno, `_` se usan dos caracteres en lugar `:` de (por ejemplo, `Logging__LogLevel__Grpc`).</span><span class="sxs-lookup"><span data-stu-id="b1cdb-117">For example, when using environment variables, two `_` characters are used instead of the `:` (for example, `Logging__LogLevel__Grpc`).</span></span>
+<span data-ttu-id="47aa9-126">Consulte la documentación del sistema de configuración para determinar cómo especificar valores de configuración anidados.</span><span class="sxs-lookup"><span data-stu-id="47aa9-126">Check the documentation for your configuration system to determine how to specify nested configuration values.</span></span> <span data-ttu-id="47aa9-127">Por ejemplo, al usar variables de entorno, se usan dos caracteres `_` en lugar del `:` (por ejemplo, `Logging__LogLevel__Grpc`).</span><span class="sxs-lookup"><span data-stu-id="47aa9-127">For example, when using environment variables, two `_` characters are used instead of the `:` (for example, `Logging__LogLevel__Grpc`).</span></span>
 
-<span data-ttu-id="b1cdb-118">Se recomienda usar el `Debug` nivel al recopilar diagnósticos más detallados para la aplicación.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-118">We recommend using the `Debug` level when gathering more detailed diagnostics for your app.</span></span> <span data-ttu-id="b1cdb-119">El `Trace` nivel genera diagnósticos de nivel muy bajo y rara vez es necesario para diagnosticar problemas en la aplicación.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-119">The `Trace` level produces very low-level diagnostics and is rarely needed to diagnose issues in your app.</span></span>
+<span data-ttu-id="47aa9-128">Se recomienda usar el nivel de `Debug` al recopilar diagnósticos más detallados para la aplicación.</span><span class="sxs-lookup"><span data-stu-id="47aa9-128">We recommend using the `Debug` level when gathering more detailed diagnostics for your app.</span></span> <span data-ttu-id="47aa9-129">El nivel de `Trace` produce diagnósticos de nivel muy bajo y rara vez es necesario para diagnosticar problemas en la aplicación.</span><span class="sxs-lookup"><span data-stu-id="47aa9-129">The `Trace` level produces very low-level diagnostics and is rarely needed to diagnose issues in your app.</span></span>
 
-### <a name="sample-logging-output"></a><span data-ttu-id="b1cdb-120">Salida de registro de ejemplo</span><span class="sxs-lookup"><span data-stu-id="b1cdb-120">Sample logging output</span></span>
+#### <a name="sample-logging-output"></a><span data-ttu-id="47aa9-130">Salida de registro de ejemplo</span><span class="sxs-lookup"><span data-stu-id="47aa9-130">Sample logging output</span></span>
 
-<span data-ttu-id="b1cdb-121">Este es un ejemplo de la salida de la `Debug` consola en el nivel de un servicio de gRPC:</span><span class="sxs-lookup"><span data-stu-id="b1cdb-121">Here is an example of console output at the `Debug` level of a gRPC service:</span></span>
+<span data-ttu-id="47aa9-131">Este es un ejemplo de la salida de la consola en el nivel de `Debug` de un servicio gRPC:</span><span class="sxs-lookup"><span data-stu-id="47aa9-131">Here is an example of console output at the `Debug` level of a gRPC service:</span></span>
 
 ```console
 info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
@@ -63,36 +71,43 @@ info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
       Request finished in 1.4113ms 200 application/grpc
 ```
 
-## <a name="access-server-side-logs"></a><span data-ttu-id="b1cdb-122">Acceder a los registros del lado servidor</span><span class="sxs-lookup"><span data-stu-id="b1cdb-122">Access server-side logs</span></span>
+### <a name="access-server-side-logs"></a><span data-ttu-id="47aa9-132">Acceder a los registros del lado servidor</span><span class="sxs-lookup"><span data-stu-id="47aa9-132">Access server-side logs</span></span>
 
-<span data-ttu-id="b1cdb-123">La forma de acceder a los registros del lado servidor depende del entorno en el que se está ejecutando.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-123">How you access server-side logs depends on the environment in which you're running.</span></span>
+<span data-ttu-id="47aa9-133">La forma de acceder a los registros del lado servidor depende del entorno en el que se está ejecutando.</span><span class="sxs-lookup"><span data-stu-id="47aa9-133">How you access server-side logs depends on the environment in which you're running.</span></span>
 
-### <a name="as-a-console-app"></a><span data-ttu-id="b1cdb-124">Como aplicación de consola</span><span class="sxs-lookup"><span data-stu-id="b1cdb-124">As a console app</span></span>
+#### <a name="as-a-console-app"></a><span data-ttu-id="47aa9-134">Como aplicación de consola</span><span class="sxs-lookup"><span data-stu-id="47aa9-134">As a console app</span></span>
 
-<span data-ttu-id="b1cdb-125">Si está ejecutando en una aplicación de consola, el [registrador de consola](xref:fundamentals/logging/index#console-provider) debe estar habilitado de forma predeterminada.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-125">If you're running in a console app, the [Console logger](xref:fundamentals/logging/index#console-provider) should be enabled by default.</span></span> <span data-ttu-id="b1cdb-126">los registros de gRPC aparecerán en la consola de.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-126">gRPC logs will appear in the console.</span></span>
+<span data-ttu-id="47aa9-135">Si está ejecutando en una aplicación de consola, el [registrador de consola](xref:fundamentals/logging/index#console-provider) debe estar habilitado de forma predeterminada.</span><span class="sxs-lookup"><span data-stu-id="47aa9-135">If you're running in a console app, the [Console logger](xref:fundamentals/logging/index#console-provider) should be enabled by default.</span></span> <span data-ttu-id="47aa9-136">los registros de gRPC aparecerán en la consola de.</span><span class="sxs-lookup"><span data-stu-id="47aa9-136">gRPC logs will appear in the console.</span></span>
 
-### <a name="other-environments"></a><span data-ttu-id="b1cdb-127">Otros entornos</span><span class="sxs-lookup"><span data-stu-id="b1cdb-127">Other environments</span></span>
+#### <a name="other-environments"></a><span data-ttu-id="47aa9-137">Otros entornos</span><span class="sxs-lookup"><span data-stu-id="47aa9-137">Other environments</span></span>
 
-<span data-ttu-id="b1cdb-128">Si la aplicación se implementa en otro entorno (por ejemplo, Docker, Kubernetes o servicio de Windows), consulte <xref:fundamentals/logging/index> para obtener más información sobre cómo configurar los proveedores de registro adecuados para el entorno.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-128">If the app is deployed to another environment (for example, Docker, Kubernetes, or Windows Service), see <xref:fundamentals/logging/index> for more information on how to configure logging providers suitable for the environment.</span></span>
+<span data-ttu-id="47aa9-138">Si la aplicación se implementa en otro entorno (por ejemplo, Docker, Kubernetes o servicio de Windows), consulte <xref:fundamentals/logging/index> para obtener más información sobre cómo configurar los proveedores de registro adecuados para el entorno.</span><span class="sxs-lookup"><span data-stu-id="47aa9-138">If the app is deployed to another environment (for example, Docker, Kubernetes, or Windows Service), see <xref:fundamentals/logging/index> for more information on how to configure logging providers suitable for the environment.</span></span>
 
-## <a name="grpc-client-logging"></a><span data-ttu-id="b1cdb-129">registro de cliente de gRPC</span><span class="sxs-lookup"><span data-stu-id="b1cdb-129">gRPC client logging</span></span>
+### <a name="grpc-client-logging"></a><span data-ttu-id="47aa9-139">registro de cliente de gRPC</span><span class="sxs-lookup"><span data-stu-id="47aa9-139">gRPC client logging</span></span>
 
 > [!WARNING]
-> <span data-ttu-id="b1cdb-130">Los registros del lado cliente pueden contener información confidencial de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-130">Client-side logs may contain sensitive information from your app.</span></span> <span data-ttu-id="b1cdb-131">No publique **nunca** los registros sin procesar de las aplicaciones de producción en foros públicos como github.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-131">**Never** post raw logs from production apps to public forums like GitHub.</span></span>
+> <span data-ttu-id="47aa9-140">Los registros del lado cliente pueden contener información confidencial de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="47aa9-140">Client-side logs may contain sensitive information from your app.</span></span> <span data-ttu-id="47aa9-141">No publique **nunca** los registros sin procesar de las aplicaciones de producción en foros públicos como github.</span><span class="sxs-lookup"><span data-stu-id="47aa9-141">**Never** post raw logs from production apps to public forums like GitHub.</span></span>
 
-<span data-ttu-id="b1cdb-132">Para obtener los registros del cliente .net, puede establecer la `GrpcChannelOptions.LoggerFactory` propiedad cuando se crea el canal del cliente.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-132">To get logs from the .NET client, you can set the `GrpcChannelOptions.LoggerFactory` property when the client's channel is created.</span></span> <span data-ttu-id="b1cdb-133">Si está llamando a un servicio de gRPC desde una aplicación ASP.NET Core, el generador del registrador se puede resolver desde la inserción de dependencias (DI):</span><span class="sxs-lookup"><span data-stu-id="b1cdb-133">If you are calling a gRPC service from an ASP.NET Core app then the logger factory can be resolved from dependency injection (DI):</span></span>
+<span data-ttu-id="47aa9-142">Para obtener los registros del cliente .NET, puede establecer la propiedad `GrpcChannelOptions.LoggerFactory` cuando se crea el canal del cliente.</span><span class="sxs-lookup"><span data-stu-id="47aa9-142">To get logs from the .NET client, you can set the `GrpcChannelOptions.LoggerFactory` property when the client's channel is created.</span></span> <span data-ttu-id="47aa9-143">Si está llamando a un servicio de gRPC desde una aplicación ASP.NET Core, el generador del registrador se puede resolver desde la inserción de dependencias (DI):</span><span class="sxs-lookup"><span data-stu-id="47aa9-143">If you are calling a gRPC service from an ASP.NET Core app then the logger factory can be resolved from dependency injection (DI):</span></span>
 
 [!code-csharp[](diagnostics/sample/net-client-dependency-injection.cs?highlight=7,16)]
 
-<span data-ttu-id="b1cdb-134">Una manera alternativa de habilitar el registro de cliente es usar el [generador de cliente de gRPC](xref:grpc/clientfactory) para crear el cliente.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-134">An alternative way to enable client logging is to use the [gRPC client factory](xref:grpc/clientfactory) to create the client.</span></span> <span data-ttu-id="b1cdb-135">Un cliente de gRPC registrado con el generador de cliente y resuelto desde DI usará automáticamente el registro configurado de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-135">A gRPC client registered with the client factory and resolved from DI will automatically use the app's configured logging.</span></span>
+<span data-ttu-id="47aa9-144">Una manera alternativa de habilitar el registro de cliente es usar el [generador de cliente de gRPC](xref:grpc/clientfactory) para crear el cliente.</span><span class="sxs-lookup"><span data-stu-id="47aa9-144">An alternative way to enable client logging is to use the [gRPC client factory](xref:grpc/clientfactory) to create the client.</span></span> <span data-ttu-id="47aa9-145">Un cliente de gRPC registrado con el generador de cliente y resuelto desde DI usará automáticamente el registro configurado de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="47aa9-145">A gRPC client registered with the client factory and resolved from DI will automatically use the app's configured logging.</span></span>
 
-<span data-ttu-id="b1cdb-136">Si la aplicación no usa di, puede crear una nueva `ILoggerFactory` instancia con [LoggerFactory. Create](xref:Microsoft.Extensions.Logging.LoggerFactory.Create*).</span><span class="sxs-lookup"><span data-stu-id="b1cdb-136">If your app isn't using DI then you can create a new `ILoggerFactory` instance with [LoggerFactory.Create](xref:Microsoft.Extensions.Logging.LoggerFactory.Create*).</span></span> <span data-ttu-id="b1cdb-137">Para tener acceso a este método, agregue el paquete [Microsoft. Extensions. Logging](https://www.nuget.org/packages/microsoft.extensions.logging/) a la aplicación.</span><span class="sxs-lookup"><span data-stu-id="b1cdb-137">To access this method add the [Microsoft.Extensions.Logging](https://www.nuget.org/packages/microsoft.extensions.logging/) package to your app.</span></span>
+<span data-ttu-id="47aa9-146">Si la aplicación no usa DI, puede crear una nueva instancia de `ILoggerFactory` con [LoggerFactory. Create](xref:Microsoft.Extensions.Logging.LoggerFactory.Create*).</span><span class="sxs-lookup"><span data-stu-id="47aa9-146">If your app isn't using DI then you can create a new `ILoggerFactory` instance with [LoggerFactory.Create](xref:Microsoft.Extensions.Logging.LoggerFactory.Create*).</span></span> <span data-ttu-id="47aa9-147">Para tener acceso a este método, agregue el paquete [Microsoft. Extensions. Logging](https://www.nuget.org/packages/microsoft.extensions.logging/) a la aplicación.</span><span class="sxs-lookup"><span data-stu-id="47aa9-147">To access this method add the [Microsoft.Extensions.Logging](https://www.nuget.org/packages/microsoft.extensions.logging/) package to your app.</span></span>
 
 [!code-csharp[](diagnostics/sample/net-client-loggerfactory-create.cs?highlight=1,8)]
 
-### <a name="sample-logging-output"></a><span data-ttu-id="b1cdb-138">Salida de registro de ejemplo</span><span class="sxs-lookup"><span data-stu-id="b1cdb-138">Sample logging output</span></span>
+#### <a name="grpc-client-log-scopes"></a><span data-ttu-id="47aa9-148">ámbitos de registro de cliente de gRPC</span><span class="sxs-lookup"><span data-stu-id="47aa9-148">gRPC client log scopes</span></span>
 
-<span data-ttu-id="b1cdb-139">Este es un ejemplo de la salida de la `Debug` consola en el nivel de un cliente de gRPC:</span><span class="sxs-lookup"><span data-stu-id="b1cdb-139">Here is an example of console output at the `Debug` level of a gRPC client:</span></span>
+<span data-ttu-id="47aa9-149">El cliente gRPC agrega un [ámbito de registro](https://docs.microsoft.com/aspnet/core/fundamentals/logginglog-scopes) a los registros realizados durante una llamada a gRPC.</span><span class="sxs-lookup"><span data-stu-id="47aa9-149">The gRPC client adds a [logging scope](https://docs.microsoft.com/aspnet/core/fundamentals/logginglog-scopes) to logs made during a gRPC call.</span></span> <span data-ttu-id="47aa9-150">El ámbito tiene metadatos relacionados con la llamada a gRPC:</span><span class="sxs-lookup"><span data-stu-id="47aa9-150">The scope has metadata related to the gRPC call:</span></span>
+
+* <span data-ttu-id="47aa9-151">**GrpcMethodType** : el tipo de método gRPC.</span><span class="sxs-lookup"><span data-stu-id="47aa9-151">**GrpcMethodType** - The gRPC method type.</span></span> <span data-ttu-id="47aa9-152">Los valores posibles son los nombres de `Grpc.Core.MethodType` enumeración, por ejemplo, unario</span><span class="sxs-lookup"><span data-stu-id="47aa9-152">Possible values are names from `Grpc.Core.MethodType` enum, e.g. Unary</span></span>
+* <span data-ttu-id="47aa9-153">**GrpcUri** : el URI relativo del método gRPC, por ejemplo,/Greet. Greeter/SayHellos</span><span class="sxs-lookup"><span data-stu-id="47aa9-153">**GrpcUri** - The relative URI of the gRPC method, e.g. /greet.Greeter/SayHellos</span></span>
+
+#### <a name="sample-logging-output"></a><span data-ttu-id="47aa9-154">Salida de registro de ejemplo</span><span class="sxs-lookup"><span data-stu-id="47aa9-154">Sample logging output</span></span>
+
+<span data-ttu-id="47aa9-155">Este es un ejemplo de la salida de la consola en el nivel de `Debug` de un cliente de gRPC:</span><span class="sxs-lookup"><span data-stu-id="47aa9-155">Here is an example of console output at the `Debug` level of a gRPC client:</span></span>
 
 ```console
 dbug: Grpc.Net.Client.Internal.GrpcCall[1]
@@ -105,7 +120,119 @@ dbug: Grpc.Net.Client.Internal.GrpcCall[4]
       Finished gRPC call.
 ```
 
-## <a name="additional-resources"></a><span data-ttu-id="b1cdb-140">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="b1cdb-140">Additional resources</span></span>
+## <a name="tracing"></a><span data-ttu-id="47aa9-156">Traza</span><span class="sxs-lookup"><span data-stu-id="47aa9-156">Tracing</span></span>
+
+<span data-ttu-id="47aa9-157">los servicios de gRPC y el cliente de gRPC proporcionan información acerca de las llamadas gRPC mediante la [actividad](https://docs.microsoft.com/dotnet/api/system.diagnostics.activity) [DiagnosticSource](https://docs.microsoft.com/dotnet/api/system.diagnostics.diagnosticsource) y.</span><span class="sxs-lookup"><span data-stu-id="47aa9-157">gRPC services and the gRPC client provide information about gRPC calls using [DiagnosticSource](https://docs.microsoft.com/dotnet/api/system.diagnostics.diagnosticsource) and [Activity](https://docs.microsoft.com/dotnet/api/system.diagnostics.activity).</span></span>
+
+* <span data-ttu-id="47aa9-158">.NET gRPC usa una actividad para representar una llamada a gRPC.</span><span class="sxs-lookup"><span data-stu-id="47aa9-158">.NET gRPC uses an activity to represent a gRPC call.</span></span>
+* <span data-ttu-id="47aa9-159">Los eventos de seguimiento se escriben en el origen de diagnóstico al iniciar y detener la actividad de llamada gRPC.</span><span class="sxs-lookup"><span data-stu-id="47aa9-159">Tracing events are written to the diagnostic source at the start and stop of the gRPC call activity.</span></span>
+* <span data-ttu-id="47aa9-160">El seguimiento no captura información sobre cuándo se envían los mensajes a lo largo de la duración de las llamadas de streaming de gRPC.</span><span class="sxs-lookup"><span data-stu-id="47aa9-160">Tracing doesn't capture information about when messages are sent over the lifetime of gRPC streaming calls.</span></span>
+
+### <a name="grpc-service-tracing"></a><span data-ttu-id="47aa9-161">seguimiento del servicio gRPC</span><span class="sxs-lookup"><span data-stu-id="47aa9-161">gRPC service tracing</span></span>
+
+<span data-ttu-id="47aa9-162">los servicios de gRPC se hospedan en ASP.NET Core que notifican eventos acerca de las solicitudes HTTP entrantes.</span><span class="sxs-lookup"><span data-stu-id="47aa9-162">gRPC services are hosted on ASP.NET Core which reports events about incoming HTTP requests.</span></span> <span data-ttu-id="47aa9-163">los metadatos específicos de gRPC se agregan al diagnóstico de solicitud HTTP existente que proporciona ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="47aa9-163">gRPC specific metadata is added to the existing HTTP request diagnostics that ASP.NET Core provides.</span></span>
+
+* <span data-ttu-id="47aa9-164">El nombre del origen de diagnóstico es `Microsoft.AspNetCore`.</span><span class="sxs-lookup"><span data-stu-id="47aa9-164">Diagnostic source name is `Microsoft.AspNetCore`.</span></span>
+* <span data-ttu-id="47aa9-165">El nombre de la actividad es `Microsoft.AspNetCore.Hosting.HttpRequestIn`.</span><span class="sxs-lookup"><span data-stu-id="47aa9-165">Activity name is `Microsoft.AspNetCore.Hosting.HttpRequestIn`.</span></span>
+  * <span data-ttu-id="47aa9-166">El nombre del método gRPC invocado por la llamada a gRPC se agrega como una etiqueta con el nombre `grpc.method`.</span><span class="sxs-lookup"><span data-stu-id="47aa9-166">Name of the gRPC method invoked by the gRPC call is added as a tag with the name `grpc.method`.</span></span>
+  * <span data-ttu-id="47aa9-167">El código de estado de la llamada a gRPC cuando se completa se agrega como una etiqueta con el nombre `grpc.status_code`.</span><span class="sxs-lookup"><span data-stu-id="47aa9-167">Status code of the gRPC call when it is complete is added as a tag with the name `grpc.status_code`.</span></span>
+
+### <a name="grpc-client-tracing"></a><span data-ttu-id="47aa9-168">seguimiento de cliente de gRPC</span><span class="sxs-lookup"><span data-stu-id="47aa9-168">gRPC client tracing</span></span>
+
+<span data-ttu-id="47aa9-169">El cliente gRPC de .NET usa `HttpClient` para realizar llamadas de gRPC.</span><span class="sxs-lookup"><span data-stu-id="47aa9-169">The .NET gRPC client uses `HttpClient` to make gRPC calls.</span></span> <span data-ttu-id="47aa9-170">Aunque `HttpClient` escribe eventos de diagnóstico, el cliente gRPC de .NET proporciona un origen de diagnóstico, actividad y eventos personalizados para que se pueda recopilar información completa sobre una llamada a gRPC.</span><span class="sxs-lookup"><span data-stu-id="47aa9-170">Although `HttpClient` writes diagnostic events, the .NET gRPC client provides a custom diagnostic source, activity and events so that complete information about a gRPC call can be collected.</span></span>
+
+* <span data-ttu-id="47aa9-171">El nombre del origen de diagnóstico es `Grpc.Net.Client`.</span><span class="sxs-lookup"><span data-stu-id="47aa9-171">Diagnostic source name is `Grpc.Net.Client`.</span></span>
+* <span data-ttu-id="47aa9-172">El nombre de la actividad es `Grpc.Net.Client.GrpcOut`.</span><span class="sxs-lookup"><span data-stu-id="47aa9-172">Activity name is `Grpc.Net.Client.GrpcOut`.</span></span>
+  * <span data-ttu-id="47aa9-173">El nombre del método gRPC invocado por la llamada a gRPC se agrega como una etiqueta con el nombre `grpc.method`.</span><span class="sxs-lookup"><span data-stu-id="47aa9-173">Name of the gRPC method invoked by the gRPC call is added as a tag with the name `grpc.method`.</span></span>
+  * <span data-ttu-id="47aa9-174">El código de estado de la llamada a gRPC cuando se completa se agrega como una etiqueta con el nombre `grpc.status_code`.</span><span class="sxs-lookup"><span data-stu-id="47aa9-174">Status code of the gRPC call when it is complete is added as a tag with the name `grpc.status_code`.</span></span>
+
+### <a name="collecting-tracing"></a><span data-ttu-id="47aa9-175">Recopilando seguimiento</span><span class="sxs-lookup"><span data-stu-id="47aa9-175">Collecting tracing</span></span>
+
+<span data-ttu-id="47aa9-176">La forma más fácil de usar `DiagnosticSource` es configurar una biblioteca de telemetría como [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) o [OpenTelemetry](https://github.com/open-telemetry/opentelemetry-dotnet) en la aplicación.</span><span class="sxs-lookup"><span data-stu-id="47aa9-176">The easiest way to use `DiagnosticSource` is to configure a telemetry library such as [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) or [OpenTelemetry](https://github.com/open-telemetry/opentelemetry-dotnet) in your app.</span></span> <span data-ttu-id="47aa9-177">La biblioteca procesará información acerca de las llamadas a gRPC en el lado de la telemetría de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="47aa9-177">The library will process information about gRPC calls along-side other app telemetry.</span></span>
+
+<span data-ttu-id="47aa9-178">El seguimiento se puede ver en un servicio administrado como Application Insights, o bien puede elegir ejecutar su propio sistema de seguimiento distribuido.</span><span class="sxs-lookup"><span data-stu-id="47aa9-178">Tracing can be viewed in a managed service like Application Insights, or you can choose to run your own distributed tracing system.</span></span> <span data-ttu-id="47aa9-179">OpenTelemetry admite la exportación de datos de seguimiento a [Jaeger](https://www.jaegertracing.io/) y [Zipkin](https://zipkin.io/).</span><span class="sxs-lookup"><span data-stu-id="47aa9-179">OpenTelemetry supports exporting tracing data to [Jaeger](https://www.jaegertracing.io/) and [Zipkin](https://zipkin.io/).</span></span>
+
+<span data-ttu-id="47aa9-180">`DiagnosticSource` puede consumir eventos de traza en el código mediante `DiagnosticListener`.</span><span class="sxs-lookup"><span data-stu-id="47aa9-180">`DiagnosticSource` can consume tracing events in code using `DiagnosticListener`.</span></span> <span data-ttu-id="47aa9-181">Para obtener información sobre cómo escuchar un origen de diagnóstico con código, vea la [Guía del usuario de DiagnosticSource](https://github.com/dotnet/corefx/blob/d3942d4671919edb0cca6ddc1840190f524a809d/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#consuming-data-with-diagnosticlistener).</span><span class="sxs-lookup"><span data-stu-id="47aa9-181">For information about listening to a diagnostic source with code, see the [DiagnosticSource user's guide](https://github.com/dotnet/corefx/blob/d3942d4671919edb0cca6ddc1840190f524a809d/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#consuming-data-with-diagnosticlistener).</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="47aa9-182">Actualmente, las bibliotecas de telemetría no capturan la telemetría `Grpc.Net.Client.GrpcOut` específica de gRPC.</span><span class="sxs-lookup"><span data-stu-id="47aa9-182">Telemetry libraries do not capture gRPC specific `Grpc.Net.Client.GrpcOut` telemetry currently.</span></span> <span data-ttu-id="47aa9-183">El trabajo para mejorar las bibliotecas de telemetría que capturan este seguimiento está en curso.</span><span class="sxs-lookup"><span data-stu-id="47aa9-183">Work to improve telemetry libraries capturing this tracing is ongoing.</span></span>
+
+## <a name="metrics"></a><span data-ttu-id="47aa9-184">metrics</span><span class="sxs-lookup"><span data-stu-id="47aa9-184">Metrics</span></span>
+
+<span data-ttu-id="47aa9-185">Métricas es una representación de medidas de datos a lo largo de intervalos de tiempo, por ejemplo, solicitudes por segundo.</span><span class="sxs-lookup"><span data-stu-id="47aa9-185">Metrics is a representation of data measures over intervals of time, for example, requests per second.</span></span> <span data-ttu-id="47aa9-186">Los datos de las métricas permiten la observación del estado de una aplicación en un nivel alto.</span><span class="sxs-lookup"><span data-stu-id="47aa9-186">Metrics data allows observation of the state of an app at a high-level.</span></span> <span data-ttu-id="47aa9-187">Las métricas de .NET gRPC se emiten mediante `EventCounter`.</span><span class="sxs-lookup"><span data-stu-id="47aa9-187">.NET gRPC metrics are emitted using `EventCounter`.</span></span>
+
+### <a name="grpc-service-metrics"></a><span data-ttu-id="47aa9-188">métricas de servicio de gRPC</span><span class="sxs-lookup"><span data-stu-id="47aa9-188">gRPC service metrics</span></span>
+
+<span data-ttu-id="47aa9-189">las métricas del servidor de gRPC se indican en `Grpc.AspNetCore.Server` origen del evento.</span><span class="sxs-lookup"><span data-stu-id="47aa9-189">gRPC server metrics are reported on `Grpc.AspNetCore.Server` event source.</span></span>
+
+| <span data-ttu-id="47aa9-190">nombre</span><span class="sxs-lookup"><span data-stu-id="47aa9-190">Name</span></span>                      | <span data-ttu-id="47aa9-191">Descripción</span><span class="sxs-lookup"><span data-stu-id="47aa9-191">Description</span></span>                   |
+| --------------------------|-------------------------------|
+| `total-calls`             | <span data-ttu-id="47aa9-192">Total de llamadas</span><span class="sxs-lookup"><span data-stu-id="47aa9-192">Total Calls</span></span>                   |
+| `current-calls`           | <span data-ttu-id="47aa9-193">Llamadas actuales</span><span class="sxs-lookup"><span data-stu-id="47aa9-193">Current Calls</span></span>                 |
+| `calls-failed`            | <span data-ttu-id="47aa9-194">Total de llamadas erróneas</span><span class="sxs-lookup"><span data-stu-id="47aa9-194">Total Calls Failed</span></span>            |
+| `calls-deadline-exceeded` | <span data-ttu-id="47aa9-195">Fecha límite de llamadas totales superada</span><span class="sxs-lookup"><span data-stu-id="47aa9-195">Total Calls Deadline Exceeded</span></span> |
+| `messages-sent`           | <span data-ttu-id="47aa9-196">total de mensajes enviados</span><span class="sxs-lookup"><span data-stu-id="47aa9-196">Total Messages Sent</span></span>           |
+| `messages-received`       | <span data-ttu-id="47aa9-197">Mensajes totales recibidos</span><span class="sxs-lookup"><span data-stu-id="47aa9-197">Total Messages Received</span></span>       |
+| `calls-unimplemented`     | <span data-ttu-id="47aa9-198">Total de llamadas no implementadas</span><span class="sxs-lookup"><span data-stu-id="47aa9-198">Total Calls Unimplemented</span></span>     |
+
+<span data-ttu-id="47aa9-199">ASP.NET Core también proporciona sus propias métricas en `Microsoft.AspNetCore.Hosting` origen de eventos.</span><span class="sxs-lookup"><span data-stu-id="47aa9-199">ASP.NET Core also provides its own metrics on `Microsoft.AspNetCore.Hosting` event source.</span></span>
+
+### <a name="grpc-client-metrics"></a><span data-ttu-id="47aa9-200">métricas de cliente de gRPC</span><span class="sxs-lookup"><span data-stu-id="47aa9-200">gRPC client metrics</span></span>
+
+<span data-ttu-id="47aa9-201">las métricas de cliente de gRPC se indican en `Grpc.Net.Client` origen de eventos.</span><span class="sxs-lookup"><span data-stu-id="47aa9-201">gRPC client metrics are reported on `Grpc.Net.Client` event source.</span></span>
+
+| <span data-ttu-id="47aa9-202">nombre</span><span class="sxs-lookup"><span data-stu-id="47aa9-202">Name</span></span>                      | <span data-ttu-id="47aa9-203">Descripción</span><span class="sxs-lookup"><span data-stu-id="47aa9-203">Description</span></span>                   |
+| --------------------------|-------------------------------|
+| `total-calls`             | <span data-ttu-id="47aa9-204">Total de llamadas</span><span class="sxs-lookup"><span data-stu-id="47aa9-204">Total Calls</span></span>                   |
+| `current-calls`           | <span data-ttu-id="47aa9-205">Llamadas actuales</span><span class="sxs-lookup"><span data-stu-id="47aa9-205">Current Calls</span></span>                 |
+| `calls-failed`            | <span data-ttu-id="47aa9-206">Total de llamadas erróneas</span><span class="sxs-lookup"><span data-stu-id="47aa9-206">Total Calls Failed</span></span>            |
+| `calls-deadline-exceeded` | <span data-ttu-id="47aa9-207">Fecha límite de llamadas totales superada</span><span class="sxs-lookup"><span data-stu-id="47aa9-207">Total Calls Deadline Exceeded</span></span> |
+| `messages-sent`           | <span data-ttu-id="47aa9-208">total de mensajes enviados</span><span class="sxs-lookup"><span data-stu-id="47aa9-208">Total Messages Sent</span></span>           |
+| `messages-received`       | <span data-ttu-id="47aa9-209">Mensajes totales recibidos</span><span class="sxs-lookup"><span data-stu-id="47aa9-209">Total Messages Received</span></span>       |
+
+### <a name="observe-metrics"></a><span data-ttu-id="47aa9-210">Observar métricas</span><span class="sxs-lookup"><span data-stu-id="47aa9-210">Observe metrics</span></span>
+
+<span data-ttu-id="47aa9-211">[dotnet-counters](https://docs.microsoft.com/dotnet/core/diagnostics/dotnet-counters) es una herramienta de supervisión del rendimiento para la supervisión de estado ad hoc y la investigación de rendimiento de primer nivel.</span><span class="sxs-lookup"><span data-stu-id="47aa9-211">[dotnet-counters](https://docs.microsoft.com/dotnet/core/diagnostics/dotnet-counters) is a performance monitoring tool for ad-hoc health monitoring and first-level performance investigation.</span></span> <span data-ttu-id="47aa9-212">Supervise una aplicación .NET con `Grpc.AspNetCore.Server` o `Grpc.Net.Client` como el nombre del proveedor.</span><span class="sxs-lookup"><span data-stu-id="47aa9-212">Monitor a .NET app with either `Grpc.AspNetCore.Server` or `Grpc.Net.Client` as the provider name.</span></span>
+
+```console
+> dotnet-counters monitor --process-id 1902 Grpc.AspNetCore.Server
+
+Press p to pause, r to resume, q to quit.
+    Status: Running
+[Grpc.AspNetCore.Server]
+    Total Calls                                 300
+    Current Calls                               5
+    Total Calls Failed                          0
+    Total Calls Deadline Exceeded               0
+    Total Messages Sent                         295
+    Total Messages Received                     300
+    Total Calls Unimplemented                   0
+```
+
+<span data-ttu-id="47aa9-213">Otra forma de observar las métricas de gRPC es capturar los datos de contador mediante el [paquete Microsoft. ApplicationInsights. EventCounterCollector](https://docs.microsoft.com/azure/azure-monitor/app/eventcounters)de Application Insights.</span><span class="sxs-lookup"><span data-stu-id="47aa9-213">Another way to observe gRPC metrics is to capture counter data using Application Insights's [Microsoft.ApplicationInsights.EventCounterCollector package](https://docs.microsoft.com/azure/azure-monitor/app/eventcounters).</span></span> <span data-ttu-id="47aa9-214">Una vez realizada la instalación, Application Insights recopila Contadores comunes de .NET en tiempo de ejecución.</span><span class="sxs-lookup"><span data-stu-id="47aa9-214">Once setup, Application Insights collects common .NET counters at runtime.</span></span> <span data-ttu-id="47aa9-215">los contadores de gRPC no se recopilan de forma predeterminada, pero App Insights se puede [personalizar para incluir contadores adicionales](https://docs.microsoft.com/azure/azure-monitor/app/eventcounters#customizing-counters-to-be-collected).</span><span class="sxs-lookup"><span data-stu-id="47aa9-215">gRPC's counters are not collected by default, but App Insights can be [customized to include additional counters](https://docs.microsoft.com/azure/azure-monitor/app/eventcounters#customizing-counters-to-be-collected).</span></span>
+
+<span data-ttu-id="47aa9-216">Especifique los contadores de gRPC para que Application Insights recopile en *Startup.CS*:</span><span class="sxs-lookup"><span data-stu-id="47aa9-216">Specify the gRPC counters for Application Insight to collect in *Startup.cs*:</span></span>
+
+```csharp
+    using Microsoft.ApplicationInsights.Extensibility.EventCounterCollector;
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        //... other code...
+
+        services.ConfigureTelemetryModule<EventCounterCollectionModule>(
+            (module, o) =>
+            {
+                // Configure App Insights to collect gRPC counters gRPC services hosted in an ASP.NET Core app
+                module.Counters.Add(new EventCounterCollectionRequest("Grpc.AspNetCore.Server", "current-calls"));
+                module.Counters.Add(new EventCounterCollectionRequest("Grpc.AspNetCore.Server", "total-calls"));
+                module.Counters.Add(new EventCounterCollectionRequest("Grpc.AspNetCore.Server", "calls-failed"));
+            }
+        );
+    }
+```
+
+## <a name="additional-resources"></a><span data-ttu-id="47aa9-217">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="47aa9-217">Additional resources</span></span>
 
 * <xref:fundamentals/logging/index>
 * <xref:grpc/configuration>
