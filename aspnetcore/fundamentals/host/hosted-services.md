@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo implementar tareas en segundo plan
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/08/2020
+ms.date: 02/05/2020
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 49229b5db4d58f25f86425f8622d12c9107262bd
-ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
+ms.openlocfilehash: 6a88e56afc4fb1b4f673c362f83d948eda84b930
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914207"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044887"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Tareas en segundo plano con servicios hospedados en ASP.NET Core
 
@@ -265,4 +265,5 @@ Cuando se hace clic en el botón **Agregar tarea** en la página de índice, se 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Implementar tareas en segundo plano en microservicios con IHostedService y la clase BackgroundService](/dotnet/standard/microservices-architecture/multi-container-microservice-net-applications/background-tasks-with-ihostedservice)
+* [Ejecución de tareas en segundo plano con WebJobs en Azure App Service](/azure/app-service/webjobs-create)
 * <xref:System.Threading.Timer>

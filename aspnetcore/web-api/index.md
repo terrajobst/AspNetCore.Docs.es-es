@@ -5,14 +5,14 @@ description: Conozca los aspectos básicos de la creación de una API web en ASP
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/27/2020
+ms.date: 02/02/2020
 uid: web-api/index
-ms.openlocfilehash: 8609e2095c202643cdc905cc610298195b654215
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: 420fe89fe969c6df5c949f643fe018fff2bc77a5
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76870022"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77051464"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Creación de API web con ASP.NET Core
 
@@ -397,6 +397,28 @@ La creación automática de una instancia de `ProblemDetails` está deshabilitad
 [!code-csharp[](index/samples/2.x/2.2/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3,8)]
 
 ::: moniker-end
+
+## <a name="define-supported-request-content-types-with-the-consumes-attribute"></a>Definición de tipos de contenido de la solicitud compatibles con el atributo [Consumes]
+
+De forma predeterminada, una acción admite todos los tipos de contenido de la solicitud disponibles. Por ejemplo, si una aplicación está configurada para admitir [formateadores de entrada](xref:mvc/models/model-binding#input-formatters) JSON y XML, una acción admite varios tipos de contenido, incluidos `application/json` y `application/xml`.
+
+El atributo [[Consumes]](<xref:Microsoft.AspNetCore.Mvc.ConsumesAttribute>) permite que una acción limite los tipos de contenido de la solicitud compatibles. Aplique el atributo `[Consumes]` a una acción o controlador, especificando uno o varios tipos de contenido:
+
+```csharp
+[HttpPost]
+[Consumes("application/xml")]
+public IActionResult CreateProduct(Product product)
+```
+
+En el código anterior, la acción `CreateProduct` especifica el tipo de contenido `application/xml`. Las solicitudes enrutadas a esta acción deben especificar un encabezado `Content-Type` de `application/xml`. Las solicitudes que no especifican un encabezado `Content-Type` de `application/xml` generan una respuesta [415 Tipo de medio no compatible](https://developer.mozilla.org/docs/Web/HTTP/Status/415).
+
+El atributo `[Consumes]` también permite que una acción influya en su selección en función del tipo de contenido de una solicitud entrante aplicando una restricción de tipo. Considere el ejemplo siguiente:
+
+[!code-csharp[](index/samples/3.x/Controllers/ConsumesController.cs?name=snippet_Class)]
+
+En el código anterior, `ConsumesController` se configura para controlar las solicitudes enviadas a la dirección URL `https://localhost:5001/api/Consumes`. Las dos acciones del controlador, `PostJson` y `PostForm`, controlan las solicitudes POST con la misma dirección URL. Sin el atributo `[Consumes]` que aplica una restricción de tipo, se produce una excepción de coincidencia ambigua.
+
+El atributo `[Consumes]` se aplica a ambas acciones. La acción `PostJson` controla las solicitudes enviadas con un encabezado `Content-Type` de `application/json`. La acción `PostForm` controla las solicitudes enviadas con un encabezado `Content-Type` de `application/x-www-form-urlencoded`. 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
