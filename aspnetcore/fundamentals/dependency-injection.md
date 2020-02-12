@@ -5,14 +5,14 @@ description: Obtenga información sobre la manera en que ASP.NET Core implementa
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/30/2020
+ms.date: 02/05/2020
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: a9d268489ebcef69d64c6fd65087bc38a3581821
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 7c0789dafcb7dfacd15ac448a39bad94649963c8
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928416"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044925"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -544,7 +544,17 @@ public class Program
 
 ## <a name="scope-validation"></a>Validación del ámbito
 
-Cuando la aplicación se ejecuta en el entorno de desarrollo, el proveedor de servicios predeterminado realiza comprobaciones para confirmar lo siguiente:
+::: moniker range=">= aspnetcore-3.0"
+
+Cuando la aplicación se ejecuta en el entorno de desarrollo y llama a [CreateDefaultBuilder](xref:fundamentals/host/generic-host#default-builder-settings) para compilar el host, el proveedor de servicios predeterminado realiza comprobaciones para confirmar lo siguiente:
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Cuando la aplicación se ejecuta en el entorno de desarrollo y llama a [CreateDefaultBuilder](xref:fundamentals/host/web-host#set-up-a-host) para compilar el host, el proveedor de servicios predeterminado realiza comprobaciones para confirmar lo siguiente:
+
+::: moniker-end
 
 * Los servicios con ámbito no se resuelven directa o indirectamente desde el proveedor de servicios raíz.
 * Los servicios con ámbito no se insertan directa o indirectamente en singletons.

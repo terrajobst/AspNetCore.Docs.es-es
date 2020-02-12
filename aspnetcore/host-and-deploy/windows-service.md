@@ -5,14 +5,14 @@ description: Aprenda a hospedar una aplicación ASP.NET Core en un servicio de W
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 02/06/2020
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: d4b540de50f4153f517f871f037521347fb5eb84
-ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
+ms.openlocfilehash: 71f7bf3f5dcf8068d0ada03675ef7948267b79f4
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972007"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044896"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hospedaje de ASP.NET Core en un servicio de Windows
 
@@ -50,8 +50,10 @@ Se llama a `IHostBuilder.UseWindowsService` al compilar el host. Si la aplicaci�
 
 * Establece la vigencia del host en `WindowsServiceLifetime`.
 * Establece la [raíz del contenido](xref:fundamentals/index#content-root) en [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory). Para obtener más información, consulte la sección [Directorio actual y raíz del contenido](#current-directory-and-content-root).
-* Habilita el registro en el registro de eventos con el nombre de la aplicación como nombre de origen predeterminado.
-  * El nivel de registro puede configurarse con la clave `Logging:LogLevel:Default` en el archivo *appsettings.Production.json*.
+* Habilita el registro en el registro de eventos:
+  * El nombre de la aplicación se usa como nombre de origen predeterminado.
+  * El nivel de registro predeterminado es *Advertencia* o superior para una aplicación basada en una plantilla de ASP.NET Core que llama a `CreateDefaultBuilder` con el fin de compilar el host.
+  * Invalide el nivel de registro predeterminado con la clave `Logging:EventLog:LogLevel:Default` en *appsettings.json*/*appsettings.{Environment}.json* u otro proveedor de configuración.
   * Los administradores son los únicos que pueden crear nuevos orígenes de eventos. Cuando no se puede crear un origen de eventos con el nombre de la aplicación, se registra una advertencia para el origen *Aplicación* y los registros de eventos se deshabilitan.
 
 En `CreateHostBuilder` de *Program.cs*:
