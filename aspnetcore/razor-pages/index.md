@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 01/28/2020
 uid: razor-pages/index
-ms.openlocfilehash: da30908b38d553405fd3f959f09a19eff750ed17
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: 402e11d653cf0e7433c63844cb7e2802abc61679
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76870527"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172611"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -220,7 +220,7 @@ El archivo *index.cshtml* contiene marcado para crear un botón de eliminar para
 
 El código HTML representado:
 
-```HTML
+```html
 <button type="submit" formaction="/Customers?id=1&amp;handler=delete">delete</button>
 ```
 
@@ -290,7 +290,7 @@ Al publicar el formulario de creación sin un valor de nombre, se muestra el men
 El atributo `[StringLength(10)]` genera `data-val-length-max="10"` en el código HTML representado. `data-val-length-max` impide que los exploradores superen la longitud máxima especificada al escribir. Si se usa una herramienta como [Fiddler](https://www.telerik.com/fiddler) para editar y reproducir la publicación:
 
 * Con el nombre de más de 10 caracteres.
-* Se devolverá el mensaje de error "El nombre del campo debe ser una cadena con una longitud máxima de 10 caracteres".  
+* Se devolverá el mensaje de error "El nombre del campo debe ser una cadena con una longitud máxima de 10 caracteres". .
 
 Considere el modelo `Movie` siguiente:
 
@@ -522,7 +522,7 @@ El siguiente marcado en el archivo *Pages/Customers/Index.cshtml* muestra el val
 
 El modelo de página *Pages/Customers/Index.cshtml.cs* aplica el atributo `[TempData]` a la propiedad `Message`.
 
-```cs
+```csharp
 [TempData]
 public string Message { get; set; }
 ```
@@ -603,7 +603,7 @@ Agregue <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuild
 * <xref:razor-pages/razor-pages-conventions>
 * <xref:test/razor-pages-tests>
 * <xref:mvc/views/partial>
-* [Integre componentes de Razor en aplicaciones de Razor Pages y MVC](xref:blazor/hosting-models#integrate-razor-components-into-razor-pages-and-mvc-apps)
+* [Integre componentes de Razor en aplicaciones de Razor Pages y MVC](xref:blazor/hosting-model-configuration#integrate-razor-components-into-razor-pages-and-mvc-apps)
 
 ::: moniker-end
 
@@ -1026,7 +1026,7 @@ El siguiente marcado en el archivo *Pages/Customers/Index.cshtml* muestra el val
 
 El modelo de página *Pages/Customers/Index.cshtml.cs* aplica el atributo `[TempData]` a la propiedad `Message`.
 
-```cs
+```csharp
 [TempData]
 public string Message { get; set; }
 ```
