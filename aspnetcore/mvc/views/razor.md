@@ -5,18 +5,18 @@ description: Obtenga información sobre la sintaxis de marcado de Razor para ins
 ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/views/razor
-ms.openlocfilehash: baac0ac38a0781cb9c16689cf3e29526b602d8da
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 2d47fbc33328ab454616bcabab796df089686d79
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944257"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171857"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Referencia de sintaxis de Razor para ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Luke Latham](https://github.com/guardrex), [Taylor Mullen](https://twitter.com/ntaylormullen) y [Dan Vicarel](https://github.com/Rabadash8820)
 
-Razor es una sintaxis de marcado para insertar código basado en servidor en páginas web. La sintaxis de Razor combina marcado de Razor, C# y HTML. Los archivos que contienen sintaxis de Razor suelen tener la extensión de archivo *.cshtml*. Razor también se encuentra en los archivos de los [componentes de Razor](xref:blazor/components) (*.razor*).
+Razor es una sintaxis de marcado para insertar código basado en servidor en páginas web. La sintaxis de Razor combina marcado de Razor, C# y HTML. Los archivos que contienen sintaxis de Razor suelen tener la extensión de archivo *.cshtml*. Razor también se encuentra en los archivos de los [componentes de Razor](xref:blazor/components) ( *.razor*).
 
 ## <a name="rendering-html"></a>Representación de HTML
 
@@ -128,7 +128,7 @@ El código representa el siguiente HTML:
 
 El HTML se muestra en el explorador como:
 
-```
+```html
 <span>Hello World</span>
 ```
 
@@ -487,7 +487,7 @@ En los [componentes de Razor](xref:blazor/components), use `@code` en lugar de `
 
 ::: moniker-end
 
-Por ejemplo: 
+Por ejemplo:
 
 [!code-cshtml[](razor/sample/Views/Home/Contact6.cshtml)]
 
@@ -601,7 +601,7 @@ La directiva `@inject` permite a la página de Razor insertar un servicio del [c
 
 *Este escenario solo se aplica a los componentes de Razor (.razor).*
 
-La directiva `@layout` especifica un diseño para un componente de Razor. Los componentes de diseño se usan para evitar incoherencias y contenido duplicado en el código. Para más información, consulte <xref:blazor/layouts>.
+La directiva `@layout` especifica un diseño para un componente de Razor. Los componentes de diseño se usan para evitar incoherencias y contenido duplicado en el código. Para obtener más información, vea <xref:blazor/layouts>.
 
 ::: moniker-end
 
@@ -677,13 +677,13 @@ Si la carpeta *EvenMorePages* del ejemplo anterior tiene un archivo de importaci
 La directiva `@page` tiene efectos diferentes en función del tipo de archivo en el que aparece. Directiva:
 
 * En un archivo *.cshtml*, indica que el archivo es una página de Razor. Para más información, consulte [Rutas personalizadas](xref:razor-pages/index#custom-routes) y <xref:razor-pages/index>.
-* Especifica que un componente de Razor debería controlar las solicitudes directamente. Para más información, consulte <xref:blazor/routing>.
+* Especifica que un componente de Razor debería controlar las solicitudes directamente. Para obtener más información, vea <xref:blazor/routing>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-La directiva `@page` en la primera línea de un archivo *.cshtml* indica que el archivo es una página de Razor. Para más información, consulte <xref:razor-pages/index>.
+La directiva `@page` en la primera línea de un archivo *.cshtml* indica que el archivo es una página de Razor. Para obtener más información, vea <xref:razor-pages/index>.
 
 ::: moniker-end
 
@@ -691,7 +691,7 @@ La directiva `@page` en la primera línea de un archivo *.cshtml* indica que el 
 
 *Este escenario solo se aplica a las vistas de MVC y Razor Pages (.cshtml).*
 
-La directiva `@section` se usa junto con los [diseños de MVC y Razor Pages](xref:mvc/views/layout) para permitir que las vistas o las páginas representen el contenido en diferentes partes de la página HTML. Para más información, consulte <xref:mvc/views/layout>.
+La directiva `@section` se usa junto con los [diseños de MVC y Razor Pages](xref:mvc/views/layout) para permitir que las vistas o las páginas representen el contenido en diferentes partes de la página HTML. Para obtener más información, vea <xref:mvc/views/layout>.
 
 ### <a name="using"></a>\@using
 
@@ -713,19 +713,19 @@ En los [componentes de Razor](xref:blazor/components), `@using` también control
 
 *Este escenario solo se aplica a los componentes de Razor (.razor).*
 
-`@attributes` permite que un componente represente atributos no declarados. Para más información, consulte <xref:blazor/components#attribute-splatting-and-arbitrary-parameters>.
+`@attributes` permite que un componente represente atributos no declarados. Para obtener más información, vea <xref:blazor/components#attribute-splatting-and-arbitrary-parameters>.
 
 ### <a name="bind"></a>\@bind
 
 *Este escenario solo se aplica a los componentes de Razor (.razor).*
 
-El enlace de datos en los componentes se logra mediante el atributo `@bind`. Para más información, consulte <xref:blazor/components#data-binding>.
+El enlace de datos en los componentes se logra mediante el atributo `@bind`. Para obtener más información, vea <xref:blazor/components#data-binding>.
 
 ### <a name="onevent"></a>\@on{EVENT}
 
 *Este escenario solo se aplica a los componentes de Razor (.razor).*
 
-Razor proporciona características de control de eventos para componentes. Para más información, consulte <xref:blazor/components#event-handling>.
+Razor proporciona características de control de eventos para componentes. Para obtener más información, vea <xref:blazor/components#event-handling>.
 
 ::: moniker-end
 
@@ -751,19 +751,19 @@ Detiene la propagación de eventos para el evento.
 
 *Este escenario solo se aplica a los componentes de Razor (.razor).*
 
-El atributo de directiva `@key` hace que el algoritmo de comparación de componentes garantice la preservación de elementos o componentes en función del valor de la clave. Para más información, consulte <xref:blazor/components#use-key-to-control-the-preservation-of-elements-and-components>.
+El atributo de directiva `@key` hace que el algoritmo de comparación de componentes garantice la preservación de elementos o componentes en función del valor de la clave. Para obtener más información, vea <xref:blazor/components#use-key-to-control-the-preservation-of-elements-and-components>.
 
 ### <a name="ref"></a>\@ref
 
 *Este escenario solo se aplica a los componentes de Razor (.razor).*
 
-Las referencias de componentes (`@ref`) proporcionan una forma de hacer referencia a la instancia de un componente para poder emitir comandos a dicha instancia. Para más información, consulte <xref:blazor/components#capture-references-to-components>.
+Las referencias de componentes (`@ref`) proporcionan una forma de hacer referencia a la instancia de un componente para poder emitir comandos a dicha instancia. Para obtener más información, vea <xref:blazor/components#capture-references-to-components>.
 
 ### <a name="typeparam"></a>\@typeparam
 
 *Este escenario solo se aplica a los componentes de Razor (.razor).*
 
-La directiva `@typeparam` declara un parámetro de tipo genérico para la clase de componente generada. Para más información, consulte <xref:blazor/components#generic-typed-components>.
+La directiva `@typeparam` declara un parámetro de tipo genérico para la clase de componente generada. Para obtener más información, vea <xref:blazor/components#generic-typed-components>.
 
 ::: moniker-end
 

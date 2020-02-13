@@ -5,12 +5,12 @@ description: Se muestra cómo agregar la búsqueda a una aplicación ASP.NET Cor
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: 97ee5f66c142780d54d28013c109da61241d967b
-ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
+ms.openlocfilehash: 89f1fa84783430f160ca0b840bf7ae9699520cb7
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68862947"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171638"
 ---
 # <a name="add-search-to-an-aspnet-core-mvc-app"></a>Agregar búsqueda a una aplicación de ASP.NET Core MVC
 
@@ -101,9 +101,9 @@ Ahora, cuando se envía una búsqueda, la URL contiene la cadena de consulta de 
 
 El marcado siguiente muestra el cambio en la etiqueta `form`:
 
-```html
+```cshtml
 <form asp-controller="Movies" asp-action="Index" method="get">
-   ```
+```
 
 ## <a name="add-search-by-genre"></a>Adición de búsqueda por género
 

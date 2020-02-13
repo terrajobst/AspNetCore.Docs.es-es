@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo agregar clases para administrar pe
 ms.author: riande
 ms.date: 12/05/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 9d9266ae08c7abe747d4497bbcf52778cf2e370e
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: d2f9a64c77d76702004b94cdf36e558b33d7e19a
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76268764"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172572"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core
 
@@ -211,7 +211,7 @@ En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** > *
 
 En PCM, escriba los siguientes comandos:
 
-```PMC
+```powershell
 Add-Migration InitialCreate
 Update-Database
 ```
@@ -453,7 +453,7 @@ En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** > *
 
 En PCM, escriba los siguientes comandos:
 
-```Powershell
+```powershell
 Add-Migration Initial
 Update-Database
 ```

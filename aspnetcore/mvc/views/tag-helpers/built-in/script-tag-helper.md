@@ -6,12 +6,12 @@ description: Descubra los atributos del asistente de etiquetas de script de ASP.
 ms.custom: mvc
 ms.date: 12/02/2019
 uid: mvc/views/tag-helpers/builtin-th/script-tag-helper
-ms.openlocfilehash: 8a90eb5a74ff3f8178a47c59ad7ba1b6a389ab87
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: a037abb6a454e6d06305e7d7f6ecad0c2a0ca717
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717382"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171841"
 ---
 # <a name="script-tag-helper-in-aspnet-core"></a>Asistente de etiquetas de script en ASP.NET Core
 
@@ -25,7 +25,7 @@ El asistente de etiquetas de script permite especificar una red CDN para el arch
 
 En el marcado de Razor siguiente se muestra un elemento `script` con una reserva:
 
-```HTML
+```html
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
         asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
         asp-fallback-test="window.jQuery"
@@ -42,11 +42,11 @@ Consulte [Asistente de etiquetas de script](xref:Microsoft.AspNetCore.Mvc.TagHel
 
 ### <a name="asp-fallback-test"></a>asp-fallback-test
 
-Método de script definido en el script principal que se va a usar para la prueba de reserva. Para más información, consulte <xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.FallbackTestExpression>.
+Método de script definido en el script principal que se va a usar para la prueba de reserva. Para obtener más información, vea <xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.FallbackTestExpression>.
 
 ### <a name="asp-fallback-src"></a>asp-fallback-src
 
-Dirección URL de una etiqueta de script en la que se va a realizar la reserva en caso de error en principal. Para más información, consulte <xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.FallbackSrc>.
+Dirección URL de una etiqueta de script en la que se va a realizar la reserva en caso de error en principal. Para obtener más información, vea <xref:Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper.FallbackSrc>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

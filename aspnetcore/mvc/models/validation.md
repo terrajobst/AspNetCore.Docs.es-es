@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/15/2019
 uid: mvc/models/validation
-ms.openlocfilehash: b697f02183c76b9a96471a748a86c144fde47bb0
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: a39eeead10849d11349688c42fe814ede9e8a847
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76268752"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172498"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Validación de modelos en ASP.NET Core MVC y Razor Pages
 
@@ -84,7 +84,9 @@ Para averiguar qué parámetros se pasan a `String.Format` para el mensaje de er
 
 El sistema de validación de .NET Core 3.0 y versiones posteriores trata las propiedades enlazadas o los parámetros que no aceptan valores NULL como si tuvieran un atributo `[Required]`. Los [tipos de valor](/dotnet/csharp/language-reference/keywords/value-types) como `decimal` y `int` no aceptan valores NULL. Este comportamiento se puede deshabilitar si se configura <xref:Microsoft.AspNetCore.Mvc.MvcOptions.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes> en `Startup.ConfigureServices`:
 
-``csharp services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true); ...
+```csharp
+services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+```
 
 ### <a name="required-validation-on-the-server"></a>Validación de [Required] en el servidor
 
@@ -144,7 +146,7 @@ Cuando el usuario escribe un nombre o un apellido, JavaScript realiza una llamad
 
 Para validar dos o más campos adicionales, proporciónelos como una lista delimitada por comas. Por ejemplo, para agregar una propiedad `MiddleName` al modelo, establezca el atributo `[Remote]` tal como se muestra en el ejemplo siguiente:
 
-```cs
+```csharp
 [Remote(action: "VerifyName", controller: "Users", AdditionalFields = nameof(FirstName) + "," + nameof(LastName))]
 public string MiddleName { get; set; }
 ```
@@ -269,7 +271,7 @@ Para obtener información sobre la validación discreta, consulte [este problema
 
 Validación discreta de jQuery pasa los parámetros y la lógica de validación a jQuery Validate cuando la página se carga por primera vez. Por lo tanto, la validación no funciona automáticamente en los formularios generados dinámicamente. Para habilitar la validación, hay que indicarle a Validación discreta de jQuery que analice el formulario dinámico inmediatamente después de su creación. Por ejemplo, en el código siguiente se configura la validación del lado cliente en un formulario agregado mediante AJAX.
 
-```js
+```javascript
 $.get({
     url: "https://url/that/returns/a/form",
     dataType: "html",
@@ -292,7 +294,7 @@ El método `$.validator.unobtrusive.parse()` acepta un selector de jQuery para s
 
 El método `$.validator.unobtrusive.parse()` funciona en todo el formulario, no en los controles individuales generados dinámicamente, como `<input>` y `<select/>`. Para volver a analizar el formulario, quite los datos de validación que se agregaron cuando el formulario se analizó anteriormente, como se muestra en el ejemplo siguiente:
 
-```js
+```javascript
 $.get({
     url: "https://url/that/returns/a/control",
     dataType: "html",
@@ -510,7 +512,7 @@ Cuando el usuario escribe un nombre o un apellido, JavaScript realiza una llamad
 
 Para validar dos o más campos adicionales, proporciónelos como una lista delimitada por comas. Por ejemplo, para agregar una propiedad `MiddleName` al modelo, establezca el atributo `[Remote]` tal como se muestra en el ejemplo siguiente:
 
-```cs
+```csharp
 [Remote(action: "VerifyName", controller: "Users", AdditionalFields = nameof(FirstName) + "," + nameof(LastName))]
 public string MiddleName { get; set; }
 ```
@@ -640,7 +642,7 @@ La validación del tipo de datos se basa en el tipo .NET de una propiedad, a men
 
 Validación discreta de jQuery pasa los parámetros y la lógica de validación a jQuery Validate cuando la página se carga por primera vez. Por lo tanto, la validación no funciona automáticamente en los formularios generados dinámicamente. Para habilitar la validación, hay que indicarle a Validación discreta de jQuery que analice el formulario dinámico inmediatamente después de su creación. Por ejemplo, en el código siguiente se configura la validación del lado cliente en un formulario agregado mediante AJAX.
 
-```js
+```javascript
 $.get({
     url: "https://url/that/returns/a/form",
     dataType: "html",
@@ -663,7 +665,7 @@ El método `$.validator.unobtrusive.parse()` acepta un selector de jQuery para s
 
 El método `$.validator.unobtrusive.parse()` funciona en todo el formulario, no en los controles individuales generados dinámicamente, como `<input>` y `<select/>`. Para volver a analizar el formulario, quite los datos de validación que se agregaron cuando el formulario se analizó anteriormente, como se muestra en el ejemplo siguiente:
 
-```js
+```javascript
 $.get({
     url: "https://url/that/returns/a/control",
     dataType: "html",
