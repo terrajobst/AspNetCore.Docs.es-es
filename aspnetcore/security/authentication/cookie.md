@@ -4,14 +4,14 @@ author: rick-anderson
 description: Aprenda a usar la autenticación de cookies sin ASP.NET Core identidad.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 08/20/2019
+ms.date: 02/11/2020
 uid: security/authentication/cookie
-ms.openlocfilehash: 288fa4317801544bf0d689280c56836431017c89
-ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
+ms.openlocfilehash: 62a3d247dade6c83156a8378407d5e3891713fd1
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73462933"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172118"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Usar la autenticación de cookies sin ASP.NET Core identidad
 
@@ -19,7 +19,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Luke Latham](https://git
 
 ::: moniker range=">= aspnetcore-3.0"
 
-ASP.NET Core Identity es un completo proveedor de autenticación completo para crear y mantener inicios de sesión. Sin embargo, se puede usar un proveedor de autenticación basado en cookies sin ASP.NET Core identidad. Para obtener más información, vea <xref:security/authentication/identity>.
+ASP.NET Core Identity es un completo proveedor de autenticación completo para crear y mantener inicios de sesión. Sin embargo, se puede usar un proveedor de autenticación basado en cookies sin ASP.NET Core identidad. Para más información, consulte <xref:security/authentication/identity>.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
@@ -37,7 +37,7 @@ En el método `Startup.ConfigureServices`, cree los servicios de middleware de a
 
 El esquema de autenticación de la aplicación es diferente del esquema de autenticación de cookies de la aplicación. Cuando no se proporciona un esquema de autenticación de cookies para <xref:Microsoft.Extensions.DependencyInjection.CookieExtensions.AddCookie*>, utiliza `CookieAuthenticationDefaults.AuthenticationScheme` ("cookies").
 
-De forma predeterminada, la propiedad <xref:Microsoft.AspNetCore.Http.CookieBuilder.IsEssential> de la cookie de autenticación está establecida en `true`. Las cookies de autenticación se permiten cuando un visitante del sitio no ha dado su consentimiento a la recopilación de datos. Para obtener más información, vea <xref:security/gdpr#essential-cookies>.
+De forma predeterminada, la propiedad <xref:Microsoft.AspNetCore.Http.CookieBuilder.IsEssential> de la cookie de autenticación está establecida en `true`. Las cookies de autenticación se permiten cuando un visitante del sitio no ha dado su consentimiento a la recopilación de datos. Para más información, consulte <xref:security/gdpr#essential-cookies>.
 
 En `Startup.Configure`, llame a `UseAuthentication` y `UseAuthorization` para establecer la propiedad `HttpContext.User` y ejecutar el middleware de autorización para las solicitudes. Llame a los métodos `UseAuthentication` y `UseAuthorization` antes de llamar a `UseEndpoints`:
 
@@ -78,9 +78,9 @@ La configuración de middleware de la Directiva de cookies para `MinimumSameSite
 
 | MinimumSameSitePolicy | Cookie. SameSite | Valor de cookie. SameSite resultante |
 | --------------------- | --------------- | --------------------------------- |
-| SameSiteMode. None     | SameSiteMode. None<br>SameSiteMode. LAX<br>SameSiteMode. Strict | SameSiteMode. None<br>SameSiteMode. LAX<br>SameSiteMode. Strict |
-| SameSiteMode. LAX      | SameSiteMode. None<br>SameSiteMode. LAX<br>SameSiteMode. Strict | SameSiteMode. LAX<br>SameSiteMode. LAX<br>SameSiteMode. Strict |
-| SameSiteMode. Strict   | SameSiteMode. None<br>SameSiteMode. LAX<br>SameSiteMode. Strict | SameSiteMode. Strict<br>SameSiteMode. Strict<br>SameSiteMode. Strict |
+| SameSiteMode.None     | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict |
+| SameSiteMode.Lax      | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict | SameSiteMode.Lax<br>SameSiteMode.Lax<br>SameSiteMode.Strict |
+| SameSiteMode.Strict   | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict | SameSiteMode.Strict<br>SameSiteMode.Strict<br>SameSiteMode.Strict |
 
 ## <a name="create-an-authentication-cookie"></a>Crear una cookie de autenticación
 
@@ -215,7 +215,7 @@ await HttpContext.SignInAsync(
 
 ## <a name="absolute-cookie-expiration"></a>Expiración absoluta de cookies
 
-Se puede establecer una hora de expiración absoluta con <xref:Microsoft.AspNetCore.Authentication.AuthenticationProperties.ExpiresUtc>. Para crear una cookie persistente, también se debe establecer `IsPersistent`. De lo contrario, la cookie se crea con una duración basada en sesión y puede expirar antes o después del vale de autenticación que contiene. Cuando se establece `ExpiresUtc`, invalida el valor de la opción <xref:Microsoft.AspNetCore.Builder.CookieAuthenticationOptions.ExpireTimeSpan> de <xref:Microsoft.AspNetCore.Builder.CookieAuthenticationOptions>, si se establece.
+Se puede establecer una hora de expiración absoluta con <xref:Microsoft.AspNetCore.Authentication.AuthenticationProperties.ExpiresUtc>. Para crear una cookie persistente, también se debe establecer `IsPersistent`. De lo contrario, la cookie se crea con una duración basada en sesión y puede expirar antes o después del vale de autenticación que contiene. Cuando se establece `ExpiresUtc`, invalida el valor de la opción <xref:Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions.ExpireTimeSpan> de <xref:Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions>, si se establece.
 
 El siguiente fragmento de código crea una identidad y la cookie correspondiente que dura 20 minutos. Esto omite cualquier configuración de expiración variable previamente configurada.
 
@@ -236,7 +236,7 @@ await HttpContext.SignInAsync(
 
 ::: moniker range="< aspnetcore-3.0"
 
-ASP.NET Core Identity es un completo proveedor de autenticación completo para crear y mantener inicios de sesión. Sin embargo, se puede usar un proveedor de autenticación de autenticación basada en cookies sin ASP.NET Core identidad. Para obtener más información, vea <xref:security/authentication/identity>.
+ASP.NET Core Identity es un completo proveedor de autenticación completo para crear y mantener inicios de sesión. Sin embargo, se puede usar un proveedor de autenticación de autenticación basada en cookies sin ASP.NET Core identidad. Para más información, consulte <xref:security/authentication/identity>.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
@@ -254,7 +254,7 @@ En el método `Startup.ConfigureServices`, cree el servicio de middleware de aut
 
 El esquema de autenticación de la aplicación es diferente del esquema de autenticación de cookies de la aplicación. Cuando no se proporciona un esquema de autenticación de cookies para <xref:Microsoft.Extensions.DependencyInjection.CookieExtensions.AddCookie*>, utiliza `CookieAuthenticationDefaults.AuthenticationScheme` ("cookies").
 
-De forma predeterminada, la propiedad <xref:Microsoft.AspNetCore.Http.CookieBuilder.IsEssential> de la cookie de autenticación está establecida en `true`. Las cookies de autenticación se permiten cuando un visitante del sitio no ha dado su consentimiento a la recopilación de datos. Para obtener más información, vea <xref:security/gdpr#essential-cookies>.
+De forma predeterminada, la propiedad <xref:Microsoft.AspNetCore.Http.CookieBuilder.IsEssential> de la cookie de autenticación está establecida en `true`. Las cookies de autenticación se permiten cuando un visitante del sitio no ha dado su consentimiento a la recopilación de datos. Para más información, consulte <xref:security/gdpr#essential-cookies>.
 
 En el método `Startup.Configure`, llame al método `UseAuthentication` para invocar el middleware de autenticación que establece la propiedad `HttpContext.User`. Llame al método `UseAuthentication` antes de llamar a `UseMvcWithDefaultRoute` o `UseMvc`:
 
@@ -295,9 +295,9 @@ La configuración de middleware de la Directiva de cookies para `MinimumSameSite
 
 | MinimumSameSitePolicy | Cookie. SameSite | Valor de cookie. SameSite resultante |
 | --------------------- | --------------- | --------------------------------- |
-| SameSiteMode. None     | SameSiteMode. None<br>SameSiteMode. LAX<br>SameSiteMode. Strict | SameSiteMode. None<br>SameSiteMode. LAX<br>SameSiteMode. Strict |
-| SameSiteMode. LAX      | SameSiteMode. None<br>SameSiteMode. LAX<br>SameSiteMode. Strict | SameSiteMode. LAX<br>SameSiteMode. LAX<br>SameSiteMode. Strict |
-| SameSiteMode. Strict   | SameSiteMode. None<br>SameSiteMode. LAX<br>SameSiteMode. Strict | SameSiteMode. Strict<br>SameSiteMode. Strict<br>SameSiteMode. Strict |
+| SameSiteMode.None     | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict |
+| SameSiteMode.Lax      | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict | SameSiteMode.Lax<br>SameSiteMode.Lax<br>SameSiteMode.Strict |
+| SameSiteMode.Strict   | SameSiteMode.None<br>SameSiteMode.Lax<br>SameSiteMode.Strict | SameSiteMode.Strict<br>SameSiteMode.Strict<br>SameSiteMode.Strict |
 
 ## <a name="create-an-authentication-cookie"></a>Crear una cookie de autenticación
 

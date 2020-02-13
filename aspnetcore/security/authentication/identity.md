@@ -5,12 +5,12 @@ description: Usar Identity con una aplicación ASP.NET Core. Obtenga informació
 ms.author: riande
 ms.date: 01/15/2020
 uid: security/authentication/identity
-ms.openlocfilehash: 98fee261a741a20eed181ca5b9a4ebb693deeb63
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: 164ba10c1d1e2a73ebeb8240293a58f158055699
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146516"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172531"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introducción a la identidad en ASP.NET Core
 
@@ -49,7 +49,7 @@ Cree un proyecto de aplicación Web de ASP.NET Core con cuentas de usuario indiv
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Seleccione **archivo** > **nuevo** **proyecto**de >.
-* Seleccione **Aplicación web de ASP.NET Core**. Asigne al proyecto el nombre **WebApp1** para que tenga el mismo espacio de nombres que la descarga del proyecto. Haga clic en **Aceptar**.
+* Seleccione **Aplicación web ASP.NET Core**. Asigne al proyecto el nombre **WebApp1** para que tenga el mismo espacio de nombres que la descarga del proyecto. Haga clic en **OK**.
 * Seleccione una **aplicación web**de ASP.net Core y, a continuación, seleccione **cambiar autenticación**.
 * Seleccione **cuentas de usuario individuales** y haga clic en **Aceptar**.
 
@@ -148,7 +148,7 @@ Si el usuario se creó correctamente, el usuario inicia sesión mediante la llam
 
 Consulte [confirmación](xref:security/authentication/accconfirm#prevent-login-at-registration) de la cuenta para conocer los pasos para evitar el inicio de sesión inmediato en el registro.
 
-### <a name="log-in"></a>Iniciar sesión
+### <a name="log-in"></a>Registro
 
 El formulario de inicio de sesión se muestra cuando:
 
@@ -159,9 +159,9 @@ Cuando se envía el formulario de la página de inicio de sesión, se llama a la
 
 [!code-csharp[](identity/sample/WebApp3/Areas/Identity/Pages/Account/Login.cshtml.cs?name=snippet&highlight=10-11)]
 
-La clase base `Controller` expone una propiedad `User` a la que se puede tener acceso desde métodos de controlador. Por ejemplo, puede enumerar `User.Claims` y tomar decisiones de autorización. Para obtener más información, vea <xref:security/authorization/introduction>.
+La clase base `Controller` expone una propiedad `User` a la que se puede tener acceso desde métodos de controlador. Por ejemplo, puede enumerar `User.Claims` y tomar decisiones de autorización. Para más información, consulte <xref:security/authorization/introduction>.
 
-### <a name="log-out"></a>Cerrar sesión
+### <a name="log-out"></a>Cerrar la sesión
 
 El vínculo de **cierre de sesión** invoca la acción `LogoutModel.OnPost`. 
 
@@ -275,7 +275,7 @@ Cree un proyecto de aplicación Web de ASP.NET Core con cuentas de usuario indiv
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Seleccione **archivo** > **nuevo** **proyecto**de >.
-* Seleccione **Aplicación web de ASP.NET Core**. Asigne al proyecto el nombre **WebApp1** para que tenga el mismo espacio de nombres que la descarga del proyecto. Haga clic en **Aceptar**.
+* Seleccione **Aplicación web ASP.NET Core**. Asigne al proyecto el nombre **WebApp1** para que tenga el mismo espacio de nombres que la descarga del proyecto. Haga clic en **OK**.
 * Seleccione una **aplicación web**de ASP.net Core y, a continuación, seleccione **cambiar autenticación**.
 * Seleccione **cuentas de usuario individuales** y haga clic en **Aceptar**.
 
@@ -301,7 +301,9 @@ Aplique las migraciones para inicializar la base de datos.
 
 Ejecute el siguiente comando en la consola del administrador de paquetes (PMC):
 
-```PM> Update-Database```
+```powershell
+Update-Database
+```
 
 # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
@@ -364,7 +366,7 @@ Si el usuario se creó correctamente, el usuario inicia sesión mediante la llam
 
 **Nota:** Consulte [confirmación](xref:security/authentication/accconfirm#prevent-login-at-registration) de la cuenta para conocer los pasos para evitar el inicio de sesión inmediato en el registro.
 
-### <a name="log-in"></a>Iniciar sesión
+### <a name="log-in"></a>Registro
 
 El formulario de inicio de sesión se muestra cuando:
 
@@ -375,9 +377,9 @@ Cuando se envía el formulario de la página de inicio de sesión, se llama a la
 
 [!code-csharp[](identity/sample/WebApp1/Areas/Identity/Pages/Account/Login.cshtml.cs?name=snippet&highlight=10-11)]
 
-La clase base `Controller` expone una propiedad `User` a la que se puede tener acceso desde métodos de controlador. Por ejemplo, puede enumerar `User.Claims` y tomar decisiones de autorización. Para obtener más información, vea <xref:security/authorization/introduction>.
+La clase base `Controller` expone una propiedad `User` a la que se puede tener acceso desde métodos de controlador. Por ejemplo, puede enumerar `User.Claims` y tomar decisiones de autorización. Para más información, consulte <xref:security/authorization/introduction>.
 
-### <a name="log-out"></a>Cerrar sesión
+### <a name="log-out"></a>Cerrar la sesión
 
 El vínculo de **cierre de sesión** invoca la acción `LogoutModel.OnPost`. 
 
