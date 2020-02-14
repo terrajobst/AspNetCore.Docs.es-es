@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/lifecycle
-ms.openlocfilehash: df5bb676df59b538179a69978040521c4ee78ed1
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: ecacd0a9728cbefd716e9dc7cd8a8c62f3df6e0d
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146373"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213394"
 ---
 # <a name="aspnet-core-opno-locblazor-lifecycle"></a>Ciclo de vida de ASP.NET Core Blazor
 
@@ -27,7 +27,7 @@ El marco de Blazor incluye métodos de ciclo de vida sincrónicos y asincrónico
 
 ### <a name="component-initialization-methods"></a>Métodos de inicialización de componentes
 
-<xref:Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync*> y <xref:Microsoft.AspNetCore.Components.ComponentBase.OnInitialized*> se invocan cuando se inicializa el componente después de haber recibido sus parámetros iniciales de su componente primario. Utilice `OnInitializedAsync` cuando el componente realiza una operación asincrónica y debe actualizarse cuando se complete la operación. Solo se llama a estos métodos una vez cuando se crea una instancia del componente en primer lugar.
+<xref:Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync*> y <xref:Microsoft.AspNetCore.Components.ComponentBase.OnInitialized*> se invocan cuando se inicializa el componente después de haber recibido sus parámetros iniciales de su componente primario. Utilice `OnInitializedAsync` cuando el componente realiza una operación asincrónica y debe actualizarse cuando se complete la operación.
 
 En el caso de una operación sincrónica, invalide `OnInitialized`:
 
@@ -46,6 +46,15 @@ protected override async Task OnInitializedAsync()
     await ...
 }
 ```
+
+Blazor las aplicaciones de servidor que [preprocesan la](xref:blazor/hosting-model-configuration#render-mode) llamada de contenido `OnInitializedAsync` **_dos veces_** :
+
+* Una vez que el componente se representa de forma estática como parte de la página.
+* Una segunda vez cuando el explorador establece una conexión de vuelta al servidor.
+
+Para evitar que el código de Desarrollador en `OnInitializedAsync` se ejecute dos veces, consulte la sección [reconexión con estado después de la representación previa](#stateful-reconnection-after-prerendering) .
+
+Mientras que una aplicación de Blazor Server se está preprocesando, no es posible realizar ciertas acciones, como llamar a JavaScript, porque no se ha establecido una conexión con el explorador. Es posible que los componentes tengan que representarse de forma diferente cuando se representen. Para obtener más información, consulte la sección [detectar cuándo se está representando la aplicación](#detect-when-the-app-is-prerendering) .
 
 ### <a name="before-parameters-are-set"></a>Antes de establecer los parámetros
 
@@ -180,6 +189,70 @@ Si un componente implementa <xref:System.IDisposable>, se llama al [método Disp
 > [!NOTE]
 > No se admite la llamada a <xref:Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged*> en `Dispose`. `StateHasChanged` se puede invocar como parte de la anulación del representador, por lo que no se admite la solicitud de actualizaciones de la interfaz de usuario en ese momento.
 
-## <a name="handle-errors"></a>Control de errores
+## <a name="handle-errors"></a>errores
 
 Para obtener información sobre cómo controlar los errores durante la ejecución del método de ciclo de vida, vea <xref:blazor/handle-errors#lifecycle-methods>.
+
+## <a name="stateful-reconnection-after-prerendering"></a>Reconexión con estado después de la representación previa
+
+En una aplicación de Blazor Server cuando se `ServerPrerendered``RenderMode`, el componente se representa de forma estática como parte de la página. Una vez que el explorador vuelve a establecer una conexión con el servidor, el componente se *vuelve*a representar y el componente ahora es interactivo. Si el método de ciclo de vida [{Async} inicializado](xref:blazor/lifecycle#component-initialization-methods) para inicializar el componente está presente, el método se ejecuta *dos veces*:
+
+* Cuando el componente se representa de forma estática.
+* Una vez establecida la conexión al servidor.
+
+Esto puede dar lugar a un cambio notable en los datos mostrados en la interfaz de usuario cuando el componente se representa finalmente.
+
+Para evitar el escenario de representación doble en una aplicación de Blazor Server:
+
+* Pase un identificador que se puede usar para almacenar en caché el estado durante la representación previa y recuperar el estado después de que se reinicie la aplicación.
+* Use el identificador durante la representación previa para guardar el estado del componente.
+* Use el identificador después de la representación previa para recuperar el estado almacenado en caché.
+
+En el código siguiente se muestra una `WeatherForecastService` actualizada en una aplicación de Blazor Server basada en plantillas que evita la representación doble:
+
+```csharp
+public class WeatherForecastService
+{
+    private static readonly string[] _summaries = new[]
+    {
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild",
+        "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
+    
+    public WeatherForecastService(IMemoryCache memoryCache)
+    {
+        MemoryCache = memoryCache;
+    }
+    
+    public IMemoryCache MemoryCache { get; }
+
+    public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
+    {
+        return MemoryCache.GetOrCreateAsync(startDate, async e =>
+        {
+            e.SetOptions(new MemoryCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = 
+                    TimeSpan.FromSeconds(30)
+            });
+
+            var rng = new Random();
+
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = startDate.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = _summaries[rng.Next(_summaries.Length)]
+            }).ToArray();
+        });
+    }
+}
+```
+
+Para obtener más información sobre el `RenderMode`, vea <xref:blazor/hosting-model-configuration#render-mode>.
+
+## <a name="detect-when-the-app-is-prerendering"></a>Detectar cuándo se está preprocesando la aplicación
+
+[!INCLUDE[](~/includes/blazor-prerendering.md)]

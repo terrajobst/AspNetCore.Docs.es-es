@@ -5,17 +5,17 @@ description: Obtenga información sobre cómo crear y usar componentes de Razor,
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/24/2020
+ms.date: 02/04/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/components
-ms.openlocfilehash: d6ba60b20d21636c7f780a80d8fbdb152505a3a3
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 0da0d83a4fde7b753a84bf05d3a9284776f2881f
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928257"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213355"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Crear y usar ASP.NET Core componentes de Razor
 
@@ -70,9 +70,9 @@ Para usar una carpeta personalizada, agregue el espacio de nombres de la carpeta
 
 Los componentes de Razor se pueden integrar en aplicaciones de Razor Pages y MVC. Cuando se representa la página o la vista, los componentes se pueden representar al mismo tiempo.
 
-Para preparar una aplicación Razor Pages o MVC para hospedar componentes de Razor, siga las instrucciones de la sección *integración de componentes de Razor en Razor pages y aplicaciones MVC* del artículo <xref:blazor/hosting-models#integrate-razor-components-into-razor-pages-and-mvc-apps>.
+Para preparar una aplicación Razor Pages o MVC para hospedar componentes de Razor, siga las instrucciones de la sección *integración de componentes de Razor en Razor pages y aplicaciones MVC* del artículo <xref:blazor/hosting-model-configuration#integrate-razor-components-into-razor-pages-and-mvc-apps>.
 
-Al usar una carpeta personalizada para contener los componentes de la aplicación, agregue el espacio de nombres que representa la carpeta a la página o vista, o al archivo *_ViewImports. cshtml* . Observe el siguiente ejemplo:
+Al usar una carpeta personalizada para contener los componentes de la aplicación, agregue el espacio de nombres que representa la carpeta a la página o vista, o al archivo *_ViewImports. cshtml* . En el ejemplo siguiente:
 
 * Cambie `MyAppNamespace` al espacio de nombres de la aplicación.
 * Si no se usa una carpeta denominada *componentes* para contener los componentes, cambie `Components` a la carpeta donde residen los componentes.
@@ -107,7 +107,10 @@ Mientras que las páginas y las vistas pueden utilizar componentes, el opuesto n
 
 No se admite la representación de componentes de servidor desde una página HTML estática.
 
-Para obtener más información sobre cómo se representan los componentes, el estado del componente y la aplicación auxiliar de etiquetas `Component`, vea <xref:blazor/hosting-models>.
+Para obtener más información sobre cómo se representan los componentes, el estado del componente y la aplicación auxiliar de etiquetas `Component`, consulte los siguientes artículos:
+
+* <xref:blazor/hosting-models>
+* <xref:blazor/hosting-model-configuration>
 
 ## <a name="tag-helpers-arent-used-in-components"></a>Las aplicaciones auxiliares de etiquetas no se usan en los componentes
 
@@ -149,7 +152,7 @@ En el ejemplo siguiente de la aplicación de ejemplo, el `ParentComponent` estab
 <h1>Parent-child example</h1>
 
 <ChildComponent Title="Panel Title from Parent"
-                OnClick="@ShowMessage">
+                OnClickCallback="@ShowMessage">
     Content of the child component is supplied
     by the parent component.
 </ChildComponent>
@@ -180,7 +183,7 @@ El `ParentComponent` de la aplicación de ejemplo puede proporcionar contenido p
 <h1>Parent-child example</h1>
 
 <ChildComponent Title="Panel Title from Parent"
-                OnClick="@ShowMessage">
+                OnClickCallback="@ShowMessage">
     Content of the child component is supplied
     by the parent component.
 </ChildComponent>
@@ -351,11 +354,11 @@ A diferencia de `onchange`, que se activa cuando el elemento pierde el foco, `on
 * Expresión especificada (`CurrentValue`) en el atributo de `value` del elemento.
 * Delegado de evento de cambio para el evento especificado por `@bind-value:event`.
 
-**Valores no analizables**
+### <a name="unparsable-values"></a>Valores no analizables
 
 Cuando un usuario proporciona un valor que no se pueda analizar a un elemento DataBound, el valor no analizable se revierte automáticamente a su valor anterior cuando se desencadena el evento de enlace.
 
-Considere el siguiente escenario:
+Considere el caso siguiente:
 
 * Un elemento `<input>` se enlaza a un tipo `int` con un valor inicial de `123`:
 
@@ -379,7 +382,7 @@ De forma predeterminada, el enlace se aplica al evento `onchange` del elemento (
   * Permite que el usuario proporcione entradas no válidas y reciba errores de validación en la `EditContext`asociada.
   * Mostrar errores de validación en la interfaz de usuario sin interferir con el usuario al escribir datos de WebForm adicionales.
 
-**Globalización**
+### <a name="globalization"></a>Globalización
 
 `@bind` se da formato a los valores para mostrarlos y analizarlos con las reglas de la referencia cultural actual.
 
@@ -404,9 +407,9 @@ Los siguientes tipos de campo tienen requisitos de formato específicos y no se 
 
 `@bind` admite el parámetro `@bind:culture` para proporcionar un <xref:System.Globalization.CultureInfo?displayProperty=fullName> para analizar y dar formato a un valor. No se recomienda especificar una referencia cultural al usar los tipos de campo `date` y `number`. `date` y `number` tienen compatibilidad más ligera que proporciona la referencia cultural necesaria.
 
-Para obtener información sobre cómo establecer la referencia cultural del usuario, consulte la sección [Localización](#localization).
+Para obtener información sobre cómo establecer la referencia cultural del usuario, consulte la sección [Localization](#localization) .
 
-**Cadenas de formato**
+### <a name="format-strings"></a>Cadenas de formato
 
 El enlace de datos funciona con cadenas de formato <xref:System.DateTime> mediante [`@bind:format`](xref:mvc/views/razor#bind). Otras expresiones de formato, como los formatos de moneda o número, no están disponibles en este momento.
 
@@ -434,9 +437,9 @@ No se recomienda especificar un formato para el tipo de campo `date` porque el i
 <input type="date" @bind="StartDate" @bind:format="yyyy-MM-dd">
 ```
 
-**Parámetros de componente**
+### <a name="parent-to-child-binding-with-component-parameters"></a>Enlace de primario a secundario con parámetros de componente
 
-El enlace reconoce los parámetros de componente, donde `@bind-{property}` puede enlazar un valor de propiedad entre los componentes.
+El enlace reconoce los parámetros de componente, donde `@bind-{property}` puede enlazar un valor de propiedad de un componente primario a un componente secundario. El enlace de un elemento secundario a un elemento primario se trata en la sección [enlace de secundario a primario con enlace encadenado](#child-to-parent-binding-with-chained-bind) .
 
 El siguiente componente secundario (`ChildComponent`) tiene un parámetro de componente `Year` y una devolución de llamada `YearChanged`:
 
@@ -456,7 +459,10 @@ El siguiente componente secundario (`ChildComponent`) tiene un parámetro de com
 
 `EventCallback<T>` se explica en la sección [EventCallback](#eventcallback) .
 
-El siguiente componente primario utiliza `ChildComponent` y enlaza el parámetro `ParentYear` desde el elemento primario al parámetro `Year` en el componente secundario:
+El siguiente componente primario utiliza:
+
+* `ChildComponent` y enlaza el parámetro `ParentYear` desde el elemento primario al parámetro `Year` en el componente secundario.
+* El evento `onclick` se usa para desencadenar el método `ChangeTheYear`. Para obtener más información, vea la sección [control de eventos](#event-handling) .
 
 ```razor
 @page "/ParentComponent"
@@ -520,7 +526,138 @@ En general, una propiedad se puede enlazar a un controlador de eventos correspon
 <MyComponent @bind-MyProp="MyValue" @bind-MyProp:event="MyEventHandler" />
 ```
 
-**Botones de radio**
+### <a name="child-to-parent-binding-with-chained-bind"></a>Enlace de secundario a primario con enlace encadenado
+
+Un escenario común es encadenar un parámetro enlazado a datos a un elemento Page en la salida del componente. Este escenario se denomina *enlace encadenado* porque se producen varios niveles de enlace simultáneamente.
+
+No se puede implementar un enlace encadenado con `@bind` sintaxis en el elemento de la página. El controlador de eventos y el valor se deben especificar por separado. Sin embargo, un componente primario puede usar la sintaxis de `@bind` con el parámetro del componente.
+
+El siguiente componente de `PasswordField` (*PasswordField. Razor*):
+
+* Establece el valor de un elemento de `<input>` en una propiedad `Password`.
+* Expone los cambios de la propiedad `Password` a un componente primario con un [EventCallback](#eventcallback).
+* Usa el evento `onclick` se usa para desencadenar el método `ToggleShowPassword`. Para obtener más información, vea la sección [control de eventos](#event-handling) .
+
+```razor
+<h1>Child Component</h2>
+
+Password: 
+
+<input @oninput="OnPasswordChanged" 
+       required 
+       type="@(_showPassword ? "text" : "password")" 
+       value="@Password" />
+
+<button class="btn btn-primary" @onclick="ToggleShowPassword">
+    Show password
+</button>
+
+@code {
+    private bool _showPassword;
+
+    [Parameter]
+    public string Password { get; set; }
+
+    [Parameter]
+    public EventCallback<string> PasswordChanged { get; set; }
+
+    private Task OnPasswordChanged(ChangeEventArgs e)
+    {
+        Password = e.Value.ToString();
+
+        return PasswordChanged.InvokeAsync(Password);
+    }
+
+    private void ToggleShowPassword()
+    {
+        _showPassword = !_showPassword;
+    }
+}
+```
+
+El componente de `PasswordField` se usa en otro componente:
+
+```razor
+@page "/ParentComponent"
+
+<h1>Parent Component</h1>
+
+<PasswordField @bind-Password="_password" />
+
+@code {
+    private string _password;
+}
+```
+
+Para realizar comprobaciones o errores de captura en la contraseña en el ejemplo anterior:
+
+* Cree un campo de respaldo para `Password` (`_password` en el siguiente código de ejemplo).
+* Realice las comprobaciones o errores de captura en el establecedor de `Password`.
+
+En el ejemplo siguiente se proporcionan comentarios inmediatos al usuario si se usa un espacio en el valor de la contraseña:
+
+```razor
+@page "/ParentComponent"
+
+<h1>Parent Component</h1>
+
+Password: 
+
+<input @oninput="OnPasswordChanged" 
+       required 
+       type="@(_showPassword ? "text" : "password")" 
+       value="@Password" />
+
+<button class="btn btn-primary" @onclick="ToggleShowPassword">
+    Show password
+</button>
+
+<span class="text-danger">@_validationMessage</span>
+
+@code {
+    private bool _showPassword;
+    private string _password;
+    private string _validationMessage;
+
+    [Parameter]
+    public string Password
+    {
+        get { return _password ?? string.Empty; }
+        set
+        {
+            if (_password != value)
+            {
+                if (value.Contains(' '))
+                {
+                    _validationMessage = "Spaces not allowed!";
+                }
+                else
+                {
+                    _password = value;
+                    _validationMessage = string.Empty;
+                }
+            }
+        }
+    }
+
+    [Parameter]
+    public EventCallback<string> PasswordChanged { get; set; }
+
+    private Task OnPasswordChanged(ChangeEventArgs e)
+    {
+        Password = e.Value.ToString();
+
+        return PasswordChanged.InvokeAsync(Password);
+    }
+
+    private void ToggleShowPassword()
+    {
+        _showPassword = !_showPassword;
+    }
+}
+```
+
+### <a name="radio-buttons"></a>Botones de radio
 
 Para obtener información sobre cómo enlazar a botones de radio en un formulario, vea <xref:blazor/forms-validation#work-with-radio-buttons>.
 
@@ -579,14 +716,14 @@ En algunos eventos, se permiten los tipos de argumento de evento. Si no es neces
 
 Los `EventArgs` admitidos se muestran en la tabla siguiente.
 
-| Event            | Clase                | Eventos y notas de DOM |
+| Evento            | Clase                | Eventos y notas de DOM |
 | ---------------- | -------------------- | -------------------- |
 | Portapapeles        | `ClipboardEventArgs` | `oncut`, `oncopy`, `onpaste` |
 | Arrastre             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` y `DataTransferItem` mantener los datos de los elementos arrastrados. |
-| Error de :            | `ErrorEventArgs`     | `onerror` |
-| Event            | `EventArgs`          | *General*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Portapapeles*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Entrada*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Soporte*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
-| Foco            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>No incluye compatibilidad con `relatedTarget`. |
-| Input            | `ChangeEventArgs`    | `onchange`, `oninput` |
+| Error            | `ErrorEventArgs`     | `onerror` |
+| Evento            | `EventArgs`          | *General*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Portapapeles*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Entrada*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Elementos multimedia*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
+| Focus            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>No incluye compatibilidad con `relatedTarget`. |
+| Entrada            | `ChangeEventArgs`    | `onchange`, `oninput` |
 | Teclado         | `KeyboardEventArgs`  | `onkeydown`, `onkeypress`, `onkeyup` |
 | Mouse            | `MouseEventArgs`     | `onclick`, `oncontextmenu`, `ondblclick`, `onmousedown`, `onmouseup`, `onmouseover`, `onmousemove`, `onmouseout` |
 | Puntero del mouse    | `PointerEventArgs`   | `onpointerdown`, `onpointerup`, `onpointercancel`, `onpointermove`, `onpointerover`, `onpointerout`, `onpointerenter`, `onpointerleave`, `ongotpointercapture`, `onlostpointercapture` |
@@ -594,7 +731,10 @@ Los `EventArgs` admitidos se muestran en la tabla siguiente.
 | Progreso         | `ProgressEventArgs`  | `onabort`, `onload`, `onloadend`, `onloadstart`, `onprogress`, `ontimeout` |
 | Entrada táctil            | `TouchEventArgs`     | `ontouchstart`, `ontouchend`, `ontouchmove`, `ontouchenter`, `ontouchleave`, `ontouchcancel`<br><br>`TouchPoint` representa un único punto de contacto en un dispositivo con distinción de toque. |
 
-Para obtener información sobre las propiedades y el comportamiento de control de eventos de los eventos de la tabla anterior, vea [clases EventArgs en el origen de referencia (rama dotnet/aspnetcore Release/3.1)](https://github.com/dotnet/aspnetcore/tree/release/3.1/src/Components/Web/src/Web).
+Para obtener más información, consulte los siguientes recursos:
+
+* [Clases EventArgs en el origen de referencia de ASP.net Core (rama dotnet/aspnetcore Release/3.1)](https://github.com/dotnet/aspnetcore/tree/release/3.1/src/Components/Web/src/Web).
+* [Documentos web de MDN: GlobalEventHandlers](https://developer.mozilla.org/docs/Web/API/GlobalEventHandlers) &ndash; incluye información sobre qué elementos HTML admite cada evento de Dom.
 
 ### <a name="lambda-expressions"></a>Expresiones lambda
 
@@ -641,7 +781,7 @@ En el `ChildComponent` de la aplicación de ejemplo (*Components/ChildComponent.
 
 [!code-razor[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
-El `ParentComponent` establece el `EventCallback<T>` (`OnClick`) del elemento secundario en su método `ShowMessage`.
+El `ParentComponent` establece el `EventCallback<T>` (`OnClickCallback`) del elemento secundario en su método `ShowMessage`.
 
 *Pages/ParentComponent. Razor*:
 
@@ -651,7 +791,7 @@ El `ParentComponent` establece el `EventCallback<T>` (`OnClick`) del elemento se
 <h1>Parent-child example</h1>
 
 <ChildComponent Title="Panel Title from Parent"
-                OnClick="@ShowMessage">
+                OnClickCallback="@ShowMessage">
     Content of the child component is supplied
     by the parent component.
 </ChildComponent>
@@ -677,7 +817,7 @@ Cuando el botón está seleccionado en el `ChildComponent`:
 
 ```razor
 <ChildComponent 
-    OnClick="@(async () => { await Task.Yield(); _messageText = "Blaze It!"; })" />
+    OnClickCallback="@(async () => { await Task.Yield(); _messageText = "Blaze It!"; })" />
 ```
 
 Invocar un `EventCallback` o `EventCallback<T>` con `InvokeAsync` y esperar el <xref:System.Threading.Tasks.Task>:
@@ -756,126 +896,6 @@ En el ejemplo siguiente, al activar la casilla se impide que los eventos de clic
 }
 ```
 
-## <a name="chained-bind"></a>Enlace encadenado
-
-Un escenario común es encadenar un parámetro enlazado a datos a un elemento Page en la salida del componente. Este escenario se denomina *enlace encadenado* porque se producen varios niveles de enlace simultáneamente.
-
-No se puede implementar un enlace encadenado con `@bind` sintaxis en el elemento de la página. El controlador de eventos y el valor se deben especificar por separado. Sin embargo, un componente primario puede usar la sintaxis de `@bind` con el parámetro del componente.
-
-El siguiente componente de `PasswordField` (*PasswordField. Razor*):
-
-* Establece el valor de un elemento de `<input>` en una propiedad `Password`.
-* Expone los cambios de la propiedad `Password` a un componente primario con un [EventCallback](#eventcallback).
-
-```razor
-Password: 
-
-<input @oninput="OnPasswordChanged" 
-       required 
-       type="@(_showPassword ? "text" : "password")" 
-       value="@Password" />
-
-<button class="btn btn-primary" @onclick="ToggleShowPassword">
-    Show password
-</button>
-
-@code {
-    private bool _showPassword;
-
-    [Parameter]
-    public string Password { get; set; }
-
-    [Parameter]
-    public EventCallback<string> PasswordChanged { get; set; }
-
-    private Task OnPasswordChanged(ChangeEventArgs e)
-    {
-        Password = e.Value.ToString();
-
-        return PasswordChanged.InvokeAsync(Password);
-    }
-
-    private void ToggleShowPassword()
-    {
-        _showPassword = !_showPassword;
-    }
-}
-```
-
-El componente de `PasswordField` se usa en otro componente:
-
-```razor
-<PasswordField @bind-Password="_password" />
-
-@code {
-    private string _password;
-}
-```
-
-Para realizar comprobaciones o errores de captura en la contraseña en el ejemplo anterior:
-
-* Cree un campo de respaldo para `Password` (`_password` en el siguiente código de ejemplo).
-* Realice las comprobaciones o errores de captura en el establecedor de `Password`.
-
-En el ejemplo siguiente se proporcionan comentarios inmediatos al usuario si se usa un espacio en el valor de la contraseña:
-
-```razor
-Password: 
-
-<input @oninput="OnPasswordChanged" 
-       required 
-       type="@(_showPassword ? "text" : "password")" 
-       value="@Password" />
-
-<button class="btn btn-primary" @onclick="ToggleShowPassword">
-    Show password
-</button>
-
-<span class="text-danger">@_validationMessage</span>
-
-@code {
-    private bool _showPassword;
-    private string _password;
-    private string _validationMessage;
-
-    [Parameter]
-    public string Password
-    {
-        get { return _password ?? string.Empty; }
-        set
-        {
-            if (_password != value)
-            {
-                if (value.Contains(' '))
-                {
-                    _validationMessage = "Spaces not allowed!";
-                }
-                else
-                {
-                    _password = value;
-                    _validationMessage = string.Empty;
-                }
-            }
-        }
-    }
-
-    [Parameter]
-    public EventCallback<string> PasswordChanged { get; set; }
-
-    private Task OnPasswordChanged(ChangeEventArgs e)
-    {
-        Password = e.Value.ToString();
-
-        return PasswordChanged.InvokeAsync(Password);
-    }
-
-    private void ToggleShowPassword()
-    {
-        _showPassword = !_showPassword;
-    }
-}
-```
-
 ## <a name="capture-references-to-components"></a>Capturar referencias a componentes
 
 Las referencias de componente proporcionan una manera de hacer referencia a una instancia de componente para que pueda emitir comandos a esa instancia, como `Show` o `Reset`. Para capturar una referencia de componente:
@@ -928,7 +948,21 @@ public class NotifierService
 }
 ```
 
-Uso de la `NotifierService` para actualizar un componente:
+Registre el `NotifierService` como singletion:
+
+* En el webassembler de extraordinarias, registre el servicio en `Program.Main`:
+
+  ```csharp
+  builder.Services.AddSingleton<NotifierService>();
+  ```
+
+* En el servidor más brillante, registre el servicio en `Startup.ConfigureServices`:
+
+  ```csharp
+  services.AddSingleton<NotifierService>();
+  ```
+
+Use el `NotifierService` para actualizar un componente:
 
 ```razor
 @page "/"
@@ -1166,7 +1200,7 @@ La directiva [`@inherits`](xref:mvc/views/razor#inherits) se puede utilizar para
 <h1>@BlazorRocksText</h1>
 ```
 
-*BlazorRocksBase.cs*:
+*BlazorRocksBase.CS*:
 
 ```csharp
 using Microsoft.AspNetCore.Components;
@@ -1254,7 +1288,7 @@ Si `IsCompleted` se `false`, la casilla se representa como:
 <input type="checkbox" />
 ```
 
-Para obtener más información, vea <xref:mvc/views/razor>.
+Para más información, consulte <xref:mvc/views/razor>.
 
 > [!WARNING]
 > Algunos atributos HTML, como [Aria-pressed](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons), no funcionan correctamente cuando el tipo .net es un `bool`. En esos casos, use un tipo de `string` en lugar de un `bool`.
@@ -1373,7 +1407,7 @@ En algunos escenarios, no es conveniente fluir los datos de un componente antece
 
 En el ejemplo siguiente de la aplicación de ejemplo, la clase `ThemeInfo` especifica la información del tema que va a fluir hacia abajo en la jerarquía de componentes para que todos los botones de una parte determinada de la aplicación compartan el mismo estilo.
 
-*UIThemeClasses/ThemeInfo.cs*:
+*UIThemeClasses/ThemeInfo. CS*:
 
 ```csharp
 public class ThemeInfo
@@ -1654,16 +1688,16 @@ builder.AddContent(1, "Second");
 
 Cuando el código se ejecuta por primera vez, si se `true``someFlag`, el generador recibe:
 
-| Secuencia | Tipo de      | Datos   |
+| Secuencia | Tipo      | data   |
 | :------: | --------- | :----: |
-| 0        | Nodo de texto | First  |
-| 1        | Nodo de texto | Second |
+| 0        | Nodo de texto | Primero  |
+| 1        | Nodo de texto | Segundo |
 
 Imagine que `someFlag` se `false`y que el marcado se representará de nuevo. Esta vez, el generador recibe:
 
-| Secuencia | Tipo de       | Datos   |
+| Secuencia | Tipo       | data   |
 | :------: | ---------- | :----: |
-| 1        | Nodo de texto  | Second |
+| 1        | Nodo de texto  | Segundo |
 
 Cuando el tiempo de ejecución realiza una comparación, ve que se quitó el elemento en la secuencia `0`, por lo que genera el siguiente *script de edición*trivial:
 
@@ -1686,16 +1720,16 @@ builder.AddContent(seq++, "Second");
 
 Ahora, el primer resultado es:
 
-| Secuencia | Tipo de      | Datos   |
+| Secuencia | Tipo      | data   |
 | :------: | --------- | :----: |
-| 0        | Nodo de texto | First  |
-| 1        | Nodo de texto | Second |
+| 0        | Nodo de texto | Primero  |
+| 1        | Nodo de texto | Segundo |
 
 Este resultado es idéntico al caso anterior, por lo que no existe ningún problema negativo. `someFlag` se `false` en la segunda representación y el resultado es:
 
-| Secuencia | Tipo de      | Datos   |
+| Secuencia | Tipo      | data   |
 | :------: | --------- | ------ |
-| 0        | Nodo de texto | Second |
+| 0        | Nodo de texto | Segundo |
 
 Esta vez, el algoritmo de comparación ve que se han producido *dos* cambios y el algoritmo genera el siguiente script de edición:
 
@@ -1723,7 +1757,7 @@ La referencia cultural se puede establecer utilizando uno de los métodos siguie
 * [Cookies](#cookies)
 * [Proporcionar la interfaz de usuario para elegir la referencia cultural](#provide-ui-to-choose-the-culture)
 
-Para obtener más información y ejemplos, vea <xref:fundamentals/localization>.
+Para más información y ejemplos, consulte <xref:fundamentals/localization>.
 
 ### <a name="configure-the-linker-for-internationalization-opno-locblazor-webassembly"></a>Configurar el enlazador para la internacionalización (Blazor webassembly)
 
@@ -1791,7 +1825,7 @@ public class CultureController : Controller
 ```
 
 > [!WARNING]
-> Use el resultado de la acción `LocalRedirect` para evitar ataques de redireccionamiento abierto. Para obtener más información, vea <xref:security/preventing-open-redirects>.
+> Use el resultado de la acción `LocalRedirect` para evitar ataques de redireccionamiento abierto. Para más información, consulte <xref:security/preventing-open-redirects>.
 
 El siguiente componente muestra un ejemplo de cómo realizar la redirección inicial cuando el usuario selecciona una referencia cultural:
 
@@ -1834,7 +1868,7 @@ Actualmente se admite un conjunto limitado de escenarios de localización de ASP
 * `IStringLocalizer<>` *se admite* en las aplicaciones de Blazor.
 * la localización de `IHtmlLocalizer<>`, `IViewLocalizer<>`y las anotaciones de datos es ASP.NET Core escenarios MVC y **no se admiten** en Blazor aplicaciones.
 
-Para obtener más información, vea <xref:fundamentals/localization>.
+Para más información, consulte <xref:fundamentals/localization>.
 
 ## <a name="scalable-vector-graphics-svg-images"></a>Imágenes de gráficos vectoriales escalables (SVG)
 
