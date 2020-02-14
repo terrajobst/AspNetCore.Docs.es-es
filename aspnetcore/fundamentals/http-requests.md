@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la interfaz IHttpClientFactor
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/16/2019
+ms.date: 02/09/2020
 uid: fundamentals/http-requests
-ms.openlocfilehash: 9b9da82191a587be0603ee114562e9a964f05250
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: 93b75525e8a3f10c4e0b655baaff83c0f6e8131b
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76870403"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171804"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Realización de solicitudes HTTP mediante IHttpClientFactory en ASP.NET Core
 
@@ -109,7 +109,12 @@ En el código siguiente se llama a <xref:Microsoft.Extensions.DependencyInjectio
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/Startup.cs?name=snippet3)]
 
-El cliente con tipo se registra como transitorio con inserción con dependencias, y se puede insertar y consumir directamente:
+El cliente con tipo se registra como transitorio con inserción con dependencias, En el código anterior, `AddHttpClient` registra `GitHubService` como servicio transitorio. Este registro usa un Factory Method para:
+
+1. Crea una instancia de `HttpClient`.
+1. Cree una instancia de `GitHubService`, pasando la instancia de `HttpClient` a su constructor.
+
+y se puede insertar y consumir directamente:
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/Pages/TypedClient.cshtml.cs?name=snippet1&highlight=11-14,20)]
 
@@ -364,7 +369,7 @@ La propagación de encabezados es un middleware ASP.NET Core que se usa para pro
 
 * El cliente incluye los encabezados configurados en las solicitudes salientes:
 
-  ```C#
+  ```csharp
   var client = clientFactory.CreateClient("MyForwardingClient");
   var response = client.GetAsync(...);
   ```
@@ -991,7 +996,7 @@ La propagación de encabezado es un middleware compatible con la comunidad que s
 
 * El cliente incluye los encabezados configurados en las solicitudes salientes:
 
-  ```C#
+  ```csharp
   var client = clientFactory.CreateClient("MyForwardingClient");
   var response = client.GetAsync(...);
   ```

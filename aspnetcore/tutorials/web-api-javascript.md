@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/26/2019
 uid: tutorials/web-api-javascript
-ms.openlocfilehash: 5a31aa2974eb41938db89f97c070c352a26290fd
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 2a19a7d16ca8b8f5d6ac8eb99ad919b89f1e368b
+ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681180"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114658"
 ---
 # <a name="tutorial-call-an-aspnet-core-web-api-with-javascript"></a>Tutorial: Llamada a una API web de ASP.NET Core con JavaScript
 
@@ -36,7 +36,7 @@ Para ASP.NET Core 2.2, consulte la versión 2.2 de [Llamada a la API web con Jav
 
 En esta sección, agregará una página HTML que contiene formularios para crear y administrar las tareas pendientes. Los controladores de eventos se asocian a los elementos de la página. Los controladores de eventos producen solicitudes HTTP a los métodos de acción de la API web. La función `fetch` de la API Fetch inicia cada solicitud HTTP.
 
-La función `fetch` devuelve un objeto `Promise`, que contiene una respuesta HTTP representada como un objeto `Response`. Un patrón común es extraer el cuerpo de la respuesta JSON invocando la función `json` en el `Response` objeto. JavaScript actualiza la página con los detalles de la respuesta de la API web.
+La función `fetch` devuelve un objeto [Promise`Response`, que contiene una respuesta HTTP representada como objeto ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise). Un patrón común es extraer el cuerpo de la respuesta JSON invocando la función `json` en el `Response` objeto. JavaScript actualiza la página con los detalles de la respuesta de la API web.
 
 La llamada `fetch` más simple acepta un único parámetro que representa la ruta. Un segundo parámetro, conocido como el objeto `init`, es opcional. `init` se utiliza para configurar la solicitud HTTP.
 
