@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Obtenga información sobre cómo crear métodos de filtrado de páginas de Razor en ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 12/28/2019
+ms.date: 2/18/2020
 uid: razor-pages/filter
-ms.openlocfilehash: 02771219454556b236080c2668243f788693b2c1
-ms.sourcegitcommit: 077b45eceae044475f04c1d7ef2d153d7c0515a8
+ms.openlocfilehash: a60b17685c6f836de7c0afcc5b89a9894fb8b28f
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2019
-ms.locfileid: "75542720"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447236"
 ---
 # <a name="filter-methods-for-razor-pages-in-aspnet-core"></a>Métodos de filtrado de páginas de Razor en ASP.NET Core
 
@@ -30,7 +30,7 @@ Los filtros de páginas de Razor:
 * No se pueden usar con métodos de controlador de páginas específicas.
 * Puede tener dependencias de constructor rellenadas por la [inserción de dependencias](xref:fundamentals/dependency-injection) (di). Para obtener más información, vea [ServiceFilterAttribute](/aspnet/core/mvc/controllers/filters#servicefilterattribute) y [TypeFilterAttribute](/aspnet/core/mvc/controllers/filters#typefilterattribute).
 
-El código se puede ejecutar antes de que se ejecute un método de controlador mediante el constructor de páginas o middleware, pero solo los filtros de página de Razor tienen acceso a <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.HttpContext>. Los filtros tienen un <xref:Microsoft.AspNetCore.Mvc.Filters.FilterContext> parámetro derivado, que proporciona acceso a `HttpContext`. Por ejemplo, en el ejemplo [Implementar un atributo de filtro](#ifa) se agrega un encabezado a la respuesta, cosa que no es posible con constructores o con middleware.
+Mientras que los constructores de páginas y el middleware permiten la ejecución de código personalizado antes de que se ejecute un método de controlador, solo los filtros de página de Razor permiten el acceso a <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.HttpContext> y la página. El middleware tiene acceso al `HttpContext`, pero no al "contexto de la página". Los filtros tienen un <xref:Microsoft.AspNetCore.Mvc.Filters.FilterContext> parámetro derivado, que proporciona acceso a `HttpContext`. Por ejemplo, en el ejemplo [Implementar un atributo de filtro](#ifa) se agrega un encabezado a la respuesta, cosa que no es posible con constructores o con middleware.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/filter/3.1sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
@@ -91,7 +91,7 @@ El siguiente código se aplica al atributo `AddHeader`:
 
 [!code-csharp[Main](filter/3.1sample/PageFilter/Pages/Movies/Test.cshtml.cs)]
 
-Use una herramienta como las herramientas de desarrollo del explorador para examinar los encabezados. En **encabezados de respuesta**, se muestra `author: Rick`.
+Use una herramienta como las herramientas de desarrollo del explorador para examinar los encabezados. En **Encabezados de respuesta**, se muestra `author: Rick`.
 
 Vea [Invalidación del orden predeterminado](xref:mvc/controllers/filters#overriding-the-default-order) para obtener instrucciones sobre cómo invalidar el orden.
 

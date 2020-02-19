@@ -5,17 +5,17 @@ description: Aprenda a crear componentes de diseño reutilizables para aplicacio
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 02/12/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/layouts
-ms.openlocfilehash: 8e7294f6b66d34781473522a71f929ed5f9c33f2
-ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
+ms.openlocfilehash: 5b6e1c7ceb4a6e41230e31bbe379bde1bb0a8286
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77213381"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447144"
 ---
 # <a name="aspnet-core-opno-locblazor-layouts"></a>ASP.NET Core diseños de Blazor
 
@@ -23,7 +23,7 @@ Por [Rainer Stropek](https://www.timecockpit.com) y [Luke Latham](https://github
 
 Algunos elementos de la aplicación, como los menús, los mensajes de copyright y los logotipos de la empresa, normalmente forman parte del diseño general de la aplicación y se usan en todos los componentes de la aplicación. Copiar el código de estos elementos en todos los componentes de una aplicación no es un enfoque eficaz&mdash;cada vez que uno de los elementos requiere una actualización, todos los componentes deben actualizarse. Esta duplicación es difícil de mantener y puede dar lugar a contenido incoherente a lo largo del tiempo. Los *diseños* solucionan este problema.
 
-Técnicamente, un diseño es simplemente otro componente. Un diseño se define en una plantilla de Razor o C# en el código y puede usar el [enlace de datos](xref:blazor/components#data-binding), la [inserción de dependencias](xref:blazor/dependency-injection)y otros escenarios de componentes.
+Técnicamente, un diseño es simplemente otro componente. Un diseño se define en una plantilla de Razor o C# en el código y puede usar el [enlace de datos](xref:blazor/data-binding), la [inserción de dependencias](xref:blazor/dependency-injection)y otros escenarios de componentes.
 
 Para convertir un *componente* en un *diseño*, el componente:
 
@@ -94,7 +94,7 @@ Por último, `MasterLayout` en *MasterLayout. Razor* contiene los elementos de d
 
 ## <a name="share-a-razor-pages-layout-with-integrated-components"></a>Compartir un diseño de Razor Pages con componentes integrados
 
-Cuando los componentes enrutables se integran en una aplicación Razor Pages, el diseño compartido de la aplicación se puede usar con los componentes. Para más información, consulte <xref:blazor/hosting-model-configuration#integrate-razor-components-into-razor-pages-and-mvc-apps>.
+Cuando los componentes enrutables se integran en una aplicación Razor Pages, el diseño compartido de la aplicación se puede usar con los componentes. Para más información, consulte <xref:blazor/integrate-components>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

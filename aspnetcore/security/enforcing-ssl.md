@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: 9efd49bb246a10c4eb49fb1bb0374ae9442d55a1
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 43f3abfa4bc311ed246f6f2585d522661e492039
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172629"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447157"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Aplicación de HTTPS en ASP.NET Core
 
@@ -259,7 +259,7 @@ ASP.NET Core 2,1 y versiones posteriores implementan HSTS con el método de exte
 
 `UseHsts` no se recomienda en el desarrollo porque los exploradores pueden almacenar en memoria caché los valores de HSTS. De forma predeterminada, `UseHsts` excluye la dirección de bucle invertido local.
 
-En el caso de los entornos de producción que implementan HTTPS por primera vez, establezca [HstsOptions. MaxAge](xref:Microsoft.AspNetCore.HttpsPolicy.HstsOptions.MaxAge*) inicial en un valor pequeño utilizando uno de los métodos de <xref:System.TimeSpan>. Establezca el valor de horas en no más de un día único en caso de que necesite revertir la infraestructura HTTPS a HTTP. Después de estar seguro de la sostenibilidad de la configuración de HTTPS, aumente el valor de HSTS Max-Age. un valor utilizado comúnmente es un año.
+En el caso de los entornos de producción que implementan HTTPS por primera vez, establezca [HstsOptions. MaxAge](xref:Microsoft.AspNetCore.HttpsPolicy.HstsOptions.MaxAge*) inicial en un valor pequeño utilizando uno de los métodos de <xref:System.TimeSpan>. Establezca el valor de horas en no más de un día único en caso de que necesite revertir la infraestructura HTTPS a HTTP. Después de estar seguro de la sostenibilidad de la configuración de HTTPS, aumente el valor de HSTS `max-age`; un valor utilizado comúnmente es un año.
 
 En el código siguiente:
 
@@ -277,9 +277,9 @@ En el código siguiente:
 ::: moniker-end
 
 
-* Establece el parámetro preload del encabezado STRICT-Transport-Security. La precarga no forma parte de la [especificación RFC HSTS](https://tools.ietf.org/html/rfc6797), pero es compatible con los exploradores Web para precargar sitios de HSTS en la instalación nueva. Consulte [https://hstspreload.org/](https://hstspreload.org/) para obtener más información.
+* Establece el parámetro preload del encabezado `Strict-Transport-Security`. La precarga no forma parte de la [especificación RFC HSTS](https://tools.ietf.org/html/rfc6797), pero es compatible con los exploradores Web para precargar sitios de HSTS en la instalación nueva. Para más información, vea [https://hstspreload.org/](https://hstspreload.org/).
 * Habilita [includeSubDomain](https://tools.ietf.org/html/rfc6797#section-6.1.2), que aplica la Directiva HSTS para hospedar subdominios.
-* Establece explícitamente el parámetro Max-Age del encabezado STRICT-Transport-Security en 60 días. Si no se establece, el valor predeterminado es 30 días. Para obtener más información, vea la [Directiva Max-Age](https://tools.ietf.org/html/rfc6797#section-6.1.1) .
+* Establece explícitamente el parámetro `max-age` del encabezado `Strict-Transport-Security` en 60 días. Si no se establece, el valor predeterminado es 30 días. Para obtener más información, vea la [Directiva Max-Age](https://tools.ietf.org/html/rfc6797#section-6.1.1).
 * Agrega `example.com` a la lista de hosts que se van a excluir.
 
 `UseHsts` excluye los siguientes hosts de bucle invertido:
@@ -294,7 +294,7 @@ En algunos escenarios de servicio de back-end en los que la seguridad de la cone
 
 Para no participar en HTTPS/HSTS:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
 Desactive la casilla **configurar para https** .
 
@@ -311,7 +311,7 @@ Desactive la casilla **configurar para https** .
 ::: moniker-end
 
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli) 
+# <a name="net-core-cli"></a>[CLI de .NET Core](#tab/netcore-cli) 
 
 Use la opción `--no-https`. Por ejemplo
 
@@ -325,7 +325,7 @@ dotnet new webapp --no-https
 
 ## <a name="trust-the-aspnet-core-https-development-certificate-on-windows-and-macos"></a>Confíe en el certificado de desarrollo de ASP.NET Core HTTPS en Windows y macOS
 
-El SDK de .NET Core incluye un certificado de desarrollo de HTTPS. El certificado se instala como parte de la experiencia de primera ejecución. Por ejemplo, `dotnet --info` produce una salida similar a la siguiente:
+El SDK de .NET Core incluye un certificado de desarrollo de HTTPS. El certificado se instala como parte de la experiencia de primera ejecución. Por ejemplo, `dotnet --info` produce una variación de la siguiente salida:
 
 ```
 ASP.NET Core
@@ -404,7 +404,7 @@ Cierre todas las instancias del explorador abiertas. Abra una nueva ventana del 
 * Abra el acceso a llaves.
 * Seleccione la cadena de claves del sistema.
 * Compruebe la presencia de un certificado localhost.
-* Compruebe que contiene un símbolo de `+` en el icono para indicar su confianza para todos los usuarios.
+* Compruebe que contiene un símbolo de `+` en el icono para indicar que es de confianza para todos los usuarios.
 * Quite el certificado de la cadena de claves del sistema.
 * Ejecute los comandos siguientes:
 
