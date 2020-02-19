@@ -5,17 +5,17 @@ description: Obtenga información sobre los escenarios de autenticación y autor
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/02/2020
+ms.date: 02/13/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/index
-ms.openlocfilehash: c7b3788b5737073100e7fa449fd6bb4a83c0043a
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: c07ffdbd5df58d6b3d19a5d75ce224d830101eac
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114892"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447430"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>Autenticación y autorización de ASP.NET Core Blazor
 
@@ -42,7 +42,7 @@ Las aplicaciones de servidor Blazor funcionan mediante una conexión en tiempo r
 
 La plantilla de proyecto de servidor Blazor puede configurar la autenticación cuando se crea el proyecto.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Siga las instrucciones de Visual Studio que se indican en el artículo <xref:blazor/get-started> para crear un proyecto de servidor Blazor con un mecanismo de autenticación.
 
@@ -57,7 +57,7 @@ Se abre un cuadro de diálogo para ofrecer el mismo conjunto de mecanismos de au
 * **Cuentas profesionales o educativas**
 * **Autenticación de Windows**
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Siga las instrucciones de Visual Studio Code que se indican en el artículo <xref:blazor/get-started> para crear un proyecto de servidor Blazor con un mecanismo de autenticación:
 
@@ -139,7 +139,7 @@ El servicio `AuthenticationStateProvider` puede proporcionar los datos <xref:Sys
 @using Microsoft.AspNetCore.Components.Authorization
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
-<button @onclick="@LogUsername">Write user info to console</button>
+<button @onclick="LogUsername">Write user info to console</button>
 
 @code {
     private async Task LogUsername()
@@ -222,7 +222,7 @@ Si se requieren los datos de estado de autenticación para la lógica de procedi
 ```razor
 @page "/"
 
-<button @onclick="@LogUsername">Log username</button>
+<button @onclick="LogUsername">Log username</button>
 
 @code {
     [CascadingParameter]
@@ -253,6 +253,8 @@ Si `user.Identity.IsAuthenticated` es `true`, se pueden enumerar las notificacio
 Configure el parámetro en cascada `Task<AuthenticationState>` mediante los componentes `AuthorizeRouteView` y `CascadingAuthenticationState` en el archivo *App.razor*:
 
 ```razor
+@using Microsoft.AspNetCore.Components.Authorization
+
 <Router AppAssembly="@typeof(Program).Assembly">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
@@ -265,6 +267,13 @@ Configure el parámetro en cascada `Task<AuthenticationState>` mediante los comp
         </CascadingAuthenticationState>
     </NotFound>
 </Router>
+```
+
+Agregue servicios relativos a las opciones y la autorización para `Program.Main`:
+
+```csharp
+builder.Services.AddOptions();
+builder.Services.AddAuthorizationCore();
 ```
 
 ## <a name="authorization"></a>Autorización
