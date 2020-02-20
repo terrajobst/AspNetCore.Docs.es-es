@@ -5,12 +5,12 @@ description: En este tutorial, empezará a usar la característica de EF Core de
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 4246d9d8f6e6ba9e9d735b944ed748720bcf3e16
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: f8e78cf7230528a4047eac1d52a12e2ed8392dec
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928377"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213448"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Migraciones (4 de 8)
 
@@ -32,7 +32,7 @@ En lugar de quitar y volver a crear la base de datos cuando cambian los datos de
 
 ## <a name="drop-the-database"></a>Eliminación de la base de datos
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Use **Explorador de objetos de SQL Server** (SSOX) para eliminar la base de datos, o bien ejecute el comando siguiente en la **Consola del administrador de paquetes** (PMC):
 
@@ -40,7 +40,7 @@ Use **Explorador de objetos de SQL Server** (SSOX) para eliminar la base de dato
 Drop-Database
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Ejecute el comando siguiente en un símbolo del sistema para instalar la CLI de EF:
 
@@ -60,7 +60,7 @@ Drop-Database
 
 ## <a name="create-an-initial-migration"></a>Crear una migración inicial
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Ejecute los comandos siguientes en la Consola del administrador de paquetes:
 
@@ -69,7 +69,7 @@ Add-Migration InitialCreate
 Update-Database
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Asegúrese de que el símbolo del sistema está en la carpeta del proyecto y ejecute los comandos siguientes:
 
@@ -176,17 +176,17 @@ En lugar de quitar y volver a crear la base de datos cuando los datos del modelo
 
 Use el **Explorador de objetos de SQL Server** (SSOX) o el comando `database drop`:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 En la **Consola del Administrador de paquetes** (PMC), ejecute el comando siguiente:
 
-```PMC
+```powershell
 Drop-Database
 ```
 
 Ejecute `Get-Help about_EntityFrameworkCore` desde PMC para obtener información de ayuda.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Abra una ventana de comandos y desplácese hasta la carpeta del proyecto. La carpeta del proyecto contiene el archivo *Startup.cs*.
 
@@ -202,14 +202,14 @@ Escriba lo siguiente en la ventana de comandos:
 
 Compile el proyecto y cree la primera migración.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-```PMC
+```powershell
 Add-Migration InitialCreate
 Update-Database
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```dotnetcli
 dotnet ef migrations add InitialCreate
@@ -243,11 +243,11 @@ Las migraciones crean una *instantánea* del esquema de la base de datos actual 
 
 Para eliminar una migración, use el comando siguiente:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Remove-Migration
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```dotnetcli
 dotnet ef migrations remove

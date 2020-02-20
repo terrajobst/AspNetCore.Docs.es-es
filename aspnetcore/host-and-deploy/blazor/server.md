@@ -5,17 +5,17 @@ description: Aprenda a hospedar e implementar una aplicación Blazor Server con 
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/17/2020
+ms.date: 02/12/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: e8b3a7faaf1dc88059a79abbc7e74657ebb2068c
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: a051d51e734fec4315da73d3c4df57706df7f363
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76726732"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465828"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Hospedaje e implementación de Blazor Server
 
@@ -59,7 +59,7 @@ Blazor funciona mejor cuando se usa WebSockets como transporte de SignalR debido
 
 Se recomienda usar [Azure SignalR Service](/azure/azure-signalr) para las aplicaciones Blazor Server. El servicio permite el escalado vertical de una aplicación Blazor Server a un gran número de conexiones SignalR simultáneas. Además, los centros de datos de alto rendimiento y alcance global del servicio SignalR son de gran ayuda a la hora de reducir la latencia ocasionada por la geografía. Para configurar una aplicación (y, opcionalmente, aprovisionarla) Azure SignalR Service, realice estos pasos:
 
-1. Habilite el servicio para que admita las *sesiones permanentes*, en las que se [devuelve a los clientes al mismo servidor durante la representación previa](xref:blazor/hosting-models#reconnection-to-the-same-server). Establezca la opción `ServerStickyMode` o el valor de configuración en `Required`. Normalmente, una aplicación crea la configuración mediante **uno** de los enfoques siguientes:
+1. Habilite el servicio para que admita las *sesiones permanentes*, en las que se [devuelve a los clientes al mismo servidor durante la representación previa](xref:blazor/hosting-models#connection-to-the-server). Establezca la opción `ServerStickyMode` o el valor de configuración en `Required`. Normalmente, una aplicación crea la configuración mediante **uno** de los enfoques siguientes:
 
    * `Startup.ConfigureServices`:
   

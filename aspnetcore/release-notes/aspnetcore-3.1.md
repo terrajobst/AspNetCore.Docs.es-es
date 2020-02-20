@@ -4,17 +4,17 @@ author: rick-anderson
 description: Obtenga información sobre las nuevas características de ASP.NET Core 3.1.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 02/12/2020
 no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.1
-ms.openlocfilehash: 06c1d2596bff34bbfe3b55e782ea2d24321dd839
-ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
+ms.openlocfilehash: f375022ad3ebdea2990f626320ef295926f88c22
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75722757"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447443"
 ---
 # <a name="whats-new-in-aspnet-core-31"></a>Novedades de ASP.NET Core 3.1
 
@@ -43,7 +43,7 @@ Por ejemplo, se puede realizar la representación previa de un componente `Count
     param-IncrementAmount="10" />
 ```
 
-Para más información, vea [Integración de componentes en aplicaciones de Razor Pages y MVC](xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps).
+Para más información, vea [Integración de componentes en aplicaciones de Razor Pages y MVC](xref:blazor/integrate-components).
 
 ## <a name="support-for-shared-queues-in-httpsys"></a>Compatibilidad con las colas compartidas en HTTP.sys
 
@@ -63,7 +63,7 @@ Use el atributo de directiva `@on{EVENT}:preventDefault` para evitar la acción 
 <input value="@_count" @onkeypress="KeyHandler" @onkeypress:preventDefault />
 ```
 
-Para más información, vea [Impedir acciones predeterminadas](xref:blazor/components#prevent-default-actions).
+Para más información, vea [Impedir acciones predeterminadas](xref:blazor/event-handling#prevent-default-actions).
 
 ## <a name="stop-event-propagation-in-opno-locblazor-apps"></a>Detener la propagación de eventos en aplicaciones Blazor
 
@@ -83,7 +83,7 @@ Use el atributo de directiva `@on{EVENT}:stopPropagation` para detener la propag
 }
 ```
 
-Para más información, vea [Detener la propagación de eventos](xref:blazor/components#stop-event-propagation).
+Para más información, vea [Detener la propagación de eventos](xref:blazor/event-handling#stop-event-propagation).
 
 ## <a name="detailed-errors-during-opno-locblazor-app-development"></a>Errores detallados durante el desarrollo de aplicaciones Blazor
 
