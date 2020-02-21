@@ -5,14 +5,14 @@ description: Descubra cómo usar el patrón de opciones para representar grupos 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 02/12/2020
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 98fe30fbc424dd51ce8f8319b7ce959fd755c480
-ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
+ms.openlocfilehash: 1f3625380d816c7d4df5a7a24b0ac146500330de
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75722744"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447210"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Patrón de opciones en ASP.NET Core
 
@@ -326,10 +326,10 @@ catch (OptionsValidationException e)
 
 El ejemplo anterior establece la instancia de opciones con nombre en `optionalOptionsName`. La instancia predeterminada es `Options.DefaultName`.
 
-La validación se ejecuta cuando se crea la instancia de opciones. La instancia de opciones pasa seguro la validación la primera vez que se accede.
+La validación se ejecuta cuando se crea la instancia de opciones. Una instancia de opciones pasa seguro la validación la primera vez que se accede.
 
 > [!IMPORTANT]
-> La validación de opciones no protege contra las modificaciones de opciones después de configurarse y validarse inicialmente.
+> La validación de opciones no protege contra las modificaciones de opciones después de crearse la instancia de opciones. Por ejemplo, las opciones `IOptionsSnapshot` se crean y validan una vez por solicitud al obtenerse acceso a estas por primera vez. Las opciones `IOptionsSnapshot` no se validarán de nuevo en intentos de acceso posteriores *para la misma solicitud*.
 
 El método `Validate` acepta una expresión `Func<TOptions, bool>`. Para personalizar completamente la validación, implemente `IValidateOptions<TOptions>`, que permite:
 
@@ -750,10 +750,10 @@ catch (OptionsValidationException e)
 
 El ejemplo anterior establece la instancia de opciones con nombre en `optionalOptionsName`. La instancia predeterminada es `Options.DefaultName`.
 
-La validación se ejecuta cuando se crea la instancia de opciones. La instancia de opciones pasa seguro la validación la primera vez que se accede.
+La validación se ejecuta cuando se crea la instancia de opciones. Una instancia de opciones pasa seguro la validación la primera vez que se accede.
 
 > [!IMPORTANT]
-> La validación de opciones no protege contra las modificaciones de opciones después de configurarse y validarse inicialmente.
+> La validación de opciones no protege contra las modificaciones de opciones después de crearse la instancia de opciones. Por ejemplo, las opciones `IOptionsSnapshot` se crean y validan una vez por solicitud al obtenerse acceso a estas por primera vez. Las opciones `IOptionsSnapshot` no se validarán de nuevo en intentos de acceso posteriores *para la misma solicitud*.
 
 El método `Validate` acepta una expresión `Func<TOptions, bool>`. Para personalizar completamente la validación, implemente `IValidateOptions<TOptions>`, que permite:
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 1244b2e23a842538ff2fca01a513317a690afe7c
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 411c0874d2b2c6ecadd1da9aff7a093f1e8e525a
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034032"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213433"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Modelo de datos (5 de 8)
 
@@ -99,7 +99,7 @@ El atributo `StringLength` no impide que un usuario escriba un espacio en blanco
 [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
 ```
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 En el **Explorador de objetos de SQL Server**, (SSOX) abra el diseñador de tablas de Student haciendo doble clic en la tabla **Student**.
 
@@ -107,7 +107,7 @@ En el **Explorador de objetos de SQL Server**, (SSOX) abra el diseñador de tabl
 
 La imagen anterior muestra el esquema para la tabla `Student`. Los campos de nombre tienen el tipo `nvarchar(MAX)`. Cuando más adelante en este tutorial se cree y se aplique una migración, los campos de nombre se convierten en `nvarchar(50)` como resultado de los atributos de longitud de cadena.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 En la herramienta SQLite, examine las definiciones de columna para la tabla `Student`. Los campos de nombre tienen el tipo `Text`. Observe que el primer campo de nombre se denomina `FirstMidName`. En la sección siguiente, cambiará el nombre de esa columna por `FirstName`.
 
@@ -157,7 +157,7 @@ El atributo `Display` especifica que el título de los cuadros de texto debe ser
 
 Ejecute la aplicación y vaya a la página Students. Se inicia una excepción. El atributo `[Column]` hace que EF espere encontrar una columna denominada `FirstName`, pero el nombre de la columna en la base de datos sigue siendo `FirstMidName`.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 El mensaje de error es similar al ejemplo siguiente:
 
@@ -187,7 +187,7 @@ SqlException: Invalid column name 'FirstName'.
 
   Antes de aplicar la migración, las columnas de nombre eran de tipo [nvarchar(MAX)](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql). Las columnas de nombre ahora son `nvarchar(50)`. El nombre de columna ha cambiado de `FirstMidName` a `FirstName`.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 El mensaje de error es similar al ejemplo siguiente:
 
@@ -301,7 +301,7 @@ Actualice *Models/Course.cs* con el siguiente código:
 
 La entidad `Course` tiene una propiedad de clave externa (FK) `DepartmentID`. `DepartmentID` apunta a la entidad relacionada `Department`. La entidad `Course` tiene una propiedad de navegación `Department`.
 
-EF Core no requiere una propiedad de clave externa para un modelo de datos cuando el modelo tiene una propiedad de navegación para una entidad relacionada. EF Core crea automáticamente claves externas en la base de datos siempre que se necesiten. EF Core crea [propiedades paralelas](/ef/core/modeling/shadow-properties) para las claves externas creadas automáticamente. Pero la inclusión explícita de la clave externa en el modelo de datos puede hacer que las actualizaciones sean más sencillas y eficaces. Por ejemplo, considere la posibilidad de un modelo donde la propiedad de la clave externa `DepartmentID` *no* está incluida. Cuando se captura una entidad de curso para editar:
+EF Core no requiere una propiedad de clave externa para un modelo de datos cuando el modelo tiene una propiedad de navegación para una entidad relacionada. EF Core crea automáticamente claves externas en la base de datos siempre que se necesiten. EF Core crea [propiedades paralelas](/ef/core/modeling/shadow-properties) para las claves externas creadas automáticamente. Pero la inclusión explícita de la clave externa en el modelo de datos puede hacer que las actualizaciones sean más sencillas y eficaces. Por ejemplo, considere la posibilidad de un modelo donde la propiedad de la clave externa `DepartmentID`*no* está incluida. Cuando se captura una entidad de curso para editar:
 
 * La propiedad `Department` es NULL si no se carga de forma explícita.
 * Para actualizar la entidad Course, la entidad `Department` debe capturarse en primer lugar.
@@ -536,7 +536,7 @@ El código anterior proporciona datos de inicialización para las nuevas entidad
 
 Compile el proyecto.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 En la Consola del administrador de paquetes, ejecute el comando siguiente.
 
@@ -561,7 +561,7 @@ database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 
 En la sección siguiente, verá qué puede hacer con respecto a este error.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Si agrega una migración y ejecuta el comando `database update`, se producirá el error siguiente:
 
@@ -591,7 +591,7 @@ Ambas opciones funcionan para SQL Server. Aunque el método de aplicación de la
 
 Para obligar a EF Core a crear una base de datos, quite y actualice la base de datos:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * En la **Consola del Administrador de paquetes** (PMC), ejecute el comando siguiente:
 
@@ -606,7 +606,7 @@ Para obligar a EF Core a crear una base de datos, quite y actualice la base de d
   Update-Database
   ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Abra una ventana de comandos y desplácese hasta la carpeta del proyecto. La carpeta del proyecto contiene el archivo *ContosoUniversity.csproj*.
 
@@ -627,7 +627,7 @@ Para obligar a EF Core a crear una base de datos, quite y actualice la base de d
 
 Ejecutar la aplicación. Ejecutar la aplicación ejecuta el método `DbInitializer.Initialize`. `DbInitializer.Initialize` rellena la base de datos nueva.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Abra la base de datos en SSOX:
 
@@ -643,7 +643,7 @@ Abra la base de datos en SSOX:
 
   ![Datos de CourseAssignment en SSOX](complex-data-model/_static/ssox-ci-data.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Use la herramienta SQLite para examinar la base de datos:
 
@@ -691,7 +691,7 @@ Para este tutorial se ha simplificado la manera de controlar la situación que s
 * Incluir código o scripts para agregar filas de `Department` y filas de `Course` relacionadas a las nuevas filas de `Department`.
 * No use el departamento "Temp" o el valor predeterminado de `Course.DepartmentID`.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * En la **Consola del Administrador de paquetes** (PMC), ejecute el comando siguiente:
 
@@ -701,7 +701,7 @@ Para este tutorial se ha simplificado la manera de controlar la situación que s
 
 Como el método `DbInitializer.Initialize` está diseñado para funcionar solo con una base de datos vacía, use SSOX para eliminar todas las filas de las tablas Student y Course. (La eliminación en cascada se encargará de la tabla Enrollment).
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Si usa SQL Server LocalDB con Visual Studio Code, ejecute el comando siguiente:
 
@@ -821,7 +821,7 @@ Con el cambio anterior, `Student.FirstMidName` en la aplicación se asigna a la 
 
 La adición del atributo `Column` cambia el modelo de respaldo de `SchoolContext`. El modelo que está haciendo la copia de seguridad de `SchoolContext` ya no coincide con la base de datos. Si la aplicación se ejecuta antes de aplicar las migraciones, se genera la siguiente excepción:
 
-```SQL
+```
 SqlException: Invalid column name 'FirstName'.
 ```
 
@@ -830,14 +830,14 @@ Para actualizar la base de datos:
 * Compile el proyecto.
 * Abra una ventana de comandos en la carpeta del proyecto. Escriba los comandos siguientes para crear una migración y actualizar la base de datos:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-```PMC
+```powershell
 Add-Migration ColumnFirstName
 Update-Database
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```dotnetcli
 dotnet ef migrations add ColumnFirstName
@@ -998,7 +998,7 @@ La entidad `Course` tiene una propiedad de clave externa (FK) `DepartmentID`. `D
 
 EF Core no requiere una propiedad de clave externa para un modelo de datos cuando el modelo tiene una propiedad de navegación para una entidad relacionada.
 
-EF Core crea automáticamente claves externas en la base de datos siempre que se necesiten. EF Core crea [propiedades paralelas](/ef/core/modeling/shadow-properties) para las claves externas creadas automáticamente. Tener la clave externa en el modelo de datos puede hacer que las actualizaciones sean más sencillas y eficaces. Por ejemplo, considere la posibilidad de un modelo donde la propiedad de la clave externa `DepartmentID` *no* está incluida. Cuando se captura una entidad de curso para editar:
+EF Core crea automáticamente claves externas en la base de datos siempre que se necesiten. EF Core crea [propiedades paralelas](/ef/core/modeling/shadow-properties) para las claves externas creadas automáticamente. Tener la clave externa en el modelo de datos puede hacer que las actualizaciones sean más sencillas y eficaces. Por ejemplo, considere la posibilidad de un modelo donde la propiedad de la clave externa `DepartmentID`*no* está incluida. Cuando se captura una entidad de curso para editar:
 
 * La entidad `Department` es NULL si no se carga explícitamente.
 * Para actualizar la entidad Course, la entidad `Department` debe capturarse en primer lugar.
@@ -1244,13 +1244,13 @@ El código anterior proporciona datos de inicialización para las nuevas entidad
 
 Compile el proyecto.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ```powershell
 Add-Migration ComplexDataModel
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```dotnetcli
 dotnet ef migrations add ComplexDataModel
@@ -1286,18 +1286,18 @@ Ahora que tiene una base de datos existente, debe pensar cómo aplicar los cambi
 
 El código en la `DbInitializer` actualizada agrega los datos de inicialización para las nuevas entidades. Para obligar a EF Core a crear una base de datos, quite y actualice la base de datos:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 En la **Consola del Administrador de paquetes** (PMC), ejecute el comando siguiente:
 
-```PMC
+```powershell
 Drop-Database
 Update-Database
 ```
 
 Ejecute `Get-Help about_EntityFrameworkCore` desde PMC para obtener información de ayuda.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Abra una ventana de comandos y desplácese hasta la carpeta del proyecto. La carpeta del proyecto contiene el archivo *Startup.cs*.
 
@@ -1358,7 +1358,7 @@ Agregue el código resaltado siguiente. El nuevo código va después del bloque 
 
 [!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
-Con los cambios anteriores, las filas `Course` existentes estarán relacionadas con el departamento "Temp" después de ejecutar el método `ComplexDataModel` de `Up`.
+Con los cambios anteriores, las filas `Course` existentes estarán relacionadas con el departamento "Temp" después de ejecutar el método `ComplexDataModel` `Up`.
 
 Una aplicación de producción debería:
 
