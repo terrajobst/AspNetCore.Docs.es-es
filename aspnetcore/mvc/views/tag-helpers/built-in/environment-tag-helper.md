@@ -6,30 +6,30 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
-ms.openlocfilehash: e2e038fe69da696b67f7aef61795e23dc8512fdf
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
-ms.translationtype: HT
+ms.openlocfilehash: 308e7db47104ebd4d6bb8d08c64f14bbd118898b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856131"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653771"
 ---
-# <a name="environment-tag-helper-in-aspnet-core"></a><span data-ttu-id="28150-103">Asistente de etiquetas de entorno en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="28150-103">Environment Tag Helper in ASP.NET Core</span></span>
+# <a name="environment-tag-helper-in-aspnet-core"></a><span data-ttu-id="870ab-103">Asistente de etiquetas de entorno en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="870ab-103">Environment Tag Helper in ASP.NET Core</span></span>
 
-<span data-ttu-id="28150-104">Por [Peter Kellner](https://peterkellner.net), [Hisham Bin Ateya](https://twitter.com/hishambinateya) y [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="28150-104">By [Peter Kellner](https://peterkellner.net), [Hisham Bin Ateya](https://twitter.com/hishambinateya), and [Luke Latham](https://github.com/guardrex)</span></span>
+<span data-ttu-id="870ab-104">Por [Peter Kellner](https://peterkellner.net) y [Hisham Bin Ateya](https://twitter.com/hishambinateya)</span><span class="sxs-lookup"><span data-stu-id="870ab-104">By [Peter Kellner](https://peterkellner.net) and [Hisham Bin Ateya](https://twitter.com/hishambinateya)</span></span>
 
-<span data-ttu-id="28150-105">El asistente de etiquetas de entorno representa condicionalmente el contenido incluido en función del entorno de [hospedaje actual](xref:fundamentals/environments).</span><span class="sxs-lookup"><span data-stu-id="28150-105">The Environment Tag Helper conditionally renders its enclosed content based on the current [hosting environment](xref:fundamentals/environments).</span></span> <span data-ttu-id="28150-106">El único atributo del asistente de etiquetas de entorno, `names`, es una lista de nombres de entorno separados por comas.</span><span class="sxs-lookup"><span data-stu-id="28150-106">The Environment Tag Helper's single attribute, `names`, is a comma-separated list of environment names.</span></span> <span data-ttu-id="28150-107">Si alguno de los nombres de entorno proporcionados coincide con el entorno actual, se representa el contenido incluido.</span><span class="sxs-lookup"><span data-stu-id="28150-107">If any of the provided environment names match the current environment, the enclosed content is rendered.</span></span>
+<span data-ttu-id="870ab-105">El asistente de etiquetas de entorno representa condicionalmente el contenido incluido en función del entorno de [hospedaje actual](xref:fundamentals/environments).</span><span class="sxs-lookup"><span data-stu-id="870ab-105">The Environment Tag Helper conditionally renders its enclosed content based on the current [hosting environment](xref:fundamentals/environments).</span></span> <span data-ttu-id="870ab-106">El único atributo del asistente de etiquetas de entorno, `names`, es una lista de nombres de entorno separados por comas.</span><span class="sxs-lookup"><span data-stu-id="870ab-106">The Environment Tag Helper's single attribute, `names`, is a comma-separated list of environment names.</span></span> <span data-ttu-id="870ab-107">Si alguno de los nombres de entorno proporcionados coincide con el entorno actual, se representa el contenido incluido.</span><span class="sxs-lookup"><span data-stu-id="870ab-107">If any of the provided environment names match the current environment, the enclosed content is rendered.</span></span>
 
-<span data-ttu-id="28150-108">Para obtener información general sobre asistentes de etiquetas, vea <xref:mvc/views/tag-helpers/intro>.</span><span class="sxs-lookup"><span data-stu-id="28150-108">For an overview of Tag Helpers, see <xref:mvc/views/tag-helpers/intro>.</span></span>
+<span data-ttu-id="870ab-108">Para obtener información general sobre asistentes de etiquetas, vea <xref:mvc/views/tag-helpers/intro>.</span><span class="sxs-lookup"><span data-stu-id="870ab-108">For an overview of Tag Helpers, see <xref:mvc/views/tag-helpers/intro>.</span></span>
 
-## <a name="environment-tag-helper-attributes"></a><span data-ttu-id="28150-109">Atributos del asistente de etiquetas de entorno</span><span class="sxs-lookup"><span data-stu-id="28150-109">Environment Tag Helper Attributes</span></span>
+## <a name="environment-tag-helper-attributes"></a><span data-ttu-id="870ab-109">Atributos del asistente de etiquetas de entorno</span><span class="sxs-lookup"><span data-stu-id="870ab-109">Environment Tag Helper Attributes</span></span>
 
-### <a name="names"></a><span data-ttu-id="28150-110">names</span><span class="sxs-lookup"><span data-stu-id="28150-110">names</span></span>
+### <a name="names"></a><span data-ttu-id="870ab-110">nombres</span><span class="sxs-lookup"><span data-stu-id="870ab-110">names</span></span>
 
-<span data-ttu-id="28150-111">`names` acepta un solo nombre de entorno de hospedaje o una lista de nombres de entorno de hospedaje separados por comas que desencadenan la representación del contenido incluido.</span><span class="sxs-lookup"><span data-stu-id="28150-111">`names` accepts a single hosting environment name or a comma-separated list of hosting environment names that trigger the rendering of the enclosed content.</span></span>
+<span data-ttu-id="870ab-111">`names` acepta un solo nombre de entorno de hospedaje o una lista de nombres de entorno de hospedaje separados por comas que desencadenan la representación del contenido incluido.</span><span class="sxs-lookup"><span data-stu-id="870ab-111">`names` accepts a single hosting environment name or a comma-separated list of hosting environment names that trigger the rendering of the enclosed content.</span></span>
 
-<span data-ttu-id="28150-112">Los valores de entorno se comparan con el valor actual devuelto por [IHostingEnvironment.EnvironmentName](xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName*).</span><span class="sxs-lookup"><span data-stu-id="28150-112">Environment values are compared to the current value returned by [IHostingEnvironment.EnvironmentName](xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName*).</span></span> <span data-ttu-id="28150-113">La comparación ignora el uso de mayúsculas y minúsculas.</span><span class="sxs-lookup"><span data-stu-id="28150-113">The comparison ignores case.</span></span>
+<span data-ttu-id="870ab-112">Los valores de entorno se comparan con el valor actual devuelto por [IHostingEnvironment.EnvironmentName](xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName*).</span><span class="sxs-lookup"><span data-stu-id="870ab-112">Environment values are compared to the current value returned by [IHostingEnvironment.EnvironmentName](xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName*).</span></span> <span data-ttu-id="870ab-113">La comparación ignora el uso de mayúsculas y minúsculas.</span><span class="sxs-lookup"><span data-stu-id="870ab-113">The comparison ignores case.</span></span>
 
-<span data-ttu-id="28150-114">En este ejemplo se usa un asistente de etiquetas de entorno.</span><span class="sxs-lookup"><span data-stu-id="28150-114">The following example uses an Environment Tag Helper.</span></span> <span data-ttu-id="28150-115">El contenido se representa si el entorno de hospedaje es de almacenamiento provisional o de producción:</span><span class="sxs-lookup"><span data-stu-id="28150-115">The content is rendered if the hosting environment is Staging or Production:</span></span>
+<span data-ttu-id="870ab-114">En este ejemplo se usa un asistente de etiquetas de entorno.</span><span class="sxs-lookup"><span data-stu-id="870ab-114">The following example uses an Environment Tag Helper.</span></span> <span data-ttu-id="870ab-115">El contenido se representa si el entorno de hospedaje es de almacenamiento provisional o de producción:</span><span class="sxs-lookup"><span data-stu-id="870ab-115">The content is rendered if the hosting environment is Staging or Production:</span></span>
 
 ```cshtml
 <environment names="Staging,Production">
@@ -39,13 +39,13 @@ ms.locfileid: "67856131"
 
 ::: moniker range=">= aspnetcore-2.0"
 
-## <a name="include-and-exclude-attributes"></a><span data-ttu-id="28150-116">Atributos include y exclude</span><span class="sxs-lookup"><span data-stu-id="28150-116">include and exclude attributes</span></span>
+## <a name="include-and-exclude-attributes"></a><span data-ttu-id="870ab-116">Atributos include y exclude</span><span class="sxs-lookup"><span data-stu-id="870ab-116">include and exclude attributes</span></span>
 
-<span data-ttu-id="28150-117">Los atributos `include` & `exclude` controlan la representación del contenido incluido en función de los nombres de entorno de hospedaje incluidos o excluidos.</span><span class="sxs-lookup"><span data-stu-id="28150-117">`include` & `exclude` attributes control rendering the enclosed content based on the included or excluded hosting environment names.</span></span>
+<span data-ttu-id="870ab-117">`include` & los atributos de `exclude` controlan la representación del contenido incluido en función de los nombres de entorno de hospedaje incluidos o excluidos.</span><span class="sxs-lookup"><span data-stu-id="870ab-117">`include` & `exclude` attributes control rendering the enclosed content based on the included or excluded hosting environment names.</span></span>
 
-### <a name="include"></a><span data-ttu-id="28150-118">include</span><span class="sxs-lookup"><span data-stu-id="28150-118">include</span></span>
+### <a name="include"></a><span data-ttu-id="870ab-118">include</span><span class="sxs-lookup"><span data-stu-id="870ab-118">include</span></span>
 
-<span data-ttu-id="28150-119">La propiedad `include` exhibe un comportamiento similar al atributo `names`.</span><span class="sxs-lookup"><span data-stu-id="28150-119">The `include` property exhibits similar behavior to the `names` attribute.</span></span> <span data-ttu-id="28150-120">Un entorno que se muestra en el valor de atributo `include` debe coincidir con el entorno de hospedaje de la aplicación ([IHostingEnvironment.EnvironmentName](xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName*)) para representar el contenido de la etiqueta `<environment>`.</span><span class="sxs-lookup"><span data-stu-id="28150-120">An environment listed in the `include` attribute value must match the app's hosting environment ([IHostingEnvironment.EnvironmentName](xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName*)) to render the content of the `<environment>` tag.</span></span>
+<span data-ttu-id="870ab-119">La propiedad `include` exhibe un comportamiento similar al atributo `names`.</span><span class="sxs-lookup"><span data-stu-id="870ab-119">The `include` property exhibits similar behavior to the `names` attribute.</span></span> <span data-ttu-id="870ab-120">Un entorno que se muestra en el valor de atributo `include` debe coincidir con el entorno de hospedaje de la aplicación ([IHostingEnvironment.EnvironmentName](xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName*)) para representar el contenido de la etiqueta `<environment>`.</span><span class="sxs-lookup"><span data-stu-id="870ab-120">An environment listed in the `include` attribute value must match the app's hosting environment ([IHostingEnvironment.EnvironmentName](xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.EnvironmentName*)) to render the content of the `<environment>` tag.</span></span>
 
 ```cshtml
 <environment include="Staging,Production">
@@ -53,9 +53,9 @@ ms.locfileid: "67856131"
 </environment>
 ```
 
-### <a name="exclude"></a><span data-ttu-id="28150-121">exclude</span><span class="sxs-lookup"><span data-stu-id="28150-121">exclude</span></span>
+### <a name="exclude"></a><span data-ttu-id="870ab-121">exclude</span><span class="sxs-lookup"><span data-stu-id="870ab-121">exclude</span></span>
 
-<span data-ttu-id="28150-122">A diferencia del atributo `include`, el contenido de la etiqueta `<environment>` se representa cuando el entorno de hospedaje no coincide con un entorno que se muestra en el valor de atributo `exclude`.</span><span class="sxs-lookup"><span data-stu-id="28150-122">In contrast to the `include` attribute, the content of the `<environment>` tag is rendered when the hosting environment doesn't match an environment listed in the `exclude` attribute value.</span></span>
+<span data-ttu-id="870ab-122">A diferencia del atributo `include`, el contenido de la etiqueta `<environment>` se representa cuando el entorno de hospedaje no coincide con un entorno que se muestra en el valor de atributo `exclude`.</span><span class="sxs-lookup"><span data-stu-id="870ab-122">In contrast to the `include` attribute, the content of the `<environment>` tag is rendered when the hosting environment doesn't match an environment listed in the `exclude` attribute value.</span></span>
 
 ```cshtml
 <environment exclude="Development">
@@ -65,6 +65,6 @@ ms.locfileid: "67856131"
 
 ::: moniker-end
 
-## <a name="additional-resources"></a><span data-ttu-id="28150-123">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="28150-123">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="870ab-123">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="870ab-123">Additional resources</span></span>
 
 * <xref:fundamentals/environments>
