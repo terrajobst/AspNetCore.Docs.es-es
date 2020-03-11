@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/11/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 15899917826fb6559244998766d99d00f56e0521
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
-ms.translationtype: HT
+ms.openlocfilehash: d9beae68cc869b665ff5d2b6cf34f120406098dc
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294716"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653033"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Prueba de las API web HTTP REPL
 
@@ -34,9 +34,9 @@ Se admiten los siguientes [verbos HTTP](https://github.com/microsoft/api-guideli
 * [POST](#test-http-post-requests)
 * [PUT](#test-http-put-requests)
 
-Para continuar, [vea o descargue la API web de muestra de ASP.NET Core ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) ([cómo descargar](xref:index#how-to-download-a-sample)).
+Para continuar, [vea o descargue la API web de muestra de ASP.NET Core ](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) ([cómo descargar](xref:index#how-to-download-a-sample)).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [!INCLUDE [2.1-SDK](~/includes/2.1-SDK.md)]
 
@@ -225,15 +225,15 @@ https://localhost:5001/people~
 
 Los [colores](#set-color-preferences) predeterminados de HTTP REPL se pueden personalizar. Además, se puede definir un [editor de texto predeterminado](#set-the-default-text-editor). Las preferencias de HTTP REPL se conservan tanto en la sesión actual como en futuras sesiones. Una vez modificadas, se almacenan en el archivo siguiente:
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 *%HOME%/.httpreplprefs*
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 *%HOME%/.httpreplprefs*
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 *%USERPROFILE%\\.httpreplprefs*
 
@@ -335,19 +335,19 @@ pref set editor.command.default "<EXECUTABLE>"
 
 En el comando anterior, `<EXECUTABLE>` es la ruta de acceso completa al archivo ejecutable del editor de texto. Por ejemplo, ejecute el comando siguiente para establecer Visual Studio Code como editor de texto predeterminado:
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ```console
 pref set editor.command.default "/usr/bin/code"
 ```
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ```console
 pref set editor.command.default "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 ```
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 pref set editor.command.default "C:\Program Files\Microsoft VS Code\Code.exe"
@@ -616,7 +616,7 @@ Para emitir una solicitud HTTP PUT, realice lo siguiente:
     Server: Kestrel
     ```
 
-1. *Opcional*: Emita un comando `get` para ver las modificaciones. Por ejemplo, si ha escrito "Cherry" en el editor de texto, un elemento `get` devuelve lo siguiente:
+1. *Opcional*: emita un comando `get` para ver las modificaciones. Por ejemplo, si ha escrito "Cherry" en el editor de texto, un elemento `get` devuelve lo siguiente:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -707,7 +707,7 @@ Para emitir una solicitud HTTP DELETE, realice lo siguiente:
     Server: Kestrel
     ```
 
-1. *Opcional*: Emita un comando `get` para ver las modificaciones. En este ejemplo, un elemento `get` devuelve lo siguiente:
+1. *Opcional*: emita un comando `get` para ver las modificaciones. En este ejemplo, un elemento `get` devuelve lo siguiente:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -952,7 +952,7 @@ https://localhost:5001/people~ echo off
 Request echoing is off
 ```
 
-## <a name="run-a-script"></a>Ejecución de un script
+## <a name="run-a-script"></a>Ejecutar un script
 
 Si ejecuta con frecuencia el mismo conjunto de comandos de HTTP REPL, considere la posibilidad de almacenarlos en un archivo de texto. Los comandos del archivo toman el mismo formulario que los ejecutados manualmente en la línea de comandos. Los comandos se pueden ejecutar en un modo por lotes mediante el comando `run`. Por ejemplo:
 
@@ -972,7 +972,7 @@ Si ejecuta con frecuencia el mismo conjunto de comandos de HTTP REPL, considere 
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt
     ```
 
-    Aparece el siguiente resultado:
+    Se mostrará lo siguiente:
 
     ```console
     https://localhost:5001/~ set base https://localhost:5001

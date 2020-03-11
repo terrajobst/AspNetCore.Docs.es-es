@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: 8df070b580b6125db6616b33a81f3ffebad69f3a
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
-ms.translationtype: HT
+ms.openlocfilehash: 910fffbf360ed0f62f7fe20bc8bfdf5be8198876
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828924"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652319"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componentes de vista en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="view-components"></a>Componentes de vista
 
@@ -42,7 +42,7 @@ Los componentes de vista están diseñados para cualquier lugar que tenga lógic
 
 Un componente de vista consta de dos partes: la clase (normalmente derivada de [ViewComponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)) y el resultado que devuelve (por lo general, una vista). Al igual que los controladores, un componente de vista puede ser un POCO, pero la mayoría de los desarrolladores prefieren aprovechar las ventajas que ofrecen los métodos y las propiedades disponibles al derivar de `ViewComponent`.
 
-Al estudiar si los componentes de visualización cumplen las especificaciones de una aplicación, considere la posibilidad de usar los componentes de Razor en su lugar. Los componentes de Razor también combinan el marcado con código de C# para producir unidades de interfaz de usuario reutilizables. Los componentes de Razor están diseñados para ofrecer productividad a los desarrolladores mediante elementos de composición y lógica de interfaz de usuario del lado cliente. Para obtener más información, vea <xref:blazor/components>.
+Al estudiar si los componentes de visualización cumplen las especificaciones de una aplicación, considere la posibilidad de usar los componentes de Razor en su lugar. Los componentes de Razor también combinan el marcado con código de C# para producir unidades de interfaz de usuario reutilizables. Los componentes de Razor están diseñados para ofrecer productividad a los desarrolladores mediante elementos de composición y lógica de interfaz de usuario del lado cliente. Para más información, consulte <xref:blazor/components>.
 
 ## <a name="creating-a-view-component"></a>Crear un componente de vista
 
@@ -155,7 +155,7 @@ En este ejemplo, se llama al componente de vista directamente desde el controlad
 
 ## <a name="walkthrough-creating-a-simple-view-component"></a>Tutorial: Creación de un componente de vista simple
 
-[Descargue](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compile y pruebe el código de inicio. Se trata de un proyecto simple con un controlador `ToDo` que muestra una lista de *tareas pendientes*.
+[Descargue](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compile y pruebe el código de inicio. Se trata de un proyecto simple con un controlador `ToDo` que muestra una lista de *tareas pendientes*.
 
 ![Lista de tareas pendientes](view-components/_static/2dos.png)
 
@@ -202,7 +202,7 @@ Notas sobre el código:
 
 El marcado `@await Component.InvokeAsync` muestra la sintaxis para llamar a los componentes de vista. El primer argumento es el nombre del componente que se quiere invocar o llamar. Los parámetros siguientes se pasan al componente. `InvokeAsync` puede tomar un número arbitrario de argumentos.
 
-Pruebe la aplicación. En la imagen siguiente se muestra la lista de tareas pendientes y los elementos de prioridad:
+Probar la aplicación. En la imagen siguiente se muestra la lista de tareas pendientes y los elementos de prioridad:
 
 ![lista de tareas pendientes y elementos de prioridad](view-components/_static/pi.png)
 

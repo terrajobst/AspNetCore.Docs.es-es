@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: e8b62d795f6444e6dd79e27ace687d5db4db86de
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
-ms.translationtype: HT
+ms.openlocfilehash: 43bd4eccfc06d27ade5de0e3387247a753609336
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880997"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653183"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Crear asistentes de etiquetas en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="get-started-with-tag-helpers"></a>Introducción a los asistentes de etiquetas
 
@@ -69,7 +69,7 @@ Es decir, una etiqueta delimitadora lo convierte en un vínculo de correo electr
 
    [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
 
-   El código anterior usa la sintaxis de comodines para especificar que todos los asistentes de etiquetas del ensamblado estarán disponibles. La primera cadena después de `@addTagHelper` especifica el asistente de etiquetas que se va a cargar (use "*" para todos los asistentes de etiquetas), mientras que la segunda cadena "AuthoringTagHelpers" especifica el ensamblado en el que se encuentra el asistente de etiquetas. Además, tenga en cuenta que la segunda línea incorpora los asistentes de etiquetas de ASP.NET Core MVC mediante la sintaxis de comodines (esos asistentes se tratan en el tema [Introducción a los asistentes de etiquetas](intro.md)). Es la directiva `@addTagHelper` la que hace que el asistente de etiquetas esté disponible para la vista de Razor. Como alternativa, puede proporcionar el nombre completo (FQN) de un asistente de etiquetas como se muestra a continuación:
+   El código anterior usa la sintaxis de comodines para especificar que todos los asistentes de etiquetas del ensamblado estarán disponibles. La primera cadena después de `@addTagHelper` especifica el asistente de etiquetas que se va a cargar (use "*" para todos los asistentes de etiquetas), mientras que la segunda cadena "AuthoringTagHelpers" especifica el ensamblado en el que se encuentra el asistente de etiquetas. Además, tenga en cuenta que la segunda línea incluye las aplicaciones auxiliares de etiquetas de ASP.NET Core MVC que usan la sintaxis de caracteres comodín (esas aplicaciones auxiliares se describen en [Introducción a las aplicaciones auxiliares de etiquetas](intro.md)). Es la `@addTagHelper` Directiva que hace que la aplicación auxiliar de etiquetas esté disponible para la vista de Razor. Como alternativa, puede proporcionar el nombre completo (FQN) de un asistente de etiquetas como se muestra a continuación:
 
 ```csharp
 @using AuthoringTagHelpers
@@ -157,7 +157,7 @@ En esta sección, escribiremos un asistente de correo electrónico asincrónico.
 
    [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutBoldOnly.cshtml?highlight=7)]
 
-1. Ejecutar la aplicación. Puede usar el explorador que prefiera para inspeccionar el origen y comprobar el marcado.
+1. Ejecute la aplicación. Puede usar el explorador que prefiera para inspeccionar el origen y comprobar el marcado.
 
    El atributo `[HtmlTargetElement]` anterior solo tiene como destino el marcado HTML que proporciona el nombre de atributo "bold". El asistente de etiquetas no ha modificado el elemento `<bold>`.
 
@@ -281,7 +281,7 @@ Dado que estos dos asistentes están estrechamente relacionados y tal vez las re
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?highlight=15-34&range=7-34)]
 
-1. Ejecutar la aplicación. Observe que el texto www se representa como un vínculo, a diferencia del texto HTTP. Si coloca un punto de interrupción en ambas clases, verá que la clase del asistente de etiquetas HTTP se ejecuta primero. El problema es que la salida del asistente de etiquetas se almacena en caché y, cuando se ejecuta el asistente de etiquetas WWW, sobrescribe la salida almacenada en caché desdel asistente de etiquetas HTTP. Más adelante en el tutorial veremos cómo se controla el orden en el que se ejecutan los asistentes de etiquetas. Corregiremos el código con lo siguiente:
+1. Ejecute la aplicación. Observe que el texto www se representa como un vínculo, a diferencia del texto HTTP. Si coloca un punto de interrupción en ambas clases, verá que la clase del asistente de etiquetas HTTP se ejecuta primero. El problema es que la salida del asistente de etiquetas se almacena en caché y, cuando se ejecuta el asistente de etiquetas WWW, sobrescribe la salida almacenada en caché desdel asistente de etiquetas HTTP. Más adelante en el tutorial veremos cómo se controla el orden en el que se ejecutan los asistentes de etiquetas. Corregiremos el código con lo siguiente:
 
    [!code-csharp[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10,21,22,26&range=8-37)]
 

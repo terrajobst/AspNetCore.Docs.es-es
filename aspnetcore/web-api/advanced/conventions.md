@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 2c7e33da24322504fc5e1be83c0b814710186687
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
-ms.translationtype: HT
+ms.openlocfilehash: d49b51d11d3f14d0c3edbe1765d74fd63e3ac061
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881316"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78651527"
 ---
 # <a name="use-web-api-conventions"></a>Uso de convenciones de API web
 
@@ -29,13 +29,13 @@ ASP.NET Core MVC 2.2 (y versiones posteriores) incluye un conjunto de convencion
 
 En tiempo de ejecución, <xref:Microsoft.AspNetCore.Mvc.ApiExplorer> entiende las convenciones. `ApiExplorer` es la abstracción de MVC para comunicarse con los generadores de documento de [OpenAPI](https://www.openapis.org/), conocido también como Swagger. Los atributos de la convención aplicada se asocian a una acción y se incluyen en la documentación de OpenAPI de la acción. Los [analizadores de API](xref:web-api/advanced/analyzers) también comprenden las convenciones. Si la acción no es convencional (por ejemplo, devuelve un código de estado no documentado en la convención aplicada), recibirá una advertencia en la que se le animará a documentar el código de estado.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/conventions/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/conventions/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="apply-web-api-conventions"></a>Aplicación de convenciones de API web
 
 Las convenciones no se crean, y es posible que cada acción esté asociada a una única convención. Las convenciones más específicas tienen prioridad sobre las menos específicas. La selección es no determinista cuando se aplican dos o más convenciones de la misma prioridad a una acción. Las siguientes opciones existen para aplicar una convención a una acción, de la más específica a la menos específica:
 
-1. `Microsoft.AspNetCore.Mvc.ApiConventionMethodAttribute`: se aplica a las acciones individuales y especifica el tipo de convención y el método de la convención que se aplica.
+1. `Microsoft.AspNetCore.Mvc.ApiConventionMethodAttribute` &mdash; se aplica a las acciones individuales y especifica el tipo de Convención y el método de Convención que se aplica.
 
     En el ejemplo siguiente, el método de convención `Microsoft.AspNetCore.Mvc.DefaultApiConventions.Put` del tipo de convención predeterminada se aplica a la acción `Update`:
 

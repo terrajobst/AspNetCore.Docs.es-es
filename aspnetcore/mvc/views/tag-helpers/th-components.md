@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.date: 06/12/2019
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: 070cc3aae08664c13d8eb793a066766d0a5569ee
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
-ms.translationtype: HT
+ms.openlocfilehash: 5e2eb2d4322068c5864fbe49acaa6d0859bd319a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880976"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652373"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Componentes del asistente de etiquetas en ASP.NET Core
 
@@ -21,7 +21,7 @@ El componente de un asistente de etiquetas es un asistente de etiquetas que perm
 
 ASP.NET Core incluye dos componentes de asistente de etiquetas integrados: `head` y `body`. Se encuentran en el espacio de nombres <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers> y pueden usarse tanto en MVC como en Razor Pages. Los componentes de asistente de etiquetas no requieren el registro en la aplicación en *_ViewImports.cshtml*.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="use-cases"></a>Casos de uso
 
@@ -112,7 +112,7 @@ Para crear un componente de asistente de etiquetas personalizado:
 
 * Cree una clase pública derivada de <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers.TagHelperComponentTagHelper>.
 * Aplique el atributo [`[HtmlTargetElement]`](xref:Microsoft.AspNetCore.Razor.TagHelpers.HtmlTargetElementAttribute) a la clase. Especifique el nombre del elemento HTML de destino.
-* *Opcional*: Aplique el atributo [`[EditorBrowsable(EditorBrowsableState.Never)]`](xref:System.ComponentModel.EditorBrowsableAttribute) a la clase para suprimir la presentación del tipo en IntelliSense.
+* *Opcional*: Aplique un atributo [`[EditorBrowsable(EditorBrowsableState.Never)]`](xref:System.ComponentModel.EditorBrowsableAttribute) a la clase para suprimir la presentación del tipo en IntelliSense.
 
 El código siguiente crea un componente de asistente de etiquetas personalizado que tiene como destino el elemento `<address>` HTML:
 

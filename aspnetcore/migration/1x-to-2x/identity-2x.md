@@ -5,12 +5,12 @@ description: En este artículo se describen los pasos más comunes para migrar l
 ms.author: scaddie
 ms.date: 06/21/2019
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: f3817fa1808c331f7e167618e3bb00d68ad08571
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: af905f1127d504839f66d9e0e1ca1dfc27e32772
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355179"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78654947"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Migración de la autenticación y la identidad a ASP.NET Core 2,0
 
@@ -217,9 +217,9 @@ Realice los cambios siguientes en *Startup.CS*:
             });
     ```
 
-### <a name="microsoft-account-authentication"></a>Autenticación de Cuenta de Microsoft
+### <a name="microsoft-account-authentication"></a>Autenticación con cuenta Microsoft
 
-Para obtener más información sobre la autenticación de cuenta de Microsoft, consulte [este problema de github](https://github.com/aspnet/AspNetCore.Docs/issues/14455).
+Para obtener más información sobre la autenticación de cuenta de Microsoft, consulte [este problema de github](https://github.com/dotnet/AspNetCore.Docs/issues/14455).
 
 Realice los cambios siguientes en *Startup.CS*:
 - Reemplace la llamada al método `UseMicrosoftAccountAuthentication` en el método `Configure` con `UseAuthentication`:
@@ -330,7 +330,7 @@ Hay dos variaciones de la autenticación de Windows:
 
   > `System.InvalidOperationException`: no se especificó authenticationScheme y no se encontró ningún DefaultChallengeScheme.
 
-Para obtener más información, vea <xref:security/authentication/windowsauth>.
+Para más información, consulte <xref:security/authentication/windowsauth>.
 
 <a name="identity-cookie-options"></a>
 

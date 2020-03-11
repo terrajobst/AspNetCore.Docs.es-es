@@ -9,32 +9,32 @@ ms.date: 01/16/2020
 no-loc:
 - SignalR
 uid: signalr/hubs
-ms.openlocfilehash: e5bc12c5ccafe2b5273d72e6bde0f631ca043428
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: 54ffd8614c1cec4cfeba0878e910ed25fc6ba7d2
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294627"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653381"
 ---
-# <a name="use-hubs-in-opno-locsignalr-for-aspnet-core"></a>Usar hubs en SignalR para ASP.NET Core
+# <a name="use-hubs-in-signalr-for-aspnet-core"></a>Uso de hubs en Signalr para ASP.NET Core
 
 Por [Rachel Appel](https://twitter.com/rachelappel) y [Kevin Griffin](https://twitter.com/1kevgriff)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(cómo descargarlo)](xref:index#how-to-download-a-sample)
+[Ver o descargar el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(cómo descargarlo)](xref:index#how-to-download-a-sample)
 
-## <a name="what-is-a-opno-locsignalr-hub"></a>Qué es un concentrador de SignalR
+## <a name="what-is-a-signalr-hub"></a>¿Qué es un centro Signalr?
 
-La API de SignalR hubs le permite llamar a métodos en clientes conectados desde el servidor. En el código del servidor, se definen los métodos a los que llama el cliente. En el código de cliente, se definen los métodos a los que se llama desde el servidor. SignalR se encarga de todo en segundo plano que permita la comunicación de cliente a servidor y de servidor a cliente en tiempo real.
+Signalr hubs API le permite llamar a métodos en clientes conectados desde el servidor. En el código del servidor, se definen los métodos a los que llama el cliente. En el código de cliente, se definen los métodos a los que se llama desde el servidor. Signalr se encarga de todo en segundo plano que permite la comunicación de cliente a servidor y de servidor a cliente en tiempo real.
 
-## <a name="configure-opno-locsignalr-hubs"></a>Configuración de SignalR hubs
+## <a name="configure-signalr-hubs"></a>Configurar los concentradores de Signalr
 
-El middleware SignalR requiere algunos servicios, que se configuran llamando a `services.AddSignalR`.
+El middleware Signalr requiere algunos servicios, que se configuran mediante una llamada a `services.AddSignalR`.
 
 [!code-csharp[Configure service](hubs/sample/startup.cs?range=38)]
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Al agregar SignalR funcionalidad a una aplicación ASP.NET Core, el programa de instalación SignalR rutas llamando a `endpoint.MapHub` en la devolución de llamada de `Startup.Configure` del método `app.UseEndpoints`.
+Al agregar la funcionalidad de Signalr a una aplicación ASP.NET Core, configure las rutas de Signalr llamando a `endpoint.MapHub` en la devolución de llamada de `app.UseEndpoints` del método `Startup.Configure`.
 
 ```csharp
 app.UseRouting();
@@ -48,7 +48,7 @@ app.UseEndpoints(endpoints =>
 
 ::: moniker range="<= aspnetcore-2.2"
 
-Al agregar SignalR funcionalidad a una aplicación ASP.NET Core, el programa de instalación SignalR las rutas llamando a `app.UseSignalR` en el método `Startup.Configure`.
+Al agregar la funcionalidad de Signalr a una aplicación ASP.NET Core, configure las rutas de Signalr llamando a `app.UseSignalR` en el método `Startup.Configure`.
 
 [!code-csharp[Configure routes to hubs](hubs/sample/startup.cs?range=57-60)]
 
@@ -68,7 +68,7 @@ public class ChatHub : Hub
 }
 ```
 
-Puede especificar un tipo de valor devuelto y parámetros, incluidos tipos complejos y matrices, como haría en cualquier C# método. SignalR controla la serialización y deserialización de objetos y matrices complejos en los parámetros y valores devueltos.
+Puede especificar un tipo de valor devuelto y parámetros, incluidos tipos complejos y matrices, como haría en cualquier C# método. Signalr controla la serialización y deserialización de objetos y matrices complejos en los parámetros y valores devueltos.
 
 > [!NOTE]
 > Los concentradores son transitorios:
@@ -80,10 +80,10 @@ Puede especificar un tipo de valor devuelto y parámetros, incluidos tipos compl
 
 La clase `Hub` tiene una propiedad `Context` que contiene las siguientes propiedades con información sobre la conexión:
 
-| La propiedad | Descripción |
+| Propiedad | Descripción |
 | ------ | ----------- |
-| `ConnectionId` | Obtiene el identificador único para la conexión, asignado por SignalR. Hay un identificador de conexión para cada conexión.|
-| `UserIdentifier` | Obtiene el [identificador de usuario](xref:signalr/groups). De forma predeterminada, SignalR usa el `ClaimTypes.NameIdentifier` de la `ClaimsPrincipal` asociada a la conexión como identificador de usuario. |
+| `ConnectionId` | Obtiene el identificador único para la conexión, asignado por Signalr. Hay un identificador de conexión para cada conexión.|
+| `UserIdentifier` | Obtiene el [identificador de usuario](xref:signalr/groups). De forma predeterminada, Signalr utiliza el `ClaimTypes.NameIdentifier` del `ClaimsPrincipal` asociado a la conexión como identificador de usuario. |
 | `User` | Obtiene el `ClaimsPrincipal` asociado al usuario actual. |
 | `Items` | Obtiene una colección de clave/valor que se puede utilizar para compartir datos dentro del ámbito de esta conexión. Los datos se pueden almacenar en esta colección y se conservarán para la conexión entre las distintas invocaciones de métodos de concentrador. |
 | `Features` | Obtiene la colección de características disponibles en la conexión. Por ahora, esta colección no es necesaria en la mayoría de los escenarios, por lo que aún no está documentada en detalle. |
@@ -100,7 +100,7 @@ La clase `Hub` tiene una propiedad `Context` que contiene las siguientes propied
 
 La clase `Hub` tiene una propiedad `Clients` que contiene las siguientes propiedades para la comunicación entre el servidor y el cliente:
 
-| La propiedad | Descripción |
+| Propiedad | Descripción |
 | ------ | ----------- |
 | `All` | Llama a un método en todos los clientes conectados |
 | `Caller` | Llama a un método en el cliente que invocó el método de concentrador. |
@@ -176,7 +176,7 @@ Invalide el método virtual `OnDisconnectedAsync` para realizar acciones cuando 
 
 [!INCLUDE[](~/includes/connectionid-signalr.md)]
 
-## <a name="handle-errors"></a>Control de errores
+## <a name="handle-errors"></a>errores
 
 Las excepciones iniciadas en los métodos de concentrador se envían al cliente que invocó el método. En el cliente de JavaScript, el método `invoke` devuelve un [compromiso de JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). Cuando el cliente recibe un error con un controlador asociado a la promesa mediante `catch`, se invoca y se pasa como un objeto `Error` de JavaScript.
 
