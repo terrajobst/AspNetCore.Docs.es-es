@@ -9,12 +9,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: index
-ms.openlocfilehash: 3e41b329feb359c006258b8ed558496dfcbbf3b0
-ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
+ms.openlocfilehash: f6e4a624186ccf0d7f6475819df7da9ef99f9bcc
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914224"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78644375"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -47,7 +47,7 @@ ASP.NET Core MVC proporciona características para crear [API web](xref:tutorial
 
 ## <a name="client-side-development"></a>Desarrollo del lado del cliente
 
-ASP.NET Core se integra perfectamente con bibliotecas y plataformas de trabajo populares del lado cliente, que incluyen [Blazor](xref:blazor/index), [Angular](xref:spa/angular), [React](xref:spa/react) y [Bootstrap](https://getbootstrap.com/). Para más información, consulte <xref:blazor/index> y los temas relacionados en *Client-side development* (Desarrollo del lado cliente).
+ASP.NET Core se integra perfectamente con bibliotecas y marcos populares del lado cliente, que incluyen [Blazor](xref:blazor/index), [Angular](xref:spa/angular), [React](xref:spa/react) y [Bootstrap](https://getbootstrap.com/). Para más información, consulte <xref:blazor/index> y los temas relacionados en *Client-side development* (Desarrollo del lado cliente).
 
 <a name="target-framework"></a>
 
@@ -110,7 +110,7 @@ Para obtener una guía de referencia para migrar aplicaciones de ASP.NET a ASP.N
 
 En muchos de los artículos y tutoriales se incluyen vínculos a código de ejemplo.
 
-1. [Descargue el archivo ZIP del repositorio de ASP.NET](https://codeload.github.com/aspnet/AspNetCore.Docs/zip/master).
+1. [Descargue el archivo ZIP del repositorio de ASP.NET](https://codeload.github.com/dotnet/AspNetCore.Docs/zip/master).
 1. Descomprima el archivo *Docs-master.zip*.
 1. Use la dirección URL del vínculo de ejemplo para ir al directorio de ejemplo.
 
@@ -156,7 +156,7 @@ En el archivo Markdown del tema se hace referencia al fragmento de código de C#
 
 Puede ignorar sin problemas (o incluso quitar) las directivas `#region` y `#endregion` que rodean el código. No altere el código de estas directivas si tiene planeado ejecutar los escenarios de ejemplo descritos en el tema. Puede alterarlo si quiere experimentar con otros escenarios.
 
-Para obtener más información, consulte [Contribute to the ASP.NET documentation: Code snippets](https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md#code-snippets) (Contribución a la documentación de ASP.NET: fragmentos de código).
+Para obtener más información, consulte [Contribute to the ASP.NET documentation: Code snippets](https://github.com/dotnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md#code-snippets) (Contribución a la documentación de ASP.NET: fragmentos de código).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

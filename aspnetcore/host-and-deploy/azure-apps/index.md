@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 12/16/2019
 uid: host-and-deploy/azure-apps/index
 ms.openlocfilehash: ba9671f68a0faf99ff5232a6d5dd132d0a1d5ac5
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928429"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78644615"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -251,7 +251,7 @@ Para una implementación de 64 bits:
 
 ### <a name="deploy-the-app-framework-dependent"></a>Implementación de la aplicación dependiente del marco de trabajo
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Seleccione **Compilar** > **Publicar {Nombre de la aplicación}** en la barra de herramientas de Visual Studio o, en el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**.
 1. En el cuadro de diálogo **Elegir un destino de publicación**, confirme que está seleccionado **App Service**.
@@ -264,7 +264,7 @@ Para una implementación de 64 bits:
    * Seleccione **Guardar**.
 1. Cree un sitio nuevo o actualice un sitio existente siguiendo las instrucciones restantes del asistente para publicación.
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli/)
+# <a name="net-core-cli"></a>[CLI de .NET Core](#tab/netcore-cli/)
 
 1. En el archivo de proyecto, no especifique [Identificador en tiempo de ejecución (RID)](/dotnet/core/rid-catalog).
 
@@ -282,7 +282,7 @@ Para una implementación de 64 bits:
 
 Use Visual Studio o la CLI de .NET Core para una [implementación autocontenida (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Seleccione **Compilar** > **Publicar {Nombre de la aplicación}** en la barra de herramientas de Visual Studio o, en el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**.
 1. En el cuadro de diálogo **Elegir un destino de publicación**, confirme que está seleccionado **App Service**.
@@ -295,7 +295,7 @@ Use Visual Studio o la CLI de .NET Core para una [implementación autocontenid
    * Seleccione **Guardar**.
 1. Cree un sitio nuevo o actualice un sitio existente siguiendo las instrucciones restantes del asistente para publicación.
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli/)
+# <a name="net-core-cli"></a>[CLI de .NET Core](#tab/netcore-cli/)
 
 1. En el archivo de proyecto, especifique uno o más [identificadores de entorno de ejecución (RID)](/dotnet/core/rid-catalog). Use `<RuntimeIdentifier>` (en singular) para un único RID o use `<RuntimeIdentifiers>` (en plural) para proporcionar una lista de RID delimitada por puntos y coma. En el ejemplo siguiente, se especifica el RID `win-x86`:
 

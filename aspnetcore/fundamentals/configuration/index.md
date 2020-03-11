@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/10/2020
 uid: fundamentals/configuration/index
-ms.openlocfilehash: d0ef670aa0ac4960318f86ea7888b9eab71f17fd
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 3dcabae3f76d81e641057c346dbb9097c2da42c7
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171896"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78644105"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configuración en ASP.NET Core
 
@@ -41,7 +41,7 @@ using Microsoft.Extensions.Configuration;
 
 El *patrón de opciones* es una extensión de los conceptos de configuración que se describen en este tema. Las opciones usan clases para representar grupos de configuraciones relacionadas. Para obtener más información, vea <xref:fundamentals/configuration/options>.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="host-versus-app-configuration"></a>Configuración de host y de aplicación
 
@@ -1155,7 +1155,7 @@ using Microsoft.Extensions.Configuration;
 
 El *patrón de opciones* es una extensión de los conceptos de configuración que se describen en este tema. Las opciones usan clases para representar grupos de configuraciones relacionadas. Para obtener más información, vea <xref:fundamentals/configuration/options>.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="host-versus-app-configuration"></a>Configuración de host y de aplicación
 

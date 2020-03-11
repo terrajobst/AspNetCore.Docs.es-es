@@ -7,11 +7,11 @@ ms.date: 08/07/2018
 ms.custom: mvc, seodec18
 uid: azure/devops/index
 ms.openlocfilehash: f45bb2a5dd4b3d1a820085ede7ce3219045ed80b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64881960"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78644249"
 ---
 # <a name="devops-with-aspnet-core-and-azure"></a>DevOps con ASP.NET Core y Azure
 
@@ -37,23 +37,23 @@ Esta guía está centrada en una experiencia de desarrollo continuo de un extrem
 
 ## <a name="whats-in-this-guide"></a>Qué se incluye en esta guía
 
-### <a name="tools-and-downloadsxrefazuredevopstools-and-downloads"></a>[Herramientas y descargas](xref:azure/devops/tools-and-downloads)
+### <a name="tools-and-downloads"></a>[Herramientas y descargas](xref:azure/devops/tools-and-downloads)
 
 Obtenga información sobre dónde adquirir las herramientas que se usan en esta guía.
 
-### <a name="deploy-to-app-servicexrefazuredevopsdeploy-to-app-service"></a>[Implementación en App Service](xref:azure/devops/deploy-to-app-service)
+### <a name="deploy-to-app-service"></a>[Implementación en App Service](xref:azure/devops/deploy-to-app-service)
 
 Obtenga información sobre los distintos métodos para implementar una aplicación ASP.NET Core en Azure App Service.
 
-### <a name="continuous-integration-and-deploymentxrefazuredevopscicd"></a>[Integración e implementación continuas](xref:azure/devops/cicd)
+### <a name="continuous-integration-and-deployment"></a>[Integración e implementación continuas](xref:azure/devops/cicd)
 
 Cree una solución de implementación e integración continuas de un extremo a otro para su aplicación ASP.NET Core con GitHub, Azure DevOps Services y Azure.
 
-### <a name="monitor-and-debugxrefazuredevopsmonitor"></a>[Supervisión y depuración](xref:azure/devops/monitor)
+### <a name="monitor-and-debug"></a>[Supervisión y depuración](xref:azure/devops/monitor)
 
 Use las herramientas de Azure para supervisar la aplicación, solucionar problemas y ajustarla.
 
-### <a name="next-stepsxrefazuredevopsnext-steps"></a>[Pasos siguientes](xref:azure/devops/next-steps)
+### <a name="next-steps"></a>[Pasos siguientes](xref:azure/devops/next-steps)
 
 Otras rutas de aprendizaje para los desarrolladores de ASP.NET Core que están aprendiendo sobre Azure.
 

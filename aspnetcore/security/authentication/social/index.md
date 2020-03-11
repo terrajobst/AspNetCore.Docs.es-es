@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/23/2020
 uid: security/authentication/social/index
-ms.openlocfilehash: 7d0f6647a6f5a4d41067b13acd3d294144027bb7
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: c698edbd85d665509366287b1dcad08e276e71cc
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76727331"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78644819"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticación con Facebook, Google y proveedores externos en ASP.NET Core
 
@@ -30,7 +30,7 @@ Para ver ejemplos de cómo los inicios de sesión de las redes sociales pueden c
 
 ## <a name="create-a-new-aspnet-core-project"></a>Crear un proyecto de ASP.NET Core
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Cree un nuevo proyecto.
 * Seleccione **Aplicación web de ASP.NET Core** y **Siguiente**.
@@ -39,7 +39,7 @@ Para ver ejemplos de cómo los inicios de sesión de las redes sociales pueden c
 * En **Autenticación**, seleccione **Cambiar** y establezca la autenticación en **Cuentas de usuario individuales**. Seleccione **Aceptar**.
 * En la ventana **Crear una aplicación web ASP.NET Core**, seleccione **Crear**.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio para Mac](#tab/visual-studio-code+visual-studio-mac)
 
 * Abra el terminal.  Para Visual Studio Code puede abrir el [terminal integrado](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
@@ -111,7 +111,7 @@ Para crear una contraseña e iniciar sesión con el correo electrónico establec
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte [esta incidencia de GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/10563) para obtener información sobre cómo personalizar los botones de inicio de sesión.
+* Consulte [esta incidencia de GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/10563) para obtener información sobre cómo personalizar los botones de inicio de sesión.
 * En este artículo se introdujo la autenticación externa y se explicaron los requisitos previos necesarios para agregar inicios de sesión externos a la aplicación de ASP.NET Core.
 * Páginas de referencia específicas del proveedor para configurar los inicios de sesión para los proveedores requeridos por la aplicación.
 * Le recomendamos que conserve los datos adicionales sobre el usuario y sus tokens de acceso y actualización. Para obtener más información, vea <xref:security/authentication/social/additional-claims>.

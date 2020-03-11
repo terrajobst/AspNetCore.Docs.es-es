@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/05/2020
 uid: fundamentals/logging/index
-ms.openlocfilehash: 3c75fdc940701b8f4d367990b5073861467079b2
-ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
+ms.openlocfilehash: 58e236ad7f0863b87907d5585e1cb6bf61d46e99
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77044913"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78644453"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registros en .NET Core y ASP.NET Core
 
@@ -22,13 +22,13 @@ Por [Tom Dykstra](https://github.com/tdykstra) y [Steve Smith](https://ardalis.c
 
 ::: moniker range=">= aspnetcore-3.0"
 
-La mayoría de los ejemplos de código que se muestran en este artículo son de aplicaciones de ASP.NET Core. Las partes específicas de registro de estos fragmentos de código son válidas para cualquier aplicación de .NET Core que use el [host genérico](xref:fundamentals/host/generic-host). Para ver un ejemplo de cómo usar el host genérico en una aplicación de consola que no sea web, vea el archivo *Program.cs* de la [aplicación de ejemplo de tareas en segundo plano](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples) (<xref:fundamentals/host/hosted-services>).
+La mayoría de los ejemplos de código que se muestran en este artículo son de aplicaciones de ASP.NET Core. Las partes específicas de registro de estos fragmentos de código son válidas para cualquier aplicación de .NET Core que use el [host genérico](xref:fundamentals/host/generic-host). Para ver un ejemplo de cómo usar el host genérico en una aplicación de consola que no sea web, vea el archivo *Program.cs* de la [aplicación de ejemplo de tareas en segundo plano](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples) (<xref:fundamentals/host/hosted-services>).
 
 El código de registro para las aplicaciones sin un host genérico es distinto en la forma en que se [agregan los proveedores](#add-providers) y [se crean los registradores](#create-logs). Los ejemplos de código que no sean de host se muestran en esas secciones del artículo.
 
 ::: moniker-end
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Incorporación de proveedores
 
@@ -295,7 +295,7 @@ public class Program
 
 ### <a name="no-asynchronous-logger-methods"></a>No hay métodos de registrador asincrónicos
 
-El registro debe ser tan rápido que no merezca la pena el costo de rendimiento del código asincrónico. Si el almacén de datos de registro es lento, no escriba directamente en él. Considere la posibilidad de escribir los mensajes de registro en un almacén rápido inicialmente y luego moverlos a la tienda lenta. Por ejemplo, si inicia sesión en SQL Server, no desea hacerlo directamente en un método `Log`, ya que los métodos `Log` son sincrónicos. En su lugar, agregue sincrónicamente mensajes de registro a una cola en memoria y haga que un trabajo en segundo plano extraiga los mensajes de la cola para realizar el trabajo asincrónico de insertar datos en SQL Server. Para obtener más información, vea [este](https://github.com/aspnet/AspNetCore.Docs/issues/11801) problema de GitHub.
+El registro debe ser tan rápido que no merezca la pena el costo de rendimiento del código asincrónico. Si el almacén de datos de registro es lento, no escriba directamente en él. Considere la posibilidad de escribir los mensajes de registro en un almacén rápido inicialmente y luego moverlos a la tienda lenta. Por ejemplo, si inicia sesión en SQL Server, no desea hacerlo directamente en un método `Log`, ya que los métodos `Log` son sincrónicos. En su lugar, agregue sincrónicamente mensajes de registro a una cola en memoria y haga que un trabajo en segundo plano extraiga los mensajes de la cola para realizar el trabajo asincrónico de insertar datos en SQL Server. Para obtener más información, vea [este](https://github.com/dotnet/AspNetCore.Docs/issues/11801) problema de GitHub.
 
 ## <a name="configuration"></a>Configuración
 

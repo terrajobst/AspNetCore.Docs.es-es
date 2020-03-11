@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 01/15/2020
 uid: fundamentals/index
 ms.openlocfilehash: 3fbfc7c4c0d5e568339bc00a7cbe84a3932acf1f
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146360"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78644555"
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
@@ -119,7 +119,7 @@ Una aplicación ASP.NET Core usa una implementación de servidor HTTP para escuc
 
 ::: moniker range=">= aspnetcore-2.2"
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ASP.NET Core proporciona las siguientes implementaciones de servidor:
 
@@ -127,11 +127,11 @@ ASP.NET Core proporciona las siguientes implementaciones de servidor:
 * Un *servidor HTTP de IIS* es un servidor para Windows que usa IIS. Con este servidor, la aplicación de ASP.NET Core e IIS se ejecutan en el mismo proceso.
 * *HTTP.sys* es un servidor de Windows que no se usa con IIS.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ASP.NET Core proporciona la implementación de servidor multiplataforma *Kestrel*. En ASP.NET Core 2.0 y versiones posteriores, Kestrel puede ejecutarse como servidor perimetral de acceso público expuesto directamente a Internet. Kestrel se suele ejecutar en una configuración de proxy inverso con [Nginx](https://nginx.org) o [Apache](https://httpd.apache.org/).
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ASP.NET Core proporciona la implementación de servidor multiplataforma *Kestrel*. En ASP.NET Core 2.0 y versiones posteriores, Kestrel puede ejecutarse como servidor perimetral de acceso público expuesto directamente a Internet. Kestrel se suele ejecutar en una configuración de proxy inverso con [Nginx](https://nginx.org) o [Apache](https://httpd.apache.org/).
 
@@ -141,18 +141,18 @@ ASP.NET Core proporciona la implementación de servidor multiplataforma *Kestrel
 
 ::: moniker range="< aspnetcore-2.2"
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ASP.NET Core proporciona las siguientes implementaciones de servidor:
 
 * *Kestrel* es un servidor web multiplataforma. Kestrel se suele ejecutar en una configuración de proxy inverso con [IIS](https://www.iis.net/). En ASP.NET Core 2.0 y versiones posteriores, Kestrel puede ejecutarse como servidor perimetral de acceso público expuesto directamente a Internet.
 * *HTTP.sys* es un servidor de Windows que no se usa con IIS.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ASP.NET Core proporciona la implementación de servidor multiplataforma *Kestrel*. En ASP.NET Core 2.0 y versiones posteriores, Kestrel puede ejecutarse como servidor perimetral de acceso público expuesto directamente a Internet. Kestrel se suele ejecutar en una configuración de proxy inverso con [Nginx](https://nginx.org) o [Apache](https://httpd.apache.org/).
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ASP.NET Core proporciona la implementación de servidor multiplataforma *Kestrel*. En ASP.NET Core 2.0 y versiones posteriores, Kestrel puede ejecutarse como servidor perimetral de acceso público expuesto directamente a Internet. Kestrel se suele ejecutar en una configuración de proxy inverso con [Nginx](https://nginx.org) o [Apache](https://httpd.apache.org/).
 
