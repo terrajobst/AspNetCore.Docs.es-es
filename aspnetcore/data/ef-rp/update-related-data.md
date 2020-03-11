@@ -1,16 +1,16 @@
 ---
 title: 'Páginas de Razor con EF Core en ASP.NET Core: Actualización de datos relacionados (7 de 8)'
-author: tdykstra
+author: rick-anderson
 description: En este tutorial, se actualizan datos relacionados mediante la actualización de campos de clave externa y propiedades de navegación.
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: bc237cf928d852b92c5c1984527129404f88018d
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: fdfdb14ff8414b8bf30f9b95be7ba0a6bcbd2995
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583496"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78645461"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Actualización de datos relacionados (7 de 8)
 
@@ -48,6 +48,8 @@ Una entidad Course (Curso) se asigna a una entidad Department (Departamento). La
 Actualice *Pages/Courses/Create.cshtml.cs* con el código siguiente:
 
 [!code-csharp[](intro/samples/cu30/Pages/Courses/Create.cshtml.cs?highlight=7,18,27-41)]
+
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 El código anterior:
 
@@ -235,7 +237,7 @@ Ejecute la aplicación y pruebe la página Delete.
 
 ::: moniker range="< aspnetcore-3.0"
 
-En este tutorial se muestra cómo actualizar datos relacionados. Si experimenta problemas que no puede resolver, [descargue o vea la aplicación completada](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Instrucciones de descarga](xref:index#how-to-download-a-sample).
+En este tutorial se muestra cómo actualizar datos relacionados. Si experimenta problemas que no puede resolver, [descargue o vea la aplicación completada](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Instrucciones de descarga](xref:index#how-to-download-a-sample).
 
 En las ilustraciones siguientes se muestran algunas de las páginas completadas.
 

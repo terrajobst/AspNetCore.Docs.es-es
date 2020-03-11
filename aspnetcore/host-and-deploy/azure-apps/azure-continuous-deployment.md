@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 12/06/2018
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
 ms.openlocfilehash: 3b344505739bb4292ed1683c73ff314b6e4e01e9
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64890100"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78648113"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Implementación continua en Azure con Visual Studio y Git con ASP.NET Core
 
@@ -40,7 +40,7 @@ En este tutorial se da por hecho que está instalado el siguiente software:
 
 1. En el menú **Archivo**, seleccione **Nuevo** > **Proyecto**.
 
-1. Seleccione la plantilla de proyecto **Aplicación web ASP.NET Core**. Aparece en **Instalados** > **Plantillas** > **Visual C#** > **.NET Core**. Dé un nombre al proyecto `SampleWebAppDemo`. Seleccione la opción **Crear nuevo repositorio de Git** y haga clic en **Aceptar**.
+1. Seleccione la plantilla de proyecto **Aplicación web ASP.NET Core**. Aparece en **Instalados** > **Plantillas** > **Visual C#**  >  **.NET Core**. Dé un nombre al proyecto `SampleWebAppDemo`. Seleccione la opción **Crear nuevo repositorio de Git** y haga clic en **Aceptar**.
 
    ![Cuadro de diálogo Nuevo proyecto](azure-continuous-deployment/_static/01-new-project.png)
 

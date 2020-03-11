@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/02/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 2ed4af109b5ccd303a03a0d9167649dda7793126
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: 6a0ef02db883db3bc91722786cd042ccec092735
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717027"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78647579"
 ---
 # <a name="net-generic-host"></a>Host genérico de .NET
 
@@ -209,7 +209,7 @@ La propiedad [IHostEnvironment.EnvironmentName](xref:Microsoft.Extensions.Hostin
 
 **Clave**: environment  
 **Tipo**: *cadena*  
-**Valor predeterminado**: Producción  
+**Predeterminado**: Producción  
 **Variable de entorno**: `<PREFIX_>ENVIRONMENT`
 
 Para establecer este valor, use la variable de entorno o llame a `UseEnvironment` en `IHostBuilder`:
@@ -259,7 +259,7 @@ Cuando es `false`, los errores durante el inicio provocan la salida del host. Cu
 
 **Clave**: captureStartupErrors  
 **Tipo**: *bool* (`true` o `1`)  
-**Valor predeterminado**: `false`, a menos que la aplicación se ejecute con Kestrel detrás de IIS, en cuyo caso el valor predeterminado es `true`.  
+**Predeterminado**: `false`, a menos que la aplicación se ejecute con Kestrel detrás de IIS, en cuyo caso el valor predeterminado es `true`.  
 **Variable de entorno**: `<PREFIX_>CAPTURESTARTUPERRORS`
 
 Para establecer este valor, utilice la configuración o llame a `CaptureStartupErrors`:
@@ -289,7 +289,7 @@ Una cadena delimitada por punto y coma de ensamblados de inicio de hospedaje par
 
 **Clave**: hostingStartupAssemblies  
 **Tipo**: *cadena*  
-**Valor predeterminado**: Cadena vacía  
+**Predeterminado**: Cadena vacía  
 **Variable de entorno**: `<PREFIX_>_HOSTINGSTARTUPASSEMBLIES`
 
 Para establecer este valor, utilice la configuración o llame a `UseSetting`:
@@ -304,7 +304,7 @@ Una cadena delimitada por punto y coma de ensamblados de inicio de hospedaje par
 
 **Clave**: hostingStartupExcludeAssemblies  
 **Tipo**: *cadena*  
-**Valor predeterminado**: Cadena vacía  
+**Predeterminado**: Cadena vacía  
 **Variable de entorno**: `<PREFIX_>_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
 
 Para establecer este valor, utilice la configuración o llame a `UseSetting`:
@@ -345,7 +345,7 @@ webBuilder.PreferHostingUrls(false);
 
 ### <a name="preventhostingstartup"></a>PreventHostingStartup
 
-Impide la carga automática de los ensamblados de inicio de hospedaje, incluidos los configurados por el ensamblado de la aplicación. Para más información, consulte <xref:fundamentals/configuration/platform-specific-configuration>.
+Impide la carga automática de los ensamblados de inicio de hospedaje, incluidos los configurados por el ensamblado de la aplicación. Para obtener más información, vea <xref:fundamentals/configuration/platform-specific-configuration>.
 
 **Clave**: preventHostingStartup  
 **Tipo**: *bool* (`true` o `1`)  
@@ -364,7 +364,7 @@ Ensamblado en el que se va a buscar la clase `Startup`.
 
 **Clave**: startupAssembly  
 **Tipo**: *cadena*  
-**Valor predeterminado**: el ensamblado de la aplicación  
+**Predeterminado**: el ensamblado de la aplicación  
 **Variable de entorno**: `<PREFIX_>STARTUPASSEMBLY`
 
 Para establecer este valor, use la variable de entorno o llame a `UseStartup`. `UseStartup` puede tomar un nombre del ensamblado (`string`) o un tipo (`TStartup`). Si se llama a varios métodos `UseStartup`, la última llamada tiene prioridad.
@@ -392,7 +392,7 @@ Para establecer este valor, use la variable de entorno o llame a `UseUrls`:
 webBuilder.UseUrls("http://*:5000;http://localhost:5001;https://hostname:5002");
 ```
 
-Kestrel tiene su propia API de configuración de punto de conexión. Para más información, consulte <xref:fundamentals/servers/kestrel#endpoint-configuration>.
+Kestrel tiene su propia API de configuración de punto de conexión. Para obtener más información, vea <xref:fundamentals/servers/kestrel#endpoint-configuration>.
 
 ### <a name="webroot"></a>WebRoot
 
@@ -494,7 +494,7 @@ El objetivo del host genérico es desacoplar la canalización HTTP de la API hos
 
 El host genérico es una novedad de ASP.NET Core 2.1 y no es adecuado para escenarios de hospedaje web. Para escenarios de hospedaje web, use el [host web](xref:fundamentals/host/web-host). El host genérico reemplazará al host web en una próxima versión y actuará como la API de host principal tanto en escenarios de HTTP como los que no lo son.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 Al ejecutar la aplicación de ejemplo en [Visual Studio Code](https://code.visualstudio.com/), use un *terminal integrado o externo*. No ejecute el ejemplo en `internalConsole`.
 
@@ -575,7 +575,7 @@ Esta configuración determina la ubicación en la que el host comienza a buscar 
 
 **Clave**: contentRoot  
 **Tipo**: *cadena*  
-**Valor predeterminado**: la carpeta donde se encuentra el ensamblado de la aplicación.  
+**Predeterminado**: la carpeta donde se encuentra el ensamblado de la aplicación.  
 **Establecer mediante**: `UseContentRoot`  
 **Variable de entorno**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` es [opcional y definido por el usuario](#configurehostconfiguration))
 
@@ -591,7 +591,7 @@ Establece el [entorno](xref:fundamentals/environments) de la aplicación.
 
 **Clave**: environment  
 **Tipo**: *cadena*  
-**Valor predeterminado**: Producción  
+**Predeterminado**: Producción  
 **Establecer mediante**: `UseEnvironment`  
 **Variable de entorno**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` es [opcional y definido por el usuario](#configurehostconfiguration))
 
@@ -616,7 +616,7 @@ La configuración de archivo del host se habilita especificando la ruta base de 
 
 Para agregar una [configuración de la variable de entorno](xref:fundamentals/configuration/index#environment-variables-configuration-provider) del host, llame a <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> en el generador del host. `AddEnvironmentVariables` acepta un prefijo opcional definido por el usuario. La aplicación de ejemplo usa el prefijo `PREFIX_`. El prefijo se quita cuando se leen las variables de entorno. Al configurar el host de la aplicación de ejemplo, el valor de la variable de entorno de `PREFIX_ENVIRONMENT` se convierte en el valor de configuración de host de la clave `environment`.
 
-Durante el desarrollo, al usar [Visual Studio](https://visualstudio.microsoft.com) o al ejecutar una aplicación con `dotnet run`, se pueden establecer variables de entorno en el archivo *Properties/launchSettings.json*. En [Visual Studio Code](https://code.visualstudio.com/), las variables de entorno se pueden establecer en el archivo *.vscode/launch.json* durante el desarrollo. Para más información, consulte <xref:fundamentals/environments>.
+Durante el desarrollo, al usar [Visual Studio](https://visualstudio.microsoft.com) o al ejecutar una aplicación con `dotnet run`, se pueden establecer variables de entorno en el archivo *Properties/launchSettings.json*. En [Visual Studio Code](https://code.visualstudio.com/), las variables de entorno se pueden establecer en el archivo *.vscode/launch.json* durante el desarrollo. Para obtener más información, vea <xref:fundamentals/environments>.
 
 La [configuración de la línea de comandos](xref:fundamentals/configuration/index#command-line-configuration-provider) se agrega llamando a <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>. La configuración de la línea de comandos se agrega en último lugar para permitir que los argumentos de la línea de comandos invaliden la configuración proporcionada por los proveedores de configuración anteriores.
 
@@ -662,15 +662,15 @@ Para mover los archivos de configuración al directorio de salida, especifique l
 ```
 
 > [!NOTE]
-> Los métodos de extensión de configuración, como <xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*> y <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> requieren paquetes NuGet adicionales, como [Microsoft.Extensions.Configuration.Json](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json) y [Microsoft.Extensions.Configuration.EnvironmentVariables](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.EnvironmentVariables). A menos que la aplicación use el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), además del paquete principal [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration), se deben agregar estos paquetes. Para más información, consulte <xref:fundamentals/configuration/index>.
+> Los métodos de extensión de configuración, como <xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*> y <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> requieren paquetes NuGet adicionales, como [Microsoft.Extensions.Configuration.Json](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json) y [Microsoft.Extensions.Configuration.EnvironmentVariables](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.EnvironmentVariables). A menos que la aplicación use el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), además del paquete principal [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration), se deben agregar estos paquetes. Para obtener más información, vea <xref:fundamentals/configuration/index>.
 
 ## <a name="configureservices"></a>ConfigureServices
 
 <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.ConfigureServices*> agrega los servicios al contenedor de [inserción de dependencias](xref:fundamentals/dependency-injection) de la aplicación. Se puede llamar varias veces a <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.ConfigureServices*> con resultados de suma.
 
-Un servicio hospedado es una clase con lógica de tarea en segundo plano que implementa la interfaz <xref:Microsoft.Extensions.Hosting.IHostedService>. Para más información, consulte <xref:fundamentals/host/hosted-services>.
+Un servicio hospedado es una clase con lógica de tarea en segundo plano que implementa la interfaz <xref:Microsoft.Extensions.Hosting.IHostedService>. Para obtener más información, vea <xref:fundamentals/host/hosted-services>.
 
-La [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) usa el método de extensión `AddHostedService` para agregar un servicio para eventos de duración, `LifetimeEventsHostedService`, y una tarea en segundo plano programada, `TimedHostedService`, a la aplicación:
+La [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) usa el método de extensión `AddHostedService` para agregar un servicio para eventos de duración, `LifetimeEventsHostedService`, y una tarea en segundo plano programada, `TimedHostedService`, a la aplicación:
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_ConfigureServices)]
 
@@ -934,7 +934,7 @@ public class MyClass
 }
 ```
 
-Para más información, consulte <xref:fundamentals/environments>.
+Para obtener más información, vea <xref:fundamentals/environments>.
 
 ## <a name="iapplicationlifetime-interface"></a>Interfaz IApplicationLifetime
 
@@ -946,7 +946,7 @@ Para más información, consulte <xref:fundamentals/environments>.
 | <xref:Microsoft.Extensions.Hosting.IApplicationLifetime.ApplicationStopped*> | El host está completando un apagado estable. Deben procesarse todas las solicitudes. El apagado se bloquea hasta que se complete este evento. |
 | <xref:Microsoft.Extensions.Hosting.IApplicationLifetime.ApplicationStopping*> | El host está realizando un apagado estable. Puede que todavía se estén procesando las solicitudes. El apagado se bloquea hasta que se complete este evento. |
 
-Inserción de constructor del servicio <xref:Microsoft.Extensions.Hosting.IApplicationLifetime> en cualquier clase. En la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) se usa la inserción de constructor en una clase `LifetimeEventsHostedService` (una implementación de <xref:Microsoft.Extensions.Hosting.IHostedService>) para registrar los eventos.
+Inserción de constructor del servicio <xref:Microsoft.Extensions.Hosting.IApplicationLifetime> en cualquier clase. En la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) se usa la inserción de constructor en una clase `LifetimeEventsHostedService` (una implementación de <xref:Microsoft.Extensions.Hosting.IHostedService>) para registrar los eventos.
 
 *LifetimeEventsHostedService.cs*:
 

@@ -10,8 +10,8 @@ Los artículos se almacenan en el repositorio como archivos Markdown. Para reali
 
 Necesita tener conocimientos básicos de [Git y GitHub.com](https://guides.github.com/activities/hello-world/).
 
-* Abra un [problema](https://github.com/aspnet/Docs/issues/new) que describa qué quiere hacer, como cambiar un artículo existente o crear uno nuevo. A menudo solicita un esquema cuando se sugiere un nuevo tema. Espere la aprobación del equipo antes de dedicar mucho tiempo.
-* Bifurque el repositorio [aspnet/Docs](https://github.com/aspnet/Docs/) y cree una rama para los cambios.
+* Abra un [problema](https://github.com/dotnet/AspNetCore.Docs/issues/new) que describa qué quiere hacer, como cambiar un artículo existente o crear uno nuevo. A menudo solicita un esquema cuando se sugiere un nuevo tema. Espere la aprobación del equipo antes de dedicar mucho tiempo.
+* Bifurque el repositorio [aspnet/Docs](https://github.com/dotnet/AspNetCore.Docs/) y cree una rama para los cambios.
 * Envíe una PR al administrador con los cambios.
 * Si la PR tiene asignada la etiqueta 'cla-required' [rellene el contrato de licencia de colaboración (CLA)](https://cla.dotnetfoundation.org/).
 * Responder a los comentarios de la PR.
@@ -28,7 +28,7 @@ Los artículos se escriben en [DocFx flavored Markdown](https://dotnet.github.io
 
 ## <a name="folder-structure-conventions"></a>Convenciones de estructura de carpetas
 
-Para cada archivo con Markdown, puede haber una carpeta para las imágenes y una carpeta para el código de ejemplo. Si el artículo es [fundamentals/configuration/index.md](https://github.com/aspnet/Docs/blob/master/aspnetcore/fundamentals/configuration/index.md), las imágenes se encuentran en [Fundamentos/configuration/índice/\_static](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/_static) y los archivos de proyecto de aplicación de ejemplo están en [fundamentals/configuration/index/sample](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample). Una imagen en el archivo *fundamentals/configuration/index.md* se representa mediante el siguiente código Markdown:
+Para cada archivo con Markdown, puede haber una carpeta para las imágenes y una carpeta para el código de ejemplo. Si el artículo es [fundamentals/configuration/index.md](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/fundamentals/configuration/index.md), las imágenes se encuentran en [Fundamentos/configuration/índice/\_static](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/_static) y los archivos de proyecto de aplicación de ejemplo están en [fundamentals/configuration/index/sample](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample). Una imagen en el archivo *fundamentals/configuration/index.md* se representa mediante el siguiente código Markdown:
 
 ```md
 ![description of image for alt attribute](configuration/index/_static/imagename.png)
@@ -157,4 +157,4 @@ La [Guía de estilo de redacción de Microsoft](https://docs.microsoft.com/style
 
 ## <a name="redirects"></a>Redirecciones
 
-Si elimina un artículo, cambie su nombre de archivo o muévalo a otra carpeta, cree un redireccionamiento para que las personas que hayan marcado el artículo no reciban un error *404 No encontrado*. Agregue redirecciones al [archivo de redireccionamiento principal](https://github.com/aspnet/Docs/blob/master/.openpublishing.redirection.json).
+Si elimina un artículo, cambie su nombre de archivo o muévalo a otra carpeta, cree un redireccionamiento para que las personas que hayan marcado el artículo no reciban un error *404 No encontrado*. Agregue redirecciones al [archivo de redireccionamiento principal](https://github.com/dotnet/AspNetCore.Docs/blob/master/.openpublishing.redirection.json).

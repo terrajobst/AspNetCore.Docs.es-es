@@ -9,12 +9,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.0
-ms.openlocfilehash: 1dee9a7e1cc381547e7ece71f302f407223dc838
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 35accdd2f65ac5430525be88cc621094e37d3e40
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829119"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78650855"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Novedades de ASP.NET Core 3.0
 
@@ -398,7 +398,7 @@ Para obtener más información, vea <xref:security/authentication/windowsauth>.
 Se ha eliminado lo siguiente de las plantillas de la interfaz de usuario web (Razor Pages, MVC con el controlador y las vistas):
 
 * La interfaz de usuario de consentimiento de cookies ya no está incluida. Para habilitar la función de consentimiento de cookies en una aplicación ASP.NET Core 3.0 generada por plantillas, vea <xref:security/gdpr>.
-* Ahora se hace referencia a los scripts y los recursos estáticos relacionados como archivos locales en lugar de usar CDN. Para más información, consulte [Ahora se hace referencia a los scripts y recursos estáticos relacionados como archivos locales en lugar de usar CDN en base al entorno actual (aspnet/AspNetCore.Docs nº 14350)](https://github.com/aspnet/AspNetCore.Docs/issues/14350).
+* Ahora se hace referencia a los scripts y los recursos estáticos relacionados como archivos locales en lugar de usar CDN. Para más información, consulte [Ahora se hace referencia a los scripts y recursos estáticos relacionados como archivos locales en lugar de usar CDN en base al entorno actual (aspnet/AspNetCore.Docs nº 14350)](https://github.com/dotnet/AspNetCore.Docs/issues/14350).
 
 La plantilla de Angular se ha actualizado para usar Angular 8.
 

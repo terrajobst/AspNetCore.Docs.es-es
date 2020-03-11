@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 no-loc:
 - SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: f8bbd9ed2e9c792197eb29be459f7e5ee499bfd1
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: e1ab02077abc8f8b3315a52eb29a3d571af43fa0
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172018"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78647645"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Uso de SignalR de ASP.NET Core con TypeScript y Webpack
 
@@ -30,19 +30,19 @@ En este tutorial aprenderá a:
 > * Configuración del servidor de SignalR
 > * Habilitar la comunicación entre cliente y servidor
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ::: moniker range=">= aspnetcore-3.0"
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) con la carga de trabajo **ASP.NET y desarrollo web**
 * [.NET Core SDK 3.0 o posterior](https://www.microsoft.com/net/download/all)
 * [Node.js](https://nodejs.org/) con [npm](https://www.npmjs.com/)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [.NET Core SDK 3.0 o posterior](https://www.microsoft.com/net/download/all)
@@ -53,7 +53,7 @@ En este tutorial aprenderá a:
 
 ## <a name="create-the-aspnet-core-web-app"></a>Creación de la aplicación web ASP.NET Core
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Configure Visual Studio para buscar npm en la variable de entorno *PATH*. De forma predeterminada, Visual Studio usa la versión de npm que se encuentra en su directorio de instalación. Siga estas instrucciones en Visual Studio:
 
@@ -75,7 +75,7 @@ Agregue el paquete `Microsoft.TypeScript.MSBuild` al proyecto:
 
 Visual Studio agrega el paquete NuGet en el nodo **Dependencias** del **Explorador de soluciones**, que habilita la compilación de TypeScript en el proyecto.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Ejecute el comando siguiente en el **terminal integrado**:
 
@@ -249,7 +249,7 @@ La aplicación actualmente muestra un formulario básico para enviar mensajes, p
 
 Confirme que la aplicación funciona con los pasos siguientes.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Ejecute Webpack en modo *release*. Desde la ventana **Consola del Administrador de paquetes**, ejecute el comando siguiente en la raíz del proyecto. Si no está en la raíz del proyecto, escriba `cd SignalRWebPack` antes de introducir el comando.
 
@@ -263,7 +263,7 @@ Confirme que la aplicación funciona con los pasos siguientes.
 
 1. Elija un explorador, escriba algo en el cuadro de texto **Mensaje** y haga clic en el botón **Enviar**. El nombre de usuario único y el mensaje se muestran en las dos páginas al instante.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 1. Ejecute Webpack en modo *release* mediante la ejecución del comando siguiente en la raíz del proyecto:
 
@@ -293,13 +293,13 @@ Confirme que la aplicación funciona con los pasos siguientes.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) con la carga de trabajo **ASP.NET y desarrollo web**
 * [.NET Core SDK 2.2 o posterior](https://www.microsoft.com/net/download/all)
 * [Node.js](https://nodejs.org/) con [npm](https://www.npmjs.com/)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [.NET Core SDK 2.2 o posterior](https://www.microsoft.com/net/download/all)
@@ -310,7 +310,7 @@ Confirme que la aplicación funciona con los pasos siguientes.
 
 ## <a name="create-the-aspnet-core-web-app"></a>Creación de la aplicación web ASP.NET Core
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Configure Visual Studio para buscar npm en la variable de entorno *PATH*. De forma predeterminada, Visual Studio usa la versión de npm que se encuentra en su directorio de instalación. Siga estas instrucciones en Visual Studio:
 
@@ -325,7 +325,7 @@ Se ha completado la configuración de Visual Studio. Es el momento de crear el p
 1. Asigne el nombre *SignalRWebPack* al proyecto y seleccione **Crear**.
 1. Seleccione *.NET Core* en la lista desplegable de plataforma de destino y *ASP.NET Core 2.2* en la lista desplegable del selector de plataforma. Seleccione la plantilla **Vacía** y **Crear**.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Ejecute el comando siguiente en el **terminal integrado**:
 
@@ -486,7 +486,7 @@ Actualmente, en la aplicación se muestra un formulario simple para enviar mensa
 
 Confirme que la aplicación funciona con los pasos siguientes.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Ejecute Webpack en modo *release*. Desde la ventana **Consola del Administrador de paquetes**, ejecute el comando siguiente en la raíz del proyecto. Si no está en la raíz del proyecto, escriba `cd SignalRWebPack` antes de introducir el comando.
 
@@ -498,7 +498,7 @@ Confirme que la aplicación funciona con los pasos siguientes.
 
 1. Elija un explorador, escriba algo en el cuadro de texto **Mensaje** y haga clic en el botón **Enviar**. El nombre de usuario único y el mensaje se muestran en las dos páginas al instante.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 1. Ejecute Webpack en modo *release* mediante la ejecución del comando siguiente en la raíz del proyecto:
 

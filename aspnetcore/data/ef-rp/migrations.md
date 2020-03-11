@@ -5,12 +5,12 @@ description: En este tutorial, empezará a usar la característica de EF Core de
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/migrations
-ms.openlocfilehash: f8e78cf7230528a4047eac1d52a12e2ed8392dec
-ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
+ms.openlocfilehash: 86fd83c898fce8e121e4d259aaca12c59591e606
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77213448"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78645557"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Migraciones (4 de 8)
 
@@ -160,7 +160,7 @@ En el tutorial siguiente se crea el modelo de datos y se agregan propiedades de 
 En este tutorial, se usa la característica de migraciones de EF Core para administrar cambios en el modelo de datos.
 
 Si experimenta problemas que no puede resolver, descargue la [aplicación completada](
-https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 Cuando se desarrolla una aplicación nueva, el modelo de datos cambia con frecuencia. Cada vez que el modelo cambia, este deja de estar sincronizado con la base de datos. Este tutorial se inició con la configuración de Entity Framework para crear la base de datos si no existía. Cada vez que los datos del modelo cambian:
 
@@ -296,7 +296,7 @@ EF Core usa la tabla `__MigrationsHistory` para ver si es necesario ejecutar las
 ## <a name="troubleshooting"></a>Solución de problemas
 
 Descargue la [aplicación completada](
-https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu21snapshots/cu-part4-migrations).
+https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu21snapshots/cu-part4-migrations).
 
 La aplicación genera la siguiente excepción:
 

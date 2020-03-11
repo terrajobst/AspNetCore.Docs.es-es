@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/17/2020
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 16583cde2f4a6deaabc2fc965a5b9484ca94c2fd
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: da848ef9c5fa85f5186d1b6f0a6111d8c8d069c4
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76268726"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78648239"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introducción a Swashbuckle y ASP.NET Core
 
 Por [Shayne Boyer](https://twitter.com/spboyer) y [Scott Addie](https://twitter.com/Scott_Addie)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 Hay tres componentes principales de Swashbuckle:
 
@@ -31,7 +31,7 @@ Hay tres componentes principales de Swashbuckle:
 
 Se puede agregar Swashbuckle con los métodos siguientes:
 
-### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * En la ventana **Consola del Administrador de paquetes**:
   * Vaya a **Vista** > **Otras ventanas** > **Consola del Administrador de paquetes**.
@@ -49,7 +49,7 @@ Se puede agregar Swashbuckle con los métodos siguientes:
   * Escriba "Swashbuckle.AspNetCore" en el cuadro de búsqueda.
   * Seleccione el paquete "Swashbuckle.AspNetCore" más reciente en la pestaña **Examinar** y haga clic en **Instalar**.
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
 * Haga clic con el botón derecho en la carpeta *Paquetes* en **Panel de solución** > **Agregar paquetes...**
 * Establezca el menú desplegable **Origen** de la ventana **Agregar paquetes** en "nuget.org".
@@ -57,7 +57,7 @@ Se puede agregar Swashbuckle con los métodos siguientes:
 * Escriba "Swashbuckle.AspNetCore" en el cuadro de búsqueda.
 * Seleccione el paquete "Swashbuckle.AspNetCore" más reciente en el panel de resultados y haga clic en **Agregar paquete**.
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Ejecute el siguiente comando en el **terminal integrado**:
 
@@ -65,7 +65,7 @@ Ejecute el siguiente comando en el **terminal integrado**:
 dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0
 ```
 
-### <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+### <a name="net-core-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
 Ejecute el siguiente comando:
 
@@ -154,7 +154,7 @@ La interfaz de usuario de Swagger muestra información de la versión:
 
 Los comentarios XML se pueden habilitar con los métodos siguientes:
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+#### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -172,7 +172,7 @@ Los comentarios XML se pueden habilitar con los métodos siguientes:
 
 ::: moniker-end
 
-#### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+#### <a name="visual-studio-for-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -190,7 +190,7 @@ Los comentarios XML se pueden habilitar con los métodos siguientes:
 
 ::: moniker-end
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+#### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Agregue manualmente las líneas resaltadas al archivo *.csproj*:
 
@@ -206,7 +206,7 @@ Agregue manualmente las líneas resaltadas al archivo *.csproj*:
 
 ::: moniker-end
 
-#### <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+#### <a name="net-core-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
 Agregue manualmente las líneas resaltadas al archivo *.csproj*:
 
