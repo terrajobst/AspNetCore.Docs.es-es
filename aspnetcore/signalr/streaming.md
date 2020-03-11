@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/streaming
-ms.openlocfilehash: 7825beba55cefb6236fd8d8e332d030a7e4fc6df
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 21dd8180fe168f81ed68b01f02b81a6264d6e5a6
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963886"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78654977"
 ---
 # <a name="use-streaming-in-aspnet-core-opno-locsignalr"></a>Usar streaming en ASP.NET Core SignalR
 
@@ -32,7 +32,7 @@ ASP.NET Core SignalR admite el streaming de valores devueltos de métodos de ser
 
 ::: moniker-end
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/signalr/streaming/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/live/aspnetcore/signalr/streaming/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="set-up-a-hub-for-streaming"></a>Configuración de un centro para la transmisión por secuencias
 

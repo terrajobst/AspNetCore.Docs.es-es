@@ -10,31 +10,31 @@ no-loc:
 - SignalR
 uid: signalr/diagnostics
 ms.openlocfilehash: c5bd2ac27f8ca486b0d75aed8439747f72448625
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963853"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652415"
 ---
-# <a name="logging-and-diagnostics-in-aspnet-core-opno-locsignalr"></a>Registro y diagnósticos en ASP.NET Core SignalR
+# <a name="logging-and-diagnostics-in-aspnet-core-signalr"></a>Registro y diagnóstico en ASP.NET Core Signalr
 
 Por [Andrew Stanton-enfermera](https://twitter.com/anurse)
 
-En este artículo se proporcionan instrucciones para recopilar diagnósticos de la aplicación ASP.NET Core SignalR para ayudar a solucionar problemas.
+En este artículo se proporcionan instrucciones para recopilar diagnósticos de la aplicación ASP.NET Core Signalr para ayudar a solucionar problemas.
 
 ## <a name="server-side-logging"></a>Registro del lado servidor
 
 > [!WARNING]
 > Los registros del lado servidor pueden contener información confidencial de la aplicación. No publique **nunca** los registros sin procesar de las aplicaciones de producción en foros públicos como github.
 
-Puesto que SignalR forma parte de ASP.NET Core, usa el sistema de registro de ASP.NET Core. En la configuración predeterminada, SignalR registra muy poca información, pero esto puede configurarse. Consulte la documentación sobre el [registro de ASP.net Core](xref:fundamentals/logging/index#configuration) para obtener más información sobre la configuración del registro de ASP.net Core.
+Como Signalr forma parte de ASP.NET Core, utiliza el sistema de registro de ASP.NET Core. En la configuración predeterminada, Signalr registra muy poca información, pero esto puede configurarse. Consulte la documentación sobre el [registro de ASP.net Core](xref:fundamentals/logging/index#configuration) para obtener más información sobre la configuración del registro de ASP.net Core.
 
-SignalR usa dos categorías de registrador:
+Signalr usa dos categorías de registrador:
 
 * `Microsoft.AspNetCore.SignalR` &ndash; para los registros relacionados con los protocolos de Hub, la activación de centros, la invocación de métodos y otras actividades relacionadas con el concentrador.
-* `Microsoft.AspNetCore.Http.Connections` &ndash; para los registros relacionados con los transportes, como WebSockets, los eventos de sondeo largo y de servidor y la infraestructura de SignalR de bajo nivel.
+* `Microsoft.AspNetCore.Http.Connections` &ndash; para los registros relacionados con los transportes, como WebSockets, los eventos de sondeo largo y el servidor y la infraestructura de Signalr de bajo nivel.
 
-Para habilitar los registros detallados de SignalR, configure los dos prefijos anteriores en el nivel de `Debug` en el archivo *appSettings. JSON* agregando los siguientes elementos a la subsección `LogLevel` en `Logging`:
+Para habilitar registros detallados de Signalr, configure los dos prefijos anteriores en el nivel de `Debug` del archivo *appSettings. JSON* agregando los siguientes elementos a la subsección `LogLevel` en `Logging`:
 
 [!code-json[](diagnostics/logging-config.json?highlight=7-8)]
 
@@ -57,7 +57,7 @@ La forma de acceder a los registros del lado servidor depende del entorno en el 
 
 ### <a name="as-a-console-app-outside-iis"></a>Como aplicación de consola fuera de IIS
 
-Si está ejecutando en una aplicación de consola, el [registrador de consola](xref:fundamentals/logging/index#console-provider) debe estar habilitado de forma predeterminada. SignalR registros aparecerán en la consola de.
+Si está ejecutando en una aplicación de consola, el [registrador de consola](xref:fundamentals/logging/index#console-provider) debe estar habilitado de forma predeterminada. Los registros de signalr aparecerán en la consola de.
 
 ### <a name="within-iis-express-from-visual-studio"></a>Dentro de IIS Express desde Visual Studio
 
@@ -107,7 +107,7 @@ Si desea enviar registros a un sistema de registro personalizado, puede proporci
 
 Para obtener los registros del cliente .NET, puede usar el método `ConfigureLogging` en `HubConnectionBuilder`. Esto funciona de la misma manera que el método `ConfigureLogging` en `WebHostBuilder` y `HostBuilder`. Puede configurar los mismos proveedores de registro que utiliza en ASP.NET Core. Sin embargo, tiene que instalar y habilitar manualmente los paquetes de NuGet para los proveedores de registro individuales.
 
-### <a name="console-logging"></a>Registro de la consola
+### <a name="console-logging"></a>Registro de consolas
 
 Para habilitar el registro de la consola, agregue el paquete [Microsoft. Extensions. Logging. Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) . A continuación, use el método `AddConsole` para configurar el registrador de la consola:
 

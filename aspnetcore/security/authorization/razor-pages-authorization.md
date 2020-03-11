@@ -1,34 +1,32 @@
 ---
 title: Razor Pages convenciones de autorización en ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Obtenga información sobre cómo controlar el acceso a las páginas con convenciones que autorizan a los usuarios y permiten a los usuarios anónimos acceder a páginas o carpetas de páginas.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 08/12/2019
 uid: security/authorization/razor-pages-authorization
-ms.openlocfilehash: e0102ff64921a83f0330acb6f5d9bfd90f64ca7a
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 00fc487c6ac802f213bcf83994ecc2b1a1468589
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994032"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653117"
 ---
 # <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>Razor Pages convenciones de autorización en ASP.NET Core
-
-Por [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 Una manera de controlar el acceso en la aplicación Razor Pages es usar las convenciones de autorización en el inicio. Estas convenciones permiten autorizar a los usuarios y permitir que los usuarios anónimos tengan acceso a páginas individuales o carpetas de páginas. Las convenciones descritas en este tema aplican automáticamente los [filtros de autorización](xref:mvc/controllers/filters#authorization-filters) para controlar el acceso.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/razor-pages-authorization/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/razor-pages-authorization/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 La aplicación de ejemplo usa la [autenticación de cookies sin ASP.net Core identidad](xref:security/authentication/cookie). Los conceptos y los ejemplos que se muestran en este tema se aplican igualmente a las aplicaciones que usan ASP.NET Core identidad. Para usar ASP.NET Core identidad, siga las instrucciones de <xref:security/authentication/identity>.
 
 ## <a name="require-authorization-to-access-a-page"></a>Requerir autorización para tener acceso a una página
 
-Use la <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizePage*> Convención a <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> través de para <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> agregar un a la página en la ruta de acceso especificada:
+Use la Convención de <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizePage*> a través de <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para agregar una <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> a la página en la ruta de acceso especificada:
 
 [!code-csharp[](razor-pages-authorization/samples/3.x/AuthorizationSample/Startup.cs?name=snippet1&highlight=2,4)]
 
@@ -41,11 +39,11 @@ options.Conventions.AuthorizePage("/Contact", "AtLeast21");
 ```
 
 > [!NOTE]
-> Un <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> se puede aplicar a una clase de modelo de página `[Authorize]` con el atributo de filtro. Para obtener más información, consulte [Authorize Filter Attribute](xref:razor-pages/filter#authorize-filter-attribute).
+> Un <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> se puede aplicar a una clase de modelo de página con el atributo de filtro `[Authorize]`. Para obtener más información, consulte [Authorize Filter Attribute](xref:razor-pages/filter#authorize-filter-attribute).
 
 ## <a name="require-authorization-to-access-a-folder-of-pages"></a>Requerir autorización para tener acceso a una carpeta de páginas
 
-Use la <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizeFolder*> Convención a <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> través de para <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> agregar un a todas las páginas de una carpeta en la ruta de acceso especificada:
+Use la Convención de <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizeFolder*> a través de <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para agregar una <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> a todas las páginas de una carpeta en la ruta de acceso especificada:
 
 [!code-csharp[](razor-pages-authorization/samples/3.x/AuthorizationSample/Startup.cs?name=snippet1&highlight=2,5)]
 
@@ -59,7 +57,7 @@ options.Conventions.AuthorizeFolder("/Private", "AtLeast21");
 
 ## <a name="require-authorization-to-access-an-area-page"></a>Requerir autorización para tener acceso a una página de área
 
-Use la <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizeAreaPage*> Convención a <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> través de para <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> agregar un a la página de área en la ruta de acceso especificada:
+Use la Convención de <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizeAreaPage*> a través de <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para agregar una <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> a la página de área de la ruta de acceso especificada:
 
 ```csharp
 options.Conventions.AuthorizeAreaPage("Identity", "/Manage/Accounts");
@@ -75,7 +73,7 @@ options.Conventions.AuthorizeAreaPage("Identity", "/Manage/Accounts", "AtLeast21
 
 ## <a name="require-authorization-to-access-a-folder-of-areas"></a>Requerir autorización para tener acceso a una carpeta de áreas
 
-Use la <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizeAreaFolder*> Convención a <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> través de para <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> agregar un a todas las áreas de una carpeta en la ruta de acceso especificada:
+Use la Convención de <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizeAreaFolder*> a través de <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para agregar una <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> a todas las áreas de una carpeta en la ruta de acceso especificada:
 
 ```csharp
 options.Conventions.AuthorizeAreaFolder("Identity", "/Manage");
@@ -91,7 +89,7 @@ options.Conventions.AuthorizeAreaFolder("Identity", "/Manage", "AtLeast21");
 
 ## <a name="allow-anonymous-access-to-a-page"></a>Permitir acceso anónimo a una página
 
-Use la <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AllowAnonymousToPage*> Convención a <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> través de para <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> agregar un a una página en la ruta de acceso especificada:
+Use la Convención de <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AllowAnonymousToPage*> a través de <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para agregar una <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> a una página en la ruta de acceso especificada:
 
 [!code-csharp[](razor-pages-authorization/samples/3.x/AuthorizationSample/Startup.cs?name=snippet1&highlight=2,6)]
 
@@ -99,7 +97,7 @@ La ruta de acceso especificada es la ruta de acceso del motor de vista, que es l
 
 ## <a name="allow-anonymous-access-to-a-folder-of-pages"></a>Permitir acceso anónimo a una carpeta de páginas
 
-Use la <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AllowAnonymousToFolder*> Convención a <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> través de para <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> agregar un a todas las páginas de una carpeta en la ruta de acceso especificada:
+Use la Convención de <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AllowAnonymousToFolder*> a través de <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para agregar una <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> a todas las páginas de una carpeta en la ruta de acceso especificada:
 
 [!code-csharp[](razor-pages-authorization/samples/3.x/AuthorizationSample/Startup.cs?name=snippet1&highlight=2,7)]
 
@@ -107,7 +105,7 @@ La ruta de acceso especificada es la ruta de acceso del motor de vista, que es l
 
 ## <a name="note-on-combining-authorized-and-anonymous-access"></a>Nota sobre cómo combinar el acceso autorizado y anónimo
 
-Es válido especificar que una carpeta de páginas que requieran autorización y que especifique que una página de esa carpeta permita el acceso anónimo:
+Es válido especificar que una carpeta de páginas requiere autorización y, a continuación, especificar que una página dentro de esa carpeta permita el acceso anónimo:
 
 ```csharp
 // This works.
@@ -121,7 +119,7 @@ Sin embargo, el inverso no es válido. No se puede declarar una carpeta de pági
 .AllowAnonymousToFolder("/Public").AuthorizePage("/Public/Private")
 ```
 
-Se produce un error en la solicitud de autorización en la página privada. <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> Cuando y <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> se aplican a la página, tiene prioridad <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> y controla el acceso.
+Se produce un error en la solicitud de autorización en la página privada. Cuando el <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> y el <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> se aplican a la página, el <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> tiene prioridad y controla el acceso.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -134,13 +132,13 @@ Se produce un error en la solicitud de autorización en la página privada. <xre
 
 Una manera de controlar el acceso en la aplicación Razor Pages es usar las convenciones de autorización en el inicio. Estas convenciones permiten autorizar a los usuarios y permitir que los usuarios anónimos tengan acceso a páginas individuales o carpetas de páginas. Las convenciones descritas en este tema aplican automáticamente los [filtros de autorización](xref:mvc/controllers/filters#authorization-filters) para controlar el acceso.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/razor-pages-authorization/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/razor-pages-authorization/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 La aplicación de ejemplo usa la [autenticación de cookies sin ASP.net Core identidad](xref:security/authentication/cookie). Los conceptos y los ejemplos que se muestran en este tema se aplican igualmente a las aplicaciones que usan ASP.NET Core identidad. Para usar ASP.NET Core identidad, siga las instrucciones de <xref:security/authentication/identity>.
 
 ## <a name="require-authorization-to-access-a-page"></a>Requerir autorización para tener acceso a una página
 
-Use la <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizePage*> Convención a <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> través de para <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> agregar un a la página en la ruta de acceso especificada:
+Use la Convención de <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizePage*> a través de <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para agregar una <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> a la página en la ruta de acceso especificada:
 
 [!code-csharp[](razor-pages-authorization/samples/2.x/AuthorizationSample/Startup.cs?name=snippet1&highlight=2,4)]
 
@@ -153,11 +151,11 @@ options.Conventions.AuthorizePage("/Contact", "AtLeast21");
 ```
 
 > [!NOTE]
-> Un <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> se puede aplicar a una clase de modelo de página `[Authorize]` con el atributo de filtro. Para obtener más información, consulte [Authorize Filter Attribute](xref:razor-pages/filter#authorize-filter-attribute).
+> Un <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> se puede aplicar a una clase de modelo de página con el atributo de filtro `[Authorize]`. Para obtener más información, consulte [Authorize Filter Attribute](xref:razor-pages/filter#authorize-filter-attribute).
 
 ## <a name="require-authorization-to-access-a-folder-of-pages"></a>Requerir autorización para tener acceso a una carpeta de páginas
 
-Use la <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizeFolder*> Convención a <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> través de para <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> agregar un a todas las páginas de una carpeta en la ruta de acceso especificada:
+Use la Convención de <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizeFolder*> a través de <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para agregar una <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> a todas las páginas de una carpeta en la ruta de acceso especificada:
 
 [!code-csharp[](razor-pages-authorization/samples/2.x/AuthorizationSample/Startup.cs?name=snippet1&highlight=2,5)]
 
@@ -171,7 +169,7 @@ options.Conventions.AuthorizeFolder("/Private", "AtLeast21");
 
 ## <a name="require-authorization-to-access-an-area-page"></a>Requerir autorización para tener acceso a una página de área
 
-Use la <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizeAreaPage*> Convención a <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> través de para <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> agregar un a la página de área en la ruta de acceso especificada:
+Use la Convención de <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizeAreaPage*> a través de <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para agregar una <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> a la página de área de la ruta de acceso especificada:
 
 ```csharp
 options.Conventions.AuthorizeAreaPage("Identity", "/Manage/Accounts");
@@ -187,7 +185,7 @@ options.Conventions.AuthorizeAreaPage("Identity", "/Manage/Accounts", "AtLeast21
 
 ## <a name="require-authorization-to-access-a-folder-of-areas"></a>Requerir autorización para tener acceso a una carpeta de áreas
 
-Use la <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizeAreaFolder*> Convención a <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> través de para <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> agregar un a todas las áreas de una carpeta en la ruta de acceso especificada:
+Use la Convención de <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AuthorizeAreaFolder*> a través de <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para agregar una <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> a todas las áreas de una carpeta en la ruta de acceso especificada:
 
 ```csharp
 options.Conventions.AuthorizeAreaFolder("Identity", "/Manage");
@@ -203,7 +201,7 @@ options.Conventions.AuthorizeAreaFolder("Identity", "/Manage", "AtLeast21");
 
 ## <a name="allow-anonymous-access-to-a-page"></a>Permitir acceso anónimo a una página
 
-Use la <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AllowAnonymousToPage*> Convención a <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> través de para <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> agregar un a una página en la ruta de acceso especificada:
+Use la Convención de <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AllowAnonymousToPage*> a través de <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para agregar una <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> a una página en la ruta de acceso especificada:
 
 [!code-csharp[](razor-pages-authorization/samples/2.x/AuthorizationSample/Startup.cs?name=snippet1&highlight=2,6)]
 
@@ -211,7 +209,7 @@ La ruta de acceso especificada es la ruta de acceso del motor de vista, que es l
 
 ## <a name="allow-anonymous-access-to-a-folder-of-pages"></a>Permitir acceso anónimo a una carpeta de páginas
 
-Use la <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AllowAnonymousToFolder*> Convención a <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> través de para <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> agregar un a todas las páginas de una carpeta en la ruta de acceso especificada:
+Use la Convención de <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AllowAnonymousToFolder*> a través de <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para agregar una <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> a todas las páginas de una carpeta en la ruta de acceso especificada:
 
 [!code-csharp[](razor-pages-authorization/samples/2.x/AuthorizationSample/Startup.cs?name=snippet1&highlight=2,7)]
 
@@ -233,7 +231,7 @@ Sin embargo, el inverso no es válido. No se puede declarar una carpeta de pági
 .AllowAnonymousToFolder("/Public").AuthorizePage("/Public/Private")
 ```
 
-Se produce un error en la solicitud de autorización en la página privada. <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> Cuando y <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> se aplican a la página, tiene prioridad <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> y controla el acceso.
+Se produce un error en la solicitud de autorización en la página privada. Cuando el <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> y el <xref:Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter> se aplican a la página, el <xref:Microsoft.AspNetCore.Mvc.Authorization.AllowAnonymousFilter> tiene prioridad y controla el acceso.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/introduction
 ms.openlocfilehash: b5e60b3c256941fff5e54e1a02e077c34c535902
-ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75693874"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652337"
 ---
 # <a name="introduction-to-authorization-in-aspnet-core"></a>Introducción a la autorización en ASP.NET Core
 
@@ -26,7 +26,7 @@ Para obtener más información sobre la autenticación en ASP.NET Core, vea <xre
 
 La autorización de ASP.NET Core proporciona un [rol](xref:security/authorization/roles) sencillo y declarativo y un modelo avanzado [basado en directivas](xref:security/authorization/policies) . La autorización se expresa en requisitos y los controladores evalúan las notificaciones de un usuario en relación con los requisitos. Las comprobaciones imperativas pueden basarse en directivas o directivas simples que evalúan la identidad del usuario y las propiedades del recurso al que el usuario está intentando obtener acceso.
 
-## <a name="namespaces"></a>Espacios de nombres de
+## <a name="namespaces"></a>Espacios de nombres
 
 Los componentes de autorización, incluidos los atributos `AuthorizeAttribute` y `AllowAnonymousAttribute`, se encuentran en el espacio de nombres `Microsoft.AspNetCore.Authorization`.
 

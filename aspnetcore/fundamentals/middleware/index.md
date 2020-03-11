@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 6698e269e0a6480cd5a03c59f9a19da31e23bf69
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: afa71b2c2b75be2c000fadd9545ac3fb4587825a
+ms.sourcegitcommit: 51c86c003ab5436598dbc42f26ea4a83a795fd6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77089154"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78964465"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware de ASP.NET Core
 
@@ -60,6 +60,7 @@ Cuando un delegado no pasa una solicitud al siguiente delegado, se denomina *cor
 Los delegados de <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*> no reciben un parámetro `next`. El primer delegado de `Run` siempre es terminal y finaliza la canalización. `Run` es una convención. Es posible que algunos componentes de middleware expongan métodos `Run[Middleware]` que se ejecutan al final de la canalización:
 
 [!code-csharp[](index/snapshot/Chain/Startup.cs?highlight=12-15)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 En el ejemplo anterior, el delegado `Run` escribe `"Hello from 2nd delegate."` en la respuesta y, después, termina la canalización. Si se agrega otro delegado `Use` o `Run` después de `Run`, no se le llama.
 
@@ -214,9 +215,9 @@ En la siguiente tabla se muestran las solicitudes y las respuestas de `http://lo
 | localhost:1234                | Saludos del delegado sin Map. |
 | localhost:1234/?branch=master | Rama usada = master         |
 
-<xref:Microsoft.AspNetCore.Builder.UseWhenExtensions.UseWhen*> también crea una rama de la canalización de solicitudes según el resultado del predicado proporcionado. A diferencia de lo que sucede con `MapWhen`, esta rama se vuelve a unir a la canalización principal si realiza un cortocircuito o contiene un middleware de terminal:
+<xref:Microsoft.AspNetCore.Builder.UseWhenExtensions.UseWhen*> también crea una rama de la canalización de solicitudes según el resultado del predicado proporcionado. A diferencia de lo que sucede con `MapWhen`, esta rama se vuelve a unir a la canalización principal si no realiza un cortocircuito ni contiene un middleware de terminal:
 
-[!code-csharp[](index/snapshot/Chain/StartupUseWhen.cs?highlight=23-24)]
+[!code-csharp[](index/snapshot/Chain/StartupUseWhen.cs?highlight=25-26)]
 
 En el ejemplo anterior, la respuesta "Hola desde la canalización principal." se escribe para todas las solicitudes. Si la solicitud incluye una variable de cadena de consulta `branch`, su valor se registra antes de que se vuelva a unir la canalización principal.
 

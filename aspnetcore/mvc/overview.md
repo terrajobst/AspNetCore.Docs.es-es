@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 02/12/2020
 uid: mvc/overview
 ms.openlocfilehash: 2911399f6ed4e14345171c908c4306b9c3e33805
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
-ms.translationtype: HT
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447417"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78651671"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Información general de ASP.NET Core MVC
 
@@ -41,7 +41,7 @@ Las vistas se encargan de presentar el contenido a través de la interfaz de usu
 
 ### <a name="controller-responsibilities"></a>Responsabilidades del controlador
 
-Los controladores son los componentes que controlan la interacción del usuario, trabajan con el modelo y, en última instancia, seleccionan una vista para representarla. En una aplicación de MVC, la vista solo muestra información; el controlador controla y responde a la interacción y los datos que introducen los usuarios. En el patrón de MVC, el controlador es el punto de entrada inicial que se encarga de seleccionar con qué tipos de modelo trabajar y qué vistas representar (de ahí su nombre, ya que controla el modo en que la aplicación responde a una determinada solicitud).
+Los controladores son los componentes que controlan la interacción del usuario, trabajan con el modelo y, en última instancia, seleccionan una vista para representarla. En una aplicación MVC, la vista solo muestra información; el controlador administra y responde a los datos proporcionados por el usuario y su interacción. En el patrón de MVC, el controlador es el punto de entrada inicial que se encarga de seleccionar con qué tipos de modelo trabajar y qué vistas representar (de ahí su nombre, ya que controla el modo en que la aplicación responde a una determinada solicitud).
 
 > [!NOTE]
 > Los controladores no deberían complicarse con demasiadas responsabilidades. Para evitar que la lógica del controlador se vuelva demasiado compleja, saque la lógica de negocios fuera el controlador y llévela al modelo de dominio.
@@ -141,7 +141,7 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 
 El marco administra los datos de la solicitud de validación en el cliente y en el servidor. La lógica de validación especificada en tipos de modelo se agrega a las vistas representadas como anotaciones discretas y se aplica en el explorador con [Validación de jQuery](https://jqueryvalidation.org/).
 
-### <a name="dependency-injection"></a>Inserción de dependencias
+### <a name="dependency-injection"></a>Inserción de dependencia
 
 ASP.NET Core tiene compatibilidad integrada con la [inserción de dependencias](../fundamentals/dependency-injection.md). En ASP.NET Core MVC, los [controladores](controllers/dependency-injection.md) pueden solicitar los servicios que necesiten a través de sus constructores, lo que les permite seguir el [principio de dependencias explícitas](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
 
@@ -172,7 +172,7 @@ public class AccountController : Controller
 
 ### <a name="areas"></a>Áreas
 
-Las [áreas](controllers/areas.md) ofrecen una manera de dividir una aplicación web ASP.NET Core MVC de gran tamaño en agrupaciones funcionales más pequeñas. Un área es una estructura de MVC dentro de una aplicación. En un proyecto de MVC, los componentes lógicos como el modelo, el controlador y la vista se guardan en carpetas diferentes, y MVC usa las convenciones de nomenclatura para crear la relación entre estos componentes. Para una aplicación grande, puede ser conveniente dividir la aplicación en distintas áreas de funciones de alto nivel. Por ejemplo, una aplicación de comercio electrónico con varias unidades de negocio, como la finalización de la compra, la facturación, la búsqueda, etcétera. Cada una de estas unidades tiene sus propias vistas, controladores y modelos de componentes lógicos.
+Las [áreas](controllers/areas.md) ofrecen una manera de dividir una aplicación web ASP.NET Core MVC de gran tamaño en agrupaciones funcionales más pequeñas. Un área es una estructura de MVC dentro de una aplicación. En un proyecto de MVC, los componentes lógicos como el modelo, el controlador y la vista se guardan en carpetas diferentes, y MVC usa las convenciones de nomenclatura para crear la relación entre estos componentes. Para una aplicación grande, puede ser conveniente dividir la aplicación en distintas áreas de funciones de alto nivel. Por ejemplo, una aplicación de comercio electrónico con varias unidades de negocio, como la retirada, la facturación y la búsqueda, etc. Cada una de estas unidades tiene sus propias vistas de componentes lógicas, controladores y modelos.
 
 ### <a name="web-apis"></a>API web
 
@@ -253,7 +253,7 @@ Los [componentes de vista](views/view-components.md) permiten empaquetar la lóg
 
 El método <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> permite a una aplicación participar o no en los cambios de comportamiento importantes incorporados en ASP.NET Core MVC 2.1 o una versión posterior.
 
-Para obtener más información, vea <xref:mvc/compatibility-version>.
+Para más información, consulte <xref:mvc/compatibility-version>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

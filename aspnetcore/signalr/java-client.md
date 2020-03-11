@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/java-client
-ms.openlocfilehash: d7143b2c22ecdc4e68f484aa4c244e1c520beae0
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 6919eabf454f16887e012161a454a4848c45002b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963784"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652217"
 ---
 # <a name="aspnet-core-opno-locsignalr-java-client"></a>ASP.NET Core SignalR cliente de Java
 
@@ -24,7 +24,7 @@ El cliente de Java permite la conexión a un servidor de ASP.NET Core SignalR de
 
 La aplicación de consola de Java de ejemplo a la que se hace referencia en este artículo usa el cliente de Java SignalR.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/java-client/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/java-client/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="install-the-opno-locsignalr-java-client-package"></a>Instalación del paquete de cliente de SignalR Java
 
@@ -98,7 +98,7 @@ HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
     })).build();
 ```
 
-## <a name="known-limitations"></a>Limitaciones conocidas
+## <a name="known-limitations"></a>Restricciones conocidas
 
 ::: moniker range=">= aspnetcore-3.0"
 

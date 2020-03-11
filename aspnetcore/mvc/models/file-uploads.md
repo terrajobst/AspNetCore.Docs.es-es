@@ -1,30 +1,30 @@
 ---
 title: Carga de archivos en ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Cómo usar el enlace de modelos y el streaming para cargar archivos en ASP.NET Core MVC.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/11/2020
+ms.date: 02/25/2020
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 56fd26c1864089558f5cd89f693dc86ea30c3331
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
-ms.translationtype: HT
+ms.openlocfilehash: fc71c39dd1aa70e6b092799fec00bd7bf66703e8
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172474"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78654089"
 ---
 # <a name="upload-files-in-aspnet-core"></a>Carga de archivos en ASP.NET Core
 
-Por [Luke Latham](https://github.com/guardrex), [Steve Smith](https://ardalis.com/) y [Rutger Storm](https://github.com/rutix)
+Por [Steve Smith](https://ardalis.com/) y [Rutger Storm](https://github.com/rutix)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 ASP.NET Core admite la carga de uno o varios archivos mediante el enlace de modelos almacenado en búfer de archivos más pequeños y el streaming no almacenado en búfer de archivos de mayor tamaño.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-## <a name="security-considerations"></a>Consideraciones de seguridad
+## <a name="security-considerations"></a>Consideraciones sobre la seguridad
 
 Tenga precaución al proporcionar a los usuarios la capacidad de cargar archivos en un servidor. Es posible que los atacantes intenten lo siguiente:
 
@@ -36,9 +36,9 @@ Estos son algunos de los pasos de seguridad con los que se reduce la probabilida
 
 * Cargue los archivos a un área de carga de archivos dedicada, preferiblemente una unidad que no sea de sistema. Una ubicación dedicada facilita la imposición de restricciones de seguridad en los archivos cargados. Deshabilite la ejecución de los permisos en la ubicación de carga de archivos.&dagger;
 * Los archivos cargados **no** se deben persistir en el mismo árbol de directorio que la aplicación.&dagger;
-* Use un nombre de archivo seguro determinado por la aplicación. No use un nombre de archivo que proporcione el usuario ni el nombre de archivo que no es de confianza del archivo cargado.&dagger; HTML codifica el nombre de archivo que no es de confianza al mostrarlo. Por ejemplo, al registrar el nombre de archivo o mostrarlo en la interfaz de usuario (Razor codifica de forma automática la salida HTML).
+* Use un nombre de archivo seguro determinado por la aplicación. No use un nombre de archivo proporcionado por el usuario o el nombre de archivo que no es de confianza del archivo cargado.&dagger; codificar en HTML el nombre de archivo que no es de confianza al mostrarlo. Por ejemplo, al registrar el nombre de archivo o mostrarlo en la interfaz de usuario (Razor codifica de forma automática la salida HTML).
 * Permita solo las extensiones de archivo aprobadas para la especificación de diseño de la aplicación.&dagger; <!-- * Check the file format signature to prevent a user from uploading a masqueraded file.&dagger; For example, don't permit a user to upload an *.exe* file with a *.txt* extension. Add this back when we get instructions how to do this.  -->
-* Compruebe que se realizan comprobaciones del lado cliente en el servidor.&dagger; Las comprobaciones de cliente son fáciles de sortear.
+* Compruebe que las comprobaciones del lado cliente se realizan en el servidor.&dagger; comprobaciones del lado cliente son fáciles de eludir.
 * Compruebe el tamaño de un archivo cargado. Establezca un límite de tamaño máximo para evitar cargas grandes.&dagger;
 * Cuando un archivo cargado con el mismo nombre no deba sobrescribir los archivos, vuelva a comprobar el nombre de archivo en la base de datos o en el almacenamiento físico antes de cargarlo.
 * **Ejecute un detector de virus o malware en el contenido cargado antes de que se almacene el archivo.**
@@ -56,7 +56,7 @@ Estos son algunos de los pasos de seguridad con los que se reduce la probabilida
 > Vea los siguientes recursos para más información sobre cómo reducir el área expuesta de ataques al aceptar archivos de los usuarios:
 >
 > * [Unrestricted File Upload](https://www.owasp.org/index.php/Unrestricted_File_Upload) (Carga de archivos sin restricciones)
-> * [Azure Security: Asegúrese de que los controles adecuados estén en vigor al aceptar archivos de usuarios](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Azure Security: asegúrese de que los controles adecuados estén en vigor al aceptar archivos de usuarios](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 Para más información sobre cómo implementar medidas de seguridad, incluidos ejemplos de la aplicación de ejemplo, consulte la sección [Validación](#validation).
 
@@ -83,7 +83,7 @@ Las opciones de almacenamiento comunes para los archivos incluyen:
   * Los servicios suelen ofrecer una escalabilidad y resistencia mejoradas sobre las soluciones locales que normalmente están sujetas a únicos puntos de error.
   * Los servicios pueden tener un costo menor en escenarios de infraestructura de almacenamiento de gran tamaño.
 
-  Para obtener más información, vea [Inicio rápido: Use .NET para crear un blob en el almacenamiento de objetos](/azure/storage/blobs/storage-quickstart-blobs-dotnet).
+  Para obtener más información, vea [Inicio rápido: usar .net para crear un BLOB en el almacenamiento de objetos](/azure/storage/blobs/storage-quickstart-blobs-dotnet).
 
 ## <a name="file-upload-scenarios"></a>Escenarios de carga de archivos
 
@@ -183,7 +183,7 @@ El ejemplo siguiente es análogo al ejemplo anterior, salvo en que:
 Para realizar la solicitud POST en JavaScript para los clientes que [no admiten Fetch API](https://caniuse.com/#feat=fetch), use uno de estos enfoques:
 
 * Use un Fetch Polyfill (por ejemplo, [window.fetch polyfill (github/fetch)](https://github.com/github/fetch)).
-* Use `XMLHttpRequest`. Por ejemplo:
+* Mediante `XMLHttpRequest`. Por ejemplo:
 
   ```javascript
   <script>
@@ -226,9 +226,9 @@ Es posible acceder a archivos individuales cargados en el servidor a través del
 > string untrustedFileName = Path.GetFileName(pathName);
 > ```
 >
-> Los ejemplos proporcionados hasta ahora no tienen en cuenta las consideraciones de seguridad. Se proporciona información adicional en las secciones siguientes y en la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
+> Los ejemplos proporcionados hasta ahora no tienen en cuenta las consideraciones de seguridad. Se proporciona información adicional en las secciones siguientes y en la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
-> * [Consideraciones de seguridad](#security-considerations)
+> * [Consideraciones sobre la seguridad](#security-considerations)
 > * [Validación](#validation)
 
 Al cargar archivos mediante el enlace de modelos y <xref:Microsoft.AspNetCore.Http.IFormFile>, el método de acción puede aceptar:
@@ -270,7 +270,7 @@ public async Task<IActionResult> OnPostUploadAsync(List<IFormFile> files)
     // Process uploaded files
     // Don't rely on or trust the FileName property without validation.
 
-    return Ok(new { count = files.Count, size, filePath });
+    return Ok(new { count = files.Count, size });
 }
 ```
 
@@ -397,9 +397,9 @@ El ejemplo anterior es similar a un escenario que se muestra en la aplicación d
 >
 > No se base ni confíe en la propiedad `FileName` de <xref:Microsoft.AspNetCore.Http.IFormFile> sin validarla. La propiedad `FileName` solo debe usarse para fines de presentación y solo después de la codificación HTML.
 >
-> Los ejemplos proporcionados no tienen en cuenta las consideraciones de seguridad. Se proporciona información adicional en las secciones siguientes y en la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
+> Los ejemplos proporcionados no tienen en cuenta las consideraciones de seguridad. Se proporciona información adicional en las secciones siguientes y en la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
-> * [Consideraciones de seguridad](#security-considerations)
+> * [Consideraciones sobre la seguridad](#security-considerations)
 > * [Validación](#validation)
 
 ### <a name="upload-large-files-with-streaming"></a>Carga de archivos de gran tamaño con streaming
@@ -448,7 +448,7 @@ La clase `FileHelpers` de la aplicación de ejemplo muestra varias comprobacione
 >
 > **No implemente nunca de manera indiscriminada el código de seguridad en una aplicación sin abordar estos requisitos.**
 
-### <a name="content-validation"></a>Pestaña Validación de contenido
+### <a name="content-validation"></a>Validación del contenido
 
 **Use una API de detección de virus/malware de terceros en el contenido cargado.**
 
@@ -718,7 +718,7 @@ Esto solo ocurre en IIS; este comportamiento no sucede de forma predeterminada c
 
 Las limitaciones del módulo ASP.NET Core o la presencia del módulo de filtrado de solicitudes de IIS pueden limitar las cargas a 2 GB o 4 GB. Para obtener más información, consulte el artículo que indica que [no se pueden cargar archivos con un tamaño superior a 2 GB (aspnet/AspNetCore #2711)](https://github.com/dotnet/AspNetCore/issues/2711).
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solución de problemas
 
 Aquí incluimos algunos problemas comunes que pueden surgir al cargar archivos, así como sus posibles soluciones.
 
@@ -751,9 +751,9 @@ Los ejemplos de este tema se basan en <xref:System.IO.MemoryStream> para almacen
 
 ASP.NET Core admite la carga de uno o varios archivos mediante el enlace de modelos almacenado en búfer de archivos más pequeños y el streaming no almacenado en búfer de archivos de mayor tamaño.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-## <a name="security-considerations"></a>Consideraciones de seguridad
+## <a name="security-considerations"></a>Consideraciones sobre la seguridad
 
 Tenga precaución al proporcionar a los usuarios la capacidad de cargar archivos en un servidor. Es posible que los atacantes intenten lo siguiente:
 
@@ -765,9 +765,9 @@ Estos son algunos de los pasos de seguridad con los que se reduce la probabilida
 
 * Cargue los archivos a un área de carga de archivos dedicada, preferiblemente una unidad que no sea de sistema. Una ubicación dedicada facilita la imposición de restricciones de seguridad en los archivos cargados. Deshabilite la ejecución de los permisos en la ubicación de carga de archivos.&dagger;
 * Los archivos cargados **no** se deben persistir en el mismo árbol de directorio que la aplicación.&dagger;
-* Use un nombre de archivo seguro determinado por la aplicación. No use un nombre de archivo que proporcione el usuario ni el nombre de archivo que no es de confianza del archivo cargado.&dagger; HTML codifica el nombre de archivo que no es de confianza al mostrarlo. Por ejemplo, al registrar el nombre de archivo o mostrarlo en la interfaz de usuario (Razor codifica de forma automática la salida HTML).
+* Use un nombre de archivo seguro determinado por la aplicación. No use un nombre de archivo proporcionado por el usuario o el nombre de archivo que no es de confianza del archivo cargado.&dagger; codificar en HTML el nombre de archivo que no es de confianza al mostrarlo. Por ejemplo, al registrar el nombre de archivo o mostrarlo en la interfaz de usuario (Razor codifica de forma automática la salida HTML).
 * Permita solo las extensiones de archivo aprobadas para la especificación de diseño de la aplicación.&dagger; <!-- * Check the file format signature to prevent a user from uploading a masqueraded file.&dagger; For example, don't permit a user to upload an *.exe* file with a *.txt* extension. Add this back when we get instructions how to do this.  -->
-* Compruebe que se realizan comprobaciones del lado cliente en el servidor.&dagger; Las comprobaciones de cliente son fáciles de sortear.
+* Compruebe que las comprobaciones del lado cliente se realizan en el servidor.&dagger; comprobaciones del lado cliente son fáciles de eludir.
 * Compruebe el tamaño de un archivo cargado. Establezca un límite de tamaño máximo para evitar cargas grandes.&dagger;
 * Cuando un archivo cargado con el mismo nombre no deba sobrescribir los archivos, vuelva a comprobar el nombre de archivo en la base de datos o en el almacenamiento físico antes de cargarlo.
 * **Ejecute un detector de virus o malware en el contenido cargado antes de que se almacene el archivo.**
@@ -785,7 +785,7 @@ Estos son algunos de los pasos de seguridad con los que se reduce la probabilida
 > Vea los siguientes recursos para más información sobre cómo reducir el área expuesta de ataques al aceptar archivos de los usuarios:
 >
 > * [Unrestricted File Upload](https://www.owasp.org/index.php/Unrestricted_File_Upload) (Carga de archivos sin restricciones)
-> * [Azure Security: Asegúrese de que los controles adecuados estén en vigor al aceptar archivos de usuarios](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Azure Security: asegúrese de que los controles adecuados estén en vigor al aceptar archivos de usuarios](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 Para más información sobre cómo implementar medidas de seguridad, incluidos ejemplos de la aplicación de ejemplo, consulte la sección [Validación](#validation).
 
@@ -812,7 +812,7 @@ Las opciones de almacenamiento comunes para los archivos incluyen:
   * Los servicios suelen ofrecer una escalabilidad y resistencia mejoradas sobre las soluciones locales que normalmente están sujetas a únicos puntos de error.
   * Los servicios pueden tener un costo menor en escenarios de infraestructura de almacenamiento de gran tamaño.
 
-  Para obtener más información, vea [Inicio rápido: Use .NET para crear un blob en el almacenamiento de objetos](/azure/storage/blobs/storage-quickstart-blobs-dotnet). En el tema se muestra <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromFileAsync*>, pero se puede usar <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromStreamAsync*> para guardar un <xref:System.IO.FileStream> en el almacenamiento de blobs cuando se trabaja con un <xref:System.IO.Stream>.
+  Para obtener más información, vea [Inicio rápido: usar .net para crear un BLOB en el almacenamiento de objetos](/azure/storage/blobs/storage-quickstart-blobs-dotnet). En el tema se muestra <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromFileAsync*>, pero se puede usar <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromStreamAsync*> para guardar un <xref:System.IO.FileStream> en el almacenamiento de blobs cuando se trabaja con un <xref:System.IO.Stream>.
 
 ## <a name="file-upload-scenarios"></a>Escenarios de carga de archivos
 
@@ -912,7 +912,7 @@ El ejemplo siguiente es análogo al ejemplo anterior, salvo en que:
 Para realizar la solicitud POST en JavaScript para los clientes que [no admiten Fetch API](https://caniuse.com/#feat=fetch), use uno de estos enfoques:
 
 * Use un Fetch Polyfill (por ejemplo, [window.fetch polyfill (github/fetch)](https://github.com/github/fetch)).
-* Use `XMLHttpRequest`. Por ejemplo:
+* Mediante `XMLHttpRequest`. Por ejemplo:
 
   ```javascript
   <script>
@@ -955,9 +955,9 @@ Es posible acceder a archivos individuales cargados en el servidor a través del
 > string untrustedFileName = Path.GetFileName(pathName);
 > ```
 >
-> Los ejemplos proporcionados hasta ahora no tienen en cuenta las consideraciones de seguridad. Se proporciona información adicional en las secciones siguientes y en la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
+> Los ejemplos proporcionados hasta ahora no tienen en cuenta las consideraciones de seguridad. Se proporciona información adicional en las secciones siguientes y en la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
-> * [Consideraciones de seguridad](#security-considerations)
+> * [Consideraciones sobre la seguridad](#security-considerations)
 > * [Validación](#validation)
 
 Al cargar archivos mediante el enlace de modelos y <xref:Microsoft.AspNetCore.Http.IFormFile>, el método de acción puede aceptar:
@@ -999,7 +999,7 @@ public async Task<IActionResult> OnPostUploadAsync(List<IFormFile> files)
     // Process uploaded files
     // Don't rely on or trust the FileName property without validation.
 
-    return Ok(new { count = files.Count, size, filePath });
+    return Ok(new { count = files.Count, size });
 }
 ```
 
@@ -1126,9 +1126,9 @@ El ejemplo anterior es similar a un escenario que se muestra en la aplicación d
 >
 > No se base ni confíe en la propiedad `FileName` de <xref:Microsoft.AspNetCore.Http.IFormFile> sin validarla. La propiedad `FileName` solo debe usarse para fines de presentación y solo después de la codificación HTML.
 >
-> Los ejemplos proporcionados no tienen en cuenta las consideraciones de seguridad. Se proporciona información adicional en las secciones siguientes y en la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
+> Los ejemplos proporcionados no tienen en cuenta las consideraciones de seguridad. Se proporciona información adicional en las secciones siguientes y en la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
-> * [Consideraciones de seguridad](#security-considerations)
+> * [Consideraciones sobre la seguridad](#security-considerations)
 > * [Validación](#validation)
 
 ### <a name="upload-large-files-with-streaming"></a>Carga de archivos de gran tamaño con streaming
@@ -1177,7 +1177,7 @@ La clase `FileHelpers` de la aplicación de ejemplo muestra varias comprobacione
 >
 > **No implemente nunca de manera indiscriminada el código de seguridad en una aplicación sin abordar estos requisitos.**
 
-### <a name="content-validation"></a>Pestaña Validación de contenido
+### <a name="content-validation"></a>Validación del contenido
 
 **Use una API de detección de virus/malware de terceros en el contenido cargado.**
 
@@ -1440,7 +1440,7 @@ Esto solo ocurre en IIS; este comportamiento no sucede de forma predeterminada c
 
 Las limitaciones del módulo ASP.NET Core o la presencia del módulo de filtrado de solicitudes de IIS pueden limitar las cargas a 2 GB o 4 GB. Para obtener más información, consulte el artículo que indica que [no se pueden cargar archivos con un tamaño superior a 2 GB (aspnet/AspNetCore #2711)](https://github.com/dotnet/AspNetCore/issues/2711).
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solución de problemas
 
 Aquí incluimos algunos problemas comunes que pueden surgir al cargar archivos, así como sus posibles soluciones.
 
@@ -1473,5 +1473,5 @@ Los ejemplos de este tema se basan en <xref:System.IO.MemoryStream> para almacen
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Unrestricted File Upload](https://www.owasp.org/index.php/Unrestricted_File_Upload) (Carga de archivos sin restricciones)
-* [Azure Security: Marco de seguridad: Validación de entrada | Mitigaciones](/azure/security/azure-security-threat-modeling-tool-input-validation)
-* [Patrones de diseño en la nube de Azure: Patrón Valet Key](/azure/architecture/patterns/valet-key)
+* [Seguridad de Azure: marco de seguridad: validación de entrada | Mitigaciones](/azure/security/azure-security-threat-modeling-tool-input-validation)
+* [Patrones de diseño en la nube de Azure: patrón de clave valet](/azure/architecture/patterns/valet-key)

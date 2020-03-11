@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 03/11/2019
 uid: security/authentication/accconfirm
 ms.openlocfilehash: 49d3d214fd64edc5b17df2df929ddc3c2af47ede
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829275"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78654227"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Confirmación de la cuenta y recuperación de la contraseña en ASP.NET Core
 
@@ -32,7 +32,7 @@ Vea [este archivo PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partner
 
 ::: moniker range="> aspnetcore-2.2"
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [SDK de .NET Core 3.0 o versiones posteriores](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 
@@ -91,7 +91,7 @@ En este tutorial se muestra cómo agregar notificaciones por correo electrónico
 
 Instale el paquete NuGet de `SendGrid`:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 En la consola del administrador de paquetes, escriba el siguiente comando:
 
@@ -99,7 +99,7 @@ En la consola del administrador de paquetes, escriba el siguiente comando:
 Install-Package SendGrid
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
 En la consola de, escriba el siguiente comando:
 
@@ -217,7 +217,7 @@ La habilitación de la confirmación de cuenta en un sitio con usuarios bloquea 
 
 ::: moniker range="> aspnetcore-2.0 < aspnetcore-3.0"
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [SDK de .NET Core 2,2 o posterior](https://www.microsoft.com/net/download/all)
 
@@ -297,7 +297,7 @@ En este tutorial se muestra cómo agregar notificaciones por correo electrónico
 
 Instale el paquete NuGet de `SendGrid`:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 En la consola del administrador de paquetes, escriba el siguiente comando:
 
@@ -305,7 +305,7 @@ En la consola del administrador de paquetes, escriba el siguiente comando:
 Install-Package SendGrid
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
 En la consola de, escriba el siguiente comando:
 

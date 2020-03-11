@@ -1,149 +1,117 @@
 ---
-title: Autenticar a los usuarios con WS-Federation en ASP.NET Core
+title: Autenticación de usuarios con WS-Federation en ASP.NET Core
 author: chlowell
-description: Este tutorial muestra cómo utilizar WS-Federation en una aplicación ASP.NET Core.
+description: En este tutorial se muestra cómo usar WS-Federation en una aplicación ASP.NET Core.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/16/2019
 uid: security/authentication/ws-federation
-ms.openlocfilehash: 7967410686da0e59742b721c0154e143bf19ba01
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: d82421a14ede6cb6b01ef59f233bb2eba6b56aec
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64897572"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78651335"
 ---
-# <a name="authenticate-users-with-ws-federation-in-aspnet-core"></a>Autenticar a los usuarios con WS-Federation en ASP.NET Core
+# <a name="authenticate-users-with-ws-federation-in-aspnet-core"></a>Autenticación de usuarios con WS-Federation en ASP.NET Core
 
-Este tutorial muestra cómo habilitar usuarios iniciar sesión con un proveedor de autenticación de WS-Federation, como Active Directory Federation Services (ADFS) o [Azure Active Directory](/azure/active-directory/) (AAD). Usa la aplicación de ejemplo de ASP.NET Core 2.0 se describe en [Facebook, Google y la autenticación de proveedor externo](xref:security/authentication/social/index).
+En este tutorial se muestra cómo permitir a los usuarios iniciar sesión con un proveedor de autenticación de WS-Federation como Servicios de federación de Active Directory (AD FS) (ADFS) o [Azure Active Directory](/azure/active-directory/) (AAD). Usa la aplicación de ejemplo ASP.NET Core 2,0 descrita en [Facebook, Google y la autenticación de proveedor externo](xref:security/authentication/social/index).
 
-Para las aplicaciones de ASP.NET Core 2.0, proporciona compatibilidad con WS-Federation [Microsoft.AspNetCore.Authentication.WsFederation](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.WsFederation). Este componente se porta desde [Microsoft.Owin.Security.WsFederation](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation) y comparte muchos de los mecanismos de dicho componente. Sin embargo, los componentes se diferencian en un par de formas importantes.
+En el caso de las aplicaciones ASP.NET Core 2,0, [Microsoft. AspNetCore. Authentication. WsFederation](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.WsFederation)proporciona compatibilidad con WS-Federation. Este componente se traslada de [Microsoft. Owin. Security. WsFederation](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation) y comparte muchos de los mecanismos de ese componente. Sin embargo, los componentes se diferencian en un par de formas importantes.
 
-De forma predeterminada, el middleware nueva:
+De forma predeterminada, el nuevo middleware:
 
-* No permitir inicios de sesión no solicitados. Esta característica del protocolo WS-Federation es vulnerable a ataques XSRF. Sin embargo, puede habilitarse con el `AllowUnsolicitedLogins` opción.
-* No se comprueba cada formulario post para los mensajes de inicio de sesión. Solo las solicitudes a la `CallbackPath` se comprueba el inicio de sesión complementos. `CallbackPath` el valor predeterminado es `/signin-wsfed` , pero puede cambiarse a través de los heredados [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) propiedad de la [ WsFederationOptions](/dotnet/api/microsoft.aspnetcore.authentication.wsfederation.wsfederationoptions) clase. Esta ruta de acceso se puede compartir con otros proveedores de autenticación habilitando la [SkipUnrecognizedRequests](/dotnet/api/microsoft.aspnetcore.authentication.wsfederation.wsfederationoptions.skipunrecognizedrequests) opción.
+* No permite inicios de sesión no solicitados. Esta característica del protocolo WS-Federation es vulnerable a ataques de XSRF. Sin embargo, se puede habilitar con la opción `AllowUnsolicitedLogins`.
+* No comprueba los mensajes de inicio de sesión de todos los formularios. Solo se comprueban los inicios de sesión de las solicitudes a los `CallbackPath`. `CallbackPath` tiene como valor predeterminado `/signin-wsfed`, pero se puede cambiar a través de la propiedad [RemoteAuthenticationOptions. CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) heredada de la clase [WsFederationOptions](/dotnet/api/microsoft.aspnetcore.authentication.wsfederation.wsfederationoptions) . Esta ruta de acceso se puede compartir con otros proveedores de autenticación habilitando la opción [SkipUnrecognizedRequests](/dotnet/api/microsoft.aspnetcore.authentication.wsfederation.wsfederationoptions.skipunrecognizedrequests) .
 
 ## <a name="register-the-app-with-active-directory"></a>Registrar la aplicación con Active Directory
 
 ### <a name="active-directory-federation-services"></a>Servicios de federación de Active Directory
 
-* Abra el servidor **para usuario autenticado entidad Asistente para agregar confianza** desde la consola de administración de AD FS:
+* Abra el **Asistente para agregar relación de confianza para usuario autenticado** desde la consola de administración de ADFS:
 
-![Agregar el Asistente para la relación de confianza para usuario autenticado: Pantalla de inicio](ws-federation/_static/AdfsAddTrust.png)
+![Asistente para agregar relación de confianza para usuario autenticado: Página principal](ws-federation/_static/AdfsAddTrust.png)
 
-* Elija esta opción escribir manualmente los datos:
+* Elija escribir los datos manualmente:
 
-![Agregar el Asistente para la relación de confianza para usuario autenticado: Seleccionar origen de datos](ws-federation/_static/AdfsSelectDataSource.png)
+![Asistente para agregar relación de confianza para usuario autenticado: seleccionar origen de datos](ws-federation/_static/AdfsSelectDataSource.png)
 
-* Escriba un nombre para mostrar para el usuario de confianza. El nombre no es importante para la aplicación de ASP.NET Core.
+* Escriba un nombre para mostrar para el usuario de confianza. El nombre no es importante para la aplicación ASP.NET Core.
 
-* [Microsoft.AspNetCore.Authentication.WsFederation](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.WsFederation) no es compatible con el cifrado de tokens, por lo que no configure un certificado de cifrado de tokens:
+* [Microsoft. AspNetCore. Authentication. WsFederation](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.WsFederation) carece de compatibilidad con el cifrado de tokens, por lo que no configure un certificado de cifrado de tokens:
 
-![Agregar el Asistente para la relación de confianza para usuario autenticado: Configurar certificado](ws-federation/_static/AdfsConfigureCert.png)
+![Asistente para agregar relación de confianza para usuario autenticado: configurar certificado](ws-federation/_static/AdfsConfigureCert.png)
 
-* Habilitar la compatibilidad de protocolo pasivo de WS-Federation, mediante la dirección URL de la aplicación. Compruebe que el puerto sea correcto para la aplicación:
+* Habilite la compatibilidad con el protocolo pasivo de WS-Federation mediante la dirección URL de la aplicación. Compruebe que el puerto sea correcto para la aplicación:
 
-![Agregar el Asistente para la relación de confianza para usuario autenticado: Configurar URL](ws-federation/_static/AdfsConfigureUrl.png)
+![Asistente para agregar relación de confianza para usuario autenticado: configurar URL](ws-federation/_static/AdfsConfigureUrl.png)
 
 > [!NOTE]
-> Debe ser una dirección URL HTTPS. IIS Express se puede proporcionar un certificado autofirmado al hospedar la aplicación durante el desarrollo. Kestrel requiere configuración manual de certificados. Consulte la [documentación Kestrel](xref:fundamentals/servers/kestrel) para obtener más detalles.
+> Debe ser una dirección URL HTTPS. IIS Express puede proporcionar un certificado autofirmado al hospedar la aplicación durante el desarrollo. Kestrel requiere la configuración manual del certificado. Consulte la [documentación de Kestrel](xref:fundamentals/servers/kestrel) para obtener más información.
 
-* Haga clic en **siguiente** con el resto del asistente y **cerrar** al final.
+* Haga clic en **siguiente** a través del resto del asistente y **cierre** al final.
 
-* ASP.NET Core Identity requiere un **Id. de nombre** de notificación. Agregue uno de los **editar reglas de notificación** cuadro de diálogo:
+* ASP.NET Core identidad requiere una demanda de **identificador de nombre** . Agregue uno en el cuadro de diálogo **editar reglas de notificaciones** :
 
-![Editar reglas de notificación](ws-federation/_static/EditClaimRules.png)
+![Editar reglas de notificaciones](ws-federation/_static/EditClaimRules.png)
 
-* En el **transformar notificaciones Asistente para agregar regla**, deje el valor predeterminado **enviar atributos LDAP como notificaciones** plantilla seleccionada y haga clic en **siguiente**. Agregue una regla de asignación el **SAM-Account-Name** atributo LDAP para la **Id. de nombre** notificación saliente:
+* En el **Asistente para agregar regla de notificación de transformación**, deje seleccionada la plantilla predeterminada **Enviar atributos LDAP como notificaciones** y haga clic en **siguiente**. Agregue una regla que asigne el atributo LDAP **Sam-Account-Name** a la notificaciones salientes de **ID. de nombre** :
 
-![Agregar el Asistente para reglas de notificación de transformación: Configurar regla de notificación](ws-federation/_static/AddTransformClaimRule.png)
+![Asistente para agregar regla de notificaciones de transformación: configurar regla de notificaciones](ws-federation/_static/AddTransformClaimRule.png)
 
-* Haga clic en **finalizar** > **Aceptar** en el **editar reglas de notificación** ventana.
+* Haga clic en **finalizar** > **Aceptar** en la ventana **editar reglas de notificaciones** .
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-* Vaya a la hoja de registros de aplicaciones del inquilino AAD. Haga clic en **nuevo registro de aplicaciones**:
+* Vaya a la hoja registros de aplicaciones del inquilino de AAD. Haga clic en **nuevo registro de aplicaciones**:
 
 ![Azure Active Directory: Registros de aplicaciones](ws-federation/_static/AadNewAppRegistration.png)
 
-* Escriba un nombre para el registro de aplicación. Esto no es importante para la aplicación de ASP.NET Core.
-* Escriba la dirección URL de la aplicación escucha en el que el **dirección URL de inicio de sesión**:
+* Escriba un nombre para el registro de la aplicación. Esto no es importante para la aplicación ASP.NET Core.
+* Escriba la dirección URL en la que escucha la aplicación como la **dirección URL de inicio de sesión**:
 
-![Azure Active Directory: Crear registro de aplicación](ws-federation/_static/AadCreateAppRegistration.png)
+![Azure Active Directory: creación del registro de aplicaciones](ws-federation/_static/AadCreateAppRegistration.png)
 
-* Haga clic en **extremos** y tenga en cuenta la **documento de metadatos de federación** dirección URL. Se trata el middleware de WS-Federation `MetadataAddress`:
+* Haga clic en **extremos** y anote la dirección URL del **documento de metadatos de Federación** . Este es el `MetadataAddress`del middleware de WS-Federation:
 
 ![Azure Active Directory: puntos de conexión](ws-federation/_static/AadFederationMetadataDocument.png)
 
-* Navegue hasta el nuevo registro de aplicación. Haga clic en **configuración** > **propiedades** y tome nota de la **App ID URI**. Se trata el middleware de WS-Federation `Wtrealm`:
+* Navegue al nuevo registro de aplicaciones. Haga clic en **configuración** > **propiedades** y anote el **URI del ID**. de aplicación. Este es el `Wtrealm`del middleware de WS-Federation:
 
-![Azure Active Directory: Propiedades de registro de aplicación](ws-federation/_static/AadAppIdUri.png)
+![Azure Active Directory: propiedades de registro de aplicaciones](ws-federation/_static/AadAppIdUri.png)
 
-## <a name="add-ws-federation-as-an-external-login-provider-for-aspnet-core-identity"></a>Adición de WS-Federation como proveedor de inicio de sesión externo para ASP.NET Core Identity
+## <a name="use-ws-federation-without-aspnet-core-identity"></a>Usar WS-Federation sin ASP.NET Core identidad
 
-* Agregar una dependencia en [Microsoft.AspNetCore.Authentication.WsFederation](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.WsFederation) al proyecto.
-* Agregue el WS-Federation a `Startup.ConfigureServices`:
+El middleware de WS-Federation se puede usar sin identidad. Por ejemplo:
+::: moniker range=">= aspnetcore-3.0"
+[!code-csharp[](ws-federation/samples/StartupNon31.cs?name=snippet)]
+::: moniker-end
 
-    ```csharp
-    services.AddIdentity<IdentityUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddDefaultTokenProviders();
+::: moniker range=">= aspnetcore-2.1 < aspnetcore-3.0"
+[!code-csharp[](ws-federation/samples/StartupNon21.cs?name=snippet)]
+::: moniker-end
 
-    services.AddAuthentication()
-        .AddWsFederation(options =>
-        {
-            // MetadataAddress represents the Active Directory instance used to authenticate users.
-            options.MetadataAddress = "https://<ADFS FQDN or AAD tenant>/FederationMetadata/2007-06/FederationMetadata.xml";
+## <a name="add-ws-federation-as-an-external-login-provider-for-aspnet-core-identity"></a>Agregar WS-Federation como proveedor de inicio de sesión externo para ASP.NET Core Identity
 
-            // Wtrealm is the app's identifier in the Active Directory instance.
-            // For ADFS, use the relying party's identifier, its WS-Federation Passive protocol URL:
-            options.Wtrealm = "https://localhost:44307/";
+* Agregue una dependencia de [Microsoft. AspNetCore. Authentication. WsFederation](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.WsFederation) al proyecto.
+* Agregue WS-Federation a `Startup.ConfigureServices`:
 
-            // For AAD, use the App ID URI from the app registration's Properties blade:
-            options.Wtrealm = "https://wsfedsample.onmicrosoft.com/bf0e7e6d-056e-4e37-b9a6-2c36797b9f01";
-        });
+::: moniker range=">= aspnetcore-3.0"
+[!code-csharp[](ws-federation/samples/Startup31.cs?name=snippet)]
+::: moniker-end
 
-    services.AddMvc()
-     // ...
-    ```
+::: moniker range=">= aspnetcore-2.1 < aspnetcore-3.0"
+[!code-csharp[](ws-federation/samples/Startup21.cs?name=snippet)]
+::: moniker-end
 
 [!INCLUDE [default settings configuration](social/includes/default-settings.md)]
 
-### <a name="log-in-with-ws-federation"></a>Inicie sesión con WS-Federation
+### <a name="log-in-with-ws-federation"></a>Inicio de sesión con WS-Federation
 
-Vaya a la aplicación y haga clic en el **iniciarla** vínculo en el encabezado de la barra de navegación. Hay una opción para iniciar sesión con WsFederation: ![Inicie sesión en la página](ws-federation/_static/WsFederationButton.png)
+Vaya a la aplicación y haga clic en el vínculo **iniciar sesión** en el encabezado de navegación. Hay una opción para iniciar sesión con WsFederation: ![página de inicio de sesión](ws-federation/_static/WsFederationButton.png)
 
-Con ADFS como proveedor, el botón se redirige a una página de inicio de sesión de AD FS: ![Página de inicio de sesión de ADFS](ws-federation/_static/AdfsLoginPage.png)
+Con ADFS como proveedor, el botón redirige a una página de inicio de sesión de ADFS: ![página de inicio de sesión de ADFS](ws-federation/_static/AdfsLoginPage.png)
 
-Con Azure Active Directory como proveedor, el botón se redirige a una página de inicio de sesión de AAD: ![Página de inicio de sesión de AAD](ws-federation/_static/AadSignIn.png)
+Con Azure Active Directory como proveedor, el botón redirige a una página de inicio de sesión de AAD: ![página de inicio de sesión de AAD](ws-federation/_static/AadSignIn.png)
 
-Un inicio de sesión correcto para un nuevo usuario redirige a la página de registro de usuario de la aplicación: ![Página de registro](ws-federation/_static/Register.png)
-
-## <a name="use-ws-federation-without-aspnet-core-identity"></a>Use WS-Federation sin ASP.NET Core Identity
-
-El middleware de WS-Federation se puede usar sin la identidad. Por ejemplo:
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddAuthentication(sharedOptions =>
-    {
-        sharedOptions.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        sharedOptions.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        sharedOptions.DefaultChallengeScheme = WsFederationDefaults.AuthenticationScheme;
-    })
-    .AddWsFederation(options =>
-    {
-        options.Wtrealm = Configuration["wsfed:realm"];
-        options.MetadataAddress = Configuration["wsfed:metadata"];
-    })
-    .AddCookie();
-}
-
-public void Configure(IApplicationBuilder app)
-{
-    app.UseAuthentication();
-        // …
-}
-```
+Un inicio de sesión correcto para un nuevo usuario redirige a la página de registro del usuario de la aplicación: ![página registrar](ws-federation/_static/Register.png)

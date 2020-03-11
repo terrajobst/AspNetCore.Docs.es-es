@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo usar diseños comunes, compartir d
 ms.author: riande
 ms.date: 07/30/2019
 uid: mvc/views/layout
-ms.openlocfilehash: 3ba2f459ca2b04a3001e261acab26880b6582500
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
-ms.translationtype: HT
+ms.openlocfilehash: db8c6c30397593c1a8375ebc800c1c0e34d241cb
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288995"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78655049"
 ---
 # <a name="layout-in-aspnet-core"></a>Diseño en ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/) y [Dave Brock](https://twitter.com/daveabrock)
 
-Las páginas y las vistas a menudo comparten elementos visuales y elementos mediante programación. En este artículo se explica cómo:
+Las páginas y las vistas a menudo comparten elementos visuales y elementos mediante programación. En este artículo se muestra cómo:
 
 * Usar diseños comunes.
 * Compartir directivas.
@@ -109,7 +109,7 @@ El cuerpo y todas las secciones de una página de Razor deben representarse o pa
 
 ## <a name="importing-shared-directives"></a>Importar directivas compartidas
 
-Las vistas y las páginas pueden usar directivas de Razor para la importación de espacios de nombres y usar la [inserción de dependencias](dependency-injection.md). Se pueden especificar varias directivas compartidas por muchas vistas en un archivo *_ViewImports.cshtml* común. El archivo `_ViewImports` es compatible con estas directivas:
+Las vistas y las páginas pueden utilizar directivas de Razor para importar espacios de nombres y usar la [inserción de dependencias](dependency-injection.md). Se pueden especificar varias directivas compartidas por muchas vistas en un archivo *_ViewImports.cshtml* común. El archivo `_ViewImports` es compatible con estas directivas:
 
 * `@addTagHelper`
 * `@removeTagHelper`

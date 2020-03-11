@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/24/2020
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: e5100d7244600358186b653073990985f48434a7
-ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
-ms.translationtype: HT
+ms.openlocfilehash: f5957adf3cef8966812a1bf0cbc6b2627d19d026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76809060"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653795"
 ---
 # <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Asistente de etiquetas de caché distribuida en ASP.NET Core
 
-Por [Peter Kellner](https://peterkellner.net) y [Luke Latham](https://github.com/guardrex)
+Por [Peter Kellner](https://peterkellner.net)
 
 El asistente de etiquetas de caché distribuida proporciona la capacidad de mejorar drásticamente el rendimiento de la aplicación ASP.NET Core al permitir almacenar en caché su contenido en un origen de caché distribuida.
 

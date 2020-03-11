@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/07/2020
 uid: getting-started
-ms.openlocfilehash: 4f7e67e1e422afe3f7e2970e0c40380f065390ac
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 047fd7a74d3d53f68a730d67b63c65fe6bda529f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928321"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78644309"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Tutorial: Introducción a ASP.NET Core
 
-En este tutorial se muestra cómo usar la CLI de .NET Core para crear y ejecutar una aplicación web ASP.NET Core.
+En este tutorial se muestra cómo crear y ejecutar una aplicación web ASP.NET Core con la CLI de .NET Core.
 
 Aprenderá a:
 
@@ -50,7 +50,7 @@ El comando anterior:
 
 Confíe en el certificado de desarrollo HTTPS:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ```dotnetcli
 dotnet dev-certs https --trust
@@ -62,7 +62,7 @@ El comando anterior muestra el siguiente cuadro de diálogo:
 
 Si acepta confiar en el certificado de desarrollo, seleccione **Sí**.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ```dotnetcli
 dotnet dev-certs https --trust
@@ -74,7 +74,7 @@ El comando anterior muestra el siguiente mensaje:
 
 Este comando podría solicitarle la contraseña para instalar el certificado en la cadena de claves del sistema. Si acepta confiar en el certificado de desarrollo, escriba la contraseña.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Consulte la documentación correspondiente a su distribución Linux sobre cómo confiar en el certificado de desarrollo HTTPS.
 

@@ -9,26 +9,26 @@ ms.date: 01/14/2020
 no-loc:
 - SignalR
 uid: signalr/dotnet-client
-ms.openlocfilehash: 39d9eccdb1e0457b177e75e6f94f3dd185b0093d
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: a9583c9d6df52ff81a402df03e663ccc3847e51f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146321"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652133"
 ---
-# <a name="aspnet-core-opno-locsignalr-net-client"></a>Cliente de ASP.NET Core SignalR .NET
+# <a name="aspnet-core-signalr-net-client"></a>Cliente .NET de Signalr ASP.NET Core
 
-La biblioteca de cliente de ASP.NET Core SignalR .NET le permite comunicarse con SignalR hubs de aplicaciones .NET.
+La biblioteca de cliente de ASP.NET Core Signalr .NET le permite comunicarse con los concentradores de Signalr desde aplicaciones .NET.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/dotnet-client/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/dotnet-client/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-El ejemplo de código de este artículo es una aplicación de WPF que usa el cliente de ASP.NET Core SignalR .NET.
+El ejemplo de código de este artículo es una aplicación de WPF que usa el cliente .NET de ASP.NET Core Signalr.
 
-## <a name="install-the-opno-locsignalr-net-client-package"></a>Instalar el paquete de cliente de SignalR .NET
+## <a name="install-the-signalr-net-client-package"></a>Instalar el paquete de cliente de Signalr .NET
 
-[Microsoft.AspNetCore.SignalR.](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client)El paquete de cliente es necesario para que los clientes .net se conecten a los concentradores de SignalR.
+El paquete [Microsoft. AspNetCore. signalr. Client](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client) es necesario para que los clientes de .net se conecten a los concentradores de signalr.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Para instalar la biblioteca de cliente de, ejecute el siguiente comando en la ventana de la **consola del administrador de paquetes** :
 
@@ -36,7 +36,7 @@ Para instalar la biblioteca de cliente de, ejecute el siguiente comando en la ve
 Install-Package Microsoft.AspNetCore.SignalR.Client
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
 Para instalar la biblioteca de cliente de, ejecute el siguiente comando en un shell de comandos:
 

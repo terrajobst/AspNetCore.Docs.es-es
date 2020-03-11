@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/controllers/actions
 ms.openlocfilehash: 715a73863513870d1cbd522e75013d41830da1e7
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
-ms.translationtype: HT
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881104"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653351"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Control de solicitudes con controladores en ASP.NET Core MVC
 
@@ -43,7 +43,7 @@ El controlador toma el resultado del procesamiento del modelo (si existe) y devu
 
 El controlador es una abstracción de *nivel de interfaz de usuario*. Se encarga de garantizar que los datos de la solicitud son válidos y de elegir qué vista (o resultado de una API) se debe devolver. En las aplicaciones factorizadas correctamente, no incluye directamente acceso a datos ni lógica de negocios. En su lugar, el controlador delega en servicios el control de estas responsabilidades.
 
-## <a name="defining-actions"></a>Definir acciones
+## <a name="defining-actions"></a>Definición de acciones
 
 Los métodos públicos de un controlador, excepto los que incluyen el atributo `[NonAction]`, son acciones. Los parámetros de las acciones están enlazados a los datos de la solicitud y se validan mediante el [enlace de modelos](xref:mvc/models/model-binding). La validación de modelos se lleva a cabo para todo lo que está enlazado a un modelo. El valor de la propiedad `ModelState.IsValid` indica si el enlace de modelos y la validación se han realizado correctamente.
 
@@ -55,7 +55,7 @@ Las acciones pueden devolver de todo, pero suelen devolver una instancia de `IAc
 
 Los controladores normalmente heredan de [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controller), aunque esto no es necesario. Al derivar de `Controller`, se proporciona acceso a tres categorías de métodos del asistente:
 
-#### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. Métodos que producen un cuerpo de respuesta vacío
+#### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. métodos que producen un cuerpo de respuesta vacío
 
 No se incluye ningún encabezado de respuesta HTTP `Content-Type`, ya que el cuerpo de la respuesta no tiene contenido que describir.
 
@@ -71,11 +71,11 @@ Hay dos tipos de resultados en esta categoría: redireccionamiento y código de 
 
     El tipo de resultado de redireccionamiento difiere del tipo de código de estado HTTP principalmente en que se agrega un encabezado de respuesta HTTP `Location`.
 
-#### <a name="2-methods-resulting-in-a-non-empty-response-body-with-a-predefined-content-type"></a>2. Métodos que producen un cuerpo de respuesta no vacío con un tipo de contenido predefinido
+#### <a name="2-methods-resulting-in-a-non-empty-response-body-with-a-predefined-content-type"></a>2. métodos que producen un cuerpo de respuesta no vacío con un tipo de contenido predefinido
 
 La mayoría de los métodos del asistente de esta categoría incluye una propiedad `ContentType`, lo que permite establecer el encabezado de respuesta `Content-Type` para describir el cuerpo de la respuesta.
 
-Hay dos tipos de resultados en esta categoría: [Vista](xref:mvc/views/overview) y [Respuesta con formato](xref:web-api/advanced/formatting).
+Hay dos tipos de resultados en esta categoría: [vista](xref:mvc/views/overview) y [respuesta con formato](xref:web-api/advanced/formatting).
 
 * **Vista**
 
@@ -87,7 +87,7 @@ Hay dos tipos de resultados en esta categoría: [Vista](xref:mvc/views/overview)
     
     Otros métodos comunes de este tipo son `File` y `PhysicalFile`. Por ejemplo, `return PhysicalFile(customerFilePath, "text/xml");` devuelve [PhysicalFileResult](/dotnet/api/microsoft.aspnetcore.mvc.physicalfileresult).
 
-#### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. Métodos que producen un cuerpo de respuesta no vacío con formato en un tipo de contenido negociado con el cliente
+#### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. métodos que producen un cuerpo de respuesta no vacío con formato en un tipo de contenido negociado con el cliente
 
 Esta categoría también se conoce como **negociación de contenido**. La [negociación de contenido](xref:web-api/advanced/formatting#content-negotiation) se aplica siempre que una acción devuelve un tipo [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult) o un valor distinto de una implementación [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult). Si una acción devuelve una implementación que no sea `IActionResult` (por ejemplo, `object`), también devolverá una respuesta con formato.
 
@@ -100,7 +100,7 @@ Normalmente, las aplicaciones comparten partes de su flujo de trabajo. Un ejempl
 La mayoría de los atributos de filtro, como `[Authorize]`, se puede aplicar en el nivel de controlador o de acción en función del nivel deseado de granularidad.
 
 El control de errores y el almacenamiento en caché de respuestas suelen ser cuestiones transversales:
-* [Control de errores](xref:mvc/controllers/filters#exception-filters)
+* [Gestión de errores](xref:mvc/controllers/filters#exception-filters)
 * [Almacenamiento en caché de respuestas](xref:performance/caching/response)
 
 Es posible controlar muchas cuestiones transversales mediante el uso de filtros o [software intermedio](xref:fundamentals/middleware/index) personalizado.

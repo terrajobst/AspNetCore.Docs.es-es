@@ -1,40 +1,40 @@
 ---
 title: Detalles de cifrado autenticado en ASP.NET Core
 author: rick-anderson
-description: Obtenga información sobre los detalles de implementación del cifrado de la protección de datos de ASP.NET Core autenticado.
+description: Obtenga información sobre la implementación de ASP.NET Core el cifrado autenticado de protección de datos.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/authenticated-encryption-details
 ms.openlocfilehash: 9def03e6b27e19fc34a839e923d6152e086889db
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64896632"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78655007"
 ---
 # <a name="authenticated-encryption-details-in-aspnet-core"></a>Detalles de cifrado autenticado en ASP.NET Core
 
 <a name="data-protection-implementation-authenticated-encryption-details"></a>
 
-Las llamadas a IDataProtector.Protect son las operaciones de cifrado autenticado. El método Protect ofrece confidencialidad y la autenticidad y está vinculado a la cadena de propósito que se usó para derivar esta instancia concreta de IDataProtector su raíz IDataProtectionProvider.
+Las llamadas a IDataProtector. Protect son operaciones de cifrado autenticadas. El método Protect ofrece confidencialidad y autenticidad, y está asociado a la cadena de propósito que se usó para derivar esta instancia concreta de IDataProtector de su IDataProtectionProvider raíz.
 
-IDataProtector.Protect toma un parámetro de texto simple de byte [] y genera una byte [] protegido carga, cuyo formato se describe a continuación. (También hay una sobrecarga del método de extensión que toma un parámetro de cadena de texto simple y devuelve una carga protegida de la cadena. Si se usa esta API todavía tendrá el formato de carga protegido el por debajo de la estructura, pero será [codificados en base64url](https://tools.ietf.org/html/rfc4648#section-5).)
+IDataProtector. Protect toma un parámetro de texto simple Byte [] y genera una carga protegida de Byte [], cuyo formato se describe a continuación. (También hay una sobrecarga del método de extensión que toma un parámetro de texto simple de cadena y devuelve una carga protegida de cadena. Si se usa esta API, el formato de carga protegida seguirá teniendo la siguiente estructura, pero se [codificará con base64url](https://tools.ietf.org/html/rfc4648#section-5)).
 
-## <a name="protected-payload-format"></a>Formato de carga protegido
+## <a name="protected-payload-format"></a>Formato de carga protegida
 
 El formato de carga protegido consta de tres componentes principales:
 
-* Encabezado mágico de 32 bits que identifica la versión del sistema de protección de datos.
+* Un encabezado mágico de 32 bits que identifica la versión del sistema de protección de datos.
 
-* Identificador de clave de 128 bits que identifica la clave utilizada para proteger esta carga determinada.
+* Identificador de clave de 128 bits que identifica la clave utilizada para proteger esta carga concreta.
 
-* El resto de la carga protegido es [específico para el sistema de cifrado encapsulada por esta clave](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). En el ejemplo siguiente, la clave que representa un AES-256-CBC + cifrador HMACSHA256 y la carga se subdivide además como sigue:
-  * Un modificador de la clave de 128 bits.
+* El resto de la carga protegida es [específico del sistema de cifrado encapsulado por esta clave](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). En el ejemplo siguiente, la clave representa un sistema de cifrado AES-256-CBC + HMACSHA256 y la carga se subdivide más como sigue:
+  * Modificador de clave de 128 bits.
   * Un vector de inicialización de 128 bits.
-  * 48 bytes de salida de AES-256-CBC.
+  * 48 bytes de salida AES-256-CBC.
   * Una etiqueta de autenticación HMACSHA256.
 
-Una carga protegida de ejemplo se ilustra a continuación.
+A continuación se muestra una carga protegida de ejemplo.
 
 ```
 09 F0 C9 F0 80 9C 81 0C 19 66 19 40 95 36 53 F8
@@ -48,11 +48,11 @@ AA FF EE 57 57 2F 40 4C 3F 7F CC 9D CC D9 32 3E
 52 C9 74 A0
 ```
 
-Desde el formato de carga por encima de los primeros 32 bits o 4 bytes son el encabezado mágico que identifica la versión (09 F0 C9 F0)
+Desde el formato de carga superior a los primeros 32 bits, o 4 bytes son el encabezado mágico que identifica la versión (09 F0 C9 F0)
 
-Los siguientes 128 bits, o 16 bytes es el identificador de clave (80 9 81 C 0c 19 66 19 40 95 36 53 F8 AA FF EE 57)
+Los siguientes 128 bits, o 16 bytes, es el identificador de clave (80 9C 81 0C 19 66 19 40 95 36 53 F8 AA FF EE 57)
 
-El resto contiene la carga y es específico para el formato utilizado.
+El resto contiene la carga útil y es específico del formato utilizado.
 
 > [!WARNING]
-> Todas las cargas protegidas en una clave determinada se iniciará con el mismo encabezado de 20 bytes (valor mágico, Id. de clave). Los administradores pueden usar este hecho para fines de diagnóstico para aproximarse a cuando se generó una carga. Por ejemplo, la carga anterior corresponde a la clave {0c819c80-6619-4019-9536-53f8aaffee57}. Si después de comprobar el repositorio clave encuentra que la fecha de activación de esta clave específica fue 2015-01-01 y su fecha de expiración era 2015-03-01, entonces es razonable suponer la carga (si no modificado) se ha generado dentro de esa ventana, conceda a o tomar una pequeña factor aglutinante a ambos lados.
+> Todas las cargas protegidas en una clave determinada comenzarán con el mismo encabezado de 20 bytes (valor mágico, ID. de clave). Los administradores pueden usar este hecho con fines de diagnóstico aproximados cuando se genera una carga. Por ejemplo, la carga anterior corresponde a la clave {0c819c80-6619-4019-9536-53f8aaffee57}. Si después de comprobar el repositorio de claves detecta que la fecha de activación de esta clave específica era 2015-01-01 y su fecha de expiración era 2015-03-01, es razonable asumir que la carga (si no se ha manipulado) se generó dentro de esa ventana, dar o tomar un pequeño factor de Fudge en cualquier lado.

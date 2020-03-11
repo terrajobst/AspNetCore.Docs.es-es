@@ -1,58 +1,58 @@
 ---
-title: Limite la duración de cargas protegidas en ASP.NET Core
+title: Limitar la duración de las cargas protegidas en ASP.NET Core
 author: rick-anderson
-description: Aprenda a limitar la duración de una carga protegida mediante las API de protección de datos de ASP.NET Core.
+description: Obtenga información acerca de cómo limitar la duración de una carga protegida mediante las API de protección de datos de ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/consumer-apis/limited-lifetime-payloads
 ms.openlocfilehash: 8dc3b856ec67477ec8ae777749c9bf3107eb4eda
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64897122"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78651443"
 ---
-# <a name="limit-the-lifetime-of-protected-payloads-in-aspnet-core"></a>Limite la duración de cargas protegidas en ASP.NET Core
+# <a name="limit-the-lifetime-of-protected-payloads-in-aspnet-core"></a>Limitar la duración de las cargas protegidas en ASP.NET Core
 
-Hay escenarios donde el desarrollador de aplicaciones desea crear una carga protegida que expira después de un período de tiempo establecido. Por ejemplo, la carga protegida podría representar un token de restablecimiento de contraseña que solo debe ser válido durante una hora. Es ciertamente posible para el desarrollador crear su propio formato de carga que contiene una fecha de expiración incrustados, y los desarrolladores avanzados que desee hacer esto de todos modos, pero para la mayoría de los desarrolladores administrar la caducidad de estas puede crecer tedioso.
+Hay escenarios en los que el desarrollador de aplicaciones desea crear una carga protegida que expire después de un período de tiempo establecido. Por ejemplo, la carga protegida podría representar un token de restablecimiento de contraseña que solo debe ser válido durante una hora. Es posible que el desarrollador cree su propio formato de carga útil que contenga una fecha de expiración incrustada y que los desarrolladores avanzados quieran hacerlo de todos modos, pero para la mayoría de los desarrolladores que administran estas expiraciones pueden resultar tediosos.
 
-Para facilitar esta tarea para nuestra audiencia de desarrolladores, el paquete [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) contiene API de la utilidad para crear cargas que expiran automáticamente tras un período de tiempo establecido. Estas API de bloqueo de la `ITimeLimitedDataProtector` tipo.
+Para facilitar esta tarea a los desarrolladores, el paquete [Microsoft. AspNetCore. deprotection. Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) contiene las API de la utilidad para crear cargas que expiran automáticamente después de un período de tiempo establecido. Estas API se bloquean del tipo `ITimeLimitedDataProtector`.
 
-## <a name="api-usage"></a>Uso de la API
+## <a name="api-usage"></a>Uso de API
 
-El `ITimeLimitedDataProtector` es la interfaz principal para proteger y desproteger las cargas de tiempo limitado / expiración automática. Para crear una instancia de un `ITimeLimitedDataProtector`, primero tendrá que una instancia de normal [IDataProtector](xref:security/data-protection/consumer-apis/overview) construido con un propósito específico. Una vez el `IDataProtector` instancia está disponible, llame a la `IDataProtector.ToTimeLimitedDataProtector` método de extensión para obtener un protector de vuelta con capacidades integradas de expiración.
+La interfaz de `ITimeLimitedDataProtector` es la interfaz principal para proteger y desproteger las cargas de tiempo limitado y de expiración automática. Para crear una instancia de un `ITimeLimitedDataProtector`, primero necesitará una instancia de un [IDataProtector](xref:security/data-protection/consumer-apis/overview) regular construido con un propósito específico. Una vez que la instancia de `IDataProtector` esté disponible, llame al método de extensión `IDataProtector.ToTimeLimitedDataProtector` para obtener un protector con capacidades de expiración integradas.
 
-`ITimeLimitedDataProtector` expone los métodos de extensión y de superficie de API siguientes:
+`ITimeLimitedDataProtector` expone los siguientes métodos de extensión y superficie de API:
 
-* CreateProtector (fin de cadena): ITimeLimitedDataProtector - esta API es similar a la existente `IDataProtectionProvider.CreateProtector` en que se puede usar para crear [finalidad cadenas](xref:security/data-protection/consumer-apis/purpose-strings) desde un protector de tiempo limitado de raíz.
+* CreateProtector (propósito de cadena): ITimeLimitedDataProtector: esta API es similar a la `IDataProtectionProvider.CreateProtector` existente, ya que se puede usar para crear [cadenas de propósito](xref:security/data-protection/consumer-apis/purpose-strings) a partir de un protector raíz limitado por hora.
 
-* Proteger (byte [] texto simple, expiración DateTimeOffset): byte]
+* Proteger (Byte [] texto simple, expiración de DateTimeOffset): Byte []
 
-* Proteger (texto simple de byte [], duración del intervalo de tiempo): byte]
+* Proteger (Byte [] texto simple, duración de TimeSpan): Byte []
 
-* Proteger (como texto simple de byte []): byte]
+* Proteger (Byte [] texto simple): Byte []
 
-* Proteger (texto simple de cadena, expiración DateTimeOffset): cadena
+* Protect (cadena sin formato, expiración de DateTimeOffset): cadena
 
-* Proteger (texto simple de cadena, duración del intervalo de tiempo): cadena
+* Protect (cadena sin formato, duración de TimeSpan): cadena
 
-* Proteger (texto simple de cadena): cadena
+* Protect (cadena sin formato): cadena
 
-Además de los principales `Protect` métodos que admiten solo el texto sin formato, hay nuevas sobrecargas que permiten especificar la fecha de expiración de la carga. La fecha de expiración se puede especificar como una fecha absoluta (a través de un `DateTimeOffset`) o como una hora relativa (desde el sistema actual tiempo a través de un `TimeSpan`). Si se llama a una sobrecarga que no tiene una fecha de expiración, la carga se supone que nunca expiran.
+Además de los métodos de `Protect` principales que toman solo el texto simple, hay nuevas sobrecargas que permiten especificar la fecha de expiración de la carga. La fecha de expiración se puede especificar como una fecha absoluta (a través de un `DateTimeOffset`) o como un tiempo relativo (de la hora del sistema actual, a través de un `TimeSpan`). Si se llama a una sobrecarga que no toma una expiración, se supone que la carga no expira nunca.
 
-* Desproteger (byte [] protectedData, out DateTimeOffset expiración): byte]
+* Unprotect (Byte [] protectedData, out DateTimeOffset de salida): Byte []
 
-* Desproteger (byte [] protectedData): byte]
+* Unprotect (Byte [] protectedData): Byte []
 
-* Desproteger (cadena protectedData, out DateTimeOffset expiración): cadena
+* Unprotect (cadena protectedData, out DateTimeOffset expire): cadena
 
-* Desproteger (cadena protectedData): cadena
+* Unprotect (cadena protectedData): cadena
 
-El `Unprotect` métodos devuelven los datos originales sin protección. Si aún no ha expirado la carga, la expiración absoluta se devuelve como un parámetro junto con los datos originales sin protección de salida opcionales. Si la carga ha caducado, todas las sobrecargas del método Unprotect producirá CryptographicException.
+Los métodos `Unprotect` devuelven los datos no protegidos originales. Si la carga aún no ha expirado, la expiración absoluta se devuelve como un parámetro out opcional junto con los datos no protegidos originales. Si la carga ha expirado, todas las sobrecargas del método Unprotect producirán CryptographicException.
 
 >[!WARNING]
-> No se recomienda utilizar estas API para proteger las cargas que requieren la persistencia a largo plazo o indefinida. "¿Puedo permitirme para que las cargas protegidas que recuperarse después de un mes?" puede actuar como una buena regla general; Si la respuesta es no a los desarrolladores a continuación, considere la API alternativas.
+> No se recomienda usar estas API para proteger las cargas que requieren una persistencia a largo plazo o indefinida. "¿Puedo permitirse que las cargas protegidas sean permanentemente irrecuperables después de un mes?" puede servir como una buena regla general; Si la respuesta es no, los desarrolladores deben considerar API alternativas.
 
-El ejemplo siguiente se usa el [las rutas de código que no sean de DI](xref:security/data-protection/configuration/non-di-scenarios) para instanciar el sistema de protección de datos. Para ejecutar este ejemplo, asegúrese de que primero ha agregado una referencia al paquete Microsoft.AspNetCore.DataProtection.Extensions.
+En el ejemplo siguiente se usan las rutas de acceso de [código no di](xref:security/data-protection/configuration/non-di-scenarios) para crear instancias del sistema de protección de datos. Para ejecutar este ejemplo, asegúrese de que ha agregado primero una referencia al paquete Microsoft. AspNetCore. desproteccion. Extensions.
 
 [!code-csharp[](limited-lifetime-payloads/samples/limitedlifetimepayloads.cs)]

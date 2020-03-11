@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: performance/caching/memory
-ms.openlocfilehash: 23acc17c861c203a87b1c113940e7bf42b51e810
-ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
+ms.openlocfilehash: e01e4a139893297a71aabb1af11b25cf0deb85a9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972014"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653453"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Almacenar en memoria caché en ASP.NET Core
 
@@ -19,7 +19,7 @@ ms.locfileid: "76972014"
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.com/JunTaoLuo)y [Steve Smith](https://ardalis.com/)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/memory/3.0sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/memory/3.0sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="caching-basics"></a>Conceptos básicos de almacenamiento en caché
 
@@ -37,7 +37,7 @@ La caché en memoria puede almacenar cualquier objeto. La interfaz de caché dis
 
 * .NET Standard 2,0 o posterior.
 * Cualquier [implementación de .net](/dotnet/standard/net-standard#net-implementation-support) que tenga como destino .net Standard 2,0 o posterior. Por ejemplo, ASP.NET Core 2,0 o posterior.
-* .NET Framework 4,5 o posterior.
+* .NET Framework 4.5 o superior.
 
 [Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/)/`IMemoryCache` (que se describe en este artículo) se recomienda en `System.Runtime.Caching`/`MemoryCache` porque está mejor integrado en ASP.net Core. Por ejemplo, `IMemoryCache` funciona de forma nativa con la [inserción de dependencias](xref:fundamentals/dependency-injection)de ASP.net Core.
 
@@ -196,7 +196,7 @@ El uso de un <xref:System.Threading.CancellationTokenSource> permite desalojar v
 <!-- This is the 2.1 version -->
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.com/JunTaoLuo)y [Steve Smith](https://ardalis.com/)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/memory/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/memory/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="caching-basics"></a>Conceptos básicos de almacenamiento en caché
 
@@ -214,7 +214,7 @@ La caché en memoria puede almacenar cualquier objeto. La interfaz de caché dis
 
 * .NET Standard 2,0 o posterior.
 * Cualquier [implementación de .net](/dotnet/standard/net-standard#net-implementation-support) que tenga como destino .net Standard 2,0 o posterior. Por ejemplo, ASP.NET Core 2,0 o posterior.
-* .NET Framework 4,5 o posterior.
+* .NET Framework 4.5 o superior.
 
 [Microsoft. Extensions. Caching. Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/)/`IMemoryCache` (que se describe en este artículo) se recomienda en `System.Runtime.Caching`/`MemoryCache` porque está mejor integrado en ASP.net Core. Por ejemplo, `IMemoryCache` funciona de forma nativa con la [inserción de dependencias](xref:fundamentals/dependency-injection)de ASP.net Core.
 

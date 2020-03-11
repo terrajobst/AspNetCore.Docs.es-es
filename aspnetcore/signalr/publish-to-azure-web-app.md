@@ -10,22 +10,22 @@ no-loc:
 - SignalR
 uid: signalr/publish-to-azure-web-app
 ms.openlocfilehash: d03a007ca883b3d0391b848e3e92c90469ee640a
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963930"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652655"
 ---
-# <a name="publish-an-aspnet-core-opno-locsignalr-app-to-azure-app-service"></a>Publicación de una aplicación de SignalR de ASP.NET Core en Azure App Service
+# <a name="publish-an-aspnet-core-signalr-app-to-azure-app-service"></a>Publicación de una aplicación ASP.NET Core Signalr en Azure App Service
 
 Por el [Brady](https://twitter.com/bradygaster)
 
 [Azure App Service](/azure/app-service/app-service-web-overview) es un servicio de plataforma de [informática en la nube de Microsoft](https://azure.microsoft.com/) para hospedar aplicaciones Web, incluidas ASP.net Core.
 
 > [!NOTE]
-> En este artículo se hace referencia a la publicación de una aplicación de SignalR de ASP.NET Core desde Visual Studio. Para obtener más información, consulte [SignalR Service para Azure](https://azure.microsoft.com/services/signalr-service).
+> En este artículo se hace referencia a la publicación de una aplicación de Signalr ASP.NET Core desde Visual Studio. Para más información, consulte [signalr Service para Azure](https://azure.microsoft.com/services/signalr-service).
 
-## <a name="publish-the-app"></a>Publicar la aplicación
+## <a name="publish-the-app"></a>Publicación de la aplicación
 
 En este artículo se describe la publicación con las herramientas de Visual Studio. Visual Studio Code los usuarios pueden usar [CLI de Azure](/cli/azure) comandos para publicar aplicaciones en Azure. Para obtener más información, consulte [publicación de una aplicación ASP.net Core en Azure con herramientas de línea de comandos](/azure/app-service/app-service-web-get-started-dotnet).
 
@@ -46,7 +46,7 @@ En este artículo se describe la publicación con las herramientas de Visual Stu
 
 1. Seleccione el **servicio SignalR de Azure** en la lista desplegable **dependencias** > **Agregar** :
 
-   ![Área de dependencias que muestra la selección de Azure [! Operador. NO-LOC (Signalr)] en la lista desplegable agregar](publish-to-azure-web-app/_static/signalr-service-dependency.png)
+   ![área dependencias que muestra la selección de Azure SignalR Service en la lista desplegable agregar](publish-to-azure-web-app/_static/signalr-service-dependency.png)
 
 1. En el cuadro de diálogo **servicio de azure SignalR** , seleccione **crear una nueva instancia del servicio SignalR de Azure**.
 

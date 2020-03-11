@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 12/11/2019
 uid: security/authentication/individual
 ms.openlocfilehash: 7ef0d5eabded61d04fb9fe7be384a663ad7ea5f4
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828716"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78651959"
 ---
 # <a name="articles-based-on-aspnet-core-projects-created-with-individual-user-accounts"></a>Artículos basados en proyectos de ASP.NET Core creados con cuentas de usuario individuales
 
@@ -61,27 +61,27 @@ Si se selecciona autenticación de Windows, la aplicación se configura para usa
 
 En la tabla siguiente se muestran las opciones de autenticación disponibles para las nuevas aplicaciones web:
 
-| Opción | Tipo de autenticación | Vínculo para más información |
+| Opción | Tipo de autenticación | Vínculo para obtener más información |
  | ----------------- | ------------ | ---------- |
-| Ninguno            |  Sin autenticación | | 
+| None            |  Sin autenticación | | 
 | Individual      |  Autenticación individual | <xref:security/authentication/identity>
 | IndividualB2C   |  Autenticación individual hospedada en la nube con Azure AD B2C | [Azure AD B2C](/azure/active-directory-b2c/) |
 | SingleOrg       |  Autenticación de la organización para un solo inquilino | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
 | MultiOrg        |  Autenticación de la organización para varios inquilinos | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
-| Portal         |  Autenticación de Windows | [Autenticación de Windows](xref:security/authentication/windowsauth)
+| Windows         |  Autenticación de Windows | [Autenticación de Windows](xref:security/authentication/windowsauth)
 
 ## <a name="visual-studio-new-webapp-authentication-options"></a>Opciones de autenticación nuevas de Visual Studio
 
 En la tabla siguiente se muestran las opciones de autenticación disponibles al crear una nueva aplicación web con Visual Studio:
 
-| Opción | Tipo de autenticación | Vínculo para más información |
+| Opción | Tipo de autenticación | Vínculo para obtener más información |
  | ----------------- | ------------ | ---------- |
-| Ninguno            |  Sin autenticación | | 
+| None            |  Sin autenticación | | 
 | Cuentas de usuario individuales/almacenar cuentas de usuario en la aplicación |  Autenticación individual | <xref:security/authentication/identity> |
 | Cuentas de usuario individuales/conectarse a un almacén de usuario existente en la nube |  Autenticación individual hospedada en la nube con Azure AD B2C | [Azure AD B2C](/azure/active-directory-b2c/) |
 | Nube profesional o educativa/organización única  |  Autenticación de la organización para un solo inquilino | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
 | Nube profesional o educativa/varias organizaciones |  Autenticación de la organización para varios inquilinos | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
-| Portal         |  Autenticación de Windows | [Autenticación de Windows](xref:security/authentication/windowsauth)
+| Windows         |  Autenticación de Windows | [Autenticación de Windows](xref:security/authentication/windowsauth)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

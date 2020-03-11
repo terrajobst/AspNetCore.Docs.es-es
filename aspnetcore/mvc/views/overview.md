@@ -5,16 +5,16 @@ description: Obtenga información sobre la forma en que las vistas controlan la 
 ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/views/overview
-ms.openlocfilehash: f636908ee36d0af6e92875876240cb8712dd2ccc
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
-ms.translationtype: HT
+ms.openlocfilehash: de78624bafeee16a3ace322643cf89337531eef8
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881029"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78654125"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Vistas de ASP.NET Core MVC
 
-Por [Steve Smith](https://ardalis.com/) y [Luke Latham](https://github.com/guardrex)
+Por [Steve Smith](https://ardalis.com/)
 
 En este documento se explican las vistas utilizadas en las aplicaciones de ASP.NET Core MVC. Para obtener información sobre las páginas de Razor, consulte [Introducción a las páginas Razor](xref:razor-pages/index).
 
@@ -87,7 +87,7 @@ El método del asistente `View` tiene varias sobrecargas. También puede especif
 
 Cuando una acción devuelve una vista, tiene lugar un proceso llamado *detección de vista*. Este proceso determina qué archivo de vista se utiliza en función del nombre de la vista. 
 
-El comportamiento predeterminado del método `View` (`return View();`) es devolver una vista con el mismo nombre que el método de acción desde el que se llama. Por ejemplo, el nombre de método *About* `ActionResult` del controlador se usa para buscar un archivo de vista denominado *About.cshtml*. En primer lugar, el runtime busca la vista en la carpeta *Views/[nombreDelControlador]* . Si no encuentra una vista que coincida, busca la vista en la carpeta *Shared*.
+El comportamiento predeterminado del método `View` (`return View();`) es devolver una vista con el mismo nombre que el método de acción desde el que se llama. Por ejemplo, el nombre de método *about* `ActionResult` del controlador se utiliza para buscar un archivo de vista denominado *About. cshtml*. En primer lugar, el runtime busca la vista en la carpeta *Views/[nombreDelControlador]* . Si no encuentra una vista que coincida, busca la vista en la carpeta *Shared*.
 
 Da igual si se devuelve implícitamente `ViewResult` con `return View();` o si se pasa explícitamente el nombre de la vista al método `View` con `return View("<ViewName>");`. En ambos casos, la detección de vista busca un archivo de vista coincidente en este orden:
 
@@ -192,7 +192,7 @@ Nada le impide usar las mismas clases tanto para los tipos de modelo de vista co
 
 ### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>Datos débilmente tipados (ViewData, atributo ViewData y ViewBag)
 
-`ViewBag` *no está disponible en las páginas de Razor.*
+`ViewBag` *no está disponible en Razor pages.*
 
 Además de las vistas fuertemente tipadas, las vistas tienen acceso a una colección de datos *débilmente tipados*, también denominados *imprecisos*. A diferencia de los tipos fuertes, en los *tipos débiles* (o *débilmente tipados*) no se declara explícitamente el tipo de datos que se está utilizando. Puede usar la colección de datos débilmente tipados para pasar pequeñas cantidades de datos de los controladores y las vistas, tanto en dirección de entrada como de salida.
 
@@ -202,7 +202,7 @@ Además de las vistas fuertemente tipadas, las vistas tienen acceso a una colecc
 | Una vista y una [vista de diseño](xref:mvc/views/layout)   | Establecer el contenido del elemento **\<title>** en la vista de diseño de un archivo de vista.  |
 | Una [vista parcial](xref:mvc/views/partial) y una vista | Un widget que muestra datos basados en la página web que el usuario solicitó.      |
 
-Puede hacer referencia a esta colección a través de las propiedades `ViewData` o `ViewBag` en controladores y vistas. La propiedad `ViewData` es un diccionario de objetos débilmente tipados. La propiedad `ViewBag` es un contenedor alrededor de `ViewData` que proporciona propiedades dinámicas para la colección `ViewData` subyacente. Nota: Las búsquedas de claves no distinguen mayúsculas de minúsculas para `ViewData` y `ViewBag`.
+Puede hacer referencia a esta colección a través de las propiedades `ViewData` o `ViewBag` en controladores y vistas. La propiedad `ViewData` es un diccionario de objetos débilmente tipados. La propiedad `ViewBag` es un contenedor alrededor de `ViewData` que proporciona propiedades dinámicas para la colección `ViewData` subyacente. Nota: las búsquedas de clave no distinguen mayúsculas de minúsculas para `ViewData` y `ViewBag`.
 
 `ViewData` y `ViewBag` se resuelven de forma dinámica en tiempo de ejecución. Debido a que no ofrecen la comprobación de tipos en tiempo de compilación, ambas son generalmente más propensas a errores que el uso de un modelo de vista. Por esta razón, algunos desarrolladores prefieren prescindir de `ViewData` y `ViewBag` o usarlos lo menos posible.
 
@@ -292,7 +292,7 @@ En el diseño, el título se lee desde el diccionario ViewData:
 
 **ViewBag**
 
-`ViewBag` *no está disponible en las páginas de Razor.*
+`ViewBag` *no está disponible en Razor pages.*
 
 `ViewBag` es un objeto [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) que proporciona acceso dinámico a los objetos almacenados en `ViewData`. `ViewBag` puede ser más cómodo de trabajar con él, ya que no requiere conversión. En el ejemplo siguiente se muestra cómo usar `ViewBag` con el mismo resultado que al usar `ViewData` anteriormente:
 
@@ -325,7 +325,7 @@ public IActionResult SomeAction()
 
 **Uso simultáneo de ViewData y ViewBag**
 
-`ViewBag` *no está disponible en las páginas de Razor.*
+`ViewBag` *no está disponible en Razor pages.*
 
 Puesto que `ViewData` y `ViewBag` hacen referencia a la misma colección `ViewData` subyacente, se pueden utilizar `ViewData` y `ViewBag`, y combinarlos entre ellos al leer y escribir valores.
 

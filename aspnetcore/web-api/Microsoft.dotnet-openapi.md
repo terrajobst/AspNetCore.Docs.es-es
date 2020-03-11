@@ -7,11 +7,11 @@ ms.date: 09/26/2019
 monikerRange: '>= aspnetcore-3.0'
 uid: web-api/Microsoft.dotnet-openapi
 ms.openlocfilehash: 079e36511b63c186ffa7726bdb1e3c3bcbda9d34
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
-ms.translationtype: HT
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829262"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78651251"
 ---
 # <a name="develop-aspnet-core-apps-using-openapi-tools"></a>Desarrollo de aplicaciones ASP.NET Core con herramientas de OpenAPI
 
@@ -27,7 +27,7 @@ Para instalar `Microsoft.dotnet-openapi`, ejecute el siguiente comando:
 dotnet tool install -g Microsoft.dotnet-openapi
 ```
 
-## <a name="add"></a>Agregar
+## <a name="add"></a>Sumar
 
 Al agregar una referencia de OpenAPI mediante cualquiera de los comandos de esta página, se agrega un elemento `<OpenApiReference />` similar al siguiente al archivo *.csproj*:
 
@@ -60,7 +60,7 @@ La referencia anterior es necesaria para que la aplicación llame al código de 
 |-------|------|-------|---------|
 | -p|--updateProject | El proyecto sobre el que actuar. |dotnet openapi add file *--updateProject .\Ref.csproj* .\OpenAPI.json |
 | -c|--code-generator| El generador de código que se va a aplicar a la referencia. Las opciones son `NSwagCSharp` y `NSwagTypeScript`. Si no se especifica `--code-generator`, la herramienta usa `NSwagCSharp` de forma predeterminada.|dotnet openapi add file .\OpenApi.json --code-generator
-| -h|--help|Mostrar información de ayuda.|dotnet openapi add file --help|
+| -H|--help|Mostrar información de ayuda.|dotnet openapi add file --help|
 
 #### <a name="arguments"></a>Argumentos
 
@@ -77,7 +77,7 @@ La referencia anterior es necesaria para que la aplicación llame al código de 
 | -p|--updateProject | El proyecto sobre el que actuar. |dotnet openapi add url *--updateProject .\Ref.csproj* `https://contoso.com/openapi.json` |
 | -o|--output-file | Dónde colocar la copia local del archivo OpenAPI. |dotnet openapi add url `https://contoso.com/openapi.json` *--output-file myclient.json* |
 | -c|--code-generator| El generador de código que se va a aplicar a la referencia. Las opciones son `NSwagCSharp` y `NSwagTypeScript`. |dotnet openapi add file .\OpenApi.json --code-generator
-| -h|--help|Mostrar información de ayuda.|dotnet openapi add url --help|
+| -H|--help|Mostrar información de ayuda.|dotnet openapi add url --help|
 
 #### <a name="arguments"></a>Argumentos
 
@@ -85,7 +85,7 @@ La referencia anterior es necesaria para que la aplicación llame al código de 
 |-------------|-------------|---------|
 | source-URL | El origen a partir del cual se va a crear una referencia. Debe ser una dirección URL. |dotnet openapi add url `https://contoso.com/openapi.json` |
 
-## <a name="remove"></a>Quitar
+## <a name="remove"></a>Remove
 
 Quita la referencia de OpenAPI que coincide con el nombre de archivo dado del archivo *.csproj*. Cuando la referencia de OpenAPI se quita, no se generarán los clientes. Los archivos *.json* y *.yaml* locales se eliminan.
 
@@ -94,7 +94,7 @@ Quita la referencia de OpenAPI que coincide con el nombre de archivo dado del ar
 | Opción corta| Opción larga| Descripción| Ejemplo |
 |-------|------|------------|---------|
 | -p|--updateProject | El proyecto sobre el que actuar. |dotnet openapi remove *--updateProject .\Ref.csproj* .\OpenAPI.json |
-| -h|--help|Mostrar información de ayuda.|dotnet openapi remove --help|
+| -H|--help|Mostrar información de ayuda.|dotnet openapi remove --help|
 
 ### <a name="arguments"></a>Argumentos
 
@@ -102,7 +102,7 @@ Quita la referencia de OpenAPI que coincide con el nombre de archivo dado del ar
 | ------------|------------|---------|
 | source-file | Origen al que se va a quitar la referencia. |dotnet openapi remove *.\OpenAPI.json* |
 
-## <a name="refresh"></a>Refresh
+## <a name="refresh"></a>Actualizar
 
 Actualiza la versión local de un archivo que se descargó usando el contenido más reciente de la dirección URL de descarga.
 
@@ -111,7 +111,7 @@ Actualiza la versión local de un archivo que se descargó usando el contenido m
 | Opción corta| Opción larga| Descripción | Ejemplo |
 |-------|------|-------------|---------|
 | -p|--updateProject | El proyecto sobre el que actuar. | dotnet openapi refresh *--updateProject .\Ref.csproj* `https://contoso.com/openapi.json` |
-| -h|--help|Mostrar información de ayuda.|dotnet openapi refresh --help|
+| -H|--help|Mostrar información de ayuda.|dotnet openapi refresh --help|
 
 ### <a name="arguments"></a>Argumentos
 

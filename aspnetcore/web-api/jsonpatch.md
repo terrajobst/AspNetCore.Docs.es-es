@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/01/2019
 uid: web-api/jsonpatch
-ms.openlocfilehash: e57556e4b3fba55c6c187092593ffab4e31ee2d9
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
-ms.translationtype: HT
+ms.openlocfilehash: cf1a00c1928652bf5210b2442087209e23b8868e
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76727108"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652955"
 ---
 # <a name="jsonpatch-in-aspnet-core-web-api"></a>JsonPatch en la API web de ASP.NET Core
 
@@ -102,7 +102,7 @@ Los cambios realizados mediante la aplicación de un documento JSON Patch a un r
 
 ## <a name="path-syntax"></a>Sintaxis de path
 
-La propiedad [path](https://tools.ietf.org/html/rfc6901) de un objeto de operación tiene barras inversas entre niveles. Por ejemplo: `"/address/zipCode"`.
+La propiedad [path](https://tools.ietf.org/html/rfc6901) de un objeto de operación tiene barras inversas entre niveles. Por ejemplo, `"/address/zipCode"`.
 
 Para especificar elementos de matriz se usan índices de base cero. El primer elemento de la matriz `addresses` estaría en `/addresses/0`. Para usar `add` al final de una matriz, use un guion (-) en lugar de un número de índice: `/addresses/-`.
 
@@ -131,7 +131,7 @@ En un controlador de API, un método de acción para JSON Patch:
 * Acepta `JsonPatchDocument<T>`, normalmente con `[FromBody]`.
 * Llama a `ApplyTo` en el documento de revisión para aplicar los cambios.
 
-Por ejemplo:
+Este es un ejemplo:
 
 [!code-csharp[](jsonpatch/samples/2.2/Controllers/HomeController.cs?name=snippet_PatchAction&highlight=1,3,9)]
 
@@ -239,14 +239,14 @@ El siguiente documento de revisión de ejemplo no tiene ningún efecto si el val
 
 ## <a name="get-the-code"></a>Obtención del código
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Método de descarga](xref:index#how-to-download-a-sample)).
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Método de descarga](xref:index#how-to-download-a-sample)).
 
 Para probar el ejemplo, ejecute la aplicación y envíe solicitudes HTTP con la configuración siguiente:
 
-* DIRECCIÓN URL: `http://localhost:{port}/jsonpatch/jsonpatchwithmodelstate`
+* Dirección URL: `http://localhost:{port}/jsonpatch/jsonpatchwithmodelstate`
 * Método HTTP: `PATCH`
 * Encabezado: `Content-Type: application/json-patch+json`
-* Cuerpo: Copie y pegue uno de los ejemplos de documento de revisión de JSON de la carpeta del proyecto *JSON*.
+* Cuerpo: Copie y pegue uno de los ejemplos de documentos de revisión de JSON de la carpeta de proyecto *JSON* .
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -314,7 +314,7 @@ Los cambios realizados mediante la aplicación de un documento JSON Patch a un r
 
 ## <a name="path-syntax"></a>Sintaxis de path
 
-La propiedad [path](https://tools.ietf.org/html/rfc6901) de un objeto de operación tiene barras inversas entre niveles. Por ejemplo: `"/address/zipCode"`.
+La propiedad [path](https://tools.ietf.org/html/rfc6901) de un objeto de operación tiene barras inversas entre niveles. Por ejemplo, `"/address/zipCode"`.
 
 Para especificar elementos de matriz se usan índices de base cero. El primer elemento de la matriz `addresses` estaría en `/addresses/0`. Para usar `add` al final de una matriz, use un guion (-) en lugar de un número de índice: `/addresses/-`.
 
@@ -343,7 +343,7 @@ En un controlador de API, un método de acción para JSON Patch:
 * Acepta `JsonPatchDocument<T>`, normalmente con `[FromBody]`.
 * Llama a `ApplyTo` en el documento de revisión para aplicar los cambios.
 
-Por ejemplo:
+Este es un ejemplo:
 
 [!code-csharp[](jsonpatch/samples/2.2/Controllers/HomeController.cs?name=snippet_PatchAction&highlight=1,3,9)]
 
@@ -451,14 +451,14 @@ El siguiente documento de revisión de ejemplo no tiene ningún efecto si el val
 
 ## <a name="get-the-code"></a>Obtención del código
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Método de descarga](xref:index#how-to-download-a-sample)).
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Método de descarga](xref:index#how-to-download-a-sample)).
 
 Para probar el ejemplo, ejecute la aplicación y envíe solicitudes HTTP con la configuración siguiente:
 
-* DIRECCIÓN URL: `http://localhost:{port}/jsonpatch/jsonpatchwithmodelstate`
+* Dirección URL: `http://localhost:{port}/jsonpatch/jsonpatchwithmodelstate`
 * Método HTTP: `PATCH`
 * Encabezado: `Content-Type: application/json-patch+json`
-* Cuerpo: Copie y pegue uno de los ejemplos de documento de revisión de JSON de la carpeta del proyecto *JSON*.
+* Cuerpo: Copie y pegue uno de los ejemplos de documentos de revisión de JSON de la carpeta de proyecto *JSON* .
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -1,22 +1,22 @@
 ---
 title: Azure Key Vault proveedor de configuración en ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Aprenda a usar el proveedor de configuración de Azure Key Vault para configurar una aplicación mediante pares de nombre y valor cargados en tiempo de ejecución.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: security/key-vault-configuration
-ms.openlocfilehash: 7eb8cf5dcd6b9f112a2ef30e694b6223a7d1f2fe
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: d617627154e3125a6a59d082fd401fc69c25fcb3
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114879"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652181"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault proveedor de configuración en ASP.NET Core
 
-Por [Luke Latham](https://github.com/guardrex) y [Andrew Stanton-enfermera](https://github.com/anurse)
+Por [Andrew Stanton-enfermera](https://github.com/anurse)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -25,7 +25,7 @@ En este documento se explica cómo usar el proveedor de configuración de [key V
 * Controlar el acceso a los datos de configuración confidenciales.
 * Cumplir los requisitos de los módulos de seguridad de hardware (HSM) de FIPS 140-2 nivel 2 validados al almacenar los datos de configuración.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="packages"></a>Paquetes
 
@@ -289,7 +289,7 @@ Cuando se implementa este enfoque:
 
 El proveedor es capaz de leer valores de configuración en una matriz para enlazar a una matriz POCO.
 
-Al leer desde un origen de configuración que permite que las claves contengan separadores de dos puntos (`:`), se usa un segmento de clave numérica para distinguir las claves que componen una matriz (`:0:`, `:1:`,... `:{n}:`). Para obtener más información, vea [Configuración: enlazar una matriz a una clase](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
+Al leer desde un origen de configuración que permite que las claves contengan separadores de dos puntos (`:`), se usa un segmento de clave numérica para distinguir las claves que componen una matriz (`:0:`, `:1:`, &hellip; `:{n}:`). Para obtener más información, vea [Configuración: enlazar una matriz a una clase](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
 
 Azure Key Vault teclas no pueden usar un signo de dos puntos como separador. El enfoque que se describe en este tema utiliza los guiones dobles (`--`) como separador de valores jerárquicos (secciones). Las claves de matriz se almacenan en Azure Key Vault con dobles guiones y segmentos de clave numérica (`--0--`, `--1--`, &hellip; `--{n}--`).
 
@@ -371,7 +371,7 @@ En este documento se explica cómo usar el proveedor de configuración de [key V
 * Controlar el acceso a los datos de configuración confidenciales.
 * Cumplir los requisitos de los módulos de seguridad de hardware (HSM) de FIPS 140-2 nivel 2 validados al almacenar los datos de configuración.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="packages"></a>Paquetes
 
@@ -616,7 +616,7 @@ Cuando se implementa este enfoque:
 
 El proveedor es capaz de leer valores de configuración en una matriz para enlazar a una matriz POCO.
 
-Al leer desde un origen de configuración que permite que las claves contengan separadores de dos puntos (`:`), se usa un segmento de clave numérica para distinguir las claves que componen una matriz (`:0:`, `:1:`,... `:{n}:`). Para obtener más información, vea [Configuración: enlazar una matriz a una clase](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
+Al leer desde un origen de configuración que permite que las claves contengan separadores de dos puntos (`:`), se usa un segmento de clave numérica para distinguir las claves que componen una matriz (`:0:`, `:1:`, &hellip; `:{n}:`). Para obtener más información, vea [Configuración: enlazar una matriz a una clase](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
 
 Azure Key Vault teclas no pueden usar un signo de dos puntos como separador. El enfoque que se describe en este tema utiliza los guiones dobles (`--`) como separador de valores jerárquicos (secciones). Las claves de matriz se almacenan en Azure Key Vault con dobles guiones y segmentos de clave numérica (`--0--`, `--1--`, &hellip; `--{n}--`).
 

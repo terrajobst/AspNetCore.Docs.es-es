@@ -10,11 +10,11 @@ no-loc:
 - SignalR
 uid: signalr/introduction
 ms.openlocfilehash: 635431abf9263c2dff261aea47e6f8324061763f
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829288"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653369"
 ---
 # <a name="introduction-to-aspnet-core-opno-locsignalr"></a>Introducción a ASP.NET Core SignalR
 
@@ -50,7 +50,7 @@ SignalR admite las siguientes técnicas para controlar la comunicación en tiemp
 
 SignalR elige automáticamente el mejor método de transporte que se encuentra dentro de las capacidades del servidor y del cliente.
 
-## <a name="hubs"></a>Concentradores
+## <a name="hubs"></a>Hubs
 
 SignalR usa *hubs* para la comunicación entre clientes y servidores.
 

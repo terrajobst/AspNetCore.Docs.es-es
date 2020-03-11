@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/03/2020
 uid: web-api/action-return-types
-ms.openlocfilehash: aeea005abfcfd45a6fc94dfddfd65e60ffb15df8
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
-ms.translationtype: HT
+ms.openlocfilehash: 17e290d3aba4f724fcbd1693af371017c4d3f03a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77089193"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78651239"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Tipos de valor devuelto de acción del controlador de la API web de ASP.NET Core
 
 Por [Scott Addie](https://github.com/scottaddie)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ASP.NET Core ofrece las siguientes opciones relativas a los tipos de valor devuelto de acción del controlador de la API web:
 
@@ -148,7 +148,7 @@ En ASP.NET Core 2.1 o versiones posteriores, si se aplica el atributo [`[ApiCon
 
 ASP.NET Core 2.1 incorpora el tipo de valor devuelto [ActionResult\<T>](xref:Microsoft.AspNetCore.Mvc.ActionResult`1) para las acciones de controlador de la API web. Permite devolver un tipo que se deriva de <xref:Microsoft.AspNetCore.Mvc.ActionResult> o bien un [tipo específico](#specific-type). `ActionResult<T>` reporta las siguientes ventajas con frente al [tipo IActionResult](#iactionresult-type):
 
-* La propiedad `Type` del atributo [`[ProducesResponseType]`](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) se puede excluir. Por ejemplo, `[ProducesResponseType(200, Type = typeof(Product))]` se simplifica a `[ProducesResponseType(200)]`. En su lugar, el tipo de valor devuelto esperado de la acción se infiere desde `T` en `ActionResult<T>`.
+* La propiedad [ del atributo `[ProducesResponseType]`](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute)`Type` se puede excluir. Por ejemplo, `[ProducesResponseType(200, Type = typeof(Product))]` se simplifica a `[ProducesResponseType(200)]`. En su lugar, el tipo de valor devuelto esperado de la acción se infiere desde `T` en `ActionResult<T>`.
 * Los [operadores de conversión implícitos](/dotnet/csharp/language-reference/keywords/implicit) admiten la conversión tanto de `T` como de `ActionResult` en `ActionResult<T>`. `T` se convierte en <xref:Microsoft.AspNetCore.Mvc.ObjectResult>, lo que significa que `return new ObjectResult(T);` se ha simplificado para `return T;`.
 
 C# no admite operadores de conversión implícitos en las interfaces. Por consiguiente, la conversión de la interfaz a un tipo concreto es necesaria para usar `ActionResult<T>`. Por ejemplo, el uso de `IEnumerable` en el siguiente ejemplo no funciona:

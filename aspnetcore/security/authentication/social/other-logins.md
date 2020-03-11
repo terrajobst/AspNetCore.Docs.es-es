@@ -1,31 +1,31 @@
 ---
-title: Proveedores de autenticación de OAuth externos
+title: Proveedores de autenticación OAuth externos
 author: rick-anderson
-description: Descubra los proveedores de autenticación de OAuth externo que funcionan con aplicaciones ASP.NET Core.
+description: Detectar proveedores de autenticación OAuth externos que funcionan con aplicaciones ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/otherlogins
 ms.openlocfilehash: 2bc9a11d0a46e54b4206f846d187b8c1cc954f89
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815558"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78654461"
 ---
-# <a name="external-oauth-authentication-providers"></a>Proveedores de autenticación de OAuth externos
+# <a name="external-oauth-authentication-providers"></a>Proveedores de autenticación OAuth externos
 
-Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Pranav Rastogi](https://github.com/rustd), y [Valeriy Novytskyy](https://github.com/01binary)
+Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Pranav Rastogi](https://github.com/rustd)y [Valeriy Novytskyy](https://github.com/01binary)
 
-En la lista siguiente incluye comunes proveedores externos de autenticación de OAuth que funcionan con aplicaciones ASP.NET Core. Paquetes de NuGet de terceros, como los que se mantiene [aspnet-contrib](https://www.nuget.org/packages?q=owners%3Aaspnet-contrib+title%3AOAuth), puede usarse para complementar los proveedores de autenticación implementados por el equipo de ASP.NET Core.
+La lista siguiente incluye proveedores de autenticación OAuth externos comunes que funcionan con aplicaciones ASP.NET Core. Los paquetes NuGet de terceros, como los mantenidos por [ASPNET-entrib](https://www.nuget.org/packages?q=owners%3Aaspnet-contrib+title%3AOAuth), se pueden usar para complementar los proveedores de autenticación implementados por el equipo de ASP.net Core.
 
-* [LinkedIn](https://www.linkedin.com/developer/apps) ([Instructions](https://developer.linkedin.com/docs/oauth2))
+* [LinkedIn](https://www.linkedin.com/developer/apps) ([instrucciones](https://developer.linkedin.com/docs/oauth2))
 
 * [Instagram](https://www.instagram.com/developer/register/) ([instrucciones](https://www.instagram.com/developer/authentication/))
 
-* [Reddit](https://www.reddit.com/login?dest=https%3A%2F%2Fwww.reddit.com%2Fprefs%2Fapps) ([instrucciones](https://github.com/reddit/reddit/wiki/OAuth2-Quick-Start-Example))
+* [Reddit](https://www.reddit.com/login?dest=https%3A%2F%2F www.reddit.com%2Fprefs%2Fapps) ([instrucciones](https://github.com/reddit/reddit/wiki/OAuth2-Quick-Start-Example))
 
-* [Github](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew) ([instrucciones](https://developer.github.com/v3/oauth/))
+* [GitHub](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew) ([instrucciones](https://developer.github.com/v3/oauth/))
 
 * [Yahoo](https://login.yahoo.com/config/login?src=devnet&.done=http%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2Fcreate%2F) ([instrucciones](https://developer.yahoo.com/bbauth/user.html))
 
@@ -41,7 +41,7 @@ En la lista siguiente incluye comunes proveedores externos de autenticación de 
 
 * [Vimeo](https://vimeo.com/join) ([instrucciones](https://developer.vimeo.com/api/authentication))
 
-* [SoundCloud](https://soundcloud.com/you/apps/new) ([instrucciones](https://developers.soundcloud.com/blog/we-love-oauth-2))
+* [Soundcloud](https://soundcloud.com/you/apps/new) ([instrucciones](https://developers.soundcloud.com/blog/we-love-oauth-2))
 
 * [VK](https://vk.com/apps?act=manage) ([instrucciones](https://vk.com/pages?oid=-17680044&p=Authorizing_Sites))
 

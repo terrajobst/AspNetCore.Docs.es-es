@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 12/05/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: cab383053751598b882f3716943d3d9392c56f4a
-ms.sourcegitcommit: 29ace642ca0e1f0b48a18d66de266d8811df2b83
-ms.translationtype: HT
+ms.openlocfilehash: 908016720ade67a02ebe30d1dcb7929ad7592270
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74987957"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653045"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Aplicación de formato a datos de respuesta en ASP.NET Core Web API
 
@@ -19,7 +19,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Steve Smith](https://ard
 
 ASP.NET Core MVC tiene compatibilidad para formatear datos de respuesta. Se pueden formatear los datos de respuesta con formatos específicos o en respuesta al formato solicitado por el cliente.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/formatting) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/formatting) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="format-specific-action-results"></a>Resultados de acción específicos del formato
 
@@ -31,7 +31,7 @@ El método auxiliar integrado <xref:Microsoft.AspNetCore.Mvc.ControllerBase.Ok*>
 
 La descarga de ejemplo devuelve la lista de autores. Con las herramientas para desarrolladores del explorador F12 o [Postman](https://www.getpostman.com/tools) con el código anterior:
 
-* Se muestra el encabezado de respuesta que contiene **content-type:** `application/json; charset=utf-8`.
+* Se muestra el encabezado de respuesta que contiene **Content-Type:** `application/json; charset=utf-8`.
 * Se muestran los encabezados de solicitud. Por ejemplo, el encabezado `Accept`. El código anterior omite el encabezado `Accept`.
 
 Para devolver datos con formato de texto sin formato, use <xref:Microsoft.AspNetCore.Mvc.ContentResult.Content> y el método del asistente <xref:Microsoft.AspNetCore.Mvc.ContentResult.Content>:
@@ -67,7 +67,7 @@ Devolución de un tipo de objeto:
 
 En el código anterior, una solicitud de un alias de autor válido devuelve una respuesta `200 OK` con los datos del autor. Una solicitud de un alias no válido devuelve una respuesta `204 No Content`.
 
-### <a name="the-accept-header"></a>El encabezado Accept
+### <a name="the-accept-header"></a>Encabezado Accept
 
 La *negociación* de contenido se lleva a cabo cuando en la solicitud aparece un encabezado `Accept`. Cuando una solicitud contiene un encabezado Accept, ASP.NET Core:
 
@@ -155,7 +155,7 @@ Antes de ASP.NET Core 3.0, los formateadores JSON usados de forma predeterminada
 
 Es posible que algunas características no funcionen bien con formateadores basados en `System.Text.Json` y requieren una referencia a los formateadores basados en `Newtonsoft.Json`. Siga usando los formateadores basados en `Newtonsoft.Json` si la aplicación:
 
-* Usa atributos `Newtonsoft.Json`. Por ejemplo: `[JsonProperty]` o `[JsonIgnore]`.
+* Usa atributos `Newtonsoft.Json`. Por ejemplo, `[JsonProperty]` o `[JsonIgnore]`.
 * Proporciona la configuración de la serialización.
 * Se basa en las características que `Newtonsoft.Json` proporciona.
 * Configura `Microsoft.AspNetCore.Mvc.JsonResult.SerializerSettings`. Antes de ASP.NET Core 3.0, `JsonResult.SerializerSettings` acepta una instancia de `JsonSerializerSettings` específica de `Newtonsoft.Json`.
@@ -248,7 +248,7 @@ La asignación de la ruta de acceso de la solicitud debe especificarse en la rut
 
 Esta ruta anterior permite especificar el formato solicitado como una extensión de archivo opcional. El atributo [`[FormatFilter]`](xref:Microsoft.AspNetCore.Mvc.FormatFilterAttribute) comprueba la existencia del valor de formato en `RouteData` y asigna el formato de respuesta al formateador adecuado cuando se crea la respuesta.
 
-|           Ruta        |             Formateador              |
+|           Enrutar        |             Formateador              |
 |------------------------|------------------------------------|
 |   `/api/products/5`    |    Formateador de salida predeterminado    |
 | `/api/products/5.json` | Formateador JSON (si está configurado) |

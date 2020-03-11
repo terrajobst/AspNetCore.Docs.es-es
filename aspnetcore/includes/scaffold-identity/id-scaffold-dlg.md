@@ -1,15 +1,15 @@
 Ejecute el scaffolding de identidad:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Desde **el Explorador de soluciones**, haga doble clic en el proyecto > **agregar** > **nuevo elemento de scaffolding**.
-* En el panel izquierdo de la **agregar Scaffold** cuadro de diálogo, seleccione **identidad** > **agregar**.
+* En **Explorador de soluciones**, haga clic con el botón derecho en el proyecto > **Agregar** > **nuevo elemento con scaffolding**.
+* En el panel izquierdo del cuadro de diálogo **Agregar scaffold** , seleccione **Identity** > **Agregar**.
 * En el cuadro de diálogo **Agregar identidad** , seleccione las opciones que desee.
   * Seleccione la página de diseño existente o el archivo de diseño se sobrescribirá con un marcado incorrecto. Por ejemplo `~/Pages/Shared/_Layout.cshtml` para los proyectos de Razor Pages `~/Views/Shared/_Layout.cshtml` para MVC
-  * Seleccione el **+** botón para crear un nuevo **clase de contexto de datos**.
-* Seleccione **agregar**.
+  * Seleccione el botón **+** para crear una nueva **clase de contexto de datos**.
+* Seleccione **Agregar**.
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
 Si no ha instalado previamente el proveedor de scaffolding de ASP.NET Core, instalar ahora:
 

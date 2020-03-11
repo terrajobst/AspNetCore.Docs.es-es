@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: migration/webapi
-ms.openlocfilehash: c68cf83f427f53b110075168c6d5e4d021808782
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 7f61b78c589fc9d01061b50554e5a639e372c3d8
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881143"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653009"
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>Migrar de ASP.NET Web API a ASP.NET Core
 
@@ -19,9 +19,9 @@ Por [Scott Addie](https://twitter.com/scott_addie) y [Steve Smith](https://ardal
 
 Una API Web ASP.NET 4. x es un servicio HTTP que llega a una amplia gama de clientes, incluidos exploradores y dispositivos móviles. ASP.NET Core unifica los modelos de aplicaciones MVC y Web API de ASP.NET 4. x en un modelo de programación más sencillo conocido como ASP.NET Core MVC. En este artículo se muestran los pasos necesarios para migrar desde la API Web de ASP.NET 4. x ASP.NET Core a MVC.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/migration/webapi/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/migration/webapi/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [prerequisites](../includes/net-core-prereqs-vs2019-2.2.md)]
 
@@ -61,7 +61,7 @@ La solución ahora contiene dos proyectos. En las secciones siguientes se explic
 
 ## <a name="migrate-configuration"></a>Migración de la configuración
 
-ASP.NET Core no utiliza la carpeta *App_Start* o el archivo *global. asax* , y el archivo *Web. config* se agrega en el momento de la publicación. *Startup.CS* es el sustituto de *global. asax* y se encuentra en la raíz del proyecto. La clase `Startup` controla todas las tareas de inicio de la aplicación. Para obtener más información, vea <xref:fundamentals/startup>.
+ASP.NET Core no utiliza la carpeta *App_Start* o el archivo *global. asax* , y el archivo *Web. config* se agrega en el momento de la publicación. *Startup.CS* es el sustituto de *global. asax* y se encuentra en la raíz del proyecto. La clase `Startup` controla todas las tareas de inicio de la aplicación. Para más información, consulte <xref:fundamentals/startup>.
 
 En ASP.NET Core MVC, el enrutamiento de atributos se incluye de forma predeterminada cuando se llama a <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> en `Startup.Configure`. La siguiente llamada de `UseMvc` reemplaza el archivo *App_Start/webapiconfig.CS* del proyecto *ProductsApp* :
 
@@ -78,12 +78,12 @@ Copie el controlador del proyecto de *ProductApp* y el modelo que usa. Siga esto
 En este punto, la creación de la aplicación produce una serie de errores de compilación. Los errores se producen porque los componentes siguientes no existen en ASP.NET Core:
 
 * Clase `ApiController`
-* Espacio de nombres de `System.Web.Http`
-* Interfaz `IHttpActionResult`
+* Espacio de nombres `System.Web.Http`
+* `IHttpActionResult` (interfaz)
 
 Corrija los errores de la siguiente manera:
 
-1. Cambio `ApiController` a <xref:Microsoft.AspNetCore.Mvc.ControllerBase>. Agregue `using Microsoft.AspNetCore.Mvc;` para resolver el `ControllerBase` referencia.
+1. Cambio de `ApiController` a <xref:Microsoft.AspNetCore.Mvc.ControllerBase>. Agregue `using Microsoft.AspNetCore.Mvc;` para resolver el `ControllerBase` referencia.
 1. Elimine `using System.Web.Http;`.
 1. Cambie el tipo de valor devuelto de la acción `GetProduct` de `IHttpActionResult` a `ActionResult<Product>`.
 
@@ -93,7 +93,7 @@ Simplifique la instrucción `return` de la acción de `GetProduct` para lo sigui
 return product;
 ```
 
-## <a name="configure-routing"></a>Configurar el enrutamiento
+## <a name="configure-routing"></a>Configuración del enrutamiento
 
 Configure el enrutamiento de la siguiente manera:
 

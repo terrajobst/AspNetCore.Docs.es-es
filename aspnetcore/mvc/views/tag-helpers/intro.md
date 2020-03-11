@@ -7,11 +7,11 @@ ms.custom: H1Hack27Feb2017
 ms.date: 03/18/2019
 uid: mvc/views/tag-helpers/intro
 ms.openlocfilehash: 15f94fd1c619e9f69c5783f664eafc9ca28f86f9
-ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
-ms.translationtype: HT
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74239855"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652859"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Asistentes de etiquetas en ASP.NET Core
 
@@ -27,7 +27,7 @@ Los asistentes de etiquetas permiten que el código de servidor participe en la 
 
 **Un entorno de IntelliSense enriquecido para crear marcado HTML y Razor** Este es un marcado contraste con los asistentes de HTML, el método anterior para la creación en el lado servidor de marcado en vistas de Razor. En [Comparación entre los asistentes de etiquetas y los asistentes de HTML](#tag-helpers-compared-to-html-helpers) se explican las diferencias con más detalle. En [Compatibilidad de IntelliSense con asistentes de etiquetas](#intellisense-support-for-tag-helpers) se explica el entorno de IntelliSense. Incluso los desarrolladores que tienen experiencia con la sintaxis Razor de C# son más productivos cuando usan asistentes de etiquetas que al escribir marcado de Razor de C#.
 
-**Una forma de ser más productivo y generar código más sólido, confiable y fácil de mantener con información que solo está disponible en el servidor** Por ejemplo, lo habitual a la hora de actualizar las imágenes era cambiar el nombre de la imagen cuando se modificaba. Las imágenes debían almacenarse en caché de forma activa por motivos de rendimiento y, a menos que se cambiase el nombre de una imagen, se corría el riesgo de que los clientes obtuviesen una copia obsoleta. Antes, después de editar una imagen, era necesario cambiarle el nombre y actualizar todas las referencias a la imagen en la aplicación web. Esto no solo exigía mucho trabajo, sino que era propenso a errores (por ejemplo, omitir una referencia, incluir accidentalmente una cadena incorrecta, etc.). La aplicación auxiliar `ImageTagHelper` integrada puede hacerlo automáticamente. `ImageTagHelper` puede anexar un número de versión al nombre de la imagen, por lo que cada vez que la imagen cambia, el servidor genera automáticamente una nueva versión única de la imagen. Esto garantiza que los clientes obtengan la imagen actual. Esta solidez y ahorro de trabajo se consiguen de forma gratuita mediante el uso de `ImageTagHelper`.
+**Una forma de ser más productivo y generar código más sólido, confiable y fácil de mantener con información que solo está disponible en el servidor** Por ejemplo, lo habitual a la hora de actualizar las imágenes era cambiar el nombre de la imagen cuando se modificaba. Las imágenes debían almacenarse en caché de forma activa por motivos de rendimiento y, a menos que se cambiase el nombre de una imagen, se corría el riesgo de que los clientes obtuviesen una copia obsoleta. Antes, después de editar una imagen, era necesario cambiarle el nombre y actualizar todas las referencias a la imagen en la aplicación web. No solo se trata de una gran cantidad de trabajo, sino que también es propenso a errores (puede omitir una referencia, escribir accidentalmente la cadena equivocada, etc.). El `ImageTagHelper` integrado puede hacerlo automáticamente. `ImageTagHelper` puede anexar un número de versión al nombre de la imagen, por lo que cada vez que la imagen cambia, el servidor genera automáticamente una nueva versión única de la imagen. Esto garantiza que los clientes obtengan la imagen actual. Esta solidez y ahorro de trabajo se consiguen de forma gratuita mediante el uso de `ImageTagHelper`.
 
 La mayoría de los asistentes de etiquetas integradas tienen como destino elementos HTML estándar y proporcionan atributos del lado servidor del elemento. Por ejemplo, el elemento `<input>` que muchas vistas usan en la carpeta *Views/Account* contiene el atributo `asp-for`. Este atributo extrae el nombre de la propiedad de modelo especificada en el HTML representado. Pensemos en una vista de Razor con el siguiente modelo:
 
@@ -48,7 +48,7 @@ El siguiente marcado de Razor:
 <label asp-for="Movie.Title"></label>
 ```
 
-Se genera el siguiente código HTML:
+Genera el siguiente código HTML:
 
 ```html
 <label for="Movie_Title">Title</label>

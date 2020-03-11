@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 01/31/2019
 uid: security/authentication/samples
 ms.openlocfilehash: 3d7e28f6e501bd8bd3908ca4b314a63cee52ebe3
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828677"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78651659"
 ---
 # <a name="authentication-samples-for-aspnet-core"></a>Ejemplos de autenticación para ASP.NET Core
 
@@ -28,9 +28,9 @@ El [repositorio ASP.net Core](https://github.com/dotnet/AspNetCore) contiene los
 * [Selección entre cookies y otro esquema de autenticación en función de la solicitud](https://github.com/dotnet/AspNetCore/tree/release/3.0/src/Security/samples/PathSchemeSelection)
 * [Restringe el acceso a los archivos estáticos](https://github.com/dotnet/AspNetCore/tree/release/3.0/src/Security/samples/StaticFilesAuth)
 
-## <a name="run-the-samples"></a>Ejecutar las muestras
+## <a name="run-the-samples"></a>Ejecución de las muestras
 
-* Seleccione una [rama](https://github.com/dotnet/AspNetCore). Por ejemplo, `Tag:v3.0.0`.
+* Seleccione una [rama](https://github.com/dotnet/AspNetCore). Por ejemplo: `Tag:v3.0.0`
 * Clone o descargue el [repositorio de ASP.net Core](https://github.com/dotnet/AspNetCore).
 * Compruebe que ha instalado la versión [SDK de .net Core](https://www.microsoft.com/net/download/all) que coincide con el clon del repositorio de ASP.net Core.
 * Navegue a un ejemplo en *AspNetCore/src/Security/samples* y ejecute el ejemplo con `dotnet run`.
@@ -49,9 +49,9 @@ El [repositorio ASP.net Core](https://github.com/dotnet/AspNetCore) contiene los
 * [Selección entre cookies y otro esquema de autenticación en función de la solicitud](https://github.com/dotnet/AspNetCore/tree/release/2.2/src/Security/samples/PathSchemeSelection)
 * [Restringe el acceso a los archivos estáticos](https://github.com/dotnet/AspNetCore/tree/release/2.2/src/Security/samples/StaticFilesAuth)
 
-## <a name="run-the-samples"></a>Ejecutar las muestras
+## <a name="run-the-samples"></a>Ejecución de las muestras
 
-* Seleccione una [rama](https://github.com/dotnet/AspNetCore). Por ejemplo, `release/2.2`.
+* Seleccione una [rama](https://github.com/dotnet/AspNetCore). Por ejemplo: `release/2.2`
 * Clone o descargue el [repositorio de ASP.net Core](https://github.com/dotnet/AspNetCore).
 * Compruebe que ha instalado la versión [SDK de .net Core](https://www.microsoft.com/net/download/all) que coincide con el clon del repositorio de ASP.net Core.
 * Navegue a un ejemplo en *AspNetCore/src/Security/samples* y ejecute el ejemplo con `dotnet run`.

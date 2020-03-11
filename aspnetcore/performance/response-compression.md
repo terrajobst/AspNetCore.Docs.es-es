@@ -1,28 +1,26 @@
 ---
 title: Compresión de respuesta en ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Obtenga información sobre la compresión de respuesta y cómo usar Middleware de compresión de respuesta en aplicaciones de ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: performance/response-compression
-ms.openlocfilehash: d37b05edd55ac0d3910855563b819114cf815b43
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: aae0b8d74fc424cc81c046e9042279856865bf6a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114814"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78654347"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Compresión de respuesta en ASP.NET Core
-
-Por [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 El ancho de banda de red es un recurso limitado. Reducir el tamaño de la respuesta normalmente aumenta la capacidad de respuesta de una aplicación, a menudo drásticamente. Una manera de reducir los tamaños de carga es comprimir las respuestas de una aplicación.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-response-compression-middleware"></a>Cuándo usar el middleware de compresión de respuesta
 
@@ -73,7 +71,7 @@ En la tabla siguiente se describen los encabezados implicados en la solicitud, e
 | `Content-Type`     | Especifica el tipo MIME del contenido. Cada respuesta debe especificar su `Content-Type`. El middleware comprueba este valor para determinar si se debe comprimir la respuesta. El middleware especifica un conjunto de [tipos MIME predeterminados](#mime-types) que se pueden codificar, pero puede reemplazar o agregar tipos MIME. |
 | `Vary`             | Cuando lo envía el servidor con un valor de `Accept-Encoding` a clientes y servidores proxy, el encabezado de `Vary` indica al cliente o al proxy que debe almacenar en caché (variar) respuestas en función del valor del encabezado `Accept-Encoding` de la solicitud. El resultado de devolver el contenido con el encabezado `Vary: Accept-Encoding` es que las respuestas comprimidas y sin comprimir se almacenan en caché por separado. |
 
-Explore las características del middleware de compresión de respuesta con la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). En el ejemplo se muestra:
+Explore las características del middleware de compresión de respuesta con la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). En el ejemplo se muestra:
 
 * Compresión de las respuestas de la aplicación mediante gzip y proveedores de compresión personalizados.
 * Cómo agregar un tipo MIME a la lista predeterminada de tipos MIME para la compresión.
@@ -268,7 +266,7 @@ Use una herramienta como [Fiddler](https://www.telerik.com/fiddler), [Firebug](h
 
 El ancho de banda de red es un recurso limitado. Reducir el tamaño de la respuesta normalmente aumenta la capacidad de respuesta de una aplicación, a menudo drásticamente. Una manera de reducir los tamaños de carga es comprimir las respuestas de una aplicación.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-response-compression-middleware"></a>Cuándo usar el middleware de compresión de respuesta
 
@@ -319,7 +317,7 @@ En la tabla siguiente se describen los encabezados implicados en la solicitud, e
 | `Content-Type`     | Especifica el tipo MIME del contenido. Cada respuesta debe especificar su `Content-Type`. El middleware comprueba este valor para determinar si se debe comprimir la respuesta. El middleware especifica un conjunto de [tipos MIME predeterminados](#mime-types) que se pueden codificar, pero puede reemplazar o agregar tipos MIME. |
 | `Vary`             | Cuando lo envía el servidor con un valor de `Accept-Encoding` a clientes y servidores proxy, el encabezado de `Vary` indica al cliente o al proxy que debe almacenar en caché (variar) respuestas en función del valor del encabezado `Accept-Encoding` de la solicitud. El resultado de devolver el contenido con el encabezado `Vary: Accept-Encoding` es que las respuestas comprimidas y sin comprimir se almacenan en caché por separado. |
 
-Explore las características del middleware de compresión de respuesta con la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). En el ejemplo se muestra:
+Explore las características del middleware de compresión de respuesta con la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). En el ejemplo se muestra:
 
 * Compresión de las respuestas de la aplicación mediante gzip y proveedores de compresión personalizados.
 * Cómo agregar un tipo MIME a la lista predeterminada de tipos MIME para la compresión.
@@ -513,7 +511,7 @@ Use una herramienta como [Fiddler](https://www.telerik.com/fiddler), [Firebug](h
 
 El ancho de banda de red es un recurso limitado. Reducir el tamaño de la respuesta normalmente aumenta la capacidad de respuesta de una aplicación, a menudo drásticamente. Una manera de reducir los tamaños de carga es comprimir las respuestas de una aplicación.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-response-compression-middleware"></a>Cuándo usar el middleware de compresión de respuesta
 
@@ -564,7 +562,7 @@ En la tabla siguiente se describen los encabezados implicados en la solicitud, e
 | `Content-Type`     | Especifica el tipo MIME del contenido. Cada respuesta debe especificar su `Content-Type`. El middleware comprueba este valor para determinar si se debe comprimir la respuesta. El middleware especifica un conjunto de [tipos MIME predeterminados](#mime-types) que se pueden codificar, pero puede reemplazar o agregar tipos MIME. |
 | `Vary`             | Cuando lo envía el servidor con un valor de `Accept-Encoding` a clientes y servidores proxy, el encabezado de `Vary` indica al cliente o al proxy que debe almacenar en caché (variar) respuestas en función del valor del encabezado `Accept-Encoding` de la solicitud. El resultado de devolver el contenido con el encabezado `Vary: Accept-Encoding` es que las respuestas comprimidas y sin comprimir se almacenan en caché por separado. |
 
-Explore las características del middleware de compresión de respuesta con la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). En el ejemplo se muestra:
+Explore las características del middleware de compresión de respuesta con la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). En el ejemplo se muestra:
 
 * Compresión de las respuestas de la aplicación mediante gzip y proveedores de compresión personalizados.
 * Cómo agregar un tipo MIME a la lista predeterminada de tipos MIME para la compresión.

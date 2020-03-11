@@ -6,12 +6,12 @@ ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
 ms.date: 12/18/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: a389afe46636155e4703677d362d879a18ea5864
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
-ms.translationtype: HT
+ms.openlocfilehash: 19580768679f30131683717792252c03aade68f9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829210"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78654473"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Enlace de modelos en ASP.NET Core
 
@@ -19,7 +19,7 @@ ms.locfileid: "75829210"
 
 En este artículo se explica qué es el enlace de modelos, cómo funciona y cómo personalizar su comportamiento.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
 
 ## <a name="what-is-model-binding"></a>Qué es el enlace de modelos
 
@@ -87,7 +87,7 @@ De forma predeterminada, el enlace de modelos obtiene datos en forma de pares cl
 
 1. Campos de formulario
 1. El cuerpo de la solicitud (para [controladores que tienen el atributo [ApiController]](xref:web-api/index#binding-source-parameter-inference)).
-1. Datos de ruta
+1. Enrutamiento de datos
 1. Parámetros de cadena de consulta
 1. Archivos cargados
 
@@ -153,7 +153,7 @@ Los *proveedores de valores* proporcionan datos de origen al sistema de enlace d
 * Cree una clase que implemente `IValueProviderFactory`.
 * Registre la clase de generador en `Startup.ConfigureServices`.
 
-En la aplicación de ejemplo se incluye un [proveedor de valores](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProvider.cs) y un [generador](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProviderFactory.cs) que obtiene valores de cookies. Este es el código de registro de `Startup.ConfigureServices`:
+En la aplicación de ejemplo se incluye un [proveedor de valores](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProvider.cs) y un [generador](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProviderFactory.cs) que obtiene valores de cookies. Este es el código de registro de `Startup.ConfigureServices`:
 
 [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=4)]
 
@@ -198,11 +198,11 @@ Los tipos simples a los que el enlazador de modelos puede convertir las cadenas 
 * [DateTime](xref:System.ComponentModel.DateTimeConverter)
 * [DateTimeOffset](xref:System.ComponentModel.DateTimeOffsetConverter)
 * [Decimal](xref:System.ComponentModel.DecimalConverter)
-* [Double](xref:System.ComponentModel.DoubleConverter)
+* [Doble](xref:System.ComponentModel.DoubleConverter)
 * [Enum](xref:System.ComponentModel.EnumConverter)
-* [Guid](xref:System.ComponentModel.GuidConverter)
+* [GUID](xref:System.ComponentModel.GuidConverter)
 * [Int16](xref:System.ComponentModel.Int16Converter), [Int32](xref:System.ComponentModel.Int32Converter), [Int64](xref:System.ComponentModel.Int64Converter)
-* [Single](xref:System.ComponentModel.SingleConverter)
+* [Único](xref:System.ComponentModel.SingleConverter)
 * [TimeSpan](xref:System.ComponentModel.TimeSpanConverter)
 * [UInt16](xref:System.ComponentModel.UInt16Converter), [UInt32](xref:System.ComponentModel.UInt32Converter), [UInt64](xref:System.ComponentModel.UInt64Converter)
 * [Uri](xref:System.UriTypeConverter)
@@ -274,13 +274,13 @@ Existen varios atributos integrados para controlar el enlace de modelos de tipos
 
 ### <a name="bindrequired-attribute"></a>Atributo [BindRequired]
 
-Solo se puede aplicar a propiedades del modelo, no a parámetros de método. Hace que el enlace de modelos agregue un error de estado de modelo si no se puede realizar el enlace para la propiedad de un modelo. Por ejemplo:
+Solo se puede aplicar a propiedades del modelo, no a parámetros de método. Hace que el enlace de modelos agregue un error de estado de modelo si no se puede realizar el enlace para la propiedad de un modelo. Este es un ejemplo:
 
 [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/InstructorWithCollection.cs?name=snippet_BindRequired&highlight=8-9)]
 
 ### <a name="bindnever-attribute"></a>Atributo [BindNever]
 
-Solo se puede aplicar a propiedades del modelo, no a parámetros de método. Impide que el enlace de modelos establezca la propiedad de un modelo. Por ejemplo:
+Solo se puede aplicar a propiedades del modelo, no a parámetros de método. Impide que el enlace de modelos establezca la propiedad de un modelo. Este es un ejemplo:
 
 [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/InstructorWithDictionary.cs?name=snippet_BindNever&highlight=3-4)]
 
@@ -480,7 +480,7 @@ Puede ampliar el enlace de modelos si escribe un enlazador de modelos personaliz
 
 ## <a name="manual-model-binding"></a>Enlace de modelos manual 
 
-El enlace de modelos se puede invocar de forma manual mediante el método <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*>. El método se define en las clases `ControllerBase` y `PageModel`. Las sobrecargas de método permiten especificar el prefijo y el proveedor de valores que se van a usar. El método devuelve `false` si se produce un error en el enlace de modelos. Por ejemplo:
+El enlace de modelos se puede invocar de forma manual mediante el método <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*>. El método se define en las clases `ControllerBase` y `PageModel`. Las sobrecargas de método permiten especificar el prefijo y el proveedor de valores que se van a usar. El método devuelve `false` si se produce un error en el enlace de modelos. Este es un ejemplo:
 
 [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/InstructorsWithCollection/Create.cshtml.cs?name=snippet_TryUpdate&highlight=1-4)]
 
@@ -505,7 +505,7 @@ El nombre de este atributo sigue el patrón de los atributos de enlace de modelo
 
 En este artículo se explica qué es el enlace de modelos, cómo funciona y cómo personalizar su comportamiento.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
 
 ## <a name="what-is-model-binding"></a>Qué es el enlace de modelos
 
@@ -573,7 +573,7 @@ De forma predeterminada, el enlace de modelos obtiene datos en forma de pares cl
 
 1. Campos de formulario
 1. El cuerpo de la solicitud (para [controladores que tienen el atributo [ApiController]](xref:web-api/index#binding-source-parameter-inference)).
-1. Datos de ruta
+1. Enrutamiento de datos
 1. Parámetros de cadena de consulta
 1. Archivos cargados
 
@@ -639,7 +639,7 @@ Los *proveedores de valores* proporcionan datos de origen al sistema de enlace d
 * Cree una clase que implemente `IValueProviderFactory`.
 * Registre la clase de generador en `Startup.ConfigureServices`.
 
-En la aplicación de ejemplo se incluye un [proveedor de valores](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProvider.cs) y un [generador](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProviderFactory.cs) que obtiene valores de cookies. Este es el código de registro de `Startup.ConfigureServices`:
+En la aplicación de ejemplo se incluye un [proveedor de valores](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProvider.cs) y un [generador](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProviderFactory.cs) que obtiene valores de cookies. Este es el código de registro de `Startup.ConfigureServices`:
 
 [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=3)]
 
@@ -684,11 +684,11 @@ Los tipos simples a los que el enlazador de modelos puede convertir las cadenas 
 * [DateTime](xref:System.ComponentModel.DateTimeConverter)
 * [DateTimeOffset](xref:System.ComponentModel.DateTimeOffsetConverter)
 * [Decimal](xref:System.ComponentModel.DecimalConverter)
-* [Double](xref:System.ComponentModel.DoubleConverter)
+* [Doble](xref:System.ComponentModel.DoubleConverter)
 * [Enum](xref:System.ComponentModel.EnumConverter)
-* [Guid](xref:System.ComponentModel.GuidConverter)
+* [GUID](xref:System.ComponentModel.GuidConverter)
 * [Int16](xref:System.ComponentModel.Int16Converter), [Int32](xref:System.ComponentModel.Int32Converter), [Int64](xref:System.ComponentModel.Int64Converter)
-* [Single](xref:System.ComponentModel.SingleConverter)
+* [Único](xref:System.ComponentModel.SingleConverter)
 * [TimeSpan](xref:System.ComponentModel.TimeSpanConverter)
 * [UInt16](xref:System.ComponentModel.UInt16Converter), [UInt32](xref:System.ComponentModel.UInt32Converter), [UInt64](xref:System.ComponentModel.UInt64Converter)
 * [Uri](xref:System.UriTypeConverter)
@@ -760,13 +760,13 @@ Existen varios atributos integrados para controlar el enlace de modelos de tipos
 
 ### <a name="bindrequired-attribute"></a>Atributo [BindRequired]
 
-Solo se puede aplicar a propiedades del modelo, no a parámetros de método. Hace que el enlace de modelos agregue un error de estado de modelo si no se puede realizar el enlace para la propiedad de un modelo. Por ejemplo:
+Solo se puede aplicar a propiedades del modelo, no a parámetros de método. Hace que el enlace de modelos agregue un error de estado de modelo si no se puede realizar el enlace para la propiedad de un modelo. Este es un ejemplo:
 
 [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Models/InstructorWithCollection.cs?name=snippet_BindRequired&highlight=8-9)]
 
 ### <a name="bindnever-attribute"></a>Atributo [BindNever]
 
-Solo se puede aplicar a propiedades del modelo, no a parámetros de método. Impide que el enlace de modelos establezca la propiedad de un modelo. Por ejemplo:
+Solo se puede aplicar a propiedades del modelo, no a parámetros de método. Impide que el enlace de modelos establezca la propiedad de un modelo. Este es un ejemplo:
 
 [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Models/InstructorWithDictionary.cs?name=snippet_BindNever&highlight=3-4)]
 
@@ -948,7 +948,7 @@ Puede ampliar el enlace de modelos si escribe un enlazador de modelos personaliz
 
 ## <a name="manual-model-binding"></a>Enlace de modelos manual
 
-El enlace de modelos se puede invocar de forma manual mediante el método <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*>. El método se define en las clases `ControllerBase` y `PageModel`. Las sobrecargas de método permiten especificar el prefijo y el proveedor de valores que se van a usar. El método devuelve `false` si se produce un error en el enlace de modelos. Por ejemplo:
+El enlace de modelos se puede invocar de forma manual mediante el método <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*>. El método se define en las clases `ControllerBase` y `PageModel`. Las sobrecargas de método permiten especificar el prefijo y el proveedor de valores que se van a usar. El método devuelve `false` si se produce un error en el enlace de modelos. Este es un ejemplo:
 
 [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/InstructorsWithCollection/Create.cshtml.cs?name=snippet_TryUpdate&highlight=1-4)]
 

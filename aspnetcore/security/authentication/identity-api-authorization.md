@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 11/08/2019
 uid: security/authentication/identity/spa
 ms.openlocfilehash: 623f739b17c0bed3ce929f562c9581ab26ecf5bc
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928561"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652703"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Autenticación y autorización para spa
 
@@ -42,7 +42,7 @@ El comando anterior crea una aplicación ASP.NET Core con un directorio *ClientA
 
 En las secciones siguientes se describen las adiciones al proyecto cuando se incluye compatibilidad con la autenticación:
 
-### <a name="startup-class"></a>Startup (clase)
+### <a name="startup-class"></a>Clase Startup
 
 La clase `Startup` tiene las siguientes adiciones:
 
@@ -260,7 +260,7 @@ async populateWeatherData() {
 }
 ```
 
-## <a name="deploy-to-production"></a>Implementación en producción
+## <a name="deploy-to-production"></a>Implementar en producción
 
 Para implementar la aplicación en producción, se deben aprovisionar los siguientes recursos:
 

@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 11/07/2019
 uid: fundamentals/servers/index
 ms.openlocfilehash: d46793ef54c99fe609b5983c5a658fb7b20032fa
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289060"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78644699"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementaciones de servidores web en ASP.NET Core
 
@@ -40,7 +40,7 @@ Si quiere obtener instrucciones e información sobre la configuración de Kestre
 
 ::: moniker range=">= aspnetcore-2.2"
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ASP.NET Core se suministra con los siguientes componentes:
 
@@ -53,7 +53,7 @@ Cuando se usa [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-arc
 * En el mismo proceso que el proceso de trabajo de IIS (el [modelo de hospedaje dentro de proceso](#hosting-models)) con el servidor HTTP de IIS. La configuración recomendada es *En proceso*.
 * En un proceso distinto al del proceso de trabajo de IIS (el [modelo de hospedaje fuera de proceso](#hosting-models)) con el [servidor Kestrel](#kestrel).
 
-El [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) es un módulo nativo de IIS que controla las solicitudes de IIS nativas entre IIS y el servidor de IIS en proceso o Kestrel. Para más información, consulte <xref:host-and-deploy/aspnet-core-module>.
+El [módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) es un módulo nativo de IIS que controla las solicitudes de IIS nativas entre IIS y el servidor de IIS en proceso o Kestrel. Para obtener más información, vea <xref:host-and-deploy/aspnet-core-module>.
 
 ## <a name="hosting-models"></a>Modelos de hospedaje
 
@@ -66,11 +66,11 @@ Para obtener más información e instrucciones de configuración, vea los temas 
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ASP.NET Core se distribuye con el [servidor Kestrel](xref:fundamentals/servers/kestrel), que es el servidor HTTP multiplataforma predeterminado.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ASP.NET Core se distribuye con el [servidor Kestrel](xref:fundamentals/servers/kestrel), que es el servidor HTTP multiplataforma predeterminado.
 
@@ -80,7 +80,7 @@ ASP.NET Core se distribuye con el [servidor Kestrel](xref:fundamentals/servers/k
 
 ::: moniker range="< aspnetcore-2.2"
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ASP.NET Core se suministra con los siguientes componentes:
 
@@ -106,11 +106,11 @@ Para obtener instrucciones de configuración para IIS y el módulo ASP.NET Core,
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ASP.NET Core se distribuye con el [servidor Kestrel](xref:fundamentals/servers/kestrel), que es el servidor HTTP multiplataforma predeterminado.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ASP.NET Core se distribuye con el [servidor Kestrel](xref:fundamentals/servers/kestrel), que es el servidor HTTP multiplataforma predeterminado.
 
@@ -128,7 +128,7 @@ Para información sobre cómo usar Apache en Linux como servidor proxy inverso p
 
 ## <a name="httpsys"></a>HTTP.sys
 
-Si las aplicaciones ASP.NET Core se ejecutan en Windows, HTTP.sys es una alternativa a Kestrel. Suele recomendarse Kestrel para un rendimiento óptimo. HTTP.sys se puede usar en escenarios en los que la aplicación se expone a Internet y las funcionalidades necesarias son compatibles con HTTP.sys pero no con Kestrel. Para más información, consulte <xref:fundamentals/servers/httpsys>.
+Si las aplicaciones ASP.NET Core se ejecutan en Windows, HTTP.sys es una alternativa a Kestrel. Suele recomendarse Kestrel para un rendimiento óptimo. HTTP.sys se puede usar en escenarios en los que la aplicación se expone a Internet y las funcionalidades necesarias son compatibles con HTTP.sys pero no con Kestrel. Para obtener más información, vea <xref:fundamentals/servers/httpsys>.
 
 ![HTTP.sys se comunica directamente con Internet](httpsys/_static/httpsys-to-internet.png)
 
@@ -152,9 +152,9 @@ Si los servidores integrados no cumplen los requisitos de la aplicación, se pue
 
 El servidor se inicia cuando el entorno de desarrollo integrado (IDE) o editor inicia la aplicación:
 
-* [Visual Studio](https://visualstudio.microsoft.com): los perfiles de inicio se pueden usar para iniciar la aplicación y el servidor con [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[módulo de ASP.NET Core](xref:host-and-deploy/aspnet-core-module) o la consola.
-* [Visual Studio Code](https://code.visualstudio.com/): la aplicación y el servidor se inician mediante [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode), con lo que se activa el depurador CoreCLR.
-* [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/): la aplicación y el servidor se inician mediante [Mono Soft-Mode Debugger](https://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/).
+* [Visual Studio](https://visualstudio.microsoft.com): &ndash;los perfiles de inicio se pueden usar para iniciar la aplicación y el servidor con [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[módulo de ASP.NET Core](xref:host-and-deploy/aspnet-core-module) o la consola.
+* [Visual Studio Code](https://code.visualstudio.com/)&ndash;: la aplicación y el servidor se inician mediante [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode), con lo que se activa el depurador CoreCLR.
+* [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/)&ndash;: la aplicación y el servidor se inician mediante [Mono Soft-Mode Debugger](https://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/).
 
 Al iniciar la aplicación desde un símbolo del sistema en la carpeta del proyecto, [dotnet run](/dotnet/core/tools/dotnet-run) inicia la aplicación y el servidor (solo Kestrel y HTTP.sys). La configuración se especifica mediante la opción `-c|--configuration`, que está establecida en `Debug` (valor predeterminado) o `Release`.
 

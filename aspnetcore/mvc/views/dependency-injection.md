@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo ASP.NET Core admite la inserción 
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 63feea5ddf286dd3e659f3a622cfb0f7451b9bba
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
-ms.translationtype: HT
+ms.openlocfilehash: 6241bb8e262f64e2e30721bc5fe6f8f1be84b60d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815339"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78651479"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>Inserción de dependencias en vistas de ASP.NET Core
 
@@ -18,7 +18,7 @@ Por [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core admite la [inserción de dependencias](xref:fundamentals/dependency-injection) en vistas. Esto puede ser útil para servicios específicos de vistas, como la localización o los datos necesarios solamente para rellenar los elementos de vistas. Debe intentar mantener la [separación de intereses](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) entre los controladores y las vistas. La mayoría de los datos que muestran las vistas deben pasarse desde el controlador.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="configuration-injection"></a>Inserción de configuración
 
@@ -104,6 +104,6 @@ Como puede ver, los campos predeterminados incluyen `Html`, `Component` y `Url` 
 
 Si quiere ampliar los servicios existentes, simplemente puede usar esta técnica al heredar o encapsular la implementación existente con la suya propia.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * Blog de Simon Timms: [Getting Lookup Data Into Your View](https://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/) (Obtener datos de búsqueda en la vista)

@@ -2,7 +2,7 @@
 
 En esta aplicación de ejemplo se muestran los conceptos descritos en el tema [Carga de archivos en ASP.NET Core](https://docs.microsoft.com/aspnet/core/mvc/models/file-uploads).
 
-## <a name="security-considerations"></a>Consideraciones de seguridad
+## <a name="security-considerations"></a>Consideraciones sobre la seguridad
 
 Tenga precaución al proporcionar a los usuarios la capacidad de cargar archivos en un servidor. Los atacantes pueden ejecutar ataques por [denegación de servicio](/windows-hardware/drivers/ifs/denial-of-service), intentar cargar virus o malware o intentar poner en riesgo redes y servidores de otras maneras.
 
@@ -31,7 +31,7 @@ Estos son algunos de los pasos de seguridad con los que se reduce la probabilida
 > Vea los siguientes recursos para más información sobre cómo reducir el área expuesta de ataques al aceptar archivos de los usuarios:
 >
 > * [Unrestricted File Upload](https://www.owasp.org/index.php/Unrestricted_File_Upload) (Carga de archivos sin restricciones)
-> * [Azure Security: Asegúrese de que los controles adecuados estén en vigor al aceptar archivos de usuarios](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Azure Security: asegúrese de que los controles adecuados estén en vigor al aceptar archivos de usuarios](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 Para información adicional, consulte [Carga de archivos en ASP.NET Core](https://docs.microsoft.com/aspnet/core/mvc/models/file-uploads).
 
@@ -44,6 +44,6 @@ En el archivo *appsettings.json*:
    * La aplicación de ejemplo establece el valor en `c:\\files`, que presupone que una carpeta denominada *files* existe en la raíz de la unidad C: del sistema.
    * Debe existir la ruta de acceso. Cree una carpeta *files* en la unidad C: del sistema o establezca la ruta de acceso en una ubicación adecuada.
    * El proceso de la aplicación requiere permisos de lectura y escritura sobre la ruta de acceso.
-   * **IMPORTANTE** Deshabilite los permisos de ejecución para todos los usuarios en la ruta de acceso.
+   * **IMPORTANTE:** Deshabilite los permisos de ejecución para todos los usuarios en la ruta de acceso.
 
 1. Establezca el límite de tamaño de archivo (`FileSizeLimit`) en bytes. El valor predeterminado de la aplicación de ejemplo de `2097152` (2 097 152 bytes) permite cargas de archivo de hasta 2 MB.

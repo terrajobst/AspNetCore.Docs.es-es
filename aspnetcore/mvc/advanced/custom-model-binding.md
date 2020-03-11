@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo el enlace de modelos permite que l
 ms.author: riande
 ms.date: 01/06/2020
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 92e7abbb9d9b4c29af429557a31e3ef403211976
-ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
-ms.translationtype: HT
+ms.openlocfilehash: 511cf39bfedfc55d2f75842daf4445d2aaf4872d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75693952"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652121"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Enlace de modelos personalizado en ASP.NET Core
 
@@ -20,7 +20,7 @@ De [Steve Smith](https://ardalis.com/) y [Kirk Larkin](https://twitter.com/serpe
 
 Con el enlace de modelos, las acciones de controlador pueden funcionar directamente con tipos de modelos (pasados como argumentos de método), en lugar de con solicitudes HTTP. La asignación entre los datos de solicitudes entrantes y los modelos de aplicaciones se controla por medio de enlazadores de modelos. Los desarrolladores pueden ampliar la funcionalidad integrada de enlace de modelos implementando enlazadores de modelos personalizados (si bien, por lo general, no es necesario escribir un proveedor propio).
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="default-model-binder-limitations"></a>Limitaciones de los enlazadores de modelos predeterminados
 
@@ -34,7 +34,7 @@ Antes de crear su propio enlazador de modelos personalizado, no está de más qu
 
 ### <a name="working-with-the-bytearraymodelbinder"></a>Trabajar con ByteArrayModelBinder
 
-Las cadenas codificadas con base64 se pueden usar para representar datos binarios. Por ejemplo, una imagen se puede codificar como una cadena. En el ejemplo se incluye una imagen como una cadena codificada con base64 en [Base64String.txt](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/3.x/CustomModelBindingSample/Base64String.txt).
+Las cadenas codificadas con base64 se pueden usar para representar datos binarios. Por ejemplo, una imagen se puede codificar como una cadena. En el ejemplo se incluye una imagen como una cadena codificada con base64 en [Base64String.txt](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/3.x/CustomModelBindingSample/Base64String.txt).
 
 ASP.NET Core MVC toma cadenas codificadas con base64 y usa un `ByteArrayModelBinder` para convertirlas en una matriz de bytes. <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider> asigna argumentos `byte[]` a `ByteArrayModelBinder`:
 
@@ -61,6 +61,7 @@ Cuando cree su propio enlazador de modelos personalizado, puede implementar su t
 En el siguiente ejemplo se indica cómo usar `ByteArrayModelBinder` para convertir una cadena codificada con base64 en un `byte[]` y guardar el resultado en un archivo:
 
 [!code-csharp[](custom-model-binding/samples/3.x/CustomModelBindingSample/Controllers/ImageController.cs?name=snippet_Post)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 Se puede usar un método API POST en una cadena codificada con base64 con una herramienta como [Postman](https://www.getpostman.com/):
 
@@ -143,7 +144,7 @@ Por [Steve Smith](https://ardalis.com/)
 
 Con el enlace de modelos, las acciones de controlador pueden funcionar directamente con tipos de modelos (pasados como argumentos de método), en lugar de con solicitudes HTTP. La asignación entre los datos de solicitudes entrantes y los modelos de aplicaciones se controla por medio de enlazadores de modelos. Los desarrolladores pueden ampliar la funcionalidad integrada de enlace de modelos implementando enlazadores de modelos personalizados (si bien, por lo general, no es necesario escribir un proveedor propio).
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="default-model-binder-limitations"></a>Limitaciones de los enlazadores de modelos predeterminados
 
@@ -157,7 +158,7 @@ Antes de crear su propio enlazador de modelos personalizado, no está de más qu
 
 ### <a name="working-with-the-bytearraymodelbinder"></a>Trabajar con ByteArrayModelBinder
 
-Las cadenas codificadas con base64 se pueden usar para representar datos binarios. Por ejemplo, una imagen se puede codificar como una cadena. En el ejemplo se incluye una imagen como una cadena codificada con base64 en [Base64String.txt](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/2.x/CustomModelBindingSample/Base64String.txt).
+Las cadenas codificadas con base64 se pueden usar para representar datos binarios. Por ejemplo, una imagen se puede codificar como una cadena. En el ejemplo se incluye una imagen como una cadena codificada con base64 en [Base64String.txt](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/2.x/CustomModelBindingSample/Base64String.txt).
 
 ASP.NET Core MVC toma cadenas codificadas con base64 y usa un `ByteArrayModelBinder` para convertirlas en una matriz de bytes. <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider> asigna argumentos `byte[]` a `ByteArrayModelBinder`:
 

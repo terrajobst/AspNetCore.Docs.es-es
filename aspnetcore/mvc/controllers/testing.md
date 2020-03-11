@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: mvc/controllers/testing
-ms.openlocfilehash: 449d8791962e4233d599f364b2e8c922f0975d2f
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
-ms.translationtype: HT
+ms.openlocfilehash: 597f1472bb30ae3b34fa98659c8c8bb464223e84
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681102"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78654479"
 ---
 # <a name="unit-test-controller-logic-in-aspnet-core"></a>Lógica del controlador de pruebas unitarias en ASP.NET Core
 
@@ -30,7 +30,7 @@ Si va a escribir filtros personalizados y rutas, realice pruebas unitarias en el
 
 Para demostrar las pruebas unitarias del controlador, revise el siguiente controlador en la aplicación de ejemplo. 
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 El controlador Home muestra una lista de sesiones de lluvia de ideas y permite crear nuevas sesiones de lluvia de ideas con una solicitud POST:
 
@@ -57,7 +57,7 @@ El método `HTTP GET Index` no tiene bucles ni bifurcaciones y solamente llama a
 
 Las pruebas del método `HTTP POST Index` del controlador Home verifican que:
 
-* Si [ModelState.IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid*) es `false`, el método de acción devuelve <xref:Microsoft.AspNetCore.Mvc.ViewResult> de *400 Solicitud incorrecta* con los datos apropiados.
+* Cuando se `false`[ModelState. IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid*) , el método de acción devuelve una *solicitud incorrecta 400* <xref:Microsoft.AspNetCore.Mvc.ViewResult> con los datos adecuados.
 * Cuando `ModelState.IsValid` es `true`:
   * Se llama al método `Add` del repositorio.
   * Se devuelve <xref:Microsoft.AspNetCore.Mvc.RedirectToActionResult> con los argumentos correctos.
@@ -78,7 +78,7 @@ Las llamadas ficticias que no se efectúan se suelen ignorar, aunque llamar a `V
 > [!NOTE]
 > La biblioteca Moq usada en este ejemplo permite mezclar fácilmente objetos ficticios comprobables o "estrictos" con objetos ficticios no comprobables (también denominados "flexibles" o stub). Obtenga más información sobre cómo [personalizar el comportamiento de objetos ficticios con Moq](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior).
 
-[SessionController](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/controllers/testing/samples/3.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) en la aplicación de ejemplo muestra información relacionada con una sesión de lluvia de ideas determinada. El controlador incluye lógica para tratar valores `id` no válidos (hay dos escenarios `return` en el ejemplo siguiente para abarcar estos escenarios). La última instrucción `return` devuelve un `StormSessionViewModel` nuevo a la vista (*Controllers/SessionController.cs*):
+[SessionController](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/controllers/testing/samples/3.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) en la aplicación de ejemplo muestra información relacionada con una sesión de lluvia de ideas determinada. El controlador incluye lógica para tratar valores `id` no válidos (hay dos escenarios `return` en el ejemplo siguiente para abarcar estos escenarios). La última instrucción `return` devuelve un `StormSessionViewModel` nuevo a la vista (*Controllers/SessionController.cs*):
 
 [!code-csharp[](testing/samples/3.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?name=snippet_SessionController&highlight=12-16,18-22,31)]
 
@@ -88,7 +88,7 @@ Las pruebas unitarias incluyen una prueba de cada escenario `return` en la acci�
 
 Al pasar al controlador de ideas, la aplicación expone la funcionalidad como una API web en la ruta `api/ideas`:
 
-* El método `ForSession` devuelve una lista de ideas (`IdeaDTO`) asociadas con una sesión de lluvia de ideas.
+* El método `IdeaDTO` devuelve una lista de ideas (`ForSession`) asociadas con una sesión de lluvia de ideas.
 * El método `Create` agrega nuevas ideas a una sesión.
 
 [!code-csharp[](testing/samples/3.x/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?name=snippet_ForSessionAndCreate&highlight=1-2,21-22)]
@@ -113,7 +113,7 @@ La segunda prueba `ForSession` determina si `ForSession` devuelve una lista de i
 
 [!code-csharp[](testing/samples/3.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_ApiIdeasControllerTests5&highlight=5,7-8,15-18)]
 
-Para comprobar el comportamiento del método `Create` cuando `ModelState` no es válido, la aplicación de ejemplo agrega un error de modelo al controlador como parte de la prueba. No intente probar la validación del modelo o el enlace de modelos en las pruebas unitarias; céntrese tan solo en el comportamiento del método de acción al confrontarlo con un valor de `ModelState` no válido:
+Para comprobar el comportamiento del método `Create` cuando `ModelState` no es válido, la aplicación de ejemplo agrega un error de modelo al controlador como parte de la prueba. No intente probar la validación del modelo o el enlace de modelos en las pruebas unitarias; céntrese tan solo en el comportamiento del método de acción al confrontarlo con un valor de &mdash; no válido:
 
 [!code-csharp[](testing/samples/3.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_ApiIdeasControllerTests1&highlight=7,13)]
 
@@ -172,7 +172,7 @@ Para una sesión válida `id`, la prueba final confirma que:
 
 * El método devuelve `ActionResult` con un tipo `BrainstormSession`.
 * [ActionResult\<T>.Result](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Result*) es <xref:Microsoft.AspNetCore.Mvc.CreatedAtActionResult>. `CreatedAtActionResult` es similar a una respuesta *201 Creado* con un encabezado `Location`.
-* [ActionResult\<T>.Value`BrainstormSession` es un tipo ](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Value*).
+* [ActionResult\<T>.Value](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Value*) es un tipo `BrainstormSession`.
 * La llamada ficticia para actualizar la sesión, `UpdateAsync(testSession)`, se ha invocado. La llamada al método `Verifiable` se comprueba mediante la ejecución de `mockRepo.Verify()` en las aserciones.
 * Se devuelven dos objetos `Idea` para la sesión.
 * El último elemento (el elemento `Idea` agregado por la llamada ficticia a `UpdateAsync`) coincide con el elemento `newIdea` agregado a la sesión en la prueba.
@@ -185,7 +185,7 @@ Para una sesión válida `id`, la prueba final confirma que:
 
 Los [controles](xref:mvc/controllers/actions) desempeñan un rol fundamental en cualquier aplicación de ASP.NET Core MVC. Por tanto, debe tener la seguridad de que los controladores se comportan según lo previsto. Las pruebas automatizadas pueden detectar errores antes de que la aplicación se implemente en un entorno de producción.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="unit-tests-of-controller-logic"></a>Pruebas unitarias de la lógica del controlador
 
@@ -220,7 +220,7 @@ El método `HTTP GET Index` no tiene bucles ni bifurcaciones y solamente llama a
 
 Las pruebas del método `HTTP POST Index` del controlador Home verifican que:
 
-* Si [ModelState.IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid*) es `false`, el método de acción devuelve <xref:Microsoft.AspNetCore.Mvc.ViewResult> de *400 Solicitud incorrecta* con los datos apropiados.
+* Cuando se `false`[ModelState. IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid*) , el método de acción devuelve una *solicitud incorrecta 400* <xref:Microsoft.AspNetCore.Mvc.ViewResult> con los datos adecuados.
 * Cuando `ModelState.IsValid` es `true`:
   * Se llama al método `Add` del repositorio.
   * Se devuelve <xref:Microsoft.AspNetCore.Mvc.RedirectToActionResult> con los argumentos correctos.
@@ -241,7 +241,7 @@ Las llamadas ficticias que no se efectúan se suelen ignorar, aunque llamar a `V
 > [!NOTE]
 > La biblioteca Moq usada en este ejemplo permite mezclar fácilmente objetos ficticios comprobables o "estrictos" con objetos ficticios no comprobables (también denominados "flexibles" o stub). Obtenga más información sobre cómo [personalizar el comportamiento de objetos ficticios con Moq](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior).
 
-[SessionController](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/controllers/testing/samples/2.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) en la aplicación de ejemplo muestra información relacionada con una sesión de lluvia de ideas determinada. El controlador incluye lógica para tratar valores `id` no válidos (hay dos escenarios `return` en el ejemplo siguiente para abarcar estos escenarios). La última instrucción `return` devuelve un `StormSessionViewModel` nuevo a la vista (*Controllers/SessionController.cs*):
+[SessionController](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/controllers/testing/samples/2.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) en la aplicación de ejemplo muestra información relacionada con una sesión de lluvia de ideas determinada. El controlador incluye lógica para tratar valores `id` no válidos (hay dos escenarios `return` en el ejemplo siguiente para abarcar estos escenarios). La última instrucción `return` devuelve un `StormSessionViewModel` nuevo a la vista (*Controllers/SessionController.cs*):
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?name=snippet_SessionController&highlight=12-16,18-22,31)]
 
@@ -251,7 +251,7 @@ Las pruebas unitarias incluyen una prueba de cada escenario `return` en la acci�
 
 Al pasar al controlador de ideas, la aplicación expone la funcionalidad como una API web en la ruta `api/ideas`:
 
-* El método `ForSession` devuelve una lista de ideas (`IdeaDTO`) asociadas con una sesión de lluvia de ideas.
+* El método `IdeaDTO` devuelve una lista de ideas (`ForSession`) asociadas con una sesión de lluvia de ideas.
 * El método `Create` agrega nuevas ideas a una sesión.
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?name=snippet_ForSessionAndCreate&highlight=1-2,21-22)]
@@ -276,7 +276,7 @@ La segunda prueba `ForSession` determina si `ForSession` devuelve una lista de i
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_ApiIdeasControllerTests5&highlight=5,7-8,15-18)]
 
-Para comprobar el comportamiento del método `Create` cuando `ModelState` no es válido, la aplicación de ejemplo agrega un error de modelo al controlador como parte de la prueba. No intente probar la validación del modelo o el enlace de modelos en las pruebas unitarias; céntrese tan solo en el comportamiento del método de acción al confrontarlo con un valor de `ModelState` no válido:
+Para comprobar el comportamiento del método `Create` cuando `ModelState` no es válido, la aplicación de ejemplo agrega un error de modelo al controlador como parte de la prueba. No intente probar la validación del modelo o el enlace de modelos en las pruebas unitarias; céntrese tan solo en el comportamiento del método de acción al confrontarlo con un valor de &mdash; no válido:
 
 [!code-csharp[](testing/samples/2.x/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_ApiIdeasControllerTests1&highlight=7,13)]
 
@@ -335,7 +335,7 @@ Para una sesión válida `id`, la prueba final confirma que:
 
 * El método devuelve `ActionResult` con un tipo `BrainstormSession`.
 * [ActionResult\<T>.Result](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Result*) es <xref:Microsoft.AspNetCore.Mvc.CreatedAtActionResult>. `CreatedAtActionResult` es similar a una respuesta *201 Creado* con un encabezado `Location`.
-* [ActionResult\<T>.Value`BrainstormSession` es un tipo ](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Value*).
+* [ActionResult\<T>.Value](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Value*) es un tipo `BrainstormSession`.
 * La llamada ficticia para actualizar la sesión, `UpdateAsync(testSession)`, se ha invocado. La llamada al método `Verifiable` se comprueba mediante la ejecución de `mockRepo.Verify()` en las aserciones.
 * Se devuelven dos objetos `Idea` para la sesión.
 * El último elemento (el elemento `Idea` agregado por la llamada ficticia a `UpdateAsync`) coincide con el elemento `newIdea` agregado a la sesión en la prueba.
@@ -348,5 +348,5 @@ Para una sesión válida `id`, la prueba final confirma que:
 
 * <xref:test/integration-tests>
 * [Creación y ejecución de pruebas unitarias con Visual Studio](/visualstudio/test/unit-test-your-code)
-* [MyTested.AspNetCore.Mvc: biblioteca fluida de pruebas para ASP.NET Core MVC](https://github.com/ivaylokenov/MyTested.AspNetCore.Mvc): biblioteca de pruebas fuertemente tipada, que ofrece una interfaz fluida para la prueba de aplicaciones MVC y de API web. (*Microsoft no realiza su mantenimiento ni su soporte técnico.* )
+* [MyTested.AspNetCore.Mvc: biblioteca fluida de pruebas para ASP.NET Core MVC](https://github.com/ivaylokenov/MyTested.AspNetCore.Mvc) &ndash; Biblioteca de pruebas fuertemente tipada, que ofrece una interfaz fluida para la prueba de aplicaciones MVC y de API web. (*Microsoft no realiza su mantenimiento ni su soporte técnico.* )
 

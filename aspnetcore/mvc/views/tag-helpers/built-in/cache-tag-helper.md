@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 0273a9805dd5db5450f57dcf3fd4d952308df074
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
-ms.translationtype: HT
+ms.openlocfilehash: db9e1a968588410f11e5f137dfdd4542df505ebc
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856213"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653309"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Asistente de etiquetas de caché en ASP.NET Core MVC
 
-Por [Peter Kellner](https://peterkellner.net) y [Luke Latham](https://github.com/guardrex) 
+Por [Peter Kellner](https://peterkellner.net)
 
 El asistente de etiquetas de caché proporciona la capacidad para mejorar el rendimiento de la aplicación de ASP.NET Core al permitir almacenar en memoria caché su contenido en el proveedor de caché interno de ASP.NET Core.
 
@@ -101,7 +101,7 @@ Ejemplo:
 
 | Tipo de atributo | Ejemplos                                    |
 | -------------- | ------------------------------------------- |
-| Cadena         | `User-Agent`, `User-Agent,content-encoding` |
+| String         | `User-Agent`, `User-Agent,content-encoding` |
 
 `vary-by-header` acepta una lista de los valores de encabezado separados por comas que desencadenan una actualización de la caché cuando cambian.
 
@@ -117,7 +117,7 @@ En el ejemplo siguiente se supervisa el valor del encabezado `User-Agent`. En el
 
 | Tipo de atributo | Ejemplos             |
 | -------------- | -------------------- |
-| Cadena         | `Make`, `Make,Model` |
+| String         | `Make`, `Make,Model` |
 
 `vary-by-query` acepta una lista de valores separados por comas de <xref:Microsoft.AspNetCore.Http.IQueryCollection.Keys*> en una cadena de consulta (<xref:Microsoft.AspNetCore.Http.HttpRequest.Query*>) que desencadenan una actualización de la caché cuando cambia el valor de cualquiera de las claves.
 
@@ -133,7 +133,7 @@ En este ejemplo se supervisan los valores de `Make` y `Model`. En el ejemplo se 
 
 | Tipo de atributo | Ejemplos             |
 | -------------- | -------------------- |
-| Cadena         | `Make`, `Make,Model` |
+| String         | `Make`, `Make,Model` |
 
 `vary-by-route` acepta una lista delimitada por comas de nombres de parámetros de ruta que desencadenan una actualización de la caché cuando el valor del parámetro de datos de ruta cambia.
 
@@ -159,7 +159,7 @@ routes.MapRoute(
 
 | Tipo de atributo | Ejemplos                                                                         |
 | -------------- | -------------------------------------------------------------------------------- |
-| Cadena         | `.AspNetCore.Identity.Application`, `.AspNetCore.Identity.Application,HairColor` |
+| String         | `.AspNetCore.Identity.Application`, `.AspNetCore.Identity.Application,HairColor` |
 
 `vary-by-cookie` acepta una lista delimitada por comas de nombres de cookies que desencadenan una actualización de la caché cuando los valores de las cookies cambian.
 
@@ -193,7 +193,7 @@ Con este atributo, se mantiene el contenido en caché a través de un ciclo de i
 
 | Tipo de atributo | Ejemplo  |
 | -------------- | -------- |
-| Cadena         | `@Model` |
+| String         | `@Model` |
 
 `vary-by` permite personalizar qué datos se almacenan en caché. Cuando el objeto al que hace referencia el valor de cadena del atributo cambia, el contenido del asistente de etiqueta de caché se actualiza. A menudo se asignan a este atributo una concatenación de cadenas de valores del modelo. De hecho, esto provoca una situación en la que una actualización de cualquiera de los valores concatenados invalida la memoria caché.
 

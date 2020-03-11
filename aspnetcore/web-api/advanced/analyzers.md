@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 09/05/2019
 uid: web-api/advanced/analyzers
 ms.openlocfilehash: 7b6a7328deb8718a2a1c67c104cec359a4f13497
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
-ms.translationtype: HT
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082520"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653057"
 ---
 # <a name="use-web-api-analyzers"></a>Uso de analizadores de API web
 
@@ -45,25 +45,25 @@ En ASP.NET Core 3.0 o versiones posteriores, los analizadores se incluyen en el
 
 Instale el paquete de NuGet [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers) con uno de los métodos siguientes:
 
-### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 En la ventana **Consola del Administrador de paquetes**:
-  * Vaya a **Vista** > **Otras ventanas** > **Consola del Administrador de paquetes**.
+  * Vaya a **ver** > **otra** consola del **administrador de paquetes**de Windows >.
   * Vaya al directorio en el que esté el archivo *ApiConventions.csproj*.
-  * Ejecute el siguiente comando:
+  * Ejecute el comando siguiente:
 
     ```powershell
     Install-Package Microsoft.AspNetCore.Mvc.Api.Analyzers
     ```
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
-* Haga clic con el botón derecho en la carpeta *Paquetes*, en **Panel de solución** > **Agregar paquetes...**
+* Haga clic con el botón secundario en la carpeta *Packages* en **Panel de solución** > **agregar paquetes.** ...
 * Establezca el menú desplegable **Origen** de la ventana **Agregar paquetes** en "nuget.org".
 * En el cuadro de búsqueda, escriba "Microsoft.AspNetCore.Mvc.Api.Analyzers".
 * Seleccione el paquete "Microsoft.AspNetCore.Mvc.Api.Analyzers" en el panel de resultados y haga clic en **Agregar paquete**.
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Ejecute el siguiente comando en el **terminal integrado**:
 
@@ -71,7 +71,7 @@ Ejecute el siguiente comando en el **terminal integrado**:
 dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 ```
 
-### <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+### <a name="net-core-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
 Ejecute el siguiente comando:
 

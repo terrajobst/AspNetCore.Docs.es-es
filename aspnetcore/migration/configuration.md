@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo migrar la configuración de un pro
 ms.author: riande
 ms.date: 10/14/2016
 uid: migration/configuration
-ms.openlocfilehash: 455e66b94dd69ee6aab88768b64c525d56b8bbcf
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 2c50ea768a42aa38d14c55d8c403fea4176b3650
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033905"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78651887"
 ---
 # <a name="migrate-configuration-to-aspnet-core"></a>Migrar la configuración a ASP.NET Core
 
@@ -18,9 +18,9 @@ Por [Steve Smith](https://ardalis.com/) y [Scott Addie](https://scottaddie.com)
 
 En el artículo anterior, comenzamos a [migrar un proyecto de ASP.NET MVC a ASP.net Core MVC](xref:migration/mvc). En este artículo se migra la configuración.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/migration/configuration/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/migration/configuration/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
-## <a name="setup-configuration"></a>Configuración de la instalación
+## <a name="setup-configuration"></a>Configuración
 
 ASP.NET Core ya no usa los archivos *global. asax* y *Web. config* que usaban las versiones anteriores de ASP.net. En las versiones anteriores de ASP.NET, la lógica de inicio de la aplicación se colocó en un método `Application_StartUp` dentro de *global. asax*. Más adelante, en ASP.NET MVC, se incluyó un archivo *Startup.CS* en la raíz del proyecto; y se llamó al iniciar la aplicación. ASP.NET Core ha adoptado este enfoque completamente colocando toda la lógica de inicio en el archivo *Startup.CS* .
 
@@ -46,7 +46,7 @@ Nuestro proyecto ASP.NET MVC incluía la cadena de conexión de base de datos ne
 
 [!code-json[](../migration/configuration/samples/WebApp1/src/WebApp1/appsettings.json?highlight=4)]
 
-En la línea resaltada descrita anteriormente, cambie el nombre de la base de datos de **_CHANGE_ME** al nombre de la base de datos.
+En la línea resaltada descrita anteriormente, cambie el nombre de la base de datos de **_CHANGE_ME** por el nombre de la base de datos.
 
 ## <a name="summary"></a>Resumen
 

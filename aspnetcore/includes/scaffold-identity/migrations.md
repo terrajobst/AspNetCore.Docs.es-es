@@ -1,8 +1,8 @@
 El código de base de datos de identidad generado requiere [migraciones de Entity Framework Core](/ef/core/managing-schemas/migrations/). Cree una migración y actualización de la base de datos. Por ejemplo, ejecute los siguientes comandos:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-En Visual Studio **Package Manager Console**:
+En la consola del **Administrador de paquetes**de Visual Studio:
 
 ```powershell
 Install-Package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore
@@ -10,7 +10,7 @@ Add-Migration CreateIdentitySchema
 Update-Database
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
 ```dotnetcli
 dotnet ef migrations add CreateIdentitySchema

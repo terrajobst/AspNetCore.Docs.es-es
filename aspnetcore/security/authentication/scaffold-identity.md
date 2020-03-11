@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 01/15/2020
 uid: security/authentication/scaffold-identity
 ms.openlocfilehash: b3e077aeac11e62d9e992884100476f7be35b59a
-ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972045"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653717"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Identidad de scaffolding en proyectos de ASP.NET Core
 
@@ -73,7 +73,7 @@ before dotnet ef database update
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-La identidad se configura en *areas/Identity/IdentityHostingStartup. CS*. para obtener más información, vea [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
+La identidad se configura en *areas/Identity/IdentityHostingStartup. CS*. Para obtener más información, vea [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
 
 <a name="efm"></a>
 
@@ -83,7 +83,7 @@ La identidad se configura en *areas/Identity/IdentityHostingStartup. CS*. para o
 
 <a name="useauthentication"></a>
 
-### <a name="enable-authentication"></a>Habilitar autenticación
+### <a name="enable-authentication"></a>Enable authentication (Habilitar autenticación)
 
 Actualice la clase `Startup` con código similar al siguiente:
 
@@ -111,7 +111,7 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 -->
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
-Algunas opciones de identidad están configuradas en *areas/Identity/IdentityHostingStartup. CS*. para obtener más información, vea [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
+Algunas opciones de identidad están configuradas en *areas/Identity/IdentityHostingStartup. CS*. Para obtener más información, vea [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
 
 ## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>Identidad de scaffolding en un proyecto de MVC sin autorización existente
 
@@ -315,7 +315,7 @@ dotnet ef database update
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-La identidad se configura en *areas/Identity/IdentityHostingStartup. CS*. para obtener más información, vea [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
+La identidad se configura en *areas/Identity/IdentityHostingStartup. CS*. Para obtener más información, vea [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
 
 <a name="efm"></a>
 
@@ -325,7 +325,7 @@ La identidad se configura en *areas/Identity/IdentityHostingStartup. CS*. para o
 
 <a name="useauthentication"></a>
 
-### <a name="enable-authentication"></a>Habilitar autenticación
+### <a name="enable-authentication"></a>Enable authentication (Habilitar autenticación)
 
 En el método `Configure` de la clase `Startup`, llame a [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) después de `UseStaticFiles`:
 
@@ -353,7 +353,7 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 -->
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
-Algunas opciones de identidad están configuradas en *areas/Identity/IdentityHostingStartup. CS*. para obtener más información, vea [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
+Algunas opciones de identidad están configuradas en *areas/Identity/IdentityHostingStartup. CS*. Para obtener más información, vea [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
 
 ## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>Identidad de scaffolding en un proyecto de MVC sin autorización existente
 

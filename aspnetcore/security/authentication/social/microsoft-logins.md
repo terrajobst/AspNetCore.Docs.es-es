@@ -8,11 +8,11 @@ ms.date: 12/4/2019
 monikerRange: '>= aspnetcore-3.0'
 uid: security/authentication/microsoft-logins
 ms.openlocfilehash: ddaae1a25a1dcf167ffae0f24b480e2cde6aca5b
-ms.sourcegitcommit: f4cd3828e26e6d549ba8d0c36a17be35ad9e5a51
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825457"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652073"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Configuración de inicio de sesión externo de cuenta de Microsoft con ASP.NET Core
 
@@ -30,7 +30,7 @@ Si no tiene un cuenta de Microsoft, seleccione **crear uno**. Después de inicia
 * Seleccione **Nuevo registro**.
 * Escriba un **nombre**.
 * Seleccione una opción para los **tipos de cuenta compatibles**.  <!-- Accounts for any org work with MS domain accounts. Most folks probably want the last option, personal MS accounts -->
-* En **URI de redirección**, escriba la dirección URL de desarrollo con `/signin-microsoft` anexado. Por ejemplo: `https://localhost:5001/signin-microsoft`. El esquema de autenticación de Microsoft configurado más adelante en este ejemplo administrará automáticamente las solicitudes en `/signin-microsoft` ruta para implementar el flujo de OAuth.
+* En **URI de redirección**, escriba la dirección URL de desarrollo con `/signin-microsoft` anexado. Por ejemplo, `https://localhost:5001/signin-microsoft`. El esquema de autenticación de Microsoft configurado más adelante en este ejemplo administrará automáticamente las solicitudes en `/signin-microsoft` ruta para implementar el flujo de OAuth.
 * Seleccione **Registrar**.
 
 ### <a name="create-client-secret"></a>Creación de un secreto de cliente
@@ -81,18 +81,18 @@ Ya ha iniciado sesión con sus credenciales de Microsoft:
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 * Si el proveedor de la cuenta de Microsoft le redirige a una página de error de inicio de sesión, tenga en cuenta los parámetros de cadena de consulta del título y la descripción del error directamente después del `#` (hashtag) en el URI.
 
   Aunque el mensaje de error parece indicar un problema con la autenticación de Microsoft, la causa más común es que el URI de la aplicación no coincida con ninguno de los **URI de redirección** especificados para la plataforma **Web** .
 * Si la identidad no se configura mediante una llamada a `services.AddIdentity` en `ConfigureServices`, el intento de autenticación producirá una *excepción ArgumentException: se debe proporcionar la opción ' SignInScheme '* . La plantilla de proyecto utilizada en este ejemplo garantiza que esto se realiza.
-* Si la base de datos de sitio no se ha creado aplicando a la migración inicial, obtendrá *error en una operación de base de datos al procesar la solicitud* error. Pulse **aplicar migraciones** para crear la base de datos y actualizar para continuar más allá del error.
+* Si la base de datos del sitio no se ha creado aplicando la migración inicial, se producirá *un error en la operación de base de datos al procesar el error de solicitud* . Pulse **aplicar migraciones** para crear la base de datos y actualizar para continuar después del error.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* En este artículo se ha mostrado cómo puede autenticarse con Microsoft. Puede seguir un enfoque similar para autenticar con otros proveedores que se enumeran en la [página anterior](xref:security/authentication/social/index).
+* En este artículo se ha mostrado cómo puede autenticarse con Microsoft. Puede seguir un enfoque similar para autenticarse con otros proveedores mostrados en la [página anterior](xref:security/authentication/social/index).
 
 * Una vez que publique el sitio web en la aplicación Web de Azure, cree un nuevo secreto de cliente en el portal para desarrolladores de Microsoft.
 
-* Establecer el `Authentication:Microsoft:ClientId` y `Authentication:Microsoft:ClientSecret` como configuración de la aplicación en Azure portal. El sistema de configuración está configurado para leer las claves de las variables de entorno.
+* Establezca la `Authentication:Microsoft:ClientId` y `Authentication:Microsoft:ClientSecret` como configuración de la aplicación en el Azure Portal. El sistema de configuración está configurado para leer las claves de las variables de entorno.

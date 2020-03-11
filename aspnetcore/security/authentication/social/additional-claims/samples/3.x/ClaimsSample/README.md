@@ -3,7 +3,7 @@
 En la aplicación de ejemplo se muestra cómo:
 
 * Obtenga el nombre y el apellido del usuario dado de Google y almacene las notificaciones de nombre con los valores proporcionados por Google.
-* Almacene el token de acceso de Google en el `AuthenticationProperties` del usuario.
+* Almacene el token de acceso de Google en el `AuthenticationProperties`del usuario.
 
 Para usar la aplicación de ejemplo:
 

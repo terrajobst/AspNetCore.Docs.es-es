@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 10/05/2019
 uid: security/authorization/policies
 ms.openlocfilehash: eeb5ddd63ef8177325b35e5a666aa5e9ab047057
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828963"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652979"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>Autorización basada en directivas en ASP.NET Core
 
@@ -123,7 +123,7 @@ Las directivas se aplican a Razor Pages mediante el atributo `[Authorize]` con e
 
 También se pueden aplicar directivas a Razor Pages mediante una [Convención de autorización](xref:security/authorization/razor-pages-authorization).
 
-## <a name="requirements"></a>Requisitos de
+## <a name="requirements"></a>Requisitos
 
 Un requisito de autorización es una colección de parámetros de datos que una Directiva puede usar para evaluar la entidad de seguridad de usuario actual. En nuestra directiva "AtLeast21", el requisito es un parámetro único&mdash;la edad mínima. Un requisito implementa [IAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement), que es una interfaz de marcador vacía. Un requisito de edad mínima parametrizada podría implementarse de la siguiente manera:
 
@@ -340,7 +340,7 @@ Las directivas se aplican a Razor Pages mediante el atributo `[Authorize]` con e
 
 También se pueden aplicar directivas a Razor Pages mediante una [Convención de autorización](xref:security/authorization/razor-pages-authorization).
 
-## <a name="requirements"></a>Requisitos de
+## <a name="requirements"></a>Requisitos
 
 Un requisito de autorización es una colección de parámetros de datos que una Directiva puede usar para evaluar la entidad de seguridad de usuario actual. En nuestra directiva "AtLeast21", el requisito es un parámetro único&mdash;la edad mínima. Un requisito implementa [IAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement), que es una interfaz de marcador vacía. Un requisito de edad mínima parametrizada podría implementarse de la siguiente manera:
 

@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
-ms.openlocfilehash: e2e038fe69da696b67f7aef61795e23dc8512fdf
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
-ms.translationtype: HT
+ms.openlocfilehash: 308e7db47104ebd4d6bb8d08c64f14bbd118898b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856131"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653771"
 ---
 # <a name="environment-tag-helper-in-aspnet-core"></a>Asistente de etiquetas de entorno en ASP.NET Core
 
-Por [Peter Kellner](https://peterkellner.net), [Hisham Bin Ateya](https://twitter.com/hishambinateya) y [Luke Latham](https://github.com/guardrex)
+Por [Peter Kellner](https://peterkellner.net) y [Hisham Bin Ateya](https://twitter.com/hishambinateya)
 
 El asistente de etiquetas de entorno representa condicionalmente el contenido incluido en función del entorno de [hospedaje actual](xref:fundamentals/environments). El único atributo del asistente de etiquetas de entorno, `names`, es una lista de nombres de entorno separados por comas. Si alguno de los nombres de entorno proporcionados coincide con el entorno actual, se representa el contenido incluido.
 
@@ -23,7 +23,7 @@ Para obtener información general sobre asistentes de etiquetas, vea <xref:mvc/v
 
 ## <a name="environment-tag-helper-attributes"></a>Atributos del asistente de etiquetas de entorno
 
-### <a name="names"></a>names
+### <a name="names"></a>nombres
 
 `names` acepta un solo nombre de entorno de hospedaje o una lista de nombres de entorno de hospedaje separados por comas que desencadenan la representación del contenido incluido.
 
@@ -41,7 +41,7 @@ En este ejemplo se usa un asistente de etiquetas de entorno. El contenido se rep
 
 ## <a name="include-and-exclude-attributes"></a>Atributos include y exclude
 
-Los atributos `include` & `exclude` controlan la representación del contenido incluido en función de los nombres de entorno de hospedaje incluidos o excluidos.
+`include` & los atributos de `exclude` controlan la representación del contenido incluido en función de los nombres de entorno de hospedaje incluidos o excluidos.
 
 ### <a name="include"></a>include
 

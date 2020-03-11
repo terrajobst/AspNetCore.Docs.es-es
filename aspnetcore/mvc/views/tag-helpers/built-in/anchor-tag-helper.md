@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/13/2019
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 3ff8a52361b4911a5bb3163a8ea6ae90e504e4ef
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
-ms.translationtype: HT
+ms.openlocfilehash: 6bfbad39115c7823b5677d3c52ca64cfb0683037
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333947"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653783"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>Asistente de etiquetas delimitadoras en ASP.NET Core
 
@@ -21,7 +21,7 @@ El [asistente de etiquetas delimitadoras](xref:Microsoft.AspNetCore.Mvc.TagHelpe
 
 Para obtener información general sobre asistentes de etiquetas, vea <xref:mvc/views/tag-helpers/intro>.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 En los ejemplos de todo este documento se usa *SpeakerController*:
 
@@ -133,7 +133,7 @@ El asistente de etiquetas delimitadoras genera una ruta directamente a esa acci�
 <a href="/Speaker/Evaluations">Speaker Evaluations</a>
 ```
 
-Si además de `asp-route` se especifica `asp-controller` o `asp-action`, la ruta generada puede no ser la esperada. Para evitar un conflicto de ruta, no se debe usar `asp-route` con los atributos `asp-controller` y `asp-action`.
+Si además de `asp-controller` se especifica `asp-action` o `asp-route`, la ruta generada puede no ser la esperada. Para evitar un conflicto de ruta, no se debe usar `asp-route` con los atributos `asp-controller` y `asp-action`.
 
 ### <a name="asp-all-route-data"></a>asp-all-route-data
 
@@ -218,7 +218,7 @@ Tenga en cuenta la siguiente jerarquía de directorios:
       * **Controladores**
         * *HomeController.cs*
       * **Vistas**
-        * **Página principal**
+        * **Inicio**
           * *AboutBlog.cshtml*
           * *Index.cshtml*
         * *\_ViewStart.cshtml*

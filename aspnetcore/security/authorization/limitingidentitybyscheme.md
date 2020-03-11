@@ -6,16 +6,16 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 11/08/2019
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: 9c173a4589279b03bc12b4b7dea594fae88cf471
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: a3be2b8171c146beef7e62c8f7e55883ca5dc687
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928380"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652985"
 ---
 # <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>Autorizar con un esquema específico en ASP.NET Core
 
-En algunos escenarios, como las aplicaciones de una sola página (Spa), es habitual usar varios métodos de autenticación. Por ejemplo, la aplicación puede usar la autenticación basada en cookies para iniciar sesión y la autenticación de portador de JWT para solicitudes de JavaScript. En algunos casos, la aplicación puede tener varias instancias de un controlador de autenticación. Por ejemplo, dos controladores de cookies donde uno contiene una identidad básica y uno se crea cuando se ha desencadenado una autenticación multifactor (MFA). MFA se puede desencadenar porque el usuario solicitó una operación que requiere seguridad adicional. Para obtener más información sobre cómo aplicar MFA cuando un usuario solicita un recurso que requiere MFA, consulte la sección de protección de problemas de GitHub [con MFA](https://github.com/aspnet/AspNetCore.Docs/issues/15791#issuecomment-580464195).
+En algunos escenarios, como las aplicaciones de una sola página (Spa), es habitual usar varios métodos de autenticación. Por ejemplo, la aplicación puede usar la autenticación basada en cookies para iniciar sesión y la autenticación de portador de JWT para solicitudes de JavaScript. En algunos casos, la aplicación puede tener varias instancias de un controlador de autenticación. Por ejemplo, dos controladores de cookies donde uno contiene una identidad básica y uno se crea cuando se ha desencadenado una autenticación multifactor (MFA). MFA se puede desencadenar porque el usuario solicitó una operación que requiere seguridad adicional. Para obtener más información sobre cómo aplicar MFA cuando un usuario solicita un recurso que requiere MFA, consulte la sección de protección de problemas de GitHub [con MFA](https://github.com/dotnet/AspNetCore.Docs/issues/15791#issuecomment-580464195).
 
 Un esquema de autenticación se denomina cuando el servicio de autenticación se configura durante la autenticación. Por ejemplo:
 

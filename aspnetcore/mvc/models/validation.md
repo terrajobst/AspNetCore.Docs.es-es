@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/15/2019
 uid: mvc/models/validation
-ms.openlocfilehash: a39eeead10849d11349688c42fe814ede9e8a847
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
-ms.translationtype: HT
+ms.openlocfilehash: cf6b77de78f2c5dda48ffcd8ac1f9ed2f8d28bd7
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172498"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78652517"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Validación de modelos en ASP.NET Core MVC y Razor Pages
 
@@ -21,7 +21,7 @@ De [Kirk Larkin](https://github.com/serpent5)
 
 En este artículo se explica cómo validar la entrada del usuario en una aplicación ASP.NET Core MVC o Razor Pages.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
 
 ## <a name="model-state"></a>Estado del modelo
 
@@ -49,15 +49,15 @@ Los atributos de validación permiten especificar reglas de validación para las
 
 Estos son algunos de los atributos de validación integrados:
 
-* `[CreditCard]`: valida que la propiedad tenga formato de tarjeta de crédito.
-* `[Compare]`: valida que dos propiedades de un modelo coincidan.
-* `[EmailAddress]`: valida que la propiedad tenga formato de correo electrónico.
-* `[Phone]`: valida que la propiedad tenga formato de número de teléfono.
-* `[Range]`: valida que el valor de propiedad se encuentre dentro de un intervalo especificado.
-* `[RegularExpression]`: valida que el valor de propiedad coincida con una expresión regular especificada.
+* `[CreditCard]`: valida que la propiedad tiene un formato de tarjeta de crédito.
+* `[Compare]`: valida que coinciden dos propiedades en un modelo.
+* `[EmailAddress]`: valida que la propiedad tiene un formato de correo electrónico.
+* `[Phone]`: valida que la propiedad tiene un formato de número de teléfono.
+* `[Range]`: valida que el valor de la propiedad se encuentra dentro de un intervalo especificado.
+* `[RegularExpression]`: valida que el valor de propiedad coincide con una expresión regular especificada.
 * `[Required]`: valida que el campo no sea NULL. Consulte el [atributo `[Required]`](#required-attribute) para obtener más información sobre el comportamiento de este atributo.
 * `[StringLength]`: valida que un valor de propiedad de cadena no supere un límite de longitud especificado.
-* `[Url]`: valida que la propiedad tenga un formato de URL.
+* `[Url]`: valida que la propiedad tiene un formato de dirección URL.
 * `[Remote]`: valida la entrada en el cliente mediante una llamada a un método de acción en el servidor. Consulte el [atributo `[Remote]`](#remote-attribute) para obtener más información sobre el comportamiento de este atributo.
 
 En el espacio de nombres [System.ComponentModel.DataAnnotations](xref:System.ComponentModel.DataAnnotations) encontrará una lista completa de atributos de validación.
@@ -160,7 +160,7 @@ Si necesita una validación que no proporcionan los atributos integrados, puede 
 * [Crear atributos personalizados](#custom-attributes)
 * [Implementar IValidatableObject](#ivalidatableobject)
 
-## <a name="custom-attributes"></a>Atributos personalizados
+## <a name="custom-attributes"></a>Personalización de atributos
 
 Para los escenarios que no se controlan mediante los atributos de validación integrados, puede crear atributos de validación personalizados. Cree una clase que herede de <xref:System.ComponentModel.DataAnnotations.ValidationAttribute> y reemplace el método <xref:System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid*>.
 
@@ -265,7 +265,7 @@ La validación del tipo de datos se basa en el tipo .NET de una propiedad, a men
 
 ## <a name="unobtrusive-validation"></a>Validación discreta
 
-Para obtener información sobre la validación discreta, consulte [este problema de GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/1111).
+Para obtener información sobre la validación discreta, consulte [este problema de GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/1111).
 
 ### <a name="add-validation-to-dynamic-forms"></a>Agregar validación a formularios dinámicos
 
@@ -376,7 +376,7 @@ Otras opciones para deshabilitar la validación del lado cliente:
 * Convierta en comentario la referencia a `_ValidationScriptsPartial` en todos los archivos *.cshtml*.
 * Quite el contenido del archivo *Pages\Shared\_ValidationScriptsPartial.cshtml*.
 
-El enfoque anterior no impedirá la validación del lado cliente de la biblioteca de clases de Razor de identidad de ASP.NET Core. Para obtener más información, vea <xref:security/authentication/scaffold-identity>.
+El enfoque anterior no impedirá la validación del lado cliente de la biblioteca de clases de Razor de identidad de ASP.NET Core. Para más información, consulte <xref:security/authentication/scaffold-identity>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -389,7 +389,7 @@ El enfoque anterior no impedirá la validación del lado cliente de la bibliotec
 
 En este artículo se explica cómo validar la entrada del usuario en una aplicación ASP.NET Core MVC o Razor Pages.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
 
 ## <a name="model-state"></a>Estado del modelo
 
@@ -409,7 +409,7 @@ La validación es automática, pero tal vez le interese repetirla manualmente. P
 
 ## <a name="validation-attributes"></a>Atributos de validación
 
-Los atributos de validación permiten especificar reglas de validación para las propiedades del modelo. En el ejemplo siguiente de la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) se muestra una clase de modelo anotada con atributos de validación. El atributo `[ClassicMovie]` es un atributo de validación personalizado y los demás están integrados. No se muestra `[ClassicMovie2]`, que indica una manera alternativa de implementar un atributo personalizado.
+Los atributos de validación permiten especificar reglas de validación para las propiedades del modelo. En el ejemplo siguiente de la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) se muestra una clase de modelo anotada con atributos de validación. El atributo `[ClassicMovie]` es un atributo de validación personalizado y los demás están integrados. No se muestra `[ClassicMovie2]`, que indica una manera alternativa de implementar un atributo personalizado.
 
 [!code-csharp[](validation/samples/2.x/ValidationSample/Models/Movie.cs?name=snippet_ModelClass)]
 
@@ -417,15 +417,15 @@ Los atributos de validación permiten especificar reglas de validación para las
 
 Entre los atributos de validación integrados se incluyen:
 
-* `[CreditCard]`: valida que la propiedad tenga formato de tarjeta de crédito.
-* `[Compare]`: valida que dos propiedades de un modelo coincidan. Por ejemplo, el archivo *Register.cshtml.cs* usa `[Compare]` para validar que ambas contraseñas escritas coincidan. [Identidad de scaffolding](xref:security/authentication/scaffold-identity) para ver el código del Registro.
-* `[EmailAddress]`: valida que la propiedad tenga formato de correo electrónico.
-* `[Phone]`: valida que la propiedad tenga formato de número de teléfono.
-* `[Range]`: valida que el valor de propiedad se encuentre dentro de un intervalo especificado.
-* `[RegularExpression]`: valida que el valor de propiedad coincida con una expresión regular especificada.
+* `[CreditCard]`: valida que la propiedad tiene un formato de tarjeta de crédito.
+* `[Compare]`: valida que coinciden dos propiedades en un modelo. Por ejemplo, el archivo *Register.cshtml.cs* usa `[Compare]` para validar que ambas contraseñas escritas coincidan. [Identidad de scaffolding](xref:security/authentication/scaffold-identity) para ver el código del Registro.
+* `[EmailAddress]`: valida que la propiedad tiene un formato de correo electrónico.
+* `[Phone]`: valida que la propiedad tiene un formato de número de teléfono.
+* `[Range]`: valida que el valor de la propiedad se encuentra dentro de un intervalo especificado.
+* `[RegularExpression]`: valida que el valor de propiedad coincide con una expresión regular especificada.
 * `[Required]`: valida que el campo no sea NULL. Consulte el [atributo `[Required]`](#required-attribute) para obtener más información sobre el comportamiento de este atributo.
 * `[StringLength]`: valida que un valor de propiedad de cadena no supere un límite de longitud especificado.
-* `[Url]`: valida que la propiedad tenga un formato de URL.
+* `[Url]`: valida que la propiedad tiene un formato de dirección URL.
 * `[Remote]`: valida la entrada en el cliente mediante una llamada a un método de acción en el servidor. Consulte el [atributo `[Remote]`](#remote-attribute) para obtener más información sobre el comportamiento de este atributo.
 
 Cuando se usa el atributo `[RegularExpression]` con la validación del lado cliente, la regex se ejecuta en JavaScript en el cliente. Esto significa que se usará el comportamiento de coincidencia de [ECMAScript](/dotnet/standard/base-types/regular-expression-options#ecmascript-matching-behavior). Para más información, consulte [este problema de GitHub](https://github.com/dotnet/corefx/issues/42487).
@@ -526,7 +526,7 @@ Si necesita una validación que no proporcionan los atributos integrados, puede 
 * [Crear atributos personalizados](#custom-attributes)
 * [Implementar IValidatableObject](#ivalidatableobject)
 
-## <a name="custom-attributes"></a>Atributos personalizados
+## <a name="custom-attributes"></a>Personalización de atributos
 
 Para los escenarios que no se controlan mediante los atributos de validación integrados, puede crear atributos de validación personalizados. Cree una clase que herede de <xref:System.ComponentModel.DataAnnotations.ValidationAttribute> y reemplace el método <xref:System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid*>.
 

@@ -1,26 +1,26 @@
 ---
 title: Inserción de dependencias en controladores de requisitos en ASP.NET Core
 author: rick-anderson
-description: Obtenga información sobre cómo insertar controladores de requisito de autorización en una aplicación de ASP.NET Core con inserción de dependencias.
+description: Obtenga información sobre cómo insertar controladores de requisitos de autorización en una aplicación ASP.NET Core mediante la inserción de dependencias.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/dependencyinjection
 ms.openlocfilehash: 71d563e11d308a95c08e6d012d3a071f4697d2de
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64896372"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78654365"
 ---
 # <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a>Inserción de dependencias en controladores de requisitos en ASP.NET Core
 
 <a name="security-authorization-di"></a>
 
-[Controladores de autorización deben estar registrados](xref:security/authorization/policies#handler-registration) en la colección de servicios durante la configuración (mediante [inserción de dependencias](xref:fundamentals/dependency-injection)).
+Los [controladores de autorización deben registrarse](xref:security/authorization/policies#handler-registration) en la colección de servicios durante la configuración (mediante la [inserción de dependencias](xref:fundamentals/dependency-injection)).
 
-Suponga que tiene un repositorio de reglas que desea evaluar dentro de un controlador de autorización y ese repositorio se registró en la colección de servicios. La autorización se resuelva e insertar en el constructor.
+Supongamos que tiene un repositorio de reglas que desea evaluar dentro de un controlador de autorización y que ese repositorio se registró en la colección de servicios. La autorización se resolverá y se insertará en el constructor.
 
-Por ejemplo, si deseara usar ASP. NET del registro de infraestructura que desea insertar `ILoggerFactory` en el controlador. Un controlador de este tipo podría ser similar:
+Por ejemplo, si desea utilizar ASP. La infraestructura de registro de la red que desea insertar `ILoggerFactory` en el controlador. Este tipo de controlador podría ser similar al siguiente:
 
 ```csharp
 public class LoggingAuthorizationHandler : AuthorizationHandler<MyRequirement>
@@ -41,13 +41,13 @@ public class LoggingAuthorizationHandler : AuthorizationHandler<MyRequirement>
    }
    ```
 
-¿Registrar el controlador con `services.AddSingleton()`:
+Registraría el controlador con `services.AddSingleton()`:
 
 ```csharp
 services.AddSingleton<IAuthorizationHandler, LoggingAuthorizationHandler>();
 ```
 
-Una instancia de la voluntad de controlador se crea cuando se inicia la aplicación y se DI inyectar registrado `ILoggerFactory` en su constructor.
+Cuando se inicia la aplicación, se creará una instancia del controlador y DI insertará el `ILoggerFactory` registrado en el constructor.
 
 > [!NOTE]
-> Los controladores que usan Entity Framework no deben estar registrados como singleton.
+> Los controladores que usan Entity Framework no deben registrarse como singletons.

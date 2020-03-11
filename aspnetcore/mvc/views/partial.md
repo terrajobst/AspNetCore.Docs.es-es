@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/12/2019
 uid: mvc/views/partial
-ms.openlocfilehash: 50c4f41d5d3099184aa3992ed7e176b74c488d2a
-ms.sourcegitcommit: 805f625d16d74e77f02f5f37326e5aceafcb78e3
-ms.translationtype: HT
+ms.openlocfilehash: 04b6d6e620f34ac7154728b1b3048195e87c5860
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985573"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78653465"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Vistas parciales en ASP.NET Core
 
-Por [Steve Smith](https://ardalis.com/), [Luke Latham](https://github.com/guardrex), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT) y [Scott Sauber](https://twitter.com/scottsauber)
+Por [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT) y [Scott Sauber](https://twitter.com/scottsauber)
 
 Una vista parcial es un archivo de marcado [Razor](xref:mvc/views/razor) ( *.cshtml*) que representa una salida HTML *dentro* de otra salida representada del archivo de marcado.
 
@@ -25,7 +25,7 @@ El término *vista parcial* se usa al desarrollar una aplicación MVC, donde a l
 
 ::: moniker-end
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-partial-views"></a>¿Cuándo se usan las vistas parciales?
 
@@ -266,7 +266,7 @@ Las convenciones siguientes se aplican a la detección de la vista parcial:
 * Las vistas parciales pueden estar *encadenadas*: una vista parcial puede llamar a otra vista parcial si las llamadas no forman una referencia circular. Las rutas de acceso relativas siempre guardan relación con el archivo actual, no con la raíz ni el elemento primario del archivo.
 
 > [!NOTE]
-> Una clase `section` de [Razor](xref:mvc/views/razor) definida en una vista parcial no es visible para los archivos de marcado principales. La `section` solo es visible para la vista parcial en la que está definida.
+> Un `section` de [Razor](xref:mvc/views/razor) definido en una vista parcial no es visible para los archivos de marcado primarios. La `section` solo es visible para la vista parcial en la que está definida.
 
 ## <a name="access-data-from-partial-views"></a>Acceso a datos desde vistas parciales
 

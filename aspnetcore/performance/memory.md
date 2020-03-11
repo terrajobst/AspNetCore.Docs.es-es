@@ -7,17 +7,17 @@ ms.custom: mvc
 ms.date: 12/05/2019
 uid: performance/memory
 ms.openlocfilehash: 0ae367e954e21e2f696a3b292fa64f1d2dba98ec
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829028"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78654725"
 ---
 # <a name="memory-management-and-garbage-collection-gc-in-aspnet-core"></a>Administración de memoria y recolección de elementos no utilizados (GC) en ASP.NET Core
 
 Por [Sébastien Ros](https://github.com/sebastienros) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-La administración de memoria es compleja, incluso en un marco administrado como .NET. Analizar y comprender los problemas de memoria puede ser desafiante. En este artículo:
+La administración de memoria es compleja, incluso en un marco administrado como .NET. Analizar y comprender los problemas de memoria puede ser desafiante. Este artículo:
 
 * Estaba motivada por muchos problemas de *pérdida de memoria* y el *GC no funciona* . La mayoría de estos problemas se debieron a no comprender cómo funciona el consumo de memoria en .NET Core o no comprender cómo se mide.
 * Muestra el uso de memoria problemático y sugiere enfoques alternativos.
@@ -139,7 +139,7 @@ El modo GC se puede establecer explícitamente en el archivo de proyecto o en el
 
 Cambiar `ServerGarbageCollection` en el archivo de proyecto requiere que se vuelva a generar la aplicación.
 
-**Nota:** La recolección de elementos **no** utilizados de servidor no está disponible en equipos con un solo núcleo. Para obtener más información, vea <xref:System.Runtime.GCSettings.IsServerGC>.
+**Nota:** La recolección de elementos **no** utilizados de servidor no está disponible en equipos con un solo núcleo. Para más información, consulte <xref:System.Runtime.GCSettings.IsServerGC>.
 
 En la imagen siguiente se muestra el perfil de memoria en un 5.000 RPS mediante el GC de la estación de trabajo.
 
@@ -275,7 +275,7 @@ En los siguientes vínculos se muestra el enfoque ASP.NET Core para mantener obj
 * [ResponseCaching/streams/StreamUtilities. CS](https://github.com/dotnet/AspNetCore/blob/v3.0.0/src/Middleware/ResponseCaching/src/Streams/StreamUtilities.cs#L16)
 * [ResponseCaching/MemoryResponseCache. CS](https://github.com/aspnet/ResponseCaching/blob/c1cb7576a0b86e32aec990c22df29c780af29ca5/src/Microsoft.AspNetCore.ResponseCaching/Internal/MemoryResponseCache.cs#L55)
 
-Para obtener más información, vea:
+Para más información, consulte:
 
 * [Montón de objetos grandes descubierto](https://devblogs.microsoft.com/dotnet/large-object-heap-uncovered-from-an-old-msdn-article/)
 * [Montón de objetos grandes](/dotnet/standard/garbage-collection/large-object-heap)
