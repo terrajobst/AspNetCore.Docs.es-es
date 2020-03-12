@@ -5,14 +5,16 @@ description: Explicación del uso de Facebook, Google, Twitter, etc. autenticaci
 ms.author: riande
 ms.date: 12/10/2019
 uid: security/authentication/social/social-without-identity
-ms.openlocfilehash: 612964ec9ed4975cdc81780dda3bac6cce96037f
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: b30ce7055b35b721c7fb83b61a328200d6a136b1
+ms.sourcegitcommit: 3ca4a2235a8129def9e480d0a6ad54cc856920ec
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359063"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79025396"
 ---
 # <a name="use-social-sign-in-provider-authentication-without-aspnet-core-identity"></a>Usar la autenticación de proveedor de inicio de sesión social sin ASP.NET Core identidad
+
+Por [Kirk Larkin](https://twitter.com/serpent5) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -27,7 +29,7 @@ Este ejemplo utiliza la [autenticación de Google](xref:security/authentication/
 * [Autenticación con Twitter](xref:security/authentication/twitter-logins)
 * [Otros proveedores](xref:security/authentication/otherlogins)
 
-## <a name="configuration"></a>Configuración de
+## <a name="configuration"></a>Configuración
 
 En el método `ConfigureServices`, configure los esquemas de autenticación de la aplicación con los métodos <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*>, <xref:Microsoft.Extensions.DependencyInjection.CookieExtensions.AddCookie*>y <xref:Microsoft.Extensions.DependencyInjection.GoogleExtensions.AddGoogle*>:
 
@@ -82,7 +84,7 @@ Este ejemplo utiliza la [autenticación de Google](xref:security/authentication/
 * [Autenticación con Twitter](xref:security/authentication/twitter-logins)
 * [Otros proveedores](xref:security/authentication/otherlogins)
 
-## <a name="configuration"></a>Configuración de
+## <a name="configuration"></a>Configuración
 
 En el método `ConfigureServices`, configure los esquemas de autenticación de la aplicación con los métodos `AddAuthentication`, `AddCookie`y `AddGoogle`:
 
