@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/index
-ms.openlocfilehash: c07ffdbd5df58d6b3d19a5d75ce224d830101eac
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: ba00c0370094df4e0ae0479aeb23eceea6ef04f0
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447430"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79083349"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>Autenticación y autorización de ASP.NET Core Blazor
 
@@ -194,7 +194,7 @@ namespace BlazorSample.Services
 En una aplicación WebAssembly de Blazor, el servicio `CustomAuthStateProvider` se registra en `Main` de *Program.cs*:
 
 ```csharp
-using Microsoft.AspNetCore.Blazor.Hosting;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using BlazorSample.Services;
@@ -513,6 +513,8 @@ Si se requiere que la aplicación compruebe las reglas de autorización como par
 En aplicaciones de Blazor WebAssembly, las comprobaciones de autorización pueden omitirse porque los usuarios pueden modificar todos los códigos del lado cliente. Lo mismo se aplica a todas las tecnologías de aplicaciones del lado cliente, incluidas las plataformas JavaScript SPA o las aplicaciones nativas para cualquier sistema operativo.
 
 **Realice siempre las comprobaciones de autorización en el servidor dentro de cualquier punto de conexión de la API al que acceda su aplicación del lado cliente.**
+
+Para obtener más información, vea los artículos en <xref:security/blazor/webassembly/index>.
 
 ## <a name="troubleshoot-errors"></a>Solucionar problemas
 
