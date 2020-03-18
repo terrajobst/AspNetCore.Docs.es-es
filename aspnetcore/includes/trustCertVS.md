@@ -1,11 +1,11 @@
-<span data-ttu-id="e4ce3-101">Visual Studio muestra el cuadro de diálogo siguiente:</span><span class="sxs-lookup"><span data-stu-id="e4ce3-101">Visual Studio displays the following dialog:</span></span>
+<span data-ttu-id="16dad-101">Visual Studio muestra el cuadro de diálogo siguiente:</span><span class="sxs-lookup"><span data-stu-id="16dad-101">Visual Studio displays the following dialog:</span></span>
 
 ![Este proyecto está configurado para usar SSL.](~/getting-started/_static/trustCert.png)
 
-<span data-ttu-id="e4ce3-105">Haga clic en **Sí** si confía en el certificado SSL de IIS Express.</span><span class="sxs-lookup"><span data-stu-id="e4ce3-105">Select **Yes** if you trust the IIS Express SSL certificate.</span></span>
+<span data-ttu-id="16dad-105">Haga clic en **Sí** si confía en el certificado SSL de IIS Express.</span><span class="sxs-lookup"><span data-stu-id="16dad-105">Select **Yes** if you trust the IIS Express SSL certificate.</span></span>
 
-<span data-ttu-id="e4ce3-106">Se muestra el cuadro de diálogo siguiente:</span><span class="sxs-lookup"><span data-stu-id="e4ce3-106">The following dialog is displayed:</span></span>
+<span data-ttu-id="16dad-106">Se muestra el cuadro de diálogo siguiente:</span><span class="sxs-lookup"><span data-stu-id="16dad-106">The following dialog is displayed:</span></span>
 
 ![Cuadro de diálogo de advertencia de seguridad](~/getting-started/_static/cert.png)
 
-<span data-ttu-id="e4ce3-108">Si acepta confiar en el certificado de desarrollo, seleccione **Sí**.</span><span class="sxs-lookup"><span data-stu-id="e4ce3-108">Select **Yes** if you agree to trust the development certificate.</span></span>
+<span data-ttu-id="16dad-108">Si acepta confiar en el certificado de desarrollo, seleccione **Sí**.</span><span class="sxs-lookup"><span data-stu-id="16dad-108">Select **Yes** if you agree to trust the development certificate.</span></span>
