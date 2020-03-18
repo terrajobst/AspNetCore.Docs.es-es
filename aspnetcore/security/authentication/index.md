@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/03/2020
 uid: security/authentication/index
-ms.openlocfilehash: 24113fd4f090cf76746a7b077212fdab012f82c1
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 404904ecfa30d1fe7e47f0daaa423ddd6f1b06e8
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78644363"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434335"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>Información general sobre la autenticación de ASP.NET Core
 
@@ -110,6 +110,18 @@ Consulte los vínculos siguientes para conocer las diferencias entre desafío y 
 
 * [Desafío y prohibido con un controlador de recursos operativos](xref:security/authorization/resourcebased#challenge-and-forbid-with-an-operational-resource-handler)
 * [Diferencias entre desafío y prohibido](xref:security/authorization/secure-data#challenge)
+
+## <a name="authentication-providers-per-tenant"></a>Proveedores de autenticación por inquilino
+
+El marco ASP.NET Core no tiene una solución integrada para la autenticación de varios inquilinos.
+Aunque es ciertamente posible que los clientes escriban uno, con las características integradas, se recomienda a los clientes que busquen en [Orchard Core](https://www.orchardcore.net/) con este fin.
+
+Orchard Core es:
+
+* Un marco de aplicaciones multiinquilino y modular de código abierto creado con ASP.NET Core.
+* Un sistema de administración de contenido (CMS) basado en el marco de la aplicación.
+
+Visite [Orchard Core](https://github.com/OrchardCMS/OrchardCore) para ver un ejemplo de proveedores de autenticación por inquilino.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

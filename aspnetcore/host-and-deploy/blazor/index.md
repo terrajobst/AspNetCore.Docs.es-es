@@ -5,17 +5,17 @@ description: Descubra cómo hospedar e implementar aplicaciones de Blazor.
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 238e7fc8f8d64c7847dc8847fb66e22442a3c8e0
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: ddf70da29a82d462422c1bdf74ff45b92bb10b56
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78644711"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434270"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor"></a>Hospedaje e implementación de ASP.NET Core Blazor
 
@@ -45,7 +45,12 @@ dotnet publish -c Release
 
 Al publicar la aplicación se desencadena una [restauración](/dotnet/core/tools/dotnet-restore) de las dependencias del proyecto y se [compila](/dotnet/core/tools/dotnet-build) el proyecto antes de crear los recursos para la implementación. Como parte del proceso de compilación, se quitan los ensamblados y métodos que no se usan para reducir los tiempos de carga y el tamaño de descarga de la aplicación.
 
-Una aplicación WebAssembly de Blazor se publica en la carpeta */bin/Release/{MARCO DE DESTINO}/publish/{NOMBRE DE ENSAMBLADO}/dist*. Una aplicación de servidor de Blazor se publica en la carpeta */bin/Release/{MARCO DE DESTINO}/publish*.
+Ubicaciones de publicación:
+
+* Blazor WebAssembly
+  * Independiente &ndash; La aplicación se publcia en la carpeta */bin/Release/{TARGET FRAMEWORK}/publish/wwwroot*. Para implementar la aplicación como un sitio estático, copie el contenido de la carpeta *wwwroot* en el host del sitio estático.
+  * Hospedada &ndash; La aplicación WebAssembly del cliente Blazor se publica en la carpeta */bin/Release/{TARGET FRAMEWORK}/publish/wwwroot* de la aplicación de servidor, junto con cualquier otro activo web estático de la aplicación de servidor. Implemente el contenido de la carpeta *publish* en el host.
+* BlazorServidor&ndash; La aplicación de servidor se publica en la carpeta */bin/Release/{MARCO DE DESTINO}/publish*. Implemente el contenido de la carpeta *publish* en el host.
 
 Los recursos de la carpeta se implementan en el servidor web. La implementación puede ser un proceso manual o automatizado, en función de las herramientas de desarrollo que se usen.
 
