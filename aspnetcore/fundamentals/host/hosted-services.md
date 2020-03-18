@@ -1,22 +1,22 @@
 ---
 title: Tareas en segundo plano con servicios hospedados en ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Obtenga información sobre cómo implementar tareas en segundo plano con servicios hospedados en ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/10/2020
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 9b7224c07df027c9466db34dcc23505410893f1f
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: d3f409170eedd281fd7608c4b9835bf9443c49b0
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171792"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78650417"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Tareas en segundo plano con servicios hospedados en ASP.NET Core
 
-De [Luke Latham](https://github.com/guardrex) y [Jeow Li Huan](https://github.com/huan086)
+Por [Jeow Li Huan](https://github.com/huan086)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -26,7 +26,7 @@ En ASP.NET Core, las tareas en segundo plano se pueden implementar como *servici
 * Un servicio hospedado que activa un [servicio con ámbito](xref:fundamentals/dependency-injection#service-lifetimes). El servicio con ámbito puede usar la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection).
 * Tareas en segundo plano en cola que se ejecutan en secuencia.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="worker-service-template"></a>Plantilla Worker Service
 
@@ -181,7 +181,7 @@ En ASP.NET Core, las tareas en segundo plano se pueden implementar como *servici
 * Un servicio hospedado que activa un [servicio con ámbito](xref:fundamentals/dependency-injection#service-lifetimes). El servicio con ámbito puede usar la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection).
 * Tareas en segundo plano en cola que se ejecutan en secuencia.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="package"></a>Package
 

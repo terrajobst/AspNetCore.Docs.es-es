@@ -1,7 +1,7 @@
 ---
-title: ASP.NET Core Blazor plataformas admitidas
+title: Plataformas admitidas de Blazor de ASP.NET Core
 author: guardrex
-description: Obtenga información acerca de las plataformas admitidas para ASP.NET Core Blazor.
+description: Obtenga información sobre las plataformas admitidas en Blazor de ASP.NET Core.
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
@@ -11,13 +11,13 @@ no-loc:
 - SignalR
 uid: blazor/supported-platforms
 ms.openlocfilehash: 505974280b5c96ec2bcae42c6e076ab67a15bb07
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
-ms.translationtype: MT
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160137"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78647111"
 ---
-# <a name="aspnet-core-opno-locblazor-supported-platforms"></a>ASP.NET Core Blazor plataformas admitidas
+# <a name="aspnet-core-blazor-supported-platforms"></a>Plataformas admitidas de Blazor de ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex)
 
@@ -25,29 +25,29 @@ Por [Luke Latham](https://github.com/guardrex)
 
 ## <a name="browser-requirements"></a>Requisitos del explorador
 
-### <a name="opno-locblazor-webassembly"></a>Blazor WebAssembly
+### <a name="blazor-webassembly"></a>WebAssembly de Blazor
 
-| Explorador                          | Version               |
+| Explorador                          | Versión               |
 | -------------------------------- | :-------------------: |
-| Microsoft Edge                   | Actual               |
-| Mozilla Firefox                  | Actual               |
-| Google Chrome, incluido Android | Actual               |
-| Safari, incluido iOS            | Actual               |
-| Microsoft Internet Explorer      | No compatible&dagger; |
+| Microsoft Edge                   | Current               |
+| Mozilla Firefox                  | Current               |
+| Google Chrome, incluido Android | Current               |
+| Safari, incluido iOS            | Current               |
+| Microsoft Internet Explorer      | No admitidas&dagger; |
 
-&dagger;Microsoft Internet Explorer no es compatible con [WebAssembly](https://webassembly.org).
+&dagger;Microsoft Internet Explorer no admite [WebAssembly](https://webassembly.org).
 
-### <a name="opno-locblazor-server"></a>Servidor de Blazor
+### <a name="blazor-server"></a>Servidor Blazor
 
-| Explorador                          | Version    |
+| Explorador                          | Versión    |
 | -------------------------------- | :--------: |
-| Microsoft Edge                   | Actual    |
-| Mozilla Firefox                  | Actual    |
-| Google Chrome, incluido Android | Actual    |
-| Safari, incluido iOS            | Actual    |
+| Microsoft Edge                   | Current    |
+| Mozilla Firefox                  | Current    |
+| Google Chrome, incluido Android | Current    |
+| Safari, incluido iOS            | Current    |
 | Microsoft Internet Explorer      | 11&dagger; |
 
-se requieren &dagger;polyfill adicionales (por ejemplo, se pueden agregar promesas a través de un paquete de [polyfill.IO](https://polyfill.io/v3/) ).
+&dagger;Se requieren más polyfill (por ejemplo, se pueden agregar promesas a través de un paquete [Polyfill.io](https://polyfill.io/v3/)).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -1,143 +1,143 @@
 ---
-title: Supervisar y depurar - DevOps con ASP.NET Core y Azure
+title: 'Supervisión y depuración: DevOps con ASP.NET Core y Azure'
 author: CamSoper
-description: Supervisión y depurar el código como parte de una solución de DevOps con ASP.NET Core y Azure
+description: Supervisión y depuración del código como parte de una solución de DevOps con ASP.NET Core y Azure
 ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 07/10/2019
 uid: azure/devops/monitor
 ms.openlocfilehash: 1d8ed99f4387dbc99929164c558cc2ce14bd9ea0
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
-ms.translationtype: MT
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68307955"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78647459"
 ---
-# <a name="monitor-and-debug"></a>Supervisar y depurar
+# <a name="monitor-and-debug"></a>Supervisión y depuración
 
-Al haber implementado la aplicación y crea una canalización de DevOps, es importante comprender cómo supervisar y solucionar problemas de la aplicación.
+Una vez implementada la aplicación y después de compilar una canalización de DevOps, es importante comprender cómo supervisar y solucionar problemas de la aplicación.
 
-En esta sección, deberá completar las tareas siguientes:
+En esta sección, completará las tareas siguientes:
 
-* Buscar básicas de supervisión y solución de problemas de datos en Azure portal
-* Obtenga información sobre cómo Azure Monitor proporciona una visión más profunda de las métricas en todos los servicios de Azure
-* Conectar la aplicación web con Application Insights para la generación de perfiles de aplicación
-* Activar el registro y obtenga información sobre dónde descargar los registros
-* Stream se registra en tiempo real
-* Obtenga información sobre dónde establecer alertas
-* Obtenga información acerca de Azure App Service web apps depuración remotas.
+* Buscar datos básicos de supervisión y solución de problemas en Azure Portal
+* Obtener información sobre cómo Azure Monitor proporciona una visión más profunda de las métricas en todos los servicios de Azure
+* Conectar la aplicación web con Application Insights para la generación de perfiles de aplicaciones
+* Activar el registro y saber dónde descargar registros
+* Streaming de registros en tiempo real
+* Obtener información sobre dónde configurar alertas
+* Obtener información sobre la depuración remota de aplicaciones web de Azure App Service
 
 ## <a name="basic-monitoring-and-troubleshooting"></a>Supervisión básica y solución de problemas
 
-App Service web apps se supervisan con facilidad en tiempo real. El portal de Azure procesa las métricas en gráficos fáciles de entender y gráficos.
+Las aplicaciones web de App Service se pueden supervisar fácilmente en tiempo real. En Azure Portal se representan métricas en gráficos fáciles de entender.
 
-1. Abra el [portal de Azure](https://portal.azure.com)y, a continuación, navegue hasta la *mywebapp\<unique_number\>*  App Service.
+1. Abra [Azure Portal](https://portal.azure.com) y, después, vaya a la instancia de App Service *mywebapp\<número_único\>* .
 
-1. El **Introducción** ficha muestra información de "rápida" útil, incluidos gráficos de mostrar las métricas recientes.
+1. En la pestaña **Información general** se muestra información útil "de un vistazo", incluidos gráficos con métricas recientes.
 
-    ![Panel de captura de pantalla que muestra información general](./media/monitoring/overview.png)
+    ![Captura de pantalla en la que se muestra el panel Información general](./media/monitoring/overview.png)
 
-    * **Http 5xx**: Recuento de errores del lado servidor, normalmente excepciones en el código ASP.NET Core.
-    * **Datos en**: Entrada de datos que entra en la aplicación Web.
-    * **Datos de salida**: Salida de datos de la aplicación web a los clientes.
-    * **Solicitudes**: Recuento de solicitudes HTTP.
-    * **Tiempo medio de respuesta**: Promedio de tiempo para que la aplicación web responda a las solicitudes HTTP.
+    * **Http 5xx**: recuento de errores del lado servidor, normalmente excepciones en el código de ASP.NET Core.
+    * **Entrada de datos**: entrada de datos en la aplicación web.
+    * **Salida de datos**: salida de datos de la aplicación web a los clientes.
+    * **Solicitud**: recuento de solicitudes HTTP.
+    * **Tiempo promedio de respuesta**: tiempo promedio de respuesta de la aplicación web a las solicitudes HTTP.
 
-    También se encuentran varias herramientas de autoservicio para la optimización y solución de problemas en esta página.
+    En esta página también se encuentran varias herramientas de autoservicio para la solución de problemas y la optimización.
 
-    ![Herramientas de autoservicio de captura de pantalla que muestra](./media/monitoring/wizards.png)
+    ![Captura de pantalla en la que se muestran las herramientas de autoservicio](./media/monitoring/wizards.png)
 
-    * **Diagnosticar y resolver problemas** es un solucionador de problemas de autoservicio.
-    * **Application Insights** es para la generación de perfiles de rendimiento y el comportamiento de la aplicación y se describe más adelante en esta sección.
-    * **App Service Advisor** hace recomendaciones para optimizar su experiencia de aplicación.
+    * **Diagnosticar y solucionar problemas** es un solucionador de problemas de autoservicio.
+    * **Application Insights** sirve para generar perfiles de rendimiento y comportamiento de la aplicación, y se describe más adelante en esta sección.
+    * **App Service Advisor** realiza recomendaciones para optimizar la experiencia de la aplicación.
 
 ## <a name="advanced-monitoring"></a>Supervisión avanzada
 
-[Azure Monitor](/azure/monitoring-and-diagnostics/) es el servicio centralizado para todas las métricas de supervisión y configuración de alertas a través de servicios de Azure. Dentro de Azure Monitor, los administradores pueden realizar un seguimiento de rendimiento forma granular e identificar tendencias. Cada servicio de Azure ofrece su propio [conjunto de métricas](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftwebsites-excluding-functions) a Azure Monitor.
+[Azure Monitor](/azure/monitoring-and-diagnostics/) es el servicio centralizado para supervisar todas las métricas y establecer alertas en los servicios de Azure. En Azure Monitor, los administradores pueden realizar un seguimiento pormenorizado del rendimiento e identificar tendencias. Cada servicio de Azure ofrece su propio [conjunto de métricas](/azure/monitoring-and-diagnostics/monitoring-supported-metrics#microsoftwebsites-excluding-functions) para Azure Monitor.
 
 ## <a name="profile-with-application-insights"></a>Perfil con Application Insights
 
-[Application Insights](/azure/application-insights/app-insights-overview) es un servicio de Azure para analizar el rendimiento y la estabilidad de las aplicaciones web y cómo usar los usuarios. Los datos de Application Insights son más amplias y profundas que el de Azure Monitor. Los datos pueden proporcionar a los desarrolladores y administradores con información de clave para mejorar las aplicaciones. Application Insights pueden agregarse a un recurso de Azure App Service sin cambios de código.
+[Application Insights](/azure/application-insights/app-insights-overview) es un servicio de Azure para analizar el rendimiento y la estabilidad de las aplicaciones web y cómo las utilizan los usuarios. Los datos de Application Insights son más amplios y profundos que los de Azure Monitor. Los datos pueden proporcionar a desarrolladores y administradores información clave para mejorar las aplicaciones. Application Insights se puede agregar a un recurso de Azure App Service sin cambios del código.
 
-1. Abra el [portal de Azure](https://portal.azure.com)y, a continuación, navegue hasta la *mywebapp\<unique_number\>*  App Service.
-1. Desde el **Introducción** pestaña, haga clic en el **Application Insights** icono.
+1. Abra [Azure Portal](https://portal.azure.com) y, después, vaya a la instancia de App Service *mywebapp\<número_único\>* .
+1. En la pestaña **Información general**, haga clic en el icono **Application Insights**.
 
-    ![Icono Application Insights](./media/monitoring/app-insights.png)
+    ![Icono de Application Insights](./media/monitoring/app-insights.png)
 
-1. Seleccione el **crear recurso nuevo** botón de radio. Use el nombre de recurso predeterminado y seleccione la ubicación del recurso de Application Insights. La ubicación no tiene que coincidir con el de la aplicación web.
+1. Seleccione el botón de radio **Crear nuevo recurso**. Use el nombre de recurso predeterminado y seleccione la ubicación del recurso de Application Insights. No es necesario que la ubicación coincida con la de la aplicación web.
 
-    ![El programa de instalación de Application Insights](./media/monitoring/new-app-insights.png)
+    ![Configuración de Application Insights](./media/monitoring/new-app-insights.png)
 
-1. Para **en tiempo de ejecución o marco**, seleccione **ASP.NET Core**. Acepte la configuración predeterminada.
-1. Seleccione **Aceptar**. Si se le pedirá que confirme, seleccione **continuar**.
-1. Una vez creado el recurso, haga clic en el nombre del recurso de Application Insights para navegar directamente a la página de Application Insights.
+1. En **Entorno de ejecución/Marco**, seleccione **ASP.NET Core**. Acepte la configuración predeterminada.
+1. Seleccione **Aceptar**. Si se le solicita confirmación, seleccione **Continuar**.
+1. Una vez que se haya creado el recurso, haga clic en el nombre del recurso de Application Insights para ir directamente a la página Application Insights.
 
-    ![Nuevo recurso de Application Insights está listo](./media/monitoring/new-app-insights-done.png)
+    ![Nuevo recurso de Application Insights, a punto](./media/monitoring/new-app-insights-done.png)
 
-Se usa la aplicación, se acumulan datos. Seleccione **actualizar** para volver a cargar la hoja con nuevos datos.
+Mientras se usa la aplicación, los datos se acumulan. Seleccione **Actualizar** para volver a cargar la hoja con datos nuevos.
 
-![Ficha información general de Application Insights](./media/monitoring/app-insights-overview.png)
+![Pestaña Información general de Application Insights](./media/monitoring/app-insights-overview.png)
 
-Application Insights proporciona información útil de servidor sin ninguna configuración adicional. Para obtener el máximo partido de Application Insights, [instrumentar la aplicación con el SDK de Application Insights](/azure/application-insights/app-insights-asp-net-core). Cuando se configura correctamente, el servicio proporciona la supervisión de extremo a otro entre el servidor web y el explorador, incluidos el rendimiento del cliente. Para obtener más información, consulte el [documentación de Application Insights](/azure/application-insights/app-insights-overview).
+Application Insights proporciona información útil del lado servidor sin configuración adicional. Para obtener el máximo valor de Application Insights, [instrumente la aplicación con el SDK de Application Insights](/azure/application-insights/app-insights-asp-net-core). Si se configura correctamente, el servicio proporciona supervisión de un extremo a otro en el servidor web y el explorador, incluido el rendimiento del lado cliente. Para más información, vea la [documentación de Application Insights](/azure/application-insights/app-insights-overview).
 
 ## <a name="logging"></a>Registro
 
-Los registros de aplicación y el servidor Web están deshabilitados de forma predeterminada en Azure App Service. Habilitar los registros con los pasos siguientes:
+Los registros del servidor web y de la aplicación están deshabilitados de forma predeterminada en Azure App Service. Siga estos pasos para habilitar los registros:
 
-1. Abra el [portal de Azure](https://portal.azure.com)y navegue hasta la *mywebapp\<unique_number\>*  App Service.
-1. En el menú a la izquierda, desplácese hacia abajo hasta la **supervisión** sección. Seleccione **los registros de diagnóstico**.
+1. Abra [Azure Portal](https://portal.azure.com) y vaya a la instancia de App Service *mywebapp\<número_único\>* .
+1. En el menú de la izquierda, desplácese hacia abajo hasta la sección **Supervisión**. Seleccione **Registros de diagnóstico**.
 
-    ![Vínculo de registros de diagnóstico](./media/monitoring/logging.png)
+    ![Vínculo Registros de diagnóstico](./media/monitoring/logging.png)
 
-1. Activar **registro de la aplicación (Filesystem)** . Si se le solicite, haga clic en el cuadro para instalar las extensiones para habilitar el registro en la aplicación web de aplicación.
-1. Establecer **registro del servidor Web** a **sistema de archivos**.
-1. Escriba el **período de retención** en días. Por ejemplo, 30.
+1. Active **Registro de la aplicación (sistema de archivos)** . Si se le solicita, haga clic en el cuadro para instalar las extensiones para habilitar el registro de la aplicación en la aplicación web.
+1. Establezca **Registro del servidor web** en **Sistema de archivos**.
+1. Escriba el **Período de retención** en días. Por ejemplo, puede ser de 30.
 1. Haga clic en **Guardar**.
 
-Se generan registros de servidor (App Service) de ASP.NET Core y web para la aplicación web. Se pueden descargar mediante la información de FTP o FTPS que aparece. La contraseña es el mismo que las credenciales de implementación que creó anteriormente en esta guía. Los registros pueden ser [transmite directamente a la máquina local con PowerShell o CLI de Azure](/azure/app-service/web-sites-enable-diagnostic-log#download). Los registros también pueden ser [ven en Application Insights](/azure/app-service/web-sites-enable-diagnostic-log#how-to-view-logs-in-application-insights).
+Los registros de ASP.NET Core y del servidor web (App Service) se generan para la aplicación web. Se pueden descargar mediante la información de FTP/FTPS que se muestra. La contraseña es la misma que las credenciales de implementación que se han creado antes en esta guía. Los registros se pueden [transmitir directamente al equipo local con PowerShell o la CLI de Azure](/azure/app-service/web-sites-enable-diagnostic-log#download). Los registros también [se pueden ver en Application Insights](/azure/app-service/web-sites-enable-diagnostic-log#how-to-view-logs-in-application-insights).
 
 ## <a name="log-streaming"></a>Secuencias de registro
 
-Registros de servidor web y de aplicación se pueden transmitir en tiempo real a través del portal.
+Los registros del servidor web y de la aplicación se pueden transmitir en tiempo real a través del portal.
 
-1. Abra el [portal de Azure](https://portal.azure.com)y navegue hasta la *mywebapp\<unique_number\>*  App Service.
-1. En el menú a la izquierda, desplácese hacia abajo hasta la **supervisión** sección y seleccione **secuencia de registro**.
+1. Abra [Azure Portal](https://portal.azure.com) y vaya a la instancia de App Service *mywebapp\<número_único\>* .
+1. En el menú de la izquierda, desplácese hacia abajo hasta la sección **Supervisión** y seleccione **Secuencia de registro**.
 
-    ![Vínculo de la secuencia de registro de captura de pantalla que muestra](./media/monitoring/log-stream.png)
+    ![Captura de pantalla en la que se muestra el vínculo Secuencia de registro](./media/monitoring/log-stream.png)
 
-Los registros también pueden ser [transmite a través de CLI de Azure o Azure PowerShell](/azure/app-service/web-sites-enable-diagnostic-log#streamlogs), incluido a través de Cloud Shell.
+Los registros también se pueden [transmitir a través de la CLI de Azure o Azure PowerShell](/azure/app-service/web-sites-enable-diagnostic-log#streamlogs), incluido Cloud Shell.
 
 ## <a name="alerts"></a>Alertas
 
-Azure Monitor proporciona también [alertas en tiempo real](/azure/monitoring-and-diagnostics/insights-alerts-portal) basadas en métricas, eventos administrativos y otros criterios.
+Azure Monitor también proporciona [alertas en tiempo real](/azure/monitoring-and-diagnostics/insights-alerts-portal) basadas en métricas, eventos administrativos y otros criterios.
 
-> *Nota: Actualmente, las alertas de las métricas de aplicación web solo están disponibles en el servicio de alertas (clásico).*
+> *Nota: Actualmente, las alertas sobre métricas de la aplicación web solo están disponibles en el servicio Alertas (clásico).*
 
-El [alertas (clásico) servicio](/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) puede encontrarse en Azure Monitor o en el **supervisión** sección de la configuración de App Service.
+El [servicio Alertas (clásico)](/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) se puede encontrar en Azure Monitor o en la sección **Supervisión** de la configuración de App Service.
 
-![Vínculo de alertas (clásico)](./media/monitoring/alerts.png)
+![Vínculo Alertas (clásico)](./media/monitoring/alerts.png)
 
-## <a name="live-debugging"></a>Depuración activa
+## <a name="live-debugging"></a>Depuración en directo
 
-Azure App Service puede ser [depurar de manera remota con Visual Studio](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug) cuando los registros no proporcionan suficiente información. Sin embargo, la depuración remota requiere que la aplicación para compilarse con símbolos de depuración. Depuración no debería realizarse en producción, excepto como último recurso.
+Azure App Service se puede [depurar de forma remota con Visual Studio](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio#remotedebug) si los registros no proporcionan información suficiente. Sin embargo, la depuración remota requiere que la aplicación se compile con símbolos de depuración. La depuración no se debe realizar en producción, excepto como último recurso.
 
 ## <a name="conclusion"></a>Conclusión
 
-En esta sección, se completó las tareas siguientes:
+En esta sección ha completado las tareas siguientes:
 
-* Buscar básicas de supervisión y solución de problemas de datos en Azure portal
-* Obtenga información sobre cómo Azure Monitor proporciona una visión más profunda de las métricas en todos los servicios de Azure
-* Conectar la aplicación web con Application Insights para la generación de perfiles de aplicación
-* Activar el registro y obtenga información sobre dónde descargar los registros
-* Stream se registra en tiempo real
-* Obtenga información sobre dónde establecer alertas
-* Obtenga información acerca de Azure App Service web apps depuración remotas.
+* Buscar datos básicos de supervisión y solución de problemas en Azure Portal
+* Obtener información sobre cómo Azure Monitor proporciona una visión más profunda de las métricas en todos los servicios de Azure
+* Conectar la aplicación web con Application Insights para la generación de perfiles de aplicaciones
+* Activar el registro y saber dónde descargar registros
+* Streaming de registros en tiempo real
+* Obtener información sobre dónde configurar alertas
+* Obtener información sobre la depuración remota de aplicaciones web de Azure App Service
 
 ## <a name="additional-reading"></a>Lecturas adicionales
 
 * <xref:test/troubleshoot-azure-iis>
 * <xref:host-and-deploy/azure-iis-errors-reference>
-* [Supervisar el rendimiento de la aplicación web de Azure con Application Insights](/azure/application-insights/app-insights-azure-web-apps)
+* [Supervisión del rendimiento de aplicaciones web de Azure con Application Insights](/azure/application-insights/app-insights-azure-web-apps)
 * [Habilitar el registro de diagnósticos para las aplicaciones web en Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log)
 * [Solución de problemas de una aplicación web en Azure App Service con Visual Studio](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
-* [Creación de alertas de métricas clásicas en Azure Monitor para servicios de Azure - portal de Azure](/azure/monitoring-and-diagnostics/insights-alerts-portal)
+* [Creación de alertas de métricas clásicas en Azure Monitor para servicios de Azure: Azure Portal](/azure/monitoring-and-diagnostics/insights-alerts-portal)

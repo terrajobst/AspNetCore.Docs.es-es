@@ -7,11 +7,11 @@ ms.author: riande
 ms.date: 07/04/2019
 uid: fundamentals/tools/dotnet-aspnet-codegenerator
 ms.openlocfilehash: 1043a578f66d5bb57f4a81e9fe21afa5e3c37cb8
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081509"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78649859"
 ---
 # <a name="dotnet-aspnet-codegenerator"></a>dotnet aspnet-codegenerator
 
@@ -42,7 +42,7 @@ dotnet aspnet-codegenerator [arguments] [-p|--project] [-n|--nuget-package-dir] 
 dotnet aspnet-codegenerator [-h|--help]
 ```
 
-## <a name="description"></a>DESCRIPCIÓN
+## <a name="description"></a>Descripción
 
 El comando `dotnet aspnet-codegenerator` global ejecuta el generador de código de ASP.NET Core y el motor de scaffolding.
 
@@ -121,13 +121,13 @@ El comando anterior genera estas carpetas:
 
 ### <a name="controller-options"></a>Opciones del controlador
 
-En la tabla siguiente se muestran las opciones para `controller` y `razorpage` de `aspnet-codegenerator`:
+En la tabla siguiente se indican las opciones para `aspnet-codegenerator` `controller` y `razorpage`:
 
 [!INCLUDE [aspnet-codegenerator-args-md.md](~/includes/aspnet-codegenerator-args-md.md)]
 
 En la tabla siguiente se muestran las opciones únicas para `aspnet-codegenerator controller`:
 
-| Opción               | DESCRIPCIÓN|
+| Opción               | Descripción|
 | ----------------- | ------------ |
 | --controllerName o -name | El nombre del controlador. |
 | --useAsyncActions o -async | Genera acciones asincrónicas del controlador. |
@@ -170,13 +170,13 @@ Por lo general, no se especifica la plantilla ni el nombre del archivo generado 
 * `Details`
 * `List`
 
-En la tabla siguiente se muestran las opciones para `razorpage` y `controller` de `aspnet-codegenerator`:
+En la tabla siguiente se indican las opciones para `aspnet-codegenerator` `razorpage` y `controller`:
 
 [!INCLUDE [aspnet-codegenerator-args-md.md](~/includes/aspnet-codegenerator-args-md.md)]
 
 En la tabla siguiente se muestran las opciones únicas para `aspnet-codegenerator razorpage`:
 
-| Opción               | DESCRIPCIÓN|
+| Opción               | Descripción|
 | ----------------- | ------------ |
 |   --namespaceName o -namespace | El nombre del espacio de nombres que se usará para la clase PageModel generada. |
 | --partialView o -partial | Genera una vista parcial. Si se especifica, las opciones de diseño -l y -udl se ignoran. |

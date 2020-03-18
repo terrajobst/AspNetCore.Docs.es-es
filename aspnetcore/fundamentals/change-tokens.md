@@ -1,27 +1,25 @@
 ---
 title: Detección de cambios con tokens de cambio en ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Obtenga información sobre cómo usar tokens de cambio para realizar el seguimiento de los cambios.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 10/07/2019
 uid: fundamentals/change-tokens
-ms.openlocfilehash: bb30d7a4c7dc82200821c60a49c314b246562111
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 70451e219f1295b854e2f84aac55f0cfd1786b19
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007214"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78645401"
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Detección de cambios con tokens de cambio en ASP.NET Core
-
-Por [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 Un *token de cambio* es un bloque de creación de bajo nivel y uso general que se usa para realizar el seguimiento de los cambios de estado.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="ichangetoken-interface"></a>Interfaz IChangeToken
 
@@ -115,8 +113,8 @@ El constructor de la clase implementada, `ConfigurationMonitor`, registra una de
 
 `config.GetReloadToken()` proporciona el token. `InvokeChanged` es el método de devolución de llamada. El elemento `state` de esta instancia es una referencia a la instancia de `IConfigurationMonitor` que se usa para tener acceso al estado de supervisión. Se usan dos propiedades:
 
-* `MonitoringEnabled` &ndash; indica si la devolución de llamada debe ejecutar su código personalizado.
-* `CurrentState` &ndash; describe el estado de supervisión actual para su uso en la interfaz de usuario.
+* `MonitoringEnabled` &ndash; Indica si la devolución de llamada debe ejecutar su código personalizado.
+* `CurrentState` &ndash; Describe el estado de supervisión actual para su uso en la interfaz de usuario.
 
 El método `InvokeChanged` es similar al enfoque anterior, excepto en que:
 
@@ -219,7 +217,7 @@ En el token compuesto, `HasChanged` notifica `true` si algún token representado
 
 Un *token de cambio* es un bloque de creación de bajo nivel y uso general que se usa para realizar el seguimiento de los cambios de estado.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="ichangetoken-interface"></a>Interfaz IChangeToken
 
@@ -313,8 +311,8 @@ El constructor de la clase implementada, `ConfigurationMonitor`, registra una de
 
 `config.GetReloadToken()` proporciona el token. `InvokeChanged` es el método de devolución de llamada. El elemento `state` de esta instancia es una referencia a la instancia de `IConfigurationMonitor` que se usa para tener acceso al estado de supervisión. Se usan dos propiedades:
 
-* `MonitoringEnabled` &ndash; indica si la devolución de llamada debe ejecutar su código personalizado.
-* `CurrentState` &ndash; describe el estado de supervisión actual para su uso en la interfaz de usuario.
+* `MonitoringEnabled` &ndash; Indica si la devolución de llamada debe ejecutar su código personalizado.
+* `CurrentState` &ndash; Describe el estado de supervisión actual para su uso en la interfaz de usuario.
 
 El método `InvokeChanged` es similar al enfoque anterior, excepto en que:
 

@@ -1,22 +1,22 @@
 ---
 title: Proveedores de archivo en ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Obtenga información sobre cómo ASP.NET Core abstrae el acceso al sistema de archivos mediante el uso de proveedores de archivos.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: a454ca394546184968222ca2ca44d7159b19a12a
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 34a48bbcf9ffb20bb61f89c80adedc1cc4783988
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944313"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78647051"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Proveedores de archivo en ASP.NET Core
 
-Por [Steve Smith](https://ardalis.com/) y [Luke Latham](https://github.com/guardrex)
+Por [Steve Smith](https://ardalis.com/)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -27,7 +27,7 @@ ASP.NET Core abstrae el acceso al sistema de archivos mediante el uso de proveed
 * [Razor](xref:mvc/views/razor) usa proveedores de archivos para localizar páginas y vistas.
 * Las herramientas de .NET Core usan proveedores de archivos y patrones globales para especificar los archivos que deben publicarse.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="file-provider-interfaces"></a>Interfaces de proveedor de archivos
 
@@ -53,7 +53,7 @@ La aplicación de ejemplo muestra cómo configurar un proveedor de archivos en `
 
 Hay tres implementaciones de `IFileProvider` disponibles.
 
-| Implementación | DESCRIPCIÓN |
+| Implementación | Descripción |
 | -------------- | ----------- |
 | [PhysicalFileProvider](#physicalfileprovider) | El proveedor físico se utiliza para acceder a los archivos físicos del sistema. |
 | [ManifestEmbeddedFileProvider](#manifestembeddedfileprovider) | El proveedor insertado de manifiestos se utiliza para tener acceder a archivos insertados en ensamblados. |
@@ -114,7 +114,7 @@ Las sobrecargas adicionales le permiten:
 * Definir el ámbito de archivos a la fecha de la última modificación.
 * Asignar nombre al recurso incrustado que contiene el manifiesto del archivo incrustado.
 
-| Sobrecarga | DESCRIPCIÓN |
+| Sobrecarga | Descripción |
 | -------- | ----------- |
 | `ManifestEmbeddedFileProvider(Assembly, String)` | Acepta parámetro de ruta de acceso relativa `root` opcional. Especifique `root` para definir el ámbito de las llamadas en <xref:Microsoft.Extensions.FileProviders.IFileProvider.GetDirectoryContents*> en aquellos recursos que se encuentran bajo las rutas de acceso proporcionadas. |
 | `ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)` | Acepta un parámetro de ruta de acceso relativa `root` opcional y un parámetro de fecha `lastModified` (<xref:System.DateTimeOffset>). La fecha `lastModified` define el ámbito de la última fecha de modificación para las instancias de <xref:Microsoft.Extensions.FileProviders.IFileInfo> que <xref:Microsoft.Extensions.FileProviders.IFileProvider> devuelve. |
@@ -132,8 +132,8 @@ En la aplicación de ejemplo, `PhysicalFileProvider` y `ManifestEmbeddedFileProv
 
 El método [IFileProvider.Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*) proporciona un escenario para ver uno o más archivos o directorios para detectar cambios. `Watch` acepta una cadena de ruta de acceso, que puede usar [patrones globales](#glob-patterns) para especificar varios archivos. `Watch` devuelve un valor de <xref:Microsoft.Extensions.Primitives.IChangeToken>. El token de cambio expone:
 
-* <xref:Microsoft.Extensions.Primitives.IChangeToken.HasChanged> &ndash; una propiedad que se puede inspeccionar para determinar si se ha producido un cambio.
-* <xref:Microsoft.Extensions.Primitives.IChangeToken.RegisterChangeCallback*> &ndash; se llama cuando se detectan cambios en la cadena de ruta de acceso especificada. Cada token de cambio solo llama a su devolución de llamada asociada en respuesta a un único cambio. Para habilitar la supervisión constante, puede usar <xref:System.Threading.Tasks.TaskCompletionSource`1> (como se muestra a continuación) o volver a crear instancias de `IChangeToken` en respuesta a los cambios.
+* <xref:Microsoft.Extensions.Primitives.IChangeToken.HasChanged>: una propiedad que se puede inspeccionar para determinar si se ha producido un cambio.
+* <xref:Microsoft.Extensions.Primitives.IChangeToken.RegisterChangeCallback*>: se llama cuando se detectan cambios en la cadena de ruta de acceso especificada. Cada token de cambio solo llama a su devolución de llamada asociada en respuesta a un único cambio. Para habilitar la supervisión constante, puede usar <xref:System.Threading.Tasks.TaskCompletionSource`1> (como se muestra a continuación) o volver a crear instancias de `IChangeToken` en respuesta a los cambios.
 
 En la aplicación de ejemplo, la aplicación de consola *WatchConsole* se configura para mostrar un mensaje cada vez que se modifica un archivo de texto:
 
@@ -176,7 +176,7 @@ ASP.NET Core abstrae el acceso al sistema de archivos mediante el uso de proveed
 * [Razor](xref:mvc/views/razor) usa proveedores de archivos para localizar páginas y vistas.
 * Las herramientas de .NET Core usan proveedores de archivos y patrones globales para especificar los archivos que deben publicarse.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="file-provider-interfaces"></a>Interfaces de proveedor de archivos
 
@@ -202,7 +202,7 @@ La aplicación de ejemplo muestra cómo configurar un proveedor de archivos en `
 
 Hay tres implementaciones de `IFileProvider` disponibles.
 
-| Implementación | DESCRIPCIÓN |
+| Implementación | Descripción |
 | -------------- | ----------- |
 | [PhysicalFileProvider](#physicalfileprovider) | El proveedor físico se utiliza para acceder a los archivos físicos del sistema. |
 | [ManifestEmbeddedFileProvider](#manifestembeddedfileprovider) | El proveedor insertado de manifiestos se utiliza para tener acceder a archivos insertados en ensamblados. |
@@ -261,7 +261,7 @@ Las sobrecargas adicionales le permiten:
 * Definir el ámbito de archivos a la fecha de la última modificación.
 * Asignar nombre al recurso incrustado que contiene el manifiesto del archivo incrustado.
 
-| Sobrecarga | DESCRIPCIÓN |
+| Sobrecarga | Descripción |
 | -------- | ----------- |
 | `ManifestEmbeddedFileProvider(Assembly, String)` | Acepta parámetro de ruta de acceso relativa `root` opcional. Especifique `root` para definir el ámbito de las llamadas en <xref:Microsoft.Extensions.FileProviders.IFileProvider.GetDirectoryContents*> en aquellos recursos que se encuentran bajo las rutas de acceso proporcionadas. |
 | `ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)` | Acepta un parámetro de ruta de acceso relativa `root` opcional y un parámetro de fecha `lastModified` (<xref:System.DateTimeOffset>). La fecha `lastModified` define el ámbito de la última fecha de modificación para las instancias de <xref:Microsoft.Extensions.FileProviders.IFileInfo> que <xref:Microsoft.Extensions.FileProviders.IFileProvider> devuelve. |
@@ -279,8 +279,8 @@ En la aplicación de ejemplo, `PhysicalFileProvider` y `ManifestEmbeddedFileProv
 
 El método [IFileProvider.Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*) proporciona un escenario para ver uno o más archivos o directorios para detectar cambios. `Watch` acepta una cadena de ruta de acceso, que puede usar [patrones globales](#glob-patterns) para especificar varios archivos. `Watch` devuelve un valor de <xref:Microsoft.Extensions.Primitives.IChangeToken>. El token de cambio expone:
 
-* <xref:Microsoft.Extensions.Primitives.IChangeToken.HasChanged> &ndash; una propiedad que se puede inspeccionar para determinar si se ha producido un cambio.
-* <xref:Microsoft.Extensions.Primitives.IChangeToken.RegisterChangeCallback*> &ndash; se llama cuando se detectan cambios en la cadena de ruta de acceso especificada. Cada token de cambio solo llama a su devolución de llamada asociada en respuesta a un único cambio. Para habilitar la supervisión constante, puede usar <xref:System.Threading.Tasks.TaskCompletionSource`1> (como se muestra a continuación) o volver a crear instancias de `IChangeToken` en respuesta a los cambios.
+* <xref:Microsoft.Extensions.Primitives.IChangeToken.HasChanged>: una propiedad que se puede inspeccionar para determinar si se ha producido un cambio.
+* <xref:Microsoft.Extensions.Primitives.IChangeToken.RegisterChangeCallback*>: se llama cuando se detectan cambios en la cadena de ruta de acceso especificada. Cada token de cambio solo llama a su devolución de llamada asociada en respuesta a un único cambio. Para habilitar la supervisión constante, puede usar <xref:System.Threading.Tasks.TaskCompletionSource`1> (como se muestra a continuación) o volver a crear instancias de `IChangeToken` en respuesta a los cambios.
 
 En la aplicación de ejemplo, la aplicación de consola *WatchConsole* se configura para mostrar un mensaje cada vez que se modifica un archivo de texto:
 

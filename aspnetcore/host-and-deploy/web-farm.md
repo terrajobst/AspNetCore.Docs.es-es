@@ -1,22 +1,22 @@
 ---
 title: Hospedaje de ASP.NET Core en una granja de servidores web
-author: guardrex
+author: rick-anderson
 description: Obtenga información sobre cómo hospedar varias instancias de una aplicación ASP.NET Core con recursos compartidos en un entorno de granja de servidores web.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: 5c13e9bc4c514f9b42871d55a430265c8ec2da23
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 316c87e5f49593c05991a94cbe5e55d175a49bb3
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75951817"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78647345"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Hospedaje de ASP.NET Core en una granja de servidores web
 
-Por [Luke Latham](https://github.com/guardrex) y [Chris Ross](https://github.com/Tratcher)
+Por [Chris Ross](https://github.com/Tratcher)
 
 Una *granja de servidores web* es un grupo de dos o más servidores web (o *nodos*) que hospedan varias instancias de una aplicación. Cuando llegan solicitudes de usuarios a una granja de servidores web, un *equilibrador de carga* las distribuye a los nodos de la granja de servidores web. Las granjas de servidores web mejoran lo siguiente:
 
@@ -62,8 +62,8 @@ Los escenarios siguientes no requieren configuración adicional, pero dependen d
 | -------- | ------------------- |
 | Autenticación | Protección de datos (consulte <xref:security/data-protection/configuration/overview>).<br><br>Para obtener más información, vea <xref:security/authentication/cookie> y <xref:security/cookie-sharing>. |
 | identidad | Autenticación y configuración de base de datos.<br><br>Para obtener más información, vea <xref:security/authentication/identity>. |
-| Sesión | Protección de datos (cookies cifradas) (consulte <xref:security/data-protection/configuration/overview>) y almacenamiento en caché (consulte <xref:performance/caching/distributed>).<br><br>Para más información, consulte [Estado de sesión y aplicación: Estado de la sesión](xref:fundamentals/app-state#session-state). |
-| TempData | Protección de datos (cookies cifradas) (consulte <xref:security/data-protection/configuration/overview>) o sesión (consulte [Estado de sesión y aplicación: Estado de la sesión](xref:fundamentals/app-state#session-state)).<br><br>Para más información, consulte [Estado de sesión y aplicación: TempData](xref:fundamentals/app-state#tempdata). |
+| Sesión | Protección de datos (cookies cifradas) (consulte <xref:security/data-protection/configuration/overview>) y almacenamiento en caché (consulte <xref:performance/caching/distributed>).<br><br>Para obtener más información, consulte [Administración del estado y la sesión: Estado de la sesión](xref:fundamentals/app-state#session-state). |
+| TempData | Protección de datos (cookies cifradas; consulte <xref:security/data-protection/configuration/overview>) o sesión (consulte [Administración del estado y la sesión: Estado de la sesión](xref:fundamentals/app-state#session-state)).<br><br>Para obtener más información, consulte [Administración del estado y la sesión: TempData](xref:fundamentals/app-state#tempdata). |
 | Antifalsificación | Protección de datos (consulte <xref:security/data-protection/configuration/overview>).<br><br>Para obtener más información, vea <xref:security/anti-request-forgery>. |
 
 ## <a name="troubleshoot"></a>Solucionar problemas
@@ -93,3 +93,4 @@ Si las aplicaciones de la granja de servidores web son capaces de responder a so
 
 * [Extensión de script personalizada para Windows](/azure/virtual-machines/extensions/custom-script-windows): descarga y ejecuta scripts en máquinas virtuales de Azure, lo que resulta útil para la configuración posterior a la implementación y la instalación de software.
 * <xref:host-and-deploy/proxy-load-balancer>
+ 

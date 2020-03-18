@@ -1,22 +1,22 @@
 ---
 title: Middleware de reescritura de URL en ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Aprenda a reescribir y redireccionar URL con el middleware de reescritura de URL en aplicaciones ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 08/16/2019
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: e284d2172af723bb80a7be9f6e6f1a87ebe5208e
-ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
+ms.openlocfilehash: 7d63cf381f1d8a19ed4fb789348e36f94304ad63
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69886508"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78650477"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware de reescritura de URL en ASP.NET Core
 
-Por [Luke Latham](https://github.com/guardrex) y [Mikael Mengistu](https://github.com/mikaelm12)
+Por [Mikael Mengistu](https://github.com/mikaelm12)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -35,7 +35,7 @@ La reescritura de URL consiste en modificar varias URL de solicitud basadas en u
 > [!NOTE]
 > La reescritura de URL puede reducir el rendimiento de una aplicación. Cuando sea factible, limite el número y la complejidad de las reglas.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="url-redirect-and-url-rewrite"></a>Redireccionamiento y reescritura de URL
 
@@ -65,7 +65,7 @@ Aunque es posible que el cliente pueda recuperar el recurso en la dirección URL
 
 ## <a name="url-rewriting-sample-app"></a>Aplicación de ejemplo de reescritura de URL
 
-Puede explorar las características del middleware de reescritura de URL con la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). La aplicación emplea las reglas de redireccionamiento y reescritura, y muestra la URL redirigida o reescrita para varios escenarios.
+Puede explorar las características del middleware de reescritura de URL con la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). La aplicación emplea las reglas de redireccionamiento y reescritura, y muestra la URL redirigida o reescrita para varios escenarios.
 
 ## <a name="when-to-use-url-rewriting-middleware"></a>Cuándo usar el middleware de reescritura de URL
 
@@ -100,9 +100,9 @@ Establezca las reglas de reescritura y redirección de URL mediante la creación
 
 Hay tres opciones que permiten a la aplicación redirigir solicitudes distintas de `www` a `www`:
 
-* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWwwPermanent*> &ndash; Redirige permanentemente la solicitud al subdominio `www` si la solicitud es distinta de `www`. Se redirige con un código de estado [Status308PermanentRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status308PermanentRedirect).
+* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWwwPermanent*>: redirige permanentemente la solicitud al subdominio `www` si la solicitud es distinta de `www`. Se redirige con un código de estado [Status308PermanentRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status308PermanentRedirect).
 
-* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWww*> &ndash; Redirige la solicitud al subdominio `www` si la solicitud de entrada es distinta de `www`. Se redirige con un código de estado [Status307TemporaryRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status307TemporaryRedirect). Una sobrecarga permite proporcionar el código de estado para la respuesta. Use un campo de la clase <xref:Microsoft.AspNetCore.Http.StatusCodes> para una asignación de código de estado.
+* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWww*>: redirige la solicitud al subdominio `www` si la solicitud de entrada es distinta de `www`. Se redirige con un código de estado [Status307TemporaryRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status307TemporaryRedirect). Una sobrecarga permite proporcionar el código de estado para la respuesta. Use un campo de la clase <xref:Microsoft.AspNetCore.Http.StatusCodes> para una asignación de código de estado.
 
 ### <a name="url-redirect"></a>Redirección de URL
 
@@ -387,7 +387,7 @@ La reescritura de URL consiste en modificar varias URL de solicitud basadas en u
 > [!NOTE]
 > La reescritura de URL puede reducir el rendimiento de una aplicación. Cuando sea factible, limite el número y la complejidad de las reglas.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="url-redirect-and-url-rewrite"></a>Redireccionamiento y reescritura de URL
 
@@ -417,7 +417,7 @@ Aunque es posible que el cliente pueda recuperar el recurso en la dirección URL
 
 ## <a name="url-rewriting-sample-app"></a>Aplicación de ejemplo de reescritura de URL
 
-Puede explorar las características del middleware de reescritura de URL con la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). La aplicación emplea las reglas de redireccionamiento y reescritura, y muestra la URL redirigida o reescrita para varios escenarios.
+Puede explorar las características del middleware de reescritura de URL con la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). La aplicación emplea las reglas de redireccionamiento y reescritura, y muestra la URL redirigida o reescrita para varios escenarios.
 
 ## <a name="when-to-use-url-rewriting-middleware"></a>Cuándo usar el middleware de reescritura de URL
 
@@ -454,9 +454,9 @@ Establezca las reglas de reescritura y redirección de URL mediante la creación
 
 Hay tres opciones que permiten a la aplicación redirigir solicitudes distintas de `www` a `www`:
 
-* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWwwPermanent*> &ndash; Redirige permanentemente la solicitud al subdominio `www` si la solicitud es distinta de `www`. Se redirige con un código de estado [Status308PermanentRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status308PermanentRedirect).
+* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWwwPermanent*>: redirige permanentemente la solicitud al subdominio `www` si la solicitud es distinta de `www`. Se redirige con un código de estado [Status308PermanentRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status308PermanentRedirect).
 
-* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWww*> &ndash; Redirige la solicitud al subdominio `www` si la solicitud de entrada es distinta de `www`. Se redirige con un código de estado [Status307TemporaryRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status307TemporaryRedirect). Una sobrecarga permite proporcionar el código de estado para la respuesta. Use un campo de la clase <xref:Microsoft.AspNetCore.Http.StatusCodes> para una asignación de código de estado.
+* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWww*>: redirige la solicitud al subdominio `www` si la solicitud de entrada es distinta de `www`. Se redirige con un código de estado [Status307TemporaryRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status307TemporaryRedirect). Una sobrecarga permite proporcionar el código de estado para la respuesta. Use un campo de la clase <xref:Microsoft.AspNetCore.Http.StatusCodes> para una asignación de código de estado.
 
 ### <a name="url-redirect"></a>Redirección de URL
 

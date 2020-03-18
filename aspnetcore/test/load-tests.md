@@ -1,48 +1,48 @@
 ---
-title: Pruebas de carga y esfuerzo de ASP.NET Core
+title: Pruebas de carga y de esfuerzo de ASP.NET Core
 author: Jeremy-Meng
-description: Obtenga información acerca de varias herramientas y enfoques importantes para las pruebas de carga y las pruebas de esfuerzo ASP.NET Core aplicaciones.
+description: Obtenga información sobre varias destacables herramientas y enfoques para realizar pruebas de carga y de esfuerzo en aplicaciones ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
 ms.date: 4/05/2019
 uid: test/loadtests
 ms.openlocfilehash: 1fd77a767fb53b9276081dd712e13108094a0382
-ms.sourcegitcommit: cb6015f737b6a93127016ab0f21b58e34b624ff3
-ms.translationtype: MT
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77004297"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78649643"
 ---
-# <a name="aspnet-core-loadstress-testing"></a>Pruebas de carga y esfuerzo de ASP.NET Core
+# <a name="aspnet-core-loadstress-testing"></a>Pruebas de carga y de esfuerzo de ASP.NET Core
 
-Las pruebas de carga y las pruebas de esfuerzo son importantes para asegurarse de que una aplicación web es eficaz y escalable. Sus objetivos son diferentes, aunque a menudo compartan pruebas similares.
+Las pruebas de carga y las de esfuerzo son importantes para garantizar que una aplicación web es eficaz y escalable. Sus objetivos son diferentes, aunque con frecuencia comparten pruebas similares.
 
-**Pruebas de carga** &ndash; comprobar si la aplicación puede controlar una carga específica de usuarios para un escenario determinado mientras sigue cumpliendo el objetivo de respuesta. La aplicación se ejecuta en condiciones normales.
+**Pruebas de carga** &ndash; Prueban si la aplicación puede controlar una determinada carga de usuarios para un escenario concreto y, a la vez, satisfacer el objetivo de respuesta. La aplicación se ejecuta en condiciones normales.
 
-Las **pruebas de esfuerzo** &ndash; la estabilidad de la aplicación de prueba cuando se ejecutan en condiciones extremas, a menudo durante un largo período de tiempo. Las pruebas colocan una carga elevada de usuarios, picos o aumento gradualmente de carga, en la aplicación o limitan los recursos informáticos de la aplicación.
+**Pruebas de esfuerzo** &ndash; Prueban la estabilidad de la aplicación al ejecutarse en condiciones extremas, a menudo durante un largo período de tiempo. Las pruebas colocan en la aplicación una gran carga de usuarios, ya sea picos o una carga que aumenta gradualmente, o limitan los recursos informáticos de la aplicación.
 
-Las pruebas de esfuerzo determinan si una aplicación con estrés puede recuperarse de un error y volver correctamente al comportamiento esperado. En stress, la aplicación no se ejecuta en condiciones normales.
+Las pruebas de esfuerzo determinan si una aplicación sometida a un esfuerzo puede recuperarse de un error y volver correctamente al comportamiento esperado. Bajo esfuerzo, la aplicación no se ejecuta en condiciones normales.
 
-Visual Studio 2019 es la última versión de Visual Studio con características de prueba de carga. Para los clientes que requieren herramientas de prueba de carga en el futuro, se recomienda usar herramientas alternativas, como Apache JMeter, Akamai CloudTest y BlazeMeter. Para obtener más información, vea las notas de la [versión de Visual Studio 2019](/visualstudio/releases/2019/release-notes-v16.0#test-tools).
+Visual Studio 2019 es la última versión de Visual Studio con características de pruebas de carga. Se recomienda a aquellos clientes que necesiten herramientas de prueba de carga en el futuro usar herramientas alternativas, como Apache JMeter, Akamai CloudTest y BlazeMeter. Para obtener más información, vea [Notas de la versión de Visual Studio 2019](/visualstudio/releases/2019/release-notes-v16.0#test-tools).
 
-## <a name="visual-studio-tools"></a>Visual Studio Tools
+## <a name="visual-studio-tools"></a>Visual Studio Tools
 
-Visual Studio permite a los usuarios crear, desarrollar y depurar pruebas de carga y rendimiento web. Hay disponible una opción para crear pruebas grabando acciones en un explorador Web.
+Visual Studio permite a los usuarios crear, desarrollar y depurar pruebas de carga y de rendimiento web. Hay una opción disponible para crear pruebas mediante la grabación de acciones en un explorador web.
 
-Para obtener información sobre cómo crear, configurar y ejecutar proyectos de prueba de carga con Visual Studio 2017, vea [Inicio rápido: crear un proyecto de prueba de carga](/visualstudio/test/quickstart-create-a-load-test-project?view=vs-2017).
+Para obtener información sobre cómo crear, configurar y ejecutar proyectos de prueba de carga con Visual Studio 2017, vea [Inicio rápido: Creación de un proyecto de prueba de carga](/visualstudio/test/quickstart-create-a-load-test-project?view=vs-2017).
 
-Las pruebas de carga se pueden configurar para ejecutarse de forma local o ejecutarse en la nube con Azure DevOps.
+Las pruebas de carga se pueden configurar de modo que se ejecuten en local o en la nube con Azure DevOps.
 
 ## <a name="third-party-tools"></a>Herramientas de terceros
 
-La lista siguiente contiene herramientas de rendimiento web de terceros con varios conjuntos de características:
+La lista siguiente contiene herramientas de rendimiento web de terceros con diversos conjuntos de características:
 
 * [Apache JMeter](https://jmeter.apache.org/)
-* [ApacheBench (AB)](https://httpd.apache.org/docs/2.4/programs/ab.html)
+* [ApacheBench (ab)](https://httpd.apache.org/docs/2.4/programs/ab.html)
 * [Gatling](https://gatling.io/)
-* [K6](https://k6.io)
+* [k6](https://k6.io)
 * [Locust](https://locust.io/)
-* [Webpico de viento occidental](https://websurge.west-wind.com/)
+* [West Wind WebSurge](https://websurge.west-wind.com/)
 * [Netling](https://github.com/hallatore/Netling)
 * [Vegeta](https://github.com/tsenart/vegeta)
 

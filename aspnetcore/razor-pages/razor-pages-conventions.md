@@ -1,22 +1,20 @@
 ---
 title: Convenciones de aplicación y de ruta de páginas de Razor en ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Vea cómo las convenciones de proveedor de modelos de aplicación y de ruta sirven para controlar el enrutamiento, la detección y el procesamiento de páginas.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: d8377c0a0b8a29fe4b6a7fa67beeff84927c8b74
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
-ms.translationtype: MT
+ms.openlocfilehash: f45e327051aba54d1cab67148eb540fb1a5cc149
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114775"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78651113"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Convenciones de aplicación y de ruta de páginas de Razor en ASP.NET Core
-
-Por [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -24,11 +22,11 @@ Aquí encontrará información para saber cómo usar las [convenciones de provee
 
 Si necesita configurar rutas de una página personalizadas para páginas concretas, configure el enrutamiento a esas páginas con la [convención AddPageRoute](#configure-a-page-route), descrita más adelante en este tema.
 
-Para especificar una ruta de página, agregar segmentos de ruta o agregar parámetros a una ruta, use la Directiva de `@page` de la página. Para obtener más información, vea [rutas personalizadas](xref:razor-pages/index#custom-routes).
+Para especificar una ruta de página, agregar segmentos de ruta o agregar parámetros a una ruta, use la directiva de página `@page`. Para obtener más información, consulte [Rutas personalizadas](xref:razor-pages/index#custom-routes).
 
-Hay palabras reservadas que no se pueden usar como segmentos de ruta o nombres de parámetro. Para obtener más información, vea [Routing: Reserved Routing names](xref:fundamentals/routing#reserved-routing-names).
+Hay ciertas palabras reservadas que no se pueden usar como segmentos de ruta o nombres de parámetro. Para obtener más información, vea [Enrutamiento: Nombres de enrutamientos reservados](xref:fundamentals/routing#reserved-routing-names).
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 | Escenario | El ejemplo explica cómo... |
 | -------- | --------------------------- |
@@ -36,7 +34,7 @@ Hay palabras reservadas que no se pueden usar como segmentos de ruta o nombres d
 | [Convenciones de acción de ruta de página](#page-route-action-conventions)<ul><li>AddFolderRouteModelConvention</li><li>AddPageRouteModelConvention</li><li>AddPageRoute</li></ul> | Agregar una plantilla de ruta a las páginas de una carpeta y a una sola página. |
 | [Convenciones de acción del modelo de página](#page-model-action-conventions)<ul><li>AddFolderApplicationModelConvention</li><li>AddPageApplicationModelConvention</li><li>ConfigureFilter (clase de filtro, expresión lambda o fábrica de filtros)</li></ul> | Agregar un encabezado a las páginas de una carpeta, agregar un encabezado a una sola página y configurar una [fábrica de filtros](xref:mvc/controllers/filters#ifilterfactory) para agregar un encabezado a las páginas de la aplicación. |
 
-Las convenciones de Razor Pages se agregan y configuran mediante el método de extensión <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*> en la colección de servicios de la clase `Startup`. Más avanzado el tema veremos los siguientes ejemplos de convención:
+Las convenciones de Razor Pages se agregan y configuran a través del método de extensión <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> a <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*> en la colección de servicios de la clase `Startup`. Más avanzado el tema veremos los siguientes ejemplos de convención:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -61,33 +59,33 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## <a name="route-order"></a>Orden de ruta
+## <a name="route-order"></a>Ordenación de la ruta
 
-Las rutas especifican un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> para su procesamiento (coincidencia de rutas).
+Las rutas especifican un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> para su procesamiento (una coincidencia de rutas).
 
-| Pedido de            | Comportamiento |
+| Ordenar            | Comportamiento |
 | :--------------: | -------- |
 | -1               | La ruta se procesa antes de que se procesen otras rutas. |
-| 0                | No se ha especificado el orden (valor predeterminado). Si no se asigna `Order` (`Order = null`), el valor predeterminado de la ruta `Order` en 0 (cero) para su procesamiento. |
-| 1,2 &hellip; n | Especifica el orden de procesamiento de la ruta. |
+| 0                | No se ha especificado ningún orden (valor predeterminado). Si no se asigna un valor `Order` (`Order = null`), el valor `Order` predeterminado de la ruta para su procesamiento es 0 (cero). |
+| 1, 2, &hellip; n | Especifica el orden de procesamiento de la ruta. |
 
-El procesamiento de rutas se establece por Convención:
+El procesamiento de rutas se establece por convención:
 
-* Las rutas se procesan en orden secuencial (-1, 0, 1, 2, &hellip; n).
-* Cuando las rutas tienen el mismo `Order`, la ruta más específica se compara primero seguida por rutas menos específicas.
-* Cuando las rutas con el mismo `Order` y el mismo número de parámetros coinciden con una dirección URL de solicitud, las rutas se procesan en el orden en que se agregan a la <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection>.
+* Las rutas se procesan en orden secuencial (-1, 0, 1, 2&hellip; n).
+* Cuando las rutas tienen el mismo orden (`Order`), primero se asigna la ruta más específica y, después, las rutas menos específicas.
+* Cuando varias rutas con el mismo orden (`Order`) y el mismo número de parámetros coinciden con una URL de solicitud, se procesan en el orden en que se han agregado a la clase <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection>.
 
-Si es posible, evite depender de un orden de procesamiento de rutas establecido. Por lo general, el enrutamiento selecciona la ruta correcta con coincidencia de dirección URL. Si tiene que establecer las propiedades de ruta `Order` para enrutar las solicitudes correctamente, es probable que el esquema de enrutamiento de la aplicación sea confuso para los clientes y que el mantenimiento sea frágil. Busque para simplificar el esquema de enrutamiento de la aplicación. La aplicación de ejemplo requiere un orden de procesamiento de rutas explícito para mostrar varios escenarios de enrutamiento con una sola aplicación. Sin embargo, debe intentar evitar la práctica de configurar `Order` de enrutamiento en aplicaciones de producción.
+Si es posible, evite depender de un orden de procesamiento de rutas establecido. Por lo general, el enrutamiento selecciona la ruta correcta con la coincidencia de dirección URL. Si tiene que establecer propiedades de orden (`Order`) de las rutas para enrutar las solicitudes correctamente, es probable que el esquema de enrutamiento de la aplicación resulte confuso para los clientes y cueste mantenerlo. Trate de simplificar el esquema de enrutamiento de la aplicación. La aplicación de ejemplo requiere un orden de procesamiento de rutas explícito para mostrar varios escenarios de enrutamiento con una sola aplicación. Sin embargo, intente evitar configurar un orden (`Order`) de enrutamiento en aplicaciones de producción.
 
-El enrutamiento del controlador de MVC y el enrutamiento de Razor Pages comparten una implementación. La información sobre el orden de las rutas en los temas de MVC está disponible en [enrutamiento a las acciones del controlador: ordenación de rutas de atributo](xref:mvc/controllers/routing#ordering-attribute-routes).
+El enrutamiento del controlador de MVC y el enrutamiento de Razor Pages comparten una implementación. Puede encontrar más información sobre el orden de las rutas y MVC en el artículo [Enrutamiento a acciones de controlador: Ordenación de rutas de atributo](xref:mvc/controllers/routing#ordering-attribute-routes).
 
 ## <a name="model-conventions"></a>Convenciones de modelo
 
-Agregue un delegado para <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> para agregar [convenciones de modelo](xref:mvc/controllers/application-model#conventions) que se aplican a Razor pages.
+Agregue un delegado de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> con el fin de agregar [convenciones de modelo](xref:mvc/controllers/application-model#conventions) y aplicarlas a Razor Pages.
 
-### <a name="add-a-route-model-convention-to-all-pages"></a>Agregar una Convención de modelo de ruta a todas las páginas
+### <a name="add-a-route-model-convention-to-all-pages"></a>Adición de una convención de modelo de ruta a todas las páginas
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> a la colección de instancias de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se aplican durante la construcción del modelo de ruta de página.
+Use <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> a la colección de instancias <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se van a aplicar durante la construcción del modelo de ruta de página.
 
 En la aplicación de ejemplo se agrega una plantilla de ruta `{globalTemplate?}` a todas las páginas de la aplicación:
 
@@ -95,13 +93,13 @@ En la aplicación de ejemplo se agrega una plantilla de ruta `{globalTemplate?}`
 
 La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `1`. Esto garantiza el siguiente comportamiento de coincidencia de rutas en la aplicación de ejemplo:
 
-* Más adelante en el tema se agrega una plantilla de ruta para `TheContactPage/{text?}`. La ruta de la página de contacto tiene un orden predeterminado de `null` (`Order = 0`), por lo que coincide antes de la plantilla de ruta `{globalTemplate?}`.
-* Más adelante en el tema se agrega una plantilla de ruta de `{aboutTemplate?}`. La plantilla `{aboutTemplate?}` tiene un `Order` con un valor de `2`. Cuando la página About se solicita en `/About/RouteDataValue`, "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["aboutTemplate"]` (`Order = 2`), debido a la configuración de la propiedad `Order`.
-* Más adelante en el tema se agrega una plantilla de ruta de `{otherPagesTemplate?}`. La plantilla `{otherPagesTemplate?}` tiene un `Order` con un valor de `2`. Cuando se solicita una página de la carpeta *pages/OtherPages* con un parámetro de ruta (por ejemplo, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) debido al establecimiento de la propiedad `Order`.
+* Más adelante en este mismo tema se incluye una plantilla de ruta para `TheContactPage/{text?}`. La ruta de la página Contact tiene un orden predeterminado de `null` (`Order = 0`), por lo que coincide antes de la plantilla de ruta `{globalTemplate?}`.
+* Más adelante en este mismo tema se incluye una plantilla de ruta `{aboutTemplate?}`. La plantilla `{aboutTemplate?}` tiene un `Order` con un valor de `2`. Cuando la página About se solicita en `/About/RouteDataValue`, "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["aboutTemplate"]` (`Order = 2`), debido a la configuración de la propiedad `Order`.
+* Más adelante en este mismo tema se incluye una plantilla de ruta `{otherPagesTemplate?}`. La plantilla `{otherPagesTemplate?}` tiene un `Order` con un valor de `2`. Cuando se solicita una página de la carpeta *Pages/OtherPages* con un parámetro de ruta (por ejemplo, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no en `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) debido a la configuración de la propiedad `Order`.
 
-Siempre que sea posible, no establezca el `Order`, lo que resulta en `Order = 0`. Confíe en el enrutamiento para seleccionar la ruta correcta.
+Siempre que sea posible, no especifique el valor de `Order`, lo que da como resultado `Order = 0`. Deje que el enrutamiento seleccione la ruta correcta.
 
-Razor Pages opciones, como agregar <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, se agregan cuando MVC se agrega a la colección de servicios en `Startup.ConfigureServices`. Para obtener un ejemplo, vea la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+Las opciones de Razor Pages (por ejemplo, agregar <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>) se agregan cuando MVC se incluye en la colección de servicios en `Startup.ConfigureServices`. Para obtener un ejemplo, vea la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
 
 [!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet1)]
 
@@ -109,9 +107,9 @@ Solicite la página About del ejemplo en `localhost:5000/About/GlobalRouteValue`
 
 ![La página About se solicita con un segmento de ruta de GlobalRouteValue. La página presentada refleja que el valor de datos de ruta se captura en el método OnGet de la página.](razor-pages-conventions/_static/about-page-global-template.png)
 
-### <a name="add-an-app-model-convention-to-all-pages"></a>Agregar una Convención de modelo de aplicación a todas las páginas
+### <a name="add-an-app-model-convention-to-all-pages"></a>Adición de una convención de modelo de aplicación a todas las páginas
 
-Use <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> a la colección de instancias de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se aplican durante la construcción del modelo de aplicación de página.
+Use <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> a la colección de instancias <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se van a aplicar durante la construcción del modelo de aplicación de página.
 
 Para demostrar esta y otras convenciones más adelante en este tema, la aplicación de ejemplo incluye una clase `AddHeaderAttribute`. El constructor de esta clase acepta una cadena `name` y una matriz de cadenas `values`. Estos valores se usan en su método `OnResultExecuting` para establecer un encabezado de respuesta. La clase completa se muestra en la sección [Convenciones de acción del modelo de página](#page-model-action-conventions) más adelante en este tema.
 
@@ -127,9 +125,9 @@ Solicite la página About del ejemplo en `localhost:5000/About` y revise los enc
 
 ![Los encabezados de respuesta de la página About ponen de manifiesto que GlobalHeader se ha agregado.](razor-pages-conventions/_static/about-page-global-header.png)
 
-### <a name="add-a-handler-model-convention-to-all-pages"></a>Agregar una Convención de modelo de controlador a todas las páginas
+### <a name="add-a-handler-model-convention-to-all-pages"></a>Adición de una convención de modelo de controlador a todas las páginas
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageHandlerModelConvention> a la colección de instancias de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se aplican durante la construcción del modelo de controlador de páginas.
+Use <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageHandlerModelConvention> a la colección de instancias <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se van a aplicar durante la construcción del modelo de controlador de página.
 
 [!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Conventions/GlobalPageHandlerModelConvention.cs?name=snippet1)]
 
@@ -139,19 +137,19 @@ Utilice <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>
 
 ## <a name="page-route-action-conventions"></a>Convenciones de acción de ruta de página
 
-El proveedor de modelos de ruta predeterminado que deriva de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelProvider> invoca convenciones que están diseñadas para proporcionar puntos de extensibilidad para configurar rutas de página.
+El proveedor de modelos de ruta predeterminado que se deriva de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelProvider> invoca convenciones diseñadas para proporcionar puntos de extensibilidad que permitan configurar rutas de página.
 
 ### <a name="folder-route-model-convention"></a>Convención de modelo de ruta de carpeta
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> que invoca una acción en el <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> para todas las páginas de la carpeta especificada.
+Use <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> que invoca una acción en <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> para todas las páginas de la carpeta especificada.
 
 En la aplicación de ejemplo se usa <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> para agregar una plantilla de ruta `{otherPagesTemplate?}` a las páginas de la carpeta *OtherPages*:
 
 [!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet3)]
 
-La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `2`. Esto garantiza que la plantilla para `{globalTemplate?}` (establecida anteriormente en el tema para `1`) tiene prioridad para la primera posición de valor de datos de ruta cuando se proporciona un valor de ruta único. Si se solicita una página de la carpeta *pages/OtherPages* con un valor de parámetro de ruta (por ejemplo, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) debido al establecimiento de la propiedad `Order`.
+La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `2`. Esto garantiza que la plantilla `{globalTemplate?}` (establecida en `1` anteriormente en este tema) tiene prioridad para colocarse en la primera posición de valor de datos de ruta cuando se proporcione un solo valor de ruta. Si se solicita una página de la carpeta *Pages/OtherPages* con un valor de parámetro de ruta (por ejemplo, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no en `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) debido a la configuración de la propiedad `Order`.
 
-Siempre que sea posible, no establezca el `Order`, lo que resulta en `Order = 0`. Confíe en el enrutamiento para seleccionar la ruta correcta.
+Siempre que sea posible, no especifique el valor de `Order`, lo que da como resultado `Order = 0`. Deje que el enrutamiento seleccione la ruta correcta.
 
 Solicite la página Page1 del ejemplo en `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` y revise el resultado:
 
@@ -159,29 +157,29 @@ Solicite la página Page1 del ejemplo en `localhost:5000/OtherPages/Page1/Global
 
 ### <a name="page-route-model-convention"></a>Convención de modelo de ruta de página
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageRouteModelConvention*> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> que invoca una acción en el <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> de la página con el nombre especificado.
+Use <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageRouteModelConvention*> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> que invoca una acción en <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> para la página con el nombre especificado.
 
 En la aplicación de ejemplo se usa `AddPageRouteModelConvention` para agregar una plantilla de ruta `{aboutTemplate?}` a la página About:
 
 [!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet4)]
 
-La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `2`. Esto garantiza que la plantilla para `{globalTemplate?}` (establecida anteriormente en el tema para `1`) tiene prioridad para la primera posición de valor de datos de ruta cuando se proporciona un valor de ruta único. Si la página about se solicita con un valor de parámetro de ruta en `/About/RouteDataValue`, "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["aboutTemplate"]` (`Order = 2`) debido al establecimiento de la propiedad `Order`.
+La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `2`. Esto garantiza que la plantilla `{globalTemplate?}` (establecida en `1` anteriormente en este tema) tiene prioridad para colocarse en la primera posición de valor de datos de ruta cuando se proporcione un solo valor de ruta. Si se solicita la página About con un valor de parámetro de ruta en `/About/RouteDataValue`, "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no en `RouteData.Values["aboutTemplate"]` (`Order = 2`), debido a la configuración de la propiedad `Order`.
 
-Siempre que sea posible, no establezca el `Order`, lo que resulta en `Order = 0`. Confíe en el enrutamiento para seleccionar la ruta correcta.
+Siempre que sea posible, no especifique el valor de `Order`, lo que da como resultado `Order = 0`. Deje que el enrutamiento seleccione la ruta correcta.
 
 Solicite la página About del ejemplo en `localhost:5000/About/GlobalRouteValue/AboutRouteValue` y revise el resultado:
 
 ![La página About se solicita con los segmentos de ruta de GlobalRouteValue y AboutRouteValue. La página presentada refleja que los valores de datos de ruta se capturan en el método OnGet de la página.](razor-pages-conventions/_static/about-page-global-and-about-templates.png)
 
-## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>Usar un transformador de parámetros para personalizar las rutas de página
+## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>Uso de transformadores de parámetros para personalizar rutas de página
 
-Las rutas de página generadas por ASP.NET Core pueden personalizarse mediante un transformador de parámetros. Un transformador de parámetro implementa `IOutboundParameterTransformer` y transforma el valor de parámetros. Por ejemplo, un transformador de parámetros `SlugifyParameterTransformer` personalizado cambia el valor de ruta `SubscriptionManagement` a `subscription-management`.
+Las rutas de página generadas por ASP.NET Core se pueden personalizar mediante el uso de un transformador de parámetros. Un transformador de parámetro implementa `IOutboundParameterTransformer` y transforma el valor de parámetros. Por ejemplo, un transformador de parámetros `SlugifyParameterTransformer` personalizado cambia el valor de ruta `SubscriptionManagement` a `subscription-management`.
 
-La Convención del modelo de ruta de página `PageRouteTransformerConvention` aplica un transformador de parámetros a los segmentos de nombre de archivo y carpeta de las rutas de página generadas automáticamente en una aplicación. Por ejemplo, el archivo Razor Pages en */pages/SubscriptionManagement/ViewAll.cshtml* tendría que volver a escribir su ruta de `/SubscriptionManagement/ViewAll` a `/subscription-management/view-all`.
+La convención de modelo de ruta de página `PageRouteTransformerConvention` aplica un transformador de parámetros a los segmentos de nombre de archivo y carpeta de las rutas de página generadas automáticamente en una aplicación. Por ejemplo, para el archivo Razor Pages en */Pages/SubscriptionManagement/ViewAll.cshtml*, su ruta cambiaría de `/SubscriptionManagement/ViewAll` a `/subscription-management/view-all`.
 
-`PageRouteTransformerConvention` solo transforma los segmentos generados automáticamente de una ruta de página que proceden de la carpeta Razor Pages y el nombre de archivo. No transforma segmentos de ruta agregados con la Directiva `@page`. La Convención tampoco transforma las rutas agregadas por <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*>.
+`PageRouteTransformerConvention` solo transforma los segmentos de una ruta de página generados automáticamente que proceden de la carpeta y del archivo llamados Razor Pages. No transforma segmentos de ruta agregados con la directiva `@page`. Esta convención tampoco transforma las rutas agregadas por <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*>.
 
-El `PageRouteTransformerConvention` se registra como una opción en `Startup.ConfigureServices`:
+La convención `PageRouteTransformerConvention` está registrada como una opción en `Startup.ConfigureServices`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -209,7 +207,7 @@ public class SlugifyParameterTransformer : IOutboundParameterTransformer
 
 ## <a name="configure-a-page-route"></a>Configurar una ruta de página
 
-Use <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*> para configurar una ruta a una página en la ruta de acceso de la página especificada. Los vínculos generados que apuntan a esa página usan la ruta especificada. `AddPageRoute` usa `AddPageRouteModelConvention` para establecer la ruta.
+Use <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*> para configurar una ruta a una página en la ruta de acceso de página especificada. Los vínculos generados que apuntan a esa página usan la ruta especificada. `AddPageRoute` usa `AddPageRouteModelConvention` para establecer la ruta.
 
 En la aplicación de ejemplo se crea una ruta a `/TheContactPage` para *Contact.cshtml*:
 
@@ -233,9 +231,9 @@ Visite la página Contact a través de su ruta normal, `/Contact`, o de la ruta 
 
 ## <a name="page-model-action-conventions"></a>Convenciones de acción del modelo de página
 
-El proveedor de modelos de página predeterminado que implementa <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelProvider> invoca convenciones que están diseñadas para proporcionar puntos de extensibilidad para la configuración de modelos de página. Estas convenciones son útiles al crear y modificar escenarios de detección y procesamiento de páginas.
+El proveedor de modelos de página predeterminado que implementa <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelProvider> invoca convenciones que están diseñadas para proporcionar puntos de extensibilidad que permitan configurar modelos de página. Estas convenciones son útiles al crear y modificar escenarios de detección y procesamiento de páginas.
 
-En los ejemplos de esta sección, la aplicación de ejemplo usa una clase `AddHeaderAttribute`, que es una <xref:Microsoft.AspNetCore.Mvc.Filters.ResultFilterAttribute>, que aplica un encabezado de respuesta:
+En los ejemplos de esta sección, la aplicación de ejemplo usa una clase `AddHeaderAttribute` (la cual es un atributo <xref:Microsoft.AspNetCore.Mvc.Filters.ResultFilterAttribute>) que aplica un encabezado de respuesta:
 
 [!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Filters/AddHeader.cs?name=snippet1)]
 
@@ -243,7 +241,7 @@ Si empleamos convenciones, el ejemplo indica cómo aplicar el atributo a todas l
 
 **Convención de modelo de aplicación de carpeta**
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderApplicationModelConvention*> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> que invoca una acción en <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> instancias de para todas las páginas de la carpeta especificada.
+Use <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderApplicationModelConvention*> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> que invoca una acción en las instancias <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> para todas las páginas de la carpeta especificada.
 
 En el ejemplo se demuestra el uso de `AddFolderApplicationModelConvention` agregando un encabezado (`OtherPagesHeader`) a las páginas de la carpeta *OtherPages* de la aplicación:
 
@@ -255,7 +253,7 @@ Solicite la página Page1 del ejemplo en `localhost:5000/OtherPages/Page1` y rev
 
 **Convención de modelo de aplicación de página**
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageApplicationModelConvention*> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> que invoca una acción en el <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> de la página con el nombre especificado.
+Use <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageApplicationModelConvention*> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> que invoca una acción en <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> para la página con el nombre especificado.
 
 En el ejemplo se demuestra el uso de `AddPageApplicationModelConvention` agregando un encabezado (`AboutHeader`) a la página About:
 
@@ -267,13 +265,13 @@ Solicite la página About del ejemplo en `localhost:5000/About` y revise los enc
 
 **Configurar un filtro**
 
-<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> configura el filtro especificado que se va a aplicar. Se puede implementar una clase de filtro, pero en la aplicación de ejemplo se muestra cómo implementar un filtro en una expresión lambda, cosa que sucede en segundo plano como una fábrica que devuelve un filtro:
+<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> permite configurar el filtro que se quiere aplicar. Se puede implementar una clase de filtro, pero en la aplicación de ejemplo se muestra cómo implementar un filtro en una expresión lambda, cosa que sucede en segundo plano como una fábrica que devuelve un filtro:
 
 [!code-csharp[](razor-pages-conventions/samples/3.x/SampleApp/Startup.cs?name=snippet8)]
 
 El modelo de páginas de aplicación se usa para comprobar la ruta de acceso relativa de los segmentos que conducen a la página Page2 en la carpeta *OtherPages*. Si la condición se supera, se agrega un encabezado. Si no, se aplica `EmptyFilter`.
 
-`EmptyFilter` es un [filtro de acciones](xref:mvc/controllers/filters#action-filters). Dado que Razor Pages omite los filtros de acción, el `EmptyFilter` no tiene ningún efecto según lo previsto si la ruta de acceso no contiene `OtherPages/Page2`.
+`EmptyFilter` es un [filtro de acciones](xref:mvc/controllers/filters#action-filters). Razor Pages pasa por alto los filtros de acción, por lo que `EmptyFilter` no funciona del modo previsto si la ruta de acceso no contiene `OtherPages/Page2`.
 
 Solicite la página Page2 del ejemplo en `localhost:5000/OtherPages/Page2` y revise los encabezados para ver el resultado:
 
@@ -281,7 +279,7 @@ Solicite la página Page2 del ejemplo en `localhost:5000/OtherPages/Page2` y rev
 
 **Configurar una fábrica de filtros**
 
-<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> configura el generador especificado para aplicar [filtros](xref:mvc/controllers/filters) a todos los Razor pages.
+<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> configura la fábrica especificada para aplicar [filtros](xref:mvc/controllers/filters) a todo Razor Pages.
 
 En la aplicación de ejemplo se proporciona un ejemplo del uso de una [fábrica de filtros](xref:mvc/controllers/filters#ifilterfactory), para lo cual se agrega un encabezado (`FilterFactoryHeader`) con dos valores a las páginas de la aplicación:
 
@@ -297,9 +295,9 @@ Solicite la página About del ejemplo en `localhost:5000/About` y revise los enc
 
 ## <a name="mvc-filters-and-the-page-filter-ipagefilter"></a>Filtros de MVC y filtro de página (IPageFilter)
 
-Las páginas de Razor no tienen en cuenta los [filtros de acciones](xref:mvc/controllers/filters#action-filters) de MVC, porque en este tipo de páginas se usan métodos de control. Hay disponibles otros tipos de filtro de MVC que puede usar: [Authorization](xref:mvc/controllers/filters#authorization-filters), [Exception](xref:mvc/controllers/filters#exception-filters), [Resource](xref:mvc/controllers/filters#resource-filters) y [Result](xref:mvc/controllers/filters#result-filters). Para más información, vea el tema [Filters](xref:mvc/controllers/filters) (Filtros).
+Las páginas de Razor no tienen en cuenta los [filtros de acciones](xref:mvc/controllers/filters#action-filters) de MVC, porque en este tipo de páginas se usan métodos de control. Otros tipos de filtros de MVC que tiene a su disposición son: filtros de [autorización](xref:mvc/controllers/filters#authorization-filters), de [excepciones](xref:mvc/controllers/filters#exception-filters), de [recursos](xref:mvc/controllers/filters#resource-filters) y de [resultados](xref:mvc/controllers/filters#result-filters). Para más información, vea el tema [Filters](xref:mvc/controllers/filters) (Filtros).
 
-El filtro de página (<xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter>) es un filtro que se aplica a Razor Pages. Para más información, vea [Filter methods for Razor Pages](xref:razor-pages/filter) (Métodos de filtrado para páginas de Razor).
+El filtro de página (<xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter>) se aplica a Razor Pages. Para más información, vea [Filter methods for Razor Pages](xref:razor-pages/filter) (Métodos de filtrado para páginas de Razor).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -314,11 +312,11 @@ Aquí encontrará información para saber cómo usar las [convenciones de provee
 
 Si necesita configurar rutas de una página personalizadas para páginas concretas, configure el enrutamiento a esas páginas con la [convención AddPageRoute](#configure-a-page-route), descrita más adelante en este tema.
 
-Para especificar una ruta de página, agregar segmentos de ruta o agregar parámetros a una ruta, use la Directiva de `@page` de la página. Para obtener más información, vea [rutas personalizadas](xref:razor-pages/index#custom-routes).
+Para especificar una ruta de página, agregar segmentos de ruta o agregar parámetros a una ruta, use la directiva de página `@page`. Para obtener más información, consulte [Rutas personalizadas](xref:razor-pages/index#custom-routes).
 
-Hay palabras reservadas que no se pueden usar como segmentos de ruta o nombres de parámetro. Para obtener más información, vea [Routing: Reserved Routing names](xref:fundamentals/routing#reserved-routing-names).
+Hay ciertas palabras reservadas que no se pueden usar como segmentos de ruta o nombres de parámetro. Para obtener más información, vea [Enrutamiento: Nombres de enrutamientos reservados](xref:fundamentals/routing#reserved-routing-names).
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 | Escenario | El ejemplo explica cómo... |
 | -------- | --------------------------- |
@@ -326,7 +324,7 @@ Hay palabras reservadas que no se pueden usar como segmentos de ruta o nombres d
 | [Convenciones de acción de ruta de página](#page-route-action-conventions)<ul><li>AddFolderRouteModelConvention</li><li>AddPageRouteModelConvention</li><li>AddPageRoute</li></ul> | Agregar una plantilla de ruta a las páginas de una carpeta y a una sola página. |
 | [Convenciones de acción del modelo de página](#page-model-action-conventions)<ul><li>AddFolderApplicationModelConvention</li><li>AddPageApplicationModelConvention</li><li>ConfigureFilter (clase de filtro, expresión lambda o fábrica de filtros)</li></ul> | Agregar un encabezado a las páginas de una carpeta, agregar un encabezado a una sola página y configurar una [fábrica de filtros](xref:mvc/controllers/filters#ifilterfactory) para agregar un encabezado a las páginas de la aplicación. |
 
-Las convenciones de Razor Pages se agregan y configuran mediante el método de extensión <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*> en la colección de servicios de la clase `Startup`. Más avanzado el tema veremos los siguientes ejemplos de convención:
+Las convenciones de Razor Pages se agregan y configuran a través del método de extensión <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> a <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*> en la colección de servicios de la clase `Startup`. Más avanzado el tema veremos los siguientes ejemplos de convención:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -351,33 +349,33 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## <a name="route-order"></a>Orden de ruta
+## <a name="route-order"></a>Ordenación de la ruta
 
-Las rutas especifican un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> para su procesamiento (coincidencia de rutas).
+Las rutas especifican un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> para su procesamiento (una coincidencia de rutas).
 
-| Pedido de            | Comportamiento |
+| Ordenar            | Comportamiento |
 | :--------------: | -------- |
 | -1               | La ruta se procesa antes de que se procesen otras rutas. |
-| 0                | No se ha especificado el orden (valor predeterminado). Si no se asigna `Order` (`Order = null`), el valor predeterminado de la ruta `Order` en 0 (cero) para su procesamiento. |
-| 1,2 &hellip; n | Especifica el orden de procesamiento de la ruta. |
+| 0                | No se ha especificado ningún orden (valor predeterminado). Si no se asigna un valor `Order` (`Order = null`), el valor `Order` predeterminado de la ruta para su procesamiento es 0 (cero). |
+| 1, 2, &hellip; n | Especifica el orden de procesamiento de la ruta. |
 
-El procesamiento de rutas se establece por Convención:
+El procesamiento de rutas se establece por convención:
 
-* Las rutas se procesan en orden secuencial (-1, 0, 1, 2, &hellip; n).
-* Cuando las rutas tienen el mismo `Order`, la ruta más específica se compara primero seguida por rutas menos específicas.
-* Cuando las rutas con el mismo `Order` y el mismo número de parámetros coinciden con una dirección URL de solicitud, las rutas se procesan en el orden en que se agregan a la <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection>.
+* Las rutas se procesan en orden secuencial (-1, 0, 1, 2&hellip; n).
+* Cuando las rutas tienen el mismo orden (`Order`), primero se asigna la ruta más específica y, después, las rutas menos específicas.
+* Cuando varias rutas con el mismo orden (`Order`) y el mismo número de parámetros coinciden con una URL de solicitud, se procesan en el orden en que se han agregado a la clase <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection>.
 
-Si es posible, evite depender de un orden de procesamiento de rutas establecido. Por lo general, el enrutamiento selecciona la ruta correcta con coincidencia de dirección URL. Si tiene que establecer las propiedades de ruta `Order` para enrutar las solicitudes correctamente, es probable que el esquema de enrutamiento de la aplicación sea confuso para los clientes y que el mantenimiento sea frágil. Busque para simplificar el esquema de enrutamiento de la aplicación. La aplicación de ejemplo requiere un orden de procesamiento de rutas explícito para mostrar varios escenarios de enrutamiento con una sola aplicación. Sin embargo, debe intentar evitar la práctica de configurar `Order` de enrutamiento en aplicaciones de producción.
+Si es posible, evite depender de un orden de procesamiento de rutas establecido. Por lo general, el enrutamiento selecciona la ruta correcta con la coincidencia de dirección URL. Si tiene que establecer propiedades de orden (`Order`) de las rutas para enrutar las solicitudes correctamente, es probable que el esquema de enrutamiento de la aplicación resulte confuso para los clientes y cueste mantenerlo. Trate de simplificar el esquema de enrutamiento de la aplicación. La aplicación de ejemplo requiere un orden de procesamiento de rutas explícito para mostrar varios escenarios de enrutamiento con una sola aplicación. Sin embargo, intente evitar configurar un orden (`Order`) de enrutamiento en aplicaciones de producción.
 
-El enrutamiento del controlador de MVC y el enrutamiento de Razor Pages comparten una implementación. La información sobre el orden de las rutas en los temas de MVC está disponible en [enrutamiento a las acciones del controlador: ordenación de rutas de atributo](xref:mvc/controllers/routing#ordering-attribute-routes).
+El enrutamiento del controlador de MVC y el enrutamiento de Razor Pages comparten una implementación. Puede encontrar más información sobre el orden de las rutas y MVC en el artículo [Enrutamiento a acciones de controlador: Ordenación de rutas de atributo](xref:mvc/controllers/routing#ordering-attribute-routes).
 
 ## <a name="model-conventions"></a>Convenciones de modelo
 
-Agregue un delegado para <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> para agregar [convenciones de modelo](xref:mvc/controllers/application-model#conventions) que se aplican a Razor pages.
+Agregue un delegado de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> con el fin de agregar [convenciones de modelo](xref:mvc/controllers/application-model#conventions) y aplicarlas a Razor Pages.
 
-### <a name="add-a-route-model-convention-to-all-pages"></a>Agregar una Convención de modelo de ruta a todas las páginas
+### <a name="add-a-route-model-convention-to-all-pages"></a>Adición de una convención de modelo de ruta a todas las páginas
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> a la colección de instancias de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se aplican durante la construcción del modelo de ruta de página.
+Use <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> a la colección de instancias <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se van a aplicar durante la construcción del modelo de ruta de página.
 
 En la aplicación de ejemplo se agrega una plantilla de ruta `{globalTemplate?}` a todas las páginas de la aplicación:
 
@@ -385,13 +383,13 @@ En la aplicación de ejemplo se agrega una plantilla de ruta `{globalTemplate?}`
 
 La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `1`. Esto garantiza el siguiente comportamiento de coincidencia de rutas en la aplicación de ejemplo:
 
-* Más adelante en el tema se agrega una plantilla de ruta para `TheContactPage/{text?}`. La ruta de la página de contacto tiene un orden predeterminado de `null` (`Order = 0`), por lo que coincide antes de la plantilla de ruta `{globalTemplate?}`.
-* Más adelante en el tema se agrega una plantilla de ruta de `{aboutTemplate?}`. La plantilla `{aboutTemplate?}` tiene un `Order` con un valor de `2`. Cuando la página About se solicita en `/About/RouteDataValue`, "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["aboutTemplate"]` (`Order = 2`), debido a la configuración de la propiedad `Order`.
-* Más adelante en el tema se agrega una plantilla de ruta de `{otherPagesTemplate?}`. La plantilla `{otherPagesTemplate?}` tiene un `Order` con un valor de `2`. Cuando se solicita una página de la carpeta *pages/OtherPages* con un parámetro de ruta (por ejemplo, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) debido al establecimiento de la propiedad `Order`.
+* Más adelante en este mismo tema se incluye una plantilla de ruta para `TheContactPage/{text?}`. La ruta de la página Contact tiene un orden predeterminado de `null` (`Order = 0`), por lo que coincide antes de la plantilla de ruta `{globalTemplate?}`.
+* Más adelante en este mismo tema se incluye una plantilla de ruta `{aboutTemplate?}`. La plantilla `{aboutTemplate?}` tiene un `Order` con un valor de `2`. Cuando la página About se solicita en `/About/RouteDataValue`, "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["aboutTemplate"]` (`Order = 2`), debido a la configuración de la propiedad `Order`.
+* Más adelante en este mismo tema se incluye una plantilla de ruta `{otherPagesTemplate?}`. La plantilla `{otherPagesTemplate?}` tiene un `Order` con un valor de `2`. Cuando se solicita una página de la carpeta *Pages/OtherPages* con un parámetro de ruta (por ejemplo, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no en `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) debido a la configuración de la propiedad `Order`.
 
-Siempre que sea posible, no establezca el `Order`, lo que resulta en `Order = 0`. Confíe en el enrutamiento para seleccionar la ruta correcta.
+Siempre que sea posible, no especifique el valor de `Order`, lo que da como resultado `Order = 0`. Deje que el enrutamiento seleccione la ruta correcta.
 
-Razor Pages opciones, como agregar <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, se agregan cuando MVC se agrega a la colección de servicios en `Startup.ConfigureServices`. Para obtener un ejemplo, vea la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+Las opciones de Razor Pages (por ejemplo, agregar <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>) se agregan cuando MVC se incluye en la colección de servicios en `Startup.ConfigureServices`. Para obtener un ejemplo, vea la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet1)]
 
@@ -399,9 +397,9 @@ Solicite la página About del ejemplo en `localhost:5000/About/GlobalRouteValue`
 
 ![La página About se solicita con un segmento de ruta de GlobalRouteValue. La página presentada refleja que el valor de datos de ruta se captura en el método OnGet de la página.](razor-pages-conventions/_static/about-page-global-template.png)
 
-### <a name="add-an-app-model-convention-to-all-pages"></a>Agregar una Convención de modelo de aplicación a todas las páginas
+### <a name="add-an-app-model-convention-to-all-pages"></a>Adición de una convención de modelo de aplicación a todas las páginas
 
-Use <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> a la colección de instancias de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se aplican durante la construcción del modelo de aplicación de página.
+Use <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> a la colección de instancias <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se van a aplicar durante la construcción del modelo de aplicación de página.
 
 Para demostrar esta y otras convenciones más adelante en este tema, la aplicación de ejemplo incluye una clase `AddHeaderAttribute`. El constructor de esta clase acepta una cadena `name` y una matriz de cadenas `values`. Estos valores se usan en su método `OnResultExecuting` para establecer un encabezado de respuesta. La clase completa se muestra en la sección [Convenciones de acción del modelo de página](#page-model-action-conventions) más adelante en este tema.
 
@@ -417,9 +415,9 @@ Solicite la página About del ejemplo en `localhost:5000/About` y revise los enc
 
 ![Los encabezados de respuesta de la página About ponen de manifiesto que GlobalHeader se ha agregado.](razor-pages-conventions/_static/about-page-global-header.png)
 
-### <a name="add-a-handler-model-convention-to-all-pages"></a>Agregar una Convención de modelo de controlador a todas las páginas
+### <a name="add-a-handler-model-convention-to-all-pages"></a>Adición de una convención de modelo de controlador a todas las páginas
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageHandlerModelConvention> a la colección de instancias de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se aplican durante la construcción del modelo de controlador de páginas.
+Use <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageHandlerModelConvention> a la colección de instancias <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se van a aplicar durante la construcción del modelo de controlador de página.
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Conventions/GlobalPageHandlerModelConvention.cs?name=snippet1)]
 
@@ -429,19 +427,19 @@ Utilice <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>
 
 ## <a name="page-route-action-conventions"></a>Convenciones de acción de ruta de página
 
-El proveedor de modelos de ruta predeterminado que deriva de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelProvider> invoca convenciones que están diseñadas para proporcionar puntos de extensibilidad para configurar rutas de página.
+El proveedor de modelos de ruta predeterminado que se deriva de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelProvider> invoca convenciones diseñadas para proporcionar puntos de extensibilidad que permitan configurar rutas de página.
 
 ### <a name="folder-route-model-convention"></a>Convención de modelo de ruta de carpeta
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> que invoca una acción en el <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> para todas las páginas de la carpeta especificada.
+Use <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> que invoca una acción en <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> para todas las páginas de la carpeta especificada.
 
 En la aplicación de ejemplo se usa <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> para agregar una plantilla de ruta `{otherPagesTemplate?}` a las páginas de la carpeta *OtherPages*:
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet3)]
 
-La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `2`. Esto garantiza que la plantilla para `{globalTemplate?}` (establecida anteriormente en el tema para `1`) tiene prioridad para la primera posición de valor de datos de ruta cuando se proporciona un valor de ruta único. Si se solicita una página de la carpeta *pages/OtherPages* con un valor de parámetro de ruta (por ejemplo, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) debido al establecimiento de la propiedad `Order`.
+La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `2`. Esto garantiza que la plantilla `{globalTemplate?}` (establecida en `1` anteriormente en este tema) tiene prioridad para colocarse en la primera posición de valor de datos de ruta cuando se proporcione un solo valor de ruta. Si se solicita una página de la carpeta *Pages/OtherPages* con un valor de parámetro de ruta (por ejemplo, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no en `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) debido a la configuración de la propiedad `Order`.
 
-Siempre que sea posible, no establezca el `Order`, lo que resulta en `Order = 0`. Confíe en el enrutamiento para seleccionar la ruta correcta.
+Siempre que sea posible, no especifique el valor de `Order`, lo que da como resultado `Order = 0`. Deje que el enrutamiento seleccione la ruta correcta.
 
 Solicite la página Page1 del ejemplo en `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` y revise el resultado:
 
@@ -449,29 +447,29 @@ Solicite la página Page1 del ejemplo en `localhost:5000/OtherPages/Page1/Global
 
 ### <a name="page-route-model-convention"></a>Convención de modelo de ruta de página
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageRouteModelConvention*> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> que invoca una acción en el <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> de la página con el nombre especificado.
+Use <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageRouteModelConvention*> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> que invoca una acción en <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> para la página con el nombre especificado.
 
 En la aplicación de ejemplo se usa `AddPageRouteModelConvention` para agregar una plantilla de ruta `{aboutTemplate?}` a la página About:
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet4)]
 
-La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `2`. Esto garantiza que la plantilla para `{globalTemplate?}` (establecida anteriormente en el tema para `1`) tiene prioridad para la primera posición de valor de datos de ruta cuando se proporciona un valor de ruta único. Si la página about se solicita con un valor de parámetro de ruta en `/About/RouteDataValue`, "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["aboutTemplate"]` (`Order = 2`) debido al establecimiento de la propiedad `Order`.
+La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `2`. Esto garantiza que la plantilla `{globalTemplate?}` (establecida en `1` anteriormente en este tema) tiene prioridad para colocarse en la primera posición de valor de datos de ruta cuando se proporcione un solo valor de ruta. Si se solicita la página About con un valor de parámetro de ruta en `/About/RouteDataValue`, "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no en `RouteData.Values["aboutTemplate"]` (`Order = 2`), debido a la configuración de la propiedad `Order`.
 
-Siempre que sea posible, no establezca el `Order`, lo que resulta en `Order = 0`. Confíe en el enrutamiento para seleccionar la ruta correcta.
+Siempre que sea posible, no especifique el valor de `Order`, lo que da como resultado `Order = 0`. Deje que el enrutamiento seleccione la ruta correcta.
 
 Solicite la página About del ejemplo en `localhost:5000/About/GlobalRouteValue/AboutRouteValue` y revise el resultado:
 
 ![La página About se solicita con los segmentos de ruta de GlobalRouteValue y AboutRouteValue. La página presentada refleja que los valores de datos de ruta se capturan en el método OnGet de la página.](razor-pages-conventions/_static/about-page-global-and-about-templates.png)
 
-## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>Usar un transformador de parámetros para personalizar las rutas de página
+## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>Uso de transformadores de parámetros para personalizar rutas de página
 
-Las rutas de página generadas por ASP.NET Core pueden personalizarse mediante un transformador de parámetros. Un transformador de parámetro implementa `IOutboundParameterTransformer` y transforma el valor de parámetros. Por ejemplo, un transformador de parámetros `SlugifyParameterTransformer` personalizado cambia el valor de ruta `SubscriptionManagement` a `subscription-management`.
+Las rutas de página generadas por ASP.NET Core se pueden personalizar mediante el uso de un transformador de parámetros. Un transformador de parámetro implementa `IOutboundParameterTransformer` y transforma el valor de parámetros. Por ejemplo, un transformador de parámetros `SlugifyParameterTransformer` personalizado cambia el valor de ruta `SubscriptionManagement` a `subscription-management`.
 
-La Convención del modelo de ruta de página `PageRouteTransformerConvention` aplica un transformador de parámetros a los segmentos de nombre de archivo y carpeta de las rutas de página generadas automáticamente en una aplicación. Por ejemplo, el archivo Razor Pages en */pages/SubscriptionManagement/ViewAll.cshtml* tendría que volver a escribir su ruta de `/SubscriptionManagement/ViewAll` a `/subscription-management/view-all`.
+La convención de modelo de ruta de página `PageRouteTransformerConvention` aplica un transformador de parámetros a los segmentos de nombre de archivo y carpeta de las rutas de página generadas automáticamente en una aplicación. Por ejemplo, para el archivo Razor Pages en */Pages/SubscriptionManagement/ViewAll.cshtml*, su ruta cambiaría de `/SubscriptionManagement/ViewAll` a `/subscription-management/view-all`.
 
-`PageRouteTransformerConvention` solo transforma los segmentos generados automáticamente de una ruta de página que proceden de la carpeta Razor Pages y el nombre de archivo. No transforma segmentos de ruta agregados con la Directiva `@page`. La Convención tampoco transforma las rutas agregadas por <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*>.
+`PageRouteTransformerConvention` solo transforma los segmentos de una ruta de página generados automáticamente que proceden de la carpeta y del archivo llamados Razor Pages. No transforma segmentos de ruta agregados con la directiva `@page`. Esta convención tampoco transforma las rutas agregadas por <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*>.
 
-El `PageRouteTransformerConvention` se registra como una opción en `Startup.ConfigureServices`:
+La convención `PageRouteTransformerConvention` está registrada como una opción en `Startup.ConfigureServices`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -499,7 +497,7 @@ public class SlugifyParameterTransformer : IOutboundParameterTransformer
 
 ## <a name="configure-a-page-route"></a>Configurar una ruta de página
 
-Use <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*> para configurar una ruta a una página en la ruta de acceso de la página especificada. Los vínculos generados que apuntan a esa página usan la ruta especificada. `AddPageRoute` usa `AddPageRouteModelConvention` para establecer la ruta.
+Use <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*> para configurar una ruta a una página en la ruta de acceso de página especificada. Los vínculos generados que apuntan a esa página usan la ruta especificada. `AddPageRoute` usa `AddPageRouteModelConvention` para establecer la ruta.
 
 En la aplicación de ejemplo se crea una ruta a `/TheContactPage` para *Contact.cshtml*:
 
@@ -523,9 +521,9 @@ Visite la página Contact a través de su ruta normal, `/Contact`, o de la ruta 
 
 ## <a name="page-model-action-conventions"></a>Convenciones de acción del modelo de página
 
-El proveedor de modelos de página predeterminado que implementa <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelProvider> invoca convenciones que están diseñadas para proporcionar puntos de extensibilidad para la configuración de modelos de página. Estas convenciones son útiles al crear y modificar escenarios de detección y procesamiento de páginas.
+El proveedor de modelos de página predeterminado que implementa <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelProvider> invoca convenciones que están diseñadas para proporcionar puntos de extensibilidad que permitan configurar modelos de página. Estas convenciones son útiles al crear y modificar escenarios de detección y procesamiento de páginas.
 
-En los ejemplos de esta sección, la aplicación de ejemplo usa una clase `AddHeaderAttribute`, que es una <xref:Microsoft.AspNetCore.Mvc.Filters.ResultFilterAttribute>, que aplica un encabezado de respuesta:
+En los ejemplos de esta sección, la aplicación de ejemplo usa una clase `AddHeaderAttribute` (la cual es un atributo <xref:Microsoft.AspNetCore.Mvc.Filters.ResultFilterAttribute>) que aplica un encabezado de respuesta:
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Filters/AddHeader.cs?name=snippet1)]
 
@@ -533,7 +531,7 @@ Si empleamos convenciones, el ejemplo indica cómo aplicar el atributo a todas l
 
 **Convención de modelo de aplicación de carpeta**
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderApplicationModelConvention*> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> que invoca una acción en <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> instancias de para todas las páginas de la carpeta especificada.
+Use <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderApplicationModelConvention*> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> que invoca una acción en las instancias <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> para todas las páginas de la carpeta especificada.
 
 En el ejemplo se demuestra el uso de `AddFolderApplicationModelConvention` agregando un encabezado (`OtherPagesHeader`) a las páginas de la carpeta *OtherPages* de la aplicación:
 
@@ -545,7 +543,7 @@ Solicite la página Page1 del ejemplo en `localhost:5000/OtherPages/Page1` y rev
 
 **Convención de modelo de aplicación de página**
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageApplicationModelConvention*> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> que invoca una acción en el <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> de la página con el nombre especificado.
+Use <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageApplicationModelConvention*> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> que invoca una acción en <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> para la página con el nombre especificado.
 
 En el ejemplo se demuestra el uso de `AddPageApplicationModelConvention` agregando un encabezado (`AboutHeader`) a la página About:
 
@@ -557,13 +555,13 @@ Solicite la página About del ejemplo en `localhost:5000/About` y revise los enc
 
 **Configurar un filtro**
 
-<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> configura el filtro especificado que se va a aplicar. Se puede implementar una clase de filtro, pero en la aplicación de ejemplo se muestra cómo implementar un filtro en una expresión lambda, cosa que sucede en segundo plano como una fábrica que devuelve un filtro:
+<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> permite configurar el filtro que se quiere aplicar. Se puede implementar una clase de filtro, pero en la aplicación de ejemplo se muestra cómo implementar un filtro en una expresión lambda, cosa que sucede en segundo plano como una fábrica que devuelve un filtro:
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet8)]
 
 El modelo de páginas de aplicación se usa para comprobar la ruta de acceso relativa de los segmentos que conducen a la página Page2 en la carpeta *OtherPages*. Si la condición se supera, se agrega un encabezado. Si no, se aplica `EmptyFilter`.
 
-`EmptyFilter` es un [filtro de acciones](xref:mvc/controllers/filters#action-filters). Dado que Razor Pages omite los filtros de acción, el `EmptyFilter` no tiene ningún efecto según lo previsto si la ruta de acceso no contiene `OtherPages/Page2`.
+`EmptyFilter` es un [filtro de acciones](xref:mvc/controllers/filters#action-filters). Razor Pages pasa por alto los filtros de acción, por lo que `EmptyFilter` no funciona del modo previsto si la ruta de acceso no contiene `OtherPages/Page2`.
 
 Solicite la página Page2 del ejemplo en `localhost:5000/OtherPages/Page2` y revise los encabezados para ver el resultado:
 
@@ -571,7 +569,7 @@ Solicite la página Page2 del ejemplo en `localhost:5000/OtherPages/Page2` y rev
 
 **Configurar una fábrica de filtros**
 
-<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> configura el generador especificado para aplicar [filtros](xref:mvc/controllers/filters) a todos los Razor pages.
+<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> configura la fábrica especificada para aplicar [filtros](xref:mvc/controllers/filters) a todo Razor Pages.
 
 En la aplicación de ejemplo se proporciona un ejemplo del uso de una [fábrica de filtros](xref:mvc/controllers/filters#ifilterfactory), para lo cual se agrega un encabezado (`FilterFactoryHeader`) con dos valores a las páginas de la aplicación:
 
@@ -587,9 +585,9 @@ Solicite la página About del ejemplo en `localhost:5000/About` y revise los enc
 
 ## <a name="mvc-filters-and-the-page-filter-ipagefilter"></a>Filtros de MVC y filtro de página (IPageFilter)
 
-Las páginas de Razor no tienen en cuenta los [filtros de acciones](xref:mvc/controllers/filters#action-filters) de MVC, porque en este tipo de páginas se usan métodos de control. Hay disponibles otros tipos de filtro de MVC que puede usar: [Authorization](xref:mvc/controllers/filters#authorization-filters), [Exception](xref:mvc/controllers/filters#exception-filters), [Resource](xref:mvc/controllers/filters#resource-filters) y [Result](xref:mvc/controllers/filters#result-filters). Para más información, vea el tema [Filters](xref:mvc/controllers/filters) (Filtros).
+Las páginas de Razor no tienen en cuenta los [filtros de acciones](xref:mvc/controllers/filters#action-filters) de MVC, porque en este tipo de páginas se usan métodos de control. Otros tipos de filtros de MVC que tiene a su disposición son: filtros de [autorización](xref:mvc/controllers/filters#authorization-filters), de [excepciones](xref:mvc/controllers/filters#exception-filters), de [recursos](xref:mvc/controllers/filters#resource-filters) y de [resultados](xref:mvc/controllers/filters#result-filters). Para más información, vea el tema [Filters](xref:mvc/controllers/filters) (Filtros).
 
-El filtro de página (<xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter>) es un filtro que se aplica a Razor Pages. Para más información, vea [Filter methods for Razor Pages](xref:razor-pages/filter) (Métodos de filtrado para páginas de Razor).
+El filtro de página (<xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter>) se aplica a Razor Pages. Para más información, vea [Filter methods for Razor Pages](xref:razor-pages/filter) (Métodos de filtrado para páginas de Razor).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -604,11 +602,11 @@ Aquí encontrará información para saber cómo usar las [convenciones de provee
 
 Si necesita configurar rutas de una página personalizadas para páginas concretas, configure el enrutamiento a esas páginas con la [convención AddPageRoute](#configure-a-page-route), descrita más adelante en este tema.
 
-Para especificar una ruta de página, agregar segmentos de ruta o agregar parámetros a una ruta, use la Directiva de `@page` de la página. Para obtener más información, vea [rutas personalizadas](xref:razor-pages/index#custom-routes).
+Para especificar una ruta de página, agregar segmentos de ruta o agregar parámetros a una ruta, use la directiva de página `@page`. Para obtener más información, consulte [Rutas personalizadas](xref:razor-pages/index#custom-routes).
 
-Hay palabras reservadas que no se pueden usar como segmentos de ruta o nombres de parámetro. Para obtener más información, vea [Routing: Reserved Routing names](xref:fundamentals/routing#reserved-routing-names).
+Hay ciertas palabras reservadas que no se pueden usar como segmentos de ruta o nombres de parámetro. Para obtener más información, vea [Enrutamiento: Nombres de enrutamientos reservados](xref:fundamentals/routing#reserved-routing-names).
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 | Escenario | El ejemplo explica cómo... |
 | -------- | --------------------------- |
@@ -616,7 +614,7 @@ Hay palabras reservadas que no se pueden usar como segmentos de ruta o nombres d
 | [Convenciones de acción de ruta de página](#page-route-action-conventions)<ul><li>AddFolderRouteModelConvention</li><li>AddPageRouteModelConvention</li><li>AddPageRoute</li></ul> | Agregar una plantilla de ruta a las páginas de una carpeta y a una sola página. |
 | [Convenciones de acción del modelo de página](#page-model-action-conventions)<ul><li>AddFolderApplicationModelConvention</li><li>AddPageApplicationModelConvention</li><li>ConfigureFilter (clase de filtro, expresión lambda o fábrica de filtros)</li></ul> | Agregar un encabezado a las páginas de una carpeta, agregar un encabezado a una sola página y configurar una [fábrica de filtros](xref:mvc/controllers/filters#ifilterfactory) para agregar un encabezado a las páginas de la aplicación. |
 
-Las convenciones de Razor Pages se agregan y configuran mediante el método de extensión <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> para <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*> en la colección de servicios de la clase `Startup`. Más avanzado el tema veremos los siguientes ejemplos de convención:
+Las convenciones de Razor Pages se agregan y configuran a través del método de extensión <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*> a <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddMvc*> en la colección de servicios de la clase `Startup`. Más avanzado el tema veremos los siguientes ejemplos de convención:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -641,33 +639,33 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## <a name="route-order"></a>Orden de ruta
+## <a name="route-order"></a>Ordenación de la ruta
 
-Las rutas especifican un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> para su procesamiento (coincidencia de rutas).
+Las rutas especifican un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> para su procesamiento (una coincidencia de rutas).
 
-| Pedido de            | Comportamiento |
+| Ordenar            | Comportamiento |
 | :--------------: | -------- |
 | -1               | La ruta se procesa antes de que se procesen otras rutas. |
-| 0                | No se ha especificado el orden (valor predeterminado). Si no se asigna `Order` (`Order = null`), el valor predeterminado de la ruta `Order` en 0 (cero) para su procesamiento. |
-| 1,2 &hellip; n | Especifica el orden de procesamiento de la ruta. |
+| 0                | No se ha especificado ningún orden (valor predeterminado). Si no se asigna un valor `Order` (`Order = null`), el valor `Order` predeterminado de la ruta para su procesamiento es 0 (cero). |
+| 1, 2, &hellip; n | Especifica el orden de procesamiento de la ruta. |
 
-El procesamiento de rutas se establece por Convención:
+El procesamiento de rutas se establece por convención:
 
-* Las rutas se procesan en orden secuencial (-1, 0, 1, 2, &hellip; n).
-* Cuando las rutas tienen el mismo `Order`, la ruta más específica se compara primero seguida por rutas menos específicas.
-* Cuando las rutas con el mismo `Order` y el mismo número de parámetros coinciden con una dirección URL de solicitud, las rutas se procesan en el orden en que se agregan a la <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection>.
+* Las rutas se procesan en orden secuencial (-1, 0, 1, 2&hellip; n).
+* Cuando las rutas tienen el mismo orden (`Order`), primero se asigna la ruta más específica y, después, las rutas menos específicas.
+* Cuando varias rutas con el mismo orden (`Order`) y el mismo número de parámetros coinciden con una URL de solicitud, se procesan en el orden en que se han agregado a la clase <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection>.
 
-Si es posible, evite depender de un orden de procesamiento de rutas establecido. Por lo general, el enrutamiento selecciona la ruta correcta con coincidencia de dirección URL. Si tiene que establecer las propiedades de ruta `Order` para enrutar las solicitudes correctamente, es probable que el esquema de enrutamiento de la aplicación sea confuso para los clientes y que el mantenimiento sea frágil. Busque para simplificar el esquema de enrutamiento de la aplicación. La aplicación de ejemplo requiere un orden de procesamiento de rutas explícito para mostrar varios escenarios de enrutamiento con una sola aplicación. Sin embargo, debe intentar evitar la práctica de configurar `Order` de enrutamiento en aplicaciones de producción.
+Si es posible, evite depender de un orden de procesamiento de rutas establecido. Por lo general, el enrutamiento selecciona la ruta correcta con la coincidencia de dirección URL. Si tiene que establecer propiedades de orden (`Order`) de las rutas para enrutar las solicitudes correctamente, es probable que el esquema de enrutamiento de la aplicación resulte confuso para los clientes y cueste mantenerlo. Trate de simplificar el esquema de enrutamiento de la aplicación. La aplicación de ejemplo requiere un orden de procesamiento de rutas explícito para mostrar varios escenarios de enrutamiento con una sola aplicación. Sin embargo, intente evitar configurar un orden (`Order`) de enrutamiento en aplicaciones de producción.
 
-El enrutamiento del controlador de MVC y el enrutamiento de Razor Pages comparten una implementación. La información sobre el orden de las rutas en los temas de MVC está disponible en [enrutamiento a las acciones del controlador: ordenación de rutas de atributo](xref:mvc/controllers/routing#ordering-attribute-routes).
+El enrutamiento del controlador de MVC y el enrutamiento de Razor Pages comparten una implementación. Puede encontrar más información sobre el orden de las rutas y MVC en el artículo [Enrutamiento a acciones de controlador: Ordenación de rutas de atributo](xref:mvc/controllers/routing#ordering-attribute-routes).
 
 ## <a name="model-conventions"></a>Convenciones de modelo
 
-Agregue un delegado para <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> para agregar [convenciones de modelo](xref:mvc/controllers/application-model#conventions) que se aplican a Razor pages.
+Agregue un delegado de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> con el fin de agregar [convenciones de modelo](xref:mvc/controllers/application-model#conventions) y aplicarlas a Razor Pages.
 
-### <a name="add-a-route-model-convention-to-all-pages"></a>Agregar una Convención de modelo de ruta a todas las páginas
+### <a name="add-a-route-model-convention-to-all-pages"></a>Adición de una convención de modelo de ruta a todas las páginas
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> a la colección de instancias de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se aplican durante la construcción del modelo de ruta de página.
+Use <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> a la colección de instancias <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se van a aplicar durante la construcción del modelo de ruta de página.
 
 En la aplicación de ejemplo se agrega una plantilla de ruta `{globalTemplate?}` a todas las páginas de la aplicación:
 
@@ -675,13 +673,13 @@ En la aplicación de ejemplo se agrega una plantilla de ruta `{globalTemplate?}`
 
 La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `1`. Esto garantiza el siguiente comportamiento de coincidencia de rutas en la aplicación de ejemplo:
 
-* Más adelante en el tema se agrega una plantilla de ruta para `TheContactPage/{text?}`. La ruta de la página de contacto tiene un orden predeterminado de `null` (`Order = 0`), por lo que coincide antes de la plantilla de ruta `{globalTemplate?}`.
-* Más adelante en el tema se agrega una plantilla de ruta de `{aboutTemplate?}`. La plantilla `{aboutTemplate?}` tiene un `Order` con un valor de `2`. Cuando la página About se solicita en `/About/RouteDataValue`, "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["aboutTemplate"]` (`Order = 2`), debido a la configuración de la propiedad `Order`.
-* Más adelante en el tema se agrega una plantilla de ruta de `{otherPagesTemplate?}`. La plantilla `{otherPagesTemplate?}` tiene un `Order` con un valor de `2`. Cuando se solicita una página de la carpeta *pages/OtherPages* con un parámetro de ruta (por ejemplo, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) debido al establecimiento de la propiedad `Order`.
+* Más adelante en este mismo tema se incluye una plantilla de ruta para `TheContactPage/{text?}`. La ruta de la página Contact tiene un orden predeterminado de `null` (`Order = 0`), por lo que coincide antes de la plantilla de ruta `{globalTemplate?}`.
+* Más adelante en este mismo tema se incluye una plantilla de ruta `{aboutTemplate?}`. La plantilla `{aboutTemplate?}` tiene un `Order` con un valor de `2`. Cuando la página About se solicita en `/About/RouteDataValue`, "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["aboutTemplate"]` (`Order = 2`), debido a la configuración de la propiedad `Order`.
+* Más adelante en este mismo tema se incluye una plantilla de ruta `{otherPagesTemplate?}`. La plantilla `{otherPagesTemplate?}` tiene un `Order` con un valor de `2`. Cuando se solicita una página de la carpeta *Pages/OtherPages* con un parámetro de ruta (por ejemplo, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no en `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) debido a la configuración de la propiedad `Order`.
 
-Siempre que sea posible, no establezca el `Order`, lo que resulta en `Order = 0`. Confíe en el enrutamiento para seleccionar la ruta correcta.
+Siempre que sea posible, no especifique el valor de `Order`, lo que da como resultado `Order = 0`. Deje que el enrutamiento seleccione la ruta correcta.
 
-Razor Pages opciones, como agregar <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, se agregan cuando MVC se agrega a la colección de servicios en `Startup.ConfigureServices`. Para obtener un ejemplo, vea la [aplicación de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+Las opciones de Razor Pages (por ejemplo, agregar <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>) se agregan cuando MVC se incluye en la colección de servicios en `Startup.ConfigureServices`. Para obtener un ejemplo, vea la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet1)]
 
@@ -689,9 +687,9 @@ Solicite la página About del ejemplo en `localhost:5000/About/GlobalRouteValue`
 
 ![La página About se solicita con un segmento de ruta de GlobalRouteValue. La página presentada refleja que el valor de datos de ruta se captura en el método OnGet de la página.](razor-pages-conventions/_static/about-page-global-template.png)
 
-### <a name="add-an-app-model-convention-to-all-pages"></a>Agregar una Convención de modelo de aplicación a todas las páginas
+### <a name="add-an-app-model-convention-to-all-pages"></a>Adición de una convención de modelo de aplicación a todas las páginas
 
-Use <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> a la colección de instancias de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se aplican durante la construcción del modelo de aplicación de página.
+Use <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> a la colección de instancias <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se van a aplicar durante la construcción del modelo de aplicación de página.
 
 Para demostrar esta y otras convenciones más adelante en este tema, la aplicación de ejemplo incluye una clase `AddHeaderAttribute`. El constructor de esta clase acepta una cadena `name` y una matriz de cadenas `values`. Estos valores se usan en su método `OnResultExecuting` para establecer un encabezado de respuesta. La clase completa se muestra en la sección [Convenciones de acción del modelo de página](#page-model-action-conventions) más adelante en este tema.
 
@@ -707,9 +705,9 @@ Solicite la página About del ejemplo en `localhost:5000/About` y revise los enc
 
 ![Los encabezados de respuesta de la página About ponen de manifiesto que GlobalHeader se ha agregado.](razor-pages-conventions/_static/about-page-global-header.png)
 
-### <a name="add-a-handler-model-convention-to-all-pages"></a>Agregar una Convención de modelo de controlador a todas las páginas
+### <a name="add-a-handler-model-convention-to-all-pages"></a>Adición de una convención de modelo de controlador a todas las páginas
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageHandlerModelConvention> a la colección de instancias de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se aplican durante la construcción del modelo de controlador de páginas.
+Use <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageHandlerModelConvention> a la colección de instancias <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageConvention> que se van a aplicar durante la construcción del modelo de controlador de página.
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Conventions/GlobalPageHandlerModelConvention.cs?name=snippet1)]
 
@@ -719,19 +717,19 @@ Utilice <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>
 
 ## <a name="page-route-action-conventions"></a>Convenciones de acción de ruta de página
 
-El proveedor de modelos de ruta predeterminado que deriva de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelProvider> invoca convenciones que están diseñadas para proporcionar puntos de extensibilidad para configurar rutas de página.
+El proveedor de modelos de ruta predeterminado que se deriva de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelProvider> invoca convenciones diseñadas para proporcionar puntos de extensibilidad que permitan configurar rutas de página.
 
 ### <a name="folder-route-model-convention"></a>Convención de modelo de ruta de carpeta
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> que invoca una acción en el <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> para todas las páginas de la carpeta especificada.
+Use <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> que invoca una acción en <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> para todas las páginas de la carpeta especificada.
 
 En la aplicación de ejemplo se usa <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderRouteModelConvention*> para agregar una plantilla de ruta `{otherPagesTemplate?}` a las páginas de la carpeta *OtherPages*:
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet3)]
 
-La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `2`. Esto garantiza que la plantilla para `{globalTemplate?}` (establecida anteriormente en el tema para `1`) tiene prioridad para la primera posición de valor de datos de ruta cuando se proporciona un valor de ruta único. Si se solicita una página de la carpeta *pages/OtherPages* con un valor de parámetro de ruta (por ejemplo, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) debido al establecimiento de la propiedad `Order`.
+La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `2`. Esto garantiza que la plantilla `{globalTemplate?}` (establecida en `1` anteriormente en este tema) tiene prioridad para colocarse en la primera posición de valor de datos de ruta cuando se proporcione un solo valor de ruta. Si se solicita una página de la carpeta *Pages/OtherPages* con un valor de parámetro de ruta (por ejemplo, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no en `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) debido a la configuración de la propiedad `Order`.
 
-Siempre que sea posible, no establezca el `Order`, lo que resulta en `Order = 0`. Confíe en el enrutamiento para seleccionar la ruta correcta.
+Siempre que sea posible, no especifique el valor de `Order`, lo que da como resultado `Order = 0`. Deje que el enrutamiento seleccione la ruta correcta.
 
 Solicite la página Page1 del ejemplo en `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` y revise el resultado:
 
@@ -739,15 +737,15 @@ Solicite la página Page1 del ejemplo en `localhost:5000/OtherPages/Page1/Global
 
 ### <a name="page-route-model-convention"></a>Convención de modelo de ruta de página
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageRouteModelConvention*> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> que invoca una acción en el <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> de la página con el nombre especificado.
+Use <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageRouteModelConvention*> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageRouteModelConvention> que invoca una acción en <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel> para la página con el nombre especificado.
 
 En la aplicación de ejemplo se usa `AddPageRouteModelConvention` para agregar una plantilla de ruta `{aboutTemplate?}` a la página About:
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet4)]
 
-La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `2`. Esto garantiza que la plantilla para `{globalTemplate?}` (establecida anteriormente en el tema para `1`) tiene prioridad para la primera posición de valor de datos de ruta cuando se proporciona un valor de ruta único. Si la página about se solicita con un valor de parámetro de ruta en `/About/RouteDataValue`, "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no `RouteData.Values["aboutTemplate"]` (`Order = 2`) debido al establecimiento de la propiedad `Order`.
+La propiedad <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> de <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> está establecida en `2`. Esto garantiza que la plantilla `{globalTemplate?}` (establecida en `1` anteriormente en este tema) tiene prioridad para colocarse en la primera posición de valor de datos de ruta cuando se proporcione un solo valor de ruta. Si se solicita la página About con un valor de parámetro de ruta en `/About/RouteDataValue`, "RouteDataValue" se carga en `RouteData.Values["globalTemplate"]` (`Order = 1`) y no en `RouteData.Values["aboutTemplate"]` (`Order = 2`), debido a la configuración de la propiedad `Order`.
 
-Siempre que sea posible, no establezca el `Order`, lo que resulta en `Order = 0`. Confíe en el enrutamiento para seleccionar la ruta correcta.
+Siempre que sea posible, no especifique el valor de `Order`, lo que da como resultado `Order = 0`. Deje que el enrutamiento seleccione la ruta correcta.
 
 Solicite la página About del ejemplo en `localhost:5000/About/GlobalRouteValue/AboutRouteValue` y revise el resultado:
 
@@ -755,7 +753,7 @@ Solicite la página About del ejemplo en `localhost:5000/About/GlobalRouteValue/
 
 ## <a name="configure-a-page-route"></a>Configurar una ruta de página
 
-Use <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*> para configurar una ruta a una página en la ruta de acceso de la página especificada. Los vínculos generados que apuntan a esa página usan la ruta especificada. `AddPageRoute` usa `AddPageRouteModelConvention` para establecer la ruta.
+Use <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*> para configurar una ruta a una página en la ruta de acceso de página especificada. Los vínculos generados que apuntan a esa página usan la ruta especificada. `AddPageRoute` usa `AddPageRouteModelConvention` para establecer la ruta.
 
 En la aplicación de ejemplo se crea una ruta a `/TheContactPage` para *Contact.cshtml*:
 
@@ -779,9 +777,9 @@ Visite la página Contact a través de su ruta normal, `/Contact`, o de la ruta 
 
 ## <a name="page-model-action-conventions"></a>Convenciones de acción del modelo de página
 
-El proveedor de modelos de página predeterminado que implementa <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelProvider> invoca convenciones que están diseñadas para proporcionar puntos de extensibilidad para la configuración de modelos de página. Estas convenciones son útiles al crear y modificar escenarios de detección y procesamiento de páginas.
+El proveedor de modelos de página predeterminado que implementa <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelProvider> invoca convenciones que están diseñadas para proporcionar puntos de extensibilidad que permitan configurar modelos de página. Estas convenciones son útiles al crear y modificar escenarios de detección y procesamiento de páginas.
 
-En los ejemplos de esta sección, la aplicación de ejemplo usa una clase `AddHeaderAttribute`, que es una <xref:Microsoft.AspNetCore.Mvc.Filters.ResultFilterAttribute>, que aplica un encabezado de respuesta:
+En los ejemplos de esta sección, la aplicación de ejemplo usa una clase `AddHeaderAttribute` (la cual es un atributo <xref:Microsoft.AspNetCore.Mvc.Filters.ResultFilterAttribute>) que aplica un encabezado de respuesta:
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Filters/AddHeader.cs?name=snippet1)]
 
@@ -789,7 +787,7 @@ Si empleamos convenciones, el ejemplo indica cómo aplicar el atributo a todas l
 
 **Convención de modelo de aplicación de carpeta**
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderApplicationModelConvention*> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> que invoca una acción en <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> instancias de para todas las páginas de la carpeta especificada.
+Use <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddFolderApplicationModelConvention*> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> que invoca una acción en las instancias <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> para todas las páginas de la carpeta especificada.
 
 En el ejemplo se demuestra el uso de `AddFolderApplicationModelConvention` agregando un encabezado (`OtherPagesHeader`) a las páginas de la carpeta *OtherPages* de la aplicación:
 
@@ -801,7 +799,7 @@ Solicite la página Page1 del ejemplo en `localhost:5000/OtherPages/Page1` y rev
 
 **Convención de modelo de aplicación de página**
 
-Utilice <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageApplicationModelConvention*> para crear y agregar un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> que invoca una acción en el <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> de la página con el nombre especificado.
+Use <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection.AddPageApplicationModelConvention*> para crear y agregar un elemento <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.IPageApplicationModelConvention> que invoca una acción en <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageApplicationModel> para la página con el nombre especificado.
 
 En el ejemplo se demuestra el uso de `AddPageApplicationModelConvention` agregando un encabezado (`AboutHeader`) a la página About:
 
@@ -813,13 +811,13 @@ Solicite la página About del ejemplo en `localhost:5000/About` y revise los enc
 
 **Configurar un filtro**
 
-<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> configura el filtro especificado que se va a aplicar. Se puede implementar una clase de filtro, pero en la aplicación de ejemplo se muestra cómo implementar un filtro en una expresión lambda, cosa que sucede en segundo plano como una fábrica que devuelve un filtro:
+<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> permite configurar el filtro que se quiere aplicar. Se puede implementar una clase de filtro, pero en la aplicación de ejemplo se muestra cómo implementar un filtro en una expresión lambda, cosa que sucede en segundo plano como una fábrica que devuelve un filtro:
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet8)]
 
 El modelo de páginas de aplicación se usa para comprobar la ruta de acceso relativa de los segmentos que conducen a la página Page2 en la carpeta *OtherPages*. Si la condición se supera, se agrega un encabezado. Si no, se aplica `EmptyFilter`.
 
-`EmptyFilter` es un [filtro de acciones](xref:mvc/controllers/filters#action-filters). Dado que Razor Pages omite los filtros de acción, el `EmptyFilter` no tiene ningún efecto según lo previsto si la ruta de acceso no contiene `OtherPages/Page2`.
+`EmptyFilter` es un [filtro de acciones](xref:mvc/controllers/filters#action-filters). Razor Pages pasa por alto los filtros de acción, por lo que `EmptyFilter` no funciona del modo previsto si la ruta de acceso no contiene `OtherPages/Page2`.
 
 Solicite la página Page2 del ejemplo en `localhost:5000/OtherPages/Page2` y revise los encabezados para ver el resultado:
 
@@ -827,7 +825,7 @@ Solicite la página Page2 del ejemplo en `localhost:5000/OtherPages/Page2` y rev
 
 **Configurar una fábrica de filtros**
 
-<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> configura el generador especificado para aplicar [filtros](xref:mvc/controllers/filters) a todos los Razor pages.
+<xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.ConfigureFilter*> configura la fábrica especificada para aplicar [filtros](xref:mvc/controllers/filters) a todo Razor Pages.
 
 En la aplicación de ejemplo se proporciona un ejemplo del uso de una [fábrica de filtros](xref:mvc/controllers/filters#ifilterfactory), para lo cual se agrega un encabezado (`FilterFactoryHeader`) con dos valores a las páginas de la aplicación:
 
@@ -843,9 +841,9 @@ Solicite la página About del ejemplo en `localhost:5000/About` y revise los enc
 
 ## <a name="mvc-filters-and-the-page-filter-ipagefilter"></a>Filtros de MVC y filtro de página (IPageFilter)
 
-Las páginas de Razor no tienen en cuenta los [filtros de acciones](xref:mvc/controllers/filters#action-filters) de MVC, porque en este tipo de páginas se usan métodos de control. Hay disponibles otros tipos de filtro de MVC que puede usar: [Authorization](xref:mvc/controllers/filters#authorization-filters), [Exception](xref:mvc/controllers/filters#exception-filters), [Resource](xref:mvc/controllers/filters#resource-filters) y [Result](xref:mvc/controllers/filters#result-filters). Para más información, vea el tema [Filters](xref:mvc/controllers/filters) (Filtros).
+Las páginas de Razor no tienen en cuenta los [filtros de acciones](xref:mvc/controllers/filters#action-filters) de MVC, porque en este tipo de páginas se usan métodos de control. Otros tipos de filtros de MVC que tiene a su disposición son: filtros de [autorización](xref:mvc/controllers/filters#authorization-filters), de [excepciones](xref:mvc/controllers/filters#exception-filters), de [recursos](xref:mvc/controllers/filters#resource-filters) y de [resultados](xref:mvc/controllers/filters#result-filters). Para más información, vea el tema [Filters](xref:mvc/controllers/filters) (Filtros).
 
-El filtro de página (<xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter>) es un filtro que se aplica a Razor Pages. Para más información, vea [Filter methods for Razor Pages](xref:razor-pages/filter) (Métodos de filtrado para páginas de Razor).
+El filtro de página (<xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter>) se aplica a Razor Pages. Para más información, vea [Filter methods for Razor Pages](xref:razor-pages/filter) (Métodos de filtrado para páginas de Razor).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

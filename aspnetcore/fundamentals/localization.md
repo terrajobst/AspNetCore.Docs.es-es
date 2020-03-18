@@ -5,12 +5,12 @@ description: Obtenga información sobre la manera en que ASP.NET Core proporcion
 ms.author: riande
 ms.date: 11/30/2019
 uid: fundamentals/localization
-ms.openlocfilehash: 645f680436336acbe1d5c2854a242527c9b4b9cb
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: b175354220a8a71c029e005f27443d5a72749a11
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717408"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78648437"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
 
@@ -30,7 +30,7 @@ La localización de la aplicación implica lo siguiente:
 
 3. Implementar una estrategia para seleccionar el idioma o la referencia cultural de cada solicitud
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="make-the-apps-content-localizable"></a>Hacer que el contenido de la aplicación sea localizable
 
@@ -225,6 +225,7 @@ La localización se configura en el método `Startup.ConfigureServices`:
 La referencia cultural actual de una solicitud se establece en el [software intermedio](xref:fundamentals/middleware/index) de localización. El software intermedio de localización se habilita en el método `Startup.Configure`. El software intermedio de localización debe configurarse antes que cualquier software intermedio que pueda comprobar la referencia cultural de la solicitud (por ejemplo, `app.UseMvcWithDefaultRoute()`).
 
 [!code-csharp[](localization/sample/Localization/Startup.cs?name=snippet2)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 `UseRequestLocalization` inicializa un objeto `RequestLocalizationOptions`. En todas las solicitudes, se enumera la lista de `RequestCultureProvider` en `RequestLocalizationOptions` y se usa el primer proveedor que puede determinar correctamente la referencia cultural de la solicitud. Los proveedores predeterminados proceden de la clase `RequestLocalizationOptions`:
 
@@ -276,7 +277,7 @@ El [encabezado Accept-Language](https://www.w3.org/International/questions/qa-ac
 
 6. Haga clic en el idioma y, después, en **Subir**.
 
-::: moniker range=">= aspnetcore-3.1"
+::: moniker range="> aspnetcore-3.1"
 ### <a name="the-content-language-http-header"></a>El encabezado HTTP Content-Language
 
 El encabezado de entidad [Content-Language](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language):

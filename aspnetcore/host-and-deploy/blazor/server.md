@@ -5,17 +5,17 @@ description: Aprenda a hospedar e implementar una aplicación Blazor Server con 
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 02/15/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: a051d51e734fec4315da73d3c4df57706df7f363
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: 42321b8564524fec41104ccaf1ac47981d014c94
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465828"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78647363"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Hospedaje e implementación de Blazor Server
 
@@ -87,7 +87,10 @@ Se recomienda usar [Azure SignalR Service](/azure/azure-signalr) para las aplica
 
 #### <a name="iis"></a>IIS
 
-Cuando se usa IIS, las sesiones permanentes se habilitan con el enrutamiento de solicitud de aplicaciones. Para más información, vea [Equilibrio de carga HTTP mediante el enrutamiento de solicitud de aplicaciones](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
+Al usar IIS, habilite:
+
+* [WebSockets en IIS](xref:fundamentals/websockets#enabling-websockets-on-iis).
+* [Sesiones temporales con Enrutamiento de solicitud de aplicaciones](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
 
 #### <a name="kubernetes"></a>Kubernetes
 
@@ -118,7 +121,7 @@ Para obtener más información, vea [NGINX como proxy de WebSocket](https://www.
 
 ### <a name="measure-network-latency"></a>Medición de la latencia de red
 
-[La interoperabilidad de JS](xref:blazor/javascript-interop) se puede usar para medir la latencia de red, como se muestra en el ejemplo siguiente:
+[La interoperabilidad de JS](xref:blazor/call-javascript-from-dotnet) se puede usar para medir la latencia de red, como se muestra en el ejemplo siguiente:
 
 ```razor
 @inject IJSRuntime JS

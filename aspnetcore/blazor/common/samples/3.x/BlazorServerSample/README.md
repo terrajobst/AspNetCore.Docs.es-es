@@ -1,3 +1,3 @@
-# <a name="blazor-server-sample-app"></a>Aplicación de ejemplo de servidor increíbles
+# <a name="blazor-server-sample-app"></a>Aplicación de ejemplo de servidor Blazor
 
-Este ejemplo muestra el uso de escenarios increíbles descritos en la documentación de extraordinarias.
+En este ejemplo se muestra el uso de los escenarios de Blazor descritos en la documentación.

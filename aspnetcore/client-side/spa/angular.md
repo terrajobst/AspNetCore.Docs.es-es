@@ -7,12 +7,12 @@ ms.author: stevesa
 ms.custom: mvc
 ms.date: 02/06/2020
 uid: spa/angular
-ms.openlocfilehash: 11ad5d4c7cadcc582b3e288a331569f62f0b98ac
-ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
-ms.translationtype: MT
+ms.openlocfilehash: fee872ff237e14cbe491efed9b320809df4c5654
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77044856"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78646463"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de Angular con ASP.NET Core
 
@@ -33,13 +33,13 @@ cd my-new-app
 
 Ejecute la aplicación desde Visual Studio o la CLI de .NET Core:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
 Abra el archivo *.csproj* generado y, desde ahí, ejecute la aplicación de la manera habitual.
 
 El proceso de compilación restaura las dependencias npm en la primera ejecución, lo que puede tardar varios minutos. Las compilaciones posteriores son mucho más rápidas.
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli/)
+# <a name="net-core-cli"></a>[CLI de .NET Core](#tab/netcore-cli/)
 
 Asegúrese de tener una variable de entorno denominada `ASPNETCORE_Environment` con un valor de `Development`. En Windows (en los avisos que no son de PowerShell), ejecute `SET ASPNETCORE_Environment=Development`. En Linux o macOS, ejecute `export ASPNETCORE_Environment=Development`.
 
@@ -53,7 +53,8 @@ Now listening on: http://localhost:<port>
 
 Vaya a esta dirección URL en un explorador.
 
-La aplicación inicia en segundo plano una instancia del servidor de la CLI de Angular. Se registra un mensaje similar al siguiente: *El servidor de desarrollo de NG Live escucha en localhost:&lt;otherport&gt;, abra el explorador en http://localhost:&lt;otherport&gt;/* . Omita este mensaje, no &mdash;es** la dirección URL de la aplicación combinada de ASP.NET Core y la CLI de Angular.
+> [!WARNING]
+> La aplicación inicia en segundo plano una instancia del servidor de la CLI de Angular. Se registra un mensaje similar al siguiente: *El servidor de desarrollo de NG Live escucha en localhost:&lt;otherport&gt;, abra el explorador en http://localhost:&lt;otherport&gt;/* . Omita este mensaje, no **es** la dirección URL de la aplicación combinada de ASP.NET Core y la CLI de Angular.
 
 ---
 
@@ -77,7 +78,7 @@ Si tiene instalada la herramienta `ng` globalmente, puede ejecutar cualquiera de
 
 Si no tiene instalada la herramienta `ng`, ejecute en su lugar `npm run ng`. Por ejemplo, puede ejecutar `npm run ng lint` o `npm run ng test`.
 
-## <a name="install-npm-packages"></a>Instalación de paquetes de npm
+## <a name="install-npm-packages"></a>Instalar paquetes de npm
 
 Para instalar paquetes de npm de otro fabricante, use un símbolo del sistema en el subdirectorio *ClientApp*. Por ejemplo:
 
@@ -90,7 +91,7 @@ npm install --save <package_name>
 
 En el desarrollo, la aplicación se ejecuta en modo optimizado para comodidad del desarrollador. Por ejemplo, las agrupaciones de JavaScript incluyen asignaciones de origen (de modo que, durante la depuración, puede ver el código original de TypeScript). La aplicación inspecciona los cambios en los archivos de TypeScript, HTML y CSS en el disco y, automáticamente, realiza una nueva compilación y recarga cuando observa que esos archivos han cambiado.
 
-En producción, use una versión de la aplicación que esté optimizada para el rendimiento. Esto se configura para que tenga lugar automáticamente. Al publicar, la configuración de compilación emite una compilación Ahead Of Time (AoT) reducida del código del lado cliente. A diferencia de la compilación de desarrollo, la compilación de producción no requiere que node. js esté instalado en el servidor (a menos que haya habilitado la representación del lado servidor (SSR)).
+En producción, use una versión de la aplicación que esté optimizada para el rendimiento. Esto se configura para que tenga lugar automáticamente. Al publicar, la configuración de compilación emite una compilación Ahead Of Time (AoT) reducida del código del lado cliente. A diferencia de la compilación de desarrollo, la compilación de producción no requiere la instalación de Node.js en el servidor, a menos que haya habilitado la representación previa del lado servidor (SSR).
 
 Puede usar [métodos de implementación y hospedaje de ASP.NET Core](xref:host-and-deploy/index) estándar.
 

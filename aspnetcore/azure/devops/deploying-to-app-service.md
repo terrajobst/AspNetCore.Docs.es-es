@@ -1,49 +1,49 @@
 ---
-title: 'Implementar una aplicación en App Service: DevOps con ASP.NET Core y Azure'
+title: 'Implementación de una aplicación en App Service: DevOps con ASP.NET Core y Azure'
 author: CamSoper
-description: Implementar una aplicación ASP.NET Core en Azure App Service, el primer paso para DevOps con ASP.NET Core y Azure.
+description: Implemente una aplicación ASP.NET Core en Azure App Service, el primer paso para DevOps con ASP.NET Core y Azure.
 ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
 ms.openlocfilehash: df41f296e9c4e1eff6e31d45b29ec30ee1e20cf4
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
-ms.translationtype: MT
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080437"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78646559"
 ---
-# <a name="deploy-an-app-to-app-service"></a>Implementar una aplicación en App Service
+# <a name="deploy-an-app-to-app-service"></a>Implementación de una aplicación en App Service
 
-[Azure App Service](/azure/app-service/) es plataforma de hospedaje web de Azure. Implementar una aplicación web en Azure App Service puede realizarse manualmente o mediante un proceso automatizado. En esta sección de la guía se describe los métodos de implementación que se pueden desencadenar manualmente o mediante un script mediante la línea de comandos, o desencadenan manualmente con Visual Studio.
+[Azure App Service](/azure/app-service/) es la plataforma de hospedaje web de Azure. La implementación de una aplicación web en Azure App Service puede realizarse manualmente o mediante un proceso automatizado. En esta sección de la guía se describen los métodos de implementación que se pueden desencadenar manualmente o mediante un script con la línea de comandos o que se desencadenan manualmente con Visual Studio.
 
-En esta sección, podrá realizar las tareas siguientes:
+En esta sección, se realizarán las siguientes tareas:
 
 * Descargar y compilar la aplicación de ejemplo.
-* Crear una aplicación Web de Azure App Service mediante Azure Cloud Shell.
+* Crear una aplicación web de Azure App Service con Azure Cloud Shell.
 * Implementar la aplicación de ejemplo en Azure con Git.
 * Implementar un cambio en la aplicación mediante Visual Studio.
-* Agregar una ranura de ensayo a la aplicación web.
-* Implementar una actualización en la ranura de ensayo.
-* Intercambiar las ranuras de ensayo y producción.
+* Agregar un espacio de ensayo a la aplicación web.
+* Implementar una actualización en el espacio de ensayo.
+* Intercambiar los espacios de ensayo y producción.
 
 ## <a name="download-and-test-the-app"></a>Descargar y probar la aplicación
 
-La aplicación se usa en esta guía es una aplicación de ASP.NET Core pregenerada [Simple lector de fuentes](https://github.com/Azure-Samples/simple-feed-reader/). Es una aplicación de páginas de Razor que usa el `Microsoft.SyndicationFeed.ReaderWriter` API para recuperar una fuente RSS/Atom y mostrar los elementos de noticias de una lista.
+La aplicación que se usa en esta guía es una aplicación ASP.NET Core pregenerada, [lector de fuentes simple](https://github.com/Azure-Samples/simple-feed-reader/). Se trata de una aplicación Razor Pages que usa la API de `Microsoft.SyndicationFeed.ReaderWriter` para recuperar una fuente RSS/Atom y mostrar los elementos de noticias en una lista.
 
-No dude en revisar el código, pero es importante entender que no hay nada especial acerca de esta aplicación. Es simplemente una sencilla aplicación de ASP.NET Core con fines ilustrativos.
+No dude en revisar el código, pero es importante entender que esta aplicación no tiene nada de extraordinario. Es simplemente una aplicación de ASP.NET Core con fines ilustrativos.
 
-Desde un shell de comandos, descargar el código, compile el proyecto y ejecútelo como se indica a continuación.
+Desde un shell de comandos, descargue el código, compile el proyecto y ejecútelo como se indica a continuación.
 
-> *Nota: Los usuarios de Linux/MacOS deben realizar los cambios adecuados en las rutas de acceso, por`/`ejemplo, mediante una barra diagonal`\`() en lugar de la barra diagonal inversa ().*
+> *Nota: Los usuarios de Linux/macOS deben realizar los cambios adecuados en las rutas de acceso, por ejemplo, mediante una barra diagonal (`/`), en lugar de la barra diagonal inversa (`\`).*
 
-1. Clone el código en una carpeta en el equipo local.
+1. Clone el código en una carpeta del equipo local.
 
     ```console
     git clone https://github.com/Azure-Samples/simple-feed-reader/
     ```
 
-2. Cambiar la carpeta de trabajo para el *lectura de fuentes simple* carpeta que se creó.
+2. Cambie la carpeta de trabajo a la carpeta *simple-feed-reader* que se creó.
 
     ```console
     cd .\simple-feed-reader\SimpleFeedReader
@@ -55,192 +55,192 @@ Desde un shell de comandos, descargar el código, compile el proyecto y ejecúte
     dotnet build
     ```
 
-4. Ejecute la aplicación.
+4. Ejecutar la aplicación.
 
     ```dotnetcli
     dotnet run
     ```
 
-    ![El comando dotnet run es correcto](./media/deploying-to-app-service/dotnet-run.png)
+    ![El comando de ejecución de dotnet es correcto](./media/deploying-to-app-service/dotnet-run.png)
 
-5. Abra un explorador y vaya a `http://localhost:5000`. La aplicación le permite escribir o pegar una dirección URL de fuente de distribución y ver una lista de elementos de noticias.
+5. Abra un explorador y vaya a `http://localhost:5000`. La aplicación permite escribir o pegar una dirección URL de fuente de distribución y ver una lista de elementos de noticias.
 
-     ![La aplicación muestra el contenido de una fuente RSS](./media/deploying-to-app-service/app-in-browser.png)
+     ![Aplicación que muestra el contenido de una fuente RSS](./media/deploying-to-app-service/app-in-browser.png)
 
-6. Cuando esté satisfecho la aplicación funciona correctamente, cierra presionando **Ctrl**+**C** en el shell de comandos.
+6. Una vez que esté satisfecho de que la aplicación funcione correctamente, ciérrela presionando **Ctrl**+**C** en el shell de comandos.
 
-## <a name="create-the-azure-app-service-web-app"></a>Crear la aplicación Web de Azure App Service
+## <a name="create-the-azure-app-service-web-app"></a>Crear la aplicación web de Azure App Service
 
-Para implementar la aplicación, debe crear un servicio de aplicaciones [Web App](/azure/app-service/app-service-web-overview). Tras la creación de la aplicación Web, deberá implementar en él desde el equipo local mediante Git.
+Para implementar la aplicación, debe crear una [aplicación web](/azure/app-service/app-service-web-overview) de App Service. Después de crear la aplicación web, debe implementarla en el equipo local con Git.
 
-1. Inicie sesión en el [Azure Cloud Shell](https://shell.azure.com/bash). Nota: Cuando inicie sesión por primera vez, Cloud Shell le pedirá que cree una cuenta de almacenamiento para los archivos de configuración. Acepte los valores predeterminados o proporcione un nombre único.
+1. Inicie sesión en [Azure Cloud Shell](https://shell.azure.com/bash). Nota: Cuando inicie sesión por primera vez, Cloud Shell le pedirá que cree una cuenta de almacenamiento para los archivos de configuración. Acepte los valores predeterminados o proporcione un nombre único.
 
-2. Usar Cloud Shell para conocer los pasos siguientes.
+2. Use Cloud Shell para los pasos siguientes.
 
-    a. Declare una variable para almacenar el nombre de la aplicación web. El nombre debe ser único para su uso en la dirección URL predeterminada. Mediante el `$RANDOM` función Bash para construir el nombre garantiza la exclusividad y da como resultado el formato `webappname99999`.
+    a. Declare una variable para almacenar el nombre de la aplicación web. El nombre debe ser único para usarse en la dirección URL predeterminada. El uso de la función Bash `$RANDOM` para construir el nombre garantiza la exclusividad y tiene como resultado el formato `webappname99999`.
 
     ```console
     webappname=mywebapp$RANDOM
     ```
 
-    b. Cree un grupo de recursos. Grupos de recursos proporcionan un medio para agregar los recursos de Azure pueden administrarse como un grupo.
+    b. Cree un grupo de recursos. Los grupos de recursos proporcionan un medio para agregar recursos de Azure para administrarlos como un grupo.
 
     ```azure-cli
     az group create --location centralus --name AzureTutorial
     ```
 
-    El `az` comando invoca el [CLI de Azure](/cli/azure/). Se puede ejecutar la CLI localmente, pero usarlo en Cloud Shell permite ahorrar tiempo y la configuración.
+    El comando `az` invoca la [CLI de Azure](/cli/azure/). La CLI se puede ejecutar localmente, pero su uso en Cloud Shell ahorra tiempo y configuración.
 
-    c. Crear un plan de App Service en el nivel S1. Un plan de App Service es una agrupación de aplicaciones web que comparten el mismo plan de tarifa. El nivel de S1 no está disponible, pero es obligatorio para la característica de espacios de almacenamiento provisional.
+    c. Cree un plan de App Service en el nivel S1. Un plan de App Service es una agrupación de aplicaciones web que comparten el mismo plan de tarifa. El nivel S1 no es gratuito, pero es necesario para la característica de espacios de ensayo.
 
     ```azure-cli
     az appservice plan create --name $webappname --resource-group AzureTutorial --sku S1
     ```
 
-    d. Crear el recurso de aplicación web mediante el plan de App Service en el mismo grupo de recursos.
+    d. Cree el recurso de la aplicación web con el plan de App Service en el mismo grupo de recursos.
 
     ```azure-cli
     az webapp create --name $webappname --resource-group AzureTutorial --plan $webappname
     ```
 
-    e. Establecer las credenciales de implementación. Estas credenciales de implementación se aplican a todas las aplicaciones web en su suscripción. No utilice caracteres especiales en el nombre de usuario.
+    e. Cree las credenciales de implementación. Estas credenciales de implementación se aplican a todas las aplicaciones web de su suscripción. No utilice caracteres especiales en el nombre de usuario.
 
     ```azure-cli
     az webapp deployment user set --user-name REPLACE_WITH_USER_NAME --password REPLACE_WITH_PASSWORD
     ```
 
-    f. Configurar la aplicación web para que acepte las implementaciones de local Git y mostrar el *dirección URL de la implementación de Git*. **Tenga en cuenta esta dirección URL para consultarla más tarde**.
+    f. Configure la aplicación web para que acepte implementaciones de Git local y muestre la *dirección URL de implementación de Git*. **Tenga en cuenta esta dirección URL como referencia más adelante**.
 
     ```azure-cli
     echo Git deployment URL: $(az webapp deployment source config-local-git --name $webappname --resource-group AzureTutorial --query url --output tsv)
     ```
 
-    g. Mostrar el *URL de aplicación web*. Vaya a esta dirección URL para ver la aplicación web en blanco. **Tenga en cuenta esta dirección URL para consultarla más tarde**.
+    g. Muestre la dirección *URL de la aplicación web*. Vaya a esta dirección URL para ver la aplicación web en blanco. **Tenga en cuenta esta dirección URL como referencia más adelante**.
 
     ```console
     echo Web app URL: http://$webappname.azurewebsites.net
     ```
 
-3. Mediante un shell de comandos en el equipo local, vaya a la carpeta del proyecto de la aplicación web (por ejemplo, `.\simple-feed-reader\SimpleFeedReader`). Ejecute los comandos siguientes para configurar Git para insertar en la dirección URL de implementación:
+3. Con un shell de comandos en el equipo local, vaya a la carpeta de proyecto de la aplicación web (por ejemplo, `.\simple-feed-reader\SimpleFeedReader`). Ejecute los siguientes comandos para configurar Git a fin de que envíe cambios a la dirección URL de implementación:
 
-    a. Agregue la dirección URL remota en el repositorio local.
+    a. Agregue la dirección URL remota al repositorio local.
 
     ```console
     git remote add azure-prod GIT_DEPLOYMENT_URL
     ```
 
-    b. Insertar local *maestro* bifurcar a la *azure prod* del remoto *maestro* rama.
+    b. Inserte la rama *maestra* local en la rama *maestra* de *azure-prod* remoto.
 
     ```console
     git push azure-prod master
     ```
 
-    Se le pedirá las credenciales de implementación que creó anteriormente. Observe la salida en el shell de comandos. Azure compila la aplicación de ASP.NET Core de forma remota.
+    Se le pedirán las credenciales de implementación que creó anteriormente. Observe el resultado en el shell de comandos. Azure crea la aplicación ASP.NET Core de forma remota.
 
-4. En un explorador, vaya a la *URL de aplicación Web* y tenga en cuenta la aplicación se ha generado e implementado. Cambios adicionales se pueden confirmados en el repositorio de Git local con `git commit`. Estos cambios se insertan en Azure a la anterior `git push` comando.
+4. En un explorador, vaya a la *dirección URL de la aplicación web* y tenga en cuenta que la aplicación se ha compilado e implementado. Se pueden confirmar otros cambios en el repositorio local de Git con `git commit`. Estos cambios se insertan en Azure con el comando `git push` anterior.
 
 ## <a name="deployment-with-visual-studio"></a>Implementación con Visual Studio
 
-> *Nota: Esta sección se aplica solo a Windows. Los usuarios de Linux y macOS deben realizar el cambio que se describe en el paso 2 a continuación. Guarde el archivo y confirme el cambio en el repositorio local con `git commit`. Por último, inserte el cambio con `git push`, como en la primera sección.*
+> *Nota: Esta sección se aplica solo a Windows. Los usuarios de Linux y macOS deben realizar el cambio descrito en el paso 2 a continuación. Guarde el archivo y confirme el cambio en el repositorio local con `git commit`. Por último, inserte el cambio con `git push`, como en la primera sección.*
 
-La aplicación ya se ha implementado desde el shell de comandos. Vamos a usar herramientas integradas de Visual Studio para implementar una actualización en la aplicación. En segundo plano, Visual Studio realiza la misma tarea, como las herramientas de línea de comandos, pero dentro de la interfaz de usuario familiar de Visual Studio.
+La aplicación ya se ha implementado desde el shell de comandos. Vamos a usar las herramientas integradas de Visual Studio para implementar una actualización de la aplicación. En segundo plano, Visual Studio consigue lo mismo que las herramientas de línea de comandos, pero dentro de la interfaz de usuario familiar de Visual Studio.
 
 1. Abra *SimpleFeedReader.sln* en Visual Studio.
-2. En el Explorador de soluciones, abra *Pages\Index.cshtml*. Cambio `<h2>Simple Feed Reader</h2>` a `<h2>Simple Feed Reader - V2</h2>`.
-3. Presione **Ctrl**+**MAYÚS**+**B** para compilar la aplicación.
-4. En el Explorador de soluciones, haga doble clic en el proyecto y haga clic en **publicar**.
+2. En el Explorador de soluciones, abra *Pages\Index.cshtml*. Cambio de `<h2>Simple Feed Reader</h2>` a `<h2>Simple Feed Reader - V2</h2>`.
+3. Presione **Ctrl**+**Mayús**+**B** para compilar la aplicación.
+4. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y, a continuación, en **Publicar**.
 
-    ![Captura de pantalla con el botón derecho, publicar](./media/deploying-to-app-service/publish.png)
-5. Visual Studio puede crear un nuevo recurso de App Service, pero esta actualización se publicará a través de la implementación existente. En el **elegir un destino de publicación** cuadro de diálogo, seleccione **App Service** en la lista de la izquierda y, a continuación, seleccione **seleccionar existente**. Haga clic en **Publicar**.
-6. En el **App Service** cuadro de diálogo, confirme que Microsoft o cuenta profesional que se usa para crear la suscripción de Azure se muestra en la esquina superior derecha. Si no es así, haga clic en la lista desplegable y agréguelo.
-7. Confirme que la Azure correcta **suscripción** está seleccionada. Para **vista**, seleccione **grupo de recursos**. Expanda el **AzureTutorial** grupo de recursos y, a continuación, seleccione la aplicación web existente. Haga clic en **Aceptar**.
+    ![Captura de pantalla que muestra el clic con el botón derecho, Publicar](./media/deploying-to-app-service/publish.png)
+5. Visual Studio puede crear un nuevo recurso de App Service, pero esta actualización se publicará en la implementación existente. En el cuadro de diálogo **Elegir un destino de publicación**, seleccione **App Service** en la lista de la izquierda y, a continuación, seleccione **Seleccionar existentes**. Haga clic en **Publicar**.
+6. En el cuadro de diálogo **App Service**, confirme que la cuenta profesional o de Microsoft utilizada para crear la suscripción de Azure se muestre en la esquina superior derecha. Si no es así, haga clic en el menú desplegable y agréguelo.
+7. Conforme que se selecciona la **suscripción** de Azure correcta. Para **Vista**, seleccione **Grupo de recursos**. Expanda el grupo de recursos **AzureTutorial** y, a continuación, seleccione la aplicación web existente. Haga clic en **Aceptar**.
 
-    ![Cuadro de diálogo de publicación de servicio de aplicación que muestra la captura de pantalla](./media/deploying-to-app-service/publish-dialog.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Publicar App Service](./media/deploying-to-app-service/publish-dialog.png)
 
-Visual Studio genera e implementa la aplicación en Azure. Vaya a la dirección URL de aplicación web. Validar que el `<h2>` modificación del elemento está en funcionamiento.
+Visual Studio compila e implementa la aplicación en Azure. Navegue hasta la dirección URL de la aplicación web. Valide que la modificación del elemento `<h2>` esté activa.
 
-![La aplicación con el título modificada](./media/deploying-to-app-service/app-v2.png)
+![La aplicación con el título modificado](./media/deploying-to-app-service/app-v2.png)
 
 ## <a name="deployment-slots"></a>Ranuras de implementación
 
-Ranuras de implementación admiten el almacenamiento provisional de los cambios sin afectar a la aplicación que se ejecuta en producción. Una vez que un equipo de control de calidad se valida la versión de ensayo de la aplicación, se pueden intercambiar espacios de ensayo y producción. La aplicación en ensayo se promueve a producción de esta manera. Los siguientes pasos crean una ranura de ensayo, implementación algunos cambios en él e intercambiar la ranura de ensayo a producción después de la comprobación.
+Las ranuras de implementación admiten el almacenamiento provisional de los cambios sin afectar a la aplicación que se ejecuta en producción. Una vez que un equipo de control de calidad valida la versión de ensayo de la aplicación, se pueden intercambiar los espacios de producción y de ensayo. La aplicación en almacenamiento provisional se promueve a producción de esta manera. En los pasos siguientes se crea un espacio de ensayo, se implementan algunos cambios en él y se intercambia el espacio de ensayo con producción después de la comprobación.
 
-1. Inicie sesión en el [Azure Cloud Shell](https://shell.azure.com/bash), si no ha iniciado sesión.
-2. Creación de la ranura de ensayo.
+1. Inicie sesión en [Azure Cloud Shell](https://shell.azure.com/bash), si aún no ha iniciado sesión.
+2. Cree el espacio de ensayo.
 
-    a. Cree una ranura de implementación con el nombre *ensayo*.
+    a. Cree una ranura de implementación con el nombre *almacenamiento provisional*.
 
     ```azure-cli
     az webapp deployment slot create --name $webappname --resource-group AzureTutorial --slot staging
     ```
 
-    b. Configurar el espacio de ensayo para usar la implementación de local Git y obtenga el **ensayo** dirección URL de implementación. **Tenga en cuenta esta dirección URL para consultarla más tarde**.
+    b. Configure el espacio de ensayo para usar la implementación de Git local y obtener la dirección URL de implementación de **almacenamiento provisional**. **Tenga en cuenta esta dirección URL como referencia más adelante**.
 
     ```azure-cli
     echo Git deployment URL for staging: $(az webapp deployment source config-local-git --name $webappname --resource-group AzureTutorial --slot staging --query url --output tsv)
     ```
 
-    c. Mostrar la dirección URL de la ranura de ensayo. Vaya a la dirección URL para ver el espacio de ensayo vacío. **Tenga en cuenta esta dirección URL para consultarla más tarde**.
+    c. Muestre la dirección URL del espacio de ensayo. Vaya a la dirección URL para ver el espacio de ensayo vacío. **Tenga en cuenta esta dirección URL como referencia más adelante**.
 
     ```console
     echo Staging web app URL: http://$webappname-staging.azurewebsites.net
     ```
 
-3. En un editor de texto o Visual Studio, modifique *Pages/index.cshtml* nuevo para que el `<h2>` lee el elemento `<h2>Simple Feed Reader - V3</h2>` y guarde el archivo.
+3. En un editor de texto o Visual Studio, vuelva a modificar *Pages/Index.cshtml* para que el elemento `<h2>` lea `<h2>Simple Feed Reader - V3</h2>` y guarde el archivo.
 
-4. Confirmar el archivo en el repositorio de Git local, mediante el **cambios** página en Visual Studio *Team Explorer* ficha, o escribiendo lo siguiente mediante el shell de comandos del equipo local:
+4. Confirme el archivo en el repositorio de Git local con la página **Cambios** de la pestaña *Team Explorer* de Visual Studio, o bien especifique lo siguiente con el shell de comandos del equipo local:
 
     ```console
     git commit -a -m "upgraded to V3"
     ```
 
-5. Mediante el shell de comandos de la máquina local, agregue la URL de la implementación de ensayo como un Git remoto e insertar los cambios confirmados:
+5. Con el shell de comandos del equipo local, agregue la dirección URL de implementación de ensayo como un Git remoto y envíe los cambios confirmados:
 
-    a. Agregue la dirección URL remota para el almacenamiento provisional en el repositorio de Git local.
+    a. Agregue la dirección URL remota para el almacenamiento provisional en el repositorio local de Git.
 
     ```console
     git remote add azure-staging <Git_staging_deployment_URL>
     ```
 
-    b. Insertar local *maestro* bifurcar a la *ensayo de azure* del remoto *maestro* rama.
+    b. Inserte la rama *maestra* local en la rama *maestra* de *azure-staging* remoto.
 
     ```console
     git push azure-staging master
     ```
 
-    Espere mientras Azure crea e implementa la aplicación.
+    Espere mientras Azure compila e implementa la aplicación.
 
-6. Para comprobar que se ha implementado V3 en la ranura de ensayo, abra dos ventanas del explorador. En una ventana, desplácese a la URL de aplicación web original. En la ventana, vaya a la URL de aplicación web provisional. La dirección URL de producción actúa V2 de la aplicación. La URL de ensayo sirve V3 de la aplicación.
+6. Para comprobar que V3 se ha implementado en el espacio de ensayo, abra dos ventanas del explorador. En una ventana, vaya a la dirección URL de la aplicación web original. En la otra ventana, vaya a la dirección URL de la aplicación web de almacenamiento provisional. La dirección URL de producción ofrece servicio a la versión 2 de la aplicación. La dirección URL de almacenamiento provisional ofrece servicio a la versión 3 de la aplicación.
 
-    ![Captura de pantalla de comparación de las ventanas del explorador](./media/deploying-to-app-service/ready-to-swap.png)
+    ![Captura de pantalla que compara las ventanas del explorador](./media/deploying-to-app-service/ready-to-swap.png)
 
-7. En Cloud Shell, colocar la ranura de ensayo comprobado/preparado-up en producción.
+7. En Cloud Shell, intercambie el espacio de ensayo verificado o preparado a producción.
 
     ```azure-cli
     az webapp deployment slot swap --name $webappname --resource-group AzureTutorial --slot staging
     ```
 
-8. Compruebe que el intercambio se produjo al actualizar las ventanas del explorador de dos.
+8. Para comprobar que se ha producido el intercambio, actualice las dos ventanas del explorador.
 
-    ![Comparación de las ventanas del explorador después del intercambio](./media/deploying-to-app-service/swapped.png)
+    ![Comparar las ventanas del explorador después del intercambio](./media/deploying-to-app-service/swapped.png)
 
 ## <a name="summary"></a>Resumen
 
-En esta sección, se completaron las siguientes tareas:
+En esta sección, se completaron las tareas siguientes:
 
-* Descargado y compilado la aplicación de ejemplo.
-* Crea una aplicación Web de Azure App Service mediante Azure Cloud Shell.
-* Implementar la aplicación de ejemplo en Azure mediante Git.
-* Implementar un cambio en la aplicación mediante Visual Studio.
-* Agrega una ranura de ensayo a la aplicación web.
-* Implementar una actualización en la ranura de ensayo.
-* Intercambiar las ranuras de ensayo y producción.
+* Se descargó y compiló la aplicación de ejemplo.
+* Se creó una aplicación web de Azure App Service con Azure Cloud Shell.
+* Se implementó la aplicación de ejemplo en Azure con Git.
+* Se implementó un cambio en la aplicación mediante Visual Studio.
+* Se agregó un espacio de ensayo a la aplicación web.
+* Se implementó una actualización en el espacio de ensayo.
+* Se intercambiaron los espacios de ensayo y producción.
 
-En la sección siguiente, obtendrá información sobre cómo crear una canalización de DevOps con canalizaciones de Azure.
+En la siguiente sección, aprenderá a crear una canalización de DevOps con Azure Pipelines.
 
 ## <a name="additional-reading"></a>Lecturas adicionales
 
 * [Introducción a Web Apps](/azure/app-service/app-service-web-overview)
-* [Compilar una aplicación web de .NET Core y SQL Database en Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
-* [Configurar credenciales de implementación para Azure App Service](/azure/app-service/app-service-deployment-credentials)
-* [Configurar entornos de ensayo en Azure App Service](/azure/app-service/web-sites-staged-publishing)
+* [Creación de una aplicación .NET Core y SQL Database en Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
+* [Configuración de credenciales de implementación para Azure App Service](/azure/app-service/app-service-deployment-credentials)
+* [Configuración de entornos de ensayo en Azure App Service](/azure/app-service/web-sites-staged-publishing)

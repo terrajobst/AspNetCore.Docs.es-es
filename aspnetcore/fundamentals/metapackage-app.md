@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/24/2019
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: 8435445890ce00f33ab9a8692f5442b1609192da
-ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
+ms.openlocfilehash: 3ce74bc7329a88ffc6f77baf6b8a311c02951318
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219115"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78648959"
 ---
 # <a name="microsoftaspnetcoreapp-for-aspnet-core"></a>Microsoft.AspNetCore.App para ASP.NET Core
 
@@ -43,7 +43,7 @@ El marco compartido de ASP.NET Core:
 
 Esta característica requiere ASP.NET Core 2.x con .NET Core 2.x como destino.
 
-El [metapaquete](/dotnet/core/packages#metapackages) [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) para ASP.NET Core:
+El [metapaquete](/dotnet/core/packages#metapackages) [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) para ASP.NET Core:
 
 * No incluye dependencias de terceros excepto [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/), [Remotion.Linq](https://www.nuget.org/packages/Remotion.Linq/) e [IX-Async](https://www.nuget.org/packages/System.Interactive.Async/). Estas dependencias de terceros se consideran necesarias para garantizar el funcionamiento de las características de los principales marcos.
 * Incluye todos los paquetes admitidos por el equipo de ASP.NET Core, excepto aquellos que contienen dependencias de terceros (distintos de los mencionados anteriormente).
@@ -77,11 +77,11 @@ El archivo de proyecto siguiente hace referencia al metapaquete `Microsoft.AspNe
 </Project>
 ```
 
-El marcado anterior representa una plantilla típica de ASP.NET Core 2.x. No especifica ningún número de versión para la referencia del paquete `Microsoft.AspNetCore.App`. Si no se especifica la versión, el SDK define una versión [implícita](https://github.com/dotnet/core/blob/master/release-notes/1.0/sdk/1.0-rc3-implicit-package-refs.md), es decir, `Microsoft.NET.Sdk.Web`. Es recomendable confiar en la versión implícita especificada por el SDK y no establecer de forma explícita el número de versión en la referencia del paquete. Si tiene alguna pregunta sobre este enfoque, deje un comentario de GitHub en [Discussion for the Microsoft.AspNetCore.App implicit version](https://github.com/aspnet/AspNetCore.Docs/issues/6430) (Debate sobre la versión implícita Microsoft.AspNetCore.App).
+El marcado anterior representa una plantilla típica de ASP.NET Core 2.x. No especifica ningún número de versión para la referencia del paquete `Microsoft.AspNetCore.App`. Si no se especifica la versión, el SDK define una versión [implícita](https://github.com/dotnet/core/blob/master/release-notes/1.0/sdk/1.0-rc3-implicit-package-refs.md), es decir, `Microsoft.NET.Sdk.Web`. Es recomendable confiar en la versión implícita especificada por el SDK y no establecer de forma explícita el número de versión en la referencia del paquete. Si tiene alguna pregunta sobre este enfoque, deje un comentario de GitHub en [Discussion for the Microsoft.AspNetCore.App implicit version](https://github.com/dotnet/AspNetCore.Docs/issues/6430) (Debate sobre la versión implícita Microsoft.AspNetCore.App).
 
 La versión implícita se establece en `major.minor.0` para las aplicaciones portátiles. El mecanismo de puesta al día del marco de uso compartido ejecutará la aplicación en la versión más reciente compatible entre los marcos de uso compartidos instalados. Para garantizar que se use la misma versión en el desarrollo, las pruebas y la producción, asegúrese de que en todos los entornos esté instalada la misma versión del marco de uso compartido. Para las aplicaciones autocontenidas, el número de versión implícita se establece en el valor `major.minor.patch` del marco de uso compartido incluido en el SDK instalado.
 
-El hecho de especificar un número de versión en la referencia de `Microsoft.AspNetCore.App` **no** garantiza que se vaya a elegir la versión del marco de uso compartido. Por ejemplo, suponga que se especifica la versión "2.2.1", pero está instalada la "2.2.3". En ese caso, la aplicación usará el valor "2.2.3". Aunque no se recomienda, puede deshabilitar la puesta al día (revisión o secundaria). Para obtener más información sobre la puesta al día del host de dotnet y cómo configurar su comportamiento, vea [Dotnet host roll forward](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md) (Puesta al día del host de dotnet).
+El hecho de especificar un número de versión en la referencia de `Microsoft.AspNetCore.App`**no** garantiza que se vaya a elegir la versión del marco de uso compartido. Por ejemplo, suponga que se especifica la versión "2.2.1", pero está instalada la "2.2.3". En ese caso, la aplicación usará el valor "2.2.3". Aunque no se recomienda, puede deshabilitar la puesta al día (revisión o secundaria). Para obtener más información sobre la puesta al día del host de dotnet y cómo configurar su comportamiento, vea [Dotnet host roll forward](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md) (Puesta al día del host de dotnet).
 
 ::: moniker-end
 

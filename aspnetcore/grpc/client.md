@@ -1,37 +1,37 @@
 ---
-title: Llamar a gRPC Services con el cliente de .NET
+title: Llamada a servicios gRPC con el cliente .NET
 author: jamesnk
-description: Obtenga información sobre cómo llamar a gRPC Services con el cliente de gRPC de .NET.
+description: Obtenga información sobre cómo llamar a servicios gRPC con el cliente gRPC de .NET.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 08/21/2019
 uid: grpc/client
-ms.openlocfilehash: 1e7887388a752fb35d00e65db210c3924c6ab192
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
-ms.translationtype: MT
+ms.openlocfilehash: 6a6a649f7194354b16f3d67160be02428cc01170
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829106"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78650807"
 ---
-# <a name="call-grpc-services-with-the-net-client"></a>Llamar a gRPC Services con el cliente de .NET
+# <a name="call-grpc-services-with-the-net-client"></a>Llamada a servicios gRPC con el cliente .NET
 
-Hay una biblioteca de cliente de .NET gRPC disponible en el paquete NuGet de [gRPC .net. Client](https://www.nuget.org/packages/Grpc.Net.Client) . En este documento se explica cómo:
+Hay una biblioteca cliente gRPC de .NET disponible en el paquete NuGet [Grpc.Net.Client](https://www.nuget.org/packages/Grpc.Net.Client). En este documento se explica cómo:
 
-* Configure un cliente de gRPC para llamar a los servicios de gRPC.
-* Realice llamadas gRPC a los métodos unario, streaming de servidor, streaming de cliente y streaming bidireccional.
+* Configurar un cliente gRPC para llamar a servicios gRPC.
+* Realizar llamadas gRPC a los métodos de streaming unario, de servidor, de cliente y bidireccional.
 
-## <a name="configure-grpc-client"></a>Configurar el cliente de gRPC
+## <a name="configure-grpc-client"></a>Configuración del cliente gRPC
 
 Los clientes gRPC son tipos de cliente concretos que se [generan a partir de archivos *\*.proto*](xref:grpc/basics#generated-c-assets). El cliente gRPC concreto tiene métodos que se convierten en el servicio gRPC en el archivo *\*.proto*.
 
-Se crea un cliente de gRPC a partir de un canal. Empiece por usar `GrpcChannel.ForAddress` para crear un canal y, a continuación, use el canal para crear un cliente de gRPC:
+Un cliente gRPC se crea a partir de un canal. Para empezar, use `GrpcChannel.ForAddress` para crear un canal y, después, use el canal para crear un cliente gRPC:
 
 ```csharp
 var channel = GrpcChannel.ForAddress("https://localhost:5001");
 var client = new Greet.GreeterClient(channel);
 ```
 
-Un canal representa una conexión de larga duración con un servicio de gRPC. Cuando se crea un canal, se configura con opciones relacionadas con la llamada a un servicio. Por ejemplo, la `HttpClient` utilizada para realizar llamadas, el tamaño máximo del mensaje de envío y recepción y el registro se pueden especificar en `GrpcChannelOptions` y usar con `GrpcChannel.ForAddress`. Para obtener una lista completa de opciones, vea [Opciones de configuración de cliente](xref:grpc/configuration#configure-client-options).
+Un canal representa una conexión de larga duración con un servicio gRPC. Cuando se crea un canal, se configura con opciones relacionadas con la llamada a un servicio. Por ejemplo, el elemento `HttpClient` que se usa para realizar llamadas, el tamaño máximo del mensaje de envío y recepción, y el registro se pueden especificar en `GrpcChannelOptions` y usar con `GrpcChannel.ForAddress`. Para obtener una lista completa de las opciones, vea [Opciones de configuración de cliente](xref:grpc/configuration#configure-client-options).
 
 ```csharp
 var channel = GrpcChannel.ForAddress("https://localhost:5001");
@@ -42,24 +42,27 @@ var counterClient = new Count.CounterClient(channel);
 // Use clients to call gRPC services
 ```
 
-Rendimiento y uso de canal y cliente:
+Rendimiento y uso de canales y clientes:
 
 * La creación de un canal puede ser una operación costosa. La reutilización de un canal para las llamadas de gRPC proporciona ventajas de rendimiento.
-* los clientes de gRPC se crean con canales. los clientes de gRPC son objetos ligeros y no es necesario que estén almacenados en caché o reutilizados.
-* Se pueden crear varios clientes de gRPC a partir de un canal, incluidos distintos tipos de clientes.
+* Los clientes gRPC se crean con canales. Los clientes gRPC son objetos ligeros y no es necesario que se almacenen en caché ni reutilizarlos.
+* Se pueden crear varios clientes gRPC a partir de un canal, incluidos distintos tipos de clientes.
 * Varios subprocesos pueden usar de forma segura un canal y los clientes creados a partir del canal.
-* Los clientes creados desde el canal pueden realizar varias llamadas simultáneas.
+* Los clientes creados a partir del canal pueden realizar varias llamadas simultáneas.
 
-`GrpcChannel.ForAddress` no es la única opción para crear un cliente de gRPC. Si está llamando a gRPC Services desde una aplicación ASP.NET Core, considere la [integración de fábrica de cliente de gRPC](xref:grpc/clientfactory). la integración de gRPC con `HttpClientFactory` ofrece una alternativa centralizada para la creación de clientes de gRPC.
+`GrpcChannel.ForAddress` no es la única opción para crear un cliente gRPC. Si va a llamar a servicios gRPC desde una aplicación ASP.NET Core, considere la posibilidad de usar la [integración de fábrica de cliente de gRPC](xref:grpc/clientfactory). La integración de gRPC con `HttpClientFactory` ofrece una alternativa centralizada a la creación de clientes gRPC.
 
 > [!NOTE]
-> Se requiere configuración adicional para [llamar a los servicios de gRPC inseguros con el cliente de .net](xref:grpc/troubleshoot#call-insecure-grpc-services-with-net-core-client).
+> Se requiere configuración adicional para [llamar a servicios gRPC no seguros con el cliente de .NET](xref:grpc/troubleshoot#call-insecure-grpc-services-with-net-core-client).
 
-## <a name="make-grpc-calls"></a>Realizar llamadas gRPC
+> [!NOTE]
+> La llamada a gRPC a través de HTTP/2 con `Grpc.Net.Client` no se admite actualmente en Xamarin. Estamos trabajando para mejorar la compatibilidad con HTTP/2 en una versión futura de Xamarin. [Grpc.Core](https://www.nuget.org/packages/Grpc.Core) y [gRPC-Web](xref:grpc/browser) son alternativas viables que funcionan en la actualidad.
 
-Una llamada a gRPC se inicia llamando a un método en el cliente. El cliente gRPC controlará la serialización del mensaje y dirigirá la llamada gRPC al servicio correcto.
+## <a name="make-grpc-calls"></a>Realización de llamadas gRPC
 
-gRPC tiene distintos tipos de métodos. La forma de usar el cliente para realizar una llamada gRPC depende del tipo de método al que se está llamando. Los tipos de método gRPC son:
+Una llamada gRPC se inicia mediante la llamada a un método en el cliente. El cliente gRPC controlará la serialización de mensajes y dirigirá la llamada gRPC al servicio correcto.
+
+gRPC tiene distintos tipos de métodos. La forma de usar el cliente para realizar una llamada gRPC depende del tipo de método al que se llame. Los tipos de métodos gRPC son los siguientes:
 
 * Unario
 * Streaming de servidor
@@ -68,7 +71,7 @@ gRPC tiene distintos tipos de métodos. La forma de usar el cliente para realiza
 
 ### <a name="unary-call"></a>Llamada unaria
 
-Una llamada unaria comienza con el cliente que envía un mensaje de solicitud. Cuando finaliza el servicio, se devuelve un mensaje de respuesta.
+Una llamada unaria comienza con el envío de un mensaje de solicitud por parte del cliente. Cuando finaliza el servicio, se devuelve un mensaje de respuesta.
 
 ```csharp
 var client = new Greet.GreeterClient(channel);
@@ -78,14 +81,14 @@ Console.WriteLine("Greeting: " + response.Message);
 // Greeting: Hello World
 ```
 
-Cada método de servicio unario del archivo *\*. proto* dará como resultado dos métodos .net en el tipo de cliente gRPC concreto para llamar al método: un método asincrónico y un método de bloqueo. Por ejemplo, en `GreeterClient` hay dos maneras de llamar a `SayHello`:
+Cada método de servicio unario del archivo *\*.proto* dará como resultado dos métodos de .NET en el tipo de cliente gRPC concreto para llamar al método: un método asincrónico y un método de bloqueo. Por ejemplo, en `GreeterClient` hay dos maneras de llamar a `SayHello`:
 
-* `GreeterClient.SayHelloAsync`: llama a `Greeter.SayHello` servicio de forma asincrónica. Se puede esperar.
-* `GreeterClient.SayHello`: llama a `Greeter.SayHello` servicio y se bloquea hasta que se completa. No se usa en código asincrónico.
+* `GreeterClient.SayHelloAsync`: llama al servicio `Greeter.SayHello` de forma asincrónica. Se le puede aplicar espera.
+* `GreeterClient.SayHello`: llama al servicio `Greeter.SayHello` y se bloquea hasta que se completa. No se debe usar en código asincrónico.
 
 ### <a name="server-streaming-call"></a>Llamada de streaming de servidor
 
-Una llamada de streaming de servidor se inicia con el cliente que envía un mensaje de solicitud. `ResponseStream.MoveNext()` Lee los mensajes transmitidos desde el servicio. La llamada de streaming del servidor se completa cuando `ResponseStream.MoveNext()` devuelve `false`.
+Una llamada de streaming de servidor comienza con el envío de un mensaje de solicitud por parte del cliente. `ResponseStream.MoveNext()` lee los mensajes transmitidos desde el servicio. La llamada de streaming del servidor se completa cuando `ResponseStream.MoveNext()` devuelve `false`.
 
 ```csharp
 var client = new Greet.GreeterClient(channel);
@@ -99,7 +102,7 @@ using (var call = client.SayHellos(new HelloRequest { Name = "World" }))
 }
 ```
 
-Si usa C# 8 o posterior, se puede usar la sintaxis de `await foreach` para leer los mensajes. El método de extensión `IAsyncStreamReader<T>.ReadAllAsync()` Lee todos los mensajes de la secuencia de respuesta:
+Si usa C# 8 o una versión posterior, se puede usar la sintaxis de `await foreach` para leer los mensajes. El método de extensión `IAsyncStreamReader<T>.ReadAllAsync()` lee todos los mensajes de la secuencia de respuesta:
 
 ```csharp
 var client = new Greet.GreeterClient(channel);
@@ -115,7 +118,7 @@ using (var call = client.SayHellos(new HelloRequest { Name = "World" }))
 
 ### <a name="client-streaming-call"></a>Llamada de streaming de cliente
 
-Una llamada de streaming de cliente se inicia *sin* que el cliente envíe un mensaje. El cliente puede elegir enviar mensajes con `RequestStream.WriteAsync`. Cuando el cliente ha terminado de enviar mensajes `RequestStream.CompleteAsync` se debe llamar a para notificar al servicio. La llamada finaliza cuando el servicio devuelve un mensaje de respuesta.
+Una llamada de streaming de cliente comienza *sin* el envío de un mensaje por parte del cliente. El cliente puede elegir enviar mensajes con `RequestStream.WriteAsync`. Cuando el cliente ha terminado de enviar mensajes se debe llamar a `RequestStream.CompleteAsync` para notificar al servicio. La llamada finaliza cuando el servicio devuelve un mensaje de respuesta.
 
 ```csharp
 var client = new Counter.CounterClient(channel);
@@ -135,7 +138,7 @@ using (var call = client.AccumulateCount())
 
 ### <a name="bi-directional-streaming-call"></a>Llamada de streaming bidireccional
 
-Una llamada de streaming bidireccional se inicia *sin* que el cliente envíe un mensaje. El cliente puede elegir enviar mensajes con `RequestStream.WriteAsync`. Se puede obtener acceso a los mensajes transmitidos desde el servicio con `ResponseStream.MoveNext()` o `ResponseStream.ReadAllAsync()`. La llamada de streaming bidireccional se completa cuando el `ResponseStream` no tiene más mensajes.
+Una llamada de streaming bidireccional comienza *sin* el envío de un mensaje por parte del cliente. El cliente puede elegir enviar mensajes con `RequestStream.WriteAsync`. Se puede acceder a los mensajes transmitidos desde el servicio con `ResponseStream.MoveNext()` o `ResponseStream.ReadAllAsync()`. La llamada de streaming bidireccional se completa cuando `ResponseStream` no tiene más mensajes.
 
 ```csharp
 using (var call = client.Echo())
@@ -169,7 +172,7 @@ using (var call = client.Echo())
 }
 ```
 
-Durante una llamada de streaming bidireccional, el cliente y el servicio pueden enviar mensajes entre sí en cualquier momento. La mejor lógica de cliente para interactuar con una llamada bidireccional varía en función de la lógica del servicio.
+Durante una llamada de streaming bidireccional, el cliente y el servicio se pueden enviar mensajes entre sí en cualquier momento. La mejor lógica de cliente para interactuar con una llamada bidireccional varía en función de la lógica del servicio.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

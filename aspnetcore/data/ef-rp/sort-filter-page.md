@@ -1,17 +1,17 @@
 ---
 title: 'Páginas de Razor con EF Core en ASP.NET Core: Ordenación, filtrado y paginación (3 de 8)'
-author: tdykstra
+author: rick-anderson
 description: En este tutorial se agregará funcionalidad de ordenación, filtrado y paginación a una página de Razor mediante ASP.NET Core y Entity Framework Core.
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: b4cef98f3ad4973878c5fa65a47c0b86cdfc8686
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 9563f3ef52ce429eb0a58b468acb8e9cd7b276e2
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583523"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78645497"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Ordenación, filtrado y paginación (3 de 8)
 
@@ -49,7 +49,7 @@ La página de Razor usa `NameSort` y `DateSort` para configurar los hipervíncul
 
 [!code-csharp[Main](intro/samples/cu30snapshots/3-sorting/Pages/Students/Index1.cshtml.cs?name=snippet_Ternary)]
 
-En el código se usa el operador condicional [?:](/dotnet/csharp/language-reference/operators/conditional-operator) de C#. El operador `?:` es un operador ternario (toma tres operandos). La primera línea especifica que, cuando `sortOrder` es NULL o está vacío, `NameSort` se establece en "name_desc". Si `sortOrder` **no** es NULL ni está vacío, `NameSort` se establece en una cadena vacía.
+En el código se usa el operador condicional [?:](/dotnet/csharp/language-reference/operators/conditional-operator) de C#. El operador `?:` es un operador ternario (toma tres operandos). La primera línea especifica que, cuando `sortOrder` es NULL o está vacío, `NameSort` se establece en "name_desc". Si `sortOrder`**no** es NULL ni está vacío, `NameSort` se establece en una cadena vacía.
 
 Estas dos instrucciones habilitan la página para establecer los hipervínculos de encabezado de columna de la siguiente forma:
 
@@ -132,7 +132,7 @@ Reemplace el código de *Pages/Student/Index.cshtml* para crear un botón **Sear
 
 [!code-cshtml[Main](intro/samples/cu30snapshots/3-sorting/Pages/Students/Index2.cshtml?highlight=14-23)]
 
-El código anterior usa el [asistente de etiquetas](xref:mvc/views/tag-helpers/intro)`<form>` para agregar el cuadro de texto de búsqueda y el botón. De forma predeterminada, el asistente de etiquetas `<form>` envía datos de formulario con POST. Con POST, los parámetros se pasan en el cuerpo del mensaje HTTP y no en la dirección URL. Cuando se usa el método HTTP GET, los datos del formulario se pasan en la dirección URL como cadenas de consulta. Pasar los datos con cadenas de consulta permite a los usuarios marcar la dirección URL. Las [directrices de W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) recomiendan el uso de GET cuando la acción no produzca ninguna actualización.
+El código anterior usa el [asistente de etiquetas](xref:mvc/views/tag-helpers/intro) `<form>` para agregar el cuadro de texto de búsqueda y el botón. De forma predeterminada, el asistente de etiquetas `<form>` envía datos de formulario con POST. Con POST, los parámetros se pasan en el cuerpo del mensaje HTTP y no en la dirección URL. Cuando se usa el método HTTP GET, los datos del formulario se pasan en la dirección URL como cadenas de consulta. Pasar los datos con cadenas de consulta permite a los usuarios marcar la dirección URL. Las [directrices de W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) recomiendan el uso de GET cuando la acción no produzca ninguna actualización.
 
 Pruebe la aplicación:
 
@@ -275,15 +275,15 @@ En la siguiente ilustración se muestra una página completa. Los encabezados de
 
 ![Página de índice de Students](sort-filter-page/_static/paging.png)
 
-Si experimenta problemas que no puede resolver, descargue la [aplicación completada](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+Si experimenta problemas que no puede resolver, descargue la [aplicación completada](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 ## <a name="add-sorting-to-the-index-page"></a>Agregar ordenación a la página de índice
 
-Agregue cadenas al `PageModel` de *Students/Index.cshtml.cs* para que contenga los parámetros de ordenación:
+Agregue cadenas al elemento `PageModel` de *Students/Index.cshtml.cs* para que contenga los parámetros de ordenación:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet1&highlight=10-13)]
 
-Actualice *Students/Index.cshtml.cs* `OnGetAsync` con el código siguiente:
+Actualice el elemento `OnGetAsync` de *Students/Index.cshtml.cs* con el código siguiente:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly)]
 
@@ -302,7 +302,7 @@ El código siguiente contiene el [operador ?:](/dotnet/csharp/language-reference
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
 
-La primera línea especifica que, cuando `sortOrder` es NULL o está vacío, `NameSort` se establece en "name_desc". Si `sortOrder` **no** es NULL ni está vacío, `NameSort` se establece en una cadena vacía.
+La primera línea especifica que, cuando `sortOrder` es NULL o está vacío, `NameSort` se establece en "name_desc". Si `sortOrder`**no** es NULL ni está vacío, `NameSort` se establece en una cadena vacía.
 
 El `?: operator` también se conoce como el operador ternario.
 
@@ -359,7 +359,7 @@ Para agregar un filtro a la página de índice de Students:
 
 ### <a name="add-filtering-functionality-to-the-index-method"></a>Agregar la funcionalidad de filtrado al método Index
 
-Actualice *Students/Index.cshtml.cs* `OnGetAsync` con el código siguiente:
+Actualice el elemento `OnGetAsync` de *Students/Index.cshtml.cs* con el código siguiente:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
@@ -387,7 +387,7 @@ En *Pages/Student/Index.cshtml*, agregue el siguiente código resaltado para cre
 
 [!code-html[](intro/samples/cu21/Pages/Students/Index3.cshtml?highlight=14-23&range=1-25)]
 
-El código anterior usa el [asistente de etiquetas](xref:mvc/views/tag-helpers/intro)`<form>` para agregar el cuadro de texto de búsqueda y el botón. De forma predeterminada, el asistente de etiquetas `<form>` envía datos de formulario con POST. Con POST, los parámetros se pasan en el cuerpo del mensaje HTTP y no en la dirección URL. Cuando se usa el método HTTP GET, los datos del formulario se pasan en la dirección URL como cadenas de consulta. Pasar los datos con cadenas de consulta permite a los usuarios marcar la dirección URL. Las [directrices de W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) recomiendan el uso de GET cuando la acción no produzca ninguna actualización.
+El código anterior usa el [asistente de etiquetas](xref:mvc/views/tag-helpers/intro) `<form>` para agregar el cuadro de texto de búsqueda y el botón. De forma predeterminada, el asistente de etiquetas `<form>` envía datos de formulario con POST. Con POST, los parámetros se pasan en el cuerpo del mensaje HTTP y no en la dirección URL. Cuando se usa el método HTTP GET, los datos del formulario se pasan en la dirección URL como cadenas de consulta. Pasar los datos con cadenas de consulta permite a los usuarios marcar la dirección URL. Las [directrices de W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) recomiendan el uso de GET cuando la acción no produzca ninguna actualización.
 
 Pruebe la aplicación:
 
@@ -424,7 +424,7 @@ En *Students/Index.cshtml.cs*, actualice el tipo de `Student` de `IList<Student>
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPageType)]
 
-Actualice *Students/Index.cshtml.cs* `OnGetAsync` con el código siguiente:
+Actualice el elemento `OnGetAsync` de *Students/Index.cshtml.cs* con el código siguiente:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage&highlight=1-4,7-14,41-999)]
 
@@ -521,13 +521,13 @@ Reemplace el código del archivo *Pages/About.cshtml* por el código siguiente:
 
 Ejecute la aplicación y vaya a la página About. En una tabla se muestra el número de alumnos para cada fecha de inscripción.
 
-Si experimenta problemas que no puede resolver, descargue la [aplicación completada para esta fase](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting).
+Si experimenta problemas que no puede resolver, descargue la [aplicación completada para esta fase](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting).
 
 ![Página About](sort-filter-page/_static/about.png)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Depuración del código fuente de ASP.NET Core 2.x](https://github.com/aspnet/AspNetCore.Docs/issues/4155)
+* [Depuración del código fuente de ASP.NET Core 2.x](https://github.com/dotnet/AspNetCore.Docs/issues/4155)
 * [Versión en YouTube de este tutorial](https://www.youtube.com/watch?v=MDs7PFpoMqI)
 
 En el tutorial siguiente, la aplicación usa las migraciones para actualizar el modelo de datos.

@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: bbe5328bfa5b4187989a00c3c94e98dabc5d032a
-ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
-ms.translationtype: MT
+ms.openlocfilehash: 9703a62eb7f779974382fe0fb01702d9fcd37d64
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73190516"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78649757"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de React con ASP.NET Core
 
@@ -20,7 +20,7 @@ La plantilla de proyecto actualizada de React ofrece un práctico punto de parti
 
 La plantilla es equivalente a crear un proyecto de ASP.NET Core para que funcione como un back-end de API y un proyecto de React de CRA estándar para que funcione como interfaz de usuario, pero con la comodidad de hospedar ambos en un único proyecto de aplicación que se puede compilar y publicar como una sola unidad.
 
-La plantilla de proyecto reAct no está pensada para la representación del lado servidor (SSR). En el caso de SSR con reAct y node. js, considere [Next. js](https://github.com/zeit/next.js/) o [Razzle](https://github.com/jaredpalmer/razzle).
+La plantilla de proyecto de React no está pensada para representación del lado servidor (SSR). Para usar SSR con React y Node.js, considere [Next.js](https://github.com/zeit/next.js/) o [Razzle](https://github.com/jaredpalmer/razzle).
 
 ## <a name="create-a-new-app"></a>Creación de una nueva aplicación
 
@@ -33,15 +33,15 @@ dotnet new react -o my-new-app
 cd my-new-app
 ```
 
-Ejecute la aplicación desde Visual Studio o la CLI de .NET Core:
+Ejecute la aplicación desde Visual Studio o la CLI de .NET Core:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Abra el archivo *.csproj* generado y, desde ahí, ejecute la aplicación de la manera habitual.
 
 El proceso de compilación restaura las dependencias npm en la primera ejecución, lo que puede tardar varios minutos. Las compilaciones posteriores son mucho más rápidas.
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
 Asegúrese de tener una variable de entorno denominada `ASPNETCORE_Environment` con un valor de `Development`. En Windows (en los avisos que no son de PowerShell), ejecute `SET ASPNETCORE_Environment=Development`. En Linux o macOS, ejecute `export ASPNETCORE_Environment=Development`.
 
@@ -55,7 +55,7 @@ La plantilla de proyecto crea una aplicación ASP.NET Core y una aplicación de 
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Adición de páginas, imágenes, estilos, módulos, etc.
 
-El directorio *ClientApp* es una aplicación de React de CRA estándar. Para más información, consulte la [documentación oficial de CRA](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+El directorio *ClientApp* es una aplicación de React de CRA estándar. Para más información, consulte la [documentación oficial de CRA](https://create-react-app.dev/docs/getting-started/).
 
 Existe pequeñas diferencias entre la aplicación de React creada mediante este plantilla y la creada mediante CRA propiamente dicho; sin embargo, las funcionalidades de la aplicación permanecen sin cambios. La aplicación creada con la plantilla contiene un diseño basado en [arranque](https://getbootstrap.com/) y un ejemplo de enrutamiento básico.
 
@@ -82,13 +82,13 @@ El proyecto está configurado para iniciar su propia instancia del servidor de d
 
 Sin embargo, esta configuración predeterminada tiene un inconveniente. Cada vez que modifica el código de C# y la aplicación ASP.NET Core debe reiniciarse, el servidor de CRA se reinicia. Se necesitan unos segundos para iniciar la copia de seguridad. Sin realiza frecuentes modificaciones en el código de C# y no quiere esperar a que se reinicie el servidor de CRA, ejecute el servidor de CRA externamente, con independencia del proceso de ASP.NET Core. Para ello:
 
-1. Agregue un archivo *. env* al subdirectorio *ClientApp* con la siguiente configuración:
+1. Agregue un archivo *.env* al subdirectorio *ClientApp* con el siguiente valor:
 
     ```
     BROWSER=none
     ```
 
-    Esto impedirá que el explorador Web se abra al iniciar el servidor de la CRA externamente.
+    Esto evita que el explorador web se abra al iniciar el servidor de CRA de forma externa.
 
 2. En un símbolo del sistema, cambie al subdirectorio *ClientApp* e inicie el servidor de desarrollo de CRA:
 
@@ -106,7 +106,7 @@ Sin embargo, esta configuración predeterminada tiene un inconveniente. Cada vez
 Cuando inicie la aplicación ASP.NET Core, no se iniciará un servidor de CRA. En su lugar, se usa la instancia que inició manualmente. Esto le permite iniciar y reiniciar con mayor rapidez. Ya no tiene que esperar a que la aplicación de React se recompile de una vez a otra.
 
 > [!IMPORTANT]
-> La representación del lado servidor no es una característica admitida de esta plantilla. Nuestro objetivo con esta plantilla es cumplir la paridad con "Create-reAct-app". Por lo tanto, los escenarios y características que no se incluyen en un proyecto "Create-reAct-app" (como SSR) no se admiten y se dejan como un ejercicio para el usuario.
+> La "representación del lado servidor" no es una característica admitida de esta plantilla. El objetivo de esta plantilla es cumplir la paridad con "create-react-app". Así, los escenarios y las características no incluidos en un proyecto "create-react-app" (como SSR) no se admiten y se dejan como un ejercicio para el usuario.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

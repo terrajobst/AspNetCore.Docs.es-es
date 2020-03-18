@@ -9,11 +9,11 @@ no-loc:
 - Blazor
 uid: fundamentals/target-aspnetcore
 ms.openlocfilehash: 72096fc2f03033dfe8325b5129e074913a2fbd1f
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463137"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78646691"
 ---
 # <a name="use-aspnet-core-apis-in-a-class-library"></a>Uso de las API de ASP.NET Core en una biblioteca de clases
 
@@ -42,19 +42,19 @@ Para hacer referencia a ASP.NET Core, agregue el siguiente elemento `<FrameworkR
 
 La referencia a ASP.NET Core de esta manera solo se admite para los proyectos que tienen como destino .NET Core 3.x.
 
-## <a name="include-opno-locblazor-extensibility"></a>Inclusión de la extensibilidad Blazor
+## <a name="include-blazor-extensibility"></a>Inclusión de la extensibilidad de Blazor
 
-Blazor admite los [modelos de hospedaje](xref:blazor/hosting-models) de WebAssembly (WASM) y Server. A menos que haya un motivo específico para no hacerlo, una biblioteca de [componentes de Razor](xref:blazor/components) debe admitir ambos modelos de hospedaje. Una biblioteca de componentes de Razor debe usar el [SDK de Microsoft.NET.Sdk.Razor](xref:razor-pages/sdk).
+Blazor admite los [modelos de hospedaje](xref:blazor/hosting-models) WebAssembly (WASM) y Servidor. A menos que haya un motivo específico para no hacerlo, una biblioteca de [componentes de Razor](xref:blazor/components) debe admitir ambos modelos de hospedaje. Una biblioteca de componentes de Razor debe usar el [SDK de Microsoft.NET.Sdk.Razor](xref:razor-pages/sdk).
 
 ### <a name="support-both-hosting-models"></a>Compatibilidad con ambos modelos de hospedaje
 
-Para admitir el consumo de componentes de Razor desde proyectos [Blazor Server](xref:blazor/hosting-models#blazor-server) y [Blazor WASM](xref:blazor/hosting-models#blazor-webassembly), use las instrucciones siguientes para su editor.
+Para admitir el consumo de componentes de Razor desde proyectos [Servidor Blazor ](xref:blazor/hosting-models#blazor-server) y [WASM de Blazor](xref:blazor/hosting-models#blazor-webassembly), use las instrucciones siguientes para su editor.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Elija la plantilla de proyecto **Biblioteca de clases de Razor**. Se debe desactivar la casilla **Support pages and views** (Admitir páginas y vistas) de la plantilla.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Ejecute el comando siguiente en el terminal integrado:
 
@@ -62,7 +62,7 @@ Ejecute el comando siguiente en el terminal integrado:
 dotnet new razorclasslib
 ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
 Elija la plantilla de proyecto **Biblioteca de clases de Razor**.
 
@@ -82,7 +82,7 @@ Por ejemplo:
 
 ### <a name="support-a-specific-hosting-model"></a>Compatibilidad con un modelo de hospedaje específico
 
-Es mucho menos común admitir un único modelo de hospedaje de Blazor. Por ejemplo, para admitir el consumo de componentes de Razor desde proyectos [Blazor Server](xref:blazor/hosting-models#blazor-server) únicamente:
+Es mucho menos común admitir un único modelo de hospedaje de Blazor. Por ejemplo, para admitir el consumo de componentes de Razor solo desde proyectos de [Servidor Blazor](xref:blazor/hosting-models#blazor-server):
 
 * Diríjase a .NET Core 3.x.
 * Agregue un elemento `<FrameworkReference>` para el marco compartido.
@@ -114,11 +114,11 @@ Si el proyecto tiene como destino .NET Core 3.x, requiere lo siguiente:
 
 La plantilla del proyecto **Biblioteca de clases de Razor** cumple los requisitos anteriores para los proyectos que tienen como destino .NET Core 3.x. Utilice las instrucciones siguientes para su editor.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Elija la plantilla de proyecto **Biblioteca de clases de Razor**. Se activa la casilla **Support pages and views** (Admitir páginas y vistas) de la plantilla.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Ejecute el comando siguiente en el terminal integrado:
 
@@ -126,7 +126,7 @@ Ejecute el comando siguiente en el terminal integrado:
 dotnet new razorclasslib -s
 ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
 No hay compatibilidad con plantillas de proyecto en este momento.
 
