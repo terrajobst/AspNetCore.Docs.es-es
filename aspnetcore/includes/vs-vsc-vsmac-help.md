@@ -1,11 +1,11 @@
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ## <a name="visual-studio-help"></a>Ayuda de Visual Studio
 
 * [Información sobre cómo depurar código de C# con Visual Studio](https://docs.microsoft.com/visualstudio/debugger/getting-started-with-the-debugger?view=vs-2017)
 * [Introducción al IDE de Visual Studio](https://docs.microsoft.com/visualstudio/ide/visual-studio-ide?view=vs-2017)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ## <a name="visual-studio-code-help"></a>Ayuda de Visual Studio Code
 
@@ -18,7 +18,7 @@
   * [Métodos abreviados de teclado de Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
   * [Métodos abreviados de teclado de Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
 ## <a name="visual-studio-for-mac-help"></a>Ayuda de Visual Studio para Mac
 
