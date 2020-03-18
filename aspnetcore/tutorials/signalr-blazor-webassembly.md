@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: tutorials/signalr-blazor-webassembly
-ms.openlocfilehash: 765595863cb18c889c36b756392bc8163e73c591
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 605cf8ebd3e85586f3e479c815f0b9902ce5a91a
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78649763"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79083387"
 ---
 # <a name="use-aspnet-core-signalr-with-blazor-webassembly"></a>Uso de ASP.NET Core SignalR con Blazor WebAssembly
 
@@ -58,10 +58,10 @@ Al final de este tutorial, tendrá una aplicación de chat funcional.
 
 ## <a name="create-a-hosted-blazor-webassembly-app-project"></a>Creación de un proyecto de aplicación de Blazor WebAssembly hospedado
 
-Instale la plantilla de [Blazor WebAssembly](xref:blazor/hosting-models#blazor-webassembly). El paquete [Microsoft.AspNetCore.Blazor.Templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/) tiene una versión preliminar, mientras que Blazor WebAssembly se encuentra en versión preliminar. En un shell de comandos, ejecute el siguiente comando:
+Instale la plantilla de [Blazor WebAssembly](xref:blazor/hosting-models#blazor-webassembly). El paquete [Microsoft.AspNetCore.Components.WebAssembly.Templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebAssembly.Templates/) tiene una versión preliminar, mientras que Blazor WebAssembly se encuentra en versión preliminar. En un shell de comandos, ejecute el siguiente comando:
 
 ```dotnetcli
-dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.2.0-preview1.20073.1
+dotnet new -i Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.0-preview2.20160.5
 ```
 
 Siga las instrucciones para su elección de herramientas:

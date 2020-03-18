@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 no-loc:
 - SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: e1ab02077abc8f8b3315a52eb29a3d571af43fa0
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: e6dd200367278b1697ef232f5d79dfbd138bb82b
+ms.sourcegitcommit: 40dc9b00131985abcd99bd567647420d798e798a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78647645"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78935489"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Uso de SignalR de ASP.NET Core con TypeScript y Webpack
 
@@ -46,7 +46,7 @@ En este tutorial aprenderá a:
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [.NET Core SDK 3.0 o posterior](https://www.microsoft.com/net/download/all)
-* [C# para Visual Studio Code versión 1.17.1 o posterior](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [C# para Visual Studio Code versión 1.17.1 o posterior](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [Node.js](https://nodejs.org/) con [npm](https://www.npmjs.com/)
 
 ---
@@ -93,7 +93,7 @@ Ejecute el siguiente comando de CLI de .NET Core en el **terminal integrado**:
 dotnet add package Microsoft.TypeScript.MSBuild
 ```
 
-El comando anterior agrega el paquete [https://www.nuget.org/packages/Microsoft.TypeScript.MSBuild/ ] (Microsoft.TypeScript.MSBuild), que habilita la compilación de TypeScript en el proyecto.
+El comando anterior agrega el paquete [Microsoft.TypeScript.MSBuild](https://www.nuget.org/packages/Microsoft.TypeScript.MSBuild/), que habilita la compilación de TypeScript en el proyecto.
 
 ---
 
@@ -303,7 +303,7 @@ Confirme que la aplicación funciona con los pasos siguientes.
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [.NET Core SDK 2.2 o posterior](https://www.microsoft.com/net/download/all)
-* [C# para Visual Studio Code versión 1.17.1 o posterior](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [C# para Visual Studio Code versión 1.17.1 o posterior](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [Node.js](https://nodejs.org/) con [npm](https://www.npmjs.com/)
 
 ---
