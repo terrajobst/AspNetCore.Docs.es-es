@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/tools-and-downloads
-ms.openlocfilehash: 25ce311373b0aaddfa3bc2728c39e503acbca69d
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 9c1042dd48b9167209b46e97a09e011b80e2609c
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78647447"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511150"
 ---
 # <a name="tools-and-downloads"></a>Herramientas y descargas
 
@@ -28,7 +28,7 @@ Se requieren las suscripciones siguientes:
 Se requieren las herramientas siguientes:
 
 * [Git](https://git-scm.com/downloads): se recomienda una comprensión fundamental de Git para esta guía. Revise la [Documentación de Git](https://git-scm.com/doc), concretamente [Git remoto](https://git-scm.com/docs/git-remote) y [Git Push](https://git-scm.com/docs/git-push).
-* [SDK de .NET Core](https://www.microsoft.com/net/download/): se necesita la versión 2.1.300 o una posterior para compilar y ejecutar la aplicación de ejemplo. Si Visual Studio se instala con la carga de trabajo de **desarrollo multiplataforma de .NET Core**, el SDK de .NET Core ya está instalado.
+* [SDK de .NET Core](https://dotnet.microsoft.com/download/): se necesita la versión 2.1.300 o una posterior para compilar y ejecutar la aplicación de ejemplo. Si Visual Studio se instala con la carga de trabajo de **desarrollo multiplataforma de .NET Core**, el SDK de .NET Core ya está instalado.
 
     Compruebe la instalación del SDK de .NET Core. Abra un shell de comandos y ejecute el comando siguiente:
 

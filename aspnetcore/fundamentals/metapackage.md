@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/25/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: e47f583d0fa75bdeb26b669303747a70619117c1
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: cc00c075909da5c17a4aa2fd252c9e662e5a0fc9
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78648965"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511072"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Metapaquete Microsoft.AspNetCore.All para ASP.NET Core 2.0
 
@@ -94,6 +94,6 @@ No se incluye implícitamente ninguna dependencia de los paquetes anteriores que
 
 Se recomienda migrar al metapaquete `Microsoft.AspNetCore.App` con la versión 2.1 y versiones posteriores. Para seguir usando el metapaquete `Microsoft.AspNetCore.All` y asegurarse de que se ha implementado la última versión de la revisión:
 
-* En las máquinas de desarrollo y los servidores de compilación: Instale la versión más reciente del [SDK de .NET Core](https://www.microsoft.com/net/download).
-* En los servidores de implementación: Instale el [entorno de ejecución de .NET Core](https://www.microsoft.com/net/download) más reciente.
+* En las máquinas de desarrollo y los servidores de compilación: Instale la versión más reciente del [SDK de .NET Core](https://dotnet.microsoft.com/download).
+* En los servidores de implementación: Instale el [entorno de ejecución de .NET Core](https://dotnet.microsoft.com/download) más reciente.
  Su aplicación se pondrá al día con la última versión instalada al reiniciar la aplicación.

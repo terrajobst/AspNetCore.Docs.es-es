@@ -5,17 +5,17 @@ description: Aprenda a controlar al enlazador de lenguaje intermedio (IL) al cre
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 03/10/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: 263b85a3213c1da233e4c96095faaf39d0a8e13f
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: b08ec26fb8d139223c57774600bc3cb19a56ac49
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78648611"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79083288"
 ---
 # <a name="configure-the-linker-for-aspnet-core-blazor"></a>Configuración del enlazador para ASP.NET Core Blazor
 
@@ -23,20 +23,24 @@ Por [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor realiza la vinculación de [lenguaje intermedio (IL)](/dotnet/standard/managed-code#intermediate-language--execution) durante una compilación para quitar el IL innecesario de los ensamblados de salida de la aplicación.
+WebAssembly de Blazor realiza la vinculación de [lenguaje intermedio (IL)](/dotnet/standard/managed-code#intermediate-language--execution) durante una compilación para reducir el IL innecesario de los ensamblados de salida de la aplicación. El enlazador está deshabilitado durante la compilación en la configuración Debug. Las aplicaciones deben compilarse en la configuración Release para habilitar el enlazador. Se recomienda compilar en Release cuando se implementen las aplicaciones WebAssembly de Blazor. 
 
-Controle la vinculación del ensamblado con cualquiera de los enfoques siguientes:
+La vinculación de una aplicación optimiza el tamaño, pero puede tener efectos perjudiciales. Las aplicaciones que usan la reflexión o características dinámicas relacionadas pueden verse interrumpidas cuando se reduzcan porque el enlazador no conoce este comportamiento dinámico y no puede determinar, en general, qué tipos son necesarios para la reflexión en el entorno de ejecución. Para reducir estas aplicaciones, se debe informar al vinculador de los tipos necesarios para la reflexión en el código y en los paquetes o marcos de trabajo de los que depende la aplicación. 
 
-* Deshabilitación de la vinculación global con una [propiedad de MSBuild](#disable-linking-with-a-msbuild-property).
+Para asegurarse de que la aplicación reducida funciona correctamente una vez implementada, es importante probar las compilaciones de Release de la aplicación con frecuencia durante el desarrollo.
+
+La vinculación de las aplicaciones de Blazor se puede configurar con estas características de MSBuild:
+
+* Configuración de la vinculación global con una [propiedad de MSBuild](#control-linking-with-an-msbuild-property).
 * Control de la vinculación por cada ensamblado con un [archivo de configuración](#control-linking-with-a-configuration-file).
 
-## <a name="disable-linking-with-a-msbuild-property"></a>Deshabilitación de la vinculación con una propiedad de MSBuild
+## <a name="control-linking-with-an-msbuild-property"></a>Control de la vinculación con una propiedad de MSBuild
 
-La vinculación se habilita de forma predeterminada al compilar una aplicación, lo que incluye la publicación. Para deshabilitar la vinculación para todos los ensamblados, establezca la propiedad `BlazorLinkOnBuild` de MSBuild en `false` en el archivo de proyecto:
+La vinculación se habilita cuando se crea una aplicación en la configuración `Release`. Para cambiar esto, configure la propiedad `BlazorWebAssemblyEnableLinking` de MSBuild en el archivo del proyecto:
 
 ```xml
 <PropertyGroup>
-  <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
+  <BlazorWebAssemblyEnableLinking>false</BlazorWebAssemblyEnableLinking>
 </PropertyGroup>
 ```
 
