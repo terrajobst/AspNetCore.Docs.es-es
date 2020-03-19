@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: migration/mvc2
-ms.openlocfilehash: 11bd3b948afaedc675ac4249099969382683f653
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 5a2437f8dddee49d402bf7df67cb15aa895367b2
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78653975"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511093"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>Migración de ASP.NET a ASP.NET Core 2.0
 
@@ -21,7 +21,7 @@ Este artículo sirve de guía de referencia para migrar aplicaciones de ASP.NET 
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Instale **una** de las siguientes opciones desde [descargas de .net: Windows](https://www.microsoft.com/net/download/windows):
+Instale **una** de las siguientes opciones desde [descargas de .net: Windows](https://dotnet.microsoft.com/download):
 
 * SDK de .NET Core
 * Visual Studio para Windows

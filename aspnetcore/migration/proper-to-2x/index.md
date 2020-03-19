@@ -5,12 +5,12 @@ description: Obtenga instrucciones para migrar aplicaciones existentes de ASP.NE
 ms.author: scaddie
 ms.date: 10/18/2019
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: e9ebfa7352350cf39917e515a1a66d6271829f38
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 68a45dc50e00bead564500a12509b62a4a193ec4
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78644345"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511098"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Migración de ASP.NET a ASP.NET Core
 
@@ -20,7 +20,7 @@ Este artículo sirve de guía de referencia para migrar aplicaciones de ASP.NET 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[.NET Core SDK 2.2 o posterior](https://www.microsoft.com/net/download)
+[.NET Core SDK 2.2 o posterior](https://dotnet.microsoft.com/download)
 
 ## <a name="target-frameworks"></a>Versiones de .NET Framework de destino
 

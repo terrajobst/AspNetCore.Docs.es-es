@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo crear una aplicación ASP.NET Core
 ms.author: riande
 ms.date: 03/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 49d3d214fd64edc5b17df2df929ddc3c2af47ede
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 3a6b0501d507929c9929207a7bb871b3b81b7cb8
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78654227"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511631"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Confirmación de la cuenta y recuperación de la contraseña en ASP.NET Core
 
@@ -219,7 +219,7 @@ La habilitación de la confirmación de cuenta en un sitio con usuarios bloquea 
 
 ## <a name="prerequisites"></a>Prerequisites
 
-[SDK de .NET Core 2,2 o posterior](https://www.microsoft.com/net/download/all)
+[SDK de .NET Core 2,2 o posterior](https://dotnet.microsoft.com/download/dotnet-core)
 
 ## <a name="create-a-web--app-and-scaffold-identity"></a>Creación de una aplicación web y una identidad scaffolding
 
