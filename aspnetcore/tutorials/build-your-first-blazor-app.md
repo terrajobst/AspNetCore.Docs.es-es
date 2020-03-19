@@ -5,16 +5,16 @@ description: Cree una aplicación Blazor paso a paso.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 03/13/2020
 no-loc:
 - Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 8830dcf26b58b5f5fdd36b60298e7b365f99bdd9
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 8b3802a6ffe3613e5d4ca65c57fafc3f404c8329
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78644867"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434504"
 ---
 # <a name="build-your-first-opno-locblazor-app"></a>Compilación de la primera aplicación Blazor
 
@@ -24,9 +24,9 @@ Por [Daniel Roth](https://github.com/danroth27) y [Luke Latham](https://github.c
 
 En este tutorial se muestra cómo crear y modificar una aplicación Blazor.
 
-Siga las instrucciones del artículo <xref:blazor/get-started> para crear un proyecto de Blazor en este tutorial. Denomine el proyecto *ToDoList*.
-
 ## <a name="build-components"></a>Creación de componentes
+
+1. Siga las instrucciones del artículo <xref:blazor/get-started> para crear un proyecto de Blazor en este tutorial. Denomine el proyecto *ToDoList*.
 
 1. Vaya a cada una de las tres páginas de la aplicación en la carpeta *Pages*: Home (Inicio), Counter (Contador) y Fetch data (Recuperar datos). Estas páginas se implementan mediante los archivos de componente de Razor *Index.razor*, *Counter.razor* y *FetchData.razor*.
 
@@ -133,14 +133,14 @@ Se usa un bucle [`@foreach`](/dotnet/csharp/language-reference/keywords/foreach-
 
 Agregue un nuevo componente a la aplicación que implemente una simple lista de tareas pendientes.
 
-1. Agregue un archivo vacío denominado *Todo.razor* a la aplicación en la carpeta *Pages*:
+1. Agregue un nuevo componente `Todo` Razor a la aplicación en la carpeta *Páginas*. En Visual Studio, haga clic con el botón derecho en la carpeta **Páginas** y seleccione **Agregar** > **Nuevo elemento** > **Componente de Razor**. Asigne el nombre *Todo.razor* al archivo del componente. En otros entornos de desarrollo, agregue un archivo en blanco denominado *Todo.razor* a la carpeta **Páginas**.
 
 1. Proporcione el marcado inicial para el componente:
 
    ```razor
    @page "/todo"
 
-   <h1>Todo</h1>
+   <h3>Todo</h3>
    ```
 
 1. Agregue el componente `Todo` a la barra de navegación.

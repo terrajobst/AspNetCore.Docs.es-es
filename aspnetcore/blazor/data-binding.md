@@ -1,27 +1,29 @@
 ---
 title: Enlace de datos de ASP.NET Core Blazor
 author: guardrex
-description: Obtenga información sobre los escenarios de enlace de datos para componentes y elementos DOM en aplicaciones de Blazor.
+description: Obtenga información sobre las características de enlace de datos para componentes y elementos DOM en aplicaciones de Blazor.
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/24/2020
+ms.date: 03/16/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/data-binding
-ms.openlocfilehash: 92377730b9d353a507ffd384710fb979affe7265
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 5b49d2598a451ee607e034913bd1aeaa03f941c6
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78648227"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511202"
 ---
 # <a name="aspnet-core-opno-locblazor-data-binding"></a>Enlace de datos de ASP.NET Core Blazor
 
 Por [Luke Latham](https://github.com/guardrex) y [Daniel Roth](https://github.com/danroth27)
 
-El enlace de datos a componentes y elementos DOM se logra mediante el atributo [`@bind`](xref:mvc/views/razor#bind). En el ejemplo siguiente se enlaza una propiedad `CurrentValue` al valor del cuadro de texto:
+Los componentes de Razor proporcionan características de enlace de datos a través de un atributo de elemento HTML denominado [`@bind`](xref:mvc/views/razor#bind) que cuenta con un valor de campo, propiedad o expresión de Razor.
+
+En el ejemplo siguiente se enlaza la propiedad `CurrentValue` al valor del cuadro de texto:
 
 ```razor
 <input @bind="CurrentValue" />
@@ -78,6 +80,8 @@ Use `@bind-{ATTRIBUTE}` con la sintaxis `@bind-{ATTRIBUTE}:event` para enlazar a
     private string _paragraphStyle = "color:red";
 }
 ```
+
+El enlace de atributos distingue mayúsculas de minúsculas. Por ejemplo, `@bind` no es válido, pero `@Bind` sí.
 
 ## <a name="unparsable-values"></a>Valores no analizables
 
