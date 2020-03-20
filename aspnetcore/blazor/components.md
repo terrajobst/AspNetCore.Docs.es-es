@@ -5,17 +5,17 @@ description: Obtenga información sobre cómo crear y usar componentes de Razor,
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2020
+ms.date: 03/16/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/components
-ms.openlocfilehash: e444ebfef5143a6c33ed2d122933903ad3a4f4a7
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 7afc9250cdfb4b791ef939ead0f41b503d83fad8
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78648041"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511280"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creación y uso de componentes de Razor de ASP.NET Core
 
@@ -87,8 +87,6 @@ Las [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) no 
 ## <a name="use-components"></a>Uso de componentes
 
 Para que los componentes puedan incluir otros componentes, hay que declararlos usando la sintaxis de elementos HTML. El marcado para utilizar un componente se parece a una etiqueta HTML en la que el nombre de la etiqueta es el tipo de componente.
-
-El enlace de atributos distingue mayúsculas de minúsculas. Por ejemplo, `@bind` no es válido, pero `@Bind` sí.
 
 El siguiente marcado en *Index.razor* representa una instancia de `HeadingComponent`:
 
@@ -389,7 +387,7 @@ Considere el ejemplo siguiente:
 ```csharp
 @foreach (var person in People)
 {
-    <DetailsEditor Details="person.Details" />
+    <DetailsEditor Details="@person.Details" />
 }
 
 @code {
@@ -405,7 +403,7 @@ El proceso de asignación se puede controlar con el atributo de directiva `@key`
 ```csharp
 @foreach (var person in People)
 {
-    <DetailsEditor @key="person" Details="person.Details" />
+    <DetailsEditor @key="person" Details="@person.Details" />
 }
 
 @code {
