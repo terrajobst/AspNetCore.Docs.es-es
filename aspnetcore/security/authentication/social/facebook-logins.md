@@ -4,15 +4,15 @@ author: rick-anderson
 description: Tutorial con ejemplos de código que muestran la integración de la autenticación de usuarios de cuentas de Facebook en una aplicación de ASP.NET Core existente.
 ms.author: riande
 ms.custom: seoapril2019, mvc, seodec18
-ms.date: 12/02/2019
+ms.date: 03/19/2020
 monikerRange: '>= aspnetcore-3.0'
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 2e4cc04c6e7ff8e5f5701cc7f9ede73dbc1b4685
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: bb26a27f026e744c7d4925aa2281bf0625fff8a2
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78654887"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989780"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>Configuración de inicio de sesión externo de Facebook en ASP.NET Core
 
@@ -59,18 +59,19 @@ En este tutorial con ejemplos de código se muestra cómo habilitar a los usuari
 
 * Al implementar el sitio, debe volver a visitar la página de configuración de **Inicio de sesión de Facebook** y registrar un nuevo URI público.
 
-## <a name="store-facebook-app-id-and-app-secret"></a>Store Id. de aplicación de Facebook y secreto de la aplicación
+## <a name="store-the-facebook-app-id-and-secret"></a>Almacenar el identificador y el secreto de la aplicación de Facebook
 
-Vincule configuraciones confidenciales como Facebook `App ID` y `App Secret` a la configuración de la aplicación mediante el [Administrador de secretos](xref:security/app-secrets). Para los fines de este tutorial, asigne a los tokens el nombre `Authentication:Facebook:AppId` y `Authentication:Facebook:AppSecret`.
+Almacene la configuración confidencial, como el identificador de la aplicación de Facebook y los valores de secreto con el [Administrador de secretos](xref:security/app-secrets). En este ejemplo, siga estos pasos:
+
+1. Inicialice el proyecto para el almacenamiento de secretos según las instrucciones de [enable Secret Storage](xref:security/app-secrets#enable-secret-storage).
+1. Almacene la configuración confidencial en el almacén secreto local con las claves secretas `Authentication:Facebook:AppId` y `Authentication:Facebook:AppSecret`:
+
+    ```dotnetcli
+    dotnet user-secrets set "Authentication:Facebook:AppId" "<app-id>"
+    dotnet user-secrets set "Authentication:Facebook:AppSecret" "<app-secret>"
+    ```
 
 [!INCLUDE[](~/includes/environmentVarableColon.md)]
-
-Ejecute los siguientes comandos para almacenar de forma segura `App ID` y `App Secret` mediante el administrador de secretos:
-
-```dotnetcli
-dotnet user-secrets set Authentication:Facebook:AppId <app-id>
-dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
-```
 
 ## <a name="configure-facebook-authentication"></a>Configurar la autenticación de Facebook
 
