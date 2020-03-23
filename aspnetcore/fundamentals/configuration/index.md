@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/29/2020
 uid: fundamentals/configuration/index
-ms.openlocfilehash: e1237db2625a127bfa5c31ac29b4394be6941b2f
-ms.sourcegitcommit: 9e2b3aaccc9a41291eb23bf4561159e79cf6bc9d
+ms.openlocfilehash: b4fa082c5a53bc9ecb3c7b8ddcbf243ef0d94ba7
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2020
-ms.locfileid: "79546346"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989692"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configuración en ASP.NET Core
 
@@ -152,7 +152,7 @@ Los siguientes comandos `set`:
 * Establecen las claves de entorno y los valores del [ejemplo anterior](#appsettingsjson) en Windows.
 * Prueban la configuración al usar la [descarga de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample). El comando `dotnet run` debe ejecutarse en el directorio del proyecto.
 
-```cmd
+```dotnetcli
 set MyKey="My key from Environment"
 set Position__Title=Environment_Editor
 set Position__Name=Environment_Rick
@@ -172,7 +172,7 @@ setx Position__Title Setx_Environment_Editor /M
 setx Position__Name Environment_Rick /M
 ```
 
-Para comprobar que los comandos anteriores invalidan *apsettings.json* y *appsettings.* `Environment` *.json*:
+Para comprobar que los comandos anteriores invalidan *appsettings.json* y *appsettings.* `Environment` *.json*:
 
 * Con Visual Studio: salga y reinicie Visual Studio.
 * Con la CLI: abra una nueva ventana de comandos y escriba `dotnet run`.
@@ -190,7 +190,7 @@ El prefijo se quita cuando se leen los pares clave-valor de configuración.
 
 Los siguientes comandos prueban el prefijo personalizado:
 
-```cmd
+```dotnetcli
 set MyCustomPrefix_MyKey="My key with MyCustomPrefix_ Environment"
 set MyCustomPrefix_Position__Title=Editor_with_customPrefix
 set MyCustomPrefix_Position__Name=Environment_Rick_cp
