@@ -424,6 +424,8 @@
               uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
             - name: instancias y claves
               uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
+            - name: Componente
+              uid: mvc/views/tag-helpers/builtin-th/component-tag-helper
             - name: Caché distribuida
               uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
             - name: Entorno
