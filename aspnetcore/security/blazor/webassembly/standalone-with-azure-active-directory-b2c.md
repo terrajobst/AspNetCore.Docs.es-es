@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/webassembly/standalone-with-azure-active-directory-b2c
-ms.openlocfilehash: b4d32e91b4013cbea37baecb972a535d2874d3d1
-ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
+ms.openlocfilehash: bb03ef1e6d216cfc06e2b91919c64f92f2ef634e
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2020
-ms.locfileid: "79434465"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80219277"
 ---
 # <a name="secure-an-aspnet-core-opno-locblazor-webassembly-standalone-app-with-azure-active-directory-b2c"></a>Proteja un ASP.NET Core Blazor aplicación independiente webassembly con Azure Active Directory B2C
 
@@ -31,14 +31,14 @@ Para crear una aplicación independiente Blazor webassembly que usa [Azure Activ
 
    * [Cree un inquilino de AAD B2C](/azure/active-directory-b2c/tutorial-create-tenant) &ndash; registre la información siguiente:
 
-     1 \. AAD B2C instancia (por ejemplo, `https://contoso.b2clogin.com/`, que incluye la barra diagonal final)<br>
-     2 \. AAD B2C dominio del inquilino (por ejemplo, `contoso.onmicrosoft.com`)
+     1\. AAD B2C instancia (por ejemplo, `https://contoso.b2clogin.com/`, que incluye la barra diagonal final)<br>
+     2\. AAD B2C dominio del inquilino (por ejemplo, `contoso.onmicrosoft.com`)
 
    * [Registrar una aplicación web](/azure/active-directory-b2c/tutorial-register-applications) &ndash; realizar las siguientes selecciones durante el registro de la aplicación:
 
-     1 \. Establezca **aplicación web/API Web** en **sí**.<br>
-     2 \. Establezca **permitir flujo implícito** en **sí**.<br>
-     3 \. Agregue una **dirección URL de respuesta** de `https://localhost:5001/authentication/login-callback`.
+     1\. Establezca **aplicación web/API Web** en **sí**.<br>
+     2\. Establezca **permitir flujo implícito** en **sí**.<br>
+     3\. Agregue una **dirección URL de respuesta** de `https://localhost:5001/authentication/login-callback`.
 
      Registre el identificador de aplicación (ID. de cliente) (por ejemplo, `11111111-1111-1111-1111-111111111111`).
 
@@ -103,7 +103,7 @@ builder.Services.AddMsalAuthentication(options =>
 
 ## <a name="index-page"></a>Página de índice
 
-[!INCLUDE[](~/includes/blazor-security/index-page.md)]
+[!INCLUDE[](~/includes/blazor-security/index-page-msal.md)]
 
 ## <a name="app-component"></a>Componente de aplicación
 

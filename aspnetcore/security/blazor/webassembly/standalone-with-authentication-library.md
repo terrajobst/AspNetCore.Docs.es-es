@@ -5,17 +5,17 @@ description: ''
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/09/2020
+ms.date: 03/19/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/webassembly/standalone-with-authentication-library
-ms.openlocfilehash: f9cc2884dcd94c729c45a056ae4327a2c75d34be
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: ea50d94835b044f9c3d6a0561868f081d32cb62a
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083594"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80219015"
 ---
 # <a name="secure-an-aspnet-core-opno-locblazor-webassembly-standalone-app-with-the-authentication-library"></a>Protección de un ASP.NET Core Blazor aplicación independiente webassembly con la biblioteca de autenticación
 
@@ -24,6 +24,8 @@ Por [Javier Calvarro Nelson](https://github.com/javiercn) y [Luke Latham](https:
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
 [!INCLUDE[](~/includes/blazorwasm-3.2-template-article-notice.md)]
+
+*Por Azure Active Directory (AAD) y Azure Active Directory B2C (AAD B2C), no siga las instrucciones de este tema. Vea los temas de AAD y AAD B2C en este nodo de tabla de contenido.*
 
 Para crear una Blazor aplicación independiente webassembly que use `Microsoft.AspNetCore.Components.WebAssembly.Authentication` Library, ejecute el siguiente comando en un shell de comandos:
 
@@ -63,11 +65,11 @@ builder.Services.AddOidcAuthentication(options =>
 });
 ```
 
-La compatibilidad con la autenticación para aplicaciones independientes se ofrece mediante Open ID Connect (OIDC). El método `AddOidcAuthentication` acepta una devolución de llamada para configurar los parámetros necesarios para autenticar una aplicación mediante OIDC. Los valores necesarios para configurar la aplicación pueden obtenerse a partir de la dirección IP, como Google, Microsoft u otro proveedor compatible con OIDC. Obtenga los valores al registrar la aplicación, que suele producirse en su portal en línea.
+La compatibilidad con la autenticación para aplicaciones independientes se ofrece mediante Open ID Connect (OIDC). El método `AddOidcAuthentication` acepta una devolución de llamada para configurar los parámetros necesarios para autenticar una aplicación mediante OIDC. Los valores necesarios para configurar la aplicación pueden obtenerse a partir de la dirección IP compatible con OIDC. Obtenga los valores al registrar la aplicación, que suele producirse en su portal en línea.
 
 ## <a name="index-page"></a>Página de índice
 
-[!INCLUDE[](~/includes/blazor-security/index-page.md)]
+[!INCLUDE[](~/includes/blazor-security/index-page-authentication.md)]
 
 ## <a name="app-component"></a>Componente de aplicación
 
