@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo trabajar con métodos de controlad
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 2c442060872ab1d2d79a2e355ae257fdf1005914
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 87b3cb2f4429157123d30274d1f12cd589c1cc99
+ms.sourcegitcommit: 99e71ae03319ab386baf2ebde956fc2d511df8b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78649151"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80242515"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Vistas y métodos de controlador en ASP.NET Core
 
@@ -53,6 +53,8 @@ Recupere el formato para el [enrutamiento](xref:mvc/controllers/routing) estable
 ASP.NET Core traduce `https://localhost:5001/Movies/Edit/4` en una solicitud al método de acción `Edit` del controlador `Movies` con el parámetro `Id` de 4. (Los métodos de controlador también se denominan métodos de acción).
 
 Los [asistentes de etiquetas](xref:mvc/views/tag-helpers/intro) son una de las nuevas características más populares de ASP.NET Core. Para obtener más información, consulte [Recursos adicionales](#additional-resources).
+
+<a name="get-post"></a>
 
 Abra el controlador `Movies` y examine los dos métodos de acción `Edit`. En el código siguiente se muestra el método `HTTP GET Edit`, que captura la película y rellena el formulario de edición generado por el archivo de Razor *Edit.cshtml*.
 

@@ -4,6 +4,8 @@
 
 **[Asistente de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
 
+**[Asistente de etiquetas de componente](xref:mvc/views/tag-helpers/builtin-th/component-tag-helper)**
+
 **[Asistente de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
 
 **[Asistente de etiquetas de entorno](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)**
