@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo ASP.NET Core MVC usa el middleware
 ms.author: riande
 ms.date: 3/25/2020
 uid: mvc/controllers/routing
-ms.openlocfilehash: be7da9eeaf64c2f52c095b5179ccc22db43d57c3
-ms.sourcegitcommit: 99e71ae03319ab386baf2ebde956fc2d511df8b8
+ms.openlocfilehash: c1c0d978714718af1de0f627e50a54f66ed391ed
+ms.sourcegitcommit: 4b166b49ec557a03f99f872dd069ca5e56faa524
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80242585"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362648"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Enrutar a acciones de controlador de ASP.NET Core
 
@@ -264,7 +264,7 @@ El enrutamiento mediante atributos utiliza un conjunto de atributos para asignar
 
 En el código anterior, se llama a <xref:Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers*> dentro de `UseEndpoints` para asignar controladores enrutados de atributo.
 
-En el ejemplo siguiente:
+Observe el siguiente ejemplo:
 
 * Se utiliza el método de `Configure` anterior.
 * `HomeController` coincide con un conjunto de direcciones URL similar al `{controller=Home}/{action=Index}/{id?}` coincide con la ruta convencional predeterminada.
@@ -846,6 +846,8 @@ Los métodos públicos de un controlador, excepto aquellos con el atributo no [A
 
  * El método [MyDisplayRouteInfo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/routing/samples/3.x/main/Extensions/ControllerContextExtensions.cs) se incluye en la [descarga de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/routing/samples/3.x) y se usa para mostrar la información de enrutamiento.
 * [Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/routing/samples/3.x) ([cómo descargarlo](xref:index#how-to-download-a-sample))
+
+[!INCLUDE[](~/includes/dbg-route.md)]
 
 ::: moniker-end
 
