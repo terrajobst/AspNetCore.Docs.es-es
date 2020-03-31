@@ -5,17 +5,17 @@ description: Obtenga información sobre cómo enrutar solicitudes en aplicacione
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 03/17/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/routing
-ms.openlocfilehash: 32459f9f42220b01ce04e6444a9bb4a9592ee2da
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 87579c88a37e0258921e199db2b5d8c7627f5499
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78649241"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218900"
 ---
 # <a name="aspnet-core-blazor-routing"></a>Enrutamiento de Blazor de ASP.NET Core
 
@@ -122,7 +122,7 @@ El enrutador usa parámetros de ruta para rellenar los parámetros de componente
 }
 ```
 
-No se admiten parámetros opcionales. En el ejemplo anterior se aplican dos directivas `@page`. La primera permite navegar al componente sin un parámetro, mientras que la segunda toma el parámetro de ruta `{text}` y asigna el valor a la propiedad `Text`.
+No se admiten parámetros opcionales. En el ejemplo anterior se aplican dos directivas `@page`. La primera permite navegar al componente sin un parámetro, mientras que la segunda `@page` toma el parámetro de ruta `{text}` y asigna el valor a la propiedad `Text`.
 
 ## <a name="route-constraints"></a>Restricciones de ruta
 
@@ -198,16 +198,16 @@ Se representa el siguiente marcado HTML:
 
 ## <a name="uri-and-navigation-state-helpers"></a>Aplicaciones auxiliares de URI y estado de navegación
 
-Use `Microsoft.AspNetCore.Components.NavigationManager` para trabajar con los URI y con la navegación en el código de C#. `NavigationManager` proporciona el evento y los métodos que se muestran en la siguiente tabla.
+Use <xref:Microsoft.AspNetCore.Components.NavigationManager> para trabajar con los URI y con la navegación en el código de C#. `NavigationManager` proporciona el evento y los métodos que se muestran en la siguiente tabla.
 
 | Miembro | Descripción |
 | ------ | ----------- |
-| `Uri` | Obtiene el URI absoluto actual. |
-| `BaseUri` | Obtiene el URI base (con una barra diagonal final) que se puede anteponer a las rutas de acceso de URI relativo para generar un URI absoluto. Normalmente, `BaseUri` corresponde al atributo `href` del elemento `<base>` del documento en *wwwroot/index.html* (WebAssembly de Blazor) o *Pages/_Host.cshtml* (servidor Blazor). |
-| `NavigateTo` | Navega al URI especificado. Si `forceLoad` es `true`:<ul><li>El enrutamiento del lado cliente se omite.</li><li>Se fuerza al explorador a cargar la nueva página desde el servidor, tanto si el URI suele estar controlado por el enrutador del lado cliente como si no.</li></ul> |
-| `LocationChanged` | Evento que se desencadena cuando la ubicación de navegación ha cambiado. |
-| `ToAbsoluteUri` | Convierte un URI relativo en un URI absoluto. |
-| `ToBaseRelativePath` | Dado un URI base (por ejemplo, un URI previamente devuelto por `GetBaseUri`), convierte un URI absoluto en un URI relativo al prefijo de URI base. |
+| URI | Obtiene el URI absoluto actual. |
+| BaseUri | Obtiene el URI base (con una barra diagonal final) que se puede anteponer a las rutas de acceso de URI relativo para generar un URI absoluto. Normalmente, `BaseUri` corresponde al atributo `href` del elemento `<base>` del documento en *wwwroot/index.html* (WebAssembly de Blazor) o *Pages/_Host.cshtml* (servidor Blazor). |
+| NavigateTo | Navega al URI especificado. Si `forceLoad` es `true`:<ul><li>El enrutamiento del lado cliente se omite.</li><li>Se fuerza al explorador a cargar la nueva página desde el servidor, tanto si el URI suele estar controlado por el enrutador del lado cliente como si no.</li></ul> |
+| LocationChanged | Evento que se desencadena cuando la ubicación de navegación ha cambiado. |
+| ToAbsoluteUri | Convierte un URI relativo en un URI absoluto. |
+| <span style="word-break:normal;word-wrap:normal">ToBaseRelativePath</span> | Dado un URI base (por ejemplo, un URI previamente devuelto por `GetBaseUri`), convierte un URI absoluto en un URI relativo al prefijo de URI base. |
 
 El siguiente componente navega al componente `Counter` de la aplicación cuando se selecciona el botón:
 
@@ -228,3 +228,34 @@ El siguiente componente navega al componente `Counter` de la aplicación cuando 
     }
 }
 ```
+
+El componente siguiente controla un evento de cambio de ubicación. El método `HandleLocationChanged` se desenlaza cuando el marco llama a `Dispose`. Al desenlazar el método se permite la recolección de elementos no utilizados del componente.
+
+```razor
+@implement IDisposable
+@inject NavigationManager NavigationManager
+
+...
+
+protected override void OnInitialized()
+{
+    NavigationManager.LocationChanged += HandleLocationChanged;
+}
+
+private void HandleLocationChanged(object sender, LocationChangedEventArgs e)
+{
+    ...
+}
+
+public void Dispose()
+{
+    NavigationManager.LocationChanged -= HandleLocationChanged;
+}
+```
+
+<xref:Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs> proporciona la información siguiente sobre el evento:
+
+* <xref:Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs.Location>: la dirección URL de la nueva ubicación.
+* <xref:Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs.IsNavigationIntercepted>: si es `true`, Blazor ha interceptado la navegación del explorador. Si es `false`, [NavigationManager.NavigateTo](xref:Microsoft.AspNetCore.Components.NavigationManager.NavigateTo%2A) ha provocado que se produjera la navegación.
+
+Para obtener más información sobre la eliminación de componentes, vea <xref:blazor/lifecycle#component-disposal-with-idisposable>.
