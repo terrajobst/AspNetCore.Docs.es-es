@@ -5,17 +5,17 @@ description: Obtenga información sobre los escenarios de enlace de datos para c
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 03/17/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/integrate-components
-ms.openlocfilehash: de1a37ffd9456c956e3d84fcc69431ecb794513c
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: cf6056e0985d5433bddecac8dd183ca3f4c2af5b
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78649085"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218939"
 ---
 # <a name="integrate-aspnet-core-razor-components-into-razor-pages-and-mvc-apps"></a>Integración de componentes Razor de ASP.NET Core en aplicaciones Razor Pages y MVC
 
@@ -66,7 +66,7 @@ Una aplicación Razor Pages o MVC existente puede integrar componentes Razor en 
    services.AddServerSideBlazor();
    ```
 
-1. En `Startup.Configure`, agregue el punto de conexión del centro Blazor a `app.UseEndpoints`:
+1. En `Startup.Configure`, agregue el punto de conexión de Blazor Hub a `app.UseEndpoints`:
 
    ```csharp
    endpoints.MapBlazorHub();
@@ -225,31 +225,10 @@ Para obtener más información, vea <xref:blazor/components#import-components>.
 
 *Esta sección pertenece a la adición de componentes a páginas o vistas, donde los componentes no son enrutables directamente desde las solicitudes del usuario.*
 
-Para representar un componente a partir de una página o vista, use el Asistente de etiquetas `Component`:
-
-```cshtml
-<component type="typeof(Counter)" render-mode="ServerPrerendered" 
-    param-IncrementAmount="10" />
-```
-
-El tipo de parámetro debe ser JSON serializable, lo que normalmente significa que el tipo debe tener un constructor predeterminado y propiedades configurables. Por ejemplo, se puede especificar un valor para `IncrementAmount` porque el tipo de `IncrementAmount` es `int`, que es un tipo primitivo compatible con el serializador JSON.
-
-`RenderMode` configura si el componente:
-
-* Se representa previamente en la página.
-* Se representa como HTML estático en la página o si incluye la información necesaria para arrancar una aplicación Blazor desde el agente de usuario.
-
-| `RenderMode`        | Descripción |
-| ------------------- | ----------- |
-| `ServerPrerendered` | Representa el componente en código HTML estático e incluye un marcador para una aplicación Blazor Server. Cuando se inicia el agente de usuario, este marcador se usa para arrancar una aplicación Blazor. |
-| `Server`            | Representa un marcador para una aplicación Blazor Server. La salida del componente no está incluida. Cuando se inicia el agente de usuario, este marcador se usa para arrancar una aplicación Blazor. |
-| `Static`            | Representa el componente en HTML estático. |
-
-Mientras que las páginas y las vistas pueden utilizar componentes, lo contrario no es cierto. Los componentes no pueden usar escenarios específicos de página y de vista, tales como vistas y secciones parciales. Para usar la lógica de vista parcial en un componente, se debe factorizar la lógica de vista parcial en un componente.
-
-No se admite la representación de componentes de servidor desde una página HTML estática.
+Para representar un componente a partir de una página o vista, use el [asistente de etiquetas de componente](xref:mvc/views/tag-helpers/builtin-th/component-tag-helper).
 
 Para obtener más información sobre cómo se representan los componentes, el estado del componente y el Asistente de etiquetas `Component`, vea los artículos siguientes:
 
 * <xref:blazor/hosting-models>
 * <xref:blazor/hosting-model-configuration>
+* <xref:mvc/views/tag-helpers/builtin-th/component-tag-helper>

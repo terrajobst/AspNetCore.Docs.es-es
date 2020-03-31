@@ -5,25 +5,25 @@ description: Obtenga información sobre cómo invocar métodos de .NET desde fun
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/19/2020
+ms.date: 03/24/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/call-dotnet-from-javascript
-ms.openlocfilehash: f4964341e261c65269eedafbbd6e676c1054f427
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: dbf44fe7923998c65119e42d97c304890fa95523
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78647411"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218796"
 ---
 # <a name="call-net-methods-from-javascript-functions-in-aspnet-core-opno-locblazor"></a>Llamada a métodos de .NET desde funciones de JavaScript en ASP.NET Core Blazor
 
-Por [Javier Calvarro Nelson](https://github.com/javiercn), [Daniel Roth](https://github.com/danroth27) y [Luke Latham](https://github.com/guardrex)
+Por [Javier Calvarro Nelson](https://github.com/javiercn), [Daniel Roth](https://github.com/danroth27), [Shashikant Rudrawadi](http://wisne.co) y [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Una aplicación de Blazor puede invocar funciones de JavaScript desde métodos de .NET y viceversa. Estos escenarios se denominan *interoperabilidad de JavaScript* (o *interoperabilidad de JS*).
+Una aplicación de Blazor puede invocar funciones de JavaScript desde métodos de .NET y viceversa. Estos escenarios se denominan *interoperabilidad de JavaScript* (o *interoperabilidad de JS*).
 
 En este artículo se describe cómo invocar métodos de .NET desde JavaScript. Para obtener información sobre cómo llamar a funciones de JavaScript desde .NET, vea <xref:blazor/call-javascript-from-dotnet>.
 
@@ -126,7 +126,7 @@ Cuando se selecciona el botón **Desencadenar el método de instancia de .NET He
 
 *JsInteropClasses/ExampleJsInterop.cs*:
 
-[!code-csharp[](./common/samples/3.x/BlazorWebAssemblySample/JsInteropClasses/ExampleJsInterop.cs?name=snippet1&highlight=10-16)]
+[!code-csharp[](./common/samples/3.x/BlazorWebAssemblySample/JsInteropClasses/ExampleJsInterop.cs?name=snippet1&highlight=11-18)]
 
 *wwwroot/exampleJsInterop.js*:
 
@@ -144,66 +144,218 @@ Salida de la consola en las herramientas de desarrollo web del explorador:
 Hello, Blazor!
 ```
 
-Para evitar una fuga de memoria y permitir la recolección de elementos no usados en un componente que crea un objeto `DotNetObjectReference`, elimine el objeto de la clase que creó la instancia de `DotNetObjectReference`:
+Para evitar una fuga de memoria y permitir la recolección de elementos no utilizados en un componente que crea un objeto `DotNetObjectReference`, adopte uno de los enfoques siguientes:
 
-```csharp
-public class ExampleJsInterop : IDisposable
-{
-    private readonly IJSRuntime _jsRuntime;
-    private DotNetObjectReference<HelloHelper> _objRef;
+* Elimine el objeto de la clase que ha creado la instancia de `DotNetObjectReference`:
 
-    public ExampleJsInterop(IJSRuntime jsRuntime)
+  ```csharp
+  public class ExampleJsInterop : IDisposable
+  {
+      private readonly IJSRuntime _jsRuntime;
+      private DotNetObjectReference<HelloHelper> _objRef;
+
+      public ExampleJsInterop(IJSRuntime jsRuntime)
+      {
+          _jsRuntime = jsRuntime;
+      }
+
+      public ValueTask<string> CallHelloHelperSayHello(string name)
+      {
+          _objRef = DotNetObjectReference.Create(new HelloHelper(name));
+
+          return _jsRuntime.InvokeAsync<string>(
+              "exampleJsFunctions.sayHello",
+              _objRef);
+      }
+
+      public void Dispose()
+      {
+          _objRef?.Dispose();
+      }
+  }
+  ```
+
+  El patrón anterior que se muestra en la clase `ExampleJsInterop` también se puede implementar en un componente:
+
+  ```razor
+  @page "/JSInteropComponent"
+  @using BlazorSample.JsInteropClasses
+  @implements IDisposable
+  @inject IJSRuntime JSRuntime
+
+  <h1>JavaScript Interop</h1>
+
+  <button type="button" class="btn btn-primary" @onclick="TriggerNetInstanceMethod">
+      Trigger .NET instance method HelloHelper.SayHello
+  </button>
+
+  @code {
+      private DotNetObjectReference<HelloHelper> _objRef;
+
+      public async Task TriggerNetInstanceMethod()
+      {
+          _objRef = DotNetObjectReference.Create(new HelloHelper("Blazor"));
+
+          await JSRuntime.InvokeAsync<string>(
+              "exampleJsFunctions.sayHello",
+              _objRef);
+      }
+
+      public void Dispose()
+      {
+          _objRef?.Dispose();
+      }
+  }
+  ```
+
+* Si el componente o la clase no elimina el objeto `DotNetObjectReference`, elimínelo en el cliente mediante la llamada a `.dispose()`:
+
+  ```javascript
+  window.myFunction = (dotnetHelper) => {
+    dotnetHelper.invokeMethod('BlazorSample', 'MyMethod');
+    dotnetHelper.dispose();
+  }
+  ```
+
+## <a name="component-instance-method-call"></a>Llamada a métodos de instancia de componente
+
+Para invocar los métodos de .NET de un componente:
+
+* Use la función `invokeMethod` o `invokeMethodAsync` para hacer una llamada de método estático al componente.
+* El método estático del componente encapsula la llamada a su método de instancia como un objeto `Action` invocado.
+
+En el código JavaScript del lado cliente:
+
+```javascript
+function updateMessageCallerJS() {
+  DotNet.invokeMethod('BlazorSample', 'UpdateMessageCaller');
+}
+```
+
+*Pages/JSInteropComponent.razor*:
+
+```razor
+@page "/JSInteropComponent"
+
+<p>
+    Message: @_message
+</p>
+
+<p>
+    <button onclick="updateMessageCallerJS()">Call JS Method</button>
+</p>
+
+@code {
+    private static Action _action;
+    private string _message = "Select the button.";
+
+    protected override void OnInitialized()
     {
-        _jsRuntime = jsRuntime;
+        _action = UpdateMessage;
     }
 
-    public ValueTask<string> CallHelloHelperSayHello(string name)
+    private void UpdateMessage()
     {
-        _objRef = DotNetObjectReference.Create(new HelloHelper(name));
-
-        return _jsRuntime.InvokeAsync<string>(
-            "exampleJsFunctions.sayHello",
-            _objRef);
+        _message = "UpdateMessage Called!";
+        StateHasChanged();
     }
 
-    public void Dispose()
+    [JSInvokable]
+    public static void UpdateMessageCaller()
     {
-        _objRef?.Dispose();
+        _action.Invoke();
     }
 }
 ```
-  
-El patrón anterior que se muestra en la clase `ExampleJsInterop` también se puede implementar en un componente:
-  
-```razor
-@page "/JSInteropComponent"
-@using BlazorSample.JsInteropClasses
-@implements IDisposable
-@inject IJSRuntime JSRuntime
 
-<h1>JavaScript Interop</h1>
+Cuando hay varios componentes, cada uno con métodos de instancia a los que llamar, se usa una clase auxiliar para invocar los métodos de instancia (como objetos `Action`) de cada componente.
 
-<button type="button" class="btn btn-primary" @onclick="TriggerNetInstanceMethod">
-    Trigger .NET instance method HelloHelper.SayHello
-</button>
+En el ejemplo siguiente:
 
-@code {
-    private DotNetObjectReference<HelloHelper> _objRef;
+* El componente `JSInterop` contiene varios componentes `ListItem`.
+* Cada componente `ListItem` consta de un mensaje y un botón.
+* Cuando se selecciona un botón de componente `ListItem`, el método `UpdateMessage` de ese objeto `ListItem` cambia el texto del elemento de lista y oculta el botón.
 
-    public async Task TriggerNetInstanceMethod()
+*MessageUpdateInvokeHelper.cs*:
+
+```csharp
+using System;
+using Microsoft.JSInterop;
+
+public class MessageUpdateInvokeHelper
+{
+    private Action _action;
+
+    public MessageUpdateInvokeHelper(Action action)
     {
-        _objRef = DotNetObjectReference.Create(new HelloHelper("Blazor"));
-
-        await JSRuntime.InvokeAsync<string>(
-            "exampleJsFunctions.sayHello",
-            _objRef);
+        _action = action;
     }
 
-    public void Dispose()
+    [JSInvokable("BlazorSample")]
+    public void UpdateMessageCaller()
     {
-        _objRef?.Dispose();
+        _action.Invoke();
     }
 }
+```
+
+En el código JavaScript del lado cliente:
+
+```javascript
+window.updateMessageCallerJS = (dotnetHelper) => {
+    dotnetHelper.invokeMethod('BlazorSample', 'UpdateMessageCaller');
+    dotnetHelper.dispose();
+}
+```
+
+*Shared/ListItem.razor*:
+
+```razor
+@inject IJSRuntime JsRuntime
+
+<li>
+    @_message
+    <button @onclick="InteropCall" style="display:@_display">InteropCall</button>
+</li>
+
+@code {
+    private string _message = "Select one of these list item buttons.";
+    private string _display = "inline-block";
+    private MessageUpdateInvokeHelper _messageUpdateInvokeHelper;
+
+    protected override void OnInitialized()
+    {
+        _messageUpdateInvokeHelper = new MessageUpdateInvokeHelper(UpdateMessage);
+    }
+
+    protected async Task InteropCall()
+    {
+        await JsRuntime.InvokeVoidAsync("updateMessageCallerJS",
+            DotNetObjectReference.Create(_messageUpdateInvokeHelper));
+    }
+
+    private void UpdateMessage()
+    {
+        _message = "UpdateMessage Called!";
+        _display = "none";
+        StateHasChanged();
+    }
+}
+```
+
+*Pages/JSInterop.razor*:
+
+```razor
+@page "/JSInterop"
+
+<h1>List of components</h1>
+
+<ul>
+    <ListItem />
+    <ListItem />
+    <ListItem />
+    <ListItem />
+</ul>
 ```
 
 [!INCLUDE[Share interop code in a class library](~/includes/blazor-share-interop-code.md)]
@@ -212,4 +364,4 @@ El patrón anterior que se muestra en la clase `ExampleJsInterop` también se pu
 
 * <xref:blazor/call-javascript-from-dotnet>
 * [Ejemplo de InteropComponent.razor (repositorio de GitHub dotnet/AspNetCore, rama de la versión 3.1)](https://github.com/dotnet/AspNetCore/blob/release/3.1/src/Components/test/testassets/BasicTestApp/InteropComponent.razor)
-* [Realización de transferencias de gran cantidad de datos en aplicaciones de Blazor Server](xref:blazor/advanced-scenarios#perform-large-data-transfers-in-blazor-server-apps)
+* [Realización de transferencias de gran cantidad de datos en aplicaciones de servidor Blazor](xref:blazor/advanced-scenarios#perform-large-data-transfers-in-blazor-server-apps)

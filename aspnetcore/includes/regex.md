@@ -1,0 +1,2 @@
+> [!WARNING]
+> Cuando se usa <xref:System.Text.RegularExpressions> para procesar entradas que no son de confianza, pase un tiempo de expiración. Un usuario malintencionado puede proporcionar entradas a `RegularExpressions` y provocar un [ataque por denegación de servicio](https://www.us-cert.gov/ncas/tips/ST04-015). Las API del marco ASP.NET Core en las que se usa `RegularExpressions` pasan un tiempo de expiración.

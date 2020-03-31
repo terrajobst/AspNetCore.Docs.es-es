@@ -5,17 +5,17 @@ description: Obtenga información sobre cómo usar los métodos de ciclo de vida
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 03/17/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/lifecycle
-ms.openlocfilehash: ecacd0a9728cbefd716e9dc7cd8a8c62f3df6e0d
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 831f575afa6ce11d06c016d43ecd1bb59d09eab6
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78647585"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218913"
 ---
 # <a name="aspnet-core-opno-locblazor-lifecycle"></a>Ciclo de vida de ASP.NET Core Blazor
 
@@ -56,6 +56,8 @@ Para evitar que el código de desarrollador en `OnInitializedAsync` se ejecute d
 
 Durante la representación previa de una aplicación de Blazor Server, no es posible realizar ciertas acciones (como llamar a JavaScript), ya que no se ha establecido una conexión con el explorador. Es posible que los componentes tengan que representarse de forma diferente cuando se representen previamente. Para obtener más información, vea la sección [Detección de cuándo se está obteniendo una representación previa de una aplicación](#detect-when-the-app-is-prerendering).
 
+Si hay algún controlador de eventos configurado, desenlácelo durante la eliminación. Para obtener más información, vea la sección [Eliminación de componentes con IDisposable](#component-disposal-with-idisposable).
+
 ### <a name="before-parameters-are-set"></a>Antes de establecer los parámetros
 
 <xref:Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync*> establece los parámetros que proporciona el elemento primario del componente en el árbol de representación:
@@ -74,6 +76,8 @@ public override async Task SetParametersAsync(ParameterView parameters)
 La implementación predeterminada de `SetParametersAsync` establece el valor de cada propiedad con el atributo `[Parameter]` o `[CascadingParameter]`, que tiene un valor correspondiente en `ParameterView`. Los parámetros que no tienen un valor correspondiente en `ParameterView` se dejan sin cambios.
 
 Si no se invoca `base.SetParametersAync`, el código personalizado puede interpretar el valor de los parámetros entrantes de cualquier manera que sea necesaria. Por ejemplo, no hay ningún requisito para asignar los parámetros entrantes a las propiedades de la clase.
+
+Si hay algún controlador de eventos configurado, desenlácelo durante la eliminación. Para obtener más información, vea la sección [Eliminación de componentes con IDisposable](#component-disposal-with-idisposable).
 
 ### <a name="after-parameters-are-set"></a>Después de establecer los parámetros
 
@@ -100,6 +104,8 @@ protected override void OnParametersSet()
     ...
 }
 ```
+
+Si hay algún controlador de eventos configurado, desenlácelo durante la eliminación. Para obtener más información, vea la sección [Eliminación de componentes con IDisposable](#component-disposal-with-idisposable).
 
 ### <a name="after-component-render"></a>Después de representar el componente
 
@@ -136,6 +142,8 @@ protected override void OnAfterRender(bool firstRender)
 ```
 
 *No se llama a `OnAfterRender` y `OnAfterRenderAsync` al representarse previamente en el servidor.*
+
+Si hay algún controlador de eventos configurado, desenlácelo durante la eliminación. Para obtener más información, vea la sección [Eliminación de componentes con IDisposable](#component-disposal-with-idisposable).
 
 ### <a name="suppress-ui-refreshing"></a>Supresión de la actualización de la interfaz de usuario
 
@@ -188,6 +196,16 @@ Si un componente implementa <xref:System.IDisposable>, se llama al [método Disp
 
 > [!NOTE]
 > No se admite la llamada a <xref:Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged*> en `Dispose`. `StateHasChanged` se puede invocar como parte de la desactivación del representador, por lo que no se admite la solicitud de actualizaciones de la interfaz de usuario en ese momento.
+
+Cancele la suscripción de los controladores de eventos de .NET. En los ejemplos de [formulario de Blazor](xref:blazor/forms-validation) siguientes se muestra cómo desenlazar un controlador de eventos en el método `Dispose`:
+
+* Enfoque de campo privado y expresión lambda
+
+  [!code-razor[](lifecycle/samples_snapshot/3.x/event-handler-disposal-1.razor?highlight=23,28)]
+
+* Enfoque de método privado
+
+  [!code-razor[](lifecycle/samples_snapshot/3.x/event-handler-disposal-2.razor?highlight=16,26)]
 
 ## <a name="handle-errors"></a>Control de errores
 

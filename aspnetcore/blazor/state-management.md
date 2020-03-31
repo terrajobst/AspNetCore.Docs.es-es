@@ -5,17 +5,17 @@ description: Descubra cómo conservar el estado en las aplicaciones del servidor
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 03/17/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/state-management
-ms.openlocfilehash: 990d392b0e1658774256626eb277701e40287b79
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: e8a1959a8fc05ea59362bb5824181a9d2e418811
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78646529"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218874"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>Administración de estado de Blazor en ASP.NET Core
 
@@ -242,7 +242,7 @@ Durante la representación previa:
 
 Una manera de resolver el error es deshabilitar la representación previa. Esta suele ser la mejor opción si la aplicación hace un uso intensivo del almacenamiento basado en explorador. La representación previa agrega complejidad y no beneficia a la aplicación porque esta no puede representar previamente ningún contenido útil hasta que `localStorage` o `sessionStorage` estén disponibles.
 
-Para deshabilitar la representación previa, abra el archivo *pages/_Host.cshtml* y cambie la llamada a `render-mode` del asistente de etiquetas de `Component` a `Server`.
+Para deshabilitar la representación previa, abra el archivo *Pages/_Host.cshtml* y cambie el valor de `render-mode` del [asistente de etiquetas de componente](xref:mvc/views/tag-helpers/builtin-th/component-tag-helper) a <xref:Microsoft.AspNetCore.Mvc.Rendering.RenderMode.Server>.
 
 La representación previa puede resultar útil para otras páginas que no utilizan `localStorage` o `sessionStorage`. Para mantener habilitada la representación previa, postergue la operación de carga hasta que el explorador esté conectado al circuito. El siguiente es un ejemplo para almacenar un valor de contador:
 
