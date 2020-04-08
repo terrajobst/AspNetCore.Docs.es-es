@@ -1082,6 +1082,8 @@
       uid: security/enforcing-ssl
     - name: Hospedar Docker con HTTPS
       uid: security/docker-https
+    - name: Docker Compose con HTTPS
+      uid: security/docker-compose-https
     - name: Compatibilidad con el Reglamento general de protección de datos (GDPR) de la UE
       uid: security/gdpr
     - name: Prevención de ataques de falsificación de solicitudes
