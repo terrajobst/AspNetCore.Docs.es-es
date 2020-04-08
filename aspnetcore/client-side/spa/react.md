@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/react
 ms.openlocfilehash: 9703a62eb7f779974382fe0fb01702d9fcd37d64
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78649757"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de React con ASP.NET Core
@@ -33,9 +33,9 @@ dotnet new react -o my-new-app
 cd my-new-app
 ```
 
-Ejecute la aplicación desde Visual Studio o la CLI de .NET Core:
+Ejecute la aplicación desde Visual Studio o la CLI de .NET Core:
 
-# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Abra el archivo *.csproj* generado y, desde ahí, ejecute la aplicación de la manera habitual.
 

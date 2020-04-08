@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 8/16/2019
 uid: tutorials/first-mvc-app/working-with-sql
 ms.openlocfilehash: d556f07111fb2022a1c2f1a066459566e302835d
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78649811"
 ---
 # <a name="work-with-sql-in-aspnet-core"></a>Trabajo con SQL en ASP.NET Core
@@ -95,7 +95,7 @@ Reemplace el contenido de *Program.cs* por el código siguiente:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Program.cs)]
 
-Prueba de la aplicación
+Probar la aplicación
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -117,7 +117,7 @@ Elimine todos los registros de la base de datos (para que se ejecute el método 
 
 ---
 
-La aplicación muestra los datos inicializados.
+La aplicación muestra los datos de inicialización.
 
 ![La aplicación Movie de MVC se abre en Microsoft Edge y muestra datos de la película](working-with-sql/_static/m55.png)
 
@@ -207,7 +207,7 @@ Reemplace el contenido de *Program.cs* por el código siguiente:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Program.cs)]
 
-Prueba de la aplicación
+Probar la aplicación
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -229,7 +229,7 @@ Elimine todos los registros de la base de datos (para que se ejecute el método 
 
 ---
 
-La aplicación muestra los datos inicializados.
+La aplicación muestra los datos de inicialización.
 
 ![La aplicación Movie de MVC se abre en Microsoft Edge y muestra datos de la película](working-with-sql/_static/m55_mac.png)
 

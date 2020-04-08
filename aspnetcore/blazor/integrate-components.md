@@ -1,7 +1,7 @@
 ---
 title: Integración de componentes Razor de ASP.NET Core en aplicaciones Razor Pages y MVC
 author: guardrex
-description: Obtenga información sobre los escenarios de enlace de datos para componentes y elementos DOM en aplicaciones Blazor.
+description: Obtenga información sobre los escenarios de enlace de datos para componentes y elementos DOM en aplicaciones de Blazor.
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
@@ -11,10 +11,10 @@ no-loc:
 - SignalR
 uid: blazor/integrate-components
 ms.openlocfilehash: cf6056e0985d5433bddecac8dd183ca3f4c2af5b
-ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "80218939"
 ---
 # <a name="integrate-aspnet-core-razor-components-into-razor-pages-and-mvc-apps"></a>Integración de componentes Razor de ASP.NET Core en aplicaciones Razor Pages y MVC
@@ -219,7 +219,7 @@ Al usar una carpeta personalizada para contener los componentes de la aplicació
 
 El archivo *_ViewImports.cshtml* se encuentra en la carpeta *Pages* de una aplicación Razor Pages o en la carpeta *Views* de una aplicación MVC.
 
-Para obtener más información, vea <xref:blazor/components#import-components>.
+Para obtener más información, consulta <xref:blazor/components#import-components>.
 
 ## <a name="render-components-from-a-page-or-view"></a>Representación de componentes a partir de una página o vista
 

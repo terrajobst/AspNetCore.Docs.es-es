@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 02/02/2020
 uid: web-api/index
 ms.openlocfilehash: be88b8d58f1f660f3a815c395c210c05a7b4917c
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: 72792e349458190b4158fcbacb87caf3fc605268
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78644651"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Creación de API web con ASP.NET Core
@@ -281,7 +281,7 @@ El atributo `[ApiController]` aplica reglas de inferencia a los orígenes de dat
 
 ### <a name="frombody-inference-notes"></a>Notas de la inferencia de FromBody
 
-En el caso de los tipos simples, como `string` y `int`, `[FromBody]` no se infiere. Así pues, para los tipos simples, en los casos en los que quiera utilizar dicha funcionalidad, conviene usar el atributo `[FromBody]`.
+En el caso de los tipos simples, como `[FromBody]` y `string`, `int` no se infiere. Así pues, para los tipos simples, en los casos en los que quiera utilizar dicha funcionalidad, conviene usar el atributo `[FromBody]`.
 
 Cuando una acción tiene más de un parámetro enlazado desde el cuerpo de solicitud, se produce una excepción. Por ejemplo, todas las firmas de acción siguientes provocan una excepción:
 

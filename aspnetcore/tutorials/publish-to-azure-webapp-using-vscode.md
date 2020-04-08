@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 07/10/2019
 uid: tutorials/publish-to-azure-webapp-using-vscode
 ms.openlocfilehash: 5f117cb2867a6e7b54269ef39abe819256b429ec
-ms.sourcegitcommit: 99e71ae03319ab386baf2ebde956fc2d511df8b8
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "80242683"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio-code"></a>Publicación de una aplicación de ASP.NET Core en Azure con Visual Studio Code
@@ -119,7 +119,7 @@ Aproveche la extensión de Azure App Service para Visual Studio Code y siga los 
 
 - Haga clic con el botón derecho en la carpeta `publish` y seleccione `Deploy to Web App...`.
 - Seleccione la suscripción que quiera crear en la aplicación web.
-- Seleccione `Create New Web App`.
+- Seleccione `Create New Web App`
 - Escriba un nombre para la aplicación web.
 
 La extensión creará la nueva aplicación web e iniciará automáticamente la implementación del paquete. Una vez que se haya terminado la implementación, haga clic en `Browse Website` para validar la implementación.
