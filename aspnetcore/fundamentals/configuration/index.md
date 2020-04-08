@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la API de configuración para
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/29/2020
+ms.date: 3/29/2020
 uid: fundamentals/configuration/index
-ms.openlocfilehash: b4fa082c5a53bc9ecb3c7b8ddcbf243ef0d94ba7
-ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
+ms.openlocfilehash: d76ca78bc988f859b4e99752a0e88735e1df1d82
+ms.sourcegitcommit: 72792e349458190b4158fcbacb87caf3fc605268
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "79989692"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80501327"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configuración en ASP.NET Core
 
@@ -48,7 +48,7 @@ Las aplicaciones web de ASP.NET Core creadas con [dotnet new](/dotnet/core/tools
 1. *appsettings.* `Environment` *.json* con el [proveedor de configuración JSON](#file-configuration-provider). Por ejemplo, *appsettings*.***Production***.*json* y *appsettings*.***Development***.*json*.
 1. [Secretos de la aplicación](xref:security/app-secrets) cuando la aplicación se ejecuta en el entorno `Development`.
 1. Variables de entorno con el [proveedor de configuración de variables de entorno](#evcp).
-1. Argumentos de la línea de comandos con el [proveedor de configuración de línea de comandos](#command-line-configuration-provider).
+1. Argumentos de la línea de comandos con el [proveedor de configuración de línea de comandos](#command-line).
 
 Los proveedores de configuración que se agregan posteriormente invalidan los ajustes de configuración de la clave anteriores. Por ejemplo, si se establece `MyKey` tanto en *appsettings.json* como en el entorno, se usa el valor del entorno. Con los proveedores de configuración predeterminados, el [proveedor de configuración de línea de comandos](#command-line-configuration-provider) reemplaza al resto de proveedores.
 

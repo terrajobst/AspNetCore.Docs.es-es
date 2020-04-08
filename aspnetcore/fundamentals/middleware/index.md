@@ -5,14 +5,14 @@ description: Obtenga información sobre el middleware de ASP.NET Core y la canal
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/02/2020
+ms.date: 04/06/2020
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 9dcd061d2807fb90884327916d0348af4593df9d
-ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
+ms.openlocfilehash: 6bf8ed823386ca4e1cf78982f7fba41fba429db8
+ms.sourcegitcommit: 72792e349458190b4158fcbacb87caf3fc605268
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "79989716"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80751089"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware de ASP.NET Core
 
@@ -67,6 +67,14 @@ En el ejemplo anterior, el delegado `Run` escribe `"Hello from 2nd delegate."` e
 <a name="order"></a>
 
 ## <a name="middleware-order"></a>Orden del middleware
+
+En el diagrama siguiente se muestra la canalización de procesamiento de solicitudes completa para las aplicaciones de ASP.NET Core MVC y de Razor Pages. Puede ver cómo, en una aplicación típica, se ordenan los middleware existentes y dónde se agregan los middleware personalizados. Tiene control total sobre cómo reordenar los middleware existentes o insertar nuevos middleware personalizados según sea necesario para sus escenarios.
+
+![Canalización de middleware de ASP.NET Core](index/_static/middleware-pipeline.svg)
+
+El middleware **Punto de conexión** del diagrama anterior ejecuta la canalización de filtro para el tipo de aplicación correspondiente&mdash;MVC o Razor Pages.
+
+![Canalización de filtro de ASP.NET Core](index/_static/mvc-endpoint.svg)
 
 El orden en el que se agregan los componentes de software intermedio en el método `Startup.Configure` define el orden en el que se invocarán los componentes de software intermedio en las solicitudes y el orden inverso de la respuesta. Por motivos de seguridad, rendimiento y funcionalidad, el orden es **crítico**.
 

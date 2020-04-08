@@ -5,17 +5,17 @@ description: Explore ASP.NET Core Blazor, una forma de compilar la interfaz de u
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 01/31/2020
+ms.date: 03/25/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/index
-ms.openlocfilehash: 038799564078c4d3e8a7aa3a9841c6303edf9d12
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 6d2e95cd2ec92f97a97cb558fb39e4540450c766
+ms.sourcegitcommit: 72792e349458190b4158fcbacb87caf3fc605268
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78644267"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80405954"
 ---
 # <a name="introduction-to-aspnet-core-opno-locblazor"></a>Introducción a ASP.NET Core Blazor
 
@@ -28,6 +28,7 @@ Blazor es una plataforma de trabajo para la creación de interfaces de usuario w
 * Cree interfaces de usuario completamente interactivas con C# en lugar de JavaScript.
 * Comparta la lógica de aplicación del lado cliente y servidor escrita con .NET.
 * Represente la interfaz de usuario como HTML y CSS para la compatibilidad con todos los exploradores, incluidos los móviles.
+* Realice la integración con plataformas de hospedaje modernas, como [Docker](/dotnet/standard/microservices-architecture/container-docker-introduction/index).
 
 El uso de .NET para el desarrollo web en el lado cliente ofrece las siguientes ventajas:
 
