@@ -9,10 +9,10 @@ no-loc:
 - SignalR
 uid: aspnetcore-2.1
 ms.openlocfilehash: af5807b782d4acec8c7d40111dc508dfa6127057
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78650975"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>Novedades de ASP.NET Core 2.1
@@ -72,7 +72,7 @@ El uso de HTTPS puede exigir aún más por medio del [protocolo de Seguridad de 
 
 En un entorno de producción, HTTPS se debe configurar explícitamente. En 2.1, se ha agregado un esquema de configuración predeterminado para configurar HTTPS para Kestrel. Las aplicaciones se pueden configurar para usar:
 
-* Varios puntos de conexión (direcciones URL incluidas). Para más información, consulte [Kestrel web server implementation: Endpoint configuration](xref:fundamentals/servers/kestrel#endpoint-configuration) (Kestrel: configuración de los puntos de conexión).
+* Varios puntos de conexión (direcciones URL incluidas). Para más información, vea [Implementación del servidor web Kestrel: Configuración de punto de conexión](xref:fundamentals/servers/kestrel#endpoint-configuration).
 * El certificado que se va a usar para HTTPS desde un archivo en disco o desde un almacén de certificados.
 
 ## <a name="gdpr"></a>RGPD
@@ -133,7 +133,7 @@ Para más información, vea [Inicio de solicitudes HTTP](xref:fundamentals/http-
 
 ## <a name="kestrel-transport-configuration"></a>Configuración de transporte de Kestrel
 
-Desde el lanzamiento de ASP.NET Core 2.1, el transporte predeterminado de Kestrel deja de basarse en Libuv y pasa a basarse en sockets administrados. Para más información, consulte [Kestrel web server implementation: Transport configuration](xref:fundamentals/servers/kestrel#transport-configuration) (Implementación del servidor web de Kestrel: configuración de transporte).
+Desde el lanzamiento de ASP.NET Core 2.1, el transporte predeterminado de Kestrel deja de basarse en Libuv y pasa a basarse en sockets administrados. Para más información, vea [Implementación del servidor web Kestrel: Configuración de transporte](xref:fundamentals/servers/kestrel#transport-configuration).
 
 ## <a name="generic-host-builder"></a>Generador de host genérico
 
@@ -169,7 +169,7 @@ Razor Pages ya admite las [áreas](xref:mvc/controllers/areas). Para ver un ejem
 
 El método <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> permite a una aplicación participar o no en los cambios de comportamiento importantes incorporados en ASP.NET Core MVC 2.1 o una versión posterior.
 
-Para obtener más información, vea <xref:mvc/compatibility-version>.
+Para obtener más información, consulta <xref:mvc/compatibility-version>.
 
 ## <a name="migrate-from-20-to-21"></a>Migración de 2.0 a 2.1
 

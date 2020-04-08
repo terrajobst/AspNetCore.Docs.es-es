@@ -8,10 +8,10 @@ no-loc:
 - Blazor
 uid: razor-pages/web-sdk
 ms.openlocfilehash: 6a9d531efd2188aed525c949bb124914c31119db
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78648209"
 ---
 # <a name="aspnet-core-web-sdk"></a>SDK web de ASP.NET Core
@@ -41,7 +41,7 @@ Características habilitadas al usar el SDK web:
 
 ### <a name="properties"></a>Propiedades
 
-| Propiedad. | Descripción |
+| Property | Description |
 | -------- | ----------- |
 | `DisableImplicitFrameworkReferences` | Deshabilita la referencia implícita al marco de trabajo compartido `Microsoft.AspNetCore.App`. |
 | `DisableImplicitAspNetCoreAnalyzers` | Deshabilita la referencia implícita a analizadores de ASP.NET Core. |

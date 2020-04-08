@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 12/05/2019
 uid: aspnetcore-2.0
 ms.openlocfilehash: 5ca43bab1496aa9fda65282cbb0b1177ad8689eb
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78650861"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novedades de ASP.NET Core 2.0
@@ -80,7 +80,7 @@ Hay disponibles plantillas de proyectos de Single-Page Application (SPA) para An
 
 ## <a name="kestrel-improvements"></a>Mejoras en Kestrel
 
-El servidor web de Kestrel tiene nuevas características que lo hacen más adecuado como servidor con conexión a Internet. Se ha agregado una serie de opciones de configuración de restricción del servidor en la nueva propiedad `Limits` de la clase `KestrelServerOptions`. Agregue límites para:
+El servidor web de Kestrel tiene nuevas características que lo hacen más adecuado como servidor con conexión a Internet. Se ha agregado una serie de opciones de configuración de restricción del servidor en la nueva propiedad `KestrelServerOptions` de la clase `Limits`. Agregue límites para:
 
 * Las conexiones máximas de cliente
 * El tamaño máximo del cuerpo de solicitud
@@ -143,7 +143,7 @@ Para información sobre el estado de las características de C# 7.1, vea [el rep
 * [Perfiles de publicación de Visual Studio para el desarrollo de aplicaciones ASP.NET Core](xref:host-and-deploy/visual-studio-publish-profiles)
 * [Administración de claves](xref:security/data-protection/implementation/key-management)
 * [Configurar la autenticación de Facebook](xref:security/authentication/facebook-logins)
-* [Configurar la autenticación de Twitter](xref:security/authentication/twitter-logins)
+* [Configuración de la autenticación de Twitter](xref:security/authentication/twitter-logins)
 * [Configurar la autenticación de Google](xref:security/authentication/google-logins)
 * [Configurar la autenticación de la cuenta Microsoft](xref:security/authentication/microsoft-logins)
 

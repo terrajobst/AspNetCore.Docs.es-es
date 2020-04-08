@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/23/2020
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 0f8f03dabf65f2cbfe4c41d36b02a25d7902cefb
-ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
+ms.openlocfilehash: 454216cec72048217ede412f8ff6d4261f7353b1
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80219225"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80417634"
 ---
 # <a name="net-generic-host"></a>Host genérico de .NET
 
@@ -224,7 +224,7 @@ Host.CreateDefaultBuilder(args)
 
 [HostOptions.ShutdownTimeout](xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*) establece el tiempo de espera para <xref:Microsoft.Extensions.Hosting.IHost.StopAsync*>. El valor predeterminado es cinco segundos.  Durante el período de tiempo de espera, el host:
 
-* Activa [IHostApplicationLifetime.ApplicationStopping](/dotnet/api/microsoft.aspnetcore.hosting.ihostapplicationlifetime.applicationstopping).
+* Activa [IHostApplicationLifetime.ApplicationStopping](/dotnet/api/microsoft.extensions.hosting.ihostapplicationlifetime.applicationstopping).
 * Trata de detener los servicios hospedados y registra los errores que se producen en los servicios que no se puedan detener.
 
 Si el período de tiempo de espera expira antes de que todos los servicios hospedados se hayan detenido, los servicios activos que queden se detendrán cuando se cierre la aplicación. Los servicios se detienen aun cuando no hayan terminado de procesarse. Si los servicios requieren más tiempo para detenerse, aumente el valor de tiempo de espera.
@@ -706,7 +706,7 @@ Host.CreateDefaultBuilder(args)
 
 [HostOptions.ShutdownTimeout](xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*) establece el tiempo de espera para <xref:Microsoft.Extensions.Hosting.IHost.StopAsync*>. El valor predeterminado es cinco segundos.  Durante el período de tiempo de espera, el host:
 
-* Activa [IHostApplicationLifetime.ApplicationStopping](/dotnet/api/microsoft.aspnetcore.hosting.ihostapplicationlifetime.applicationstopping).
+* Activa [IHostApplicationLifetime.ApplicationStopping](/dotnet/api/microsoft.extensions.hosting.ihostapplicationlifetime.applicationstopping).
 * Trata de detener los servicios hospedados y registra los errores que se producen en los servicios que no se puedan detener.
 
 Si el período de tiempo de espera expira antes de que todos los servicios hospedados se hayan detenido, los servicios activos que queden se detendrán cuando se cierre la aplicación. Los servicios se detienen aun cuando no hayan terminado de procesarse. Si los servicios requieren más tiempo para detenerse, aumente el valor de tiempo de espera.

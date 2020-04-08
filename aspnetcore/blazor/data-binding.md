@@ -5,17 +5,17 @@ description: Obtenga información sobre las características de enlace de datos 
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/16/2020
+ms.date: 03/26/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/data-binding
-ms.openlocfilehash: 5b49d2598a451ee607e034913bd1aeaa03f941c6
-ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
+ms.openlocfilehash: a7b3730dad48b5bbb6134dab181051da4e3651b4
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79511202"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80320952"
 ---
 # <a name="aspnet-core-opno-locblazor-data-binding"></a>Enlace de datos de ASP.NET Core Blazor
 
@@ -124,7 +124,7 @@ El enlace de datos funciona con cadenas de formato <xref:System.DateTime> median
 }
 ```
 
-En el código anterior, el tipo de campo (`type`) del elemento `<input>` tiene como valor predeterminado `text`. `@bind:format` se admite para enlazar los siguientes tipos de .NET:
+En el código anterior, el tipo de campo (`<input>`) del elemento `type` tiene como valor predeterminado `text`. `@bind:format` se admite para enlazar los siguientes tipos de .NET:
 
 * <xref:System.DateTime?displayProperty=fullName>
 * <xref:System.DateTime?displayProperty=fullName>?
@@ -164,7 +164,7 @@ El siguiente componente secundario (`ChildComponent`) tiene un parámetro de com
 El siguiente componente primario usa:
 
 * `ChildComponent` y enlaza el parámetro `ParentYear` desde el elemento primario con el parámetro `Year` en el componente secundario.
-* El evento `onclick` se usa para desencadenar el método `ChangeTheYear`. Para obtener más información, vea <xref:blazor/event-handling>.
+* El evento `onclick` se usa para desencadenar el método `ChangeTheYear`. Para obtener más información, consulta <xref:blazor/event-handling>.
 
 ```razor
 @page "/ParentComponent"
@@ -238,10 +238,10 @@ El siguiente componente `PasswordField` (*PasswordField.razor*):
 
 * Establece el valor del elemento `<input>` en una propiedad `Password`.
 * Expone los cambios de la propiedad `Password` en un componente primario con [EventCallback](xref:blazor/event-handling#eventcallback).
-* Usa el evento `onclick` para desencadenar el método `ToggleShowPassword`. Para obtener más información, vea <xref:blazor/event-handling>.
+* Usa el evento `onclick` para desencadenar el método `ToggleShowPassword`. Para obtener más información, consulta <xref:blazor/event-handling>.
 
 ```razor
-<h1>Child Component</h2>
+<h1>Child Component</h1>
 
 Password: 
 
@@ -299,9 +299,7 @@ Para realizar comprobaciones o detectar errores en la contraseña en el ejemplo 
 El ejemplo siguiente informa de inmediato al usuario si se usa un espacio en el valor de la contraseña:
 
 ```razor
-@page "/ParentComponent"
-
-<h1>Parent Component</h1>
+<h1>Child Component</h1>
 
 Password: 
 

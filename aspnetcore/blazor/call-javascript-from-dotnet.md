@@ -11,10 +11,10 @@ no-loc:
 - SignalR
 uid: blazor/call-javascript-from-dotnet
 ms.openlocfilehash: 7a27b6f1be2ef296d5b2b2a4f566e0cdedbe6480
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78647525"
 ---
 # <a name="call-javascript-functions-from-net-methods-in-aspnet-core-opno-locblazor"></a>Llamada a funciones de JavaScript con métodos de .NET en Blazor de ASP.NET Core

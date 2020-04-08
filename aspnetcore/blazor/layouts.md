@@ -11,10 +11,10 @@ no-loc:
 - SignalR
 uid: blazor/layouts
 ms.openlocfilehash: 5b6e1c7ceb4a6e41230e31bbe379bde1bb0a8286
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78647927"
 ---
 # <a name="aspnet-core-opno-locblazor-layouts"></a>Diseños de ASP.NET Core Blazor
@@ -66,7 +66,7 @@ Cada una de las carpetas de una aplicación puede contener opcionalmente un arch
 
 El siguiente archivo *_Imports.razor* importa:
 
-* `MyCoolLayout`.
+* `MyCoolLayout`Operador
 * Todos los componentes de Razor que estén en la misma carpeta y en todas las subcarpetas.
 * El espacio de nombres `BlazorApp1.Data` .
  
@@ -94,7 +94,7 @@ Por último, `MasterLayout` en *MasterLayout.razor* contiene los elementos de di
 
 ## <a name="share-a-razor-pages-layout-with-integrated-components"></a>Uso compartido de un diseño de Razor Pages con componentes integrados
 
-Si los componentes enrutables se integran en una aplicación de Razor Pages, el diseño compartido de la aplicación se puede usar con los componentes. Para obtener más información, vea <xref:blazor/integrate-components>.
+Si los componentes enrutables se integran en una aplicación de Razor Pages, el diseño compartido de la aplicación se puede usar con los componentes. Para obtener más información, consulta <xref:blazor/integrate-components>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

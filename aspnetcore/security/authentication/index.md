@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 03/03/2020
 uid: security/authentication/index
 ms.openlocfilehash: 404904ecfa30d1fe7e47f0daaa423ddd6f1b06e8
-ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
+ms.sourcegitcommit: 72792e349458190b4158fcbacb87caf3fc605268
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "79434335"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>Información general sobre la autenticación de ASP.NET Core
@@ -37,7 +37,7 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options => Configuration.Bind("CookieSettings", options));
 ```
 
-El parámetro `JwtBearerDefaults.AuthenticationScheme` de `AddAuthentication` es el nombre del esquema que se usará de forma predeterminada si no se solicita un esquema específico.
+El parámetro `AddAuthentication` de `JwtBearerDefaults.AuthenticationScheme` es el nombre del esquema que se usará de forma predeterminada si no se solicita un esquema específico.
 
 Si se usan varios esquemas, las directivas de autorización (o los atributos de autorización) pueden [especificar el esquema (o esquemas) de autenticación](xref:security/authorization/limitingidentitybyscheme) del que dependen para autenticar al usuario. En el ejemplo anterior, se podría especificar el nombre del esquema de autenticación de cookies (`CookieAuthenticationDefaults.AuthenticationScheme` de forma predeterminada, aunque se podría proporcionar otro nombre al llamar a `AddCookie`).
 

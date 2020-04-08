@@ -16,7 +16,7 @@
 
   * [Funciones rápidas de teclado de macOS](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
   * [Métodos abreviados de teclado de Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
-  * [Métodos abreviados de teclado de Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
+  * [Windows keyboard shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf) (Métodos abreviados de teclado de Windows)
 
 # <a name="visual-studio-for-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 

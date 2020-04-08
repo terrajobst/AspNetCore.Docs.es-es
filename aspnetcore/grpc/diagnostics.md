@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 09/23/2019
 uid: grpc/diagnostics
-ms.openlocfilehash: 17607b734e6d777de9516aa14e81c97f87b61023
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 131144bf7a2c637eb2c1a1d5c54990dd4d429502
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78650909"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80417513"
 ---
 # <a name="logging-and-diagnostics-in-grpc-on-net"></a>Registro y diagnóstico en gRPC en .NET
 
@@ -100,7 +100,7 @@ Si la aplicación no usa inserción de dependencias, puede crear una instancia d
 
 #### <a name="grpc-client-log-scopes"></a>Ámbitos de registro de cliente de gRPC
 
-El cliente gRPC agrega un [ámbito de registro](https://docs.microsoft.com/aspnet/core/fundamentals/logginglog-scopes) a los registros realizados durante una llamada a gRPC. El ámbito tiene metadatos relacionados con la llamada a gRPC:
+El cliente gRPC agrega un [ámbito de registro](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes) a los registros realizados durante una llamada a gRPC. El ámbito tiene metadatos relacionados con la llamada a gRPC:
 
 * **GrpcMethodType**: tipo de método de gRPC. Los valores posibles son los nombres de la enumeración `Grpc.Core.MethodType`, por ejemplo, unario
 * **GrpcUri**: URI relativo del método gRPC, por ejemplo, /greet.Greeter/SayHellos.
@@ -148,7 +148,7 @@ El cliente gRPC de .NET usa `HttpClient` para realizar llamadas de gRPC. Aunque 
 
 ### <a name="collecting-tracing"></a>Recopilación del seguimiento
 
-La forma más fácil de usar `DiagnosticSource` consiste en configurar una biblioteca de telemetría como [OpenTelemetry](https://github.com/open-telemetry/opentelemetry-dotnet) o [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) en la aplicación. La biblioteca procesará información sobre las llamadas a gRPC junto a otra telemetría de la aplicación.
+La forma más fácil de usar `DiagnosticSource` consiste en configurar una biblioteca de telemetría como [OpenTelemetry](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) o [Application Insights](https://github.com/open-telemetry/opentelemetry-dotnet) en la aplicación. La biblioteca procesará información sobre las llamadas a gRPC junto a otra telemetría de la aplicación.
 
 El seguimiento se puede ver en un servicio administrado como Application Insights, o bien puede elegir ejecutar un sistema de seguimiento distribuido propio. OpenTelemetry admite la exportación de datos de seguimiento a [Jaeger](https://www.jaegertracing.io/) y [Zipkin](https://zipkin.io/).
 
@@ -165,7 +165,7 @@ Las métricas son una representación de medidas de datos a lo largo de interval
 
 Las métricas de servicios gRPC se notifican en el origen del evento `Grpc.AspNetCore.Server`.
 
-| NOMBRE                      | Descripción                   |
+| Name                      | Description                   |
 | --------------------------|-------------------------------|
 | `total-calls`             | Total de llamadas                   |
 | `current-calls`           | Llamadas actuales                 |
@@ -181,7 +181,7 @@ ASP.NET Core también proporciona sus propias métricas en el origen del evento 
 
 Las métricas de clientes gRPC se notifican en el origen del evento `Grpc.Net.Client`.
 
-| NOMBRE                      | Descripción                   |
+| Name                      | Description                   |
 | --------------------------|-------------------------------|
 | `total-calls`             | Total de llamadas                   |
 | `current-calls`           | Llamadas actuales                 |

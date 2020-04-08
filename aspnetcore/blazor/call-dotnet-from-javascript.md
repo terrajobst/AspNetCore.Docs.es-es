@@ -11,10 +11,10 @@ no-loc:
 - SignalR
 uid: blazor/call-dotnet-from-javascript
 ms.openlocfilehash: dbf44fe7923998c65119e42d97c304890fa95523
-ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "80218796"
 ---
 # <a name="call-net-methods-from-javascript-functions-in-aspnet-core-opno-locblazor"></a>Llamada a métodos de .NET desde funciones de JavaScript en ASP.NET Core Blazor
@@ -274,7 +274,7 @@ En el ejemplo siguiente:
 
 * El componente `JSInterop` contiene varios componentes `ListItem`.
 * Cada componente `ListItem` consta de un mensaje y un botón.
-* Cuando se selecciona un botón de componente `ListItem`, el método `UpdateMessage` de ese objeto `ListItem` cambia el texto del elemento de lista y oculta el botón.
+* Cuando se selecciona un botón de componente `ListItem`, el método `ListItem` de ese objeto `UpdateMessage` cambia el texto del elemento de lista y oculta el botón.
 
 *MessageUpdateInvokeHelper.cs*:
 

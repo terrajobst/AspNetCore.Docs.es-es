@@ -11,10 +11,10 @@ no-loc:
 - SignalR
 uid: blazor/lifecycle
 ms.openlocfilehash: 831f575afa6ce11d06c016d43ecd1bb59d09eab6
-ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "80218913"
 ---
 # <a name="aspnet-core-opno-locblazor-lifecycle"></a>Ciclo de vida de ASP.NET Core Blazor
@@ -141,7 +141,7 @@ protected override void OnAfterRender(bool firstRender)
 }
 ```
 
-*No se llama a `OnAfterRender` y `OnAfterRenderAsync` al representarse previamente en el servidor.*
+`OnAfterRender`No se llama a `OnAfterRenderAsync` y  *al representarse previamente en el servidor.*
 
 Si hay algún controlador de eventos configurado, desenlácelo durante la eliminación. Para obtener más información, vea la sección [Eliminación de componentes con IDisposable](#component-disposal-with-idisposable).
 

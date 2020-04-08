@@ -11,10 +11,10 @@ no-loc:
 - SignalR
 uid: blazor/templated-components
 ms.openlocfilehash: b57e3fe186402723607e90b1628062f602c77632
-ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "79989493"
 ---
 # <a name="aspnet-core-opno-locblazor-templated-components"></a>Componentes con plantilla de Blazor en ASP.NET Core
@@ -54,7 +54,7 @@ Al usar un componente con plantilla, los parámetros de plantilla se pueden espe
 
 ## <a name="template-context-parameters"></a>Parámetros de contexto de la plantilla
 
-Los argumentos de los componentes de tipo `RenderFragment<T>` pasados como elementos tienen un parámetro implícito denominado `context` (por ejemplo, en el ejemplo de código anterior, `@context.PetId`), pero puede cambiar el nombre del parámetro mediante el atributo `Context` en el elemento secundario. En el ejemplo siguiente, el atributo `Context` del elemento `RowTemplate` especifica el parámetro `pet`:
+Los argumentos de los componentes de tipo `RenderFragment<T>` pasados como elementos tienen un parámetro implícito denominado `context` (por ejemplo, en el ejemplo de código anterior, `@context.PetId`), pero puede cambiar el nombre del parámetro mediante el atributo `Context` en el elemento secundario. En el ejemplo siguiente, el atributo `RowTemplate` del elemento `Context` especifica el parámetro `pet`:
 
 ```razor
 <TableTemplate Items="pets">

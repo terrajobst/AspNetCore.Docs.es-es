@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 02/10/2020
 uid: fundamentals/host/hosted-services
 ms.openlocfilehash: d3f409170eedd281fd7608c4b9835bf9443c49b0
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78650417"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Tareas en segundo plano con servicios hospedados en ASP.NET Core

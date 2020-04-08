@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 11/30/2019
 uid: fundamentals/localization
 ms.openlocfilehash: b175354220a8a71c029e005f27443d5a72749a11
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78648437"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
@@ -74,7 +74,7 @@ La implementación predeterminada de `IViewLocalizer` busca el archivo de recurs
 
 Un archivo de recursos en francés podría contener lo siguiente:
 
-| Key | Valor |
+| Clave | Valor |
 | ----- | ------ |
 | `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b>` |
 
@@ -120,7 +120,7 @@ En el código anterior, `SharedResource` es la clase correspondiente al archivo 
 
 ### <a name="supportedcultures-and-supporteduicultures"></a>SupportedCultures y SupportedUICultures
 
-ASP.NET Core permite especificar dos valores de referencia cultural, `SupportedCultures` y `SupportedUICultures`. El objeto [CultureInfo](/dotnet/api/system.globalization.cultureinfo) para `SupportedCultures` determina los resultados de funciones dependientes de la referencia cultural, como el formato de fecha, hora, número y moneda. `SupportedCultures` también determina el criterio de ordenación del texto, las convenciones sobre el uso de mayúsculas y minúsculas, y las comparaciones de cadenas. Vea [CultureInfo.CurrentCulture](/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture) para obtener más información sobre la manera en que el servidor obtiene la referencia cultural. `SupportedUICultures` determina qué cadenas traducidas buscará [ResourceManager](/dotnet/api/system.resources.resourcemanager) (en archivos *.resx*). `ResourceManager` simplemente busca cadenas específicas de referencias culturales determinadas por `CurrentUICulture`. Todos los subprocesos de .NET tienen objetos `CurrentCulture` y `CurrentUICulture`. ASP.NET Core inspecciona estos valores al representar funciones dependientes de la referencia cultural. Por ejemplo, si la referencia cultural del subproceso actual está establecida en "en-US" (inglés (Estados Unidos)), `DateTime.Now.ToLongDateString()` mostrará "Thursday, February 18, 2016". En cambio, si `CurrentCulture` está establecido en "es-ES" (español (España)), la salida será "jueves, 18 de febrero de 2016".
+ASP.NET Core permite especificar dos valores de referencia cultural, `SupportedCultures` y `SupportedUICultures`. El objeto [CultureInfo](/dotnet/api/system.globalization.cultureinfo) para `SupportedCultures` determina los resultados de funciones dependientes de la referencia cultural, como el formato de fecha, hora, número y moneda. `SupportedCultures` también determina el criterio de ordenación del texto, las convenciones sobre el uso de mayúsculas y minúsculas, y las comparaciones de cadenas. Vea [CultureInfo.CurrentCulture](/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture) para obtener más información sobre la manera en que el servidor obtiene la referencia cultural. `SupportedUICultures` determina qué cadenas traducidas buscará *ResourceManager* (en archivos [.resx](/dotnet/api/system.resources.resourcemanager)). `ResourceManager` simplemente busca cadenas específicas de referencias culturales determinadas por `CurrentUICulture`. Todos los subprocesos de .NET tienen objetos `CurrentCulture` y `CurrentUICulture`. ASP.NET Core inspecciona estos valores al representar funciones dependientes de la referencia cultural. Por ejemplo, si la referencia cultural del subproceso actual está establecida en "en-US" (inglés (Estados Unidos)), `DateTime.Now.ToLongDateString()` mostrará "Thursday, February 18, 2016". En cambio, si `CurrentCulture` está establecido en "es-ES" (español (España)), la salida será "jueves, 18 de febrero de 2016".
 
 ## <a name="resource-files"></a>Archivos de recursos
 
@@ -394,9 +394,9 @@ Términos:
 * Localización (L10N): es el proceso de personalizar una aplicación para un idioma y región determinados.
 * Internacionalización (I18N): hace referencia a la globalización y la localización.
 * Referencia cultural: es un idioma y, opcionalmente, una región.
-* Referencia cultural neutra: se trata de una referencia cultural que tiene un idioma especificado, pero no una región. (por ejemplo, "en" y "es").
+* Referencia cultural neutra: se trata de una referencia cultural que tiene un idioma especificado, pero no una región (por ejemplo, "en" y "es").
 * Referencia cultural específica: es una referencia cultural que tiene un idioma y una región especificados (por ejemplo, "en-US", "en-GB" y "es-CL").
-* Referencia cultural principal: se trata de la referencia cultural neutra que contiene una referencia cultural específica. (por ejemplo, "en" es la referencia cultural principal de "en-US" y "en-GB").
+* Referencia cultural principal: se trata de la referencia cultural neutra que contiene una referencia cultural específica (por ejemplo, "en" es la referencia cultural principal de "en-US" y "en-GB").
 * Configuración regional: la configuración regional es lo mismo que la referencia cultural.
 
 [!INCLUDE[](~/includes/localization/currency.md)]

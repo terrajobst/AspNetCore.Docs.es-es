@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 12/06/2018
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
 ms.openlocfilehash: 3b344505739bb4292ed1683c73ff314b6e4e01e9
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78648113"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Implementación continua en Azure con Visual Studio y Git con ASP.NET Core
@@ -71,7 +71,7 @@ Los pasos siguientes le permiten crear una aplicación web en Azure Portal:
 
 1. Seleccione **Web y móvil** > **Aplicación web**.
 
-   ![Microsoft Azure Portal: botón Nuevo: Web y móvil en Marketplace: Botón Aplicación web en Aplicaciones destacadas](azure-continuous-deployment/_static/05-azure-newwebapp.png)
+   ![Microsoft Azure Portal: Botón Nuevo: Web y móvil en Marketplace: Botón Aplicación web en Aplicaciones destacadas](azure-continuous-deployment/_static/05-azure-newwebapp.png)
 
 1. En la hoja **Aplicación web**, escriba un valor único para el **nombre del servicio de aplicaciones**.
 
@@ -84,7 +84,7 @@ Los pasos siguientes le permiten crear una aplicación web en Azure Portal:
 
 1. Seleccione **Crear**. Azure aprovisionará e iniciará la aplicación web.
 
-   ![Azure Portal: Hoja SampleWebAppDemo01 de Essentials](azure-continuous-deployment/_static/07-azure-webappblade.png)
+   ![Azure Portal: Hoja de Essentials SampleWebAppDemo01](azure-continuous-deployment/_static/07-azure-webappblade.png)
 
 ## <a name="enable-git-publishing-for-the-new-web-app"></a>Habilitar la publicación de Git para la nueva aplicación web
 

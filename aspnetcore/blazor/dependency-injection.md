@@ -11,10 +11,10 @@ no-loc:
 - SignalR
 uid: blazor/dependency-injection
 ms.openlocfilehash: 4cdde9ee8c9fd9adf00894a067d32965b180e5ec
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78646697"
 ---
 # <a name="aspnet-core-blazor-dependency-injection"></a>Inserción de dependencias de Blazor de ASP.NET Core
@@ -34,10 +34,10 @@ La inserción de dependencias es una técnica para acceder a los servicios confi
 
 Los servicios predeterminados se agregan de forma automática a la colección de servicios de la aplicación.
 
-| web de Office | Período de duración | Descripción |
+| dirigido | Período de duración | Description |
 | ------- | -------- | ----------- |
-| <xref:System.Net.Http.HttpClient> | Singleton | Proporciona métodos para enviar solicitudes HTTP y recibir respuestas HTTP de un recurso identificado por un URI.<br><br>La instancia de `HttpClient` en una aplicación WebAssembly de Blazor usa el explorador para administrar el tráfico HTTP en segundo plano.<br><br>Las aplicaciones de servidor Blazor no incluyen un objeto `HttpClient` configurado como servicio de forma predeterminada. Proporcione un objeto `HttpClient` a una aplicación de servidor Blazor.<br><br>Para obtener más información, vea <xref:blazor/call-web-api>. |
-| `IJSRuntime` | Singleton (WebAssembly de Blazor)<br>Con ámbito (servidor Blazor) | Representa una instancia de un entorno de ejecución de JavaScript en la que se envían las llamadas de JavaScript. Para obtener más información, vea <xref:blazor/call-javascript-from-dotnet>. |
+| <xref:System.Net.Http.HttpClient> | Singleton | Proporciona métodos para enviar solicitudes HTTP y recibir respuestas HTTP de un recurso identificado por un URI.<br><br>La instancia de `HttpClient` en una aplicación WebAssembly de Blazor usa el explorador para administrar el tráfico HTTP en segundo plano.<br><br>Las aplicaciones de servidor Blazor no incluyen un objeto `HttpClient` configurado como servicio de forma predeterminada. Proporcione un objeto `HttpClient` a una aplicación de servidor Blazor.<br><br>Para obtener más información, consulta <xref:blazor/call-web-api>. |
+| `IJSRuntime` | Singleton (WebAssembly de Blazor)<br>Con ámbito (servidor Blazor) | Representa una instancia de un entorno de ejecución de JavaScript en la que se envían las llamadas de JavaScript. Para obtener más información, consulta <xref:blazor/call-javascript-from-dotnet>. |
 | `NavigationManager` | Singleton (WebAssembly de Blazor)<br>Con ámbito (servidor Blazor) | Contiene asistentes para trabajar con URI y el estado de navegación. Para obtener más información, vea [Asistentes de URI y estado de navegación](xref:blazor/routing#uri-and-navigation-state-helpers). |
 
 Un proveedor de servicios personalizado no proporciona automáticamente los servicios predeterminados que aparecen en la tabla. Si usa un proveedor de servicios personalizado y necesita cualquiera de los servicios que se muestran en la tabla, agregue los servicios necesarios al nuevo proveedor de servicios.
@@ -129,13 +129,13 @@ public void ConfigureServices(IServiceCollection services)
 
 Los servicios se pueden configurar con las duraciones que se muestran en la tabla siguiente.
 
-| Período de duración | Descripción |
+| Período de duración | Description |
 | -------- | ----------- |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Las aplicaciones WebAssembly de Blazor no tienen actualmente un concepto de ámbitos de inserción de dependencias. Los servicios registrados con `Scoped` se comportan como servicios `Singleton`. Pero el modelo de hospedaje del servidor Blazor admite la duración `Scoped`. En las aplicaciones de servidor Blazor, el ámbito del registro de un servicio con ámbito es la *conexión*. Por este motivo, se prefiere el uso de servicios con ámbito para los servicios que deben tener el ámbito del usuario actual, aunque la intención actual sea ejecutar el lado cliente en el explorador. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Singleton*> | La inserción de dependencias crea una *sola instancia* del servicio. Todos los componentes que requieren un servicio `Singleton` reciben una instancia del mismo servicio. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Transient*> | Cada vez que un componente obtiene una instancia de un servicio `Transient` del contenedor de servicios, recibe una *nueva instancia* del servicio. |
 
-El sistema de inserción de dependencias se basa en el sistema de inserción de dependencias de ASP.NET Core. Para obtener más información, vea <xref:fundamentals/dependency-injection>.
+El sistema de inserción de dependencias se basa en el sistema de inserción de dependencias de ASP.NET Core. Para obtener más información, consulta <xref:fundamentals/dependency-injection>.
 
 ## <a name="request-a-service-in-a-component"></a>Solicitud de un servicio en un componente
 
@@ -144,7 +144,7 @@ Una vez que se han agregado los servicios a la colección de servicios, insérte
 * Type: el tipo de servicio que se va a insertar.
 * Property: el nombre de la propiedad que recibe el servicio de aplicación insertado. La propiedad no requiere la creación manual. El compilador crea la propiedad.
 
-Para obtener más información, vea <xref:mvc/views/dependency-injection>.
+Para obtener más información, consulta <xref:mvc/views/dependency-injection>.
 
 Use varias instrucciones `@inject` para insertar distintos servicios.
 

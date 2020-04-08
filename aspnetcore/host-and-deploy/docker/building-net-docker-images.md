@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/15/2020
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: b55235ffc44f0bacf44bd1644e45210b37f19607
-ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
+ms.openlocfilehash: 31161d6841986cb0bd8080468e5d523d59400490
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79511332"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80405923"
 ---
 # <a name="docker-images-for-aspnet-core"></a>Imágenes de Docker para ASP.NET Core
 
 En este tutorial se muestra cómo ejecutar una aplicación ASP.NET Core en contenedores de Docker.
 
-En este tutorial ha:
+En este tutorial, hizo lo siguiente:
 > [!div class="checklist"]
 > * Obtener información sobre las imágenes de Microsoft .NET Core Docker
 > * Descargará una aplicación de ejemplo de ASP.NET Core
@@ -142,7 +142,7 @@ Vaya a la carpeta de archivos de Docker en `dotnet-docker/samples/aspnetapp`.
 
 * Copie la dirección IPv4 (por ejemplo, 172.29.245.43) del contenedor y péguela en la barra de direcciones del explorador para probar la aplicación.
 
-## <a name="build-and-deploy-manually"></a>Compilaciones e implementaciones manuales
+## <a name="build-and-deploy-manually"></a>Realizará compilaciones e implementaciones manualmente
 
 En algunos escenarios, puede que quiera implementar una aplicación en un contenedor mediante la copia de los archivos de aplicación que son necesarios en tiempo de ejecución. En esta sección se muestra cómo realizar una implementación manual.
 
@@ -178,7 +178,7 @@ Para usar la aplicación publicada manualmente en un contenedor de Docker, cree 
 
 ::: moniker range="< aspnetcore-3.0"
 
-```console
+```dockerfile
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS runtime
 WORKDIR /app
 COPY published/aspnetapp.dll ./
@@ -214,7 +214,7 @@ ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 
 ::: moniker range=">= aspnetcore-3.0"
 
-```console
+```dockerfile
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0 AS runtime
 WORKDIR /app
 COPY published/aspnetapp.dll ./
@@ -248,7 +248,7 @@ ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 
 ::: moniker-end
 
-```console
+```dockerfile
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.0 AS runtime
 WORKDIR /app
 COPY published/aspnetapp.dll ./

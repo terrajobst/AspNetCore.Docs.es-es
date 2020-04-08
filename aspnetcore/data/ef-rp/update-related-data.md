@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/update-related-data
 ms.openlocfilehash: fdfdb14ff8414b8bf30f9b95be7ba0a6bcbd2995
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78645461"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Actualización de datos relacionados (7 de 8)
@@ -66,7 +66,7 @@ Actualice *Pages/Courses/Create.cshtml* con el código siguiente:
 En el código anterior se realizan los cambios siguientes:
 
 * Se cambia el título de **DepartmentID** a **Department**.
-* Se reemplaza `"ViewBag.DepartmentID"` con `DepartmentNameSL` (de la clase base).
+* Reemplaza `"ViewBag.DepartmentID"` con `DepartmentNameSL` (de la clase base).
 * Se agrega la opción "Select Department" (Seleccionar departamento). Este cambio representa "Select Department" (Seleccionar departamento) en la lista desplegable cuando todavía no se ha seleccionado ningún departamento, en lugar del primer departamento.
 * Se agrega un mensaje de validación cuando el departamento no está seleccionado.
 
@@ -94,7 +94,7 @@ En el código anterior se realizan los cambios siguientes:
 
 * Se muestra el identificador del curso. Por lo general no se muestra la clave principal (PK) de una entidad. Las PK normalmente no tienen sentido para los usuarios. En este caso, la clave principal es el número de curso.
 * Se cambia el título para la lista desplegable Department de **DepartmentID** a **Department**.
-* Se reemplaza `"ViewBag.DepartmentID"` con `DepartmentNameSL` (de la clase base).
+* Reemplaza `"ViewBag.DepartmentID"` con `DepartmentNameSL` (de la clase base).
 
 La página contiene un campo oculto (`<input type="hidden">`) para el número de curso. Agregar un asistente de etiquetas `<label>` con `asp-for="Course.CourseID"` no elimina la necesidad del campo oculto. Se requiere `<input type="hidden">` para que el número de curso se incluya en los datos enviados cuando el usuario hace clic en **Guardar**.
 
@@ -283,7 +283,7 @@ Actualice *Pages/Courses/Create.cshtml* con el código siguiente:
 En el marcado anterior se realizan los cambios siguientes:
 
 * Se cambia el título de **DepartmentID** a **Department**.
-* Se reemplaza `"ViewBag.DepartmentID"` con `DepartmentNameSL` (de la clase base).
+* Reemplaza `"ViewBag.DepartmentID"` con `DepartmentNameSL` (de la clase base).
 * Se agrega la opción "Select Department" (Seleccionar departamento). Este cambio representa "Select Department" en lugar del primer departamento.
 * Se agrega un mensaje de validación cuando el departamento no está seleccionado.
 
@@ -309,7 +309,7 @@ En el marcado anterior se realizan los cambios siguientes:
 
 * Se muestra el identificador del curso. Por lo general no se muestra la clave principal (PK) de una entidad. Las PK normalmente no tienen sentido para los usuarios. En este caso, la clave principal es el número de curso.
 * Se cambia el título de **DepartmentID** a **Department**.
-* Se reemplaza `"ViewBag.DepartmentID"` con `DepartmentNameSL` (de la clase base).
+* Reemplaza `"ViewBag.DepartmentID"` con `DepartmentNameSL` (de la clase base).
 
 La página contiene un campo oculto (`<input type="hidden">`) para el número de curso. Agregar un asistente de etiquetas `<label>` con `asp-for="Course.CourseID"` no elimina la necesidad del campo oculto. Se requiere `<input type="hidden">` para que el número de curso se incluya en los datos enviados cuando el usuario hace clic en **Guardar**.
 
@@ -408,7 +408,7 @@ Actualice la vista de Razor del instructor:
 
 <a id="notepad"></a>
 > [!NOTE]
-> Al pegar el código en Visual Studio, se cambian los saltos de línea de tal forma que el código se interrumpe. Presione Ctrl+Z una vez para deshacer el formato automático. Ctrl+Z corrige los saltos de línea para que se muestren como se ven aquí. No es necesario que la sangría sea perfecta, pero las líneas `@:</tr><tr>`, `@:<td>`, `@:</td>` y `@:</tr>` deben estar en una única línea tal y como se muestra. Con el bloque de código nuevo seleccionado, presione tres veces la tecla Tab para alinearlo con el código existente. Puede votar o revisar el estado de este error [con este vínculo](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
+> Al pegar el código en Visual Studio, se cambian los saltos de línea de tal forma que el código se interrumpe. Presione Ctrl+Z una vez para deshacer el formato automático. Ctrl+Z corrige los saltos de línea para que se muestren como se ven aquí. No es necesario que la sangría sea perfecta, pero las líneas `@:</tr><tr>`, `@:<td>`, `@:</td>` y `@:</tr>` deben estar en una única línea tal y como se muestra. Con el bloque de código nuevo seleccionado, presione tres veces la tecla TAB para alinearlo con el código existente. Puede votar o revisar el estado de este error [con este vínculo](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
 
 En el código anterior se crea una tabla HTML que tiene tres columnas. Cada columna tiene una casilla y una leyenda que contiene el número y el título del curso. Todas las casillas tienen el mismo nombre ("selectedCourses"). Al usar el mismo nombre se informa al enlazador de modelos que las trate como un grupo. El atributo de valor de cada casilla se establece en `CourseID`. Cuando se envía la página, el enlazador de modelos pasa una matriz formada solo por los valores `CourseID` de las casillas activadas.
 

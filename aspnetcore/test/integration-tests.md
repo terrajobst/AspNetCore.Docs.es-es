@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 01/06/2019
 uid: test/integration-tests
 ms.openlocfilehash: 414e47b9c5a1c843755bd79d313f503b554945db
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78649649"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
@@ -437,7 +437,7 @@ Por lo tanto, limite el uso de pruebas de integración a los escenarios de infra
 > No escriba pruebas de integración para cada posible permutación de datos y acceso a archivos con bases de datos y sistemas de archivos. Independientemente de cuántas ubicaciones de una aplicación interactúen con bases de datos y sistemas de archivos, un conjunto centrado de pruebas de integración de lectura, escritura, actualización y eliminación suele ser capaz de probar adecuadamente los componentes de sistema de archivos y base de datos. Use pruebas unitarias para las pruebas rutinarias de lógica de métodos que interactúan con estos componentes. En las pruebas unitarias, el uso de simulaciones o emulaciones de infraestructura da lugar a una ejecución más rápida de esas pruebas.
 
 > [!NOTE]
-> En las conversaciones de las pruebas de integración, el proyecto probado suele denominarse *Sistema a prueba*, o "SUT" para abreviar.
+> En las conversaciones de las pruebas de integración, el proyecto probado suele denominarse *Sistema a prueba* o "SUT" para abreviar.
 >
 > *En este tema se usa "SUT" para referirse a la aplicación ASP.NET Core probada.*
 

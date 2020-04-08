@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 08/14/2019
 uid: test/razor-pages-tests
 ms.openlocfilehash: 0e217b6b7f15519a3da44f5d074cf80fa96a3b3a
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: f7886fd2e219db9d7ce27b16c0dc5901e658d64e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "78649577"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Pruebas unitarias de Razor Pages en ASP.NET Core
@@ -23,7 +23,7 @@ ASP.NET Core admite pruebas unitarias de aplicaciones de Razor Pages. Las prue
 * Las partes de una aplicación de Razor Pages funcionan de forma independiente y conjunta como una unidad durante la creación de una aplicación.
 * Las clases y los métodos tienen ámbitos de responsabilidad restringidos.
 * Hay documentación adicional disponible sobre cómo debe comportarse la aplicación.
-* Se detectan regresiones, que son errores que salen a la luz a raíz de las actualizaciones de código, en los procesos de compilación e implementación automatizados.
+* Se detectan regresiones —que son errores que salen a la luz a raíz de las actualizaciones de código— en los procesos de compilación e implementación automatizados.
 
 En este tema se da por hecho que el usuario posee conocimientos básicos de las pruebas unitarias y las aplicaciones de Razor Pages. Si no está familiarizado con los conceptos de prueba o aplicaciones de Razor Pages, vea los siguientes temas:
 
@@ -37,7 +37,7 @@ El proyecto de ejemplo se compone de dos aplicaciones:
 
 | Aplicación         | Carpeta del proyecto                     | Descripción |
 | ----------- | ---------------------------------- | ----------- |
-| Aplicación de mensaje | *src/RazorPagesTestSample*         | Permite a un usuario agregar un mensaje, eliminar un mensaje, eliminar todos los mensajes y analizar mensajes (hallar la media de palabras por mensaje). |
+| Aplicación de mensajes | *src/RazorPagesTestSample*         | Permite a un usuario agregar un mensaje, eliminar un mensaje, eliminar todos los mensajes y analizar mensajes (hallar la media de palabras por mensaje). |
 | Probar la aplicación    | *tests/RazorPagesTestSample.Tests* | Sirve para realizar una prueba unitaria del modelo de página Index y la DAL de la aplicación de mensajes. |
 
 Las pruebas se pueden ejecutar con las características de prueba integradas de un IDE, como [Visual Studio](/visualstudio/test/unit-test-your-code) o [Visual Studio para Mac](/dotnet/core/tutorials/using-on-mac-vs-full-solution). Si usa [Visual Studio Code](https://code.visualstudio.com/) o la línea de comandos, ejecute el siguiente comando en un símbolo del sistema del directorio *tests/RazorPagesTestSample.Tests*:
@@ -309,7 +309,7 @@ En primer lugar, el método lleva a cabo el paso de organización, donde se prep
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
-El método actúa: El método `DeleteMessageAsync` Se ejecuta pasando un `recId` de `1`:
+El método actúa: El método `DeleteMessageAsync` se ejecuta pasando un `recId` de `1`:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet2)]
 
@@ -366,7 +366,7 @@ En el paso `Assert`, los mensajes reales (`actualMessages`) se asignan desde la 
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs?name=snippet3)]
 
-Otras pruebas de este grupo crean objetos de modelo de página que incluyen <xref:Microsoft.AspNetCore.Http.DefaultHttpContext>, <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary>, un elemento <xref:Microsoft.AspNetCore.Mvc.ActionContext> para establecer `PageContext`, un elemento `ViewDataDictionary`y un elemento `PageContext`. Todos ellos resultan útiles para realizar pruebas. Por ejemplo, la aplicación de mensajes establece un error de `ModelState` con <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.AddModelError*> para comprobar si se devuelve un elemento <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageResult> válido cuando `OnPostAddMessageAsync` se ejecuta:
+Otras pruebas de este grupo crean objetos de modelo de página que incluyen <xref:Microsoft.AspNetCore.Http.DefaultHttpContext>, <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary>, un elemento <xref:Microsoft.AspNetCore.Mvc.ActionContext> para establecer `PageContext`, un elemento `ViewDataDictionary` y un elemento `PageContext`. Todos ellos resultan útiles para realizar pruebas. Por ejemplo, la aplicación de mensajes establece un error de `ModelState` con <xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.AddModelError*> para comprobar si se devuelve un elemento <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageResult> válido cuando `OnPostAddMessageAsync` se ejecuta:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs?name=snippet4&highlight=11,26,29,32)]
 

@@ -6,10 +6,10 @@ ms.author: scaddie
 ms.date: 10/18/2019
 uid: migration/proper-to-2x/index
 ms.openlocfilehash: 68a45dc50e00bead564500a12509b62a4a193ec4
-ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
+ms.sourcegitcommit: 72792e349458190b4158fcbacb87caf3fc605268
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "79511098"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Migración de ASP.NET a ASP.NET Core
@@ -60,7 +60,7 @@ Este enfoque acopla la aplicación y el servidor en el que está implementada de
 
 Esto configura las rutas predeterminadas y tiene como valor predeterminado XmlSerialization a través de Json. Agregue otro middleware a esta canalización según sea necesario (carga de servicios, opciones de configuración, archivos estáticos, etcétera).
 
-ASP.NET Core usa un enfoque similar, pero no depende de OWIN para controlar la entrada. En su lugar, se usa el método `Main` de *Program.cs* (similar a las aplicaciones de consola), y `Startup` se carga a través de ahí.
+ASP.NET Core usa un enfoque similar, pero no depende de OWIN para controlar la entrada. En su lugar, se usa el método *de*Program.cs`Main` (similar a las aplicaciones de consola), y `Startup` se carga a través de ahí.
 
 [!code-csharp[](samples/program.cs)]
 
