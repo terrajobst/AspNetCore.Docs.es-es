@@ -4,14 +4,14 @@ author: rick-anderson
 description: Aprenda a administrar solicitudes JSON Patch en una API web ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/01/2019
+ms.date: 04/02/2020
 uid: web-api/jsonpatch
-ms.openlocfilehash: cf1a00c1928652bf5210b2442087209e23b8868e
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: be4115e870dac818aeb6b1e65ddfb21e89d9cf25
+ms.sourcegitcommit: 9675db7bf4b67ae269f9226b6f6f439b5cce4603
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78652955"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80625881"
 ---
 # <a name="jsonpatch-in-aspnet-core-web-api"></a>JsonPatch en la API web de ASP.NET Core
 
@@ -23,30 +23,30 @@ En este artículo se explica cómo administrar solicitudes JSON Patch en una API
 
 ## <a name="package-installation"></a>Instalación del paquete
 
-La compatibilidad con JsonPatch se habilita mediante el uso del paquete `Microsoft.AspNetCore.Mvc.NewtonsoftJson`. Para habilitar esta característica, las aplicaciones deben realizar lo siguiente:
+Para habilitar la compatibilidad con revisiones JSON en la aplicación, siga estos pasos:
 
-* Instalar el paquete NuGet [Microsoft.AspNetCore.Mvc.NewtonsoftJson](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson/).
-* Actualice el método `Startup.ConfigureServices` del proyecto para incluir una llamada a `AddNewtonsoftJson`:
+1. Instalar el paquete NuGet [Microsoft.AspNetCore.Mvc.NewtonsoftJson](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson/).
+1. Actualice el método `Startup.ConfigureServices` del <xref:Microsoft.Extensions.DependencyInjection.NewtonsoftJsonMvcBuilderExtensions.AddNewtonsoftJson*>proyecto para llamar a . Por ejemplo:
 
-  ```csharp
-  services
-      .AddControllersWithViews()
-      .AddNewtonsoftJson();
-  ```
+    ```csharp
+    services
+        .AddControllersWithViews()
+        .AddNewtonsoftJson();
+    ```
 
 `AddNewtonsoftJson` es compatible con los métodos de registro del servicio MVC:
 
-  * `AddRazorPages`
-  * `AddControllersWithViews`
-  * `AddControllers`
+* <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddRazorPages*>
+* <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddControllersWithViews*>
+* <xref:Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions.AddControllers*>
 
-## <a name="jsonpatch-addnewtonsoftjson-and-systemtextjson"></a>JsonPatch, AddNewtonsoftJson y System.Text.Json
-  
-`AddNewtonsoftJson` reemplaza los formateadores de entrada y salida basados en `System.Text.Json` que se usan para dar formato a **todo** el contenido JSON. Para agregar compatibilidad con `JsonPatch` mediante `Newtonsoft.Json`, sin cambiar los otros formateadores, actualice el `Startup.ConfigureServices` del proyecto como se indica a continuación:
+## <a name="json-patch-addnewtonsoftjson-and-systemtextjson"></a>JSON Patch, AddNewtonsoftJson y System.Text.Json
+
+`AddNewtonsoftJson`reemplaza los `System.Text.Json`formateadores de entrada y salida basados en base utilizados para dar formato a **todo** el contenido JSON. Para agregar compatibilidad con `Newtonsoft.Json`JSON Patch mediante , sin modificar los `Startup.ConfigureServices` demás formateadores, actualice el método del proyecto de la siguiente manera:
 
 [!code-csharp[](jsonpatch/samples/3.0/WebApp1/Startup.cs?name=snippet)]
 
-El código anterior requiere una referencia a [Microsoft.AspNetCore.Mvc.NewtonsoftJson](https://nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson) y las siguientes instrucciones using:
+El código anterior requiere `Microsoft.AspNetCore.Mvc.NewtonsoftJson` el paquete `using` y las instrucciones siguientes:
 
 [!code-csharp[](jsonpatch/samples/3.0/WebApp1/Startup.cs?name=snippet1)]
 
@@ -56,9 +56,9 @@ Los métodos PUT y [PATCH](https://tools.ietf.org/html/rfc5789) se usan para act
 
 ## <a name="json-patch"></a>JSON Patch
 
-[JSON Patch](https://tools.ietf.org/html/rfc6902) es un formato para especificar las actualizaciones que se aplicarán a un recurso. Un documento JSON Patch tiene una matriz de *operaciones*. Cada operación identifica un determinado tipo de cambio, como agregar un elemento de matriz o reemplazar un valor de propiedad.
+[JSON Patch](https://tools.ietf.org/html/rfc6902) es un formato para especificar las actualizaciones que se aplicarán a un recurso. Un documento JSON Patch tiene una matriz de *operaciones*. Cada operación identifica un tipo determinado de cambio. Algunos ejemplos de estos cambios son agregar un elemento de matriz o reemplazar un valor de propiedad.
 
-Por ejemplo, los documentos JSON siguientes representan un recurso, un documento de revisión JSON para el recurso y el resultado de aplicar las operaciones de revisión.
+Por ejemplo, los siguientes documentos JSON representan un recurso, un documento de revisión JSON para el recurso y el resultado de aplicar las operaciones Patch.
 
 ### <a name="resource-example"></a>Ejemplo de recursos
 
@@ -98,13 +98,13 @@ Este es el recurso después de aplicar el documento JSON Patch anterior:
 }
 ```
 
-Los cambios realizados mediante la aplicación de un documento JSON Patch a un recurso son atómicos: si alguna operación de la lista produce un error, no se aplica ninguna operación de la lista.
+Los cambios realizados mediante la aplicación de un documento de revisión JSON a un recurso son atómicos. Si se produce un error en cualquier operación de la lista, no se aplica ninguna operación de la lista.
 
 ## <a name="path-syntax"></a>Sintaxis de path
 
 La propiedad [path](https://tools.ietf.org/html/rfc6901) de un objeto de operación tiene barras inversas entre niveles. Por ejemplo, `"/address/zipCode"`.
 
-Para especificar elementos de matriz se usan índices de base cero. El primer elemento de la matriz `addresses` estaría en `/addresses/0`. Para usar `add` al final de una matriz, use un guion (-) en lugar de un número de índice: `/addresses/-`.
+Para especificar elementos de matriz se usan índices de base cero. El primer elemento de la matriz `addresses` estaría en `/addresses/0`. Para `add` finales de una matriz, utilice`-`un guión ( `/addresses/-`) en lugar de un número de índice: .
 
 ### <a name="operations"></a>Operaciones
 
@@ -119,7 +119,7 @@ En la siguiente tabla se muestran las operaciones admitidas, como se ha definido
 | `copy`    | Lo mismo que `add` al destino mediante el valor del origen. |
 | `test`    | Devuelve el código de estado correcto si el valor en `path` = al `value` proporcionado.|
 
-## <a name="jsonpatch-in-aspnet-core"></a>JsonPatch en ASP.NET Core
+## <a name="json-patch-in-aspnet-core"></a>Parche JSON en ASP.NET Core
 
 La implementación de ASP.NET Core de JSON Patch se proporciona en el paquete NuGet [Microsoft.AspNetCore.JsonPatch](https://www.nuget.org/packages/microsoft.aspnetcore.jsonpatch/).
 
@@ -135,7 +135,7 @@ Este es un ejemplo:
 
 [!code-csharp[](jsonpatch/samples/2.2/Controllers/HomeController.cs?name=snippet_PatchAction&highlight=1,3,9)]
 
-Este código de la aplicación de ejemplo funciona con el siguiente modelo `Customer`.
+Este código de la aplicación `Customer` de ejemplo funciona con el siguiente modelo:
 
 [!code-csharp[](jsonpatch/samples/2.2/Models/Customer.cs?name=snippet_Customer)]
 
@@ -147,7 +147,7 @@ El método de acción de ejemplo:
 * Aplica la revisión.
 * Devuelve el resultado en el cuerpo de la respuesta.
 
- En una aplicación real, el código recuperaría los datos de un almacén como una base de datos y actualizaría la base de datos después de aplicar la revisión.
+En una aplicación real, el código recuperaría los datos de un almacén como una base de datos y actualizaría la base de datos después de aplicar la revisión.
 
 ### <a name="model-state"></a>Estado del modelo
 
@@ -163,7 +163,7 @@ En el ejemplo anterior del método de acción, se llama a una sobrecarga de `App
 
 ### <a name="dynamic-objects"></a>Objetos dinámicos
 
-En el ejemplo siguiente de método de acción se muestra cómo aplicar una revisión a un objeto dinámico.
+En el siguiente ejemplo de método de acción se muestra cómo aplicar una revisión a un objeto dinámico:
 
 [!code-csharp[](jsonpatch/samples/2.2/Controllers/HomeController.cs?name=snippet_Dynamic)]
 
@@ -188,7 +188,7 @@ El siguiente documento de revisión de ejemplo establece el valor de `CustomerNa
     * Si la propiedad acepta valores NULL: la establece en null.
     * Si la propiedad es distinta de null, la establece en `default<T>`.
 
-En el siguiente documento de revisión de ejemplo, se establece `CustomerName` en null y se elimina `Orders[0]`.
+El siguiente documento `CustomerName` de revisión `Orders[0]`de ejemplo se establece en null y elimina:
 
 [!code-json[](jsonpatch/samples/2.2/JSON/remove.json)]
 
@@ -196,7 +196,7 @@ En el siguiente documento de revisión de ejemplo, se establece `CustomerName` e
 
 Esta operación es funcionalmente igual que `remove` seguida de `add`.
 
-En el siguiente documento de revisión de ejemplo se establece el valor de `CustomerName` y se reemplaza `Orders[0]` por un nuevo objeto `Order`.
+El siguiente documento de revisión de `Orders[0]`ejemplo `Order` establece el valor de `CustomerName` y se reemplaza por un nuevo objeto:
 
 [!code-json[](jsonpatch/samples/2.2/JSON/replace.json)]
 
@@ -239,14 +239,14 @@ El siguiente documento de revisión de ejemplo no tiene ningún efecto si el val
 
 ## <a name="get-the-code"></a>Obtención del código
 
-[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Método de descarga](xref:index#how-to-download-a-sample)).
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples). ([Cómo descargar](xref:index#how-to-download-a-sample)).
 
 Para probar el ejemplo, ejecute la aplicación y envíe solicitudes HTTP con la configuración siguiente:
 
 * Dirección URL: `http://localhost:{port}/jsonpatch/jsonpatchwithmodelstate`
 * Método HTTP: `PATCH`
 * Encabezado: `Content-Type: application/json-patch+json`
-* Cuerpo: Copie y pegue uno de los ejemplos de documentos de revisión de JSON de la carpeta de proyecto *JSON* .
+* Cuerpo: copie y pegue uno de los ejemplos de documentos de revisión JSON de la carpeta del proyecto *JSON.*
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -451,14 +451,14 @@ El siguiente documento de revisión de ejemplo no tiene ningún efecto si el val
 
 ## <a name="get-the-code"></a>Obtención del código
 
-[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Método de descarga](xref:index#how-to-download-a-sample)).
+[Vea o descargue el código de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Cómo descargar](xref:index#how-to-download-a-sample)).
 
 Para probar el ejemplo, ejecute la aplicación y envíe solicitudes HTTP con la configuración siguiente:
 
 * Dirección URL: `http://localhost:{port}/jsonpatch/jsonpatchwithmodelstate`
 * Método HTTP: `PATCH`
 * Encabezado: `Content-Type: application/json-patch+json`
-* Cuerpo: Copie y pegue uno de los ejemplos de documentos de revisión de JSON de la carpeta de proyecto *JSON* .
+* Cuerpo: copie y pegue uno de los ejemplos de documentos de revisión JSON de la carpeta del proyecto *JSON.*
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

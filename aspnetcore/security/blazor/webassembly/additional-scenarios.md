@@ -1,23 +1,23 @@
 ---
-title: ASP.NET Core Blazor escenarios de seguridad adicionales de webassembly
+title: ASP.NET Blazor escenarios de seguridad adicionales de Core WebAssembly
 author: guardrex
 description: ''
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/19/2020
+ms.date: 03/30/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/webassembly/additional-scenarios
-ms.openlocfilehash: ccb512392341e3eea33f4ab45740b7900f7b63f9
-ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
+ms.openlocfilehash: 516132379ae20bd31c0f3b3261bb09b3f5b218f2
+ms.sourcegitcommit: 1d8f1396ccc66a0c3fcb5e5f36ea29b50db6d92a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "79989457"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80501123"
 ---
-# <a name="aspnet-core-blazor-webassembly-additional-security-scenarios"></a>ASP.NET Core más escenarios de seguridad adicionales de webassembly
+# <a name="aspnet-core-blazor-webassembly-additional-security-scenarios"></a>ASP.NET Core Blazor WebAssembly escenarios de seguridad adicionales
 
 Por [Javier Calvarro Nelson](https://github.com/javiercn)
 
@@ -25,31 +25,70 @@ Por [Javier Calvarro Nelson](https://github.com/javiercn)
 
 [!INCLUDE[](~/includes/blazorwasm-3.2-template-article-notice.md)]
 
-## <a name="handle-token-request-errors"></a>Controlar errores de solicitudes de token
+## <a name="request-additional-access-tokens"></a>Solicitar tokens de acceso adicionales
 
-Cuando una aplicación de una sola página (SPA) autentica a un usuario mediante Open ID Connect (OIDC), el estado de autenticación se mantiene localmente en el SPA y en el proveedor de identidades (IP) en forma de una cookie de sesión que se establece como resultado del usuario que proporciona su sus.
+La mayoría de las aplicaciones solo requieren un token de acceso para interactuar con los recursos protegidos que usan. En algunos escenarios, una aplicación puede requerir más de un token para interactuar con dos o más recursos.
 
-Normalmente, los tokens que emite la IP para el usuario son válidos durante breves períodos de tiempo, aproximadamente una hora, por lo que la aplicación cliente debe capturar nuevos tokens con regularidad. De lo contrario, se cerrará la sesión del usuario después de que expiren los tokens concedidos. En la mayoría de los casos, los clientes de OIDC pueden aprovisionar nuevos tokens sin necesidad de que el usuario se autentique de nuevo gracias al estado de autenticación o a la "sesión" que se mantiene dentro de la dirección IP.
+En el ejemplo siguiente, una aplicación requiere ámbitos adicionales de Microsoft Graph API de Azure Active Directory (AAD) para leer los datos de usuario y enviar correo. Después de agregar los permisos de Microsoft Graph API en el portal`Program.Main`de Azure AAD, los ámbitos adicionales se configuran en la aplicación cliente ( , *Program.cs*):
 
-Hay algunos casos en los que el cliente no puede obtener un token sin la interacción del usuario, por ejemplo, cuando por alguna razón el usuario cierra la sesión explícitamente desde la dirección IP. Este escenario se produce si un usuario visita `https://login.microsoftonline.com` y cierra la sesión. En estos casos, la aplicación no sabe inmediatamente que el usuario ha cerrado la sesión. Es posible que el token que contiene el cliente ya no sea válido. Además, el cliente no puede aprovisionar un token nuevo sin la interacción del usuario después de que expire el token actual.
+```csharp
+builder.Services.AddMsalAuthentication(options =>
+{
+    ...
 
-Estos escenarios no son específicos de la autenticación basada en tokens. Forman parte de la naturaleza de spa. Un SPA que use cookies tampoco podrá llamar a una API de servidor si se quita la cookie de autenticación.
+    options.ProviderOptions.AdditionalScopesToConsent.Add(
+        "https://graph.microsoft.com/Mail.Send");
+    options.ProviderOptions.AdditionalScopesToConsent.Add(
+        "https://graph.microsoft.com/User.Read");
+}
+```
 
-Cuando una aplicación realiza llamadas API a recursos protegidos, debe tener en cuenta lo siguiente:
+El `IAccessTokenProvider.RequestToken` método proporciona una sobrecarga que permite a una aplicación aprovisionar un token con un conjunto determinado de ámbitos, como se muestra en el ejemplo siguiente:
 
-* Para aprovisionar un nuevo token de acceso para llamar a la API, es posible que sea necesario volver a autenticar al usuario.
-* Incluso si el cliente tiene un token que parece ser válido, es posible que se produzca un error en la llamada al servidor porque el usuario revocó el token.
+```csharp
+var tokenResult = await AuthenticationService.RequestAccessToken(
+    new AccessTokenRequestOptions
+    {
+        Scopes = new[] { "https://graph.microsoft.com/Mail.Send", 
+            "https://graph.microsoft.com/User.Read" }
+    });
+
+if (tokenResult.TryGetToken(out var token))
+{
+    ...
+}
+```
+
+`TryGetToken`Devuelve:
+
+* `true`con `token` el uso.
+* `false`si no se recupera el token.
+
+## <a name="handle-token-request-errors"></a>Controlar errores de solicitud de token
+
+Cuando una aplicación de una sola página (SPA) autentica a un usuario usando Open ID Connect (OIDC), el estado de autenticación se mantiene localmente dentro del SPA y en el proveedor de identidad (IP) en forma de una cookie de sesión que se fija como resultado del usuario que proporciona sus credenciales.
+
+Los tokens que la ip emite para el usuario suelen ser válidos durante períodos cortos de tiempo, aproximadamente una hora normalmente, por lo que la aplicación cliente debe capturar regularmente nuevos tokens. De lo contrario, el usuario cerraría la sesión después de que expiren los tokens concedidos. En la mayoría de los casos, los clientes OIDC pueden aprovisionar nuevos tokens sin necesidad de que el usuario se autentique de nuevo gracias al estado de autenticación o "sesión" que se mantiene dentro de la IP.
+
+Hay algunos casos en los que el cliente no puede obtener un token sin la interacción del usuario, por ejemplo, cuando por alguna razón el usuario cierra la sesión explícitamente de la ip. Este escenario se produce `https://login.microsoftonline.com` si un usuario visita y cierra sesión. En estos escenarios, la aplicación no sabe inmediatamente que el usuario ha cerrado la sesión. Es posible que cualquier token que el cliente tenga ya no sea válido. Además, el cliente no puede aprovisionar un nuevo token sin la interacción del usuario después de que expire el token actual.
+
+Estos escenarios no son específicos de la autenticación basada en token. Son parte de la naturaleza de las ZAP. Un SPA que utiliza cookies tampoco puede llamar a una API de servidor si se elimina la cookie de autenticación.
+
+Cuando una aplicación realiza llamadas a la API a recursos protegidos, debe tener en cuenta lo siguiente:
+
+* Para aprovisionar un nuevo token de acceso para llamar a la API, es posible que el usuario tenga que autenticarse de nuevo.
+* Incluso si el cliente tiene un token que parece ser válido, la llamada al servidor puede producir un error porque el usuario revocó el token.
 
 Cuando la aplicación solicita un token, hay dos resultados posibles:
 
 * La solicitud se realiza correctamente y la aplicación tiene un token válido.
 * Se produce un error en la solicitud y la aplicación debe autenticar al usuario de nuevo para obtener un nuevo token.
 
-Cuando se produce un error en una solicitud de token, debe decidir si desea guardar el estado actual antes de realizar una redirección. Existen varios enfoques con niveles crecientes de complejidad:
+Cuando se produce un error en una solicitud de token, debe decidir si desea guardar cualquier estado actual antes de realizar una redirección. Existen varios enfoques con niveles crecientes de complejidad:
 
-* Almacenar el estado de la página actual en el almacenamiento de sesión. Durante `OnInitializeAsync`, compruebe si el estado se puede restaurar antes de continuar.
-* Agregue un parámetro de cadena de consulta y úselo como una manera de señalar la aplicación que necesita para volver a hidratar el estado guardado anteriormente.
-* Agregue un parámetro de cadena de consulta con un identificador único para almacenar los datos en el almacenamiento de sesión sin poner en peligro las colisiones con otros elementos.
+* Almacene el estado actual de la página en el almacenamiento de sesión. Durante `OnInitializeAsync`, compruebe si el estado se puede restaurar antes de continuar.
+* Agregue un parámetro de cadena de consulta y úselo como una forma de indicar a la aplicación que necesita volver a hidratar el estado guardado anteriormente.
+* Agregue un parámetro de cadena de consulta con un identificador único para almacenar datos en el almacenamiento de sesión sin correr el riesgo de colisiones con otros elementos.
 
 El ejemplo siguiente muestra cómo:
 
@@ -117,9 +156,9 @@ El ejemplo siguiente muestra cómo:
 
 ## <a name="save-app-state-before-an-authentication-operation"></a>Guardar el estado de la aplicación antes de una operación de autenticación
 
-Durante una operación de autenticación, hay casos en los que desea guardar el estado de la aplicación antes de que el explorador se redirija a la dirección IP. Esto puede ser así cuando se usa algo como un contenedor de estado y se desea restaurar el estado después de que la autenticación se realice correctamente. Puede usar un objeto de estado de autenticación personalizado para conservar el estado específico de la aplicación o una referencia a él y restaurar ese estado una vez que la operación de autenticación se complete correctamente.
+Durante una operación de autenticación, hay casos en los que desea guardar el estado de la aplicación antes de redirigir el explorador a la dirección IP. Este puede ser el caso cuando se usa algo como un contenedor de estado y desea restaurar el estado después de que la autenticación se realice correctamente. Puede usar un objeto de estado de autenticación personalizado para conservar el estado específico de la aplicación o una referencia a él y restaurar ese estado una vez que la operación de autenticación se complete correctamente.
 
-componente de `Authentication` (*páginas/autenticación. Razor*):
+`Authentication`componente (*Pages/Authentication.razor*):
 
 ```razor
 @page "/authentication/{action}"
@@ -163,40 +202,27 @@ componente de `Authentication` (*páginas/autenticación. Razor*):
 }
 ```
 
-## <a name="request-additional-access-tokens"></a>Solicitar tokens de acceso adicionales
+## <a name="customize-app-routes"></a>Personalizar rutas de aplicaciones
 
-La mayoría de las aplicaciones solo requieren un token de acceso para interactuar con los recursos protegidos que usan. En algunos escenarios, una aplicación podría requerir más de un token para interactuar con dos o más recursos. El método `IAccessTokenProvider.RequestToken` proporciona una sobrecarga que permite a una aplicación aprovisionar un token con un conjunto determinado de ámbitos, tal como se muestra en el ejemplo siguiente:
-
-```csharp
-var tokenResult = await AuthenticationService.RequestAccessToken(
-    new AccessTokenRequestOptions
-    {
-        Scopes = new[] { "https://graph.microsoft.com/Mail.Send", 
-            "https://graph.microsoft.com/User.Read" }
-    });
-```
-
-## <a name="customize-app-routes"></a>Personalización de rutas de aplicación
-
-De forma predeterminada, la biblioteca de `Microsoft.AspNetCore.Components.WebAssembly.Authentication` usa las rutas que se muestran en la tabla siguiente para representar diferentes Estados de autenticación.
+De forma `Microsoft.AspNetCore.Components.WebAssembly.Authentication` predeterminada, la biblioteca utiliza las rutas que se muestran en la tabla siguiente para representar diferentes estados de autenticación.
 
 | Enrutar                            | Propósito |
 | -------------------------------- | ------- |
 | `authentication/login`           | Desencadena una operación de inicio de sesión. |
 | `authentication/login-callback`  | Controla el resultado de cualquier operación de inicio de sesión. |
 | `authentication/login-failed`    | Muestra mensajes de error cuando se produce un error en la operación de inicio de sesión por algún motivo. |
-| `authentication/logout`          | Desencadena una operación de cierre de sesión. |
+| `authentication/logout`          | Activa una operación de cierre de sesión. |
 | `authentication/logout-callback` | Controla el resultado de una operación de cierre de sesión. |
 | `authentication/logout-failed`   | Muestra mensajes de error cuando se produce un error en la operación de cierre de sesión por algún motivo. |
-| `authentication/logged-out`      | Indica que el usuario ha cerrado la sesión correctamente. |
-| `authentication/profile`         | Desencadena una operación para editar el perfil de usuario. |
+| `authentication/logged-out`      | Indica que el usuario ha cierre la sesión correctamente. |
+| `authentication/profile`         | Activa una operación para editar el perfil de usuario. |
 | `authentication/register`        | Desencadena una operación para registrar un nuevo usuario. |
 
-Las rutas que se muestran en la tabla anterior se pueden configurar a través de `RemoteAuthenticationOptions<TProviderOptions>.AuthenticationPaths`. Al establecer las opciones para proporcionar rutas personalizadas, confirme que la aplicación tiene una ruta que controla cada ruta de acceso.
+Las rutas mostradas en la tabla `RemoteAuthenticationOptions<TProviderOptions>.AuthenticationPaths`anterior son configurables a través de . Al establecer opciones para proporcionar rutas personalizadas, confirme que la aplicación tiene una ruta que controla cada ruta de acceso.
 
-En el ejemplo siguiente, todas las rutas de acceso tienen el prefijo `/security`.
+En el ejemplo siguiente, todas las `/security`rutas de acceso tienen el prefijo .
 
-componente de `Authentication` (*páginas/autenticación. Razor*):
+`Authentication`componente (*Pages/Authentication.razor*):
 
 ```razor
 @page "/security/{action}"
@@ -210,7 +236,7 @@ componente de `Authentication` (*páginas/autenticación. Razor*):
 }
 ```
 
-`Program.Main` (*Program.CS*):
+`Program.Main`(*Program.cs*):
 
 ```csharp
 builder.Services.AddApiAuthorization(options => { 
@@ -226,7 +252,7 @@ builder.Services.AddApiAuthorization(options => {
 });
 ```
 
-Si el requisito requiere rutas de acceso completamente diferentes, establezca las rutas como se describió anteriormente y represente el `RemoteAuthenticatorView` con un parámetro de acción explícito:
+Si el requisito requiere rutas completamente diferentes, establezca las `RemoteAuthenticatorView` rutas como se describió anteriormente y represente el parámetro de acción explícita:
 
 ```razor
 @page "/register"
@@ -234,13 +260,13 @@ Si el requisito requiere rutas de acceso completamente diferentes, establezca la
 <RemoteAuthenticatorView Action="@RemoteAuthenticationActions.Register" />
 ```
 
-Puede descomponer la interfaz de usuario en diferentes páginas si decide hacerlo.
+Puede dividir la interfaz de usuario en páginas diferentes si decide hacerlo.
 
-## <a name="customize-the-authentication-user-interface"></a>Personalización de la interfaz de usuario de autenticación
+## <a name="customize-the-authentication-user-interface"></a>Personalizar la interfaz de usuario de autenticación
 
-`RemoteAuthenticatorView` incluye un conjunto predeterminado de partes de la interfaz de usuario para cada estado de autenticación. Cada Estado se puede personalizar pasando un `RenderFragment`personalizado. Para personalizar el texto mostrado durante el proceso de inicio de sesión inicial, puede cambiar el `RemoteAuthenticatorView` como se indica a continuación.
+`RemoteAuthenticatorView`incluye un conjunto predeterminado de piezas de interfaz de usuario para cada estado de autenticación. Cada estado se puede personalizar `RenderFragment`pasando un archivo . Para personalizar el texto mostrado durante el proceso `RemoteAuthenticatorView` de inicio de sesión inicial, puede cambiar lo siguiente.
 
-componente de `Authentication` (*páginas/autenticación. Razor*):
+`Authentication`componente (*Pages/Authentication.razor*):
 
 ```razor
 @page "/security/{action}"
@@ -258,7 +284,7 @@ componente de `Authentication` (*páginas/autenticación. Razor*):
 }
 ```
 
-El `RemoteAuthenticatorView` tiene un fragmento que se puede utilizar por cada ruta de autenticación que se muestra en la tabla siguiente.
+Tiene `RemoteAuthenticatorView` un fragmento que se puede utilizar por ruta de autenticación que se muestra en la tabla siguiente.
 
 | Enrutar                            | Fragmento                |
 | -------------------------------- | ----------------------- |

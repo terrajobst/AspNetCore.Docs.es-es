@@ -3,14 +3,14 @@ title: Áreas de ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre las áreas, una característica de ASP.NET MVC que se usa para organizar funciones relacionadas en un grupo como un espacio de nombres independiente (para el enrutamiento) y una estructura de carpetas (para las vistas).
 ms.author: riande
-ms.date: 12/05/2019
+ms.date: 03/21/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 41f7bdd6dbb3e33f843cb2a765dd30f98c81ce21
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 8859bc52416ff657036198c73f63b8b0a0201e11
+ms.sourcegitcommit: 9675db7bf4b67ae269f9226b6f6f439b5cce4603
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78654239"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80625927"
 ---
 # <a name="areas-in-aspnet-core"></a>Áreas de ASP.NET Core
 
@@ -18,10 +18,10 @@ Por [Dhananjay Kumar](https://twitter.com/debug_mode) y [Rick Anderson](https://
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Las áreas son una característica ASP.NET que se usa para organizar la funcionalidad relacionada en un grupo como independiente:
+Las áreas son una característica ASP.NET que se utiliza para organizar la funcionalidad relacionada en un grupo como un independiente:
 
 * Espacio de nombres para el enrutamiento.
-* Estructura de carpetas para las vistas y Razor Pages.
+* Estructura de carpetas para vistas y razor Pages.
 
 El uso de áreas crea una jerarquía para el enrutamiento mediante la adición de otro parámetro de ruta, `area`, a `controller` y `action`, o bien a un elemento `page` de página de Razor.
 
@@ -41,11 +41,11 @@ Si va a usar Razor Pages, consulte [Áreas con Razor Pages](#areas-with-razor-pa
 Una aplicación web ASP.NET Core típica en la que se usen áreas, controladores y vistas contiene lo siguiente:
 
 * Una [estructura de carpetas de área](#area-folder-structure).
-* Controladores con el atributo [`[Area]`](#attribute) para asociar el controlador con el área:
+* Controladores [`[Area]`](#attribute) con el atributo para asociar el regulador con el área:
 
   [!code-csharp[](areas/31samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]
 
-* La [ruta de área agregada al inicio](#add-area-route):
+* La ruta de [área añadida al inicio:](#add-area-route)
 
   [!code-csharp[](areas/31samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
 
@@ -85,22 +85,22 @@ Aunque el diseño anterior es típico cuando se usan áreas, solo los archivos d
 
 ### <a name="associate-the-controller-with-an-area"></a>Asociación del controlador a un área
 
-Los controladores de área se designan con el atributo [&lbrack;Area&rbrack;](xref:Microsoft.AspNetCore.Mvc.AreaAttribute):
+Los controladores de [ &lbrack;&rbrack; ](xref:Microsoft.AspNetCore.Mvc.AreaAttribute) área se designan con el atributo Area:
 
 [!code-csharp[](areas/31samples/MVCareas/Areas/Products/Controllers/ManageController.cs?highlight=5&name=snippet)]
 
 ### <a name="add-area-route"></a>Adición de la ruta de área
 
-Las rutas de área suelen usar [enrutamiento convencional](xref:mvc/controllers/routing#cr) en lugar de [enrutamiento de atributos](xref:mvc/controllers/routing#ar). El enrutamiento convencional depende del orden. En general, las rutas con áreas deben colocarse antes en la tabla de rutas, ya que son más específicas que las rutas sin un área.
+Las rutas de área suelen utilizar [enrutamiento convencional](xref:mvc/controllers/routing#cr) en lugar de enrutamiento de [atributos.](xref:mvc/controllers/routing#ar) El enrutamiento convencional depende del orden. En general, las rutas con áreas deben colocarse antes en la tabla de rutas, ya que son más específicas que las rutas sin un área.
 
 Se puede `{area:...}` usar como un token en las plantillas de ruta, si el espacio de direcciones URL es uniforme en todas las áreas:
 
 [!code-csharp[](areas/31samples/MVCareas/Startup.cs?name=snippet&highlight=21-23)]
 
-En el código anterior, `exists` aplica la restricción de que la ruta debe coincidir con un área. Usar `{area:...}` con `MapControllerRoute`:
+En el código anterior, `exists` aplica la restricción de que la ruta debe coincidir con un área. Uso `{area:...}` `MapControllerRoute`con :
 
-* Es el mecanismo menos complicado para agregar enrutamiento a las áreas.
-* Coincide con todos los controladores con el atributo `[Area("Area name")]`.
+* Es el mecanismo menos complicado para agregar enrutamiento a áreas.
+* Coincide con todos `[Area("Area name")]` los controladores con el atributo.
 
 En el código siguiente se usa <xref:Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapAreaControllerRoute*> para crear dos rutas de área con nombre:
 
@@ -117,32 +117,32 @@ En el código siguiente de la [descarga de ejemplo](https://github.com/dotnet/As
 La descarga de ejemplo incluye una [vista parcial](xref:mvc/views/partial) que contiene:
 
 * Los vínculos anteriores.
-* No se especifican vínculos similares a los anteriores excepto `area`.
+* No se especifican vínculos similares a la excepción `area` anterior.
 
 En el [archivo de diseño](xref:mvc/views/layout) se hace referencia a la vista parcial, por lo que en todas las páginas de la aplicación se muestran los vínculos generados. Los vínculos generados sin especificar el área solo son válidos cuando se les hace referencia desde una página en el mismo área y controlador.
 
-Cuando no se especifica el área o el controlador, el enrutamiento depende de los valores de [ambiente](xref:mvc/controllers/routing#ambient). Los valores de ruta actuales de la solicitud actual se consideran valores de ambiente para la generación de vínculos. En muchos casos para la aplicación de ejemplo, el uso de los valores de ambiente genera vínculos incorrectos con el marcado que no especifica el área.
+Cuando no se especifica el área o el controlador, el enrutamiento depende de los valores de [ambiente](xref:mvc/controllers/routing#ambient). Los valores de ruta actuales de la solicitud actual se consideran valores de ambiente para la generación de vínculos. En muchos casos para la aplicación de ejemplo, el uso de los valores ambientales genera vínculos incorrectos con el marcado que no especifica el área.
 
 Para más información, vea [Enrutar a acciones de controlador](xref:mvc/controllers/routing).
 
 ### <a name="shared-layout-for-areas-using-the-_viewstartcshtml-file"></a>Diseño Compartido para áreas con el archivo _ViewStart.cshtml
 
-Para compartir un diseño común para toda la aplicación, mantenga el *_ViewStart. cshtml* en la [carpeta raíz](#arf)de la aplicación. Para obtener más información, vea <xref:mvc/views/layout>.
+Para compartir un diseño común para toda la aplicación, mantenga el *_ViewStart.cshtml* en la carpeta raíz de la [aplicación.](#arf) Para obtener más información, vea <xref:mvc/views/layout>.
 
 <a name="arf"></a>
 
 ### <a name="application-root-folder"></a>Carpeta raíz de la aplicación
 
-La carpeta raíz de la aplicación es la carpeta que contiene *Startup.CS* en la aplicación Web creada con las plantillas de ASP.net Core.
+La carpeta raíz de la aplicación es la carpeta que contiene *Startup.cs* en la aplicación web creada con las plantillas ASP.NET Core.
 
 ### <a name="_viewimportscshtml"></a>_ViewImports.cshtml
 
- */Views/_ViewImports. cshtml*, para MVC y */pages/_ViewImports. cshtml* para Razor pages, no se importa a las vistas de las áreas. Use uno de los métodos siguientes para proporcionar las importaciones de vistas a todas las vistas:
+ */Views/_ViewImports.cshtml*, para MVC y */Pages/_ViewImports.cshtml* para Razor Pages, no se importa a las vistas en áreas. Utilice uno de los siguientes enfoques para proporcionar importaciones de vistas a todas las vistas:
 
-* Agregue *_ViewImports. cshtml* a la [carpeta raíz](#arf)de la aplicación. Un *_ViewImports. cshtml* en la carpeta raíz de la aplicación se aplicará a todas las vistas de la aplicación.
-* Copie el archivo *_ViewImports. cshtml* en la carpeta vista adecuada en áreas.
+* Agregue *_ViewImports.cshtml* a la carpeta raíz de la [aplicación.](#arf) Un *_ViewImports.cshtml* en la carpeta raíz de la aplicación se aplicará a todas las vistas de la aplicación.
+* Copie el archivo *_ViewImports.cshtml* en la carpeta de vista adecuada en áreas.
 
-El archivo *_ViewImports. cshtml* normalmente contiene las importaciones de [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) , `@using`y `@inject`. Para obtener más información, vea [importar directivas compartidas](xref:mvc/views/layout#importing-shared-directives).
+El archivo *_ViewImports.cshtml* normalmente contiene `@using`importaciones `@inject` de [aplicaciones auxiliares](xref:mvc/views/tag-helpers/intro) de etiquetas e instrucciones. Para obtener más información, consulte [Importación de directivas compartidas](xref:mvc/views/layout#importing-shared-directives).
 
 <a name="rename"></a>
 
@@ -156,7 +156,7 @@ En el código siguiente se cambia la carpeta de área predeterminada de `"Areas"
 
 ## <a name="areas-with-razor-pages"></a>Áreas con Razor Pages
 
-Las áreas con Razor Pages requieren una carpeta `Areas/<area name>/Pages` en la raíz de la aplicación. La siguiente estructura de carpetas se usa con la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/31samples):
+Las áreas con `Areas/<area name>/Pages` Razor Pages requieren una carpeta en la raíz de la aplicación. La siguiente estructura de carpetas se usa con la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/31samples):
 
 * Nombre de proyecto
   * Áreas
@@ -200,7 +200,7 @@ Tenga en cuenta el área *Services* del código de ejemplo, que no contiene un a
 En el marcado anterior:
 
 * El nombre de dominio completo debe usarse para especificar el modelo (`@model RPareas.Areas.Services.Pages.Manage.AboutModel`).
-* Los [asistentes de etiquetas](xref:mvc/views/tag-helpers/intro) se habilitan mediante `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
+* [Las aplicaciones auxiliares](xref:mvc/views/tag-helpers/intro) de etiquetas están habilitadas por`@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
 
 En la descarga de ejemplo, el área Products contiene el siguiente archivo *_ViewImports.cshtml*:
 
@@ -243,11 +243,11 @@ Si va a usar Razor Pages, consulte [Áreas con Razor Pages](#areas-with-razor-pa
 Una aplicación web ASP.NET Core típica en la que se usen áreas, controladores y vistas contiene lo siguiente:
 
 * Una [estructura de carpetas de área](#area-folder-structure).
-* Controladores con el atributo [`[Area]`](#attribute) para asociar el controlador con el área:
+* Controladores [`[Area]`](#attribute) con el atributo para asociar el regulador con el área:
 
   [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]
 
-* La [ruta de área agregada al inicio](#add-area-route):
+* La ruta de [área añadida al inicio:](#add-area-route)
 
   [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
 
@@ -287,7 +287,7 @@ Aunque el diseño anterior es típico cuando se usan áreas, solo los archivos d
 
 ### <a name="associate-the-controller-with-an-area"></a>Asociación del controlador a un área
 
-Los controladores de área se designan con el atributo [&lbrack;Area&rbrack;](xref:Microsoft.AspNetCore.Mvc.AreaAttribute):
+Los controladores de [ &lbrack;&rbrack; ](xref:Microsoft.AspNetCore.Mvc.AreaAttribute) área se designan con el atributo Area:
 
 [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?highlight=5&name=snippet)]
 
@@ -329,7 +329,7 @@ Para compartir un diseño común para toda la aplicación, mueva el archivo *_Vi
 
 ### <a name="_viewimportscshtml"></a>_ViewImports.cshtml
 
-En su ubicación estándar, */Views/_ViewImports.cshtml* no se aplica a las áreas. Para usar [Asistentes de etiquetas](xref:mvc/views/tag-helpers/intro) comunes, `@using` o `@inject` en la zona, asegúrese de que un archivo *_ViewImports.cshtml* adecuado [se aplica a las vistas del área](xref:mvc/views/layout#importing-shared-directives). Si quiere el mismo comportamiento en todas las vistas, mueva */Views/_ViewImports.cshtml* a la raíz de la aplicación.
+En su ubicación estándar, */Views/_ViewImports.cshtml* no se aplica a las áreas. Para utilizar [aplicaciones auxiliares](xref:mvc/views/tag-helpers/intro)de etiquetas comunes , `@using`, o `@inject` en su área, asegúrese de que un archivo *_ViewImports.cshtml* adecuado se aplica a las vistas de [área.](xref:mvc/views/layout#importing-shared-directives) Si quiere el mismo comportamiento en todas las vistas, mueva */Views/_ViewImports.cshtml* a la raíz de la aplicación.
 
 <a name="rename"></a>
 
@@ -343,7 +343,7 @@ En el código siguiente se cambia la carpeta de área predeterminada de `"Areas"
 
 ## <a name="areas-with-razor-pages"></a>Áreas con Razor Pages
 
-Las áreas con Razor Pages requieren una carpeta `Areas/<area name>/Pages` en la raíz de la aplicación. La siguiente estructura de carpetas se usa con la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples):
+Las áreas con `Areas/<area name>/Pages` Razor Pages requieren una carpeta en la raíz de la aplicación. La siguiente estructura de carpetas se usa con la [aplicación de ejemplo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples):
 
 * Nombre de proyecto
   * Áreas
@@ -389,7 +389,7 @@ Tenga en cuenta el área *Services* del código de ejemplo, que no contiene un a
 En el marcado anterior:
 
 * El nombre de dominio completo debe usarse para especificar el modelo (`@model RPareas.Areas.Services.Pages.Manage.AboutModel`).
-* Los [asistentes de etiquetas](xref:mvc/views/tag-helpers/intro) se habilitan mediante `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
+* [Las aplicaciones auxiliares](xref:mvc/views/tag-helpers/intro) de etiquetas están habilitadas por`@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
 
 En la descarga de ejemplo, el área Products contiene el siguiente archivo *_ViewImports.cshtml*:
 

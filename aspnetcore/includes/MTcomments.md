@@ -1,1 +1,1 @@
-Si está leyendo este contenido en un idioma que no es el inglés, díganos si le gustaría que los comentarios sobre el código estuviesen en escritos en su idioma. Puede hacerlo en este [artículo de discusión de GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/16455).
+Si está leyendo esto en un idioma distinto del inglés, háganoslo saber en este problema de discusión de [GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/16455) si desea ver los comentarios de código en su idioma nativo.

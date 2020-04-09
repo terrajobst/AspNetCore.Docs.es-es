@@ -1,26 +1,29 @@
 ---
-title: Formato de almacenamiento de claves en ASP.NET Core
+title: Formato de almacenamiento clave en ASP.NET Core
 author: rick-anderson
-description: Obtenga información sobre los detalles de implementación del formato de almacenamiento de la clave de protección de datos ASP.NET Core.
+description: Conozca los detalles de implementación del formato de almacenamiento de claves ASP.NET Core Data Protection.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 04/08/2020
 uid: security/data-protection/implementation/key-storage-format
-ms.openlocfilehash: 81df124f3dd0cadf8fd895ab55f66eec6415705f
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 3072c673791b589027a910b80eaba52052eb9311
+ms.sourcegitcommit: f0aeeab6ab6e09db713bb9b7862c45f4d447771b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78655001"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80976942"
 ---
-# <a name="key-storage-format-in-aspnet-core"></a>Formato de almacenamiento de claves en ASP.NET Core
+# <a name="key-storage-format-in-aspnet-core"></a>Formato de almacenamiento clave en ASP.NET Core
 
 <a name="data-protection-implementation-key-storage-format"></a>
 
-Los objetos se almacenan en reposo en representación XML. El directorio predeterminado para el almacenamiento de claves es%LOCALAPPDATA%\ASP.NET\DataProtection-Keys\.
+Los objetos se almacenan en reposo en la representación XML. El directorio predeterminado para el almacenamiento de claves es:
 
-## <a name="the-key-element"></a>Elemento de > de clave de \<
+* Windows: *%LOCALAPPDATA%-ASP.NET-DataProtection-Keys\*
+* macOS / Linux: *$HOME/.aspnet/DataProtection-Keys*
 
-Existen claves como objetos de nivel superior en el repositorio de claves. Por las claves de Convención tienen la clave de nombre de archivo **-{GUID}. XML**, donde {GUID} es el identificador de la clave. Cada archivo de este tipo contiene una sola clave. El formato del archivo es el siguiente.
+## <a name="the-key-element"></a>El \<elemento clave>
+
+Las claves existen como objetos de nivel superior en el repositorio de claves. Por las claves de convención tienen la clave de nombre de **archivo-- .xml**, donde el identificador de la clave es el identificador. Cada archivo contiene una sola clave. El formato del archivo es el siguiente.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -43,35 +46,35 @@ Existen claves como objetos de nivel superior en el repositorio de claves. Por l
 </key>
 ```
 
-El elemento > clave de \<contiene los atributos y elementos secundarios siguientes:
+El \<elemento> contiene los siguientes atributos y elementos secundarios:
 
-* Identificador de clave. Este valor se trata como autoritativo; el nombre de archivo es simplemente un nicety para la legibilidad humana.
+* La identificación de la llave. Este valor se trata como autoritativo; el nombre de archivo es simplemente una amabilidad para la legibilidad humana.
 
-* La versión del elemento de la clave de \<>, actualmente fijada en 1.
+* La versión \<del elemento de> clave, actualmente fija da 1.
 
-* Las fechas de creación, activación y expiración de la clave.
+* Fechas de creación, activación y vencimiento de la clave.
 
-* \<descriptor > elemento, que contiene información sobre la implementación de cifrado autenticada incluida en esta clave.
+* Un \<descriptor> elemento, que contiene información sobre la implementación de cifrado autenticada contenida en esta clave.
 
-En el ejemplo anterior, el identificador de la clave es {80732141-ec8f-4b80-af9c-c4d2d1ff8901}, se creó y se activó el 19 de marzo de 2015 y tiene una duración de 90 días. (En ocasiones, la fecha de activación puede ser ligeramente anterior a la fecha de creación como en este ejemplo. Esto se debe a una prueba de cómo funcionan las API y es inofensivo en la práctica).
+En el ejemplo anterior, el identificador de la clave es 80732141-ec8f-4b80-af9c-c4d2d1ff8901, se creó y activó el 19 de marzo de 2015, y tiene una vida útil de 90 días. (Ocasionalmente, la fecha de activación puede ser ligeramente anterior a la fecha de creación como en este ejemplo. Esto se debe a una nit en el funcionamiento de las API y es inofensivo en la práctica.)
 
-## <a name="the-descriptor-element"></a>\<descriptor > elemento
+## <a name="the-descriptor-element"></a>El \<descriptor> elemento
 
-El elemento de > del descriptor de \<externo contiene un atributo deserializerType, que es el nombre calificado con el ensamblado de un tipo que implementa IAuthenticatedEncryptorDescriptorDeserializer. Este tipo es responsable de leer los > elemento del descriptor de \<interno y de analizar la información contenida en.
+El \<descriptor externo> elemento contiene un atributo deserializerType, que es el nombre calificado del ensamblado de un tipo que implementa IAuthenticatedEncryptorDescriptorDeserializer. Este tipo es responsable \<de leer el descriptor interno> elemento y de analizar la información contenida en.
 
-El formato determinado del elemento descriptor de \<> depende de la implementación del sistema de cifrado autenticado encapsulada por la clave, y cada tipo de deserializador espera un formato ligeramente diferente para esto. Sin embargo, en general, este elemento contendrá información algorítmica (nombres, tipos, OID o similares) y material de clave secreta. En el ejemplo anterior, el descriptor especifica que esta clave encapsula el cifrado AES-256-CBC + HMACSHA256.
+El formato concreto \<del descriptor> elemento depende de la implementación del cifrador autenticado encapsulado por la clave, y cada tipo de deserializador espera un formato ligeramente diferente para esto. En general, sin embargo, este elemento contendrá información algorítmica (nombres, tipos, OID o similares) y material de clave secreta. En el ejemplo anterior, el descriptor especifica que esta clave ajusta el cifrado AES-256-CBC + validación HMACSHA256.
 
-## <a name="the-encryptedsecret-element"></a>El elemento \<> encryptedSecret
+## <a name="the-encryptedsecret-element"></a>El \<elemento de> encryptedSecret
 
-Un elemento **&lt;encryptedSecret&gt;** que contiene el formato cifrado del material de clave secreta puede estar presente si [está habilitado el cifrado de secretos en reposo](xref:security/data-protection/implementation/key-encryption-at-rest). El atributo `decryptorType` es el nombre calificado con el ensamblado de un tipo que implementa [IXmlDecryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmldecryptor). Este tipo es responsable de leer el elemento de **&gt;&lt;encryptedKey** interno y descifrarlo para recuperar el texto sin formato original.
+Un ** &lt;elemento&gt; encryptedSecret** que contiene la forma cifrada del material de clave secreta puede estar presente si [el cifrado de secretos en reposo está habilitado.](xref:security/data-protection/implementation/key-encryption-at-rest) El `decryptorType` atributo es el nombre completo del ensamblado de un tipo que implementa [IXmlDecryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmldecryptor). Este tipo es responsable de leer el elemento ** &lt;cifrado&gt; ** cifrado interno y descifrarlo para recuperar el texto sin formato original.
 
-Al igual que con `<descriptor>`, el formato determinado del elemento `<encryptedSecret>` depende del mecanismo de cifrado en reposo en uso. En el ejemplo anterior, la clave maestra se cifra mediante la DPAPI de Windows según el comentario.
+Al `<descriptor>`igual que con `<encryptedSecret>` , el formato particular del elemento depende del mecanismo de cifrado en reposo en uso. En el ejemplo anterior, la clave maestra se cifra mediante DPAPI de Windows por el comentario.
 
-## <a name="the-revocation-element"></a>Elemento de > de revocación \<
+## <a name="the-revocation-element"></a>El \<elemento de revocación>
 
-Las revocación existen como objetos de nivel superior en el repositorio de claves. Las revocaciones de Convención tienen la **revocación del nombre de archivo-{timestamp}. XML** (para revocar todas las claves antes de una fecha concreta) o **revocación-{GUID}. XML** (para revocar una clave específica). Cada archivo contiene un solo elemento de revocación de \<>.
+Las revocaciones existen como objetos de nivel superior en el repositorio de claves. Por convención, las revocaciones tienen el nombre de archivo **revocation--timestamp-.xml** (para revocar todas las claves antes de una fecha específica) o **la revocación-- .xml** (para revocar una clave específica). Cada archivo contiene \<un único elemento de revocación>.
 
-En el caso de las revocación de claves individuales, el contenido del archivo será como el que se indica a continuación.
+Para las revocaciones de claves individuales, el contenido del archivo será el siguiente.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -82,7 +85,7 @@ En el caso de las revocación de claves individuales, el contenido del archivo s
 </revocation>
 ```
 
-En este caso, solo se revoca la clave especificada. Sin embargo, si el identificador de clave es "*", como en el ejemplo siguiente, se revocan todas las claves cuya fecha de creación sea anterior a la fecha de revocación especificada.
+En este caso, solo se revoca la clave especificada. Sin embargo, si el identificador de clave es "*", como en el ejemplo siguiente, se revocaron todas las claves cuya fecha de creación sea anterior a la fecha de revocación especificada.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -94,4 +97,4 @@ En este caso, solo se revoca la clave especificada. Sin embargo, si el identific
 </revocation>
 ```
 
-El sistema nunca lee el elemento > motivo de la \<. Es simplemente un lugar cómodo para almacenar un motivo legible para la revocación.
+El \<sistema nunca lee> elemento. Es simplemente un lugar conveniente para almacenar una razón legible para la revocación.
